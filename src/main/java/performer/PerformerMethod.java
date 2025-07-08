@@ -6053,6 +6053,26 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 	Thread.sleep(5000);
 	 	
 	 	PerformerLocator.StateCitySealAndSingnature().click();
+	 	
+	 	PerformerLocator.Uplaodclick().click();
+	 	
+	 	String txtt =	PerformerLocator.clickMsg().getText();
+	 	if(txtt.equalsIgnoreCase("No file selected")){
+	 		Thread.sleep(1000);
+	 		test.log(LogStatus.PASS, "Without file selection, success message not reflect ");
+	 		test.log(LogStatus.PASS, "Message displayed : " + txtt);
+	 	}
+		
+	 	else
+	 	{
+	 		test.log(LogStatus.PASS, "Search Value is not displayed");
+	 	}
+	 	
+	 	
+	 	PerformerLocator.clickOkBtn().click();
+	 	
+	 	
+	 	
 	 	Thread.sleep(5000);
 	// 	PerformerLocator.browse().click(); 
 	 	getDriver().findElement(By.xpath("//div[@role='dialog']//label[normalize-space()='Browse']")).click();
@@ -6060,11 +6080,14 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 	Thread.sleep(5000);
 	 	OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\OtherTwo\\SampleJpgFile.jpg");
 	 	
-	 	String txt = getDriver().findElement(By.xpath("//div[@title='Karnataka']")).getText();
-	 	if(txt.equalsIgnoreCase("Karnataka")){
+	 	PerformerLocator.Uplaodclick().click();
+	 	Thread.sleep(2000);
+	 //	String txt = getDriver().findElement(By.xpath("//div[@title='Karnataka']")).getText();
+	 	String txt=			PerformerLocator.clickMsg().getText();
+	 	if(txt.equalsIgnoreCase("Please upload 1kb - 4 kb valid .jpg or .jpeg file.")){
 	 		Thread.sleep(1000);
-	 		test.log(LogStatus.PASS, "Search State/ Location Code dropdown is working fine");
-	 		test.log(LogStatus.PASS, "Value displayed in grid:- " + txt);
+	 		test.log(LogStatus.PASS, "On uploading more than 4 kb file, it is not uploaded");
+	 		test.log(LogStatus.PASS, "Message displayed : " + txt);
 	 	}
 		
 	 	else

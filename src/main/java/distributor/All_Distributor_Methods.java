@@ -2332,6 +2332,138 @@ public class All_Distributor_Methods extends BasePage
 	   PerformerLocator.clickdashboard().click();
 		
 	}
+	public static void CLRA_AddLocation_EditUpdate( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException, AWTException
+	{
+		
+		
+		Thread.sleep(5000);
+		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
+		Thread.sleep(5000);
+		DistributerLocators.clickPremiseMasterArrow().click();
+		Thread.sleep(7000);
+		DistributerLocators.clickOnboardCLRA().click();
+		
+		Thread.sleep(5000);
+		DistributerLocators.clickLocation().click();
+		
+		
+		FileInputStream fis = new FileInputStream(filePath);
+        Workbook workbook1 = WorkbookFactory.create(fis);
+        Sheet sheet = workbook1.getSheetAt(0);
+		
+		Thread.sleep(1000);
+		Row row = sheet.getRow(13);						//Selected 0th index row (First row)
+		Cell c = row.getCell(1);						//Selected cell (0 row,1 column)
+		Thread.sleep(1000);
+		String emp = c.getStringCellValue();
+		DistributerLocators.clickemp().sendKeys(emp ,Keys.ENTER);
+		
+		Thread.sleep(5000);
+		DistributerLocators.clickUpdateEmp().click();
+		Thread.sleep(5000);
+		getDriver().navigate().refresh();
+		Thread.sleep(5000);
+		Thread.sleep(10000);
+		OneCommonMethod.scroll(driver.get(), 1000);
+		Thread.sleep(5000);
+		
+		Thread.sleep(1000);
+		DistributerLocators.clicksave().click();
+		
+		Thread.sleep(5000);
+		String msg=DistributerLocators.clickMsg().getText();
+		
+		 if(msg.equalsIgnoreCase("Principle Employer Location Updated Successfully")||msg.equalsIgnoreCase("Principle Employer Location Exists Already"))
+		 {
+			 test.log(LogStatus.PASS, "Edit button is working fine !");
+			 Thread.sleep(1000);
+			 test.log(LogStatus.PASS, "Message displayed = "+msg);
+		 }
+		 else
+		 {
+			 test.log(LogStatus.FAIL, "Message displayed = "+msg);
+		 }
+		 Thread.sleep(1000);
+		PerformerLocator.clickOkBtn().click();
+		
+		Thread.sleep(5000);
+		
+		//Delete button 
+		DistributerLocators.clickemp().sendKeys(emp ,Keys.ENTER);
+		Thread.sleep(5000);
+		DistributerLocators.clickDeleteBtn().click();
+		
+		String DeleteButtonMessage=DistributerLocators.clickMsg().getText();
+		
+		 if(DeleteButtonMessage.equalsIgnoreCase("Are you sure you want to delete Principle Employer?")||DeleteButtonMessage.equalsIgnoreCase("Principle Employer Location Exists Already"))
+		 {
+			 test.log(LogStatus.PASS, "Delete button is working fine !");
+			 Thread.sleep(1000);
+			 test.log(LogStatus.PASS, "Message displayed = "+DeleteButtonMessage);
+		 }
+		 else
+		 {
+			 test.log(LogStatus.FAIL, "Message displayed = "+DeleteButtonMessage);
+		 }
+		
+		
+		
+		
+	}
+	
+	public static void CLRA_Location_SearchField( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException, AWTException
+	{
+		
+		
+		Thread.sleep(5000);
+		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
+		Thread.sleep(5000);
+		DistributerLocators.clickPremiseMasterArrow().click();
+		Thread.sleep(7000);
+		DistributerLocators.clickOnboardCLRA().click();
+		
+		Thread.sleep(5000);
+		DistributerLocators.clickLocation().click();
+		
+		
+		FileInputStream fis = new FileInputStream(filePath);
+        Workbook workbook1 = WorkbookFactory.create(fis);
+        Sheet sheet = workbook1.getSheetAt(0);
+		
+		Thread.sleep(1000);
+		Row row = sheet.getRow(13);						//Selected 0th index row (First row)
+		Cell c = row.getCell(1);						//Selected cell (0 row,1 column)
+		Thread.sleep(1000);
+		String emp = c.getStringCellValue();
+		DistributerLocators.clickemp().sendKeys(emp ,Keys.ENTER);
+		Thread.sleep(7000);
+		
+		DistributerLocators.Search().click();
+		Thread.sleep(1000);
+		DistributerLocators.Search().sendKeys("Amaravati");
+		
+		
+		String text = getDriver().findElement(By.xpath("//tbody/tr[1]/td[2]/div[1]")).getText();
+		
+		if(text.equalsIgnoreCase("Amaravati"))
+		{
+			test.log(LogStatus.PASS, "Search filter is working fine");
+			test.log(LogStatus.PASS, "Search value is displayed in grid : " + text);
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "Search filter is not working");
+			test.log(LogStatus.FAIL, "Search value is displayed in grid : " + text);
+		}
+		
+		
+		Thread.sleep(1000);
+	
+		
+		
+	}
 	
 	public static void editLOcation( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException, AWTException
 	{

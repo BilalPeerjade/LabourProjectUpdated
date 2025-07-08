@@ -402,7 +402,7 @@ public class All_Distributor_TWO  extends BasePage {
 		@Test(priority = 101) //Bilal
 	   	void StateCitySealANDSignatureInvalid() throws Exception
 	   	{
-	   		test = extent.startTest("Manage Master - State City - Verify to check Search State/Location Code dropdown is working or not");
+	   		test = extent.startTest("Manage Master - State City - Verify to check error without file selection and upload more than 4 kb file in seal and signature upload ");
 	   		
 	   		PerformerMethod.StateCitySealANDSignatureInvalid(test, workbook, "Distributor");
 	   		
@@ -694,6 +694,16 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 		
 		//CLRA: Location tab
 		@Test(priority = 310) 
+	   	void CLRA_Location_SearchField() throws InterruptedException, IOException, AWTException
+	   	{
+	   		test = extent.startTest("OnBoard CLRA - Location - Verify to search field is working or not?");
+	   		
+	   		All_Distributor_Methods.CLRA_Location_SearchField(test, workbook);
+	   		
+	   		extent.endTest(test);
+	   		extent.flush();
+	   	}
+		@Test(priority = 311) 
 	   	void CLRA_AddLocation_Error() throws InterruptedException, IOException, AWTException
 	   	{
 	   		test = extent.startTest("OnBoard CLRA - Location - Verify to check add new error is displayed or not?");
@@ -702,8 +712,20 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 	   		
 	   		extent.endTest(test);
 	   		extent.flush();
-
 	   	}
+		
+		@Test(priority = 315) 
+	   	void CLRA_AddLocation_EditUpdate() throws InterruptedException, IOException, AWTException
+	   	{
+	   		test = extent.startTest("OnBoard CLRA - Location - Verify to check Edit & Delete button is working or not?");
+	   		
+	   		All_Distributor_Methods.CLRA_AddLocation_EditUpdate(test, workbook);
+	   		
+	   		extent.endTest(test);
+	   		extent.flush();
+	   	}
+		
+		
 	
 	
 	

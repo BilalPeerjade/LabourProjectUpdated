@@ -429,6 +429,11 @@ public class DistributerLocators extends BasePage
 		labour = getDriver().findElement(By.xpath("//input[@placeholder='Type To Search']"));
 		return labour;
 	}
+	public static WebElement Search() //CLRA
+	{
+		labour = getDriver().findElement(By.xpath("//input[@placeholder='Type to Search']"));
+		return labour;
+	}
 	public static WebElement clickSearcbox2()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//*[@placeholder='Type to Search']"));
