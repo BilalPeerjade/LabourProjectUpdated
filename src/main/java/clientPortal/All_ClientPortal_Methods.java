@@ -4129,7 +4129,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		Thread.sleep(5000);
 		
 		All_ClientPortal_Locators.ECComplied().click();
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		
 
 		
@@ -4678,7 +4678,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		Thread.sleep(5000);
 		
 		All_ClientPortal_Locators.ECComplied().click();
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 				
 		
 		
@@ -4852,7 +4852,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		Thread.sleep(5000);
 		
 		All_ClientPortal_Locators.ECComplied().click();
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		
 //		All_ClientPortal_Locators.readTotalItemsD().click();					//Clicking on Text of total items just to scroll down.
 		String s = All_ClientPortal_Locators.readTotalItemsD().getText();

@@ -242,7 +242,7 @@ public class DistributerLocators extends BasePage
 	   	     UploadDocument.sendKeys("C:\\Users\\snehalp\\Documents\\chart_11zon.xlsx");
 		
 	}
-	public static WebElement clickBrowse1()		//Method for searching Username input
+	public static WebElement clickBrowse1()
 	{
 		 // wait = new WebDriverWait(getDriver(), 20);
 	       labour = getDriver().findElement(By.xpath("//label[normalize-space()='Browse']"));
@@ -706,6 +706,89 @@ public class DistributerLocators extends BasePage
 		labour = getDriver().findElement(By.xpath("//a[normalize-space()='Employee Mapping']"));
 		return labour;
 	}
+	
+	//Employee Mapping dropdowns...
+	public static WebElement EMap_dropdown1()
+	{
+		labour = getDriver().findElement(By.xpath("(//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon'])[1]"));
+		return labour;
+	}
+	public static WebElement EMap_dropdown2()
+	{
+		labour = getDriver().findElement(By.xpath("(//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon'])[2]"));
+		return labour;
+	}
+	public static WebElement EMap_dropdown3()
+	{
+		labour = getDriver().findElement(By.xpath("(//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon'])[3]"));
+		return labour;
+	}
+	public static WebElement EMap_dropdown4()
+	{
+		labour = getDriver().findElement(By.xpath("(//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon'])[4]"));
+		return labour;
+	}
+	public static WebElement EMap_select2ndvalue()
+	{
+		labour = getDriver().findElement(By.xpath("//li[@class='k-list-item'][2]"));
+		return labour;
+	}
+	public static WebElement EMap_checkbox()
+	{
+		labour = getDriver().findElement(By.xpath("(//input[@type='checkbox'])[2]"));
+		return labour;
+	}
+	
+	public static WebElement EMap_Migrate_dropdown1()
+	{
+		labour = getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted']"));
+		return labour;
+	}
+	public static WebElement EMap_Migrate_dropdown2()
+	{
+		labour = getDriver().findElement(By.xpath("(//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted'])[2]"));
+		return labour;
+	}
+	public static WebElement EMap_Migrate_dropdown3()
+	{
+		labour = getDriver().findElement(By.xpath("(//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted'])[3]"));
+		return labour;
+	}
+	public static WebElement EMap_Migrate_selectValue2()
+	{
+		labour = getDriver().findElement(By.xpath("//li[@class='k-list-item ng-star-inserted'][2]"));
+		return labour;
+	}
+	public static WebElement Calendar1()
+	{
+		labour = getDriver().findElement(By.xpath("//button[@title='Toggle calendar']"));
+		return labour;
+	}
+	public static WebElement Calendar2()
+	{
+		labour = getDriver().findElement(By.xpath("(//button[@title='Toggle calendar'])[2]"));
+		return labour;
+	}
+	public static WebElement Calendar3()
+	{
+		labour = getDriver().findElement(By.xpath("(//button[@title='Toggle calendar'])[3]"));
+		return labour;
+	}
+	public static WebElement Calendar_NavigateToParentView()
+	{
+		labour = getDriver().findElement(By.xpath("//button[@title='Navigate to parent view']"));
+		return labour;
+	}
+	public static WebElement Calendar_NavigateToParentView_2026()
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='2026']"));
+		return labour;
+	}
+	
+	
+	
+	
+	
 	public static WebElement clickemp()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//*[@role='combobox']"));
@@ -853,6 +936,11 @@ public class DistributerLocators extends BasePage
 	public static WebElement clickUploadLocation()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/uploadWhite.svg']"));
+		return labour;
+	}
+	public static WebElement Upload()
+	{
+		labour = getDriver().findElement(By.xpath("//button[@title='Uplaod']"));
 		return labour;
 	}
 	public static WebElement clickLocationExportBtn()		//Method for searching Username input

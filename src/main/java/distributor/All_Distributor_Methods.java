@@ -2406,11 +2406,221 @@ public class All_Distributor_Methods extends BasePage
 		 {
 			 test.log(LogStatus.FAIL, "Message displayed = "+DeleteButtonMessage);
 		 }
+			
+	}
+	
+	public static void CLRA_EmployeeMap_Filters( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException, AWTException
+	{
 		
 		
+		Thread.sleep(5000);
+		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+		Thread.sleep(5000);
+		DistributerLocators.clickPremiseMasterArrow().click();
+		Thread.sleep(7000);
+		DistributerLocators.clickOnboardCLRA().click();
+		
+		Thread.sleep(5000);
+		DistributerLocators.clickEmpMapping().click();
+		
+		Thread.sleep(5000);
+		DistributerLocators.EMap_dropdown1().click();
+		Thread.sleep(2000);
+		DistributerLocators.EMap_select2ndvalue().click();
+		Thread.sleep(2000);
+		DistributerLocators.EMap_dropdown2().click();
+		Thread.sleep(2000);
+		DistributerLocators.EMap_select2ndvalue().click();
+		Thread.sleep(2000);
+		DistributerLocators.EMap_dropdown3().click();
+		Thread.sleep(2000);
+		DistributerLocators.EMap_select2ndvalue().click();
+		Thread.sleep(2000);
+		DistributerLocators.EMap_dropdown4().click();
+		Thread.sleep(2000);
+		DistributerLocators.EMap_select2ndvalue().click();
+		Thread.sleep(5000);
+		
+		
+		if(DistributerLocators.clickMigrate().isDisplayed())
+		{
+			test.log(LogStatus.PASS, "Select Principle Emp filter is working fine");
+			Thread.sleep(1000);
+			test.log(LogStatus.PASS, "Search/Select State filter is working fine");
+			Thread.sleep(1500);
+			test.log(LogStatus.PASS, "Search/Select Location filter is working fine");
+			Thread.sleep(1000);
+			test.log(LogStatus.PASS, "Search/Select Branch filter is working fine");
+			Thread.sleep(2000);
+			test.log(LogStatus.PASS, "Migrate button is displayed on selecting all filters");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "Filters are not working");
+		}
+			
+	}
+	public static void CLRA_EmployeeMap_Migrate( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException, AWTException
+	{
+		
+		
+		Thread.sleep(5000);
+		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+		Thread.sleep(5000);
+		DistributerLocators.clickPremiseMasterArrow().click();
+		Thread.sleep(7000);
+		DistributerLocators.clickOnboardCLRA().click();
+		
+		Thread.sleep(5000);
+		DistributerLocators.clickEmpMapping().click();
+		
+		Thread.sleep(5000);
+		DistributerLocators.EMap_dropdown1().click();
+		Thread.sleep(2000);
+		DistributerLocators.EMap_select2ndvalue().click();
+		Thread.sleep(2000);
+		DistributerLocators.EMap_dropdown2().click();
+		Thread.sleep(2000);
+		DistributerLocators.EMap_select2ndvalue().click();
+		Thread.sleep(2000);
+		DistributerLocators.EMap_dropdown3().click();
+		Thread.sleep(2000);
+		DistributerLocators.EMap_select2ndvalue().click();
+		Thread.sleep(2000);
+		DistributerLocators.EMap_dropdown4().click();
+		Thread.sleep(2000);
+		DistributerLocators.EMap_select2ndvalue().click();
+		Thread.sleep(5000);
+		
+		DistributerLocators.EMap_checkbox().click();
+		Thread.sleep(2000);
+		
+		DistributerLocators.clickMigrate().click();
+		Thread.sleep(2000);
+		
+		//Inside Popup of migrate button
+		DistributerLocators.EMap_Migrate_dropdown1().click();
+		Thread.sleep(2000);
+		DistributerLocators.EMap_Migrate_selectValue2().click();
+		Thread.sleep(2000);
+		DistributerLocators.EMap_Migrate_dropdown2().click();
+		Thread.sleep(2000);
+		DistributerLocators.EMap_Migrate_selectValue2().click();
+		Thread.sleep(2000);
+		DistributerLocators.EMap_Migrate_dropdown3().click();
+		Thread.sleep(2000);
+		DistributerLocators.EMap_Migrate_selectValue2().click();
+		Thread.sleep(2000);
+		
+		//Calendar handling
+		DistributerLocators.Calendar1().click();
+		Thread.sleep(2000);
+		getDriver().findElement(By.xpath("(//span[@class='k-link'][normalize-space()='1'])")).click();
+		Thread.sleep(2000);
+		
+		DistributerLocators.Calendar2().click();
+		Thread.sleep(2000);
+		DistributerLocators.Calendar_NavigateToParentView().click();
+		Thread.sleep(2000);
+//		DistributerLocators.Calendar_NavigateToParentView_2026().click();
+		WebElement Year = getDriver().findElement(By.xpath("//span[normalize-space()='2026']"));
+		Year.click();
+		
+		Thread.sleep(2000);
+		WebElement Month = getDriver().findElement(By.xpath("//td[@title='2026 Feb']"));
+		Month.click();
+		Thread.sleep(3000);
+		WebElement Date = getDriver().findElement(By.xpath("(//span[@class='k-link'][normalize-space()='1'])[1]"));
+		Date.click();
+		Thread.sleep(2000);
+		
+		DistributerLocators.Calendar3().click();
+		getDriver().findElement(By.xpath("//span[contains(text(),'Today')]")).click();
+		
+		DistributerLocators.clicksave().click();
+		
+		Thread.sleep(2000);
+		
+		
+		String msg=DistributerLocators.clickMsg().getText();
+		
+		 if(msg.equalsIgnoreCase("Employees Migrated Successfully"))
+		 {
+			 test.log(LogStatus.PASS, "Migrate button is working fine");
+			 Thread.sleep(1000);
+			 test.log(LogStatus.PASS, "Checkbox is selected successfully");
+			 test.log(LogStatus.PASS, "All filters ");
+			 
+			 test.log(LogStatus.PASS, "Message displayed = "+msg);
+		 }
+		 else
+		 {
+			 test.log(LogStatus.FAIL, "Message displayed = "+msg);
+		 }
+			
+	}
+	
+	public static void CLRA_AddLocation_Upload( ExtentTest test,XSSFWorkbook workbook) throws Exception
+	{
+		
+		
+		Thread.sleep(5000);
+		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
+		Thread.sleep(5000);
+		DistributerLocators.clickPremiseMasterArrow().click();
+		Thread.sleep(7000);
+		DistributerLocators.clickOnboardCLRA().click();
+		
+		Thread.sleep(5000);
+		DistributerLocators.clickLocation().click();
+		
+		
+		FileInputStream fis = new FileInputStream(filePath);
+        Workbook workbook1 = WorkbookFactory.create(fis);
+        Sheet sheet = workbook1.getSheetAt(0);
+		
+		Thread.sleep(1000);
+		Row row = sheet.getRow(13);						//Selected 0th index row (First row)
+		Cell c = row.getCell(1);						//Selected cell (0 row,1 column)
+		Thread.sleep(1000);
+		String emp = c.getStringCellValue();
+		DistributerLocators.clickemp().sendKeys(emp ,Keys.ENTER);
+		
+		Thread.sleep(5000);
+		
+		DistributerLocators.Upload().click();
+		Thread.sleep(1000);
+		DistributerLocators.clickBrowse1().click();
+		
+		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Distributor Admin\\CLRA\\SampleEmployeeLocation.xlsx");
+		
+		getDriver().findElement(By.xpath("//button[normalize-space()='Upload']")).click();
+		
+		
+		String msg=DistributerLocators.clickMsg().getText();
+		
+		 if(msg.equalsIgnoreCase("File uploaded successfully")||msg.equalsIgnoreCase("Principle Employer Location Exists Already"))
+		 {
+			 test.log(LogStatus.PASS, "Upload button is working fine !");
+			 Thread.sleep(1000);
+			 test.log(LogStatus.PASS, "File is uploaded successfully ");
+			 test.log(LogStatus.PASS, "Message displayed = "+msg);
+		 }
+		 else
+		 {
+			 test.log(LogStatus.FAIL, "Message displayed = "+msg);
+		 }
+		 Thread.sleep(1000);
+		PerformerLocator.clickOkBtn().click();
+		
+		Thread.sleep(5000);
 		
 		
 	}
+	
 	
 	public static void CLRA_Location_SearchField( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException, AWTException
 	{
@@ -3964,8 +4174,9 @@ for(String Fal : fail)
 	
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
 		Thread.sleep(1000);
-		DistributerLocators.clickDashboard().click();
+		DistributerLocators.clickPremiseMasterArrow().click();
 		Thread.sleep(7000);
 		DistributerLocators.clickOnboardCLRA().click();
 		
@@ -3975,7 +4186,7 @@ for(String Fal : fail)
 		Thread.sleep(1000);
 		DistributerLocators.UpdateContractor().click();
 		
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		DistributerLocators.clicksave().click();
 		
 		Thread.sleep(2000);
@@ -4007,16 +4218,13 @@ for(String Fal : fail)
 		
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
 		Thread.sleep(1000);
-		DistributerLocators.clickDashboard().click();
-		
-		getDriver().navigate().refresh();
+		DistributerLocators.clickPremiseMasterArrow().click();
 		
 		Thread.sleep(1000);
-		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+		
 		Thread.sleep(8000);
-		DistributerLocators.clickDashboard().click();
-		Thread.sleep(3000);
 		DistributerLocators.clickOnboardCLRA().click();
 		
 		Thread.sleep(1000);

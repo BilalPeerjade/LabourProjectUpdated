@@ -28,8 +28,10 @@ import distributor.MethodsD;
 import distributor.All_Distributor_Methods;
 import login.BasePage;
 import login.LoginLocators;
+import performer.LocatorsP;
 import performer.MethodsP;
 import performer.PerformerMethod;
+import rcp.OneCommonMethod;
 
 	
 	public class All_Distributor_TestCase  extends BasePage {
@@ -417,8 +419,8 @@ import performer.PerformerMethod;
 			extent.flush();
 		}
 		
-//		@Test(priority = 22)
-		void RiskSummaryCompliedGraph() throws InterruptedException, IOException
+//		@Test(priority = 22) //Mved in all //Hide this dist due to locators changes (added performer login TC)
+		void RiskSummaryCompliedGraphh() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Bar Graph -Risk Summary - Complied - Count Verification");
 			
@@ -441,9 +443,9 @@ import performer.PerformerMethod;
 		    Thread.sleep(2000);
 		    
 			Thread.sleep(3000);
-			int high = Integer.parseInt(LoginLocators.CompHighRisk().getText());	//Reading Dashboard count.
-			int medium = Integer.parseInt(LoginLocators.CompMediumRisk().getText());	//Reading Dashboard count.
-			int low = Integer.parseInt(LoginLocators.CompLowRisk().getText());	//Reading Dashboard count.
+			int high = Integer.parseInt(LocatorsP.CompHighRisk().getText());	//Reading Dashboard count.
+			int medium = Integer.parseInt(LocatorsP.CompMediumRisk().getText());	//Reading Dashboard count.
+			int low = Integer.parseInt(LocatorsP.CompLowRisk().getText());	//Reading Dashboard count.
 			
 			Thread.sleep(500);
 			
@@ -487,6 +489,81 @@ import performer.PerformerMethod;
 			extent.endTest(test);
 			extent.flush();
 		}
+		
+		@Test(priority = 30) //Moved in all
+		void RiskSummaryCompliedGraph() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Bar Graph -Risk Summary - Complied - Count Verification");
+			
+			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			Thread.sleep(5000);Thread.sleep(5000);
+			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+//			LoginLocators.Search().sendKeys("TESTAUTO2");
+			
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+			
+			//LoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
+			Thread.sleep(5000);
+			wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+			LoginLocators.DashboardArrow().click();
+			Thread.sleep(10000);Thread.sleep(5000);
+			LoginLocators.SelectPeriodDashboard().click();
+			Thread.sleep(3000);
+			LoginLocators.SelectPeriodValue2024().click();
+			Thread.sleep(5000);
+			JavascriptExecutor js = (JavascriptExecutor) getDriver();
+		    
+		    js.executeScript("window.scrollBy(0,300)");
+		    Thread.sleep(2000);
+		    
+			Thread.sleep(3000);
+			int high = Integer.parseInt(LocatorsP.CompHighRisk().getText());	//Reading Dashboard count.
+			int medium = Integer.parseInt(LocatorsP.CompMediumRisk().getText());	//Reading Dashboard count.
+			int low = Integer.parseInt(LocatorsP.CompLowRisk().getText());	//Reading Dashboard count.
+			
+			Thread.sleep(500);
+			
+				if(high >= 0)
+				{
+					//Methods.HighRisk(test);
+					MethodsP.CompRiskGraph( test, "High", high);
+				}
+				else
+				{
+					test.log(LogStatus.PASS, "'Critical' Risk Compliance Count = "+high);
+				}
+				
+			if(medium >= 0)
+			{
+					js.executeScript("window.scrollBy(0,300)");
+				MethodsP.CompRiskGraph( test, "Medium", medium);
+				}
+				else
+				{
+					js.executeScript("window.scrollBy(0,300)");
+					test.log(LogStatus.PASS, "'High' Risk Compliance Count = "+high);
+				}
+				
+				if(low >= 0)
+				{
+					js.executeScript("window.scrollBy(0,300)");
+					MethodsP.CompRiskGraph( test, "Low", low);
+				}
+				else
+				{
+					js.executeScript("window.scrollBy(0,300)");
+					test.log(LogStatus.PASS, "'Low' Risk Compliance Count = "+low);
+				}
+						
+				Thread.sleep(5000);
+			
+				Thread.sleep(5000);
+				LoginLocators.Dashboard().click();			//Clicking on Dashboard
+				Thread.sleep(5000);
+			extent.endTest(test);
+			extent.flush();
+		}
+		
 		
 		@Test(priority = 23) //Moved in all
 		void Complied() throws InterruptedException, IOException
@@ -1118,7 +1195,7 @@ import performer.PerformerMethod;
 
 	   	}
 		
-		@Test(priority = 71)
+		@Test(priority = 71) //Added similar
 	   	void editLOcation() throws InterruptedException, IOException, AWTException
 	   	{
 	   		test = extent.startTest("OnBorad CLRA-Update Location verification");
@@ -1130,11 +1207,10 @@ import performer.PerformerMethod;
 	   		extent.flush();
 
 	   	}
-		@Test(priority = 72)
+		@Test(priority = 72) //Added similar
 	   	void UploadLocation() throws InterruptedException, IOException, AWTException
 	   	{
 	   		test = extent.startTest("OnBorad CLRA-Upload Location verification");
-	   		
 	   		
 	   		All_Distributor_Methods.UploadLocation(test, workbook);
 	   		
@@ -1146,7 +1222,6 @@ import performer.PerformerMethod;
 	   	void LocationExportBtn() throws InterruptedException, IOException, AWTException
 	   	{
 	   		test = extent.startTest("OnBorad CLRA-Location-Export Btn verification");
-	   		
 	   		
 	   		All_Distributor_Methods.LocationExportBtn(test, workbook);
 	   		
@@ -1184,7 +1259,6 @@ import performer.PerformerMethod;
 	   	{
 	   		test = extent.startTest("OnBorad CLRA-Contractor verification");
 	   		
-	   		
 	   		All_Distributor_Methods.Contractor(test, workbook);
 	   		
 	   		extent.endTest(test);
@@ -1195,7 +1269,6 @@ import performer.PerformerMethod;
 	   	void EmpMapping() throws InterruptedException, IOException, AWTException
 	   	{
 	   		test = extent.startTest("OnBorad CLRA-Employee mapping verification");
-	   		
 	   		
 	   		All_Distributor_Methods.EmpMapping(test, workbook);
 	   		

@@ -565,7 +565,9 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
    	}
 	
    	
-   	/*
+   	 
+	
+	
    	
    	
    	
@@ -1116,7 +1118,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 	
 	//------ Reports -------
 	
-	*/
+	
 	
 	
 	@AfterMethod

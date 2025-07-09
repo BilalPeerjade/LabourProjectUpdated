@@ -27,7 +27,10 @@ import distributor.MethodsD;
 import distributor.All_Distributor_Methods;
 import login.BasePage;
 import login.LoginLocators;
+import performer.LocatorsP;
+import performer.MethodsP;
 import performer.PerformerMethod;
+import rcp.OneCommonMethod;
 
 
 
@@ -351,6 +354,82 @@ public class All_Distributor_TWO  extends BasePage {
 			extent.endTest(test);
 			extent.flush();
 		}
+		
+		@Test(priority = 85) //Need to add below test case for complied filter test cases 
+		void RiskSummaryCompliedGraph() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Bar Graph -Risk Summary - Complied - Count Verification");
+			
+			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			Thread.sleep(5000);Thread.sleep(5000);
+			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+//			LoginLocators.Search().sendKeys("TESTAUTO2");
+			
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+			
+			//LoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
+			Thread.sleep(5000);
+			wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+			LoginLocators.DashboardArrow().click();
+			Thread.sleep(10000);Thread.sleep(5000);
+			LoginLocators.SelectPeriodDashboard().click();
+			Thread.sleep(3000);
+			LoginLocators.SelectPeriodValue2024().click();
+			Thread.sleep(5000);
+			JavascriptExecutor js = (JavascriptExecutor) getDriver();
+		    
+		    js.executeScript("window.scrollBy(0,300)");
+		    Thread.sleep(2000);
+		    
+			Thread.sleep(3000);
+			int high = Integer.parseInt(LocatorsP.CompHighRisk().getText());	//Reading Dashboard count.
+			int medium = Integer.parseInt(LocatorsP.CompMediumRisk().getText());	//Reading Dashboard count.
+			int low = Integer.parseInt(LocatorsP.CompLowRisk().getText());	//Reading Dashboard count.
+			
+			Thread.sleep(500);
+			
+				if(high >= 0)
+				{
+					//Methods.HighRisk(test);
+					MethodsP.CompRiskGraph( test, "High", high);
+				}
+				else
+				{
+					test.log(LogStatus.PASS, "'Critical' Risk Compliance Count = "+high);
+				}
+				
+			if(medium >= 0)
+			{
+					js.executeScript("window.scrollBy(0,300)");
+				MethodsP.CompRiskGraph( test, "Medium", medium);
+				}
+				else
+				{
+					js.executeScript("window.scrollBy(0,300)");
+					test.log(LogStatus.PASS, "'High' Risk Compliance Count = "+high);
+				}
+				
+				if(low >= 0)
+				{
+					js.executeScript("window.scrollBy(0,300)");
+					MethodsP.CompRiskGraph( test, "Low", low);
+				}
+				else
+				{
+					js.executeScript("window.scrollBy(0,300)");
+					test.log(LogStatus.PASS, "'Low' Risk Compliance Count = "+low);
+				}
+						
+				Thread.sleep(5000);
+			
+				Thread.sleep(5000);
+				LoginLocators.Dashboard().click();			//Clicking on Dashboard
+				Thread.sleep(5000);
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		
 		
 		@Test(priority = 90) //If see some test case add above
 		void ApplicableStatues() throws InterruptedException, IOException
@@ -714,12 +793,47 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 	   		extent.flush();
 	   	}
 		
+		@Test(priority = 312) 
+	   	void CLRA_AddLocation_Upload() throws Exception
+	   	{
+	   		test = extent.startTest("OnBoard CLRA - Location - Verify to check upload location button is working or not?");
+	   		
+	   		All_Distributor_Methods.CLRA_AddLocation_Upload(test, workbook);
+	   		
+	   		extent.endTest(test);
+	   		extent.flush();
+	   	}
 		@Test(priority = 315) 
 	   	void CLRA_AddLocation_EditUpdate() throws InterruptedException, IOException, AWTException
 	   	{
 	   		test = extent.startTest("OnBoard CLRA - Location - Verify to check Edit & Delete button is working or not?");
 	   		
 	   		All_Distributor_Methods.CLRA_AddLocation_EditUpdate(test, workbook);
+	   		
+	   		extent.endTest(test);
+	   		extent.flush();
+	   	}
+		
+		
+		
+		
+		//CLRA - Employee Mapping 
+		@Test(priority = 325) 
+	   	void CLRA_EmployeeMap_Filters() throws InterruptedException, IOException, AWTException
+	   	{
+	   		test = extent.startTest("OnBoard CLRA - Employee Mapping - Verify to check all filters are working fine or not?");
+	   		
+	   		All_Distributor_Methods.CLRA_EmployeeMap_Filters(test, workbook);
+	   		
+	   		extent.endTest(test);
+	   		extent.flush();
+	   	}
+		@Test(priority = 326) 
+	   	void CLRA_EmployeeMap_Migrate() throws InterruptedException, IOException, AWTException
+	   	{
+	   		test = extent.startTest("OnBoard CLRA - Employee Mapping - Verify to check employee migration is working or not?");
+	   		
+	   		All_Distributor_Methods.CLRA_EmployeeMap_Migrate(test, workbook);
 	   		
 	   		extent.endTest(test);
 	   		extent.flush();

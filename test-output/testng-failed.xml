@@ -3,15 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testCases.All_Client_Portal_TestCases">
+      <class name="testCases.All_Distributor_TWO">
         <methods>
-          <include name="browserClosing"/>
+          <include name="Closing"/>
+          <include name="CLRA_EmployeeMap_Migrate"/>
           <include name="setBrowser"/>
           <include name="Login"/>
-          <include name="Closing"/>
-          <include name="RegistrationSHistoryViewDownload"/>
+          <include name="browserClosing"/>
         </methods>
-      </class> <!-- testCases.All_Client_Portal_TestCases -->
+      </class> <!-- testCases.All_Distributor_TWO -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
