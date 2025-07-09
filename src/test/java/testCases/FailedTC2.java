@@ -101,142 +101,127 @@ public class FailedTC2 extends BasePage {
 	
 	
 	
-	@Test(priority = 222) 
-	void InputUploadTemChha() throws InterruptedException, IOException, AWTException
-	{
-		test = extent.startTest("'Input Upload - Challan - Salary - To check whether sample template get downloaded or not?");
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.InputUploadTemChha(test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-	@Test(priority = 223) 
-	void InputUploadCh() throws InterruptedException, IOException, AWTException
-	{
-		test = extent.startTest("'Input Upload - Challan - Salary - Validate browse and upload file");
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.InputUploadCh(test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-//	@Test(priority = 223) 
-	void InputUploadInavlidCh() throws InterruptedException, IOException, AWTException
-	{
-		test = extent.startTest("'Input Upload - Challan - Salary - Validate upload with Invalid details.");
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.InputUploadInavlidCh(test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-//	@Test(priority = 224) 
-	void InputUploadBlankCh() throws InterruptedException, IOException, AWTException
-	{
-		test = extent.startTest("'Input Upload  - Challan - Salary  - Validate  upload with Balnk sheet.");
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.InputUploadBlankCh(test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-//	@Test(priority = 225) //14/02/2025
-	void InputUploadInvalidformateCh() throws InterruptedException, IOException, AWTException
-	{
-		test = extent.startTest("'Input Upload - Challan - Salary - Validate error message for the invalid formate file upload.");
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.InputUploadInvalidformateCh(test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-//	@Test(priority = 226) 
-	void InputUploadInvalidTempCh() throws InterruptedException, IOException, AWTException
-	{
-		test = extent.startTest("'Input Upload - Challan - Salary - Validate error message displayed for invalid template file upload.");
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.InputUploadInvalidTempCh(test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-	@Test(priority = 227) 
-	void InputUploadNofileCh() throws InterruptedException, IOException, AWTException
-	{
-		test = extent.startTest("'Input Upload - Challan - Salary - Validate validation message for the no choose file clicking on upload");
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.InputUploadNofileCh(test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-	@Test(priority = 228)  
-	void IUHistoryCh() throws InterruptedException, IOException, AWTException
-	{
-		test = extent.startTest("'Input Upload - Challan - Salary - History button working or not?");
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.IUHistoryCh(test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-	@Test(priority = 229)  
-	void IUHistoryDCh() throws InterruptedException, IOException, AWTException
-	{
-		test = extent.startTest("'Input Upload - Challan - Salary - History - Input History get downloaded or not?");
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.IUHistoryDCh(test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
 
-	
-	
-	
-
-	@Test(priority = 238) 
-	void InputUploadNofilere() throws InterruptedException, IOException, AWTException
+	@Test(priority = 56) //Bilal Pass
+	void clearbtnEcComplied() throws InterruptedException, IOException
 	{
-		test = extent.startTest("'Input Upload - Return - Salary - Validate validation message for the no choose file clicking on upload");
+		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the complied count to verify if the 'clear button' works correctly?");
 		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.InputUploadNofilere(test);
+		All_ClientPortal_Methods.clearbtnEcComplied(test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	@Test(priority = 57) //Bilal Pass
+	void exportEcComplied() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the complied count to verify if the 'Export button' works correctly?");
+		All_ClientPortal_Methods.filterEntityAUTO2(test);
+		All_ClientPortal_Methods.exportEcComplied(test);
 		
 		extent.endTest(test);
 		extent.flush();
 	}
 	
-	@Test(priority = 239)  
-	void IUHistoryRe() throws InterruptedException, IOException, AWTException
+	//Bilal Pass
+	@Test(priority = 58) 
+	void ECComplied() throws InterruptedException, IOException
 	{
-		test = extent.startTest("Input Upload - Return - Salary - History button is working or not?");
+		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the complied count to verify if the 'View button' works correctly?");
+		
 		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.IUHistoryRe(test);
+		All_ClientPortal_Methods.ECComplied(test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	//Bilal Pass
+	@Test(priority = 59) 
+	void overviewECComplied() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the complied count to verify if the 'Overview button' works correctly?");
+		
+		All_ClientPortal_Methods.filterEntityAUTO2(test);
+		All_ClientPortal_Methods.overviewECComplied(test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	@Test(priority = 60) 
+	void downloadECComplied() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the complied count to verify if the 'Download button' works correctly?");
+		
+		All_ClientPortal_Methods.filterEntityAUTO2(test);
+		All_ClientPortal_Methods.downloadECComplied(test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	@Test(priority = 61) 
+	void PaginationECComplied() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the complied count to verify if the all 'Pagination buttons' works correctly?");
+		
+		All_ClientPortal_Methods.filterEntityAUTO2(test);
+		All_ClientPortal_Methods.PaginationECComplied(test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+		
+	
+	//Establishment Compliances Overdue:
+	
+	@Test(priority = 62) //Bilal done
+	void searchECOverdue() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the overdue count to verify if the 'Search field' works correctly?");
+		
+		All_ClientPortal_Methods.filterEntityAUTO2(test);
+		
+		All_ClientPortal_Methods.searchECOverdue(test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	@Test(priority = 63) //Bilal done
+	void clearBtnECOverdue() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the overdue count to verify if the 'Clear button' works correctly?");
+		
+		All_ClientPortal_Methods.filterEntityAUTO2(test);
+		
+		All_ClientPortal_Methods.clearBtnECOverdue(test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	@Test(priority = 64) 
+	void exportEC() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the overdue count to verify if the 'Export button' works correctly?");
+		
+		All_ClientPortal_Methods.filterEntity(test);
+		
+		All_ClientPortal_Methods.exportEC(test);
 		
 		extent.endTest(test);
 		extent.flush();
 	}
 	
-	@Test(priority = 240)  
-	void IUHistoryDRe() throws InterruptedException, IOException, AWTException
+	@Test(priority = 65) 
+	void ECOverdue() throws InterruptedException, IOException
 	{
-		test = extent.startTest("Input Upload - Return - Salary - History - Input History get downloaded or not?");
+		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the overdue count to verify if the 'Overview button' works correctly?");
+		
 		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.IUHistoryDRe(test);
+		
+		All_ClientPortal_Methods.ECOverdue(test);
 		
 		extent.endTest(test);
 		extent.flush();
 	}
-	
 	
 	
 	
