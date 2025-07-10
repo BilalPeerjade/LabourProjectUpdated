@@ -6,7 +6,9 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Base64;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -650,7 +652,7 @@ public class OneCommonMethod {
     }
     
     
-    public static void validateFileDownloadDynamic(WebDriver driver, ExtentTest test, WebElement downloadButton, String logMessage) {
+	public static void validateFileDownloadDynamic(WebDriver driver, ExtentTest test, WebElement downloadButton, String logMessage) {
         try {
             String downloadPath = "C:\\Users\\bilali\\Downloads";
             File downloadDir = new File(downloadPath);
@@ -863,6 +865,70 @@ public class OneCommonMethod {
 		return false;
 	}
     
+	
+	
+
+	
+	
+	public static void selectCalendarDateFromInput(WebDriver driver, ExtentTest test, WebElement calendarOpener,
+			WebElement navigateToParentView, String inputDate) {
+		try {
+// Step 0: Convert "01-01-2024" to "Monday, January 1, 2024"
+			SimpleDateFormat inputFormat = new SimpleDateFormat("dd-MM-yyyy");
+			SimpleDateFormat fullTitleFormat = new SimpleDateFormat("EEEE, MMMM d, yyyy");
+			SimpleDateFormat monthShortFormat = new SimpleDateFormat("MMM");
+			SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy");
+
+			Date date = inputFormat.parse(inputDate);
+
+			String fullTitle = fullTitleFormat.format(date);
+			String monthShort = monthShortFormat.format(date);
+			String year = yearFormat.format(date);
+
+// Step 1: Open Calendar
+//calendarOpener.click();
+			Thread.sleep(2000);
+
+// Step 2: Go to parent view (month/year level)
+			navigateToParentView.click();
+			Thread.sleep(2000);
+
+// Step 3: Select year
+			WebElement yearElement = driver.findElement(By.xpath("//span[normalize-space()='" + year + "']"));
+			yearElement.click();
+			Thread.sleep(2000);
+
+// Step 4: Select month
+			WebElement monthElement = driver.findElement(By.xpath("//td[@title='" + year + " " + monthShort + "']"));
+			monthElement.click();
+			Thread.sleep(3000);
+
+// Step 5: Select date
+			WebElement dateElement = driver.findElement(By.xpath("//td[@title='" + fullTitle + "']"));
+			dateElement.click();
+			Thread.sleep(2000);
+
+	//		test.log(LogStatus.PASS, "✅ Date selected successfully: " + fullTitle);
+			System.out.println("Date is selected ");
+
+		} catch (Exception e) {
+		//	test.log(LogStatus.FAIL, "❌ Failed to select date: " + e.getMessage());
+			System.out.println("Date is not selected ");
+			e.printStackTrace();
+		}
+	}
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
     
     
 

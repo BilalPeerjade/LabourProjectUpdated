@@ -478,7 +478,7 @@ public class All_Distributor_TWO  extends BasePage {
 	   		extent.endTest(test);
 	   		extent.flush();
 	   	}
-		@Test(priority = 101) //Bilal
+		@Test(priority = 102) //Bilal
 	   	void StateCitySealANDSignatureInvalid() throws Exception
 	   	{
 	   		test = extent.startTest("Manage Master - State City - Verify to check error without file selection and upload more than 4 kb file in seal and signature upload ");
@@ -814,7 +814,18 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 	   		extent.flush();
 	   	}
 		
-		
+		//CLRA Contractor
+		@Test(priority = 320)
+	   	void CLRA_Contractor() throws InterruptedException, IOException, AWTException
+	   	{
+	   		test = extent.startTest("OnBorad CLRA - Contractor verification");
+	   		
+	   		All_Distributor_Methods.CLRA_Contractor(test, workbook);
+	   		
+	   		extent.endTest(test);
+	   		extent.flush();
+
+	   	}
 		
 		
 		//CLRA - Employee Mapping 
@@ -837,6 +848,30 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 	   		
 	   		extent.endTest(test);
 	   		extent.flush();
+	   	}
+		
+		@Test(priority = 330) //Bilal
+	   	void CLRA_EmployeeMap_Export() throws InterruptedException, IOException, AWTException
+	   	{
+	   		test = extent.startTest("OnBoard CLRA - Employee Mapping - Verify to check export button is working or not?");
+	   		
+	   		All_Distributor_Methods.CLRA_EmployeeMap_Export(test, workbook);
+	   		
+	   		extent.endTest(test);
+	   		extent.flush();
+	   	}
+		
+		//CLRA - Compliance Assignment 
+		@Test(priority = 340) //Bilal
+	   	void ComplianceAssignmentRegisterCLRA() throws InterruptedException, IOException, AWTException
+	   	{
+	   		test = extent.startTest("OnBorad CLRA - Compliance Assignment verification ");
+	   		
+	   		All_Distributor_Methods.CLRA_CompAssignment(test, workbook);
+	   		
+	   		extent.endTest(test);
+	   		extent.flush();
+
 	   	}
 		
 		

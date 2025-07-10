@@ -5963,19 +5963,19 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 		    Thread.sleep(10000);
 			if(user.equalsIgnoreCase("Performer"))
 			{
-				LoginLocators.Search().sendKeys("AVACORED5");
+				LoginLocators.Search().sendKeys("TESTAUTO3");
 				PerformerLocator.clickWorkspaceArrow().click();
 			 	Thread.sleep(5000);
 			}
 			else if(user.equalsIgnoreCase("Distributor"))
 			{
-				LoginLocators.Search().sendKeys("AVACORED5");
+				LoginLocators.Search().sendKeys("TESTAUTO3");
 				PerformerLocator.DistributorPremisesArrow().click();
 				Thread.sleep(5000);
 			}
 			else if(user.equalsIgnoreCase("Reviewer"))
 			{
-				LoginLocators.Search().sendKeys("AVACORED5");	
+				LoginLocators.Search().sendKeys("TESTAUTO3");	
 				PerformerLocator.ReviewerStaturyDocumentArrow().click();
 			 	Thread.sleep(5000);
 			}
@@ -6017,19 +6017,19 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 		    Thread.sleep(10000);
 			if(user.equalsIgnoreCase("Performer"))
 			{
-				LoginLocators.Search().sendKeys("AVACORED5");
+				LoginLocators.Search().sendKeys("TESTAUTO3");
 				PerformerLocator.clickWorkspaceArrow().click();
 			 	Thread.sleep(5000);
 			}
 			else if(user.equalsIgnoreCase("Distributor"))
 			{
-				LoginLocators.Search().sendKeys("AVACORED5");
+				LoginLocators.Search().sendKeys("TESTAUTO3");
 				PerformerLocator.DistributorPremisesArrow().click();
 				Thread.sleep(5000);
 			}
 			else if(user.equalsIgnoreCase("Reviewer"))
 			{
-				LoginLocators.Search().sendKeys("AVACORED5");	
+				LoginLocators.Search().sendKeys("TESTAUTO3");	
 				PerformerLocator.ReviewerStaturyDocumentArrow().click();
 			 	Thread.sleep(5000);
 			}
@@ -6110,7 +6110,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			}
 			else if(user.equalsIgnoreCase("Distributor"))
 			{
-				LoginLocators.Search().sendKeys("AVACORED5");
+				LoginLocators.Search().sendKeys("TESTAUTO3");
 				PerformerLocator.DistributorPremisesArrow().click();
 				Thread.sleep(5000);
 			}
@@ -6176,19 +6176,19 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			if(user.equalsIgnoreCase("Performer"))
 			{
-				LoginLocators.Search().sendKeys("AVACORED5");
+				LoginLocators.Search().sendKeys("TESTAUTO3");
 				Thread.sleep(5000);
 				PerformerLocator.clickWorkspaceArrow().click();
 			}
 			else if(user.equalsIgnoreCase("Distributor"))
 			{
-				LoginLocators.Search().sendKeys("AVACORED5");
+				LoginLocators.Search().sendKeys("TESTAUTO3");
 				Thread.sleep(5000);
 				PerformerLocator.DistributorPremisesArrow().click();
 			}
 			else if(user.equalsIgnoreCase("Reviewer"))
 			{
-				LoginLocators.Search().sendKeys("AVACORED5");
+				LoginLocators.Search().sendKeys("TESTAUTO3");
 				Thread.sleep(5000);
 				PerformerLocator.ReviewerStaturyDocumentArrow().click();
 			}
@@ -6958,7 +6958,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 {
 	 	
 	 	Thread.sleep(5000);
-		PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
+		PerformerLocator.SerchCustomer().sendKeys("TESTAUTO3");
 	 	Thread.sleep(5000);
 	 	
 	 	if(user.equalsIgnoreCase("Performer"))

@@ -1254,7 +1254,7 @@ import rcp.OneCommonMethod;
 	   		extent.flush();
 	   	}
 		
-		@Test(priority = 76)
+		@Test(priority = 76) //Added similar
 	   	void Contractor() throws InterruptedException, IOException, AWTException
 	   	{
 	   		test = extent.startTest("OnBorad CLRA-Contractor verification");
@@ -1277,7 +1277,7 @@ import rcp.OneCommonMethod;
 
 	   	}
 		
-		@Test(priority = 78)
+		@Test(priority = 78)// added similar
 	   	void UpdateEmpMapping() throws InterruptedException, IOException, AWTException
 	   	{
 	   		test = extent.startTest("OnBorad CLRA-Update Employee mapping verification");
@@ -1291,7 +1291,7 @@ import rcp.OneCommonMethod;
 	   	}
 		
 
-		@Test(priority = 79)
+		@Test(priority = 79) //added similar
 	   	void ExportEmpMapping() throws InterruptedException, IOException, AWTException
 	   	{
 	   		test = extent.startTest("OnBorad CLRA-Update Export Btn Employee mapping verification");
@@ -1316,7 +1316,7 @@ import rcp.OneCommonMethod;
 	   		extent.flush();
 
 	   	}
-		@Test(priority = 81)
+		@Test(priority = 81) //Moved similar
 	   	void ComplianceAssignmentRegisterCLRA() throws InterruptedException, IOException, AWTException
 	   	{
 	   		test = extent.startTest("OnBorad CLRA-Registor-Compliance Assignment verification");

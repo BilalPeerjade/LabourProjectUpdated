@@ -369,6 +369,11 @@ public class DistributerLocators extends BasePage
 		labour = getDriver().findElement(By.xpath("//*[@class=\"k-svg-i-calendar k-button-icon k-svg-icon k-icon\"]"));
 		return labour;
 	}
+	public static WebElement Calender()	
+	{
+		labour = getDriver().findElement(By.xpath("//button[@title='Toggle calendar']"));
+		return labour;
+	}
 	public static WebElement clickPerformer()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//span[contains(text(),'Select Performer')]"));

@@ -2562,6 +2562,52 @@ public class All_Distributor_Methods extends BasePage
 			
 	}
 	
+	public static void CLRA_EmployeeMap_Export( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException, AWTException
+	{
+		
+		
+		Thread.sleep(5000);
+		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+		Thread.sleep(5000);
+		DistributerLocators.clickPremiseMasterArrow().click();
+		Thread.sleep(7000);
+		DistributerLocators.clickOnboardCLRA().click();
+		
+		Thread.sleep(5000);
+		DistributerLocators.clickEmpMapping().click();
+		
+		Thread.sleep(5000);
+		DistributerLocators.EMap_dropdown1().click();
+		Thread.sleep(2000);
+		DistributerLocators.EMap_select2ndvalue().click();
+		Thread.sleep(2000);
+		DistributerLocators.EMap_dropdown2().click();
+		Thread.sleep(2000);
+		DistributerLocators.EMap_select2ndvalue().click();
+		Thread.sleep(2000);
+		DistributerLocators.EMap_dropdown3().click();
+		Thread.sleep(2000);
+		DistributerLocators.EMap_select2ndvalue().click();
+		Thread.sleep(2000);
+		DistributerLocators.EMap_dropdown4().click();
+		Thread.sleep(2000);
+		DistributerLocators.EMap_select2ndvalue().click();
+		Thread.sleep(5000);
+		
+		
+	    OneCommonMethod.validateExportedExcelDYNAMIC(
+	    	    driver.get(),
+	    	    test,
+	    	    LoginLocators.Exportbtn(),        // WebElement for export button
+	    	    LoginLocators.TotalNoOfItem(),     // WebElement for grid count text
+	    	    "EmpID",                               // Column header to verify
+	    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+	    	);
+		
+			
+	}
+	
 	public static void CLRA_AddLocation_Upload( ExtentTest test,XSSFWorkbook workbook) throws Exception
 	{
 		
@@ -4174,7 +4220,7 @@ for(String Fal : fail)
 	
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
-		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 		Thread.sleep(1000);
 		DistributerLocators.clickPremiseMasterArrow().click();
 		Thread.sleep(7000);
@@ -4210,6 +4256,53 @@ for(String Fal : fail)
 		
 		
 	}
+	
+	public static void CLRA_Contractor( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+	{
+		WebDriverWait wait=new WebDriverWait(getDriver(),20);
+	
+		Thread.sleep(1000);
+		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+		Thread.sleep(1000);
+		DistributerLocators.clickPremiseMasterArrow().click();
+		Thread.sleep(7000);
+		DistributerLocators.clickOnboardCLRA().click();
+		
+		Thread.sleep(1000);
+		DistributerLocators.clickContractor().click();
+		
+		Thread.sleep(1000);
+		DistributerLocators.UpdateContractor().click();
+		
+		Thread.sleep(5000);
+		DistributerLocators.clicksave().click();
+		
+		Thread.sleep(2000);
+		String msg=DistributerLocators.clickMsg().getText();
+		
+		 if(msg.equalsIgnoreCase("Contractor Saved Successfully"))
+		 {
+			 test.log(LogStatus.PASS, "Compliances are reflected in grid");
+			 Thread.sleep(2000);
+			 test.log(LogStatus.PASS, "Edit button is working fine ");
+			 Thread.sleep(1000);
+			 test.log(LogStatus.PASS, "Message displayed : "+msg);
+		 }
+		 else
+		 {
+			 test.log(LogStatus.FAIL, "Message displayed : "+msg);
+		 }
+		 Thread.sleep(1000);
+		PerformerLocator.clickOkBtn().click();
+		
+		
+		Thread.sleep(1000);
+	   PerformerLocator.clickdashboard().click();
+		
+		
+	}
+	
 	
 	public static void EmpMapping( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 	{
@@ -4624,15 +4717,16 @@ for(String Fal : fail)
 		
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
 		Thread.sleep(1000);
-		DistributerLocators.clickDashboard().click();
+		DistributerLocators.clickPremiseMasterArrow().click();
 		
-		getDriver().navigate().refresh();
+		
 		
 		Thread.sleep(1000);
-		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+		
 		Thread.sleep(1000);
-		DistributerLocators.clickDashboard().click();
+		
 		Thread.sleep(3000);
 		DistributerLocators.clickOnboardCLRA().click();
 		
@@ -4740,6 +4834,173 @@ for(String Fal : fail)
 		
 		
 	}
+	
+	public static void CLRA_CompAssignment( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+	{
+		WebDriverWait wait=new WebDriverWait(getDriver(),20);
+	
+		
+		Thread.sleep(1000);
+		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
+		Thread.sleep(1000);
+		DistributerLocators.clickPremiseMasterArrow().click();
+		
+		
+		
+		Thread.sleep(1000);
+		
+		Thread.sleep(1000);
+		
+		Thread.sleep(3000);
+		DistributerLocators.clickOnboardCLRA().click();
+		
+		Thread.sleep(5000);
+		DistributerLocators.clickComplianceAssignment().click();
+		Thread.sleep(5000);
+		DistributerLocators.clickComplianceType().click();
+		Thread.sleep(1000);
+		DistributerLocators.selectComplianceType().click();
+		
+		Thread.sleep(1000);
+		DistributerLocators.clickBranch().click();
+		Thread.sleep(1000);
+		DistributerLocators.selectBranch().click();
+		
+		
+
+		Thread.sleep(5000);
+		
+		
+//		Thread.sleep(1000);
+//		Locator.selectmonth().click();
+//		Thread.sleep(1000);
+//		Locator.selectYear().click();
+//	
+//		
+//		Actions action = new Actions(getDriver());
+//		WebElement we = getDriver().findElement(By.xpath("//td[@title='2021 Jan']"));
+//		action.moveToElement(we).click().build().perform();
+	
+		
+		
+		//Handling Calendar
+/*		DistributerLocators.Calender().click();
+		Thread.sleep(2000);
+		DistributerLocators.Calendar_NavigateToParentView().click();
+		Thread.sleep(2000);
+		
+		WebElement Year = getDriver().findElement(By.xpath("//span[normalize-space()='2024']"));
+		Year.click();
+		
+		Thread.sleep(2000);
+		WebElement Month = getDriver().findElement(By.xpath("//td[@title='2024 Jan']"));
+		Month.click();
+		Thread.sleep(3000);
+		WebElement Date = getDriver().findElement(By.xpath("//td[@title='Monday, January 1, 2024']"));
+		Date.click();
+		Thread.sleep(2000);  */
+		
+		
+		DistributerLocators.Calender().click();
+		
+		
+		OneCommonMethod.selectCalendarDateFromInput(
+			    driver.get(),
+			    test,
+			    DistributerLocators.Calender(),                      // calendar icon
+			    DistributerLocators.Calendar_NavigateToParentView(), // parent view arrow
+			    "15-06-2026"                                          // date in dd-MM-yyyy format
+			);
+
+
+
+
+
+		
+		
+		
+		
+		Thread.sleep(1000);
+		DistributerLocators.clickPerformer().click();
+		
+		Thread.sleep(1000);
+		DistributerLocators.selectPerformer().click();
+		Thread.sleep(1000);
+		DistributerLocators.clickreviewer().click();
+		
+		Thread.sleep(1000);
+		DistributerLocators.selectreviewer().click();
+		
+		if(DistributerLocators.clickApply().isEnabled())
+		{
+			Thread.sleep(1000);
+			DistributerLocators.clickApply().click();
+			test.log(LogStatus.PASS, "All filters & dropdowns working fine ");
+			Thread.sleep(1000);
+			test.log(LogStatus.PASS, "Apply Button working successfully");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "Apply Button does not working successfully");
+		}
+		
+		Thread.sleep(1000);
+		DistributerLocators.clickCheckBox().click();
+		
+		Thread.sleep(1000);
+//		DistributerLocators.clickCheckBox1().click();
+		
+		Thread.sleep(1000);
+		DistributerLocators.clicksave().click();
+		
+		Thread.sleep(1000);
+		String msg=DistributerLocators.CASuccessMsg().getText();
+		if(msg.equalsIgnoreCase(msg))
+		{
+			test.log(LogStatus.PASS,"Save button working successfully");
+			Thread.sleep(1000);
+			test.log(LogStatus.PASS,"Message displayed:-" +msg);
+		}
+		else
+		{
+			test.log(LogStatus.FAIL,"Message displayed:-" +msg);
+		}
+		 Thread.sleep(1000);
+			DistributerLocators.clickOkBtn().click();
+		
+		Thread.sleep(1000);
+		String msg1=DistributerLocators.CASuccessMsg1().getText();
+		if(msg1.equalsIgnoreCase(msg1))
+		{
+			test.log(LogStatus.PASS,"Message displayed:-" +msg1);
+		}
+		else
+		{
+			test.log(LogStatus.FAIL,"Message displayed:-" +msg1);
+		}
+		 Thread.sleep(1000);
+			DistributerLocators.clickOkBtn().click();
+			
+			Thread.sleep(1000);
+			if(DistributerLocators.clickClearBtn().isEnabled())
+			{	
+				Thread.sleep(1000);
+				DistributerLocators.clickClearBtn().click();
+				test.log(LogStatus.PASS, "Clear button working successfully.");
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "Clear button not working successfully.");
+			}
+			
+			Thread.sleep(1000);
+			DistributerLocators.clickdashboard().click();
+		
+		
+	}
+	
+	
 	public static void ComplianceAssignmentRetrunCLRA( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 	{
 		WebDriverWait wait=new WebDriverWait(getDriver(),20);
