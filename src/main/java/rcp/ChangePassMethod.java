@@ -71,7 +71,7 @@ public class ChangePassMethod extends BasePage
 		    
 		    String txt = ChangePassLocator.messageAfterSubmit().getText();
 		    
-			if (txt.equalsIgnoreCase("Failed to change password. Please try again.")) {
+			if (txt.equalsIgnoreCase("Current password you entered is incorrect. Please check.")) {
 				Thread.sleep(2000);
 				test.log(LogStatus.PASS, "Entering invalid password in current password, password is not changed !");
 				Thread.sleep(500);
@@ -154,7 +154,7 @@ public class ChangePassMethod extends BasePage
 			System.out.println("Error:------- " + txt3);
 			if (txt3.equalsIgnoreCase("New Password can not be same as Old Password. Please enter different password.")) {
 				Thread.sleep(2000);
-				test.log(LogStatus.PASS, "Entering Current , New , Confirm Passwords Error message is displayed !");
+				test.log(LogStatus.PASS, "Entering Current , New , Confirm Passwords same in all fields Error displayed !");
 				Thread.sleep(1200);
 				test.log(LogStatus.PASS, "Message Displayed :- " + txt3);
 
