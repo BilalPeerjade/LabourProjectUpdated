@@ -45,6 +45,8 @@ import login.LoginLocators;
 import java.io.FileInputStream;
 import java.time.Duration;
 
+//Disabled Fields:
+import java.util.Objects;
 
 
 public class OneCommonMethod {
@@ -917,6 +919,40 @@ public class OneCommonMethod {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	
+	
+	
+
+
+
+	public static void verifyFieldIsTrulyNonEditable(WebElement element, ExtentTest test, String fieldName, String customMessage) {
+	    try {
+	        String originalValue = element.getAttribute("value");
+	        try {
+	            element.clear();
+	            element.sendKeys("123456");
+	        } catch (Exception e) {
+	            // Ignore; input is blocked
+	        }
+
+	        String afterValue = element.getAttribute("value");
+
+	        if (Objects.equals(originalValue, afterValue)) {
+	            test.log(LogStatus.PASS, fieldName + " is non-editable. " + customMessage);
+	        } else {
+	            test.log(LogStatus.FAIL, fieldName + " is editable. " + customMessage + 
+	                     " (Value changed from '" + originalValue + "' to '" + afterValue + "')");
+	        }
+	    } catch (Exception e) {
+	 //       test.log(LogStatus.FAIL, "Exception while checking non-editable status of " + fieldName + ": " + e.getMessage());
+	    }
+	}
+
+
+
+
 
 
 

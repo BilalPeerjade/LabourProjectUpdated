@@ -5,11 +5,11 @@
     <classes>
       <class name="testCases.All_Distributor_TWO">
         <methods>
-          <include name="ComplianceAssignmentRegisterCLRA"/>
           <include name="Closing"/>
           <include name="setBrowser"/>
           <include name="Login"/>
           <include name="browserClosing"/>
+          <include name="ComplianceBox"/>
         </methods>
       </class> <!-- testCases.All_Distributor_TWO -->
     </classes>

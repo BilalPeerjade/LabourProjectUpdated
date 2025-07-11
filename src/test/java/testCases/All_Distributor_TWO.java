@@ -874,6 +874,19 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 
 	   	}
 		
+		//CLRA: Manage Compliances 
+		@Test(priority = 345)
+	   	void CLRA_CompReassignment() throws InterruptedException, IOException
+	   	{
+	   		test = extent.startTest("OnBorad CLRA - Manage Compliances - Compliance Reassignment verification ");
+	   		 
+	   		All_Distributor_Methods.CLRA_CompReassignment(test, workbook);
+	   		
+	   		extent.endTest(test);
+	   		extent.flush();
+
+	   	}
+		
 		
 	
 	

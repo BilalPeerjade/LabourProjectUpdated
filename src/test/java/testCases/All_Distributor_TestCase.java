@@ -1368,18 +1368,18 @@ import rcp.OneCommonMethod;
 
 	   	}
 		
-		//@Test(priority = 85)//Peninding
+//		@Test(priority = 85)//Peninding moved simliar
 	   	void ComplainceReassignmentCLRA() throws InterruptedException, IOException
 	   	{
 	   		test = extent.startTest("OnBorad CLRA-Manage Compliance-Compliance Reassignment");
 	   		 
-	   		
 	   		All_Distributor_Methods.ComplainceReassignmentCLRA(test, workbook);
 	   		
 	   		extent.endTest(test);
 	   		extent.flush();
 
 	   	}
+		
 		//@Test(priority = 86)//Peninding
 	   	void ManageComplianceFilterCLRA() throws InterruptedException, IOException
 	   	{

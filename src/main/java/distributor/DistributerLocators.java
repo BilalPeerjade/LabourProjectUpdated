@@ -128,6 +128,11 @@ public class DistributerLocators extends BasePage
 		labour = getDriver().findElement(By.xpath("//button[@title='Export']"));
 		return labour;
 	}
+	public static WebElement PENameDisabledField()
+	{
+		labour = getDriver().findElement(By.xpath("(//div[@class='require-container'])[1]"));
+		return labour;
+	}
 	public static WebElement clickExportCLRALocationLoader()		//Bilal
 	{
 		labour = getDriver().findElement(By.xpath("/html/body/app-root/div/app-layout/section/div/div/app-principle-employer/div[4]/kendo-loader/div/span[1]"));
@@ -520,6 +525,21 @@ public class DistributerLocators extends BasePage
 	{
 		labour = getDriver().findElement(By.xpath("(//*[@class='k-svg-i-caret-alt-right k-svg-icon k-icon ng-star-inserted'])"));
 		//*[@class='k-svg-i-caret-alt-right k-svg-icon k-icon ng-star-inserted']
+		return labour;
+	}
+	public static WebElement Triangle2nd() //triangel for state
+	{
+		labour = getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-right k-svg-icon k-icon ng-star-inserted']"));
+		return labour;
+	}
+	public static WebElement Triangle3rd() //triangel for branch
+	{
+		labour = getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-right k-svg-icon k-icon ng-star-inserted']"));
+		return labour;
+	}
+	public static WebElement Triangle3rd_selectbranch() //select branch
+	{
+		labour = getDriver().findElement(By.xpath("//span[contains(normalize-space(), 'Sonai_Test')]"));
 		return labour;
 	}
 	public static WebElement select_Bobbili_Avacored_branch()

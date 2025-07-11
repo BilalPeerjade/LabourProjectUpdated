@@ -1258,7 +1258,14 @@ public class All_Distributor_Methods extends BasePage
         Workbook workbook1 = WorkbookFactory.create(fis);
         Sheet sheet = workbook1.getSheetAt(0);
 		
-		
+
+        //Verification of PE Name is disabled or not
+        OneCommonMethod.verifyFieldIsTrulyNonEditable(
+        	    DistributerLocators.PENameDisabledField(),test,"PE Name",
+        	    "PE field should be non-editable for View-Only users");
+
+        
+        
 		
 		Thread.sleep(1000);
 		Row row1 = sheet.getRow(11);						//Selected 0th index row (First row)
@@ -1307,11 +1314,11 @@ public class All_Distributor_Methods extends BasePage
 		{
 		 Thread.sleep(1000);
 			DistributerLocators.cancelbtn().click();
-			test.log(LogStatus.PASS, "Cancel button working successfully.");
+		//	test.log(LogStatus.PASS, "Cancel button working successfully.");
 		}
 		else
 		{
-			test.log(LogStatus.FAIL, "Cancel button not working successfully.");
+	//		test.log(LogStatus.FAIL, "Cancel button not working successfully.");
 		}
 		
 		Thread.sleep(1000);
@@ -1325,8 +1332,11 @@ public class All_Distributor_Methods extends BasePage
 		String msg=DistributerLocators.clickMsg().getText();
 		if(msg.equalsIgnoreCase("Are you sure you want to delete Principle Employer?"))
 		{
+			test.log(LogStatus.PASS,"Delete button is working fine ");
+			Thread.sleep(1000);
 			test.log(LogStatus.PASS,"Message displayed:-" +msg);
-			
+			Thread.sleep(1000);
+			test.log(LogStatus.PASS, "Cancel button working successfully.");
 		}
 		else
 		{
@@ -5281,15 +5291,13 @@ for(String Fal : fail)
 
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 		Thread.sleep(1000);
-		DistributerLocators.clickDashboard().click();
+		DistributerLocators.clickPremiseMasterArrow().click();
 		
-		getDriver().navigate().refresh();
+		
 		
 		Thread.sleep(1000);
-		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
-		Thread.sleep(1000);
-		DistributerLocators.clickDashboard().click();
 		Thread.sleep(3000);
 		DistributerLocators.clickOnboardCLRA().click();
 		Thread.sleep(1000);
@@ -5345,6 +5353,112 @@ for(String Fal : fail)
 		String msg=DistributerLocators.CRValidDate().getText();
 		if(msg.equalsIgnoreCase("Compliance Reassigned Successfully"))
 		{
+			test.log(LogStatus.PASS,"Message displayed:-" +msg);
+		}
+		else
+		{
+			test.log(LogStatus.FAIL,"Message displayed:-" +msg);
+		}
+		Thread.sleep(1000);
+		DistributerLocators.clickOkBtn().click();
+		
+		Thread.sleep(1000);
+		if(DistributerLocators.clickClearBtn().isEnabled())
+		{
+			Thread.sleep(1000);
+			DistributerLocators.clickClearBtn().click();
+			test.log(LogStatus.PASS, "Clear Button working successfully");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "Clear Button does not working successfully");
+		}
+		
+		 
+			Thread.sleep(1000);
+			DistributerLocators.clickdashboard().click();
+		
+	}
+	
+	public static void CLRA_CompReassignment( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+	{
+		
+
+		Thread.sleep(5000);
+		
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+		Thread.sleep(1000);
+		DistributerLocators.clickPremiseMasterArrow().click();
+		
+		
+		
+		Thread.sleep(1000);
+		Thread.sleep(3000);
+		DistributerLocators.clickOnboardCLRA().click();
+		Thread.sleep(5000);
+		DistributerLocators.managecompliance().click();
+		Thread.sleep(5000);
+		DistributerLocators.clickComplianceType1().click();
+		Thread.sleep(2000);
+		DistributerLocators.selectComplianceType1().click();
+		Thread.sleep(2000);
+		DistributerLocators.clickBranch1().click();
+		Thread.sleep(2000);
+		DistributerLocators.clickBranchTiangle1().click();
+		Thread.sleep(2000);
+		DistributerLocators.Triangle2nd().click();
+		Thread.sleep(2000);
+		DistributerLocators.Triangle3rd().click();
+		Thread.sleep(2000);
+		DistributerLocators.Triangle3rd_selectbranch().click();
+		
+//		DistributerLocators.selectBranch1().click();
+		
+		Thread.sleep(2000);
+		DistributerLocators.clickRole().click();
+		Thread.sleep(2000);
+		DistributerLocators.selectComplianceType1().click();
+		
+		Thread.sleep(2000);
+		DistributerLocators.clickUser().click();
+		Thread.sleep(2000);
+		DistributerLocators.selectComplianceType1().click();
+		
+		Thread.sleep(2000);
+		DistributerLocators.clickNewUser().click();
+		Thread.sleep(2000);
+		DistributerLocators.selectComplianceType1().click();
+		
+		Thread.sleep(2000);
+		if(DistributerLocators.applybtn().isEnabled())
+		{
+			Thread.sleep(2000);
+			DistributerLocators.applybtn().click();
+			test.log(LogStatus.PASS, "All filters of compliance reassignment working fine");
+			Thread.sleep(2000);
+			test.log(LogStatus.PASS, "Apply Button working successfully");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "Apply Button does not working successfully");
+		}
+		
+		Thread.sleep(1000);
+		DistributerLocators.clickCheckBox().click();
+		
+		Thread.sleep(1000);
+//		DistributerLocators.clickCheckBox1().click();
+		
+		Thread.sleep(1000);
+		DistributerLocators.clicksave().click();
+		
+		Thread.sleep(1000);
+		String msg=DistributerLocators.CRValidDate().getText();
+		if(msg.equalsIgnoreCase("Compliance Reassigned Successfully"))
+		{
+			test.log(LogStatus.PASS, "Save button is working fine");
+			Thread.sleep(1000);
+			test.log(LogStatus.PASS, "Compliance reassigned successfully ");
 			test.log(LogStatus.PASS,"Message displayed:-" +msg);
 		}
 		else

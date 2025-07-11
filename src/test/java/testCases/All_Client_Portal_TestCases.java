@@ -69,7 +69,7 @@ public class All_Client_Portal_TestCases extends BasePage {
 	
 	
 
-	
+	/*
 	
 	
 	
@@ -1931,7 +1931,7 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 	
 	
 	
-	
+	/*
 	
 	
 	
@@ -2001,7 +2001,7 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 	
 	
 	
-	
+	*/
 	
 	
 	

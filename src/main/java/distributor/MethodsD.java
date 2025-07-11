@@ -24,6 +24,7 @@ import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -112,7 +113,10 @@ public class MethodsD extends BasePage {
 					
 	//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
 					
-	test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+//	test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+	
+	test.log(LogStatus.PASS, "Dashboard Count = "+ open);
+	test.log(LogStatus.PASS, "Displayed records from grid = "+count1);
 				
 	}
 				
@@ -132,7 +136,23 @@ public class MethodsD extends BasePage {
     
     jss.executeScript("window.scrollBy(0,-1000)");
     Thread.sleep(2000);
-    MethodsD.GridAndExcelCountMatch(test,workbook);
+    
+    
+ //   MethodsD.GridAndExcelCountMatch(test,workbook);
+    
+ //   MethodsD.GridAndExcelCountMatchTWO(test, workbook);
+    
+    OneCommonMethod.validateExportedExcelDYNAMIC(
+    	    driver.get(),test,
+    	    LoginLocators.Exportbtn(),        // WebElement for export button
+    	    LoginLocators.DashboardBox_TotalNoOfItems(),     // WebElement for grid count text
+    	    "Branch",                               // Column header to verify
+    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+    	);
+    
+    
+    
+    
 	Thread.sleep(3000);
 	By locator = By.className("svg-icon");
 
@@ -495,7 +515,8 @@ catch(Exception e)
 {
 	LoginLocators.Exportbtn().click();
 	
-	}
+}
+
 test.log(LogStatus.PASS, "File downloaded successfully.");
 
 Thread.sleep(8000);
@@ -560,6 +581,111 @@ else
 
 		
 	}
+	
+	
+
+	public static void GridAndExcelCountMatchTWO(ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException {
+	    
+	    JavascriptExecutor js = (JavascriptExecutor) getDriver();
+	    js.executeScript("window.scrollBy(0,700)");
+	    Thread.sleep(5000); 		
+	    LoginLocators.TotalNumberOfItems().click();					
+	    Thread.sleep(2000);
+	    
+	    String s = LoginLocators.TotalNumberOfItems().getText();
+	    Thread.sleep(8000);
+	    String[] bits = s.split(" ");								
+	    String compliancesCount = bits[bits.length - 2];				
+	    int count1 = Integer.parseInt(compliancesCount);
+
+	    if (compliancesCount.equalsIgnoreCase("to")) {
+	        Thread.sleep(5000);
+	        s = LoginLocators.TotalNumberOfItems().getText();
+	        bits = s.split(" ");
+	    }
+
+	    Thread.sleep(5000);
+	    JavascriptExecutor js1 = (JavascriptExecutor) getDriver();
+	    js1.executeScript("window.scrollBy(0,-1000)");
+	    Thread.sleep(2000);
+	    Thread.sleep(4000);
+
+	    // Get old files before download
+	    File dir = new File("C:\\Users\\bilali\\Downloads");
+	    File[] dirContents = dir.listFiles();							
+	    Thread.sleep(5000);
+
+	    // Try clicking export
+	    try {
+	        LoginLocators.Export().click();
+	    } catch (Exception e) {
+	        LoginLocators.Exportbtn().click();
+	    }
+
+	    test.log(LogStatus.PASS, "Export button clicked. Waiting for file to download...");
+	    Thread.sleep(8000);
+
+	    // Get new file list after download
+	    File[] allFilesNew = dir.listFiles();							
+
+	    if (dirContents.length < allFilesNew.length) {
+	        
+	        File lastModifiedFile = allFilesNew[0];			
+	        for (int i = 1; i < allFilesNew.length; i++) {
+	            if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) {
+	                lastModifiedFile = allFilesNew[i];
+	            }
+	        }
+
+	        // ✅ Get file name and log
+	        String downloadedFileName = lastModifiedFile.getName();
+	        test.log(LogStatus.INFO, "Downloaded file name: " + downloadedFileName);
+
+	        // Optional: Check file name pattern
+	        if (downloadedFileName.contains("Compliance_Report")) {
+	            test.log(LogStatus.PASS, "Downloaded file name is as expected.");
+	        } else {
+	            test.log(LogStatus.WARNING, "Downloaded file name may not be correct: " + downloadedFileName);
+	        }
+
+	        Thread.sleep(6000);
+	        FileInputStream fis = new FileInputStream(lastModifiedFile);
+	        workbook = new XSSFWorkbook(fis);
+	        XSSFSheet sheet = workbook.getSheetAt(0);					
+
+	        int columnNumber = 3;
+	        int rowCount = 0;
+	        int actualRow = 0;
+
+	        for (Row row : sheet) {
+	            Cell cell = row.getCell(columnNumber);
+	            if (cell != null) {
+	                rowCount++;
+	                actualRow = rowCount - 1;
+	            }
+	        }
+	        fis.close();
+
+	        if (count1 == actualRow) {
+	            test.log(LogStatus.PASS, "Total records from Grid = " + count1 + " | Total records from Report = " + actualRow);
+	        } else {
+	            test.log(LogStatus.FAIL, "Total records from Grid = " + count1 + " | Total records from Excel Sheet = " + actualRow);
+	        }
+	    } else {
+	        test.log(LogStatus.FAIL, "File wasn't downloaded successfully.");
+	    }
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public static void GridAndExcelCountMatch1(ExtentTest test,XSSFWorkbook workbook  ) throws InterruptedException, IOException
 	{
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
@@ -1173,7 +1299,10 @@ else
 					
 	//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
 					
-	test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+//	test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+	
+	test.log(LogStatus.PASS, "Dashboard Count = "+ open);
+	test.log(LogStatus.PASS, "Displayed records from grid = "+count1);
 				
 	}
 				
@@ -1193,7 +1322,20 @@ else
     
     jss.executeScript("window.scrollBy(0,-1000)");
     Thread.sleep(4000);
-    MethodsD.GridAndExcelCountMatch(test,workbook);
+    
+    
+//    MethodsD.GridAndExcelCountMatch(test,workbook);
+    
+    OneCommonMethod.validateExportedExcelDYNAMIC(
+    	    driver.get(),test,
+    	    LoginLocators.Exportbtn(),        // WebElement for export button
+    	    LoginLocators.DashboardBox_TotalNoOfItems(),     // WebElement for grid count text
+    	    "Branch",                               // Column header to verify
+    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+    	);
+    
+    
+    
 	Thread.sleep(5000);
 	By locator = By.className("svg-icon");
 
@@ -1298,7 +1440,10 @@ else {
 					
 	//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
 					
-	test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+//	test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+		
+		test.log(LogStatus.PASS, "Dashboard Count = "+ open);
+		test.log(LogStatus.PASS, "Displayed records from grid = "+count1);
 				
 	}
 				
@@ -1318,7 +1463,21 @@ else {
     
     jss.executeScript("window.scrollBy(0,-1000)");
     Thread.sleep(2000);
-    MethodsD.GridAndExcelCountMatch(test,workbook);
+    
+    
+//    MethodsD.GridAndExcelCountMatch(test,workbook);
+    
+    OneCommonMethod.validateExportedExcelDYNAMIC(
+    	    driver.get(),test,
+    	    LoginLocators.Exportbtn(),        // WebElement for export button
+    	    LoginLocators.DashboardBox_TotalNoOfItems(),     // WebElement for grid count text
+    	    "Branch",                               // Column header to verify
+    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+    	);
+    
+    
+    
+    
 	Thread.sleep(3000);
 	By locator = By.className("svg-icon");
 
@@ -1384,7 +1543,7 @@ jse.executeScript("arguments[0].click();", ViewButton);
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");	
+			LoginLocators.Search().sendKeys("TESTAUTO2");	
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
 		{
@@ -1428,7 +1587,10 @@ jse.executeScript("arguments[0].click();", ViewButton);
 					
 	//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
 					
-	test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+//	test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+	
+	test.log(LogStatus.PASS, "Dashboard Count = "+ open);
+	test.log(LogStatus.PASS, "Displayed records from grid = "+count1);
 				
 	}
 				
@@ -1448,7 +1610,18 @@ jse.executeScript("arguments[0].click();", ViewButton);
     
     jss.executeScript("window.scrollBy(0,-1000)");
     Thread.sleep(2000);
-    MethodsD.GridAndExcelCountMatch(test,workbook);
+    
+//  MethodsD.GridAndExcelCountMatch(test,workbook);
+    
+    OneCommonMethod.validateExportedExcelDYNAMIC(
+    	    driver.get(),test,
+    	    LoginLocators.Exportbtn(),        // WebElement for export button
+    	    LoginLocators.DashboardBox_TotalNoOfItems(),     // WebElement for grid count text
+    	    "Branch",                               // Column header to verify
+    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+    	);
+    
+    
 	Thread.sleep(3000);
 	By locator = By.className("svg-icon");
 
@@ -1552,7 +1725,10 @@ else {
 					
 	//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
 					
-	test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+//	test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+	
+	test.log(LogStatus.PASS, "Dashboard Count = "+ open);
+	test.log(LogStatus.PASS, "Displayed records from grid = "+count1);
 				
 	}
 				
@@ -1572,7 +1748,19 @@ else {
     
     jss.executeScript("window.scrollBy(0,-1000)");
     Thread.sleep(2000);
-    MethodsD.GridAndExcelCountMatch(test,workbook);
+    
+//  MethodsD.GridAndExcelCountMatch(test,workbook);
+    
+    OneCommonMethod.validateExportedExcelDYNAMIC(
+    	    driver.get(),test,
+    	    LoginLocators.Exportbtn(),        // WebElement for export button
+    	    LoginLocators.DashboardBox_TotalNoOfItems(),     // WebElement for grid count text
+    	    "Branch",                               // Column header to verify
+    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+    	);
+    
+    
+    
 	Thread.sleep(3000);
 	By locator = By.className("svg-icon");
 
@@ -1675,7 +1863,10 @@ else {
 					
 	//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
 					
-	test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+//	test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+	
+	test.log(LogStatus.PASS, "Dashboard Count = "+ open);
+	test.log(LogStatus.PASS, "Displayed records from grid = "+count1);
 				
 	}
 				
@@ -1695,7 +1886,19 @@ else {
     
     jss.executeScript("window.scrollBy(0,-1000)");
     Thread.sleep(2000);
-    MethodsD.GridAndExcelCountMatch(test,workbook);
+    
+//  MethodsD.GridAndExcelCountMatch(test,workbook);
+    
+    OneCommonMethod.validateExportedExcelDYNAMIC(
+    	    driver.get(),test,
+    	    LoginLocators.Exportbtn(),        // WebElement for export button
+    	    LoginLocators.DashboardBox_TotalNoOfItems(),     // WebElement for grid count text
+    	    "Branch",                               // Column header to verify
+    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+    	);
+    
+    
+    
 	Thread.sleep(3000);
 	By locator = By.className("svg-icon");
 
@@ -1757,11 +1960,11 @@ else {
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");
+			LoginLocators.Search().sendKeys("TESTAUTO2");
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");	
+			LoginLocators.Search().sendKeys("TESTAUTO2");	
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
 		{
@@ -1804,7 +2007,10 @@ else {
 					
 	//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
 					
-	test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+//	test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+	
+	test.log(LogStatus.PASS, "Dashboard Count = "+ open);
+	test.log(LogStatus.PASS, "Displayed records from grid = "+count1);
 				
 	}
 				
@@ -1824,7 +2030,18 @@ else {
     
     jss.executeScript("window.scrollBy(0,-1000)");
     Thread.sleep(2000);
-    MethodsD.GridAndExcelCountMatch(test,workbook);
+    
+//  MethodsD.GridAndExcelCountMatch(test,workbook);
+    
+    OneCommonMethod.validateExportedExcelDYNAMIC(
+    	    driver.get(),test,
+    	    LoginLocators.Exportbtn(),        // WebElement for export button
+    	    LoginLocators.DashboardBox_TotalNoOfItems(),     // WebElement for grid count text
+    	    "Branch",                               // Column header to verify
+    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+    	);
+    
+    
 	Thread.sleep(3000);
 	By locator = By.className("svg-icon");
 
@@ -1883,11 +2100,11 @@ else {
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");
+			LoginLocators.Search().sendKeys("TESTAUTO2");
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");	
+			LoginLocators.Search().sendKeys("TESTAUTO2");	
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
 		{
@@ -1930,7 +2147,10 @@ else {
 					
 	//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
 					
-	test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+//	test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+	
+	test.log(LogStatus.PASS, "Dashboard Count = "+ open);
+	test.log(LogStatus.PASS, "Displayed records from grid = "+count1);
 				
 	}
 				
@@ -1950,7 +2170,19 @@ else {
     
     jss.executeScript("window.scrollBy(0,-1000)");
     Thread.sleep(2000);
-    MethodsD.GridAndExcelCountMatch(test,workbook);
+    
+//    MethodsD.GridAndExcelCountMatch(test,workbook);
+    
+    OneCommonMethod.validateExportedExcelDYNAMIC(
+    	    driver.get(),test,
+    	    LoginLocators.Exportbtn(),        // WebElement for export button
+    	    LoginLocators.DashboardBox_TotalNoOfItems(),     // WebElement for grid count text
+    	    "Branch",                               // Column header to verify
+    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+    	);
+    
+    
+    
 	Thread.sleep(3000);
 	By locator = By.className("svg-icon");
 
@@ -2009,7 +2241,7 @@ else {
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");
+			LoginLocators.Search().sendKeys("TESTAUTO2");
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
 		{
@@ -2057,7 +2289,10 @@ else {
 					
 	//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
 					
-	test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+//	test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+	
+	test.log(LogStatus.PASS, "Dashboard Count = "+ open);
+	test.log(LogStatus.PASS, "Displayed records from grid = "+count1);
 				
 	}
 				
@@ -2077,7 +2312,18 @@ else {
     
     jss.executeScript("window.scrollBy(0,-1000)");
     Thread.sleep(2000);
-    MethodsD.GridAndExcelCountMatch(test,workbook);
+    
+//    MethodsD.GridAndExcelCountMatch(test,workbook);
+    
+    OneCommonMethod.validateExportedExcelDYNAMIC(
+    	    driver.get(),test,
+    	    LoginLocators.Exportbtn(),        // WebElement for export button
+    	    LoginLocators.DashboardBox_TotalNoOfItems(),     // WebElement for grid count text
+    	    "Branch",                               // Column header to verify
+    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+    	);
+    
+    
 	Thread.sleep(3000);
 	By locator = By.className("svg-icon");
 
@@ -2187,7 +2433,10 @@ else {
 					
 	//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
 					
-	test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+//	test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+	
+	test.log(LogStatus.PASS, "Dashboard Count = "+ open);
+	test.log(LogStatus.PASS, "Displayed records from grid = "+count1);
 				
 	}
 				
@@ -2207,7 +2456,19 @@ else {
     
     jss.executeScript("window.scrollBy(0,-1000)");
     Thread.sleep(2000);
-    MethodsD.GridAndExcelCountMatch(test,workbook);
+    
+//    MethodsD.GridAndExcelCountMatch(test,workbook);
+    
+    OneCommonMethod.validateExportedExcelDYNAMIC(
+    	    driver.get(),test,
+    	    LoginLocators.Exportbtn(),        // WebElement for export button
+    	    LoginLocators.DashboardBox_TotalNoOfItems(),     // WebElement for grid count text
+    	    "Branch",                               // Column header to verify
+    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+    	);
+    
+    
+    
 	Thread.sleep(3000);
 	By locator = By.className("svg-icon");
 
@@ -2314,7 +2575,10 @@ else {
 					
 	//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
 					
-	test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+//	test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+	
+	test.log(LogStatus.PASS, "Dashboard Count = "+ open);
+	test.log(LogStatus.PASS, "Displayed records from grid = "+count1);
 				
 	}
 				
@@ -2334,7 +2598,18 @@ else {
     
     jss.executeScript("window.scrollBy(0,-1000)");
     Thread.sleep(2000);
-    MethodsD.GridAndExcelCountMatch(test,workbook);
+    
+ //   MethodsD.GridAndExcelCountMatch(test,workbook);
+    
+    OneCommonMethod.validateExportedExcelDYNAMIC(
+    	    driver.get(),test,
+    	    LoginLocators.Exportbtn(),        // WebElement for export button
+    	    LoginLocators.DashboardBox_TotalNoOfItems(),     // WebElement for grid count text
+    	    "Branch",                               // Column header to verify
+    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+    	);
+    
+    
 	Thread.sleep(3000);
 	By locator = By.className("svg-icon");
 
@@ -2441,7 +2716,10 @@ else {
 					
 	//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
 					
-	test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+//	test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+	
+	test.log(LogStatus.PASS, "Dashboard Count = "+ open);
+	test.log(LogStatus.PASS, "Displayed records from grid = "+count1);
 				
 	}
 				
@@ -2461,7 +2739,18 @@ else {
     
     jss.executeScript("window.scrollBy(0,-1000)");
     Thread.sleep(2000);
-    MethodsD.GridAndExcelCountMatch(test,workbook);
+    
+//    MethodsD.GridAndExcelCountMatch(test,workbook);
+    
+    OneCommonMethod.validateExportedExcelDYNAMIC(
+    	    driver.get(),test,
+    	    LoginLocators.Exportbtn(),        // WebElement for export button
+    	    LoginLocators.DashboardBox_TotalNoOfItems(),     // WebElement for grid count text
+    	    "Branch",                               // Column header to verify
+    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+    	);
+    
+    
 	Thread.sleep(3000);
 	By locator = By.className("svg-icon");
 
@@ -2571,7 +2860,10 @@ else {
 					
 	//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
 					
-	test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+//	test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+	
+	test.log(LogStatus.PASS, "Dashboard Count = "+ open);
+	test.log(LogStatus.PASS, "Displayed records from grid = "+count1);
 				
 	}
 				
@@ -2591,7 +2883,19 @@ else {
     
     jss.executeScript("window.scrollBy(0,-1000)");
     Thread.sleep(2000);
-    MethodsD.GridAndExcelCountMatch(test,workbook);
+    
+//    MethodsD.GridAndExcelCountMatch(test,workbook);
+    
+    OneCommonMethod.validateExportedExcelDYNAMIC(
+    	    driver.get(),test,
+    	    LoginLocators.Exportbtn(),        // WebElement for export button
+    	    LoginLocators.DashboardBox_TotalNoOfItems(),     // WebElement for grid count text
+    	    "Branch",                               // Column header to verify
+    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+    	);
+    
+    
+    
 	Thread.sleep(3000);
 	By locator = By.className("svg-icon");
 
@@ -2698,7 +3002,10 @@ else {
 					
 	//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
 					
-	test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+//	test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+	
+	test.log(LogStatus.PASS, "Dashboard Count = "+ open);
+	test.log(LogStatus.PASS, "Displayed records from grid = "+count1);
 				
 	}
 				
@@ -2718,7 +3025,19 @@ else {
     
     jss.executeScript("window.scrollBy(0,-1000)");
     Thread.sleep(2000);
-    MethodsD.GridAndExcelCountMatch(test,workbook);
+    
+//    MethodsD.GridAndExcelCountMatch(test,workbook);
+    
+    OneCommonMethod.validateExportedExcelDYNAMIC(
+    	    driver.get(),test,
+    	    LoginLocators.Exportbtn(),        // WebElement for export button
+    	    LoginLocators.DashboardBox_TotalNoOfItems(),     // WebElement for grid count text
+    	    "Branch",                               // Column header to verify
+    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+    	);
+    
+    
+    
 	Thread.sleep(3000);
 	By locator = By.className("svg-icon");
 
@@ -3075,8 +3394,10 @@ else {
 					
 	//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
 					
-	test.log(LogStatus.PASS, "Complied Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+//	test.log(LogStatus.PASS, "Complied Dashboard Count = "+open+" | Displayed records from grid = "+count1);
 				
+	test.log(LogStatus.PASS, "Dashboard Count = "+ open);
+	test.log(LogStatus.PASS, "Displayed records from grid = "+count1);
 	}
 				
 	else
@@ -3085,8 +3406,8 @@ else {
 					
 	//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
 					
-	test.log(LogStatus.FAIL, "Complied Dashboard Count = "+open+" | Displayed records from grid = "+count1);
-				
+	test.log(LogStatus.FAIL, "Complied Dashboard Count = "+open+" | Displayed records from grid = "+count1);	
+
 	}
 	try {
 		LoginLocators.PenActnClosePopup().click();	
@@ -3124,8 +3445,20 @@ else {
     
     jss.executeScript("window.scrollBy(0,-1000)");
     Thread.sleep(2000);
-    MethodsD.GridAndExcelCountMatch(test,workbook);
-	Thread.sleep(3000);
+    
+//    MethodsD.GridAndExcelCountMatch(test,workbook);
+	
+    OneCommonMethod.validateExportedExcelDYNAMIC(
+    	    driver.get(),test,
+    	    LoginLocators.Exportbtn(),        // WebElement for export button
+    	    LoginLocators.DashboardBox_TotalNoOfItems(),     // WebElement for grid count text
+    	    "Branch",                               // Column header to verify
+    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+    	);
+    
+    
+    
+    Thread.sleep(3000);
 	By locator = By.className("svg-icon");
 
 	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
@@ -4059,7 +4392,7 @@ else {
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");	
+			LoginLocators.Search().sendKeys("TESTAUTO2");	
 		}
 	//	LoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
 		//LoginLocators.Search().sendKeys("WWKRG");

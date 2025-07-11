@@ -865,6 +865,12 @@ public class LoginLocators extends BasePage {
 		submit = getDriver().findElement(By.xpath("(//kendo-pager-info[@class='k-pager-info k-label'])[1]"));
 		return submit;
 	}
+	
+	public static WebElement DashboardBox_TotalNoOfItems() //DashboardBox_TotalNoOfItems
+	{
+		submit = getDriver().findElement(By.xpath("//kendo-pager-info[@class='k-pager-info k-label ng-star-inserted']"));
+		return submit;
+	}
 	public static WebElement Grid()	//Method for searching button for Save/Sign-in
 	{
 		submit = getDriver().findElement(By.xpath("//app-compliance-assignment-report[@class='ng-star-inserted']"));
