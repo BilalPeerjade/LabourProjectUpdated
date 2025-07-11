@@ -100,129 +100,16 @@ public class FailedTC2 extends BasePage {
 	
 	
 	
-	
-
-	@Test(priority = 56) //Bilal Pass
-	void clearbtnEcComplied() throws InterruptedException, IOException
+	@Test(priority = 200 ,groups={"smoke"}) //Bilal
+	void InputUploadFilters() throws InterruptedException, IOException, AWTException
 	{
-		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the complied count to verify if the 'clear button' works correctly?");
+		test = extent.startTest("'Input Upload - To check weather All dropdowns are working or not?");
 		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.clearbtnEcComplied(test);
+		All_ClientPortal_Methods.InputUploadFilters(test);
 		
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 57) //Bilal Pass
-	void exportEcComplied() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the complied count to verify if the 'Export button' works correctly?");
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.exportEcComplied(test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-	//Bilal Pass
-	@Test(priority = 58) 
-	void ECComplied() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the complied count to verify if the 'View button' works correctly?");
-		
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.ECComplied(test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	//Bilal Pass
-	@Test(priority = 59) 
-	void overviewECComplied() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the complied count to verify if the 'Overview button' works correctly?");
-		
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.overviewECComplied(test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	@Test(priority = 60) 
-	void downloadECComplied() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the complied count to verify if the 'Download button' works correctly?");
-		
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.downloadECComplied(test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	@Test(priority = 61) 
-	void PaginationECComplied() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the complied count to verify if the all 'Pagination buttons' works correctly?");
-		
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.PaginationECComplied(test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-		
-	
-	//Establishment Compliances Overdue:
-	
-	@Test(priority = 62) //Bilal done
-	void searchECOverdue() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the overdue count to verify if the 'Search field' works correctly?");
-		
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		
-		All_ClientPortal_Methods.searchECOverdue(test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	@Test(priority = 63) //Bilal done
-	void clearBtnECOverdue() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the overdue count to verify if the 'Clear button' works correctly?");
-		
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		
-		All_ClientPortal_Methods.clearBtnECOverdue(test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	@Test(priority = 64) 
-	void exportEC() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the overdue count to verify if the 'Export button' works correctly?");
-		
-		All_ClientPortal_Methods.filterEntity(test);
-		
-		All_ClientPortal_Methods.exportEC(test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-	@Test(priority = 65) 
-	void ECOverdue() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the overdue count to verify if the 'Overview button' works correctly?");
-		
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		
-		All_ClientPortal_Methods.ECOverdue(test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
 	
 	
 

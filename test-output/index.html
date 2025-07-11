@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\bilali\AppData\Local\Temp\testng-eclipse--1925891191\testng-customsuite.xml</span>
+                    <span>C:\Users\bilali\AppData\Local\Temp\testng-eclipse--1098905462\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -60,7 +60,7 @@
                 </li>
                 <li>
                   <a href="#" panel-name="group-Default_suite" class="navigator-link ">
-                    <span>0 groups</span>
+                    <span>1 group</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -103,7 +103,7 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="testCases.All_Distributor_TWO" class="method navigator-link" hash-for-method="PayCodeUploadSampleFile">PayCodeUploadSampleFile</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="testCases.FailedTC2" class="method navigator-link" hash-for-method="InputUploadFilters">InputUploadFilters</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -121,14 +121,14 @@
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">testCases.All_Distributor_TWO</span>
+              <span class="class-name">testCases.FailedTC2</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="PayCodeUploadSampleFile">
-                  </a> <!-- PayCodeUploadSampleFile -->
-                  <span class="method-name">PayCodeUploadSampleFile</span>
+                  <a name="InputUploadFilters">
+                  </a> <!-- InputUploadFilters -->
+                  <span class="method-name">InputUploadFilters</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -136,7 +136,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\bilali\AppData\Local\Temp\testng-eclipse--1925891191\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\bilali\AppData\Local\Temp\testng-eclipse--1098905462\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -145,11 +145,11 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;testCases.All_Distributor_TWO&quot;&gt;
+      &lt;class name=&quot;testCases.FailedTC2&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;PayCodeUploadSampleFile&quot;/&gt;
+          &lt;include name=&quot;InputUploadFilters&quot;/&gt;
         &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- testCases.All_Distributor_TWO --&gt;
+      &lt;/class&gt; &lt;!-- testCases.FailedTC2 --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -173,6 +173,14 @@
             <span class="header-content">Groups for Default suite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="test-group">
+              <span class="test-group-name">smoke</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">InputUploadFilters</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="times-Default_suite" class="panel">
@@ -191,9 +199,9 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'PayCodeUploadSampleFile')
-data.setCell(0, 2, 'testCases.All_Distributor_TWO')
-data.setCell(0, 3, 76945);
+data.setCell(0, 1, 'InputUploadFilters')
+data.setCell(0, 2, 'testCases.FailedTC2')
+data.setCell(0, 3, 91240);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
@@ -213,138 +221,9 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">62 ignored methods</span>
+            <span class="header-content">0 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">testCases.All_Distributor_TWO</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">DailyUpdate</span>
-                <br/>
-                <span class="ignored-method-name">StateCitySearch</span>
-                <br/>
-                <span class="ignored-method-name">ReturnOverdue</span>
-                <br/>
-                <span class="ignored-method-name">scheduleCreationValidation</span>
-                <br/>
-                <span class="ignored-method-name">ProceedToDashboard</span>
-                <br/>
-                <span class="ignored-method-name">UpdateEmployer</span>
-                <br/>
-                <span class="ignored-method-name">OnboardEntityPaycodeSearchDropdown</span>
-                <br/>
-                <span class="ignored-method-name">OverdueFilter</span>
-                <br/>
-                <span class="ignored-method-name">CLRA_CompReassignment</span>
-                <br/>
-                <span class="ignored-method-name">PendingReviewBox</span>
-                <br/>
-                <span class="ignored-method-name">StateCityAddressMapping</span>
-                <br/>
-                <span class="ignored-method-name">CLRA_Contractor</span>
-                <br/>
-                <span class="ignored-method-name">CLRASearchEmployee</span>
-                <br/>
-                <span class="ignored-method-name">ApplicableStatues</span>
-                <br/>
-                <span class="ignored-method-name">CLRA_EmployeeMap_Migrate</span>
-                <br/>
-                <span class="ignored-method-name">CLRA_EmployeeMap_Export</span>
-                <br/>
-                <span class="ignored-method-name">PayCodeUploadCheck</span>
-                <br/>
-                <span class="ignored-method-name">RegisterUpcomingFilter</span>
-                <br/>
-                <span class="ignored-method-name">DesignationSearch</span>
-                <br/>
-                <span class="ignored-method-name">HolidayMaster</span>
-                <br/>
-                <span class="ignored-method-name">ComplianceBox</span>
-                <br/>
-                <span class="ignored-method-name">PayCodeEdit</span>
-                <br/>
-                <span class="ignored-method-name">RegisterActionReview</span>
-                <br/>
-                <span class="ignored-method-name">CLRA_EmployeeMap_Filters</span>
-                <br/>
-                <span class="ignored-method-name">UpcomingBox</span>
-                <br/>
-                <span class="ignored-method-name">ChallanOverdue</span>
-                <br/>
-                <span class="ignored-method-name">EmployeerExportBtn</span>
-                <br/>
-                <span class="ignored-method-name">BulkUpateDesignationAlreadyExist</span>
-                <br/>
-                <span class="ignored-method-name">ComplainceReassignment</span>
-                <br/>
-                <span class="ignored-method-name">bulkUpload</span>
-                <br/>
-                <span class="ignored-method-name">CompanyLogo</span>
-                <br/>
-                <span class="ignored-method-name">PayCodeAddNewError</span>
-                <br/>
-                <span class="ignored-method-name">CLRAEmployerAddNew</span>
-                <br/>
-                <span class="ignored-method-name">PendingActionFilter</span>
-                <br/>
-                <span class="ignored-method-name">Premises_AddressMapping</span>
-                <br/>
-                <span class="ignored-method-name">PendingReviewFilter</span>
-                <br/>
-                <span class="ignored-method-name">CLRA_Location_SearchField</span>
-                <br/>
-                <span class="ignored-method-name">ChallanUpcoming</span>
-                <br/>
-                <span class="ignored-method-name">RegisterUpcoming</span>
-                <br/>
-                <span class="ignored-method-name">OverdueBox</span>
-                <br/>
-                <span class="ignored-method-name">ReturnUpcoming</span>
-                <br/>
-                <span class="ignored-method-name">Logout</span>
-                <br/>
-                <span class="ignored-method-name">RegisterOverdue</span>
-                <br/>
-                <span class="ignored-method-name">DeleteEmployer</span>
-                <br/>
-                <span class="ignored-method-name">UpcomingFilter</span>
-                <br/>
-                <span class="ignored-method-name">ChallanActionReview</span>
-                <br/>
-                <span class="ignored-method-name">Mapuser</span>
-                <br/>
-                <span class="ignored-method-name">RiskSummaryCompliedGraph</span>
-                <br/>
-                <span class="ignored-method-name">StateCitySealANDSignatureInvalid</span>
-                <br/>
-                <span class="ignored-method-name">CLRA_AddLocation_Upload</span>
-                <br/>
-                <span class="ignored-method-name">PendingActionBox</span>
-                <br/>
-                <span class="ignored-method-name">ComplianceAssignmentRegisterCLRA</span>
-                <br/>
-                <span class="ignored-method-name">Complied</span>
-                <br/>
-                <span class="ignored-method-name">ExportPremises</span>
-                <br/>
-                <span class="ignored-method-name">EditPremises</span>
-                <br/>
-                <span class="ignored-method-name">ReturnActionReview</span>
-                <br/>
-                <span class="ignored-method-name">PayCodeAddNewErrorSequence</span>
-                <br/>
-                <span class="ignored-method-name">BulkUpateDesignationAlreadyExistForUpdate</span>
-                <br/>
-                <span class="ignored-method-name">ComplianceFilter1</span>
-                <br/>
-                <span class="ignored-method-name">CLRA_AddLocation_Error</span>
-                <br/>
-                <span class="ignored-method-name">CLRA_AddLocation_EditUpdate</span>
-                <br/>
-                <span class="ignored-method-name">BulkUpateDesignation</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Default_suite" class="panel">
@@ -353,26 +232,26 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">testCases.All_Distributor_TWO</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">testCases.FailedTC2</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
                 <span class="method-name">setBrowser</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
               <div class="configuration-method before">
                 <span class="method-name">Login</span>
-                <span class="method-start">756 ms</span>
+                <span class="method-start">704 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">PayCodeUploadSampleFile</span>
-                <span class="method-start">23030 ms</span>
+                <span class="method-name">InputUploadFilters</span>
+                <span class="method-start">32887 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">browserClosing</span>
-                <span class="method-start">99983 ms</span>
+                <span class="method-name">browserClosing([TestResult name=InputUploadFilters status=SUCCESS method=FailedTC2.InputUploadFilters()[pri:200, in...)</span>
+                <span class="method-start">124132 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-test after">
                 <span class="method-name">Closing</span>
-                <span class="method-start">100350 ms</span>
+                <span class="method-start">127418 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
