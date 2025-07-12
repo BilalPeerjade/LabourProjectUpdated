@@ -3,7 +3,8 @@
 <suite thread-count="1" parallel="classes" name="Suite">
   <test  name="Test">
     <classes>
-      <class name="testCases.All_Distributor_TWO"/>
+      <class name="testCases.CoordinatorTestCases"/>
+      <class name="testCases.RCPTestCase"/>
       
 <!--      <class name="testCases.CoordinatorTestCases"/>
       <class name="comapnyAdminTest.ManagementCriticalTestCases"/>   -->
