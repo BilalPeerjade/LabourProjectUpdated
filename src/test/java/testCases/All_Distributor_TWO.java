@@ -793,7 +793,7 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 	   		extent.flush();
 	   	}
 		
-		@Test(priority = 312) 
+		@Test(priority = 312) //While uploading file with some error xml page is opening need to raise issue 
 	   	void CLRA_AddLocation_Upload() throws Exception
 	   	{
 	   		test = extent.startTest("OnBoard CLRA - Location - Verify to check upload location button is working or not?");
@@ -850,6 +850,18 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 	   		extent.flush();
 	   	}
 		
+		@Test(priority = 327) //Bilal need to this TC only bulk upload TC 
+	   	void CLRA_EmployeeMap_bulkUpload() throws InterruptedException, IOException, AWTException
+	   	{
+	   		test = extent.startTest("OnBoard CLRA - Employee Mapping - Verify to download sample files in bulk upload ");
+	   		
+	   		All_Distributor_Methods.CLRA_EmployeeMap_bulkUpload(test, workbook);
+	   		
+	   		extent.endTest(test);
+	   		extent.flush();
+	   	}
+		
+		
 		@Test(priority = 330) //Bilal
 	   	void CLRA_EmployeeMap_Export() throws InterruptedException, IOException, AWTException
 	   	{
@@ -860,6 +872,7 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 	   		extent.endTest(test);
 	   		extent.flush();
 	   	}
+		
 		
 		//CLRA - Compliance Assignment 
 		@Test(priority = 340) //Bilal

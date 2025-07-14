@@ -2408,8 +2408,9 @@ public class All_Distributor_Methods extends BasePage
 		
 		 if(DeleteButtonMessage.equalsIgnoreCase("Are you sure you want to delete Principle Employer?")||DeleteButtonMessage.equalsIgnoreCase("Principle Employer Location Exists Already"))
 		 {
-			 test.log(LogStatus.PASS, "Delete button is working fine !");
+			 test.log(LogStatus.PASS, "Delete button is working fine ");
 			 Thread.sleep(1000);
+			 test.log(LogStatus.PASS, "Cancel button is working fine ");
 			 test.log(LogStatus.PASS, "Message displayed = "+DeleteButtonMessage);
 		 }
 		 else
@@ -2504,11 +2505,84 @@ public class All_Distributor_Methods extends BasePage
 		DistributerLocators.EMap_select2ndvalue().click();
 		Thread.sleep(5000);
 		
+		
+		
+		//Without selecting check box migrating 
+		DistributerLocators.clickMigrate().click();
+		Thread.sleep(2000);
+		
+		String textWithoutSelectingCB=DistributerLocators.clickMsg().getText();
+		
+		 if(textWithoutSelectingCB.equalsIgnoreCase("No Data For Migration"))
+		 {
+			 test.log(LogStatus.PASS, "Without selecting employee check box error message displayed ");
+			 Thread.sleep(1000);
+			 test.log(LogStatus.PASS, "Message displayed = "+textWithoutSelectingCB);
+		 }
+		 else
+		 {
+			 test.log(LogStatus.FAIL, "Without selecting employee check box message displayed = "+textWithoutSelectingCB);
+		 }
+		
+		 Thread.sleep(2000);
+		 DistributerLocators.ClickOK().click();
+		 Thread.sleep(5000);
+		
+		
 		DistributerLocators.EMap_checkbox().click();
 		Thread.sleep(2000);
 		
 		DistributerLocators.clickMigrate().click();
 		Thread.sleep(2000);
+		
+		
+		//Checking Contract From date greater than Contract From date error
+		//Contract From date: Calendar 1
+		DistributerLocators.Calendar1().click();
+		OneCommonMethod.selectCalendarDateFromInput(
+			    driver.get(),
+			    test,
+			    DistributerLocators.Calendar1(),                      // calendar icon
+			    DistributerLocators.Calendar_NavigateToParentView(), // parent view arrow
+			    "01-07-2025"                                          // date in dd-MM-yyyy format
+			);
+		
+		//Contract To date: Calendar 2
+		DistributerLocators.Calendar2().click();
+		OneCommonMethod.selectCalendarDateFromInput(
+			    driver.get(),
+			    test,
+			    DistributerLocators.Calendar2(),                      // calendar icon
+			    DistributerLocators.Calendar_NavigateToParentView(), // parent view arrow
+			    "01-01-2025"                                          // date in dd-MM-yyyy format
+			);
+		
+		
+		String From_To_Date_Error=DistributerLocators.clickMsg().getText();
+		
+		 if(From_To_Date_Error.equalsIgnoreCase("Contract To Date should be greater than Contract From Date"))
+		 {
+			 test.log(LogStatus.PASS, "On selecting Contract From date is lesser than Contract To date error message displayed ");
+			 Thread.sleep(3000);
+			 test.log(LogStatus.PASS, "Message displayed = "+From_To_Date_Error);
+		 }
+		 else
+		 {
+			 test.log(LogStatus.FAIL, "Message displayed = "+From_To_Date_Error);
+		 }
+		
+		
+		
+		
+		 Thread.sleep(2000);
+		 DistributerLocators.ClickOK().click();
+		 Thread.sleep(5000);
+		
+		
+		
+		
+		
+		
 		
 		//Inside Popup of migrate button
 		DistributerLocators.EMap_Migrate_dropdown1().click();
@@ -2525,7 +2599,7 @@ public class All_Distributor_Methods extends BasePage
 		Thread.sleep(2000);
 		
 		//Calendar handling
-		DistributerLocators.Calendar1().click();
+/*		DistributerLocators.Calendar1().click();
 		Thread.sleep(2000);
 		getDriver().findElement(By.xpath("(//span[@class='k-link'][normalize-space()='1'])")).click();
 		Thread.sleep(2000);
@@ -2549,6 +2623,41 @@ public class All_Distributor_Methods extends BasePage
 		DistributerLocators.Calendar3().click();
 		getDriver().findElement(By.xpath("//span[contains(text(),'Today')]")).click();
 		
+		*/
+		
+		//Contract From date: Calendar 1
+		DistributerLocators.Calendar1().click();
+		OneCommonMethod.selectCalendarDateFromInput(
+			    driver.get(),
+			    test,
+			    DistributerLocators.Calendar1(),                      // calendar icon
+			    DistributerLocators.Calendar_NavigateToParentView(), // parent view arrow
+			    "01-07-2025"                                          // date in dd-MM-yyyy format
+			);
+		
+		//Contract To date: Calendar 2
+		DistributerLocators.Calendar2().click();
+		OneCommonMethod.selectCalendarDateFromInput(
+			    driver.get(),
+			    test,
+			    DistributerLocators.Calendar2(),                      // calendar icon
+			    DistributerLocators.Calendar_NavigateToParentView(), // parent view arrow
+			    "01-02-2026"                                          // date in dd-MM-yyyy format
+			);
+		
+		//Employee DOJ: Calendar 3
+		DistributerLocators.Calendar3().click();
+		OneCommonMethod.selectCalendarDateFromInput(
+			    driver.get(),
+			    test,
+			    DistributerLocators.Calendar3(),                      // calendar icon
+			    DistributerLocators.Calendar_NavigateToParentView(), // parent view arrow
+			    "15-07-2025"                                          // date in dd-MM-yyyy format
+			);
+		
+		
+		
+		
 		DistributerLocators.clicksave().click();
 		
 		Thread.sleep(2000);
@@ -2561,7 +2670,8 @@ public class All_Distributor_Methods extends BasePage
 			 test.log(LogStatus.PASS, "Migrate button is working fine");
 			 Thread.sleep(1000);
 			 test.log(LogStatus.PASS, "Checkbox is selected successfully");
-			 test.log(LogStatus.PASS, "All filters ");
+			 Thread.sleep(3000);
+			 test.log(LogStatus.PASS, "Employee Migration to Principle Employer Filters are working fine");
 			 
 			 test.log(LogStatus.PASS, "Message displayed = "+msg);
 		 }
@@ -2618,6 +2728,61 @@ public class All_Distributor_Methods extends BasePage
 			
 	}
 	
+	public static void CLRA_EmployeeMap_bulkUpload( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException, AWTException
+	{
+		
+		
+		Thread.sleep(5000);
+		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+		Thread.sleep(5000);
+		DistributerLocators.clickPremiseMasterArrow().click();
+		Thread.sleep(7000);
+		DistributerLocators.clickOnboardCLRA().click();
+		
+		Thread.sleep(5000);
+		DistributerLocators.clickEmpMapping().click();
+		
+		Thread.sleep(5000);
+		DistributerLocators.EMap_dropdown1().click();
+		Thread.sleep(2000);
+		DistributerLocators.EMap_select2ndvalue().click();
+		Thread.sleep(2000);
+		DistributerLocators.EMap_dropdown2().click();
+		Thread.sleep(2000);
+		DistributerLocators.EMap_select2ndvalue().click();
+		Thread.sleep(2000);
+		DistributerLocators.EMap_dropdown3().click();
+		Thread.sleep(2000);
+		DistributerLocators.EMap_select2ndvalue().click();
+		Thread.sleep(2000);
+		DistributerLocators.EMap_dropdown4().click();
+		Thread.sleep(2000);
+		DistributerLocators.EMap_select2ndvalue().click();
+		Thread.sleep(5000);
+		
+		DistributerLocators.EMap_BulkUpload().click();
+		Thread.sleep(5000);
+	    
+		//Sample File download 
+		OneCommonMethod.validateFileDownloadDynamic(
+			    driver.get(),test,
+			    DistributerLocators.SampleDocumentCLRA(),   // WebElement
+			    "Sample Document is downloaded successfully"   // Dynamic log message
+			);
+	    
+
+		//Sample PE Details
+		OneCommonMethod.validateFileDownloadDynamic(
+			    driver.get(),test,
+			    DistributerLocators.SamplePE_DetailsDocCLRA(),   // WebElement
+			    "Sample Document Principle Employee Details is downloaded successfully"   // Dynamic log message
+			);
+		
+			
+	}
+	
+	
 	public static void CLRA_AddLocation_Upload( ExtentTest test,XSSFWorkbook workbook) throws Exception
 	{
 		
@@ -2648,14 +2813,109 @@ public class All_Distributor_Methods extends BasePage
 		Thread.sleep(5000);
 		
 		DistributerLocators.Upload().click();
-		Thread.sleep(1000);
+		Thread.sleep(3000);
+		
+		
+		getDriver().findElement(By.xpath("//button[normalize-space()='Upload']")).click();
+
+		String noFileChoosen=DistributerLocators.clickMsg().getText();
+		
+		 if(noFileChoosen.equalsIgnoreCase("No file selected."))
+		 {
+			 test.log(LogStatus.PASS, "While clicking upload without selecting file is not uploaded");
+			 Thread.sleep(1000);
+			 test.log(LogStatus.PASS, "Message displayed = "+noFileChoosen);
+		 }
+		 else
+		 {
+			 test.log(LogStatus.FAIL, "While clicking upload without selecting file message displayed = "+ noFileChoosen);
+		 }
+		 
+		 Thread.sleep(2000);
+		 DistributerLocators.clickOkBtn().click();
+		 Thread.sleep(5000);
+		 DistributerLocators.Upload().click();
+		
+		
+		
+		
+		
+		
+		
+		
+		DistributerLocators.clickBrowse1().click();
+		
+		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Distributor Admin\\Premises Upload\\Premises.xlsx");
+		
+		getDriver().findElement(By.xpath("//button[normalize-space()='Upload']")).click();
+
+		String invalidFile=DistributerLocators.clickMsg().getText();
+		
+		 if(invalidFile.equalsIgnoreCase("Invalid template file!")||invalidFile.equalsIgnoreCase("Principle Employer Location Exists Already"))
+		 {
+			 test.log(LogStatus.PASS, "While uploading invalid file it is not uploaded");
+			 Thread.sleep(1000);
+			 test.log(LogStatus.PASS, "Message displayed = "+invalidFile);
+		 }
+		 else
+		 {
+			 test.log(LogStatus.FAIL, "While Uploading Invalid file message displayed = "+invalidFile);
+		 }
+		 Thread.sleep(2000);
+		 DistributerLocators.clickOkBtn().click();
+		 Thread.sleep(5000);
+		
+		 DistributerLocators.Upload().click();
+		 Thread.sleep(3000);			
+			
+			
+		DistributerLocators.clickBrowse1().click();
+		
+		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Distributor Admin\\CLRA\\SampleEmployeeLocation Error.xlsx");
+		
+		getDriver().findElement(By.xpath("//button[normalize-space()='Upload']")).click();
+
+		String FileContainsSomeError=DistributerLocators.clickMsg().getText();
+		
+		 if(FileContainsSomeError.equalsIgnoreCase("Error while uploading")||FileContainsSomeError.equalsIgnoreCase("Principle Employer Location Exists Already"))
+		 {
+			 test.log(LogStatus.PASS, "While uploading file with some error it is not uploaded");
+			 Thread.sleep(1000);
+			 test.log(LogStatus.PASS, "Message displayed = "+FileContainsSomeError);
+		 }
+		 else
+		 {
+			 test.log(LogStatus.FAIL, "While Uploading file with some error message displayed = "+FileContainsSomeError);
+		 }
+		 Thread.sleep(2000);
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 DistributerLocators.clickOkBtn().click();
+		 Thread.sleep(5000);
+		
+		 DistributerLocators.Upload().click();
+		 Thread.sleep(3000);
+		 
+		 
+		
+		//Sample File download 
+		OneCommonMethod.validateFileDownloadDynamic(
+			    driver.get(),test,
+			    DistributerLocators.SampleDocumentCLRA(),   // WebElement
+			    "Sample Document is downloaded successfully"   // Dynamic log message
+			);
+		
 		DistributerLocators.clickBrowse1().click();
 		
 		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Distributor Admin\\CLRA\\SampleEmployeeLocation.xlsx");
 		
 		getDriver().findElement(By.xpath("//button[normalize-space()='Upload']")).click();
-		
-		
+
 		String msg=DistributerLocators.clickMsg().getText();
 		
 		 if(msg.equalsIgnoreCase("File uploaded successfully")||msg.equalsIgnoreCase("Principle Employer Location Exists Already"))
@@ -2715,7 +2975,10 @@ public class All_Distributor_Methods extends BasePage
 		
 		if(text.equalsIgnoreCase("Amaravati"))
 		{
+			test.log(LogStatus.PASS, "Select Principal Employer dropdown is working fine");
+			Thread.sleep(2000);
 			test.log(LogStatus.PASS, "Search filter is working fine");
+			Thread.sleep(1000);
 			test.log(LogStatus.PASS, "Search value is displayed in grid : " + text);
 		}
 		else

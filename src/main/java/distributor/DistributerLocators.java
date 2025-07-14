@@ -53,6 +53,16 @@ public class DistributerLocators extends BasePage
 		labour = getDriver().findElement(By.xpath("//span[normalize-space()='Onboard CLRA']"));
 		return labour;
 	}
+	public static WebElement SampleDocumentCLRA()	
+	{
+		labour = getDriver().findElement(By.xpath("(//a[normalize-space()='Sample Document'])[1]"));
+		return labour;
+	}
+	public static WebElement SamplePE_DetailsDocCLRA()	
+	{
+		labour = getDriver().findElement(By.xpath("(//a[normalize-space()='Download Principle Employee Details'])[1]"));
+		return labour;
+	}
 	public static WebElement clickSearchState()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//input[@placeholder='Search State/Location Code']"));
@@ -758,6 +768,12 @@ public class DistributerLocators extends BasePage
 		labour = getDriver().findElement(By.xpath("//li[@class='k-list-item'][2]"));
 		return labour;
 	}
+	public static WebElement EMap_BulkUpload()
+	{
+		labour = getDriver().findElement(By.xpath("//img[@title='Upload Bulk']"));
+		return labour;
+	}
+	
 	public static WebElement EMap_checkbox()
 	{
 		labour = getDriver().findElement(By.xpath("(//input[@type='checkbox'])[2]"));
