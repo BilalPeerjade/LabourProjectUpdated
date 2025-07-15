@@ -428,7 +428,26 @@ public class All_Distributor_TWO  extends BasePage {
 			extent.endTest(test);
 			extent.flush();
 		}
-		
+		@Test(priority = 86) //Bilal
+		void CompliedHighRiskSummaryFilter() throws InterruptedException, IOException
+		{
+			test = extent.startTest("High Risk Summary - Complied - Multiple Filter verification");
+			
+			MethodsD.CompliedHighRiskSummaryFilter(test,"Performer");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		@Test(priority = 87) //Bilal
+		void CompliedMediumRiskSummaryFilter() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Medium Risk Summary - Complied - Multiple Filter verification");
+			
+			MethodsD.CompliedMediumRiskSummaryFilter(test,"Performer");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
 		
 		
 		@Test(priority = 90) //If see some test case add above

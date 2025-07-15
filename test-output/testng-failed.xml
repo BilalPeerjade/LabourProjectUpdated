@@ -3,16 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testCases.All_Reviewer_TestCase">
+      <class name="testCases.SDExecutorTestCase">
         <methods>
+          <include name="ExistingLicenseViewIcon"/>
+          <include name="ExistingLicenseDownload"/>
           <include name="Login"/>
-          <include name="browserClosing"/>
-          <include name="PendingActionBox"/>
-          <include name="Closing"/>
-          <include name="ChallanOverdue"/>
           <include name="setBrowser"/>
+          <include name="close"/>
         </methods>
-      </class> <!-- testCases.All_Reviewer_TestCase -->
+      </class> <!-- testCases.SDExecutorTestCase -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

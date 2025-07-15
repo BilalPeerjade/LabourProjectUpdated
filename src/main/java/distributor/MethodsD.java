@@ -6726,6 +6726,8 @@ else {
 		 {
 			 test.log(LogStatus.PASS,  filter.get(i)+" dropdown working properly.");
 				test.log(LogStatus.PASS, filter.get(i)+" displayed : "+Pas);	
+				
+				
 				System.out.println(filter.get(i)+" : "+Pas);
 	 }
 		text.clear();

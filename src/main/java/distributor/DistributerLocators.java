@@ -118,6 +118,11 @@ public class DistributerLocators extends BasePage
 		labour = getDriver().findElement(By.xpath("//span[normalize-space()='OK']"));
 		return labour;
 	}
+	public static WebElement clickCancelBtn()
+	{
+		labour = getDriver().findElement(By.xpath("//button[@title='Cancel']"));
+		return labour;
+	}
 	public static WebElement clickcloseBtn()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//button[@title='Close']"));
@@ -547,9 +552,40 @@ public class DistributerLocators extends BasePage
 		labour = getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-right k-svg-icon k-icon ng-star-inserted']"));
 		return labour;
 	}
-	public static WebElement Triangle3rd_selectbranch() //select branch
+/*	public static WebElement Triangle3rd_selectbranch() //select branch
 	{
 		labour = getDriver().findElement(By.xpath("//span[contains(normalize-space(), 'Sonai_Test')]"));
+		return labour;
+	} */
+	
+	public static WebElement Triangle3rd_selectbranch() {
+	    List<By> locators = Arrays.asList(
+	        By.xpath("//span[contains(normalize-space(), 'Sonai_Test')]"),
+	        By.xpath("//span[contains(normalize-space(), 'pune_testt')]"),
+	        By.xpath("")//Not working this    
+	        );
+
+	    for (By locator : locators) {
+	        try {
+	            WebElement element = getDriver().findElement(locator);
+	            if (element != null && element.isDisplayed()) {
+	                return element; // 🎯 Element found, return it immediately
+	            }
+	        } catch (Exception e) {
+	            // Locator not found, try next one
+	        }
+	    }
+	    System.out.println("❌ Element not found using any locator.");
+	    return null; // All locators failed
+	}
+	
+	
+	
+	
+	
+	public static WebElement Triangle5thCB() //5th Check box
+	{
+		labour = getDriver().findElement(By.xpath("(//input[@class='k-checkbox k-checkbox-md k-rounded-md'])[5]"));
 		return labour;
 	}
 	public static WebElement select_Bobbili_Avacored_branch()

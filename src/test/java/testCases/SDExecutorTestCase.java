@@ -58,7 +58,13 @@ public class SDExecutorTestCase extends BasePage
 	@BeforeMethod
 	void Login() throws InterruptedException, IOException
 	{
-		initializationSDExecutor(link,7,"Labour");
+		//Unhide if ask security questions!
+	//	initializationSDExecutor(link,7,"Labour");
+		
+		//Hide if ask security questions!
+		initialization(link,7,"Labour");
+		
+		
 //		String username = null;
 //		login.LoginMethods.UserLoginSDExecutor(username,password,"SD Executor");
 	

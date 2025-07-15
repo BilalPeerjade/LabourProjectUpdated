@@ -603,7 +603,7 @@ import rcp.OneCommonMethod;
 		
 		
 		//Title: High Risk Summary - Complied - Multiple Filter verification
-		@Test(priority = 26)
+		@Test(priority = 26) //Moved similar in all
 		void CompliedRiskSummaryGraphFilter() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Pie Chart - Risk summary - Complied - Multiple filter verification");

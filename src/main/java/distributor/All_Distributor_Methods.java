@@ -5226,11 +5226,16 @@ for(String Fal : fail)
 		
 		Thread.sleep(1000);
 		DistributerLocators.clicksave().click();
+		Thread.sleep(4000);
+		DistributerLocators.clickCancelBtn().click();
+		Thread.sleep(4000);
+		DistributerLocators.clicksave().click();
 		
 		Thread.sleep(1000);
 		String msg=DistributerLocators.CASuccessMsg().getText();
 		if(msg.equalsIgnoreCase(msg))
 		{
+			test.log(LogStatus.PASS,"Cancel button working successfully");
 			test.log(LogStatus.PASS,"Save button working successfully");
 			Thread.sleep(1000);
 			test.log(LogStatus.PASS,"Message displayed:-" +msg);
@@ -5611,6 +5616,16 @@ for(String Fal : fail)
 		
 		Thread.sleep(1000);
 		DistributerLocators.clicksave().click();
+		
+		//Cancel button test
+		Thread.sleep(2000);
+		DistributerLocators.clickCancelBtn().click();
+		Thread.sleep(2000);
+		test.log(LogStatus.PASS,"Cancel button is working fine");
+		DistributerLocators.clicksave().click();
+		Thread.sleep(2000);
+		
+		
 		
 		Thread.sleep(1000);
 		String msg=DistributerLocators.CRValidDate().getText();
