@@ -189,7 +189,8 @@ package performer;
 	{
 		LoginLocators.Exportbtn().click();
 		
-		}
+	}
+	Thread.sleep(7000);
 	test.log(LogStatus.PASS, "File downloaded successfully.");
 
 	Thread.sleep(5500);

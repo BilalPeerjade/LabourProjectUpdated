@@ -905,6 +905,17 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 	   		extent.flush();
 
 	   	}
+		@Test(priority = 341) //Bilal
+	   	void CLRA_CompAssignment_Validations() throws InterruptedException, IOException, AWTException
+	   	{
+	   		test = extent.startTest("OnBorad CLRA - Compliance Assignment validation error messages verification ");
+	   		
+	   		All_Distributor_Methods.CLRA_CompAssignment_Validations(test, workbook);
+	   		
+	   		extent.endTest(test);
+	   		extent.flush();
+
+	   	}
 		
 		//CLRA: Manage Compliances 
 		@Test(priority = 345)

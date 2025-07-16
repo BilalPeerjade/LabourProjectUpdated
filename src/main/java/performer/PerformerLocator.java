@@ -1344,7 +1344,7 @@ private static WebElement labour = null;			//WebElement variable created for Use
 	}
 	public static WebElement StateCitySelectAddressDropdown() 
 	{
-		labour = getDriver().findElement(By.xpath("//input[@class='k-input-inner']"));
+		labour = getDriver().findElement(By.xpath("(//input[@class='k-input-inner'])[2]"));
 		return labour;
 	}
 	public static WebElement StateCityAddressMapping_2ndValue() 

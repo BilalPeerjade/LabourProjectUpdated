@@ -1390,7 +1390,7 @@ public class All_Distributor_Methods extends BasePage
 		
 		DistributerLocators.clickOnboardCLRA().click();
 		
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		DistributerLocators.holidayMaster().click();
 		
 		 getDriver().navigate().refresh();
@@ -2770,8 +2770,8 @@ public class All_Distributor_Methods extends BasePage
 			    DistributerLocators.SampleDocumentCLRA(),   // WebElement
 			    "Sample Document is downloaded successfully"   // Dynamic log message
 			);
-	    
-
+		
+		Thread.sleep(5000);
 		//Sample PE Details
 		OneCommonMethod.validateFileDownloadDynamic(
 			    driver.get(),test,
@@ -4548,6 +4548,59 @@ for(String Fal : fail)
 		Thread.sleep(1000);
 		DistributerLocators.UpdateContractor().click();
 		
+		
+		
+		
+		//Checking validation with invalid dates 
+		DistributerLocators.Calendar1().click();
+		OneCommonMethod.selectCalendarDateFromInput(
+			    driver.get(),
+			    test,
+			    DistributerLocators.Calendar1(),                      // calendar icon
+			    DistributerLocators.Calendar_NavigateToParentView(), // parent view arrow
+			    "15-06-2025"                                          // date in dd-MM-yyyy format
+			);
+		
+		
+		DistributerLocators.Calendar2().click();
+		OneCommonMethod.selectCalendarDateFromInput(
+			    driver.get(),
+			    test,
+			    DistributerLocators.Calendar2(),                      // calendar icon
+			    DistributerLocators.Calendar_NavigateToParentView(), // parent view arrow
+			    "01-01-2025"                                          // date in dd-MM-yyyy format
+			);
+		
+		
+		String validationDates=DistributerLocators.clickMsg().getText();
+		
+		 if(validationDates.equalsIgnoreCase("Contract To Date should be greater than Contract From Date"))
+		 {
+			 test.log(LogStatus.PASS, "Compliances are reflected in grid");
+			 Thread.sleep(2000);
+			 test.log(LogStatus.PASS, "Edit button is working fine ");
+			 
+			 test.log(LogStatus.PASS, "While selecting Contract To date is lesser than Contract From date validation message displayed ");
+			 Thread.sleep(1000);
+			 test.log(LogStatus.PASS, "Message displayed : "+validationDates);
+		 }
+		
+		 Thread.sleep(1000);
+		 DistributerLocators.clickOkBtn().click();
+		 Thread.sleep(4000);
+		 
+		  DistributerLocators.Calendar2().click();
+		  OneCommonMethod.selectCalendarDateFromInput(
+				    driver.get(),
+				    test,
+				    DistributerLocators.Calendar2(),                      // calendar icon
+				    DistributerLocators.Calendar_NavigateToParentView(), // parent view arrow
+				    "01-07-2026"                                          // date in dd-MM-yyyy format
+				);
+		 
+		 
+		
+		
 		Thread.sleep(5000);
 		DistributerLocators.clicksave().click();
 		
@@ -4556,9 +4609,8 @@ for(String Fal : fail)
 		
 		 if(msg.equalsIgnoreCase("Contractor Saved Successfully"))
 		 {
-			 test.log(LogStatus.PASS, "Compliances are reflected in grid");
-			 Thread.sleep(2000);
-			 test.log(LogStatus.PASS, "Edit button is working fine ");
+			 Thread.sleep(1000);
+			 test.log(LogStatus.PASS, "Save button is working fine ");
 			 Thread.sleep(1000);
 			 test.log(LogStatus.PASS, "Message displayed : "+msg);
 		 }
@@ -5131,6 +5183,26 @@ for(String Fal : fail)
 		Thread.sleep(5000);
 		DistributerLocators.clickComplianceAssignment().click();
 		Thread.sleep(5000);
+		
+		
+		//Validation
+		DistributerLocators.clickApply().click();
+		
+		String validationMSG=DistributerLocators.clickMsg().getText();
+		if(validationMSG.equalsIgnoreCase("Please Select the Branch and Date"))
+		{
+			test.log(LogStatus.PASS,"Without selecting any dropdown validation message is displayed ");
+			Thread.sleep(1000);
+			test.log(LogStatus.PASS,"Message displayed:-" +validationMSG);
+			Thread.sleep(1000);
+			DistributerLocators.clickOkBtn().click();
+		}
+		Thread.sleep(5000);
+		
+		
+		
+		
+		
 		DistributerLocators.clickComplianceType().click();
 		Thread.sleep(1000);
 		DistributerLocators.selectComplianceType().click();
@@ -5273,11 +5345,156 @@ for(String Fal : fail)
 			}
 			
 			Thread.sleep(1000);
-			DistributerLocators.clickdashboard().click();
+			
 		
 		
 	}
 	
+	public static void CLRA_CompAssignment_Validations( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+	{
+		WebDriverWait wait=new WebDriverWait(getDriver(),20);
+	
+		
+		Thread.sleep(1000);
+		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
+		Thread.sleep(1000);
+		DistributerLocators.clickPremiseMasterArrow().click();
+		
+		
+		
+		Thread.sleep(1000);
+		
+		Thread.sleep(1000);
+		
+		Thread.sleep(3000);
+		DistributerLocators.clickOnboardCLRA().click();
+		
+		Thread.sleep(5000);
+		DistributerLocators.clickComplianceAssignment().click();
+		Thread.sleep(5000);
+		
+		
+		//Empty Validation
+		DistributerLocators.clickApply().click();
+		
+		String validationMSG=DistributerLocators.clickMsg().getText();
+		if(validationMSG.equalsIgnoreCase("Please Select the Branch and Date"))
+		{
+			test.log(LogStatus.PASS,"Without selecting any dropdown message is displayed ");
+			Thread.sleep(1000);
+			test.log(LogStatus.PASS,"Message displayed:-" +validationMSG);
+			Thread.sleep(1000);
+			DistributerLocators.clickOkBtn().click();
+			Thread.sleep(5000);
+		}
+		
+		// Validation for branch 
+		DistributerLocators.clickComplianceType().click();
+		Thread.sleep(1000);
+		DistributerLocators.selectComplianceType().click();
+		Thread.sleep(1000);
+//		DistributerLocators.clickBranch().click();
+		Thread.sleep(1000);
+//		DistributerLocators.selectBranch().click();
+		
+		Thread.sleep(5000);
+		DistributerLocators.clickApply().click();
+		
+		String validationBranch=DistributerLocators.clickMsg().getText();
+		if(validationBranch.equalsIgnoreCase("Please Select the Branch and Date"))
+		{
+			test.log(LogStatus.PASS,"Without selecting branch message is displayed ");
+			Thread.sleep(1000);
+			test.log(LogStatus.PASS,"Message displayed:-" +validationBranch);
+			Thread.sleep(1000);
+			DistributerLocators.clickOkBtn().click();
+			Thread.sleep(5000);
+		}
+		
+		
+		DistributerLocators.clickBranch().click();
+		Thread.sleep(1000);
+		DistributerLocators.selectBranch().click();
+		
+		Thread.sleep(5000);
+		DistributerLocators.clickApply().click();
+		
+		String validationCalendar=DistributerLocators.clickMsg().getText();
+		if(validationCalendar.equalsIgnoreCase("Please Select the Date"))
+		{
+			test.log(LogStatus.PASS,"Without selecting date message is displayed ");
+			Thread.sleep(1000);
+			test.log(LogStatus.PASS,"Message displayed:-" +validationCalendar);
+			Thread.sleep(1000);
+			DistributerLocators.clickOkBtn().click();
+			Thread.sleep(5000);
+		}
+		
+		
+		DistributerLocators.Calender().click();
+		OneCommonMethod.selectCalendarDateFromInput(
+			    driver.get(),
+			    test,
+			    DistributerLocators.Calender(),                      // calendar icon
+			    DistributerLocators.Calendar_NavigateToParentView(), // parent view arrow
+			    "15-06-2026"                                          // date in dd-MM-yyyy format
+			);
+		
+		
+		Thread.sleep(5000);
+		DistributerLocators.clickApply().click();
+		Thread.sleep(5000);
+		DistributerLocators.clickCheckBox().click();
+		
+		
+		Thread.sleep(3000);
+		DistributerLocators.clicksave().click();
+		Thread.sleep(3000);
+		DistributerLocators.clickOkBtn().click();
+		
+		String validationPerformer=DistributerLocators.clickMsg().getText();
+		if(validationPerformer.equalsIgnoreCase("Please Select the Performer"))
+		{
+			test.log(LogStatus.PASS,"Without selecting performer message is displayed ");
+			Thread.sleep(1000);
+			test.log(LogStatus.PASS,"Message displayed:-" +validationPerformer);
+			Thread.sleep(1000);
+			DistributerLocators.clickOkBtn().click();
+			Thread.sleep(5000);
+		}
+		
+		
+		Thread.sleep(3000);
+		DistributerLocators.clickPerformer().click();
+		Thread.sleep(3000);
+		DistributerLocators.selectPerformer().click();
+		Thread.sleep(3000);
+		
+		Thread.sleep(3000);
+		DistributerLocators.clicksave().click();
+		Thread.sleep(3000);
+		DistributerLocators.clickOkBtn().click();
+		
+		
+		String validationReviewer=DistributerLocators.clickMsg().getText();
+		if(validationReviewer.equalsIgnoreCase("Please Select the Reviewer"))
+		{
+			test.log(LogStatus.PASS,"Without selecting reviewer message is displayed ");
+			Thread.sleep(1000);
+			test.log(LogStatus.PASS,"Message displayed:-" +validationReviewer);
+			Thread.sleep(1000);
+			DistributerLocators.clickOkBtn().click();
+			Thread.sleep(5000);
+		}
+		
+		
+		
+		
+		
+		
+	
+	}
 	
 	public static void ComplianceAssignmentRetrunCLRA( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 	{

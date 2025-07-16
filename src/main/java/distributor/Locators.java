@@ -1183,6 +1183,11 @@ public class Locators extends BasePage {
 		user = getDriver().findElement(By.xpath("//button[normalize-space()='Upload']"));
 		return user;
 	}
+	public static WebElement  upload2( )		
+	{
+		user = getDriver().findElement(By.xpath("(//button[@title='Upload'])[2]"));
+		return user;
+	}
 	
 	public static WebElement  SamplePaycod( )		
 	{

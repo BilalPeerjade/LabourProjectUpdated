@@ -5171,9 +5171,11 @@ Locators.UploadAddressMapping().click();
 				
 				Locators.uploadPaycod().click();
 				Thread.sleep(3000);
+				Locators.Browse().click();
+				Thread.sleep(3000);
 				
 				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\OtherTwo\\SamplePaycodeMappingUpload.xlsx");
-				
+				Locators.upload2().click();
 				
         		String txt = Locators.MessageTextF4().getText();
         		

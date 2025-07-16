@@ -6144,6 +6144,12 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 	PerformerLocator.StateCityAddressMapping_ClearXcrossMark().click();
 	 	Thread.sleep(7000);
 	 	PerformerLocator.StateCitySelectAddressDropdown().sendKeys(Keys.ENTER);
+	 	
+	 	PerformerLocator.StateCitySelectAddressDropdown().click();
+
+	 	
+	 	
+	 	
 //	 	PerformerLocator.StateCitySelectAddressDropdown().click();
 	 	Thread.sleep(3000);
 	 	PerformerLocator.StateCityAddressMapping_2ndValue().click();
