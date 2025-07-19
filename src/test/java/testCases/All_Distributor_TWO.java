@@ -930,6 +930,19 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 
 	   	}
 		
+		//
+		@Test(priority = 350)
+	   	void CLRA_CompManage_ActDateChange() throws InterruptedException, IOException
+	   	{
+	   		test = extent.startTest("OnBorad CLRA - Manage Compliances - Activation Date change verification ");
+	   		 
+	   		All_Distributor_Methods.CLRA_CompManage_ActDateChange(test, workbook);
+	   		
+	   		extent.endTest(test);
+	   		extent.flush();
+
+	   	}
+		
 		
 	
 	

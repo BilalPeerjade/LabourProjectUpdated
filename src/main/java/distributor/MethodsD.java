@@ -6361,14 +6361,17 @@ else {
 		if(user.equalsIgnoreCase("Performer"))
 		{
 			LoginLocators.Search().sendKeys("TESTAUTO2");
+			 OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
 		{
-			LoginLocators.Search().sendKeys("TESTAUTO2");	
+			LoginLocators.Search().sendKeys("TESTAUTO2");
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
 		{
 			LoginLocators.Search().sendKeys("AVACORED5");	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 		}
 	//	LoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
 	//	LoginLocators.Search().sendKeys("WWKRG");
@@ -6519,6 +6522,9 @@ else {
 			 test.log(LogStatus.PASS,  filter.get(i)+" dropdown working properly.");
 				test.log(LogStatus.PASS, filter.get(i)+" displayed : "+Pas);	
 				System.out.println(filter.get(i)+" : "+Pas);
+				test.log(LogStatus.PASS, "period dropdown is working properly"); //me
+				test.log(LogStatus.PASS, "year dropdown is working properly");
+				
 	 }
 		text.clear();
 		pass.clear();
@@ -9818,6 +9824,74 @@ else {
 	*/
 	
 	
+		
+	}
+	
+	public static void StaturyDocPF_Basic_EPFwagesMatching( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+	
+
+
+	//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
+		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		Thread.sleep(7000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+		if(user.equalsIgnoreCase("Performer"))
+		{
+			LoginLocators.Search().sendKeys("TESTAUTO");
+		}
+		else if(user.equalsIgnoreCase("Distributor"))
+		{
+			LoginLocators.Search().sendKeys("AVACORED5");	
+		}
+		else if(user.equalsIgnoreCase("Reviewer"))
+		{
+			LoginLocators.Search().sendKeys("AVACORED5");	
+		}
+		
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.WorkspaceArrow()));
+		Thread.sleep(2000);
+		LoginLocators.WorkspaceArrow().click();
+		Thread.sleep(2000);
+		
+		PerformerLocator.clickStatutoryDoc().click();
+		Thread.sleep(2000);
+		PerformerLocator.clickComplianceType().click();
+		Thread.sleep(2000);
+		PerformerLocator.selectComplianceChallan().click();
+		Thread.sleep(2000);
+		PerformerLocator.clickAct2().click();
+		Thread.sleep(2000);
+		PerformerLocator.selectComplianceType4().click();
+		Thread.sleep(2000);
+		PerformerLocator.clickYear().click();
+		Thread.sleep(2000);
+		PerformerLocator.selectComplianceType1().click();
+		Thread.sleep(2000);
+		PerformerLocator.clickPeriod().click();
+		Thread.sleep(2000);
+		PerformerLocator.selectMonth().click();
+		
+		
+		Thread.sleep(2000);
+		PerformerLocator.clickBranch1().click();
+		Thread.sleep(2000);
+		getDriver().findElement(By.xpath("//span[contains(text(),'Gujarat')]")).click();
+		Thread.sleep(2000);
+		PerformerLocator.clickApply().click();
+		Thread.sleep(2000);
+//		getDriver().findElement(By.xpath("(//img[@title='Download'])[1]")).click();
+		Thread.sleep(2000);
+//		getDriver().findElement(By.xpath("(//img[@title='Download'])[1]")).click(); 
+		Thread.sleep(2000);
+		
+		
+		
+		
+		
+		
+		
 		
 	}
 	

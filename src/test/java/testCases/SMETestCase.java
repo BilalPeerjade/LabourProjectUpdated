@@ -75,11 +75,15 @@ public class SMETestCase extends BasePage
 
 	}
 @Test(priority =2)
-	void PendingAction() throws InterruptedException, IOException
+	void PendingAction() throws InterruptedException, IOException, EncryptedDocumentException, AWTException
 	{
 		test = extent.startTest("Notice- Response Pending count verification");
 		
 		Methods.CountMatch(test, "Response Pending");
+		
+		
+//		test = extent.startTest("Notice- Response Pending count verification");
+//		Methods.Exp(test);
 		
 		extent.endTest(test);
 		extent.flush();

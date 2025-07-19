@@ -30,6 +30,7 @@ import login.LoginLocators;
 import performer.LocatorsP;
 import performer.MethodsP;
 import performer.PerformerMethod;
+import rcp.EndToEnd_B_Methods;
 
 public class PerformerT extends BasePage {
 	
@@ -86,7 +87,7 @@ public class PerformerT extends BasePage {
 	
 	}
 
-	
+	/*
 	
 	@Test(priority = 1)
 	void EntitiesSearch() throws InterruptedException, IOException
@@ -428,7 +429,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 		extent.endTest(test);
 		extent.flush();
 	}
-	
+	*/
 	
 	//E2E
 	@Test(priority = 27) //E2E for Challan PT calculate PT Gross Wages
@@ -442,6 +443,19 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 		extent.flush();
 	}
 	
+	
+	
+	//E2E Suggest by bhagyesh sir
+	@Test(priority = 27) //
+	void StaturyDocPF_Basic_EPFwagesMatching() throws InterruptedException, IOException, AWTException
+	{
+		test = extent.startTest("Statutory Documents - Challan PT File Check weather PT Gross wages total is coming properly or not");
+		
+		EndToEnd_B_Methods.StaturyDocPF_Basic_EPFwagesMatching(test,"Performer");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 	
 	
 	

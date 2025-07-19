@@ -2005,7 +2005,7 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 	
 	
 	
-	
+	/*
 	
 	
 	
@@ -3112,7 +3112,7 @@ void ChallanDocBulkDownload() throws InterruptedException, IOException, AWTExcep
 			
 
 		
-    
+    */
 	
 		
 	

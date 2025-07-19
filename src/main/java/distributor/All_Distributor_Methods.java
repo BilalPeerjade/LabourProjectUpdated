@@ -4600,6 +4600,26 @@ for(String Fal : fail)
 		 
 		 
 		
+		  
+		  
+		  WebElement field = DistributerLocators.Contractor_NoOfEmpField();
+		  field.clear();
+		  Thread.sleep(2000);
+		  field.sendKeys("Hello");
+		  
+		  String txt = getDriver().findElement(By.xpath("//div[@class='text-danger ng-star-inserted']")).getText();
+		  if(txt.equalsIgnoreCase("Only numeric values are allowed."))
+		  {
+			  test.log(LogStatus.PASS, "While entering numeric values in 'No Of Employee' field error message displayed");
+			  test.log(LogStatus.PASS, "Message Displayed = " + txt);
+		  }
+		  
+		  field.clear();
+		  Thread.sleep(2000);
+		  field.sendKeys("10");
+		  
+		  
+		  
 		
 		Thread.sleep(5000);
 		DistributerLocators.clicksave().click();
@@ -5938,19 +5958,29 @@ for(String Fal : fail)
 			test.log(LogStatus.FAIL, "Apply Button does not working successfully");
 		}
 		
-		Thread.sleep(1000);
+		Thread.sleep(3000);
+		DistributerLocators.clickCheckBoxAll().click();
+		Thread.sleep(3000);
+		DistributerLocators.clickCheckBoxAll().click();
+		Thread.sleep(3000);
+		
+		
+		
 		DistributerLocators.clickCheckBox().click();
 		
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 //		DistributerLocators.clickCheckBox1().click();
 		
 		Thread.sleep(1000);
 		DistributerLocators.clicksave().click();
 		
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		String msg=DistributerLocators.CRValidDate().getText();
 		if(msg.equalsIgnoreCase("Compliance Reassigned Successfully"))
 		{
+			test.log(LogStatus.PASS, "Select all check box button is working fine");
+			Thread.sleep(1200);
+			test.log(LogStatus.PASS, "Select single checkbox button is working fine");
 			test.log(LogStatus.PASS, "Save button is working fine");
 			Thread.sleep(1000);
 			test.log(LogStatus.PASS, "Compliance reassigned successfully ");
@@ -5980,6 +6010,119 @@ for(String Fal : fail)
 			DistributerLocators.clickdashboard().click();
 		
 	}
+	
+	
+	public static void CLRA_CompManage_ActDateChange( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+	{
+		
+
+		Thread.sleep(5000);
+		
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+		Thread.sleep(1000);
+		DistributerLocators.clickPremiseMasterArrow().click();
+		
+		
+		
+		Thread.sleep(1000);
+		Thread.sleep(3000);
+		DistributerLocators.clickOnboardCLRA().click();
+		Thread.sleep(5000);
+		DistributerLocators.managecompliance().click();
+		Thread.sleep(5000);
+		DistributerLocators.compDropdown().click();
+		Thread.sleep(2000);
+		
+		
+		
+		
+		
+		DistributerLocators.selectActivationDateChange().click();
+		Thread.sleep(2000);
+		DistributerLocators.clickBranch1().click();
+		Thread.sleep(2000);
+		DistributerLocators.clickBranchTiangle1().click();
+		Thread.sleep(2000);
+		DistributerLocators.Triangle2nd().click();
+		Thread.sleep(2000);
+		DistributerLocators.Triangle3rd().click();
+		Thread.sleep(2000);
+		DistributerLocators.Triangle3rd_selectbranch().click();
+		Thread.sleep(2000);
+//		DistributerLocators.selectBranch1().click();
+		
+		DistributerLocators.applybtn().click();
+		Thread.sleep(5000);
+		
+		DistributerLocators.clickCheckBox().click();
+		Thread.sleep(2000);
+		DistributerLocators.clicksave().click();
+		
+		
+		Thread.sleep(2000);
+		
+		String MSG=DistributerLocators.clickMsg().getText();
+		if(MSG.equalsIgnoreCase("Activation Date Updated"))
+		{
+			test.log(LogStatus.PASS,"Activation date is changed successfully ");
+			Thread.sleep(1000);
+			test.log(LogStatus.PASS,"Message displayed:-" +MSG);
+			Thread.sleep(1000);
+			DistributerLocators.clickOkBtn().click();
+			Thread.sleep(5000);
+		}
+		else
+		{
+			test.log(LogStatus.FAIL	,"Activation date is not changed ");
+			Thread.sleep(1000);
+			test.log(LogStatus.FAIL,"Message displayed:-" +MSG);
+		}
+		
+		 
+			Thread.sleep(1000);
+			
+	//		TypetosearchCLRA
+			
+			
+			
+			DistributerLocators.TypetosearchCLRA().sendKeys("CLRA");
+		 	Thread.sleep(2000);
+//		 	PerformerLocator.StateCitySearchSelectSeondValue().click();
+		 	Thread.sleep(2000);
+//		 	PerformerLocator.clickApply().click();
+		 	Thread.sleep(5000);
+		 	String txt = getDriver().findElement(By.xpath("(//td[@class='k-table-td k-touch-action-auto ng-star-inserted'])[3]")).getText();
+		 	if(txt.equalsIgnoreCase("Register of Contractors (CLRA)") ||
+		 	   txt.equalsIgnoreCase("CLRA - Central")){
+		 		Thread.sleep(1000);
+		 		test.log(LogStatus.PASS, "Search State/ Location Code dropdown is working fine");
+		 		test.log(LogStatus.PASS, "Value displayed in grid:- " + txt);
+		 	}
+			
+		 	else
+		 	{
+		 		test.log(LogStatus.PASS, "Search Value is not displayed");
+		 	}
+			
+		 	
+		 	
+			if (DistributerLocators.clickclearBtn().isDisplayed()) {
+				DistributerLocators.clickclearBtn().click();
+				Thread.sleep(1000);
+				test.log(LogStatus.PASS, "Clear button is working fine");
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+		
+	}
+	
+	
 	
 	public static void ManageComplianceFilterCLRA( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 	{
@@ -6151,14 +6294,15 @@ for(String Fal : fail)
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
 		Thread.sleep(1000);
-		DistributerLocators.clickDashboard().click();
+		
 		
 		getDriver().navigate().refresh();
 		
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
-		Thread.sleep(1000);
-		DistributerLocators.clickDashboard().click();
+		Thread.sleep(5000);
+		DistributerLocators.clickPremiseMasterArrow().click();
+		
 		Thread.sleep(3000);
 		DistributerLocators.clickOnboardCLRA().click();
 		Thread.sleep(1000);

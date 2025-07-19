@@ -30,6 +30,7 @@ import com.relevantcodes.extentreports.LogStatus;
 
 
 import login.BasePage;
+import login.LoginLocators;
 import rcp.OneCommonMethod;
 
 
@@ -376,4 +377,22 @@ public class Methods extends BasePage
 	 }
 
 
+	 public static void Exp  (ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
+	 {
+	
+		  OneCommonMethod.validateExportedExcelDYNAMIC(
+		    	    driver.get(),
+		    	    test,
+		    	    LoginLocators.Exportbtn(),        // WebElement for export button
+		    	    LoginLocators.TotalNoOfItem(),     // WebElement for grid count text
+		    	    "State",                               // Column header to verify
+		    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+		    	);
+
+	 }
+	 
+	 
+	 
+	 
+	 
 }

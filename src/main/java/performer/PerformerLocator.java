@@ -335,6 +335,11 @@ private static WebElement labour = null;			//WebElement variable created for Use
 		labour = getDriver().findElement(By.xpath("//span[contains(text(),'January')]"));
 		return labour;
 	}
+	public static WebElement selectMonthMay()	
+	{
+		labour = getDriver().findElement(By.xpath("//span[contains(text(),'May')]"));
+		return labour;
+	}
 	public static WebElement clickPayrollYear()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("(//*[@class='k-input-value-text'])[18]"));
@@ -1004,11 +1009,18 @@ private static WebElement labour = null;			//WebElement variable created for Use
 		labour = getDriver().findElement(By.xpath("//*[@class='k-list-ul']/li[4]"));
 		return labour;
 	}
-	public static WebElement selectComplianceType4()		//Method for searching Username input
+	public static WebElement selectComplianceType4()
 	{
 		labour = getDriver().findElement(By.xpath("//*[@class='k-list-ul']/li[3]"));
 		return labour;
 	}
+	public static WebElement selectComplianceEPF()
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='Employee Provident Fund Act']"));
+		return labour;
+	}
+	
+	
 	public static WebElement Dropdown()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//*[@class='k-list-ul']"));

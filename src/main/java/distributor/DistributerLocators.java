@@ -118,6 +118,12 @@ public class DistributerLocators extends BasePage
 		labour = getDriver().findElement(By.xpath("//span[normalize-space()='OK']"));
 		return labour;
 	}
+	public static WebElement TypetosearchCLRA()	
+	{
+		labour = getDriver().findElement(By.xpath("//input[@placeholder='Type to Search']"));
+		return labour;
+	}
+	
 	public static WebElement clickCancelBtn()
 	{
 		labour = getDriver().findElement(By.xpath("//button[@title='Cancel']"));
@@ -210,6 +216,11 @@ public class DistributerLocators extends BasePage
 	public static WebElement UpdateContractor()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//img[@title='edit']"));
+		return labour;
+	}
+	public static WebElement Contractor_NoOfEmpField()
+	{
+		labour = getDriver().findElement(By.xpath("//input[@placeholder='No of Employee']"));
 		return labour;
 	}
 	public static WebElement enterDesignation()		//Method for searching Username input
@@ -344,6 +355,11 @@ public class DistributerLocators extends BasePage
 		labour = getDriver().findElement(By.xpath("//*[@class='k-list-ul']/li[2]"));
 		return labour;
 	}
+	public static WebElement selectActivationDateChange()
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='Activation Date Change']"));
+		return labour;
+	}
 	public static WebElement selectComplianceType5()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//*[@class='k-list-ul']/li[13]"));
@@ -422,6 +438,11 @@ public class DistributerLocators extends BasePage
 	public static WebElement clickCheckBox2()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("(//*[@type='checkbox'])"));
+		return labour;
+	}
+	public static WebElement clickCheckBoxAll()		//Method for searching Username input
+	{
+		labour = getDriver().findElement(By.xpath("(//input[@type='checkbox'])[1]"));
 		return labour;
 	}
 	public static WebElement clickCheckBox()		//Method for searching Username input
@@ -507,6 +528,11 @@ public class DistributerLocators extends BasePage
 	public static WebElement ValidationMsg()
 	{
 		labour = getDriver().findElement(By.xpath("//h4[normalize-space()='Compliance Reassigned Successfully']"));
+		return labour;
+	}
+	public static WebElement compDropdown()	//This is compliance reassignment drodown 
+	{
+		labour = getDriver().findElement(By.xpath("(//*[@class='k-input-value-text'])[1]"));
 		return labour;
 	}
 	public static WebElement clickComplianceType1()	

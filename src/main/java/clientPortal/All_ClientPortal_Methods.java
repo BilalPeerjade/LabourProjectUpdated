@@ -1878,7 +1878,9 @@ public class All_ClientPortal_Methods extends BasePage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//img[contains(@title,'Overview')])[1]")));
 		Thread.sleep(8000);
 		Thread.sleep(3000);
-		File dir = new File("C:\\Users\\bilali\\Downloads");
+		
+		
+/*		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
@@ -1893,6 +1895,17 @@ public class All_ClientPortal_Methods extends BasePage {
 		} else {Thread.sleep(5000);
 			test.log(LogStatus.FAIL,  " File does not downloaded.");
 		}
+		*/
+		
+	    OneCommonMethod.validateExportedExcelDYNAMIC(
+	    	    driver.get(),
+	    	    test,
+	    	    LoginLocators.Exportbtn(),        // WebElement for export button
+	    	    All_ClientPortal_Locators.readTotalItemsNotice(),     // WebElement for grid count text
+	    	    "Notice Type",                               // Column header to verify
+	    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+	    	);
+		
 		
 	}
 	
