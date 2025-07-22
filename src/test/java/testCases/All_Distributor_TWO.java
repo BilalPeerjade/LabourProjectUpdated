@@ -942,6 +942,27 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 	   		extent.flush();
 
 	   	}
+	    @Test(priority = 351)
+	   	void CLRA_ManageComp_AssignmentRemoval() throws InterruptedException, IOException
+	   	{
+	   		test = extent.startTest("OnBoard CLRA - Manage Compliances - Assignment Removal Verification");
+	   		
+	   		All_Distributor_Methods.CLRA_ManageComp_AssignmentRemoval(test, workbook);
+	   		
+	   		extent.endTest(test);
+	   		extent.flush();
+	   	}
+	    
+	    @Test(priority = 352)
+	   	void CLRA_ManageComp_ScneduleCreation() throws InterruptedException, IOException
+	   	{
+	   		test = extent.startTest("OnBoard CLRA - Manage Compliances - Assignment Removal Verification");
+	   		
+	   		All_Distributor_Methods.CLRA_ManageComp_ScneduleCreation(test, workbook);
+	   		
+	   		extent.endTest(test);
+	   		extent.flush();
+	   	}
 		
 		
 	

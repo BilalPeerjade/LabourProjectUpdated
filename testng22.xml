@@ -4,7 +4,7 @@
 <suite name="Suite">
   <test name="test" >
     <classes>
-      <class name="testCases.All_Client_Portal_TestCases"/>
+      <class name="testCases.All_Distributor_TWO"/>
   <!--    <class name="testCases.All_Performer_TestCases"/>  -->
 
     </classes>

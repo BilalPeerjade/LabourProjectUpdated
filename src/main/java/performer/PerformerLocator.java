@@ -1073,6 +1073,13 @@ private static WebElement labour = null;			//WebElement variable created for Use
 		labour = getDriver().findElement(By.xpath("//*[@class='k-svg-i-caret-alt-right k-svg-icon k-icon ng-star-inserted']"));
 		return labour;
 	}
+	
+	
+	public static By PfWorkingFileDownload() {
+	    return By.xpath("(//img[@alt='Download Document'])[5]");
+	}
+	
+	
 	public static WebElement selectBranch1()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("(//*[@role='group'])[2]/li"));

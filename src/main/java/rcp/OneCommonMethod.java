@@ -32,6 +32,7 @@ import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 //ExtentReports logging
@@ -949,6 +950,158 @@ public class OneCommonMethod {
 	 //       test.log(LogStatus.FAIL, "Exception while checking non-editable status of " + fieldName + ": " + e.getMessage());
 	    }
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public static void validateExcelTotal(WebDriver driver,ExtentTest test,By downloadLocator,String columnName,String sheetName,String logDescription) {
+	   
+		/**
+		 * 📌 This common method does end-to-end validation of an Excel column total.
+		 *
+		 * ✅ Steps performed in this method:
+		 *
+		 * 1. Get the system's dynamic Downloads path.
+		 * 2. Capture the list of files before download starts.
+		 * 3. Click the download button using the provided locator (By).
+		 * 4. Wait and identify the newly downloaded .xlsx file.
+		 * 5. Open the Excel file and access the specified sheet (e.g., "Pending").
+		 * 6. Locate the correct header row (default: second row / index 1).
+		 * 7. Find the index of the column based on the provided column name (e.g., "Basic Wages").
+		 * 8. Iterate through all rows after header:
+		 *    - Keep summing all numeric values in that column.
+		 *    - Stop when "Total" is found in first column; capture that total value from same column.
+		 * 9. Compare the calculated sum vs total cell:
+		 *    - If no data found, log as PASS.
+		 *    - If both values match, log as PASS.
+		 *    - If mismatch, log as FAIL.
+		 * 10. Catch and log any exceptions as ERROR.
+		 *
+		 * 📎 All parameters (locator, column name, sheet name, log message) are dynamic.
+		 * 🔁 Designed for reusability across modules (PF, ESI, PT, etc.).
+		 */
+		
+		try {
+	        // Step 1: Get user's Downloads directory
+	        String downloadPath = System.getProperty("user.home") + File.separator + "Downloads";
+	        File downloadDir = new File(downloadPath);
+	        File[] beforeDownload = downloadDir.listFiles();
+
+	        // Step 2: Trigger download
+	        driver.findElement(downloadLocator).click();
+	        Thread.sleep(10000); // Wait for download
+
+	        // Step 3: Find new downloaded file
+	        File[] afterDownload = downloadDir.listFiles();
+	        File latestFile = null;
+	        long lastModified = Long.MIN_VALUE;
+
+	        for (File file : afterDownload) {
+	            boolean isNew = true;
+	            for (File old : beforeDownload) {
+	                if (file.getName().equals(old.getName()) && file.lastModified() == old.lastModified()) {
+	                    isNew = false;
+	                    break;
+	                }
+	            }
+	            if (isNew && file.getName().endsWith(".xlsx") && file.lastModified() > lastModified) {
+	                latestFile = file;
+	                lastModified = file.lastModified();
+	            }
+	        }
+
+	        if (latestFile == null) {
+	            test.log(LogStatus.FAIL, "❌ File not downloaded.");
+	            return;
+	        } else {
+	            test.log(LogStatus.PASS, "✅ File downloaded: " + latestFile.getName());
+	        }
+
+	        // Step 4: Open Excel and get sheet
+	        FileInputStream fis = new FileInputStream(latestFile);
+	        Workbook workbook = WorkbookFactory.create(fis);
+	        Sheet sheet = workbook.getSheet(sheetName);
+
+	        if (sheet == null) {
+	            test.log(LogStatus.PASS, "'" + sheetName + "' sheet not found. No data to process.");
+	            workbook.close(); fis.close();
+	            return;
+	        }
+
+	        // Step 5: Find column index
+	        int headerRowNum = 1; // second row (index 1)
+	        Row headerRow = sheet.getRow(headerRowNum);
+	        int targetCol = -1;
+
+	        for (Cell cell : headerRow) {
+	            if (cell.getCellType() == CellType.STRING &&
+	                cell.getStringCellValue().trim().equalsIgnoreCase(columnName)) {
+	                targetCol = cell.getColumnIndex();
+	                break;
+	            }
+	        }
+
+	        if (targetCol == -1) {
+	            workbook.close(); fis.close();
+	            test.log(LogStatus.PASS, "'" + columnName + "' column NOT found, no data to process.");
+	            return;
+	        }
+
+	        // Step 6: Sum values and find total
+	        double calculatedSum = 0;
+	        double expectedTotal = 0;
+	        boolean dataFound = false;
+
+	        for (int i = headerRowNum + 1; i <= sheet.getLastRowNum(); i++) {
+	            Row row = sheet.getRow(i);
+	            if (row == null) continue;
+
+	            Cell firstCol = row.getCell(0);
+	            if (firstCol != null && firstCol.getCellType() == CellType.STRING &&
+	                firstCol.getStringCellValue().trim().equalsIgnoreCase("Total")) {
+
+	                Cell totalCell = row.getCell(targetCol);
+	                if (totalCell != null && totalCell.getCellType() == CellType.NUMERIC) {
+	                    expectedTotal = totalCell.getNumericCellValue();
+	                }
+	                break;
+	            }
+
+	            Cell valCell = row.getCell(targetCol);
+	            if (valCell != null && valCell.getCellType() == CellType.NUMERIC) {
+	                calculatedSum += valCell.getNumericCellValue();
+	                dataFound = true;
+	            }
+	        }
+
+	        workbook.close(); fis.close();
+
+	        // Step 7: Final check
+	        if (!dataFound) {
+	            test.log(LogStatus.PASS, "✅ No data found for '" + columnName + "' — treated as PASS.");
+	        } else if (Math.abs(calculatedSum - expectedTotal) < 0.001) {
+	            test.log(LogStatus.PASS, "✅ " + logDescription + " matched: " +
+	                "Calculated = " + calculatedSum + ", Total = " + expectedTotal);
+	        } else {
+	            test.log(LogStatus.FAIL, "❌ " + logDescription + " mismatch: " +
+	                "Calculated = " + calculatedSum + ", Total = " + expectedTotal);
+	        }
+
+	    } catch (Exception e) {
+	        test.log(LogStatus.ERROR, "❌ Exception during " + logDescription + ": " + e.getMessage());
+	        e.printStackTrace();
+	    }
+	}
+
 
 
 

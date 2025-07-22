@@ -3,15 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testCases.CoordinatorTestCases">
+      <class name="testCases.All_Distributor_TWO">
         <methods>
-          <include name="Login"/>
-          <include name="close"/>
+          <include name="Closing"/>
           <include name="setBrowser"/>
-          <include name="ExistingLicenseInitiateAction"/>
-          <include name="NoticeDocMandatory"/>
+          <include name="CLRA_ManageComp_ScneduleCreation"/>
+          <include name="Login"/>
+          <include name="browserClosing"/>
         </methods>
-      </class> <!-- testCases.CoordinatorTestCases -->
+      </class> <!-- testCases.All_Distributor_TWO -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

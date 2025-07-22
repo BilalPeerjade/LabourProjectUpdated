@@ -466,6 +466,79 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 	
 	
 	
+	
+	
+	
+	@Test(priority = 500) //
+	void StaturyDocPF_Basic_BasicWagesColumn() throws InterruptedException, IOException, AWTException
+	{
+		//Test Case 1
+		test = extent.startTest("Statutory Documents - Challan PT File Check weather PT Gross wages total is coming properly or not");
+		EndToEnd_B_Methods.StaturyDocPF_Basic_BasicWagesColumn(test,"Performer");
+		
+/*		//Test Case 2
+		test = extent.startTest("Statutory Documents - Challan PT File Check weather PT Gross wages total is coming properly or not");
+		EndToEnd_B_Methods.T1(test,"Performer");
+		
+		//Test Case 3
+		test = extent.startTest("Statutory Documents - Challan PT File Check weather PT Gross wages total is coming properly or not");
+		EndToEnd_B_Methods.T2(test,"Performer");
+		
+		//Test Case 4
+		test = extent.startTest("Statutory Documents - Challan PT File Check weather PT Gross wages total is coming properly or not");
+		EndToEnd_B_Methods.T3(test,"Performer");
+		
+		test = extent.startTest("Statutory Documents - Challan PT File Check weather PT Gross wages total is coming properly or not");
+		EndToEnd_B_Methods.T4(test,"Performer");
+		
+		test = extent.startTest("Statutory Documents - Challan PT File Check weather PT Gross wages total is coming properly or not");
+		EndToEnd_B_Methods.T5(test,"Performer"); */
+		
+		test = extent.startTest("Statutory Documents - Challan PT File Check weather PT Gross wages total is coming properly or not");
+		EndToEnd_B_Methods.T6(test,"Performer");
+		
+		test = extent.startTest("Statutory Documents - Challan PT File Check weather PT Gross wages total is coming properly or not");
+		EndToEnd_B_Methods.T7(test,"Performer");
+		
+		test = extent.startTest("Statutory Documents - Challan PT File Check weather PT Gross wages total is coming properly or not");
+		EndToEnd_B_Methods.T8(test,"Performer");
+		
+		test = extent.startTest("Statutory Documents - Challan PT File Check weather PT Gross wages total is coming properly or not");
+		EndToEnd_B_Methods.T9(test,"Performer");
+		
+		test = extent.startTest("Statutory Documents - PF Gross Uniqness");
+		EndToEnd_B_Methods.T10(test,"Performer");
+		
+		test = extent.startTest("Statutory Documents - PF Gross Uniqness serial number");
+		EndToEnd_B_Methods.T11(test,"Performer");
+		
+		test = extent.startTest("Statutory Documents - PF Gross Uniqness PF Number");
+		EndToEnd_B_Methods.T12(test,"Performer");
+		
+		test = extent.startTest("Statutory Documents - Total matching");
+		EndToEnd_B_Methods.T13(test,"Performer");
+		
+//		test = extent.startTest("Statutory Documents - Total matching");
+//		EndToEnd_B_Methods.T14(test,"Performer");
+		
+		test = extent.startTest("Statutory Documents - Total matching");
+		EndToEnd_B_Methods.T15(test,"Performer");
+		
+		
+		
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@AfterMethod
   	void browserClosing() throws InterruptedException
   	{

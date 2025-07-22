@@ -320,6 +320,11 @@ public class DistributerLocators extends BasePage
 		labour = getDriver().findElement(By.xpath("//*[@src='../assets/vectors/ClearFilter.svg']"));
 		return labour;
 	}
+	public static WebElement Clear()	
+	{
+		labour = getDriver().findElement(By.xpath("//button[@title='Clear']"));
+		return labour;
+	}
 	public static WebElement clickdashboard()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//span[normalize-space()='My Dashboard']"));

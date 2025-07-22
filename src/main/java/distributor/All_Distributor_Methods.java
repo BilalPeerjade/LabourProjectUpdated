@@ -32,6 +32,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import clientPortal.All_ClientPortal_Locators;
 import login.BasePage;
 import login.LoginLocators;
 import performer.LocatorsP;
@@ -4244,35 +4245,36 @@ for(String Fal : fail)
 
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
 		Thread.sleep(1000);
-		DistributerLocators.clickDashboard().click();
+		DistributerLocators.clickPremiseMasterArrow().click();
 		Thread.sleep(7000);
 		DistributerLocators.clickOnBoardEntity().click();
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		DistributerLocators.managecompliance().click();
 		
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		DistributerLocators.clickActivityDropDown().click();
 		
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		DistributerLocators.selectComplianceType1().click();
 		
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		DistributerLocators.clickBranch1().click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		DistributerLocators.clickBranchTiangle().click();
-	     Thread.sleep(1000);
+	     Thread.sleep(2000);
 		DistributerLocators.selectBranch1().click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		DistributerLocators.applybtn().click();
 		
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		DistributerLocators.clickCheckBox().click();
 		
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		if(DistributerLocators.clickRemoveBtn().isEnabled())
 		{
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 			DistributerLocators.clickRemoveBtn().click();
 			test.log(LogStatus.PASS, " 'Remove' button should get enabled.");
 		}
@@ -4281,7 +4283,7 @@ for(String Fal : fail)
 			test.log(LogStatus.FAIL, " 'Remove' button should not get enabled.");
 		}
 		
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		String msg=DistributerLocators.AssignmentRemovalMsg().getText();
 		if(msg.equalsIgnoreCase("Assignment Removed Successfully"))
 		{
@@ -4291,9 +4293,9 @@ for(String Fal : fail)
 		{
 			test.log(LogStatus.FAIL,"Message displayed:-" +msg);
 		}
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		DistributerLocators.clickOkBtn().click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		DistributerLocators.clickdashboard().click();
 		
 	}
@@ -6380,27 +6382,25 @@ for(String Fal : fail)
 
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
 		Thread.sleep(1000);
-		DistributerLocators.clickDashboard().click();
+		DistributerLocators.clickPremiseMasterArrow().click();
 		
-		getDriver().navigate().refresh();
 		
 		Thread.sleep(1000);
-		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
-		Thread.sleep(1000);
-		DistributerLocators.clickDashboard().click();
+		
 		Thread.sleep(3000);
 		DistributerLocators.clickOnboardCLRA().click();
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		DistributerLocators.managecompliance().click();
 		
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		DistributerLocators.clickActivityDropDown().click();
 		
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		DistributerLocators.selectComplianceType1().click();
 		
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 //		DistributerLocators.clickBranch1().click();
 
 		Thread.sleep(1000);
@@ -6446,6 +6446,7 @@ for(String Fal : fail)
 		DistributerLocators.clickdashboard().click();
 		
 	}
+	
 	
 	public static void ScheduleCreationCLRA( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 	{
@@ -6527,6 +6528,197 @@ for(String Fal : fail)
 		DistributerLocators.clickOkBtn().click();
 		Thread.sleep(1000);
 		DistributerLocators.clickdashboard().click();
+		
+	}
+	public static void CLRA_ManageComp_AssignmentRemoval( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+	{
+		
+
+		Thread.sleep(3000);
+		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
+		Thread.sleep(1000);
+		DistributerLocators.clickPremiseMasterArrow().click();
+		
+		
+		Thread.sleep(1000);
+		
+		Thread.sleep(3000);
+		DistributerLocators.clickOnboardCLRA().click();
+		Thread.sleep(5000);
+		DistributerLocators.managecompliance().click();
+		
+		Thread.sleep(3000);
+		DistributerLocators.clickActivityDropDown().click();
+		
+		Thread.sleep(3000);
+		DistributerLocators.selectComplianceType1().click();
+		
+		Thread.sleep(3000);
+//		DistributerLocators.clickBranch1().click();
+
+		Thread.sleep(1000);
+//		DistributerLocators.clickCheckBox2().click();
+		
+//		Thread.sleep(1000);
+//		Locators.clickBranch1().click();
+//		Thread.sleep(1000);
+//		Locators.clickBranchTiangle().click();
+//	     Thread.sleep(1000);
+//		Locators.selectBranch1().click();
+		Thread.sleep(1000);
+		DistributerLocators.applybtn().click();
+		
+		Thread.sleep(5000);
+		DistributerLocators.clickCheckBox().click();
+		
+		Thread.sleep(1000);
+		if(DistributerLocators.clickRemoveBtn().isEnabled())
+		{
+			Thread.sleep(1000);
+			DistributerLocators.clickRemoveBtn().click();
+			test.log(LogStatus.PASS, "Remove button is enabled.");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, " 'Remove' button should not get enabled.");
+		}
+		
+		Thread.sleep(1000);
+		String message=DistributerLocators.AssignmentRemovalMsg().getText();
+		if(message.equalsIgnoreCase("Assignment Removed Successfully"))
+		{
+			test.log(LogStatus.PASS,"Message displayed:-" +message);
+		}
+		else
+		{
+			test.log(LogStatus.FAIL,"Message displayed:-" + message);
+		}
+		Thread.sleep(1000);
+		DistributerLocators.clickOkBtn().click();
+		Thread.sleep(1000);
+		
+		Thread.sleep(5000);
+		try {Thread.sleep(5000);
+		DistributerLocators.Search().sendKeys("Maharashtra",Keys.ENTER);
+		Thread.sleep(4000);
+		String text = getDriver().findElement(By.xpath("//tbody/tr[1]/td[5]/div[1]")).getText();
+		
+			
+		test.log(LogStatus.PASS, "Search field is working fine");
+		Thread.sleep(1000);
+		test.log(LogStatus.PASS, "Search value is displayed in grid:- "+text);
+		
+		Thread.sleep(3000);
+		}catch(Exception e) {Thread.sleep(5000);
+			test.log(LogStatus.PASS, "no record available");
+		}
+		
+		
+		Thread.sleep(3000);
+		if(DistributerLocators.Clear().isDisplayed() && 
+		   DistributerLocators.Clear().isEnabled())
+		{
+			 DistributerLocators.Clear().click();
+			 test.log(LogStatus.PASS, "Clear button is working fine");
+			 
+		}
+		
+	}
+	
+	public static void CLRA_ManageComp_ScneduleCreation( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+	{
+		
+
+		Thread.sleep(1000);
+		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+		Thread.sleep(1000);
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
+		Thread.sleep(5000);
+		DistributerLocators.clickPremiseMasterArrow().click();
+		
+		
+		
+		Thread.sleep(1000);
+		Thread.sleep(3000);
+		DistributerLocators.clickOnboardCLRA().click();
+		Thread.sleep(4000);
+		DistributerLocators.managecompliance().click();
+		
+		Thread.sleep(1000);
+		DistributerLocators.clickActivityDropDown().click();
+		
+		Thread.sleep(1000);
+		DistributerLocators.selectComplianceType3().click();
+		
+		Thread.sleep(1000);
+		DistributerLocators.clickComplianceType1().click();
+		Thread.sleep(1000);
+		DistributerLocators.selectComplianceType1().click();
+		Thread.sleep(1000);
+		DistributerLocators.clickPeriod().click();
+		
+		Thread.sleep(1000);
+		if(DistributerLocators.PeriodList().isEnabled())
+		{
+			test.log(LogStatus.PASS, "All dropdown are working successfully");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "Dropdowns are not selected");
+		}
+		
+		Thread.sleep(1000);
+		DistributerLocators.selectComplianceType1().click();
+		Thread.sleep(1000);
+		DistributerLocators.clickYear().click();
+		
+		Thread.sleep(1000);
+/*		if(DistributerLocators.PeriodList().isEnabled())
+		{
+			test.log(LogStatus.PASS, "Dropdown list of Year should get visible.");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "Dropdown list of Year should not get visible.");
+		}
+	*/	
+		
+		Thread.sleep(1000);
+		DistributerLocators.selectComplianceType1().click();
+		
+
+		Thread.sleep(1000);
+		DistributerLocators.clickSubmit().click();
+			
+		Thread.sleep(1000);
+		String msg=DistributerLocators.ScheduleCreationMsg().getText();
+		if(msg.equalsIgnoreCase("Schedule created successfully."))
+		{
+			test.log(LogStatus.PASS,"Submit button is working fine ");
+			Thread.sleep(1000);
+			test.log(LogStatus.PASS,"Schedule is created");
+			Thread.sleep(1000);
+			test.log(LogStatus.PASS,"Message displayed:-" +msg);
+		}
+		else
+		{
+			test.log(LogStatus.FAIL,"Message displayed:-" +msg);
+		}
+		Thread.sleep(1000);
+		DistributerLocators.clickOkBtn().click();
+		Thread.sleep(5000);
+		
+		
+		Thread.sleep(3000);
+		if(DistributerLocators.Clear().isDisplayed() && 
+		   DistributerLocators.Clear().isEnabled())
+		{
+			 DistributerLocators.Clear().click();
+			 test.log(LogStatus.PASS, "Clear button is working fine");
+			 
+		}
+		
 		
 	}
 	

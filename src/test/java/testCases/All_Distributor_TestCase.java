@@ -1048,7 +1048,6 @@ import rcp.OneCommonMethod;
 	   	{
 	   		test = extent.startTest("OnBorad Entity-Manage Compliance-Assignment Removal");
 	   		
-	   		
 	   		All_Distributor_Methods.AssignmentRemoval(test, workbook);
 	   		
 	   		extent.endTest(test);
@@ -1404,7 +1403,7 @@ import rcp.OneCommonMethod;
 	   		extent.flush();
 
 	   	}
-	@Test(priority = 88)
+	    @Test(priority = 88) //added similar
 	   	void AssignmentRemovalCLRA() throws InterruptedException, IOException
 	   	{
 	   		test = extent.startTest("OnBorad CLRA-Manage Compliance-Assignment Removal");
@@ -1414,8 +1413,8 @@ import rcp.OneCommonMethod;
 	   		
 	   		extent.endTest(test);
 	   		extent.flush();
-
 	   	}
+	
 		@Test(priority = 89)
 	   	void ScheduleCreationCLRA() throws InterruptedException, IOException
 	   	{
