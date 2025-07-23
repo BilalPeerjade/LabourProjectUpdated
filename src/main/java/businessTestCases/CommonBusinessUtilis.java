@@ -807,6 +807,154 @@ public class CommonBusinessUtilis {
 	
 	
 	
+	
+	
+	//Method 4:
+	
+	public static void validateColumnWithCalculation_Enhanced(
+		    ExtentTest test,
+		    File excelFile,
+		    String sheetName,
+		    int baseColIndex,
+		    int calcColIndex,
+		    String operation,
+		    double operand,
+		    int headerRowIndex,
+		    String logText,
+		    double allowedTolerance
+		) {
+		    try (FileInputStream fis = new FileInputStream(excelFile)) {
+		        Workbook workbook = WorkbookFactory.create(fis);
+		        Sheet sheet = workbook.getSheet(sheetName);
+		        if (sheet == null) {
+		            test.log(LogStatus.FAIL, "❌ Sheet not found: " + sheetName);
+		            return;
+		        }
+		        Row headerRow = sheet.getRow(headerRowIndex);
+		        String baseHeader = headerRow.getCell(baseColIndex).toString();
+		        String calcHeader = headerRow.getCell(calcColIndex).toString();
+		        String baseColLetter = getExcelColumnLetter(baseColIndex);
+		        String calcColLetter = getExcelColumnLetter(calcColIndex);
+
+		        int lastDataRow = -1, totalRowNum = -1;
+		        for (int i = headerRowIndex + 1; i <= sheet.getLastRowNum(); i++) {
+		            Row r = sheet.getRow(i);
+		            if (r == null) continue;
+		            Cell first = r.getCell(0);
+		            if (first != null && first.getCellType() == CellType.STRING &&
+		                first.getStringCellValue().trim().equalsIgnoreCase("Total")) {
+		                totalRowNum = i;
+		                break;
+		            }
+		            lastDataRow = i;
+		        }
+
+		        List<Integer> rowList = new ArrayList<>();
+		        for (int i = headerRowIndex + 1; i <= lastDataRow && rowList.size() < 4; i++) rowList.add(i);
+		        if (lastDataRow >= headerRowIndex + 5) rowList.add(headerRowIndex + 5); // 2nd-last row (row 6, i.e., index 6)
+		        if (totalRowNum != -1) rowList.add(totalRowNum);
+
+		        StringBuilder htmlTable = new StringBuilder();
+		        htmlTable.append("<br><b>").append(logText).append("</b>")
+		            .append("<table border='1' cellpadding='4' style='border-collapse:collapse'><tr>")
+		            .append("<th>Row No.</th>")
+		            .append("<th>Employee Name</th>")
+		            .append("<th>").append(baseColLetter).append(": ").append(baseHeader).append("</th>")
+		            .append("<th>").append(calcColLetter).append(": ").append(calcHeader).append("</th>")
+		            .append("<th>Expected</th><th>Diff</th><th>Result</th></tr>");
+
+		        boolean reportHasFail = false;
+
+		        for (Integer rowNum : rowList) {
+		            Row row = sheet.getRow(rowNum);
+		            if (row == null) continue;
+		            String empName = (row.getCell(2) != null) ? row.getCell(2).toString() : "";
+		            double baseValue = getCellNumericValue(row.getCell(baseColIndex));
+		            double calcValue = getCellNumericValue(row.getCell(calcColIndex));
+		            double expected = 0;
+		            switch (operation) {
+		                case "%": expected = round2(baseValue * operand / 100); break;
+		                case "*": expected = round2(baseValue * operand); break;
+		                case "+": expected = round2(baseValue + operand); break;
+		                case "-": expected = round2(baseValue - operand); break;
+		                default: expected = 0;
+		            }
+		            double diff = round2(Math.abs(calcValue - expected));
+		            boolean pass = diff <= allowedTolerance;
+		            if (!pass) reportHasFail = true;
+
+		            htmlTable.append("<tr><td>").append(rowNum + 1).append("</td>")
+		                .append("<td>").append(empName).append("</td>")
+		                .append("<td>").append(baseValue).append("</td>")
+		                .append("<td>").append(calcValue).append("</td>")
+		                .append("<td>").append(expected).append("</td>")
+		                .append("<td>").append(diff).append("</td>")
+		                .append("<td>")
+		                .append(pass ? "<span style='color:green;font-weight:bold;'>PASS</span>"
+		                             : "<span style='color:red;font-weight:bold;'>FAIL</span>")
+		                .append("</td></tr>");
+		        }
+		        htmlTable.append("</table>");
+
+		        if (reportHasFail) {
+		            test.log(LogStatus.FAIL, htmlTable.toString());
+		            test.log(LogStatus.FAIL, "❌ One or more rows failed in: " + logText);
+		        } else {
+		            test.log(LogStatus.PASS, htmlTable.toString());
+		            test.log(LogStatus.PASS, "✅ All rows passed in: " + logText);
+		        }
+		    } catch (Exception e) {
+		        test.log(LogStatus.ERROR, "❌ Exception in calculation: " + e.getMessage());
+		        e.printStackTrace();
+		    }
+		}
+
+		// Excel column letter utility (handles >Z/AA cols)
+		private static String getExcelColumnLetter(int colNum) {
+		    StringBuilder sb = new StringBuilder();
+		    while (colNum >= 0) {
+		        sb.insert(0, (char) ('A' + (colNum % 26)));
+		        colNum = (colNum / 26) - 1;
+		    }
+		    return sb.toString();
+		}
+		private static double getCellNumericValue(Cell c) {
+		    if (c == null) return 0;
+		    if (c.getCellType() == CellType.NUMERIC) return c.getNumericCellValue();
+		    try { return Double.parseDouble(c.toString().trim()); } catch (Exception e) { return 0; }
+		}
+		private static double round2(double val) {
+		    return Math.round(val * 100.0) / 100.0;
+		}
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 
 	

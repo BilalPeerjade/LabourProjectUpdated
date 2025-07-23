@@ -1673,6 +1673,186 @@ public class All_Distributor_Methods extends BasePage
 		
 		
 	}
+	public static void CLRA_HolidayMaster_verification( ExtentTest test,XSSFWorkbook workbook) throws Exception
+	{
+		
+		Thread.sleep(5000);
+		Thread.sleep(5000);
+		Thread.sleep(5000);
+		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+		Thread.sleep(10000);
+		DistributerLocators.clickPremiseMasterArrow().click();
+		Thread.sleep(7000);
+		
+		//Correct Entity Verification
+	    OneCommonMethod.verifyTestEntity(
+	    driver.get(), test,
+	    By.xpath("//span[normalize-space()='AVATCGEN CORE DEMO[AVACORED5]']"),
+	    "AVATCGEN CORE DEMO[AVACORED5]"
+	     );
+		
+		DistributerLocators.clickOnboardCLRA().click();
+		
+		Thread.sleep(5000);
+		DistributerLocators.holidayMaster().click();
+		
+		 getDriver().navigate().refresh();
+		
+		 Thread.sleep(8000);
+		 DistributerLocators.holidayMaster().click();
+		 Thread.sleep(1000);
+		 
+	
+		 
+			// Sample File download
+			OneCommonMethod.validateFileDownloadDynamic(driver.get(), test, DistributerLocators.SampleDocumentCLRA(), // WebElement
+					"Sample Document is downloaded successfully" // Dynamic log message
+			);
+			
+		 Thread.sleep(1000);
+		 DistributerLocators.clickBrowse1().click();
+			
+		 Thread.sleep(1000);
+		 Robot robot=new Robot();
+		 Thread.sleep(5000);
+		 OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Other Upload No need to change\\SampleHolidayMaster.xlsx");
+//		 StringSelection filepath= new  StringSelection("D:\\Upload Automation Files\\Other Upload No need to change\\SampleHolidayMaster.xlsx");
+/*		 Thread.sleep(1000);
+		 //copy above file to clipboard
+		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
+		 
+		
+		 //Now press CRTL
+		 Thread.sleep(8000);
+		 robot.keyPress(KeyEvent.VK_CONTROL);
+		 Thread.sleep(1000);
+		 
+		 //PRESS V
+		 robot.keyPress(KeyEvent.VK_V);
+		 Thread.sleep(1000);
+		 
+		 //Release V
+		 robot.keyRelease(KeyEvent.VK_V);
+		 
+		 
+		 //Release CRTL
+		 robot.keyRelease(KeyEvent.VK_CONTROL);
+		 
+		 //PRESS Enter
+		 robot.keyPress(KeyEvent.VK_ENTER);
+		 
+		 //Release CRTL
+		 robot.keyRelease(KeyEvent.VK_ENTER);
+		 
+		 */
+		 Thread.sleep(1000);
+		 System.out.println("File uploaded successfully");
+		 
+		 
+			Thread.sleep(1000);
+			DistributerLocators.clickUploadbtnCTCBtn().click();
+		
+		Thread.sleep(2000);
+		String msg=DistributerLocators.clickMsg().getText();
+		
+		 if(msg.equalsIgnoreCase("File uploaded successfully"))
+		 {
+			 test.log(LogStatus.PASS, "Message displayed = "+msg);
+			 
+		 }
+		 else
+		 {
+			 test.log(LogStatus.FAIL, "Message displayed = "+msg);
+		 }
+		 Thread.sleep(1000);
+		PerformerLocator.clickOkBtn().click();
+		Thread.sleep(1000);
+	//   PerformerLocator.clickdashboard().click();
+		
+	}
+	
+	public static void Entity_UMapuser ( ExtentTest test) throws InterruptedException, IOException
+	{		
+		Actions action = new Actions(getDriver());
+		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		Thread.sleep(3000);
+	    
+		
+	  	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='User']")));	//Wait until records table get visible.
+	  	Thread.sleep(3000);Thread.sleep(5000);Thread.sleep(5000);
+	  	Locators.Searchentities().sendKeys("AVACORED5"); // Writing Task title
+		Thread.sleep(3000);
+		
+				
+				Thread.sleep(8000);
+                 Locators.clickPremisesArrow().click();
+				Thread.sleep(5000);
+				Locators.OnboardEntity().click();
+				Thread.sleep(5000);
+				
+				Locators.UserBranchMapping().click();
+				Thread.sleep(3000);
+				
+				
+				Locators.MapUser().click();
+				Thread.sleep(3000);
+				
+			
+				Locators.SearchAct().sendKeys("Shops and"); // Writing Task title
+				Thread.sleep(2000);
+				
+				Locators.Shops().click();
+				Thread.sleep(2000);
+				
+				Locators.Branch().click();
+				Thread.sleep(2000);
+				Locators.Branchtri().click();
+				Thread.sleep(2000);
+				Locators.Branchtri1().click();
+				Thread.sleep(2000);
+				Locators.Branch1().click();
+				Thread.sleep(2000);
+		
+				Locators.SearchUserm().sendKeys("QA (mahesh.darandale@tlregtech.in)"); // Writing Task title
+				Thread.sleep(2000);
+				
+				Locators.SearchUserm2().click();
+				Thread.sleep(2000);
+				
+				
+			
+				
+				Locators.Save().click();
+				
+				Thread.sleep(4000);
+				 By locator = By.xpath("(//h4[@class='f-label'])");
+
+					wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+					Thread.sleep(4000);
+				String text = getDriver().findElement(By.xpath("(//h4[@class='f-label'])")).getText();
+				//List<WebElement> custdd = getDriver().findElements(By.xpath("//*[@class='k-input-value-text']"));
+			//	selectOptionFromDropDown_bs(custdd, "Active");
+				if(text.equalsIgnoreCase("User Branch mapped successfully..."))
+				{
+					test.log(LogStatus.PASS,"Map User button is working fine");
+					Thread.sleep(1000);
+					test.log(LogStatus.PASS,"All filters of user branch mapping are working fine ");
+					Thread.sleep(2000);
+					test.log(LogStatus.PASS,"User Mapped successfully");
+					Thread.sleep(1000);
+					test.log(LogStatus.PASS,"Message Displayed : "+text);
+				}
+				else
+				{
+					
+					test.log(LogStatus.FAIL,"Message Displayed : "+text);
+					
+		}
+				Locators.ok().click();
+				Thread.sleep(4000);
+		  	
+	}
+	
 	
 	public static void CLRASearchEmployee( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 	{
@@ -4001,10 +4181,84 @@ public class All_Distributor_Methods extends BasePage
 			
 		}
 		
+	}
+	
+	public static void CLRAscheduleCreationValidation( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+	{
+		
+
+		Thread.sleep(5000);Thread.sleep(5000);Thread.sleep(5000);
+		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+		Thread.sleep(8000);
+		DistributerLocators.clickPremiseMasterArrow().click();
+		Thread.sleep(7000);
+		DistributerLocators.clickOnboardCLRA().click();
+		Thread.sleep(1000);
+		DistributerLocators.managecompliance().click();
+		Thread.sleep(1000);
+		DistributerLocators.FirstTriangle().click();
+		Thread.sleep(1000);
+		DistributerLocators.scheduleCreation().click();
+		Thread.sleep(1000);
+		
+		DistributerLocators.clickSubmit().click();
+		Thread.sleep(5000);
+		
+		String txt = DistributerLocators.MessageText().getText();
+		
+		if(txt.equalsIgnoreCase("Please select Compliance Type, Period, and Year before submitting."))
+		{
+			 test.log(LogStatus.PASS, "Without selecting compliance type dropdown error message is displayed");
+			 test.log(LogStatus.PASS, "Message displayed : " + txt);
+		}
+		else {
+			 test.log(LogStatus.FAIL, "Without selecting compliance type Message displayed : " + txt);
+			
+		}
+		
+		DistributerLocators.ClickOK().click(); Thread.sleep(5000);
+		
+		DistributerLocators.clickComplianceType1().click();
+		Thread.sleep(1000);
+		DistributerLocators.selectComplianceType1().click();
+		Thread.sleep(1000);
+		
+		DistributerLocators.clickSubmit().click();
+		Thread.sleep(5000);
+		String txt2 = DistributerLocators.MessageText().getText();
+		
+		if(txt2.equalsIgnoreCase("Please select Compliance Type, Period, and Year before submitting."))
+		{
+			 test.log(LogStatus.PASS, "Without selecting period dropdown error message is displayed");
+			 test.log(LogStatus.PASS, "Message displayed : " + txt2);
+		}
+		else {
+			 test.log(LogStatus.FAIL, "Without selecting period Message displayed : " + txt2);
+			
+		}
+		
+		DistributerLocators.ClickOK().click(); Thread.sleep(5000);
+		
+		DistributerLocators.clickPeriod().click();
+		Thread.sleep(2000);
+		DistributerLocators.selectComplianceType1().click();
+		Thread.sleep(2000);
 		
 		
+		DistributerLocators.clickSubmit().click();
+		Thread.sleep(5000);
+		String txt3 = DistributerLocators.MessageText().getText();
 		
-		
+		if(txt3.equalsIgnoreCase("Please select Compliance Type, Period, and Year before submitting."))
+		{
+			 test.log(LogStatus.PASS, "Without selecting year dropdown error message is displayed");
+			 test.log(LogStatus.PASS, "Message displayed : " + txt3);
+		}
+		else {
+			 test.log(LogStatus.FAIL, "Without selecting year dropdown Message displayed : " + txt3);
+			
+		}
+
 		
 	}
 	
@@ -6645,10 +6899,10 @@ for(String Fal : fail)
 		Thread.sleep(4000);
 		DistributerLocators.managecompliance().click();
 		
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		DistributerLocators.clickActivityDropDown().click();
 		
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		DistributerLocators.selectComplianceType3().click();
 		
 		Thread.sleep(1000);
@@ -6721,6 +6975,90 @@ for(String Fal : fail)
 		
 		
 	}
+	
+	public static void CLRA_ManageComp_ScheduleCreation( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+	{
+		
+
+		Thread.sleep(1000);
+		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+		Thread.sleep(1000);
+		DistributerLocators.clickDashboard().click();
+		
+		getDriver().navigate().refresh();
+		
+		Thread.sleep(1000);
+		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+		Thread.sleep(1000);
+		DistributerLocators.clickDashboard().click();
+		Thread.sleep(3000);
+		DistributerLocators.clickOnboardCLRA().click();
+		Thread.sleep(1000);
+		DistributerLocators.managecompliance().click();
+		
+		Thread.sleep(1000);
+		DistributerLocators.clickActivityDropDown().click();
+		
+		Thread.sleep(1000);
+		DistributerLocators.selectComplianceType3().click();
+		
+		Thread.sleep(1000);
+		DistributerLocators.clickComplianceType1().click();
+		Thread.sleep(1000);
+		DistributerLocators.selectComplianceType1().click();
+		Thread.sleep(1000);
+		DistributerLocators.clickPeriod().click();
+		
+		Thread.sleep(1000);
+		if(DistributerLocators.PeriodList().isEnabled())
+		{
+			test.log(LogStatus.PASS, "Dropdown list of months should get visible.");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "Dropdown list of months should not get visible.");
+		}
+		
+		Thread.sleep(1000);
+		DistributerLocators.selectComplianceType1().click();
+		Thread.sleep(1000);
+		DistributerLocators.clickYear().click();
+		
+		Thread.sleep(1000);
+		if(DistributerLocators.PeriodList().isEnabled())
+		{
+			test.log(LogStatus.PASS, "Dropdown list of Year should get visible.");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "Dropdown list of Year should not get visible.");
+		}
+		
+		
+		Thread.sleep(1000);
+		DistributerLocators.selectComplianceType1().click();
+		
+
+		Thread.sleep(1000);
+		DistributerLocators.clickSubmit().click();
+			
+		Thread.sleep(1000);
+		String msg=DistributerLocators.ScheduleCreationMsg().getText();
+		if(msg.equalsIgnoreCase("Schedule created successfully."))
+		{
+			test.log(LogStatus.PASS,"Message displayed:-" +msg);
+		}
+		else
+		{
+			test.log(LogStatus.FAIL,"Message displayed:-" +msg);
+		}
+		Thread.sleep(1000);
+		DistributerLocators.clickOkBtn().click();
+		Thread.sleep(1000);
+		DistributerLocators.clickdashboard().click();
+		
+	}
+	
 	
 	public static void WithoutSelctingFieldScheduleCreationCLRA( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 	{

@@ -661,11 +661,11 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 		}
 //Onboard Entity --> User branch mapping 
 		@Test(priority = 220)
-		void Mapuser() throws InterruptedException, IOException, AWTException
+		void Entity_UMapuser() throws InterruptedException, IOException, AWTException
 		{
 			test = extent.startTest("Onboard Entity - User-Branch Mapping - Verify to check Map User button is working or not?");
 			
-			Methods.Mapuser(test);
+			All_Distributor_Methods.Entity_UMapuser(test);
 			  
 			extent.endTest(test);
 			extent.flush();
@@ -738,11 +738,11 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 	   		extent.flush();
 	   	}
 		@Test(priority = 302)
-	   	void HolidayMaster() throws Exception
+	   	void CLRA_HolidayMaster_verification() throws Exception
 	   	{
-	   		test = extent.startTest("OnBorad CLRA-Upload Holiday Master verification");
+	   		test = extent.startTest("OnBorad CLRA - Verify to upload holiday master verification");
 	   		
-	   		All_Distributor_Methods.HolidayMaster(test, workbook);
+	   		All_Distributor_Methods.CLRA_HolidayMaster_verification(test, workbook);
 	   		
 	   		extent.endTest(test);
 	   		extent.flush();
@@ -956,14 +956,24 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 	    @Test(priority = 352)
 	   	void CLRA_ManageComp_ScneduleCreation() throws InterruptedException, IOException
 	   	{
-	   		test = extent.startTest("OnBoard CLRA - Manage Compliances - Assignment Removal Verification");
+	   		test = extent.startTest("OnBoard CLRA - Manage Compliances - Schedule creation verification");
 	   		
 	   		All_Distributor_Methods.CLRA_ManageComp_ScneduleCreation(test, workbook);
 	   		
 	   		extent.endTest(test);
 	   		extent.flush();
 	   	}
-		
+	    
+		@Test(priority = 353) 
+	   	void CLRAcheduleCreationValidation() throws InterruptedException, IOException
+	   	{
+	   		test = extent.startTest("OnBoard CLRA - Manage Compliance - Schedule creation - validation verification");
+	   		 
+	   		All_Distributor_Methods.CLRAscheduleCreationValidation(test, workbook);
+	   		
+	   		extent.endTest(test);
+	   		extent.flush();
+	   	}
 		
 	
 	

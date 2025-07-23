@@ -1041,10 +1041,44 @@ public class EndToEnd_B_Methods extends BasePage {
 		    8                 // rowsAfterHeader
 		); 
 		
-
-
+	}
+	public static void T16( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		WebDriver driver = CommonBusinessUtilis.getDriver();
+		//	File downloadedExcelFile = CommonBusinessUtilis.getLatestDownloadedExcelFile();
+/*		
+		//File file = getLatestDownloadedExcelFile();
+		CommonBusinessUtilis.validateColumnWithCalculation_Enhanced(
+			    test,                                 // ExtentTest
+			    CommonBusinessUtilis. getLatestDownloadedExcelFile(),        // File
+			    "Pending",                            // Sheet
+			    18,                                   // baseColIndex: "EPF Wages" (that's S column, index 18)
+			    21,                                   // calcColIndex: "12% (EPF) A/C No 1"
+			    "%",                                  // operation
+			    12,                                   // operand
+			    1,                                    // headerRowIndex (Excel row 2)
+			    "EPF Wages 12% Validation",           // logText
+			    1                                     // allowedTolerance
+			); */
 		
-		
+		File downloadedExcelFile = CommonBusinessUtilis.getLatestDownloadedExcelFile();
+		CommonBusinessUtilis.validateColumnWithCalculation_Enhanced(
+		    test,
+		    downloadedExcelFile,
+		    "Pending",
+		    18,                // baseColIndex: 'EPF Wages'
+		    21,                // calcColIndex: '12% (EPF) A/C No 1'
+		    "%",               // Percentage
+		    12,                // 12%
+		    1,                 // header at row 2
+		    "EPF Wages 12% Validation",
+		    1                  // allowedTolerance
+		); 
+
+			
+			
+
+ 
 		
 	}
 	
