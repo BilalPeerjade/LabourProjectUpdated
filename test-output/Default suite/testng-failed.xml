@@ -6,8 +6,8 @@
       <class name="testCases.All_Distributor_TWO">
         <methods>
           <include name="Closing"/>
-          <include name="CLRA_AddLocation_EditUpdate"/>
           <include name="setBrowser"/>
+          <include name="UserMasterVerification"/>
           <include name="Login"/>
           <include name="browserClosing"/>
         </methods>

@@ -70,7 +70,7 @@ public class All_Client_Portal_TestCases extends BasePage {
 	
 
 	
-	
+	/*
 	
 	
 	// Mayuri TCs - ClientTest.Java 1 to 112
@@ -2005,7 +2005,7 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 	
 	
 	
-	/*
+	
 	
 	
 	
@@ -3112,7 +3112,7 @@ void ChallanDocBulkDownload() throws InterruptedException, IOException, AWTExcep
 			
 
 		
-    */
+    
 	
 		
 	

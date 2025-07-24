@@ -811,6 +811,8 @@ public class CommonBusinessUtilis {
 	
 	//Method 4:
 	
+
+	//This code is working but need to modify from gpt taken from perplexity 
 	public static void validateColumnWithCalculation_Enhanced(
 		    ExtentTest test,
 		    File excelFile,
@@ -830,45 +832,135 @@ public class CommonBusinessUtilis {
 		            test.log(LogStatus.FAIL, "❌ Sheet not found: " + sheetName);
 		            return;
 		        }
+		        // Safe column headers
 		        Row headerRow = sheet.getRow(headerRowIndex);
-		        String baseHeader = headerRow.getCell(baseColIndex).toString();
-		        String calcHeader = headerRow.getCell(calcColIndex).toString();
+		        String baseHeader = "[Blank]";
+		        String calcHeader = "[Blank]";
 		        String baseColLetter = getExcelColumnLetter(baseColIndex);
 		        String calcColLetter = getExcelColumnLetter(calcColIndex);
-
-		        int lastDataRow = -1, totalRowNum = -1;
-		        for (int i = headerRowIndex + 1; i <= sheet.getLastRowNum(); i++) {
-		            Row r = sheet.getRow(i);
-		            if (r == null) continue;
-		            Cell first = r.getCell(0);
-		            if (first != null && first.getCellType() == CellType.STRING &&
-		                first.getStringCellValue().trim().equalsIgnoreCase("Total")) {
-		                totalRowNum = i;
-		                break;
+		        if (headerRow != null) {
+		            Cell baseHeaderCell = headerRow.getCell(baseColIndex);
+		            if (baseHeaderCell != null) baseHeader = baseHeaderCell.toString();
+		            Cell calcHeaderCell = headerRow.getCell(calcColIndex);
+		            if (calcHeaderCell != null) calcHeader = calcHeaderCell.toString();
+		        }
+		        // File info
+		        String fileName = excelFile.getName();
+		        String runTime = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.util.Date());
+		        test.log(LogStatus.INFO, "📄 Data Fetch file name: <b>" + fileName + "</b>");
+		        test.log(LogStatus.INFO, "📆 Report Generated: <b>" + runTime + "</b>");
+		        test.log(LogStatus.INFO, "<b>" + logText + "</b>");
+		        // Pick all valid (non-null, with data) rows after header
+		        List<Integer> allRowIndices = new ArrayList<>();
+		        int lastRowIndex = sheet.getLastRowNum();
+		        // Only consider rows with at least one non-blank cell (so blanks/whitespace rows are skipped)
+		        for (int i = headerRowIndex+1; i <= lastRowIndex; i++) {
+		            Row row = sheet.getRow(i);
+		            if (row == null) continue;
+		            boolean hasData = false;
+		            for (int j = 0; j < Math.max(baseColIndex, calcColIndex)+1; j++) {
+		                Cell cc = row.getCell(j);
+		                if (cc != null && cc.getCellType() != CellType.BLANK && !"".equals(cc.toString().trim())) {
+		                    hasData = true;
+		                    break;
+		                }
 		            }
-		            lastDataRow = i;
+		            if (hasData) allRowIndices.add(i);
+		        }
+		        // First 4 non-header data rows
+		        List<Integer> rowsToReport = new ArrayList<>();
+		        for (int i = 0; i < allRowIndices.size() && i < 4; i++) rowsToReport.add(allRowIndices.get(i));
+		        
+		        
+		        
+		        // Add second last and last actual row (if more than 4 exist)
+	//	        if (allRowIndices.size() > 5)
+	//	            rowsToReport.add(allRowIndices.get(allRowIndices.size()-2));
+	//	        if (allRowIndices.size() > 4)
+	//	            rowsToReport.add(allRowIndices.get(allRowIndices.size()-1)); // Last row (likely contains "Total")
+		        
+		        
+		     // Add 2nd last and "Total" row (where Sl No == "Total"), if present
+	//	        if (allRowIndices.size() > 5)
+	//	            rowsToReport.add(allRowIndices.get(allRowIndices.size()-2));
+		        
+
+		        // Find actual "Total" row in block
+	//	        Integer totalRowIdx = null;
+	//	        for (Integer idx : allRowIndices) {
+	//	            Row row = sheet.getRow(idx);
+	//	            if (row != null) {
+	//	                Cell slNoCell = row.getCell(0);
+	//	                if (slNoCell != null && slNoCell.getCellType() == CellType.STRING
+	//	                    && slNoCell.getStringCellValue().trim().equalsIgnoreCase("Total")) {
+	//	                    totalRowIdx = idx;
+	//	                    break;
+	//	                }
+	//	            }
+	//	        }
+		        
+		        
+		     // Pick first 5 valid data rows (after header)
+		        for (int i = 0; i < allRowIndices.size() && i < 5; i++)
+		            rowsToReport.add(allRowIndices.get(i));
+
+		        // Find the actual 'Total' row (where first column is "Total", case-insensitive)
+		        Integer totalRowIdx = null;
+		        for (Integer idx : allRowIndices) {
+		            Row row = sheet.getRow(idx);
+		            if (row != null) {
+		                Cell slNoCell = row.getCell(0);
+		                if (slNoCell != null && slNoCell.getCellType() == CellType.STRING
+		                    && slNoCell.getStringCellValue().trim().equalsIgnoreCase("Total")) {
+		                    totalRowIdx = idx;
+		                    break;
+		                }
+		            }
+		        }
+		        if (totalRowIdx != null && !rowsToReport.contains(totalRowIdx)) {
+		            rowsToReport.add(totalRowIdx);
 		        }
 
-		        List<Integer> rowList = new ArrayList<>();
-		        for (int i = headerRowIndex + 1; i <= lastDataRow && rowList.size() < 4; i++) rowList.add(i);
-		        if (lastDataRow >= headerRowIndex + 5) rowList.add(headerRowIndex + 5); // 2nd-last row (row 6, i.e., index 6)
-		        if (totalRowNum != -1) rowList.add(totalRowNum);
+		        
+		        
+		        
+		        
+		        
+		        
+		        
+		        if (totalRowIdx != null) {
+		            rowsToReport.add(totalRowIdx);
+		        }
+		        
+		        
+		        
 
+		        
+		        
+		        
+		        
+		        
+		        
+		        // Prepare table
 		        StringBuilder htmlTable = new StringBuilder();
-		        htmlTable.append("<br><b>").append(logText).append("</b>")
-		            .append("<table border='1' cellpadding='4' style='border-collapse:collapse'><tr>")
+		        htmlTable.append("<table border='1' cellpadding='4' style='border-collapse:collapse'><tr>")
 		            .append("<th>Row No.</th>")
 		            .append("<th>Employee Name</th>")
 		            .append("<th>").append(baseColLetter).append(": ").append(baseHeader).append("</th>")
 		            .append("<th>").append(calcColLetter).append(": ").append(calcHeader).append("</th>")
 		            .append("<th>Expected</th><th>Diff</th><th>Result</th></tr>");
-
+		        int passCount = 0, failCount = 0, totalCount = 0;
 		        boolean reportHasFail = false;
-
-		        for (Integer rowNum : rowList) {
-		            Row row = sheet.getRow(rowNum);
+		        for (Integer i: rowsToReport) {
+		            Row row = sheet.getRow(i);
 		            if (row == null) continue;
-		            String empName = (row.getCell(2) != null) ? row.getCell(2).toString() : "";
+		            Cell nameCell = row.getCell(2); // If not available, show blank
+		            String empName = (nameCell != null) ? nameCell.toString() : "";
+		            // In summary/"Total" row, show "Total" or summary keyword in empName
+		            Cell firstCell = row.getCell(0);
+		            if (firstCell != null && firstCell.getCellType() == CellType.STRING &&
+		                firstCell.getStringCellValue().trim().toLowerCase().contains("total"))
+		                empName = firstCell.getStringCellValue();
 		            double baseValue = getCellNumericValue(row.getCell(baseColIndex));
 		            double calcValue = getCellNumericValue(row.getCell(calcColIndex));
 		            double expected = 0;
@@ -880,10 +972,11 @@ public class CommonBusinessUtilis {
 		                default: expected = 0;
 		            }
 		            double diff = round2(Math.abs(calcValue - expected));
+		            totalCount++;
 		            boolean pass = diff <= allowedTolerance;
+		            if (pass) passCount++; else failCount++;
 		            if (!pass) reportHasFail = true;
-
-		            htmlTable.append("<tr><td>").append(rowNum + 1).append("</td>")
+		            htmlTable.append("<tr><td>").append(i+1).append("</td>")
 		                .append("<td>").append(empName).append("</td>")
 		                .append("<td>").append(baseValue).append("</td>")
 		                .append("<td>").append(calcValue).append("</td>")
@@ -895,21 +988,17 @@ public class CommonBusinessUtilis {
 		                .append("</td></tr>");
 		        }
 		        htmlTable.append("</table>");
-
-		        if (reportHasFail) {
+		        if (reportHasFail)
 		            test.log(LogStatus.FAIL, htmlTable.toString());
-		            test.log(LogStatus.FAIL, "❌ One or more rows failed in: " + logText);
-		        } else {
+		        else
 		            test.log(LogStatus.PASS, htmlTable.toString());
-		            test.log(LogStatus.PASS, "✅ All rows passed in: " + logText);
-		        }
+		        test.log(reportHasFail ? LogStatus.FAIL : LogStatus.PASS,
+		            "<b>Summary:</b> Rows displayed: " + totalCount + " | Passed: " + passCount + " | Failed: " + failCount);
 		    } catch (Exception e) {
 		        test.log(LogStatus.ERROR, "❌ Exception in calculation: " + e.getMessage());
 		        e.printStackTrace();
 		    }
 		}
-
-		// Excel column letter utility (handles >Z/AA cols)
 		private static String getExcelColumnLetter(int colNum) {
 		    StringBuilder sb = new StringBuilder();
 		    while (colNum >= 0) {
@@ -926,6 +1015,13 @@ public class CommonBusinessUtilis {
 		private static double round2(double val) {
 		    return Math.round(val * 100.0) / 100.0;
 		}
+
+
+
+	
+	
+			
+
 
 
 	

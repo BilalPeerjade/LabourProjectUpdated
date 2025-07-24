@@ -116,6 +116,7 @@ public class Locators extends BasePage {
 		user = getDriver().findElement(By.xpath("//input[@placeholder='Search Customer Name/Select Corporate ID']"));
 		return user;
 	}
+
 	
 	public static WebElement SearchUser1( )		//Method for closing Message Popup
 	{

@@ -95,6 +95,54 @@ public class All_Distributor_TWO  extends BasePage {
 		extent.flush();
 	}
 	
+	
+	@Test(priority = 15) //Bilal
+	void UserMasterVerification() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Verify to check User master functionalities is working or not?");
+		
+		MethodsD.UserMasterVerification(test,"Performer");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	
+	@Test(priority = 20) //Bilal
+	void Corporate_Verification() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Verify to check Corporate functionalities is working or not?");
+		
+		MethodsD.Corporate_Verification(test,"Performer");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 25) //Bilal
+	void CorporateEntity_Verification() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Verify to check Corporate functionalities is working or not?");
+		
+		MethodsD.CorporateEntity_Verification(test,"Performer");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 26) //Bilal
+	void CorporateEntity_BulkUploadVerification() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Verify to check Corporate - Entity - Bulk Upload verification ");
+		
+		MethodsD.CorporateEntity_BulkUploadVerification(test,"Performer");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	
+	
 	@Test(priority = 40) //Bilal
 	void ProceedToDashboard() throws InterruptedException, IOException
 	{
@@ -970,6 +1018,17 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 	   		test = extent.startTest("OnBoard CLRA - Manage Compliance - Schedule creation - validation verification");
 	   		 
 	   		All_Distributor_Methods.CLRAscheduleCreationValidation(test, workbook);
+	   		
+	   		extent.endTest(test);
+	   		extent.flush();
+	   	}
+		
+		@Test(priority = 355) 
+	   	void CLRA_ManageComp_ScheduleRemoval() throws InterruptedException, IOException
+	   	{
+	   		test = extent.startTest("OnBoard CLRA - Manage Compliance - Schedule removal - verification");
+	   		 
+	   		All_Distributor_Methods.CLRA_ManageComp_ScheduleRemoval(test, workbook);
 	   		
 	   		extent.endTest(test);
 	   		extent.flush();

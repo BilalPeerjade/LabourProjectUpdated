@@ -9,10 +9,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -586,6 +588,9 @@ public class EndToEnd_B_Methods extends BasePage {
 		{
 			LoginLocators.Search().sendKeys("AVACORED5");	
 		}
+	  //	Report Generated Time:
+			String runTime = new SimpleDateFormat("EEEE, MMMM dd, yyyy, hh:mm a z").format(new Date());
+			test.log(LogStatus.INFO, "📆 Report Generated: <b>" + runTime + "</b>");
 		
 		Thread.sleep(2000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.WorkspaceArrow()));
@@ -1065,15 +1070,16 @@ public class EndToEnd_B_Methods extends BasePage {
 		CommonBusinessUtilis.validateColumnWithCalculation_Enhanced(
 		    test,
 		    downloadedExcelFile,
-		    "Pending",
-		    18,                // baseColIndex: 'EPF Wages'
-		    21,                // calcColIndex: '12% (EPF) A/C No 1'
-		    "%",               // Percentage
-		    12,                // 12%
-		    1,                 // header at row 2
-		    "EPF Wages 12% Validation",
-		    1                  // allowedTolerance
-		); 
+		    "Pending",     // Sheet ka naam (Remittances)
+		    47,                // baseColIndex (summary ka 1st value column, e.g., "PF Wages" or "PF")
+		    49,                // calcColIndex: doosra summary value, ya wohi for self-check/to show, etc.
+		    "%",               // Operation type (e.g. "%", "*" etc., for now '%' rakh lo)
+		    3.67,                 // Operand (0% agar sirf value capture/report chahiye, calculation waale case ke liye required percent)
+		    1,                 // headerRowIndex (summary block ke start ke upar ka row, mostly 6 ya 7, try and check—ya 0)
+		    "All Summary Block Report", // Log text
+		    1                  // Allowed tolerance (0 agar match check karna hai, warna ignore bhi kar sakte ho—sirf reporting ke liye)
+		);
+
 
 			
 			

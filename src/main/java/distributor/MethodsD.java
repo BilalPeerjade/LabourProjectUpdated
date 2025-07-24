@@ -334,6 +334,339 @@ else {
 }
 	
 	
+	public static void UserMasterVerification( ExtentTest test, String user) throws InterruptedException, IOException
+	{
+	
+		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		Thread.sleep(7000);Thread.sleep(5000);Thread.sleep(5000);
+		
+		
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+		
+		LoginLocators.User().click();
+		Thread.sleep(5000);
+		
+		
+		
+		Locators.SearchUser().sendKeys("mahesh.darandale@tlregtech.in");
+		Thread.sleep(8000);
+//		Locators.SearchUser1().click();
+		getDriver().findElement(By.xpath("//span[normalize-space()='QA (mahesh.darandale@tlregtech.in)']")).click();
+		
+		Thread.sleep(5000);
+		Locators.Apply().click();
+		Thread.sleep(3000);
+		String txt = getDriver().findElement(By.xpath("(//td[@role='gridcell'])[5]")).getText();
+		
+		if(txt.equalsIgnoreCase("Performer"))
+		{
+			Thread.sleep(3000);
+			test.log(LogStatus.PASS,"Search filter is working fine");
+			Thread.sleep(1000);
+			test.log(LogStatus.PASS,"Search value is displayed in grid = " + txt);
+			test.log(LogStatus.PASS,"Apply button is working fine");
+			
+		}
+		else
+		{
+			test.log(LogStatus.FAIL,"Search filter is not working");
+			test.log(LogStatus.FAIL,"Search value displayed in grid = " + txt);
+		}
+		
+		
+		
+		Thread.sleep(3000);
+		if(LoginLocators.Clear().isEnabled())
+		{
+			LoginLocators.Clear().click();
+			test.log(LogStatus.PASS,"Clear button is working fine");
+			Thread.sleep(3000);
+			
+		}
+		Thread.sleep(7000);
+		
+		
+		
+		
+		
+		
+		/*
+		 * if(LoginLocators.Back().isEnabled()) { LoginLocators.Back().click();
+		 * test.log(LogStatus.PASS,"Back button is working fine"); Thread.sleep(9000);
+		 * LoginLocators.User().click(); Thread.sleep(5000); }
+		 * 
+		 * Thread.sleep(5000);
+		 */		
+		
+		LoginLocators.Back().click();
+		Thread.sleep(9000);Thread.sleep(3000);
+		String entityPage = getDriver().findElement(By.xpath("//h4[normalize-space()='Entities']")).getText();
+		
+		if(entityPage.equalsIgnoreCase("Entities"))
+	    {
+	    	test.log(LogStatus.PASS,"Back button is working fine");
+	    	test.log(LogStatus.PASS,"On clicking to Back button user is redirected to Entities/Home Page");
+	    	LoginLocators.User().click();
+			Thread.sleep(6000);
+	    }
+		
+		Thread.sleep(5000);
+		
+		
+		
+		
+	//	OneCommonMethod.scroll(driver.get(), 400);   // 400 px down 
+	    OneCommonMethod.validateExportedExcelDYNAMIC(
+	    	    driver.get(),
+	    	    test,
+	    	    LoginLocators.Export(),        // WebElement for export button
+	    	    LoginLocators.TotalNumberOfItems(),     // WebElement for grid count text
+	    	    "Email",                               // Column header to verify
+	    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+	    	);
+	    
+	    
+	    Thread.sleep(2000);
+		
+}
+	
+	
+	public static void Corporate_Verification( ExtentTest test, String user) throws InterruptedException, IOException
+	{
+	
+		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		Thread.sleep(7000);Thread.sleep(5000);Thread.sleep(5000);
+		
+		
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+		
+		LoginLocators.Corporate().click();
+		Thread.sleep(5000);
+		
+		
+		
+		Locators.SearchUser().sendKeys("AVAAVATCG5");
+		Thread.sleep(8000);
+	//	Locators.SearchUser1().click();
+		getDriver().findElement(By.xpath("//span[normalize-space()='AVAAVATCG5 (Gopi)']")).click();
+		
+		Thread.sleep(5000);
+		Locators.Apply().click();
+		Thread.sleep(3000);
+		String txt = getDriver().findElement(By.xpath("(//td[@role='gridcell'])[2]")).getText();
+		
+		if(txt.equalsIgnoreCase("AVAAVATCG5"))
+		{
+			Thread.sleep(3000);
+			test.log(LogStatus.PASS,"Search filter is working fine");
+			Thread.sleep(1000);
+			test.log(LogStatus.PASS,"Search value is displayed in grid = " + txt);
+			test.log(LogStatus.PASS,"Apply button is working fine");
+			
+		}
+		
+		Thread.sleep(3000);
+		if(LoginLocators.Clear().isEnabled())
+		{
+			LoginLocators.Clear().click();
+			test.log(LogStatus.PASS,"Clear button is working fine");
+			Thread.sleep(3000);
+			
+		}
+		Thread.sleep(7000);
+		
+		
+		
+		LoginLocators.Back().click();
+		Thread.sleep(9000);Thread.sleep(3000);
+		String entityPage = getDriver().findElement(By.xpath("//h4[normalize-space()='Entities']")).getText();
+		
+		if(entityPage.equalsIgnoreCase("Entities"))
+	    {
+	    	test.log(LogStatus.PASS,"Back button is working fine");
+	    	test.log(LogStatus.PASS,"On clicking to Back button user is redirected to Entities/Home Page");
+	    	LoginLocators.Corporate().click();
+			Thread.sleep(6000);
+	    }
+		
+		Thread.sleep(7000);
+		
+
+		
+		
+		
+		
+	    
+	    
+	    Thread.sleep(2000);
+		
+}
+	
+	
+	public static void CorporateEntity_Verification( ExtentTest test, String user) throws InterruptedException, IOException
+	{
+	
+		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		Thread.sleep(7000);Thread.sleep(5000);Thread.sleep(5000);
+		
+		
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+		
+		LoginLocators.Corporate().click();
+		Thread.sleep(5000);
+		
+		
+		
+		Locators.SearchUser().sendKeys("AVAAVATCG5");
+		Thread.sleep(8000);
+	//	Locators.SearchUser1().click();
+		getDriver().findElement(By.xpath("//span[normalize-space()='AVAAVATCG5 (Gopi)']")).click();
+		
+		Thread.sleep(5000);
+		Locators.Apply().click();
+		Thread.sleep(3000);
+		String txt = getDriver().findElement(By.xpath("(//td[@role='gridcell'])[2]")).getText();
+		
+		
+		
+		LoginLocators.CorporateProceed().click();
+		Thread.sleep(9000);
+		
+		String entitytext = getDriver().findElement(By.xpath("//a[normalize-space()='Entity']")).getText();
+		if(entitytext.equalsIgnoreCase("Entity"))
+		{
+			test.log(LogStatus.PASS,"Proceed to entity button is working fine");
+			test.log(LogStatus.PASS,"On clicking to Proceed button user is redirected to Entity page successfully");
+			
+		}
+		
+		
+		Locators.SearchUser().sendKeys("AVA");
+		Thread.sleep(3000);
+		Locators.SearchUser().sendKeys("CORED");
+		Thread.sleep(3000);
+		Locators.SearchUser().sendKeys("5");
+		Thread.sleep(3000);
+		Locators.SearchUser1().click();
+		Thread.sleep(3000);
+		String entitySearchText = getDriver().findElement(By.xpath("//tbody/tr[1]/td[2]")).getText();
+		
+		if(entitySearchText.equalsIgnoreCase("gopi"))
+		{
+			test.log(LogStatus.PASS,"Search filter is working fine");
+			Thread.sleep(3000);
+			test.log(LogStatus.PASS,"Search value is displayed in grid = " + entitySearchText);
+			test.log(LogStatus.PASS,"Apply button is working fine");
+		}
+		
+		else
+		{
+			
+		}
+		
+		
+		
+		if(LoginLocators.Clear().isEnabled())
+		{
+			LoginLocators.Clear().click();
+			test.log(LogStatus.PASS,"Clear button is working fine");
+			Thread.sleep(3000);
+			
+		}
+		Thread.sleep(3000);
+		
+		LoginLocators.Back().click();
+		Thread.sleep(9000);Thread.sleep(3000);
+		String entityPage = getDriver().findElement(By.xpath("//a[normalize-space()='Corporate']")).getText();
+		
+		if(entityPage.equalsIgnoreCase("Corporate"))
+	    {
+	    	test.log(LogStatus.PASS,"Back button is working fine");
+	    	test.log(LogStatus.PASS,"On clicking to Back button user is redirected to Corporate Page");
+			Thread.sleep(6000);
+	    }
+		
+		
+	    
+	    Thread.sleep(2000);
+		
+}
+	
+	public static void CorporateEntity_BulkUploadVerification( ExtentTest test, String user) throws InterruptedException, IOException
+	{
+	
+		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		Thread.sleep(7000);Thread.sleep(5000);Thread.sleep(5000);
+		
+		
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+		
+		LoginLocators.Corporate().click();
+		Thread.sleep(5000);
+		
+		
+		
+		Locators.SearchUser().sendKeys("AVAAVATCG5");
+		Thread.sleep(8000);
+	//	Locators.SearchUser1().click();
+		getDriver().findElement(By.xpath("//span[normalize-space()='AVAAVATCG5 (Gopi)']")).click();
+		
+		Thread.sleep(5000);
+		Locators.Apply().click();
+		Thread.sleep(3000);
+		String txt = getDriver().findElement(By.xpath("(//td[@role='gridcell'])[2]")).getText();
+		
+		
+		
+		LoginLocators.CorporateProceed().click();
+		Thread.sleep(9000);
+		
+		
+		LoginLocators.entityBulkUpload().click();
+		Thread.sleep(5000);
+	    String bulkUploadtxt = getDriver().findElement(By.xpath("//*[normalize-space()='Entity Master Bulk Upload']")).getText();
+	    
+	    if(bulkUploadtxt.equalsIgnoreCase("Entity Master Bulk Upload"))
+	    {
+	    	test.log(LogStatus.PASS,"Bulk Upload button is working fine");
+	    }
+	    
+		//Sample File download 
+		OneCommonMethod.validateFileDownloadDynamic(
+			    driver.get(),test,
+			    LoginLocators.SampleTemplate(),   // WebElement
+			    "Sample Template is downloaded successfully"   // Dynamic log message
+		);
+	    
+	    Thread.sleep(2000);
+	    
+	    LoginLocators. UploadBtn().click();
+	    Thread.sleep(2000);
+	    
+	    String NoFileChoosen = LoginLocators.MessageText().getText();
+	    Thread.sleep(2000);
+	    if(NoFileChoosen.equalsIgnoreCase("No file selected!"))
+	    {
+	    	test.log(LogStatus.PASS,"Without selecting file on clicking to upload button error message is displayed");
+	    	test.log(LogStatus.PASS,"Message Displayed = " + NoFileChoosen);
+	    }
+	    else
+	    {
+	    	test.log(LogStatus.FAIL	,"Without selecting file on clicking to upload button message is displayed");
+    	    test.log(LogStatus.FAIL,"Message Displayed = " + NoFileChoosen);
+	    }
+	    
+	    
+	    
+		
+	    
+	    
+	    
+	    
+	    
+}
+	
+	
 	public static void ProceedToDashboard( ExtentTest test, String user) throws InterruptedException, IOException
 	{
 	

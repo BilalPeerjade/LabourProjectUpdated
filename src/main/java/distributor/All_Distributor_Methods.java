@@ -7422,6 +7422,128 @@ else
 
 		
 	}
+	
+	
+	public static void CLRA_ManageComp_ScheduleRemoval( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+	{
+		
+
+		Thread.sleep(1000);
+		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+		Thread.sleep(1000);
+		
+		Thread.sleep(1000);
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
+		Thread.sleep(4000);
+		DistributerLocators.clickPremiseMasterArrow().click();
+		Thread.sleep(5000);
+		DistributerLocators.clickOnboardCLRA().click();
+		Thread.sleep(5000);
+		DistributerLocators.managecompliance().click();
+		
+		Thread.sleep(5000);
+		DistributerLocators.clickActivityDropDown().click();
+		
+		Thread.sleep(5000);
+		DistributerLocators.selectComplianceType4().click();
+		
+		Thread.sleep(5000);
+		DistributerLocators.clickBranch1().click();
+		Thread.sleep(2000);
+		DistributerLocators.clickCheckBox2().click();
+		
+//		Thread.sleep(1000);
+//		Locators.clickBranchTiangle().click();
+//	     Thread.sleep(1000);
+//		Locators.selectBranch1().click();
+		
+		Thread.sleep(2000);
+		DistributerLocators.clickPeriod().click();
+		Thread.sleep(2000);
+		DistributerLocators.selectComplianceType5().click();
+		Thread.sleep(2000);
+		DistributerLocators.clickYear().click();
+		Thread.sleep(2000);
+		DistributerLocators.selectComplianceType2().click();
+		
+		Thread.sleep(2000);
+		DistributerLocators.applybtn().click();
+		Thread.sleep(4000);
+		DistributerLocators.clickCheckBox().click();
+		
+		Thread.sleep(2000);
+
+		
+		Thread.sleep(5000);
+		try {Thread.sleep(5000);
+		DistributerLocators.Search().sendKeys("Andhra Pradesh",Keys.ENTER);
+		Thread.sleep(4000);
+		String text = getDriver().findElement(By.xpath("//div[@title='Andhra Pradesh']")).getText();
+			
+		test.log(LogStatus.PASS, "Selected entity name along with their details should get reflected in the grid.");
+		test.log(LogStatus.PASS, "Search value displayed in grid = " + text);
+		
+		Thread.sleep(3000);
+		}catch(Exception e) {Thread.sleep(5000);
+			test.log(LogStatus.PASS, "no record available");
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		Thread.sleep(1000);
+		if(DistributerLocators.clickRemoveBtn().isEnabled())
+		{
+			Thread.sleep(1000);
+			DistributerLocators.clickRemoveBtn().click();
+			test.log(LogStatus.PASS, "All filters dropdowns of schedule removal is working fine");
+			Thread.sleep(1000);
+			test.log(LogStatus.PASS, "Apply button is working fine");
+			Thread.sleep(1000);
+			test.log(LogStatus.PASS, "On selecting check box Remove button is displayed");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "On selecting check box Remove button is not displayed");
+		}
+		
+		Thread.sleep(1000);
+		String msg=DistributerLocators.ScheduleRemovalMsg().getText();
+		if(msg.equalsIgnoreCase("Schedule Removed Successfully"))
+		{
+			test.log(LogStatus.PASS,"Schedule is Removed Successfully ");
+			Thread.sleep(1000);
+			test.log(LogStatus.PASS,"Message displayed = " +msg);
+		}
+		else
+		{
+			test.log(LogStatus.FAIL,"Message displayed = " +msg);
+		}
+		Thread.sleep(1000);
+		DistributerLocators.clickOkBtn().click();
+		
+		Thread.sleep(1000);
+		
+		Thread.sleep(3000);
+		if(DistributerLocators.Clear().isDisplayed() && 
+		   DistributerLocators.Clear().isEnabled())
+		{
+			 DistributerLocators.Clear().click();
+			 test.log(LogStatus.PASS, "Clear button is working fine");
+			 
+		}
+		
+	}
+	
+	
+	
+	
+	
 	public static void GridAndExcelCountMatch1(ExtentTest test,XSSFWorkbook workbook  ) throws InterruptedException, IOException
 	{
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();

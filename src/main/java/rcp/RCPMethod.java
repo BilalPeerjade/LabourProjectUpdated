@@ -351,7 +351,7 @@ public class RCPMethod extends BasePage
 			File dir = new File("C:\\Users\\bilali\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 			RCPLocator.clickExport().click();
 			
 		

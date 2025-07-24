@@ -58,11 +58,49 @@ public class LoginLocators extends BasePage {
 		submit = getDriver().findElement(By.xpath("(//button[@class='figma-btn-blue'])[4]"));
 		return submit;
 	}
+	
+	public static WebElement User()
+	{
+		submit = getDriver().findElement(By.xpath("//button[normalize-space()='User']"));
+		return submit;
+	}
+	public static WebElement Corporate()
+	{
+		submit = getDriver().findElement(By.xpath("//button[normalize-space()='Corporate']"));
+		return submit;
+	}
+	public static WebElement CorporateProceed()
+	{
+		submit = getDriver().findElement(By.xpath("//img[@title='Proceed']"));
+		return submit;
+	}
+	public static WebElement entityBulkUpload()
+	{
+		submit = getDriver().findElement(By.xpath("//button[normalize-space()='Bulk Upload']"));
+		return submit;
+	}
+	public static WebElement SampleTemplate()	
+	{
+		submit = getDriver().findElement(By.xpath("//img[@title='Download Template']"));
+		return submit;
+	}
+	public static WebElement UploadBtn()
+	{
+		submit = getDriver().findElement(By.xpath("//button[normalize-space()='Upload']"));
+		return submit;
+	}
+	
 	public static WebElement Upload()	//Method for searching button for Save/Sign-in
 	{
 		submit = getDriver().findElement(By.xpath("//button[@class='figma-btn-blue upload-btn']"));
 		return submit;
 	}
+	public static WebElement MessageText()
+	{
+		submit = getDriver().findElement(By.xpath("//div[@class='f-label']"));
+		return submit;
+	}
+	
 	public static WebElement UploadSuccessfully()	//Method for searching button for Save/Sign-in
 	{
 		submit = getDriver().findElement(By.xpath("//h4[@class='f-label']"));

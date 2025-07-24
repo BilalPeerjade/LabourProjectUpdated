@@ -545,7 +545,7 @@ public class CoordinatorMethod extends BasePage
 	 	 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 	 	 
 	 	 //Now press CRTL
-	 	 
+	 	Thread.sleep(1000);
 	 	 robot.keyPress(KeyEvent.VK_CONTROL);
 	 	 Thread.sleep(1000);
 	 	 
@@ -555,13 +555,15 @@ public class CoordinatorMethod extends BasePage
 	 	 
 	 	 //Release V
 	 	 robot.keyRelease(KeyEvent.VK_V);
-	 	 
+	 	Thread.sleep(1000);
 	 	 
 	 	 //Release CRTL
 	 	 robot.keyRelease(KeyEvent.VK_CONTROL);
+	 	Thread.sleep(1000);
 	 	 
 	 	 //PRESS Enter
 	 	 robot.keyPress(KeyEvent.VK_ENTER);
+	 	Thread.sleep(1000);
 	 	 
 	 	 //Release CRTL
 	 	 robot.keyRelease(KeyEvent.VK_ENTER);
@@ -571,7 +573,7 @@ public class CoordinatorMethod extends BasePage
 	 	 
 	 	 Thread.sleep(1000);
 	 	CoordinatorLocator.clickSaveNotice().click();
-	 	 Thread.sleep(1000);
+	 	 Thread.sleep(5000);
 	 	String msg=CoordinatorLocator.clickInvalidNotice().getText();
 	 	if(msg.equalsIgnoreCase("Notice Number already exist"))
 	 	{
@@ -612,11 +614,11 @@ public class CoordinatorMethod extends BasePage
 		JavascriptExecutor js1 = (JavascriptExecutor) getDriver();
 
 		js1.executeScript("window.scrollBy(0,-500)");
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		CoordinatorLocator.clickNoticeExport().click();
 
 		Thread.sleep(5500);
@@ -639,7 +641,7 @@ public class CoordinatorMethod extends BasePage
 				}
 			}
 
-			Thread.sleep(1000);
+			Thread.sleep(4000);
 			fis = new FileInputStream(lastModifiedFile);
 			workbook = new XSSFWorkbook(fis);
 			sheet = workbook.getSheetAt(0); // Retrieving first sheet of Workbook
@@ -2964,7 +2966,7 @@ public class CoordinatorMethod extends BasePage
 			Thread.sleep(5500);
 			File dir1 = new File("C:\\Users\\bilali\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
-		
+			Thread.sleep(4000);
 			if(dirContents.length < allFilesNew.length)
 			{
 			
@@ -2975,7 +2977,7 @@ public class CoordinatorMethod extends BasePage
 			{
 				test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
 			}
-			
+			Thread.sleep(2000);
 			
 		}
 		
