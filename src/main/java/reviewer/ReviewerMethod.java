@@ -25,10 +25,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import clientPortal.All_ClientPortal_Locators;
+import clientPortal.All_ClientPortal_Methods;
 import distributor.DistributerLocators;
 import login.BasePage;
 import login.LoginLocators;
 import performer.PerformerLocator;
+import rcp.OneCommonMethod;
 
 
 
@@ -45,7 +48,7 @@ public class ReviewerMethod extends BasePage
 		 	Thread.sleep(1000);
 			if(user.equalsIgnoreCase("Performer"))
 			{
-				LoginLocators.Search().sendKeys("TESTAUTO");
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO");
 				Thread.sleep(5000);
 				ReviwerLocator.clickWorkspaceArrow().click();
 				Thread.sleep(1000);
@@ -56,7 +59,7 @@ public class ReviewerMethod extends BasePage
 			}
 			else if(user.equalsIgnoreCase("Reviewer"))
 			{
-				LoginLocators.Search().sendKeys("TESTAUTO");
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO");
 				Thread.sleep(4000);
 				ReviwerLocator.clickStaturyDocumentArrow().click();
 			}
@@ -126,6 +129,78 @@ public class ReviewerMethod extends BasePage
 			
 			Thread.sleep(5000);
 			ReviwerLocator.clickdashboard().click();
+			}
+	 
+	 public static void StatutoryDocRegisterForms(ExtentTest test, String user) throws InterruptedException
+		{
+		 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		 	Thread.sleep(1000);
+			if(user.equalsIgnoreCase("Performer"))
+			{
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO");
+				Thread.sleep(5000);
+				ReviwerLocator.clickWorkspaceArrow().click();
+				Thread.sleep(1000);
+			}
+			else if(user.equalsIgnoreCase("Distributor"))
+			{
+				LoginLocators.Search().sendKeys("AVACORED5");	
+			}
+			else if(user.equalsIgnoreCase("Reviewer"))
+			{
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO");
+				Thread.sleep(4000);
+				ReviwerLocator.clickStaturyDocumentArrow().click();
+			}
+	
+		 	
+			Thread.sleep(8000);
+			Thread.sleep(2000);
+			ReviwerLocator.clickStatutoryDoc().click();
+			Thread.sleep(2000);
+			ReviwerLocator.clickComplianceType().click();
+			Thread.sleep(2000);
+			ReviwerLocator.selectComplianceType1().click();
+			Thread.sleep(2000);
+			ReviwerLocator.clickAct2().click();
+			Thread.sleep(2000);
+			ReviwerLocator.selectComplianceType().click();
+			Thread.sleep(2000);
+			ReviwerLocator.clickYear().click();
+			Thread.sleep(2000);
+			ReviwerLocator.selectComplianceType1().click();
+			Thread.sleep(2000);
+			ReviwerLocator.clickPeriod().click();
+			Thread.sleep(2000);
+			ReviwerLocator.selectPeriodJan().click(); //
+			Thread.sleep(2000);
+			ReviwerLocator.clickComplianceStatus().click();
+			Thread.sleep(2000);
+			ReviwerLocator.selectComplianceType().click();
+			Thread.sleep(2000);
+			Thread.sleep(1000);
+			ReviwerLocator.clickBranch1().click();
+			
+			Thread.sleep(2000);
+			ReviwerLocator.clickcheckbox().click();
+			Thread.sleep(3000);
+			ReviwerLocator.clickApply().click();
+			Thread.sleep(6000);
+			
+			
+			
+			if(ReviwerLocator.clickDownload().isDisplayed())
+			{
+				Thread.sleep(4000);
+				test.log(LogStatus.PASS, "Registers forms is displayed");
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "Apply button working successfully");
+			}
+			Thread.sleep(2000);
+			
+			
 			}
 
 
@@ -216,7 +291,7 @@ public static void StateDocZipFile(ExtentTest test, String user) throws Interrup
 	
 	if(user.equalsIgnoreCase("Performer"))
 	{
-		LoginLocators.Search().sendKeys("TESTAUTO");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO");
 		Thread.sleep(8000);
 		ReviwerLocator.clickWorkspaceArrow().click();
 	}
@@ -227,6 +302,7 @@ public static void StateDocZipFile(ExtentTest test, String user) throws Interrup
 	else if(user.equalsIgnoreCase("Reviewer"))
 	{
 		LoginLocators.Search().sendKeys("TESTAUTO");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO");
 		Thread.sleep(8000);
 		ReviwerLocator.clickStaturyDocumentArrow().click();
 	}
@@ -259,68 +335,68 @@ public static void StateDocZipFile(ExtentTest test, String user) throws Interrup
 	ReviwerLocator.clickBranch1().click();
 	Thread.sleep(2000);
 	ReviwerLocator.clickcheckbox().click();
-//	Thread.sleep(1000);
-//	ReviwerLocator.clickBranchTiangle().click();
-//	Thread.sleep(1000);
-//	ReviwerLocator.selectBranch1().click();
 	Thread.sleep(2000);
 	ReviwerLocator.clickApply().click();
-	
-	
 
 		Thread.sleep(9000);
-		File dir = new File("C:\\Users\\bilali\\Downloads");
-		File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
-	
-		Thread.sleep(4000);
-		ReviwerLocator.clickDownload().click();
 		
-//		Thread.sleep(1000);
-//		wait.until(ExpectedConditions.invisibilityOf(ReviwerLocator.gridLoad1()));
+		OneCommonMethod.validateFileDownloadDynamic(
+			    driver.get(),
+			    test,
+			    ReviwerLocator.clickDownload(),   // WebElement
+			    "ZIP File is downloaded successfully !"   // Dynamic log message
+			);
 		
 	
-		Thread.sleep(4000);
-		File dir1 = new File("C:\\Users\\bilali\\Downloads");
-		File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
-	
-		Thread.sleep(4000);
-		if(dirContents.length < allFilesNew.length)
-			{
-				Thread.sleep(4000);
-				test.log(LogStatus.PASS, "zip file should get downloaded.");
-			
-				File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
-			    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
-			    {
-			       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
-			       {
-			           lastModifiedFile = allFilesNew[i];
-			       }
-			    }
-			}
-		    
-		else
-			{  
-				Thread.sleep(2000);
-				String msg1=ReviwerLocator.FileNotFound().getText();
-				
-				 if(msg1.equalsIgnoreCase("File Not Found"))
-				 {
-					 test.log(LogStatus.PASS, "Message displayed = "+msg1);
-					 
-				 }
-				 else
-				 {
-					 test.log(LogStatus.FAIL, "Message displayed = "+msg1);
-				 }
-				 Thread.sleep(2000);
-				 ReviwerLocator.clickOkBtn().click();
-			}
-	
-	Thread.sleep(2000);
-		ReviwerLocator.clickdashboard().click();
+	Thread.sleep(9000);
 		
 	}
+
+	public static void StateDownloadDocSingle(ExtentTest test, String user) throws InterruptedException {
+
+		Thread.sleep(5000);
+		Thread.sleep(8000);
+		All_ClientPortal_Methods.clickElementUsingJS(ReviwerLocator.clickDownload1());
+//		ReviwerLocator.clickDownload1().click();
+		Thread.sleep(5000);
+		OneCommonMethod.validateFileDownloadDynamic(
+			    driver.get(),
+			    test,
+			    ReviwerLocator.clickDownloadDocument(),   // WebElement
+			    "File is downloaded successfully"   // Dynamic log message
+			);
+		
+	}
+	
+	public static void StateDownloadDocOverview(ExtentTest test, String user) throws InterruptedException {
+
+		Thread.sleep(5000);
+		Thread.sleep(5000);
+		ReviwerLocator.clickTriangleStaturyMaster().click();
+		Thread.sleep(9000);
+		ReviwerLocator.clickOverview().click();
+		Thread.sleep(5000);
+		try {
+			String txt = getDriver().findElement(By.xpath("//label[normalize-space()='Status :']")).getText();
+			if (txt.equalsIgnoreCase("Status :")) {
+				test.log(LogStatus.PASS, "Overview button is working fine");
+				test.log(LogStatus.PASS, "Overview text is displayed : " + txt);
+				Thread.sleep(5000);
+				ReviwerLocator.clickcloseBtn().click();
+				Thread.sleep(5000);
+			}
+
+			else {
+				test.log(LogStatus.FAIL, "Overview popup is not displayed");
+			}
+
+		} catch (Exception e) {
+			System.out.println("Overview button exception ");
+		}
+		Thread.sleep(5000);
+
+	}
+
 public static void StateDownloadDoc(ExtentTest test, String user) throws InterruptedException
 {
  	WebDriverWait wait=new WebDriverWait(getDriver(),20);

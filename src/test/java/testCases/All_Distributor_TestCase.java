@@ -1937,7 +1937,7 @@ import rcp.OneCommonMethod;
 		}
 		
 	///////--------------------------Onboard Entity - Premises -------------------------------------------///////////////////////
-		
+*/		
 		@Test(priority = 42 , groups = {"Smoke"}) //25/01/2025
 		void EntityBranchAddNew() throws InterruptedException, IOException
 		{
@@ -2245,6 +2245,8 @@ import rcp.OneCommonMethod;
 			extent.endTest(test);
 			extent.flush();
 		}
+		  
+		  
 		  
 		@Test(priority = 67) 
 		void PayCodeAddNewInvalid() throws InterruptedException, IOException, AWTException
@@ -2704,7 +2706,7 @@ import rcp.OneCommonMethod;
 		
 		
 		
-		*/
+		
 		
 		
 		

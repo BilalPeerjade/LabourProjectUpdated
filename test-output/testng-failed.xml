@@ -3,15 +3,33 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testCases.All_Distributor_TWO">
+      <class name="testCases.All_Client_Portal_TestCases">
         <methods>
-          <include name="Closing"/>
-          <include name="setBrowser"/>
-          <include name="UserMasterVerification"/>
-          <include name="Login"/>
           <include name="browserClosing"/>
+          <include name="RegistrationStatusEx"/>
+          <include name="RegistrationSHistory"/>
+          <include name="DailyUpdates"/>
+          <include name="CalendarExport"/>
+          <include name="AssignedCompliancesRgisterReturnChallanCount"/>
+          <include name="ClosedView"/>
+          <include name="setBrowser"/>
+          <include name="CalendarOverviewPagination"/>
+          <include name="RegistrationActiveEditDownloadbtn"/>
+          <include name="CalendarCount"/>
+          <include name="RegistrationSHistoryExport"/>
+          <include name="OpenView"/>
+          <include name="RegistrationSHistoryEx"/>
+          <include name="RegistrationSViewEx"/>
+          <include name="DownloadActive"/>
+          <include name="RegistrationSActivePagination"/>
+          <include name="InitiateActionBack"/>
+          <include name="ERviewBack"/>
+          <include name="RegistrationSView"/>
+          <include name="Closing"/>
+          <include name="RegistrationSHistoryViewDownload"/>
+          <include name="Login"/>
         </methods>
-      </class> <!-- testCases.All_Distributor_TWO -->
+      </class> <!-- testCases.All_Client_Portal_TestCases -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

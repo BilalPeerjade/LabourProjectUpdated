@@ -25,6 +25,7 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import clientPortal.All_ClientPortal_Methods;
 import distributor.MethodsD;
+import formsCalculations.EPF_ConsolatedMethods;
 import login.BasePage;
 import login.LoginLocators;
 import performer.LocatorsP;
@@ -445,6 +446,21 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	//E2E Suggest by bhagyesh sir
 	@Test(priority = 27) //
 	void StaturyDocPF_Basic_EPFwagesMatching() throws InterruptedException, IOException, AWTException
@@ -503,7 +519,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 		test = extent.startTest("Statutory Documents - Challan PT File Check weather PT Gross wages total is coming properly or not");
 		EndToEnd_B_Methods.T8(test,"Performer");
 		
-		test = extent.startTest("Statutory Documents - Challan PT File Check weather PT Gross wages total is coming properly or not");
+		test = extent.startTest("Statutory Documents - Toll");
 		EndToEnd_B_Methods.T9(test,"Performer");
 		
 		test = extent.startTest("Statutory Documents - PF Gross Uniqness");
@@ -533,6 +549,64 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 //		EndToEnd_B_Methods.T15(test,"Performer");
 		
 		
+		
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	@Test(priority = 2) 
+	void Registers_KAR_FormA() throws InterruptedException, IOException, AWTException
+	{			
+		
+		test = extent.startTest("Form A - Employee Name");
+		EPF_ConsolatedMethods.Registers_Form_A_check(test, link);
+		
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	
+	@Test(priority = 3) 
+	void Challan_PT_GUJA() throws InterruptedException, IOException, AWTException
+	{			
+		
+		test = extent.startTest("Challan PT - Employee Name");
+		EPF_ConsolatedMethods.Challan_PT_GUJA(test, link);
+		
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 3) 
+	void RegisterFolderRedirectionChecking() throws InterruptedException, IOException, AWTException
+	{			
+		
+		test = extent.startTest("Register Folder - KAR Form A ");
+		EPF_ConsolatedMethods.RegisterFolderRedirectionChecking(test, link);
+		
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	
+	//single method
+	@Test(priority = 3) 
+	void Challan_PT_GUJFormATest() throws InterruptedException, IOException, AWTException
+	{			
+		
+		test = extent.startTest("Challan PT - Employee Name");
+		EPF_ConsolatedMethods.Challan_PT_GUJFormATest(test, link);
 		
 		
 		extent.endTest(test);

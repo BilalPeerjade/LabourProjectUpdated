@@ -351,6 +351,19 @@ public class All_Reviewer_TestCase extends BasePage {
 		
 		
 		
+		
+		@Test(priority = 80) //Fail
+	   	void DesignationExportBtn() throws InterruptedException, IOException
+	   	{
+	   		test = extent.startTest("Manage Masters - Designation - Verify to check export button works correctly ");
+	   		
+	   		PerformerMethod.DesignationExportBtn(test, workbook,"Reviewer");
+	   		
+	   		extent.endTest(test);
+	   		extent.flush();
+	   	}
+		
+		
 		//My Documents -- Digital Signature
 		@Test(priority = 100)
 		void MyDocumentSearch() throws InterruptedException, IOException, AWTException
@@ -433,7 +446,7 @@ public class All_Reviewer_TestCase extends BasePage {
 		@Test(priority = 250)
 		void StatutoryDocApplyClaerBtn() throws InterruptedException, IOException, AWTException
 		{
-			test = extent.startTest("Statutoty Document-Apply Button and clear Verification");
+			test = extent.startTest("Statutory Documents - Verify to check Apply and clear buttons works correctly");
 			
 			ReviewerMethod.StatutoryDocApplyClaerBtn(test, "Reviewer");
 			
@@ -441,10 +454,10 @@ public class All_Reviewer_TestCase extends BasePage {
 			extent.flush();
 		}
 		
-		@Test(priority =251) //This is not looking good (Need to write TCs like workspace filters verification)
+		@Test(priority = 251) //This is not looking good (Need to write TCs like workspace filters verification)
 		void StatutoryDocFilter() throws InterruptedException, IOException, AWTException
 		{
-			test = extent.startTest("Statutoty Document-Filter Verification");
+			test = extent.startTest("Statutory Documents - Filter Verification");
 			
 			ReviewerMethod.StatutoryDocFilter(test);
 			
@@ -454,7 +467,7 @@ public class All_Reviewer_TestCase extends BasePage {
 		@Test(priority = 252)
 		void StateDocZipFile() throws InterruptedException, IOException, AWTException
 		{
-			test = extent.startTest("Statutoty Document-Branch -Registor Compliance Type -Action Column -Zip File Verification");
+			test = extent.startTest("Statutory Documents - Registers - Verify to download ZIP folder");
 			
 			ReviewerMethod.StateDocZipFile(test , "Reviewer");
 			
@@ -465,7 +478,7 @@ public class All_Reviewer_TestCase extends BasePage {
 		@Test(priority = 253)
 		void StateDownloadDoc() throws InterruptedException, IOException, AWTException
 		{
-			test = extent.startTest("Statutoty Document-Branch -Registor Compliance type-Action Column -Download Doc Verification");
+			test = extent.startTest("Statutory Documents - Branch - Registor Compliance type-Action Column -Download Doc Verification");
 			
 			ReviewerMethod.StateDownloadDoc(test, "Reviewer");
 			
@@ -475,7 +488,7 @@ public class All_Reviewer_TestCase extends BasePage {
 		@Test(priority = 254)
 		void StatutoryDocViewandOverview() throws InterruptedException, IOException, AWTException
 		{
-			test = extent.startTest("Statutoty Document-Branch - Registor Compliance type -Action Column -Overview and view button Verification");
+			test = extent.startTest("Statutory Documents - Branch - Registor Compliance type -Action Column -Overview and view button Verification");
 			
 			ReviewerMethod.StatutoryDocViewandOverview(test,"Reviewer");
 			
@@ -486,7 +499,7 @@ public class All_Reviewer_TestCase extends BasePage {
 		@Test(priority = 255)
 		void StatutoryDocZipFile() throws InterruptedException, IOException, AWTException
 		{
-			test = extent.startTest("Statutoty Document-State -Registor Compliance Type -Action Column -Zip File Verification");
+			test = extent.startTest("Statutory Documents - State - Registor Compliance Type -Action Column -Zip File Verification");
 			
 			ReviewerMethod.StatutoryDocZipFile(test, "Reviewer");
 			

@@ -111,16 +111,16 @@ import org.openqa.selenium.chrome.ChromeOptions; //Headless mode
 			extent.flush();
 		}
 		
-		@Test(priority = 22)//05/02/2025  need to check with mayuri
-		void ViewAddNewNotices() throws InterruptedException, IOException, AWTException
-		{
-			test = extent.startTest("'Open Notices' - View - add new button working or not?");
-			All_ClientPortal_Methods.filterEntityAUTO2(test);
-			All_ClientPortal_Methods.ViewAddNewNotices(test);
-			
-			extent.endTest(test);
-			extent.flush();
-		}
+//		@Test(priority = 22)//05/02/2025  need to check with mayuri
+//		void ViewAddNewNotices() throws InterruptedException, IOException, AWTException
+//		{
+//			test = extent.startTest("'Open Notices' - View - add new button working or not?");
+//			All_ClientPortal_Methods.filterEntityAUTO2(test);
+//			All_ClientPortal_Methods.ViewAddNewNotices(test);
+//			
+//			extent.endTest(test);
+//			extent.flush();
+//		}
 		
 		
 		

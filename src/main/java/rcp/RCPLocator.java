@@ -92,6 +92,11 @@ public class RCPLocator extends BasePage
 		labour = getDriver().findElement(By.xpath("//*[@class='exportbtn']"));
 		return labour;
 	}
+	public static WebElement OTAReport()
+	{
+		labour = getDriver().findElement(By.xpath("//button[normalize-space()='OTA Report']"));
+		return labour;
+	}
 	
 	public static WebElement ExistingLicesneViewIcon()		//Method for searching Username input
 	{
@@ -130,7 +135,7 @@ public class RCPLocator extends BasePage
 	}
 	public static WebElement ExistingLicesneDownload()		//Method for searching Username input
 	{
-		labour = getDriver().findElement(By.xpath("//div[@class='icon-container']/button[2]"));
+		labour = getDriver().findElement(By.xpath("(//img[@title='Download'])[1]"));
 		return labour;
 	}
 	public static WebElement clickSubmit()		//Method for searching Username input
@@ -194,6 +199,21 @@ public class RCPLocator extends BasePage
 	public static WebElement EditBtn()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("(//img[@title='Edit'])"));
+		return labour;
+	}
+	public static WebElement submittedToDeptBtn()
+	{
+		labour = getDriver().findElement(By.xpath("//button[normalize-space()='Submitted to department']"));
+		return labour;
+	}
+	public static WebElement draftAppToDeptDate()
+	{
+		labour = getDriver().findElement(By.xpath("//button[@title='Toggle calendar']"));
+		return labour;
+	}
+	public static WebElement browse1()
+	{
+		labour = getDriver().findElement(By.xpath("//button[normalize-space()='Browse']"));
 		return labour;
 	}
 	public static WebElement clickMsg()		//Method for searching Username input

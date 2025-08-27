@@ -70,43 +70,77 @@ public class All_Client_Portal_TestCases extends BasePage {
 	
 
 	
-	/*
+	
 	
 	
 	// Mayuri TCs - ClientTest.Java 1 to 112
+	@Test(priority = 1) //
+	void Clientlogo() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Verify to check after client portal login TeamLease RegTech Logo is displayed or not?");
+//		All_ClientPortal_Methods.filterEntityAUTO2(test);
+		All_ClientPortal_Methods.Clientlogo(test);
+		
+		
+		test = extent.startTest("Verify to check column expand/collaps icon button is working or not?");
+		All_ClientPortal_Methods.columnExpandIcon(test);
+		extent.endTest(test);
+		extent.flush();
+	}
 	
-	@Test(priority = 1) //04/02/2025
+	@Test(priority = 2) //
+	void filtersChecking() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Verify to check all filters are working properly or not?");
+		All_ClientPortal_Methods.filterEntityAUTO2(test);
+		All_ClientPortal_Methods.filtersChecking(test);
+
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	
+	
+	@Test(priority = 3)
 	void Entities() throws InterruptedException, IOException
 	{
 		test = extent.startTest("'Entities' Count verification");
 		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		
 		All_ClientPortal_Methods.Entities(test);
+		
+		
+		test = extent.startTest("Validate Entity search field working or not?");
+		All_ClientPortal_Methods.EntitiesSearch(test);
+		
+		
+		test = extent.startTest("Verify Entities tab Paginations are working or not?");
+		All_ClientPortal_Methods.EntitiesTabPagination(test);
+		
 		
 		extent.endTest(test);
 		extent.flush();
 	}
 	
-	@Test(priority = 2) 
-	void EntitiesSearch() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Validate Entity search field working or not?");
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.EntitiesSearch(test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	@Test(priority = 3 , groups= {"Smoke"}) 
-	void EntitiesTabPagination() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Verify Entities tab Paginations are working or not?");
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.EntitiesTabPagination(test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
+////	@Test(priority = 2) merged
+//	void EntitiesSearch() throws InterruptedException, IOException
+//	{
+//		test = extent.startTest("Validate Entity search field working or not?");
+//		All_ClientPortal_Methods.filterEntityAUTO2(test);
+//		All_ClientPortal_Methods.EntitiesSearch(test);
+//		
+//		extent.endTest(test);
+//		extent.flush();
+//	}
+////	@Test(priority = 3 , groups= {"Smoke"}) merged
+//	void EntitiesTabPagination() throws InterruptedException, IOException
+//	{
+//		test = extent.startTest("Verify Entities tab Paginations are working or not?");
+//		All_ClientPortal_Methods.filterEntityAUTO2(test);
+//		All_ClientPortal_Methods.EntitiesTabPagination(test);
+//		
+//		extent.endTest(test);
+//		extent.flush();
+//	}
 	
 	@Test(priority = 4)
 	void Locations() throws InterruptedException, IOException
@@ -444,12 +478,58 @@ public class All_Client_Portal_TestCases extends BasePage {
 	}
 	
 	
-	@Test(priority = 33)//05/02/2025 Pass
+	@Test(priority = 33)
 	void ViewAddNewNotices() throws InterruptedException, IOException, AWTException
 	{
 		test = extent.startTest("'Open Notices' - View - add new button working or not?");
 		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.ViewAddNewNotices(test);
+		All_ClientPortal_Methods.ViewAddNewNotices("Add New", test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 33)
+	void ViewAddNewNoticesNumberError() throws InterruptedException, IOException, AWTException
+	{
+		test = extent.startTest("'Open Notices' - View - add new - verify notice already exists error is displayed or not?");
+		All_ClientPortal_Methods.filterEntityAUTO2(test);
+		All_ClientPortal_Methods.ViewAddNewNoticesNumberError("",test);
+		
+		
+		test = extent.startTest("'Open Notices' - View - add new - back button working or not?");
+		All_ClientPortal_Methods.ViewAddNewNoticesBackBtn(test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	@Test(priority = 34)
+	void OpenNotice_BrowseUploadValidation() throws Exception
+	{
+		test = extent.startTest("'Open Notices' - View - Add New - Receipt Acknowledgement - Verify to upload PDF file");
+		All_ClientPortal_Methods.filterEntityAUTO2(test);
+		All_ClientPortal_Methods.OpenNotice_BrowseUploadValidation("RA : PDF",test);
+		
+		test = extent.startTest("'Open Notices' - View - Add New - Receipt Acknowledgement - Verify to upload DOCX file");
+		All_ClientPortal_Methods.OpenNotice_BrowseUploadValidation2("RA : Docs",test);
+		
+		test = extent.startTest("'Open Notices' - View - Add New - Receipt Acknowledgement - Verify to upload DOC file");
+		All_ClientPortal_Methods.OpenNotice_BrowseUploadValidation2("RA : Doc",test);
+		
+		test = extent.startTest("'Open Notices' - View - Add New - Receipt Acknowledgement - Verify to check error message to upload XLSX file");
+		All_ClientPortal_Methods.OpenNotice_BrowseUploadValidation2("RA : XLSX",test);
+		
+		test = extent.startTest("'Open Notices' - View - Add New - Receipt Acknowledgement - Verify to check error message to upload XLS file");
+		All_ClientPortal_Methods.OpenNotice_BrowseUploadValidation2("RA : XLS",test);
+		
+		test = extent.startTest("'Open Notices' - View - Add New - Receipt Acknowledgement - Verify to check error message to upload ZIP file");
+		All_ClientPortal_Methods.OpenNotice_BrowseUploadValidation2("RA : ZIP",test);
+		
+		test = extent.startTest("'Open Notices' - View - Add New - Receipt Acknowledgement - Verify to check error message to upload JPG file");
+		All_ClientPortal_Methods.OpenNotice_BrowseUploadValidation2("RA : JPG",test);
+		
+		test = extent.startTest("'Open Notices' - View - Add New - Receipt Acknowledgement - Verify to check error message to upload JPEG file");
+		All_ClientPortal_Methods.OpenNotice_BrowseUploadValidation2("RA : JPEG",test);
 		
 		extent.endTest(test);
 		extent.flush();
@@ -620,29 +700,51 @@ public class All_Client_Portal_TestCases extends BasePage {
 		extent.endTest(test);
 		extent.flush();
 	}
-	
-	
-	
 	@Test(priority = 47) //Bilal Pass
+	void RCCompliedCountVerification() throws InterruptedException, IOException
+	{
+		test = extent.startTest("'Compliance Performance Graph – Payroll Compliances - Click on complied count and verify to check count is matching correctly?");
+		All_ClientPortal_Methods.filterEntityAUTO2(test);
+		All_ClientPortal_Methods.RCCompliedCountVerification(test);
+		
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	
+	@Test(priority = 48) //Bilal Pass
 	void searchRCComplied() throws InterruptedException, IOException
 	{
 		test = extent.startTest("'Compliance Performance Graph – Payroll Compliances - Click on the complied count to verify if the search field works correctly?");
 		All_ClientPortal_Methods.filterEntityAUTO2(test);
 		All_ClientPortal_Methods.searchRCComplied(test);
 		
-		extent.endTest(test);
-		extent.flush();
-	}
-	@Test(priority = 48) //Bilal Pass
-	void ClearExportRCComplied() throws InterruptedException, IOException
-	{
-		test = extent.startTest("'Compliance Performance Graph – Payroll Compliances - Click on the complied count to verify if the Clear and Export button works correctly?");
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.ClearExportRCComplied(test);
+		
+		test = extent.startTest("'Compliance Performance Graph – Payroll Compliances - Click on the complied count to verify if the Apply button works correctly?");
+		All_ClientPortal_Methods.CP_Complied_ApplyBtn(test);
+		
+		
+		test = extent.startTest("'Compliance Performance Graph – Payroll Compliances - Click on the complied count to verify if the Clear button works correctly?");
+		All_ClientPortal_Methods.CP_Complied_ClearBtn(test);
+		
+		
+		test = extent.startTest("'Compliance Performance Graph – Payroll Compliances - Click on the complied count to verify if the Export button works correctly?");
+		All_ClientPortal_Methods.CP_Complied_ExportBtn(test);
 		
 		extent.endTest(test);
 		extent.flush();
 	}
+//	@Test(priority = 48) //merged
+//	void ClearExportRCComplied() throws InterruptedException, IOException
+//	{
+//		test = extent.startTest("'Compliance Performance Graph – Payroll Compliances - Click on the complied count to verify if the Clear and Export button works correctly?");
+//		All_ClientPortal_Methods.filterEntityAUTO2(test);
+//		All_ClientPortal_Methods.ClearExportRCComplied(test);
+//		
+//		extent.endTest(test);
+//		extent.flush();
+//	}
 	
 	@Test(priority = 49) //Bilal Pass
 	void ViewOverDownloadRCComplied() throws InterruptedException, IOException
@@ -651,11 +753,15 @@ public class All_Client_Portal_TestCases extends BasePage {
 		All_ClientPortal_Methods.filterEntityAUTO2(test);
 		All_ClientPortal_Methods.ViewOverDownloadRCComplied(test);
 		
+		
+		test = extent.startTest("'Compliance Performance Graph – Payroll Compliances - Click on the complied count to verify if the all Pagination buttons works correctly?");
+		All_ClientPortal_Methods.RCCompliedPagination(test);
+		
 		extent.endTest(test);
 		extent.flush();
 	}
 	
-	@Test(priority = 50) //Bilal Pass
+//	@Test(priority = 50) //Bilal Pass merged
 	void RCCompliedPagination() throws InterruptedException, IOException
 	{
 		test = extent.startTest("'Compliance Performance Graph – Payroll Compliances - Click on the complied count to verify if the all Pagination buttons works correctly?");
@@ -717,77 +823,109 @@ public class All_Client_Portal_TestCases extends BasePage {
 		All_ClientPortal_Methods.filterEntityAUTO2(test);
 		All_ClientPortal_Methods.searchEcComplied(test);
 		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-	@Test(priority = 56) //Bilal Pass
-	void clearbtnEcComplied() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the complied count to verify if the 'clear button' works correctly?");
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.clearbtnEcComplied(test);
+		
+		test = extent.startTest("'Compliance Performance Graph – Establishment Compliances - Click on the complied count and click to Registers dropdown verify export button works correctly?");
+		All_ClientPortal_Methods.Merged_CompPer_EST_Comp("Register Export",test);
+		
+		
+		test = extent.startTest("'Compliance Performance Graph – Establishment Compliances - Click on the complied count and click to Returns dropdown verify export button works correctly?");
+		All_ClientPortal_Methods.Merged_CompPer_EST_Comp("Return Export",test);
+		
+		
+		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the complied count to verify if the 'Apply button' works correctly?");
+		All_ClientPortal_Methods.clearbtnEcComplied("Apply button",test);
+
+		
+		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the complied count to verify if the 'Clear button' works correctly?");
+		All_ClientPortal_Methods.clearbtnEcComplied("Clear button",test);
+		
 		
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 57) //Bilal Pass
+	
+//	@Test(priority = 56) //Bilal merged
+//	void clearbtnEcComplied() throws InterruptedException, IOException
+//	{
+//		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the complied count to verify if the 'clear button' works correctly?");
+//		All_ClientPortal_Methods.filterEntityAUTO2(test);
+//		All_ClientPortal_Methods.clearbtnEcComplied("Clear button",test);
+//		
+//		extent.endTest(test);
+//		extent.flush();
+//	}
+	@Test(priority = 57) //Bilal
 	void exportEcComplied() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the complied count to verify if the 'Export button' works correctly?");
 		All_ClientPortal_Methods.filterEntityAUTO2(test);
 		All_ClientPortal_Methods.exportEcComplied(test);
 		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-	//Bilal Pass
-	@Test(priority = 58) 
-	void ECComplied() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the complied count to verify if the 'View button' works correctly?");
 		
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
+		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the complied count to verify if the 'View button' works correctly?");
 		All_ClientPortal_Methods.ECComplied(test);
 		
-		extent.endTest(test);
-		extent.flush();
-	}
-	//Bilal Pass
-	@Test(priority = 59) 
-	void overviewECComplied() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the complied count to verify if the 'Overview button' works correctly?");
 		
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
+		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the complied count to verify if the 'Overview button' works correctly?");
 		All_ClientPortal_Methods.overviewECComplied(test);
 		
-		extent.endTest(test);
-		extent.flush();
-	}
-	@Test(priority = 60) 
-	void downloadECComplied() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the complied count to verify if the 'Download button' works correctly?");
 		
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
+		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the complied count to verify if the 'Download button' works correctly?");
 		All_ClientPortal_Methods.downloadECComplied(test);
 		
-		extent.endTest(test);
-		extent.flush();
-	}
-	@Test(priority = 61) 
-	void PaginationECComplied() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the complied count to verify if the all 'Pagination buttons' works correctly?");
 		
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
+		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the complied count to verify if the all 'Pagination buttons' works correctly?");
 		All_ClientPortal_Methods.PaginationECComplied(test);
 		
 		extent.endTest(test);
 		extent.flush();
 	}
+	
+//	
+//	@Test(priority = 58) merged
+//	void ECComplied() throws InterruptedException, IOException
+//	{
+//		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the complied count to verify if the 'View button' works correctly?");
+//		
+//		All_ClientPortal_Methods.filterEntityAUTO2(test);
+//		All_ClientPortal_Methods.ECComplied(test);
+//		
+//		extent.endTest(test);
+//		extent.flush();
+//	}
+//	@Test(priority = 59) merged
+//	void overviewECComplied() throws InterruptedException, IOException
+//	{
+//		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the complied count to verify if the 'Overview button' works correctly?");
+//		
+//		All_ClientPortal_Methods.filterEntityAUTO2(test);
+//		All_ClientPortal_Methods.overviewECComplied(test);
+//		
+//		extent.endTest(test);
+//		extent.flush();
+//	}
+//	@Test(priority = 60) merged
+//	void downloadECComplied() throws InterruptedException, IOException
+//	{
+//		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the complied count to verify if the 'Download button' works correctly?");
+//		
+//		All_ClientPortal_Methods.filterEntityAUTO2(test);
+//		All_ClientPortal_Methods.downloadECComplied(test);
+//		
+//		extent.endTest(test);
+//		extent.flush();
+//	}
+//	@Test(priority = 61) merged
+//	void PaginationECComplied() throws InterruptedException, IOException
+//	{
+//		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the complied count to verify if the all 'Pagination buttons' works correctly?");
+//		
+//		All_ClientPortal_Methods.filterEntityAUTO2(test);
+//		All_ClientPortal_Methods.PaginationECComplied(test);
+//		
+//		extent.endTest(test);
+//		extent.flush();
+//	}
 		
 	
 	//Establishment Compliances Overdue:
@@ -1522,7 +1660,7 @@ public class All_Client_Portal_TestCases extends BasePage {
 		extent.flush();
 	}
 	
-	@Test(priority = 113) //
+	@Test(priority = 113) //Need to raise an issue view mouse hover dispaying overview
 	void OpenView() throws InterruptedException, IOException
 	{
 		test = extent.startTest("'Notice Status' - Open - View button working or not?");
@@ -1931,7 +2069,7 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 	
 	
 	
-	/*
+	
 	
 	
 	
@@ -2001,13 +2139,13 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 	
 	
 	
-	*/
 	
 	
 	
 	
 	
 	
+	/**
 	
 	//---------Part 2-------For Daily Execution------
 
@@ -3114,7 +3252,7 @@ void ChallanDocBulkDownload() throws InterruptedException, IOException, AWTExcep
 		
     
 	
-		
+		*/
 	
 	  
 	   

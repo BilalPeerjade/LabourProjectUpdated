@@ -592,7 +592,7 @@ else {
 		
 }
 	
-	public static void CorporateEntity_BulkUploadVerification( ExtentTest test, String user) throws InterruptedException, IOException
+	public static void CorporateEntity_BulkUploadVerification( ExtentTest test, String user) throws Exception
 	{
 	
 		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
@@ -641,9 +641,9 @@ else {
 	    Thread.sleep(2000);
 	    
 	    LoginLocators. UploadBtn().click();
-	    Thread.sleep(2000);
+	    Thread.sleep(5000);
 	    
-	    String NoFileChoosen = LoginLocators.MessageText().getText();
+	    String NoFileChoosen = LoginLocators.UploadSuccessfully().getText();
 	    Thread.sleep(2000);
 	    if(NoFileChoosen.equalsIgnoreCase("No file selected!"))
 	    {
@@ -654,6 +654,34 @@ else {
 	    {
 	    	test.log(LogStatus.FAIL	,"Without selecting file on clicking to upload button message is displayed");
     	    test.log(LogStatus.FAIL,"Message Displayed = " + NoFileChoosen);
+	    }
+	    
+	    PerformerLocator.clickOkBtn().click();
+	    Thread.sleep(5000);
+	    
+	    
+	    
+	    
+	    //2. Empty sheet
+	    LoginLocators. Browes().click();
+	    Thread.sleep(2000);
+	    
+		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Distributor Admin\\Entity Upload\\EntityUpload__E.xlsx");
+		Thread.sleep(3000);
+	    LoginLocators. UploadBtn().click();
+	    Thread.sleep(5000);
+	    
+	    String EmptySheet = LoginLocators.UploadSuccessfully().getText();
+	    Thread.sleep(2000);
+	    if(EmptySheet.equalsIgnoreCase("Empty Sheet"))
+	    {
+	    	test.log(LogStatus.PASS,"While uploading empty sheet error message is displayed ");
+	    	test.log(LogStatus.PASS,"Message Displayed = " + EmptySheet);
+	    }
+	    else
+	    {
+	    	test.log(LogStatus.FAIL	,"While uploading empty sheet message is displayed ");
+    	    test.log(LogStatus.FAIL,"Message Displayed = " + EmptySheet);
 	    }
 	    
 	    
@@ -1596,6 +1624,7 @@ else
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
 		{
+			LoginLocators.Search().sendKeys("TESTAUTO");	
 			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 		//	LoginLocators.Search().sendKeys("TESTAUTO2");	
 		}

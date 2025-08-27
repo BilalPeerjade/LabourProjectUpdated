@@ -59,6 +59,7 @@ public class PerformerMethod extends BasePage
 	 JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		Thread.sleep(5000);
 		PerformerLocator.SerchCustomer().sendKeys("TESTAUTO3");
+		OneCommonMethod.searchEntityAndSelect(driver.get(), test, LoginLocators.Search(), "TESTAUTO3");
 		Thread.sleep(10000);
 		PerformerLocator.clickWorkspaceArrow().click();
 		Thread.sleep(7000);
@@ -2443,7 +2444,7 @@ public class PerformerMethod extends BasePage
 		 	Thread.sleep(5000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(5000);
-			PerformerLocator.clickDashboard().click();
+			PerformerLocator.clickWorkspaceArrow().click();
 			Thread.sleep(7000);
 			PerformerLocator.clickOnboardEntity().click();
 			
@@ -2514,7 +2515,7 @@ public class PerformerMethod extends BasePage
 		 	Thread.sleep(5000);
 			PerformerLocator.SerchCustomer().sendKeys("TESTAUTO2");
 			Thread.sleep(5000);
-			PerformerLocator.clickDashboard().click();
+			PerformerLocator.clickWorkspaceArrow().click();
 			Thread.sleep(7000);
 			PerformerLocator.clickOnboardEntity().click();
 
@@ -6174,6 +6175,54 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 	
 	 	}
 	 
+	 public static void StateCityAddNewPopUp( ExtentTest test,XSSFWorkbook workbook, String user) throws Exception
+	 {
+	 	
+		 
+		    Thread.sleep(10000);
+			if(user.equalsIgnoreCase("Performer"))
+			{
+				LoginLocators.Search().sendKeys("AVACORED5");
+				PerformerLocator.clickWorkspaceArrow().click();
+			 	Thread.sleep(5000);
+			}
+			else if(user.equalsIgnoreCase("Distributor"))
+			{
+				LoginLocators.Search().sendKeys("TESTAUTO3");
+				PerformerLocator.DistributorPremisesArrow().click();
+				Thread.sleep(5000);
+			}
+			else if(user.equalsIgnoreCase("Reviewer"))
+			{
+				LoginLocators.Search().sendKeys("AVACORED5");	
+				PerformerLocator.ReviewerStaturyDocumentArrow().click();
+			 	Thread.sleep(5000);
+			}
+			
+	 	
+	 	Thread.sleep(8000);
+		PerformerLocator.clickManageMaster().click();
+	 	Thread.sleep(5000);
+	 	Thread.sleep(1000);
+	 	
+	 	PerformerLocator.clickAddNewDesignation().click();
+	 	Thread.sleep(3000);
+	 	if(PerformerLocator.clicksave().isDisplayed())
+	 	{
+	 		test.log(LogStatus.PASS, "Add New popup is opened ");
+	 	}
+	 	Thread.sleep(5000);
+	 	if(PerformerLocator.clickcloseBtn().isDisplayed())
+	 	{
+	 		test.log(LogStatus.PASS, "On clicking to close popup is closed");
+	 	}
+	 	else
+	 	{
+	 		test.log(LogStatus.PASS, "Add New popup is not opened");
+	 	}
+	 	
+	 	}
+	 
 	 public static void DesignationSearch ( ExtentTest test,XSSFWorkbook workbook ,String user) throws InterruptedException, IOException
 	 {
 	 	
@@ -6770,7 +6819,9 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			}
 			else if(user.equalsIgnoreCase("Reviewer"))
 			{
-				LoginLocators.Search().sendKeys("AVACORED5");	
+				LoginLocators.Search().sendKeys("TESTAUTO2");	
+				Thread.sleep(5000);
+				PerformerLocator.ReviewerStaturyDocumentArrow().click();
 			}
 		
 	 	Thread.sleep(1000);

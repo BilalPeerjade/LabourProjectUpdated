@@ -98,18 +98,111 @@ public class FailedTC2 extends BasePage {
 	*/
 	
 	
+
 	
-	
-	@Test(priority = 200 ,groups={"smoke"}) //Bilal
-	void InputUploadFilters() throws InterruptedException, IOException, AWTException
+	@Test(priority = 115) 
+	void ClosedStatus() throws InterruptedException, IOException
 	{
-		test = extent.startTest("'Input Upload - To check weather All dropdowns are working or not?");
+		test = extent.startTest("'Notice Status' - Closed Count Verification in dashboard");
+		
 		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.InputUploadFilters(test);
+		
+		All_ClientPortal_Methods.ClosedStatus(test);
 		
 		extent.endTest(test);
 		extent.flush();
 	}
+	@Test(priority = 116) 
+	void NoticeStatusClosedHyperLinkCount() throws InterruptedException, IOException
+	{
+		test = extent.startTest("'Notice Status' - Verify Closed link is working and count matching with grid or not?");
+		
+		All_ClientPortal_Methods.filterEntityAUTO2(test);
+		
+		All_ClientPortal_Methods.NoticeStatusClosedHyperLinkCount(test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 117) 
+	void exportClosed() throws InterruptedException, IOException
+	{
+		test = extent.startTest("'Notice Status' - Closed - Export button working or not?");
+		
+		All_ClientPortal_Methods.filterEntityAUTO2(test);
+		
+		All_ClientPortal_Methods.exportClosed(test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 118) 
+	void ClosedView() throws InterruptedException, IOException
+	{
+		test = extent.startTest("'Notice Status' - Closed - View button working or not?");
+		
+		All_ClientPortal_Methods.filterEntityAUTO2(test);
+		
+		All_ClientPortal_Methods.ClosedView(test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	@Test(priority = 119) //Bilal
+	void NoticeStatusClosedPagination() throws InterruptedException, IOException
+	{
+		test = extent.startTest("'Notice Status' - Closed - Verify to check all Pagination buttons are working or not?");
+		
+		All_ClientPortal_Methods.filterEntityAUTO2(test);
+		
+		All_ClientPortal_Methods.NoticeStatusClosedPagination(test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}    
+	@Test(priority = 120) //Bilal
+	void NoticeStatusOpenClosedCountWithTotalNotices() throws InterruptedException, IOException
+	{
+		test = extent.startTest("'Notice Status' - Verify to check Open & Closed Notices column count is mathcing with Total Notices Column or not?");
+		
+		All_ClientPortal_Methods.filterEntityAUTO2(test);
+		
+		All_ClientPortal_Methods.NoticeStatusOpenClosedCountWithTotalNotices(test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	@Test(priority = 121) //Bilal
+	void NoticeStatusPagination() throws InterruptedException, IOException
+	{
+		test = extent.startTest("'Notice Status' - Verify to check all Pagination buttons are working or not?");
+		
+		All_ClientPortal_Methods.filterEntityAUTO2(test);
+		
+		All_ClientPortal_Methods.NoticeStatusPagination(test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 

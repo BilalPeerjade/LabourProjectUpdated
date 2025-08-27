@@ -685,6 +685,7 @@ public class OneCommonMethod {
                     }
                 }
             }
+            Thread.sleep(3000);
 
             if (downloadedFile != null) {
                 test.log(LogStatus.PASS, "" + logMessage);

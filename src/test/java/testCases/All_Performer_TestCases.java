@@ -31,6 +31,7 @@ import performer.LocatorsP;
 import performer.MethodsP;
 import performer.PerformerMethod;
 import rcp.OneCommonMethod;
+import reviewer.ReviewerMethod;
 
 
 
@@ -89,7 +90,7 @@ public class All_Performer_TestCases extends BasePage{
 	}
 	
 	
-	
+/**	
 	
 	@Test(priority = 1) //Bilal
 	void CompanyLogo() throws InterruptedException, IOException
@@ -566,7 +567,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 	
    	
    	 
-	
+	**/
 	
    	
    	
@@ -911,8 +912,44 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 	    extent.endTest(test);
 	    extent.flush();
     }
+	@Test(priority = 301)
+	void StatutoryDocApplyClaerBtn() throws InterruptedException, IOException, AWTException
+	{
+		test = extent.startTest("Statutory Documents - Apply Button and clear Verification");
+		
+		ReviewerMethod.StatutoryDocApplyClaerBtn(test, "Performer");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	@Test(priority = 301)
+	void StatutoryDocRegisterForms() throws InterruptedException, IOException, AWTException
+	{
+		test = extent.startTest("Statutory Documents - Verify to check Registers forms is displayed correctly");
+		
+		ReviewerMethod.StatutoryDocRegisterForms(test, "Performer");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 	
 	
+	@Test(priority = 305)
+	void StateDocZipFile() throws InterruptedException, IOException, AWTException 
+	{
+		test = extent.startTest("Statutory Documents - Registers - Verify to download ZIP folder");
+		ReviewerMethod.StateDocZipFile(test, "Performer");
+		
+		test = extent.startTest("Statutory Documents - Registers - Verify to check Overview button is working correctly");
+		ReviewerMethod.StateDownloadDocOverview(test, "Performer");
+
+		test = extent.startTest("Statutory Documents - Registers - Verify to download document file");
+		ReviewerMethod.StateDownloadDocSingle(test, "Performer");
+
+		extent.endTest(test);
+		extent.flush();
+
+	}
 	
     
     //----- Input Files -----

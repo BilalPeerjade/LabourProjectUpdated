@@ -87,14 +87,40 @@ public class All_ClientPortal_Locators extends BasePage {
 		clients = getDriver().findElement(By.xpath("//span[normalize-space()='2025']"));
 		return clients;
 	}
+	public static WebElement selectMonthDrp( )
+	{
+		clients = getDriver().findElement(By.xpath("(//kendo-multiselecttree[@role='combobox'])[2]"));
+		return clients;
+	}
+	public static WebElement selectTriangleFirst( )
+	{
+		clients = getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-right k-svg-icon k-icon ng-star-inserted']"));
+		return clients;
+	}
+	public static WebElement selectCBFirst( )
+	{
+		clients = getDriver().findElement(By.xpath("//input[@type='radio']"));
+		return clients;
+	}
 	
-	public static WebElement Apply( )		//Method for closing Message Popup
+	public static WebElement ApplyBtn( )
+	{
+		clients = getDriver().findElement(By.xpath("//button[@title='Apply']"));
+		return clients;
+	}
+	public static WebElement ClearButton( )
+	{
+		clients = getDriver().findElement(By.xpath("//button[@title='Clear']"));
+		return clients;
+	}
+	
+	public static WebElement Apply( )
 	{
 		clients = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/ApplyFilter.svg']"));
 		return clients;
 	}
 	
-	public static WebElement Entities( )		//Method for closing Message Popup
+	public static WebElement Entities( )
 	{
 		clients = getDriver().findElement(By.xpath("//div[@class='min-card-count']"));
 		return clients;
@@ -178,6 +204,17 @@ public class All_ClientPortal_Locators extends BasePage {
 	public static WebElement OverviewClose( )		//Method for closing Message Popup
 	{
 		clients = getDriver().findElement(By.xpath("//*[@class='k-svg-i-x k-button-icon k-svg-icon k-icon ng-star-inserted']"));
+		return clients;
+	}
+	public static WebElement CloseButtonX( )
+	{
+		clients = getDriver().findElement(By.xpath("//button[@title='Close']"));
+		return clients;
+	}
+	
+	public static WebElement CloseButtonX_2nd( )
+	{
+		clients = getDriver().findElement(By.xpath("(//button[@title='Close'])[2]"));
 		return clients;
 	}
 	
@@ -467,6 +504,23 @@ public class All_ClientPortal_Locators extends BasePage {
 		return clients;
 	}
 	
+	public static WebElement ComplianceDropdownExport( )		
+	{
+		clients = getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon']"));
+		return clients;
+	}
+	
+	public static WebElement RegisterDropdownExport( )		
+	{
+		clients = getDriver().findElement(By.xpath("//span[contains(text(),'Register')]"));
+		return clients;
+	}
+	public static WebElement ReturnDropdownExport( )		
+	{
+		clients = getDriver().findElement(By.xpath("//span[normalize-space()='Return']"));
+		return clients;
+	}
+	
 	
 	public static WebElement PayrollCompliancesOverdue( )		
 	{
@@ -639,6 +693,11 @@ public class All_ClientPortal_Locators extends BasePage {
 	public static WebElement History( )		
 	{
 		clients = getDriver().findElement(By.xpath("(//img[@title='History'])[1]"));
+		return clients;
+	}
+	public static WebElement HistoryButton2( )		
+	{
+		clients = getDriver().findElement(By.xpath("(//img[@title='History'])[2]"));
 		return clients;
 	}
 	
@@ -1370,6 +1429,16 @@ public static WebElement clickLicense()		//Method for searching Username input
 		labour = getDriver().findElement(By.xpath("(//*[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted'])[4]"));
 		return labour;
 	}
+	public static WebElement clickActivityDropdown()
+	{
+		labour = getDriver().findElement(By.xpath("(//*[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon'])[4]"));
+		return labour;
+	}
+	public static WebElement selectApproval()
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='Approval']"));
+		return labour;
+	}
 	public static WebElement selectActivityTab()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//span[@class='k-list-item-text ng-star-inserted'][normalize-space()='Return']"));
@@ -1472,6 +1541,11 @@ public static WebElement clickLicense()		//Method for searching Username input
 		labour = getDriver().findElement(By.xpath("//button[@title='Add New']"));
 		return labour;
 	}
+	public static WebElement clickaddnewNoticesBack()
+	{
+		labour = getDriver().findElement(By.xpath("//button[normalize-space()='Back']"));
+		return labour;
+	}
 	public static WebElement clickNoticeNumber()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//*[@formcontrolname='noticeNo']"));
@@ -1487,11 +1561,32 @@ public static WebElement clickLicense()		//Method for searching Username input
 		labour = getDriver().findElement(By.xpath("(//*[@id=\"kendo-dialog-content-148938\"]/div/form/div[4]/div[1]/div/app-kendo-datepicker/kendo-datepicker/button/kendo-icon-wrapper/kendo-svgicon"));
 		return labour;
 	}
-	public static WebElement clickCalenderReponseDueDate()		//Method for searching Username input
+	public static WebElement clickCalenderReponseDueDate()
 	{
 		labour = getDriver().findElement(By.xpath("(//*[@class='k-svg-i-calendar k-button-icon k-svg-icon k-icon ng-star-inserted'])[2]"));
 		return labour;
 	}
+	
+			public static WebElement toggleCalendar1()
+			{
+				labour = getDriver().findElement(By.xpath("(//button[@title='Toggle calendar'])[1]"));
+				return labour;
+			}
+			public static WebElement toggleCalendar2()
+			{
+				labour = getDriver().findElement(By.xpath("(//button[@title='Toggle calendar'])[2]"));
+				return labour;
+			}
+			public static WebElement browse1()
+			{
+				labour = getDriver().findElement(By.xpath("(//button[@title='Browse'])[1]"));
+				return labour;
+			}
+			public static WebElement browse2()
+			{
+				labour = getDriver().findElement(By.xpath("(//button[@title='Browse'])[2]"));
+				return labour;
+			}
 	public static WebElement selectDate()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//*[@role='gridcell']//span[@class='k-link'][normalize-space()='2']"));
@@ -2031,7 +2126,7 @@ public static WebElement clickLicense()		//Method for searching Username input
 	}
 	public static WebElement inputperiodDrp()	
 	{
-		labour = getDriver().findElement(By.xpath("//span[contains(text(),'July')]"));
+		labour = getDriver().findElement(By.xpath("//span[contains(text(),'August')]"));
 		return labour;
 	}
 	public static WebElement inputperiodDrpSelect1()	

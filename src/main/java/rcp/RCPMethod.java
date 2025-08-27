@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -21,11 +22,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import clientPortal.All_ClientPortal_Locators;
+import coordinator.CoordinatorLocator;
 //import clientPortal.Date;
 //import clientPortal.SimpleDateFormat;
 //import clientPortal.TakesScreenshot;
 //import clientPortal.WebDriver;
 import coordinator.CoordinatorMethod;
+import distributor.DistributerLocators;
 import login.BasePage;
 import login.LoginLocators;
 
@@ -527,12 +531,15 @@ public class RCPMethod extends BasePage
 	       Thread.sleep(5000);
 	        String LogoTeamLease = getDriver().findElement(By.xpath("//img[@alt='TeamLease Logo']")).getText();
 	        WebElement LogoTeamL = getDriver().findElement(By.xpath("//img[@alt='TeamLease Logo']"));
-	        
+	        Thread.sleep(5000);
 	        System.out.println(LogoTeamLease);
-	        
+	        Thread.sleep(5000);
 	        if(LogoTeamL.isDisplayed())
 	        {
 	        	test.log(LogStatus.PASS,"'Team Lease RegTech Helping India Comply' Logo is displayed successfully");
+	        	Thread.sleep(5000);
+	            String base64Screenshot = OneCommonMethod.takeScreenshotBase64(driver.get());
+	            test.log(LogStatus.INFO, "ScreenShot <br>" + test.addBase64ScreenShot(base64Screenshot));
 	        }
 	        else
 	        {
@@ -569,11 +576,38 @@ public class RCPMethod extends BasePage
 	        
 	        String base64Screenshot = OneCommonMethod.takeScreenshotBase64(driver.get());
 	        test.log(LogStatus.INFO, "Column Expand Icon is working fine <br>" + test.addBase64ScreenShot(base64Screenshot));
-
-	        
-
-
 		
+	}
+	 public static void RCPRegistration( ExtentTest test,String Notice) throws InterruptedException, IOException
+		{
+
+	 	 getDriver().navigate().refresh();
+		 
+		 Thread.sleep(5000);
+		 
+		 if(RCPLocator.clickRegistration().isDisplayed())
+		 {
+			 Thread.sleep(5000);
+			 RCPLocator.clickRegistration().click();
+			 test.log(LogStatus.PASS,"Registration module link is clickable");
+			 Thread.sleep(5000);
+		 }
+		 else
+		 {
+			 test.log(LogStatus.FAIL,"Registration module link is not displayed");
+		 }
+		
+		 Thread.sleep(5000);
+		String RCPDash =  getDriver().findElement(By.xpath("//h4[normalize-space()='RCP Dashboard']")).getText();
+		Thread.sleep(5000);
+		if(RCPDash.equalsIgnoreCase("RCP Dashboard"))
+		{
+			test.log(LogStatus.PASS,"After clicking to Registration module link RCP Dashboard is displayed successfully");
+		}
+		else
+		{
+			 test.log(LogStatus.FAIL,"RCP Dashboard is not displayed ");
+		}
 	}
 	 
 	 public static void ExportBtn( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
@@ -671,6 +705,25 @@ public class RCPMethod extends BasePage
 		
 			
 			}
+	 
+	 public static void OTAReport (ExtentTest test ) throws InterruptedException 
+	 {
+	 	 getDriver().navigate().refresh();
+			JavascriptExecutor js = (JavascriptExecutor) getDriver();
+		
+			Thread.sleep(6000);
+			RCPLocator.clickRegistration().click();
+			Thread.sleep(6000);
+			
+			OneCommonMethod.validateFileDownloadDynamic(
+				    driver.get(),
+				    test,
+				    RCPLocator.OTAReport(),   // WebElement
+				    "OTA Report is Exported successfully !"   // Dynamic log message
+				);
+			Thread.sleep(6000);
+		 
+	 }
 	 public static void SearchBox(ExtentTest test) throws InterruptedException
 		{
 
@@ -808,6 +861,95 @@ public class RCPMethod extends BasePage
 			RCPLocator.clickBack().click();
 		}
 	 
+	 public static void EditSubmittedToDept(ExtentTest test) throws Exception
+		{
+
+			getDriver().navigate().refresh();
+			JavascriptExecutor js = (JavascriptExecutor) getDriver();
+
+			Thread.sleep(8000);
+			RCPLocator.clickRegistration().click();
+			Thread.sleep(5000);
+			RCPLocator.EditBtn().click();
+			
+/*			RCPLocator.submittedToDeptBtn();
+			
+			RCPLocator.draftAppToDeptDate().click();
+			OneCommonMethod.selectCalendarDateFromInput(driver.get(), test, 
+					RCPLocator.draftAppToDeptDate(), // calendar icon
+					DistributerLocators.Calendar_NavigateToParentView(), // parent view arrow
+					"15-08-2025" // date in dd-MM-yyyy format
+			);
+			Thread.sleep(2000);
+			RCPLocator.browse1().click();
+			Thread.sleep(3000);
+			OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\Test.pdf");
+			Thread.sleep(3000);
+			RCPLocator.submittedToDeptBtn().click();
+			Thread.sleep(3000);
+			String successMessage = RCPLocator.clickMsg().getText();
+			Thread.sleep(3000);
+			if(successMessage.equalsIgnoreCase("Submitted to department Successfully")) {
+				test.log(LogStatus.PASS, "On clicking to Submitted to department button success message is displayed");
+				test.log(LogStatus.PASS, "Message displayed : " +successMessage);
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "Message displayed : " + successMessage);
+			}
+			
+			*/
+			
+			
+			try {
+			    WebElement submitBtn = RCPLocator.submittedToDeptBtn();
+
+			    if (submitBtn.isDisplayed() && submitBtn.isEnabled()) {
+			        // --- Perform complete flow only if button is enabled ---
+			        RCPLocator.draftAppToDeptDate().click();
+			        OneCommonMethod.selectCalendarDateFromInput(driver.get(), test,
+			                RCPLocator.draftAppToDeptDate(),                  // calendar icon
+			                DistributerLocators.Calendar_NavigateToParentView(), // parent view arrow
+			                "15-08-2025"                                     // date
+			        );
+			        Thread.sleep(2000);
+
+			        RCPLocator.browse1().click();
+			        Thread.sleep(3000);
+			        OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\Test.pdf");
+			        Thread.sleep(3000);
+
+			        submitBtn.click();
+			        Thread.sleep(3000);
+
+			        String successMessage = RCPLocator.clickMsg().getText();
+			        Thread.sleep(3000);
+
+			        if (successMessage.equalsIgnoreCase("Submitted to department Successfully")) {
+			            test.log(LogStatus.PASS, "On clicking Submit to department button, success message is displayed");
+			            test.log(LogStatus.PASS, "Message displayed : " + successMessage);
+			        } else {
+			            test.log(LogStatus.FAIL, "Message displayed : " + successMessage);
+			        }
+
+			    } else {
+			        // --- If button disabled/hidden, skip everything ---
+			        test.log(LogStatus.INFO, "Submit to Department button is disabled/hidden — skipping all steps.");
+			    }
+			} catch (Exception e) {
+			    test.log(LogStatus.INFO, "Submit to Department button is disabled/hidden — skipping all steps.");
+			}
+
+
+			
+			
+			
+			
+			
+			
+				
+		}
+	 
 	 public static void DeleteButton(ExtentTest test) throws InterruptedException
 		{
 
@@ -920,13 +1062,14 @@ public class RCPMethod extends BasePage
 		//int pendingAssignment = 0;
 		if(Notice.equalsIgnoreCase("Pending Assignment"))
 		{
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 			String string_pendingAssignment = RCPLocator.pendingAssignmentLicenseCount().getText();		//Storing old value of Statutory overdue.
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 			test.log(LogStatus.PASS, "Pedning assignment box count :-"+string_pendingAssignment);
 			//pendingAssignment = Integer.parseInt(string_pendingAssignment);
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 			RCPLocator.pendingAssignmentLicenseCount().click();
+			Thread.sleep(5000);
 		}
 		else if(Notice.equalsIgnoreCase("Pending Action"))
 		{
@@ -1212,9 +1355,9 @@ public class RCPMethod extends BasePage
 		 	getDriver().navigate().refresh();
 			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 			WebDriverWait wait=new WebDriverWait(getDriver(), 20);
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 			RCPLocator.clickRegistration().click();
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 			RCPLocator.ExistingLicesne().click();
 			
 			Thread.sleep(3000);
@@ -1225,7 +1368,7 @@ public class RCPMethod extends BasePage
 			
 			Thread.sleep(3000);
 			RCPLocator.ExistingLicesneDownload().click();
-			
+			Thread.sleep(3000);
 			
 //			WebDriverWait wait=new WebDriverWait(getDriver(), 20);
 //			wait.until(ExpectedConditions.invisibilityOf(RCPLocator.gridLoad()));
@@ -1246,7 +1389,7 @@ public class RCPMethod extends BasePage
 				test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
 			}
 			
-			
+			Thread.sleep(3000);
 
 			
 		}

@@ -73,7 +73,7 @@ public class All_Distributor_TWO  extends BasePage {
 		initialization(link,0,"Statutory");
 	
 	}
-	
+	/**
 	@Test(priority = 1) //Bilal
 	void CompanyLogo() throws InterruptedException, IOException
 	{
@@ -122,7 +122,7 @@ public class All_Distributor_TWO  extends BasePage {
 	@Test(priority = 25) //Bilal
 	void CorporateEntity_Verification() throws InterruptedException, IOException
 	{
-		test = extent.startTest("Verify to check Corporate functionalities is working or not?");
+		test = extent.startTest("Verify to check Corporate - Entity functionalities is working or not?");
 		
 		MethodsD.CorporateEntity_Verification(test,"Performer");
 		
@@ -131,7 +131,7 @@ public class All_Distributor_TWO  extends BasePage {
 	}
 	
 	@Test(priority = 26) //Bilal
-	void CorporateEntity_BulkUploadVerification() throws InterruptedException, IOException
+	void CorporateEntity_BulkUploadVerification() throws Exception
 	{
 		test = extent.startTest("Verify to check Corporate - Entity - Bulk Upload verification ");
 		
@@ -522,6 +522,10 @@ public class All_Distributor_TWO  extends BasePage {
 		}
 		
 		
+		*/
+		
+		//Part 2
+		
 		
 		
 		//Manage Masters
@@ -546,6 +550,16 @@ public class All_Distributor_TWO  extends BasePage {
 	   		extent.flush();
 	   	}
 		@Test(priority = 102) //Bilal
+	   	void StateCityAddNewPopUp() throws Exception
+	   	{
+	   		test = extent.startTest("Manage Master - State City - Verify to check add new popup is working correctly");
+	   		
+	   		PerformerMethod.StateCityAddNewPopUp(test, workbook, "Distributor");
+	   		
+	   		extent.endTest(test);
+	   		extent.flush();
+	   	}
+		@Test(priority = 103) //Bilal
 	   	void StateCitySealANDSignatureInvalid() throws Exception
 	   	{
 	   		test = extent.startTest("Manage Master - State City - Verify to check error without file selection and upload more than 4 kb file in seal and signature upload ");
@@ -555,6 +569,8 @@ public class All_Distributor_TWO  extends BasePage {
 	   		extent.endTest(test);
 	   		extent.flush();
 	   	}
+		
+		
 		
 		
 		
@@ -792,6 +808,10 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 	   		
 	   		All_Distributor_Methods.CLRA_HolidayMaster_verification(test, workbook);
 	   		
+	   		
+	   		test = extent.startTest("OnBorad CLRA - Verify to upload holiday master verification");
+	   		All_Distributor_Methods.CLRA_HolidayMaster_verificationValidation(test, workbook);
+	   		
 	   		extent.endTest(test);
 	   		extent.flush();
 	   	}
@@ -918,11 +938,14 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 	   	}
 		
 		@Test(priority = 327) //Bilal need to this TC only bulk upload TC 
-	   	void CLRA_EmployeeMap_bulkUpload() throws InterruptedException, IOException, AWTException
+	   	void CLRA_EmployeeMap_bulkUpload() throws Exception
 	   	{
 	   		test = extent.startTest("OnBoard CLRA - Employee Mapping - Verify to download sample files in bulk upload ");
-	   		
 	   		All_Distributor_Methods.CLRA_EmployeeMap_bulkUpload(test, workbook);
+	   		
+	   		
+	   		test = extent.startTest("OnBoard CLRA - Employee Mapping - Verify to download sample files in bulk upload ");
+	   		All_Distributor_Methods.CLRA_EmployeeMap_bulkUploadInvalid(test, workbook);
 	   		
 	   		extent.endTest(test);
 	   		extent.flush();

@@ -33,8 +33,10 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import clientPortal.All_ClientPortal_Locators;
+import clientPortal.All_ClientPortal_Methods;
 import distributor.DistributerLocators;
 import login.BasePage;
+import login.LoginLocators;
 import rcp.OneCommonMethod;
 import rcp.RCPMethod;
 
@@ -124,6 +126,102 @@ public class CoordinatorMethod extends BasePage
 		{
 			test.log(LogStatus.FAIL, Notice+":- box count= "+pendingAssignment+ " | " +Notice+ ":-box  grid Count = "+count);
 		}
+		
+	}
+	 
+	 public static void BoxClickExportVerification( ExtentTest test,String Notice) throws InterruptedException, IOException
+		{
+		 
+        Thread.sleep(5000);
+		int pendingAssignment = 0;
+		Thread.sleep(10000);
+		if(Notice.equalsIgnoreCase("Pending Assignment"))
+		{
+			Thread.sleep(10000);
+			String string_pendingAssignment = CoordinatorLocator.pendingAssignmentCount().getText();		//Storing old value of Statutory overdue.
+			Thread.sleep(10000);
+			pendingAssignment = Integer.parseInt(string_pendingAssignment);
+			Thread.sleep(10000);
+			CoordinatorLocator.pendingAssignmentCount().click();
+			Thread.sleep(5000);
+			OneCommonMethod.scroll(getDriver(), 1000);
+			
+			
+		    OneCommonMethod.validateExportedExcelDYNAMIC(
+		    	    driver.get(),
+		    	    test,
+		    	    LoginLocators.Exportbtn(),        // WebElement for export button
+		    	    All_ClientPortal_Locators.readTotalItemsNotice(),     // WebElement for grid count text
+		    	    "Notice Type",                               // Column header to verify
+		    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+		    	);
+			
+		}
+		else if(Notice.equalsIgnoreCase("Pending Action"))
+		{
+			Thread.sleep(10000);
+			String string_pendingAssignment = CoordinatorLocator.pendingActionCount().getText();		//Storing old value of Statutory overdue.
+			Thread.sleep(10000);
+			pendingAssignment = Integer.parseInt(string_pendingAssignment);
+			Thread.sleep(10000);
+			CoordinatorLocator.pendingActionCount().click();
+			Thread.sleep(5000);
+			OneCommonMethod.scroll(getDriver(), 1000);
+			
+		    OneCommonMethod.validateExportedExcelDYNAMIC(
+		    	    driver.get(),
+		    	    test,
+		    	    LoginLocators.Exportbtn(),        // WebElement for export button
+		    	    All_ClientPortal_Locators.readTotalItemsNotice(),     // WebElement for grid count text
+		    	    "Notice Type",                               // Column header to verify
+		    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+		    	);
+		    
+		}
+		else if(Notice.equalsIgnoreCase("Overdue"))
+		{
+			Thread.sleep(10000);
+			String string_pendingAssignment = CoordinatorLocator.OverdueCount().getText();		//Storing old value of Statutory overdue.
+			Thread.sleep(10000);
+			pendingAssignment = Integer.parseInt(string_pendingAssignment);
+			Thread.sleep(10000);
+			CoordinatorLocator.OverdueCount().click();
+			Thread.sleep(5000);
+			OneCommonMethod.scroll(getDriver(), 1000);
+			
+		    OneCommonMethod.validateExportedExcelDYNAMIC(
+		    	    driver.get(),
+		    	    test,
+		    	    LoginLocators.Exportbtn(),        // WebElement for export button
+		    	    All_ClientPortal_Locators.readTotalItemsNotice(),     // WebElement for grid count text
+		    	    "Notice Type",                               // Column header to verify
+		    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+		    	);
+			
+		}
+		else if(Notice.equalsIgnoreCase("Closed"))
+		{
+			Thread.sleep(10000);
+			String string_pendingAssignment = CoordinatorLocator.ClosedCount().getText();		//Storing old value of Statutory overdue.
+			Thread.sleep(10000);
+			pendingAssignment = Integer.parseInt(string_pendingAssignment);
+			Thread.sleep(10000);
+			CoordinatorLocator.ClosedCount().click();
+			Thread.sleep(5000);
+			OneCommonMethod.scroll(getDriver(), 1000);
+			
+		    OneCommonMethod.validateExportedExcelDYNAMIC(
+		    	    driver.get(),
+		    	    test,
+		    	    LoginLocators.Exportbtn(),        // WebElement for export button
+		    	    All_ClientPortal_Locators.readTotalItemsNotice(),     // WebElement for grid count text
+		    	    "Notice Type",                               // Column header to verify
+		    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+		    	);
+		}
+		
+		
+		Thread.sleep(10000);
 		
 	}
 	 
@@ -225,7 +323,7 @@ public class CoordinatorMethod extends BasePage
 	 	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	 
 	 	
-	 	Thread.sleep(2000);
+	 	Thread.sleep(6000);
 		String item = CoordinatorLocator.readTotalItems().getText();
 		String[] bits = item.split(" ");								//Splitting the String
 		if(bits.length > 2)
@@ -462,7 +560,7 @@ public class CoordinatorMethod extends BasePage
 	 	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	 
 	 	
-	 	Thread.sleep(1000);
+	 	Thread.sleep(6000);
 	 	CoordinatorLocator.clickaddnewNotices().click();
 	 	Thread.sleep(1000);
 	 	CoordinatorLocator.clickEntity().click();
@@ -596,7 +694,7 @@ public class CoordinatorMethod extends BasePage
 	 	
 	 	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	 	
-		Thread.sleep(2000);
+		Thread.sleep(6000);
 //	      CoordinatorLocator.readTotalItems().click();
 		String item = CoordinatorLocator.readTotalItems().getText();
 		String[] bits = item.split(" "); // Splitting the String
@@ -1044,6 +1142,8 @@ public class CoordinatorMethod extends BasePage
 	 	
 	 }
 	 
+
+	 
 	 public static void NoticeEditBasicSave(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
 	 {
 			WebDriverWait wait = new WebDriverWait(getDriver(), 140);
@@ -1075,6 +1175,99 @@ public class CoordinatorMethod extends BasePage
 
 				test.log(LogStatus.FAIL, "Message Displayed : " + text);
 			}
+
+		}
+	 
+	 public static void NoticeEditVerification(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
+	 {
+			WebDriverWait wait = new WebDriverWait(getDriver(), 140);
+
+			Thread.sleep(5000);
+			CoordinatorLocator.SearchBox().sendKeys("Pending Assignment", Keys.ENTER);
+			Thread.sleep(5000);
+			CoordinatorLocator.EditBtn().click();
+			Thread.sleep(5000);
+			
+			CoordinatorLocator.plus1().click();
+			Thread.sleep(5000);
+			CoordinatorLocator.EditBasicInfoSave().click();
+			Thread.sleep(5000);
+			
+
+			String text = CoordinatorLocator.Message().getText();
+			Thread.sleep(4000);
+
+			if (text.equalsIgnoreCase("Notice saved succesfully")) {
+				Thread.sleep(5000);
+
+				test.log(LogStatus.PASS, "Message Displayed : " + text);
+			} else {
+				Thread.sleep(5000);
+
+				test.log(LogStatus.FAIL, "Message Displayed : " + text);
+			}
+			CoordinatorLocator.clickOkBtn().click();
+			Thread.sleep(5000);
+			CoordinatorLocator.plus1().click();
+			Thread.sleep(5000);
+			getDriver().navigate().refresh();
+			Thread.sleep(8000);
+
+		}
+	 
+	 public static void NoticeEditAdditionalInfo(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
+	 {
+			WebDriverWait wait = new WebDriverWait(getDriver(), 140);
+
+			Thread.sleep(5000);
+			
+//			CoordinatorLocator.plus3().click();
+			All_ClientPortal_Methods.clickElementUsingJS(CoordinatorLocator.plus3());
+			Thread.sleep(5000);
+			
+			
+			CoordinatorLocator.yesRadioBtn().click();
+			Thread.sleep(5000);
+			
+			CoordinatorLocator.clickSMETeam().click();
+			Thread.sleep(5000);
+			CoordinatorLocator.clickSMETeamQAUser().click();
+			Thread.sleep(5000);
+			
+			
+			CoordinatorLocator.clickSDExecutor().click();
+			Thread.sleep(5000);
+			CoordinatorLocator.clickSDExecutorTeamQAUser().click();
+			Thread.sleep(5000);
+			
+			
+			CoordinatorLocator.EditBasicInfoSave().click();
+			Thread.sleep(5000);
+			
+
+			String text = CoordinatorLocator.Message().getText();
+			Thread.sleep(4000);
+
+			if (text.equalsIgnoreCase("Notice saved succesfully")) {
+				Thread.sleep(5000);
+				test.log(LogStatus.PASS, "Translation Required check box is selected");
+				Thread.sleep(3000);
+				test.log(LogStatus.PASS, "Assigned to SME Team QA user");
+				Thread.sleep(1200);
+				test.log(LogStatus.PASS, "Assigned to SD Executor Team QA user");
+				Thread.sleep(500);
+				test.log(LogStatus.PASS, "On clicking to Save button success message is displayed");
+				Thread.sleep(500);
+				test.log(LogStatus.PASS, "Message Displayed : " + text);
+			} else {
+				Thread.sleep(5000);
+
+				test.log(LogStatus.FAIL, "Message Displayed : " + text);
+			}
+			CoordinatorLocator.clickOkBtn().click();
+			Thread.sleep(5000);
+			CoordinatorLocator.plus1().click();
+			
 
 		}
 	 
@@ -1372,10 +1565,10 @@ public class CoordinatorMethod extends BasePage
 	 	
 	 	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	 	
-	 	Thread.sleep(1000);
+	 	Thread.sleep(5000);
 	 	CoordinatorLocator.clickaddnewNotices().click();
 	 	
-	 	Thread.sleep(1000);
+	 	Thread.sleep(5000);
 	 	CoordinatorLocator.clickSaveNotice().click();
 	 	
 	 	 Thread.sleep(1000);
@@ -1393,10 +1586,144 @@ public class CoordinatorMethod extends BasePage
 	 	
 	 }
 	 
+	 public static void NoticeAddNewRecepitAcknowledgement(String user, ExtentTest test) throws Exception
+	 {
+	 	
+	 	JavascriptExecutor js = (JavascriptExecutor) getDriver();
+	 	getDriver().navigate().refresh();
+	 	
+	 	Thread.sleep(8000);
+	 	CoordinatorLocator.clickaddnewNotices().click();
+	 	Thread.sleep(5000);
+	 	
+	 	CoordinatorLocator.NoticeReceivedDateCalendar1().click();
+		OneCommonMethod.selectCalendarDateFromInput(driver.get(), test, 
+				CoordinatorLocator.NoticeReceivedDateCalendar1(), // calendar icon
+				DistributerLocators.Calendar_NavigateToParentView(), // parent view arrow
+				"01-08-2025" // date in dd-MM-yyyy format
+		);
+		
+		
+		
+	 	CoordinatorLocator.ResponseDueDateCalendar2().click();
+		OneCommonMethod.selectCalendarDateFromInput(driver.get(), test, 
+				CoordinatorLocator.ResponseDueDateCalendar2(), // calendar icon
+				DistributerLocators.Calendar_NavigateToParentView(), // parent view arrow
+				"01-08-2025" // date in dd-MM-yyyy format
+		);
+		
+		if(CoordinatorLocator.Browse1().isEnabled())
+		{
+			test.log(LogStatus.PASS,"Receipt Acknowledgement & Notice Document same dates is selected");
+			test.log(LogStatus.PASS,"Receipt Acknowledgement Browse button is enabled !");
+		}
+		
+		
+		
+		
+//		if(user.equalsIgnoreCase("Doc File"))
+//		{
+//		CoordinatorLocator.Browse1().click();
+//		Thread.sleep(2000);
+//		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\OtherTwo\\SampleDocFile.doc");
+//		
+//		try 
+//		{
+//			String Doc_Txt = getDriver().findElement(By.xpath("//span[@title='SampleDocFile.doc']")).getText();
+//			if(Doc_Txt.equalsIgnoreCase("SampleDocFile.doc"))
+//			{
+//				test.log(LogStatus.PASS,"Doc file is uploaded successfully");
+//				test.log(LogStatus.PASS,"File Name:- " + Doc_Txt);
+//			}
+//			else 
+//			{
+//				test.log(LogStatus.FAIL,"Doc File does not uploaded ");
+//			}
+//		}
+//		catch (Exception e)
+//		{
+//			System.out.println("File is not uploaded");
+//		}
+//	 }
+		
+	 	
+	 }
+	 
+	 
+	 public static void NoticeAddNewRecepitAcknowledgement_2(String user, ExtentTest test) throws Exception
+	 {
+		 
+	 	
+		 Thread.sleep(3000);
+			if(user.equalsIgnoreCase("Doc File"))
+			{
+			CoordinatorLocator.Browse1().click();
+			Thread.sleep(2000);
+			OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\OtherTwo\\SampleDocFile.doc");
+			
+			try 
+			{
+				String Doc_Txt = getDriver().findElement(By.xpath("//span[@title='SampleDocFile.doc']")).getText();
+				if(Doc_Txt.equalsIgnoreCase("SampleDocFile.doc"))
+				{
+					test.log(LogStatus.PASS,"Doc file is uploaded successfully");
+					test.log(LogStatus.PASS,"File Name:- " + Doc_Txt);
+				}
+				else 
+				{
+					test.log(LogStatus.FAIL,"Doc File does not uploaded ");
+				}
+			}
+			catch (Exception e)
+			{
+				System.out.println("File is not uploaded");
+			}
+		 }
+		 
+		 
+		 
+		 
+		 
+		 
+		//PDF File CheckingD:\Upload Automation Files\Other Upload No need to change\sample.pdf
+		else if(user.equalsIgnoreCase("PDF File"))
+		{
+		CoordinatorLocator.Browse1().click();
+		Thread.sleep(2000);
+		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Other Upload No need to change\\sample.pdf");
+		
+		try 
+		{
+			String pdf_Txt = getDriver().findElement(By.xpath("//span[@title='sample.pdf']")).getText();
+			if(pdf_Txt.equalsIgnoreCase("sample.pdf"))
+			{
+				test.log(LogStatus.PASS,"PDF file is uploaded:- ");
+				test.log(LogStatus.PASS,"File Name:- " + pdf_Txt);
+				
+			}
+			else 
+			{
+				test.log(LogStatus.FAIL,"PDF File does not uploaded ");
+			}
+		}
+		catch (Exception e)
+		{
+			System.out.println("File is not uploaded");
+		}
+		
+	 }
+		
+	 	
+	 	
+	 	
+	 }
+	 
+	 
+	 
 	 public static void RegistrationCountMatch( ExtentTest test,String Notice) throws InterruptedException, IOException
 		{
 		 
-		 Thread.sleep(6000);
+		Thread.sleep(6000);
 		CoordinatorLocator.clickRegistration().click();
 		Thread.sleep(10000);
 		int pendingAssignment = 0;
@@ -1465,6 +1792,110 @@ public class CoordinatorMethod extends BasePage
 		}
 		
 	}
+	 
+	 
+	 
+	 public static void RegistrationTabsExport( ExtentTest test,String Notice) throws InterruptedException, IOException
+		{
+		 
+		Thread.sleep(6000);
+		CoordinatorLocator.clickRegistration().click();
+		Thread.sleep(10000);
+		int pendingAssignment = 0;
+		Thread.sleep(6000);
+		if(Notice.equalsIgnoreCase("Pending Assignment"))
+		{
+			Thread.sleep(6000);
+			String string_pendingAssignment = CoordinatorLocator.RegistartionpendingAssignmentCount().getText();		//Storing old value of Statutory overdue.
+			Thread.sleep(6000);
+			pendingAssignment = Integer.parseInt(string_pendingAssignment);
+			Thread.sleep(6000);
+			CoordinatorLocator.RegistartionpendingAssignmentCount().click();
+			Thread.sleep(6000);
+			
+		    OneCommonMethod.validateExportedExcelDYNAMIC(
+		    	    driver.get(),
+		    	    test,
+		    	    LoginLocators.Exportbtn(),        // WebElement for export button
+		    	    All_ClientPortal_Locators.readTotalItemsNotice(),     // WebElement for grid count text
+		    	    "State",                               // Column header to verify
+		    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+		    	);
+			
+			
+		}
+		else if(Notice.equalsIgnoreCase("Pending Action"))
+		{
+			Thread.sleep(6000);
+			String string_pendingAssignment = CoordinatorLocator.RegistartionpendingActionCount().getText();		//Storing old value of Statutory overdue.
+			Thread.sleep(6000);
+			pendingAssignment = Integer.parseInt(string_pendingAssignment);
+			Thread.sleep(6000);
+			CoordinatorLocator.RegistartionpendingActionCount().click();
+			Thread.sleep(6000);
+			
+			
+		    OneCommonMethod.validateExportedExcelDYNAMIC(
+		    	    driver.get(),
+		    	    test,
+		    	    LoginLocators.Exportbtn(),        // WebElement for export button
+		    	    All_ClientPortal_Locators.readTotalItemsNotice(),     // WebElement for grid count text
+		    	    "State",                               // Column header to verify
+		    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+		    	);
+			
+		}
+		else if(Notice.equalsIgnoreCase("Overdue"))
+		{
+			Thread.sleep(6000);
+			String string_pendingAssignment = CoordinatorLocator.RegistartionOverdueCount().getText();		//Storing old value of Statutory overdue.
+			Thread.sleep(6000);
+			pendingAssignment = Integer.parseInt(string_pendingAssignment);
+			Thread.sleep(6000);
+			CoordinatorLocator.RegistartionOverdueCount().click();
+			Thread.sleep(6000);
+			
+			
+		    OneCommonMethod.validateExportedExcelDYNAMIC(
+		    	    driver.get(),
+		    	    test,
+		    	    LoginLocators.Exportbtn(),        // WebElement for export button
+		    	    All_ClientPortal_Locators.readTotalItemsNotice(),     // WebElement for grid count text
+		    	    "State",                               // Column header to verify
+		    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+		    	);
+			
+			
+		}
+		else if(Notice.equalsIgnoreCase("Closed"))
+		{
+			Thread.sleep(6000);
+			String string_pendingAssignment = CoordinatorLocator.RegistartionClosedCount().getText();		//Storing old value of Statutory overdue.
+			Thread.sleep(6000);
+			pendingAssignment = Integer.parseInt(string_pendingAssignment);
+			Thread.sleep(6000);
+			CoordinatorLocator.RegistartionClosedCount().click();
+			Thread.sleep(6000);
+			
+		    OneCommonMethod.validateExportedExcelDYNAMIC(
+		    	    driver.get(),
+		    	    test,
+		    	    LoginLocators.Exportbtn(),        // WebElement for export button
+		    	    All_ClientPortal_Locators.readTotalItemsNotice(),     // WebElement for grid count text
+		    	    "State",                               // Column header to verify
+		    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+		    	);
+			
+			
+		}
+		
+		
+		Thread.sleep(6000);
+		
+	}
+	 
+	 
+	 
 	 
 	 public static void AddNewLicense( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 		{
@@ -1594,7 +2025,7 @@ public class CoordinatorMethod extends BasePage
 			
 			Thread.sleep(1000);
 			CoordinatorLocator.clickRegistration().click();
-			Thread.sleep(1000);
+			Thread.sleep(8000);
 			CoordinatorLocator.clickAddNew().click();
 			
 			Thread.sleep(1000);
@@ -1708,6 +2139,33 @@ public class CoordinatorMethod extends BasePage
 //			Locator.clickBack().click();
 		}
 	 
+		public static void RegistrationAddNewBackButton(ExtentTest test, XSSFWorkbook workbook)
+				throws InterruptedException, IOException {
+			
+			Thread.sleep(7000);
+			CoordinatorLocator.clickRegistration().click();
+			Thread.sleep(5000);
+			CoordinatorLocator.clickAddNew().click();
+			Thread.sleep(5000);
+			CoordinatorLocator.clickBack().click();
+			Thread.sleep(5000);
+			
+			if(CoordinatorLocator.NewLicenseRequestTxt().isDisplayed())
+			{
+				test.log(LogStatus.PASS, "Back button is working fine");
+				test.log(LogStatus.PASS, "On clicking to back button user is redirected to New License Request page ");
+			}
+			else
+			{
+				test.log(LogStatus.PASS, "Back button is does working properly");
+			}
+
+			
+		}
+	 
+	 
+	 
+	 
 	 public static void ExportBtn( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 		{
 			
@@ -1810,10 +2268,10 @@ public class CoordinatorMethod extends BasePage
 			
 			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		
-			Thread.sleep(1000);
+			Thread.sleep(6000);
 			CoordinatorLocator.clickRegistration().click();
 			
-				Thread.sleep(3000);
+				Thread.sleep(6000);
 				CoordinatorLocator.SearchBox().sendKeys("TESTAUTO2",Keys.ENTER);
 			
 				List<String> li=new ArrayList<String>();
@@ -1938,6 +2396,115 @@ public class CoordinatorMethod extends BasePage
 			Thread.sleep(1000);
 			CoordinatorLocator.clickBack().click();
 		}
+	 public static void RegistrationEditBasicInfo_DisabledFields(String user, ExtentTest test) throws InterruptedException
+		{
+			if (user.equalsIgnoreCase("Go To Basic Info")) 
+			{
+				Thread.sleep(10000);
+				CoordinatorLocator.clickRegistration().click();
+				Thread.sleep(10000);
+				CoordinatorLocator.EditBtn().click();
+				Thread.sleep(5000);
+				CoordinatorDisabledField.BasicInfoPlus1().click();
+				Thread.sleep(5000);
+				test.log(LogStatus.PASS, "+ Basic Information label bar is working fine");
+			}
+			
+			
+			else if(user.equalsIgnoreCase("RCP Number"))
+			{
+				// 
+				OneCommonMethod.verifyFieldIsTrulyNonEditable(
+				CoordinatorDisabledField.RCPNoField(), 
+				test, "RCP No",
+				"");
+			}
+			
+			else if(user.equalsIgnoreCase("Client ID"))
+			{
+				// 
+				OneCommonMethod.verifyFieldIsTrulyNonEditable(
+				CoordinatorDisabledField.ClientIDdropdown(), 
+				test, "Client ID Dropdown",
+				"");
+			}
+			
+			else if(user.equalsIgnoreCase("Client Name"))
+			{
+				// 
+				OneCommonMethod.verifyFieldIsTrulyNonEditable(
+				CoordinatorDisabledField.ClientNameField(), 
+				test, "Client Name",
+				"");
+			}
+			
+			else if(user.equalsIgnoreCase("State--Dropdown"))
+			{
+				// 
+				OneCommonMethod.verifyFieldIsTrulyNonEditable(
+				CoordinatorDisabledField.StateDropdown(), 
+				test, "State Dropdown",
+				"");
+			}
+			
+			else if(user.equalsIgnoreCase("Location--Field"))
+			{
+				// 
+				OneCommonMethod.verifyFieldIsTrulyNonEditable(
+				CoordinatorDisabledField.LocationField(), 
+				test, "Location field",
+				"");
+			}
+			
+			else if(user.equalsIgnoreCase("Branch--Field"))
+			{
+				// 
+				OneCommonMethod.verifyFieldIsTrulyNonEditable(
+				CoordinatorDisabledField.BranchField(), 
+				test, "Branch field",
+				"");
+			}
+			
+			else if(user.equalsIgnoreCase("Address--Field"))
+			{
+				// 
+				OneCommonMethod.verifyFieldIsTrulyNonEditable(
+				CoordinatorDisabledField.AddressField(), 
+				test, "Address field",
+				"");
+			}
+			
+			
+			else if(user.equalsIgnoreCase("License--Field"))
+			{
+				// 
+				OneCommonMethod.verifyFieldIsTrulyNonEditable(
+				CoordinatorDisabledField.LicenseNoField(), 
+				test, "License field",
+				"");
+			}
+			
+			else if(user.equalsIgnoreCase("Activity--Dropdown"))
+			{
+				// 
+				OneCommonMethod.verifyFieldIsTrulyNonEditable(
+				CoordinatorDisabledField.ActivityTypeDropdown(), 
+				test, "License field",
+				"");
+			}
+			
+			else if(user.equalsIgnoreCase("LicenseType--Dropdown"))
+			{
+				// 
+				OneCommonMethod.verifyFieldIsTrulyNonEditable(
+				CoordinatorDisabledField.LicenseTypeDropdown(), 
+				test, "License field",
+				"");
+			}
+			
+			
+			
+		}
 	 
 	 public static void EditIconMiniTabsLicense(ExtentTest test) throws InterruptedException
 		{
@@ -2013,22 +2580,87 @@ public class CoordinatorMethod extends BasePage
 			
 		}
 	 
+	 
+	 public static void EditIconActRelevantDatesLabelBar(ExtentTest test) throws InterruptedException
+		{
+		 WebDriverWait wait = new WebDriverWait(getDriver(), 140);
+		 
+			JavascriptExecutor js = (JavascriptExecutor) getDriver();
+			
+			Thread.sleep(5000);
+			CoordinatorLocator.clickRegistration().click();
+			Thread.sleep(5000);
+			CoordinatorLocator.EditBtn().click();
+			Thread.sleep(6000);
+			CoordinatorLocator.plus4().click();
+			
+			String txt = getDriver().findElement(By.xpath("//label[normalize-space()='Finance Approved Date']")).getText();
+			if(txt.equals("Finance Approved Date"))
+			{
+				test.log(LogStatus.PASS, "Activity Relevant Dates label bar is working fine");
+				test.log(LogStatus.PASS, "On clicking to Activity Relevant Dates label bar field displayed : " + txt);
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "Activity Relevant Dates label bar is not working");
+			}
+			
+			Thread.sleep(5000);
+			CoordinatorLocator.plus4().click();
+			
+			
+			
+		}
+	 
+	 public static void EditIconBackButton(ExtentTest test) throws InterruptedException
+		{
+		 WebDriverWait wait = new WebDriverWait(getDriver(), 140);
+		 
+			JavascriptExecutor js = (JavascriptExecutor) getDriver();
+			
+			Thread.sleep(5000);
+			CoordinatorLocator.clickRegistration().click();
+			Thread.sleep(5000);
+			CoordinatorLocator.EditBtn().click();
+			Thread.sleep(6000);
+			
+			CoordinatorLocator.clickBack().click();
+			Thread.sleep(8000);
+			
+			if(CoordinatorLocator.co_ordinatorDashboard().isDisplayed())
+			{
+				String txt = CoordinatorLocator.co_ordinatorDashboard().getText();
+				test.log(LogStatus.PASS, "Back button is working fine");
+				test.log(LogStatus.PASS, "On clicking to back button " + txt + " Displayed");
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "Back button is not working");
+			}
+			
+			
+			
+			
+			
+		}
+	 
+	 
 	 public static void EditIconBasicInfoSave(ExtentTest test) throws InterruptedException
 		{
 		 WebDriverWait wait = new WebDriverWait(getDriver(), 140);
 		 
 			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 			
-			Thread.sleep(1000);
+			Thread.sleep(5000);
 			CoordinatorLocator.clickRegistration().click();
-			Thread.sleep(1000);
+			Thread.sleep(5000);
 			
 			CoordinatorLocator.SearchBox().sendKeys("Requested",Keys.ENTER);
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 			CoordinatorLocator.EditBtn().click();
-			
+			Thread.sleep(5000);
 			CoordinatorLocator.plus1().click();
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 			getDriver().findElement(By.xpath("(//button[normalize-space()='Save'])[1]")).click();
 			
 			
@@ -2050,8 +2682,274 @@ public class CoordinatorMethod extends BasePage
 
 				test.log(LogStatus.FAIL, "Message Displayed : " + text);
 			}
+			Thread.sleep(5000);
+			CoordinatorLocator.clickOkBtn().click();
+			Thread.sleep(5000);
 				
 		}
+	 public static void EditIconOTAssignment(ExtentTest test) throws InterruptedException
+		{
+			WebDriverWait wait = new WebDriverWait(getDriver(), 140);
+			OneCommonMethod.scroll(driver.get(), 200);
+			Thread.sleep(5000);
+	//		CoordinatorLocator.plus3().click();
+			
+/*			WebElement element = CoordinatorLocator.plus3();
+			JavascriptExecutor js = (JavascriptExecutor) getDriver();
+			js.executeScript(
+			    "var el = arguments[0];" +
+			    "var ev = document.createEvent('MouseEvents');" +
+			    "ev.initMouseEvent('click', true, true, window, 0, 0, 0, 0, 0," +
+			    "false, false, false, false, 0, null);" +
+			    "el.dispatchEvent(ev);", 
+			    element
+			); */
+			
+			Thread.sleep(7000);
+			CoordinatorLocator.plus1().click(); 
+			Thread.sleep(5000);
+            //plus1 will click plus3 icon here
+			
+			
+			
+			
+			
+			
+			
+			Thread.sleep(5000);
+
+			Thread.sleep(4000);
+
+			try {
+				WebElement rcpDropdown = CoordinatorLocator.clickonRCPDropdown();
+				if (rcpDropdown.isDisplayed() && rcpDropdown.isEnabled()) {
+					rcpDropdown.click();
+					Thread.sleep(4000);
+					CoordinatorLocator.selectonRCPDropdownuser().click();
+				} else {
+					System.out.println("RCP Dropdown is not enabled/displayed.");
+				}
+			} catch (Exception e) {
+				System.out.println("RCP Dropdown not found or not interactable: " + e.getMessage());
+			}
+
+			try {
+				WebElement sdDropdown = CoordinatorLocator.clickonSDExeDropdown();
+				if (sdDropdown.isDisplayed() && sdDropdown.isEnabled()) {
+					sdDropdown.click();
+					Thread.sleep(4000);
+					CoordinatorLocator.selectonSDExDropdownRITWIK().click();
+				} else {
+					System.out.println("SD Executor Dropdown is not enabled/displayed.");
+				}
+			} catch (Exception e) {
+				System.out.println("SD Dropdown not found or not interactable: " + e.getMessage());
+			}
+
+			getDriver().findElement(By.xpath("(//button[normalize-space()='Save'])[1]")).click();
+
+			Thread.sleep(4000);
+			By locator2 = By.xpath("//h4[@class='f-label']");
+
+			wait.until(ExpectedConditions.presenceOfElementLocated(locator2));
+			Thread.sleep(4000);
+			String text2 = getDriver().findElement(By.xpath("//h4[@class='f-label']")).getText();
+
+			if (text2.equalsIgnoreCase("OT assigned successfully")) {
+				Thread.sleep(5000);
+
+				test.log(LogStatus.PASS, "OT Assignment tab is opened");
+				Thread.sleep(3000);
+				test.log(LogStatus.PASS, "User is selected successfully");
+				Thread.sleep(1000);
+				Thread.sleep(1000);
+				test.log(LogStatus.PASS, "OT Assignment Save button is working fine");
+				test.log(LogStatus.PASS, "OT Assignment Message Displayed : " + text2);
+			} else {
+				Thread.sleep(5000);
+
+				test.log(LogStatus.FAIL, "OT Assignment Message Displayed : " + text2);
+			}  
+		}
+	 
+	 public static void EditIconFinanceApprovalSaveCheck(ExtentTest test) throws InterruptedException
+		{
+		 WebDriverWait wait = new WebDriverWait(getDriver(), 140);
+		 
+			JavascriptExecutor js = (JavascriptExecutor) getDriver();
+			
+			Thread.sleep(8000);
+			
+			CoordinatorLocator.plus2().click();
+			Thread.sleep(5000);
+			//Clicking on Approval checkbox
+			getDriver().findElement(By.xpath("(//input[@id='rdGen'])[1]")).click();
+			Thread.sleep(5000);
+			
+			//Input Remaks
+			getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys(getRandomString());
+			Thread.sleep(3000);
+			try {
+			    Thread.sleep(5000);
+			    WebElement saveBtn = getDriver().findElement(By.xpath("(//button[normalize-space()='Save'])[1]"));
+
+			    boolean isActuallyEnabled = false;
+			    try {
+			        String disabledAttr = saveBtn.getAttribute("disabled");
+			        String classAttr = saveBtn.getAttribute("class");
+
+			        // Check if disabled attribute is missing AND class doesn't have 'disabled'
+			        if ((disabledAttr == null || disabledAttr.isEmpty()) &&
+			            (classAttr == null || !classAttr.toLowerCase().contains("disabled"))) {
+			            isActuallyEnabled = true;
+			        }
+			    } catch (Exception innerEx) {
+			        test.log(LogStatus.ERROR, "Error checking Save button state: " + innerEx.getMessage());
+			    }
+
+			    if (isActuallyEnabled) {
+			        // ==== Your Original Code Starts ====
+			        getDriver().findElement(By.xpath("(//input[@id='rdGen'])[1]")).click();
+			        Thread.sleep(5000);
+
+			        getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys(getRandomString());
+			        Thread.sleep(3000);
+			        saveBtn.click();
+
+			        Thread.sleep(4000);
+			        By locator = By.xpath("//h4[@class='f-label']");
+			        wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+			        Thread.sleep(4000);
+			        String text = getDriver().findElement(locator).getText();
+
+			        if (text.equalsIgnoreCase("Finance approval updated successfully")) {
+			            Thread.sleep(5000);
+			            test.log(LogStatus.PASS, "Finance Approval Status tab is opened");
+			            Thread.sleep(2100);
+			            test.log(LogStatus.PASS, "Finaince Approval checkbox is selected");
+			            Thread.sleep(501);
+			            test.log(LogStatus.PASS, "Finaince Approval is done successfully");
+			            Thread.sleep(177);
+			            test.log(LogStatus.PASS, "Finaince Approval Save button is working fine");
+			            Thread.sleep(50);
+			            test.log(LogStatus.PASS, "Finaince Approval Message Displayed : " + text);
+			        } else {
+			            Thread.sleep(5000);
+			            test.log(LogStatus.FAIL, "Message Displayed : " + text);
+			        }
+
+			        Thread.sleep(5000);
+			        CoordinatorLocator.clickOkBtn().click();
+			        Thread.sleep(5000);
+			        // ==== Your Original Code Ends ====
+			    } else {
+			        test.log(LogStatus.INFO, "Save button is disabled — approval flow skipped");
+			    }
+
+			} catch (Exception e) {
+			    test.log(LogStatus.ERROR, "Error occurred: ");
+			}
+			
+
+
+			
+			
+			
+			
+/**			//OT Assignment
+			
+			Thread.sleep(10000);
+			WebElement clickOnOK = getDriver().findElement(By.xpath("//button[@class='figma-btn-green']"));
+			
+			if(clickOnOK.isDisplayed())
+			{
+				clickOnOK.click();
+			}
+			
+			
+			
+			CoordinatorLocator.plus3().click();
+			Thread.sleep(3000);
+
+//			CoordinatorLocator.clickonRCPDropdown().click();
+			Thread.sleep(4000);
+//			CoordinatorLocator.selectonRCPDropdownuser().click();
+			
+			
+			
+			
+			try {
+			    WebElement rcpDropdown = CoordinatorLocator.clickonRCPDropdown();
+			    if (rcpDropdown.isDisplayed() && rcpDropdown.isEnabled()) {
+			        rcpDropdown.click();
+			        Thread.sleep(4000);
+			        CoordinatorLocator.selectonRCPDropdownuser().click();
+			    } else {
+			        System.out.println("RCP Dropdown is not enabled/displayed.");
+			    }
+			} catch (Exception e) {
+			    System.out.println("RCP Dropdown not found or not interactable: " + e.getMessage());
+			}
+
+			try {
+			    WebElement sdDropdown = CoordinatorLocator.clickonSDExeDropdown();
+			    if (sdDropdown.isDisplayed() && sdDropdown.isEnabled()) {
+			        sdDropdown.click();
+			        Thread.sleep(4000);
+			        CoordinatorLocator.selectonSDExDropdownRITWIK().click();
+			    } else {
+			        System.out.println("SD Executor Dropdown is not enabled/displayed.");
+			    }
+			} catch (Exception e) {
+			    System.out.println("SD Dropdown not found or not interactable: " + e.getMessage());
+			}
+
+			
+
+			
+			//it will click if dropdown is open and enabled only
+//			safeClickDropdown(CoordinatorLocator.clickonRCPDropdown(), CoordinatorLocator.selectonRCPDropdownuser());
+			
+//			safeClickDropdown(CoordinatorLocator.clickonSDExeDropdown(), CoordinatorLocator.selectonSDExDropdownRITWIK());
+			
+			
+			
+			
+			getDriver().findElement(By.xpath("(//button[normalize-space()='Save'])[1]")).click();			
+			
+			
+			Thread.sleep(4000);
+			By locator2 = By.xpath("//h4[@class='f-label']");
+
+			wait.until(ExpectedConditions.presenceOfElementLocated(locator2));
+			Thread.sleep(4000);
+			String text2 = getDriver().findElement(By.xpath("//h4[@class='f-label']")).getText();
+
+			if (text2.equalsIgnoreCase("OT assigned successfully")) {
+				Thread.sleep(5000);
+				
+				test.log(LogStatus.PASS, "OT Assignment tab is opened");
+				Thread.sleep(3000);
+				test.log(LogStatus.PASS, "User is selected successfully");
+				Thread.sleep(1000);
+				Thread.sleep(1000);
+				test.log(LogStatus.PASS, "OT Assignment Save button is working fine");
+				test.log(LogStatus.PASS, "OT Assignment Message Displayed : " + text2);
+			} else {
+				Thread.sleep(5000);
+
+				test.log(LogStatus.FAIL, "OT Assignment Message Displayed : " + text2);
+			}
+			
+		**/
+			
+		}
+	 
+	 
+	 
+	 
+	 
+	 
 	 
 	 public static void EditIconFinanceApprovalSave(ExtentTest test) throws InterruptedException
 		{

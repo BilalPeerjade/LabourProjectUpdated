@@ -41,6 +41,7 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import coordinator.CoordinatorLocator;
 import coordinator.CoordinatorMethod;
+import distributor.DistributerLocators;
 import distributor.Locators;
 import login.BasePage;
 import login.LoginLocators;
@@ -269,6 +270,92 @@ public class All_ClientPortal_Methods extends BasePage {
 		
 	}
 	
+	public static void Clientlogo(  ExtentTest test) throws InterruptedException, IOException
+	{Thread.sleep(5000);
+	
+		
+	
+//    WebElement ExpandIcon = getDriver().findElement(By.xpath("//i[@class='menu-btn']"));
+//    ExpandIcon.click();
+    
+    Thread.sleep(5000);
+    String LogoTeamLease = getDriver().findElement(By.xpath("//img[@alt='TeamLease Logo']")).getText();
+    WebElement LogoTeamL = getDriver().findElement(By.xpath("//img[@alt='TeamLease Logo']"));
+    
+    System.out.println(LogoTeamLease);
+    
+    if(LogoTeamL.isDisplayed())
+    {
+    	test.log(LogStatus.PASS,"'Team Lease RegTech Helping India Comply' Logo is displayed successfully");
+    }
+    else
+    {
+    	test.log(LogStatus.FAIL,"Logo is not displayed");
+    }
+    
+    String base64Screenshot = OneCommonMethod.takeScreenshotBase64(driver.get());
+    test.log(LogStatus.INFO, "ScreenShot <br>" + test.addBase64ScreenShot(base64Screenshot));
+		
+	}
+	
+	public static void columnExpandIcon(  ExtentTest test) throws InterruptedException, IOException
+	{Thread.sleep(5000);
+	
+		
+    Thread.sleep(5000);
+    
+    WebElement ExpandIcon = getDriver().findElement(By.xpath("//i[@class='menu-btn']"));
+    
+    Thread.sleep(5000);
+    if(ExpandIcon.isEnabled())
+    {
+    	Thread.sleep(5000);
+    	ExpandIcon.click();
+    	test.log(LogStatus.PASS,"Column Expand Icon is working successfully");
+    }
+    else
+    {
+    	test.log(LogStatus.FAIL,"Column Expand Icon is not working properly");
+    }
+		
+	}
+	
+	
+	
+	public static void filtersChecking(  ExtentTest test) throws InterruptedException, IOException
+	{
+		Thread.sleep(5000);
+		
+		All_ClientPortal_Locators.selectMonthDrp().click();
+		Thread.sleep(2000);
+		All_ClientPortal_Locators.selectTriangleFirst().click();
+		Thread.sleep(2000);
+		All_ClientPortal_Locators.selectCBFirst().click();
+		Thread.sleep(2000);
+		
+		if(All_ClientPortal_Locators.Applybtn().isDisplayed())
+		{
+			All_ClientPortal_Locators.Applybtn().click();
+			
+			test.log(LogStatus.PASS,"All filters are working successfully");
+			
+			test.log(LogStatus.PASS,"Entity is selected successfully : Test Automation 2[TESTAUTO2]");
+			Thread.sleep(200);
+			test.log(LogStatus.PASS,"Year dropdown is selected successfully : 2024");
+			
+			test.log(LogStatus.PASS,"Apply button is working fine");
+			Thread.sleep(2000);
+			All_ClientPortal_Locators.ClearButton().click();
+			Thread.sleep(5000);
+			test.log(LogStatus.PASS,"Clear button is working fine");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL,"Filters are not working properly");
+		}
+		
+	}
+	
 	
 	public static void EntitiesSearch(  ExtentTest test) throws InterruptedException, IOException
 	{Thread.sleep(5000);
@@ -276,7 +363,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	
-	    All_ClientPortal_Locators.Entities().click();
+//	    All_ClientPortal_Locators.Entities().click();
 		Thread.sleep(5000);
 		try {Thread.sleep(5000);
 		All_ClientPortal_Locators.Search().sendKeys("TESTAUTO2",Keys.ENTER);
@@ -299,7 +386,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	
-	    All_ClientPortal_Locators.Entities().click();
+//	    All_ClientPortal_Locators.Entities().click();
 		Thread.sleep(5000);
 		
 		verifyPaginationGoToNextPage(test);
@@ -1643,7 +1730,7 @@ public class All_ClientPortal_Methods extends BasePage {
 	}
 	
 	
-	public static void ViewAddNewNotices ( ExtentTest test) throws InterruptedException, IOException, AWTException
+	public static void ViewAddNewNotices (String user, ExtentTest test) throws InterruptedException, IOException, AWTException
 	{Thread.sleep(5000);		
 //		Actions action = new Actions(getDriver());
 //		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
@@ -1716,7 +1803,17 @@ public class All_ClientPortal_Methods extends BasePage {
 		Thread.sleep(5000);
 		Cell c6= row6.getCell(1);						//Selected cell (0 row,1 column)
 		int NoriceNo = (int) c6.getNumericCellValue();
+		
+		if(user.equalsIgnoreCase("Add New"))
+		{
 		All_ClientPortal_Locators.clickNoticeNumber().sendKeys(NoriceNo+getRandomString());
+		}
+		else if(user.equalsIgnoreCase("Add New Notice Error"))
+		{
+			All_ClientPortal_Locators.clickNoticeNumber().sendKeys("test");
+		}
+		
+		
 		
 		Thread.sleep(1000);
 		All_ClientPortal_Locators.clickCalender().click();
@@ -1805,8 +1902,12 @@ public class All_ClientPortal_Methods extends BasePage {
 		 System.out.println("File uploaded successfully");
 		 
 		 Thread.sleep(1000);
-		All_ClientPortal_Locators.clickSaveNotice().click();
+		 All_ClientPortal_Locators.clickSaveNotice().click();
 		 Thread.sleep(1000);
+		 
+		 
+		 
+		 
 		String msg=All_ClientPortal_Locators.clickSuccessNotice().getText();
 		if(msg.equalsIgnoreCase("Notice Saved Successfully"))
 		{
@@ -1856,8 +1957,271 @@ public class All_ClientPortal_Methods extends BasePage {
 				test.log(LogStatus.FAIL, "Total Notice Count doesn't increased in grid after adding New Notice - Old Notice Count from Grid  = "+count+" | New Notice Count from Grid = "+count1);
 			}
 				
+		  	
+	}
+	
+	
+	public static void ViewAddNewNoticesNumberError (String user, ExtentTest test) throws InterruptedException, IOException, AWTException
+	{Thread.sleep(5000);		
+//		Actions action = new Actions(getDriver());
+//		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		Thread.sleep(3000);
+	    
+			  	All_ClientPortal_Locators.OpenNotices().click();
+		Thread.sleep(15000);
+		
+		All_ClientPortal_Locators.View().click();
+		Thread.sleep(5000);
+				
+//		All_ClientPortal_Locators.ViewAddNew().click();
+		Thread.sleep(4000);
+		
+		CoordinatorMethod.zoomOutScreen(2); // 2 times zoom out
+		
+		Thread.sleep(3000);
+		String item = All_ClientPortal_Locators.readTotalItemsNotice().getText();
+		String[] bits = item.split(" ");								//Splitting the String
+		if(bits.length > 2)
+		{
+			Thread.sleep(2000);
+			item = All_ClientPortal_Locators.readTotalItemsNotice().getText();
+			bits = item.split(" ");								//Splitting the String
+		}
+		String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
+		if(compliancesCount.equalsIgnoreCase("to"))
+		{
+			Thread.sleep(2000);
+			item = All_ClientPortal_Locators.readTotalItemsNotice().getText();
+			bits = item.split(" ");									//Splitting the String
+			compliancesCount = bits[bits.length - 2];
+		}
+		int count = Integer.parseInt(compliancesCount);
+		
+		Thread.sleep(5000);
+		All_ClientPortal_Locators.clickaddnewNotices().click();
+		Thread.sleep(3000);
+		All_ClientPortal_Locators.clickStatee().click();
+		
+	//	Actions Class Clicking
+	//	Actions action2 = new Actions(getDriver());
+	//	action2.moveToElement(All_ClientPortal_Locators.clickStatee()).click().build().perform();
+		
+		
+		
+		Thread.sleep(1000);
+		All_ClientPortal_Locators.selectState1().click();
+		Thread.sleep(1000);
+		All_ClientPortal_Locators.clickLocation1().click();
+		Thread.sleep(1000);
+		All_ClientPortal_Locators.selectLocation1().click();
+		Thread.sleep(1000);
+		All_ClientPortal_Locators.clickNoticeBranch1().click();
+		Thread.sleep(1000);
+		All_ClientPortal_Locators.selectLocation1().click();   //Select Branch
+		Thread.sleep(1000);
+		All_ClientPortal_Locators.clickModeOfReceipt().click();
+		Thread.sleep(1000);
+		All_ClientPortal_Locators.selectLocation1().click();   //Select Mode Of Receipt
+		
+		
+		
+		FileInputStream fis = new FileInputStream(filePath);
+	    Workbook workbook1 = WorkbookFactory.create(fis);
+	    Sheet sheet = workbook1.getSheetAt(6);
+		
+	    Thread.sleep(5000);
+		Row row6 = sheet.getRow(16);						//Selected 0th index row (First row)
+		Thread.sleep(5000);
+		Cell c6= row6.getCell(1);						//Selected cell (0 row,1 column)
+		int NoriceNo = (int) c6.getNumericCellValue();
+		
+		
+
+	
+		All_ClientPortal_Locators.clickNoticeNumber().sendKeys("test");
+		
+		
+		
+		
+		Thread.sleep(1000);
+		All_ClientPortal_Locators.clickCalender().click();
+		
+		Thread.sleep(1000);
+		Actions action = new Actions(getDriver());
+//		WebElement we = getDriver().findElement(By.xpath("//*[@role='gridcell']//span[@class='k-link'][normalize-space()='21']"));
+		
+		WebElement we = getDriver().findElement(By.xpath("//*[@role='gridcell']//span[@class='k-link'][normalize-space()='1']"));
+		
+		action.moveToElement(we).click().build().perform();
+		Thread.sleep(1000);
+//		Locator.selectDate().click();
+		
+		Thread.sleep(1000);
+		All_ClientPortal_Locators.clickCalenderReponseDueDate().click();
+		Thread.sleep(3000);
+
+		//me Clicking September Month:
+		getDriver().findElement(By.xpath("(//span[contains(text(),'Sep')])[1]")).click();
+		Thread.sleep(3000);
+		getDriver().findElement(By.xpath("(//span[@class='k-link'][normalize-space()='2'])[4]")).click();
+		Thread.sleep(3000);
+		
+//		WebElement dateInput = getDriver().findElement(By.xpath("//input[@id='datepicker-2']"));
+//		((JavascriptExecutor) getDriver()).executeScript("arguments[0].value='03-09-2025';", dateInput);
+		
+//		WebElement dateInput = All_ClientPortal_Locators.clickCalenderReponseDueDate();
+//		((JavascriptExecutor) getDriver()).executeScript("arguments[0].value='03-10-2025';", dateInput);
+
+
+		
+		
+		
+//		WebElement we1= getDriver().findElement(By.xpath("//*[@role='gridcell']//span[@class='k-link'][normalize-space()='28']"));
+		
+//		WebElement we1= getDriver().findElement(By.xpath("(//span[@class='k-link'][normalize-space()='30'])[1]"));
+		
+//		action.moveToElement(we1).click().build().perform();
+//		Locator.selectDate2().click();
+		
+		All_ClientPortal_Locators.clickNoticeType().click();
+		All_ClientPortal_Locators.selectLocation1().click();   //Select Notice type
+		
+		All_ClientPortal_Locators.clickRisk().click();
+		All_ClientPortal_Locators.selectLocation1().click();   //Select Risk type
+		
+		
+		Row row = sheet.getRow(17);						//Selected 0th index row (First row)
+		Cell c= row.getCell(1);						//Selected cell (0 row,1 column)
+		String Remark = c.getStringCellValue();
+		All_ClientPortal_Locators.clickRemark().sendKeys(Remark);
+		
+		 getDriver().findElement(By.xpath("//*[@class='figma-btn-gray']")).click();
+		 
+		 Robot robot=new Robot();
+		 Thread.sleep(3000);
+		 StringSelection filepath= new  StringSelection("D:\\Upload Automation Files\\Other Upload No need to change\\sample.pdf");
+		 Thread.sleep(3000);
+		 //copy above file to clipboard
+		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
+		 
+		 //Now press CRTL
+		 
+		 robot.keyPress(KeyEvent.VK_CONTROL);
+		 Thread.sleep(1000);
+		 Thread.sleep(5000);
+		 //PRESS V
+		 robot.keyPress(KeyEvent.VK_V);
+		 Thread.sleep(5000);
+		 
+		 //Release V
+		 robot.keyRelease(KeyEvent.VK_V);
+		 Thread.sleep(5000);
+		 
+		 //Release CRTL
+		 robot.keyRelease(KeyEvent.VK_CONTROL);
+		 Thread.sleep(5000);
+		 //PRESS Enter
+		 robot.keyPress(KeyEvent.VK_ENTER);
+		 Thread.sleep(5000);
+		 //Release CRTL
+		 robot.keyRelease(KeyEvent.VK_ENTER);
+		 Thread.sleep(5000);
+		
+		 System.out.println("File uploaded successfully");
+		 
+		 Thread.sleep(1000);
+		 All_ClientPortal_Locators.clickSaveNotice().click();
+		 Thread.sleep(1000);
+		 
+		 
+		 
+		 
+		String msg=All_ClientPortal_Locators.clickSuccessNotice().getText();
+		if(msg.equalsIgnoreCase("Notice Number already exist"))
+		{
+			test.log(LogStatus.PASS,"While entering same duplicate notice number in Notice Number field error message displayed");
+			test.log(LogStatus.PASS,"Message displayed:-" +msg);
+		}
+		else
+		{
+			test.log(LogStatus.FAIL,"Message displayed:-" +msg);
+		}
+		Thread.sleep(1000);
+		All_ClientPortal_Locators.clickOkBtn().click();
+		
+		Thread.sleep(1000);
+
+		WebElement we2 = getDriver().findElement(By.xpath("//button[normalize-space()='Back']"));
+		action.moveToElement(we2).click().build().perform();
+		
+		Thread.sleep(1000);
+		All_ClientPortal_Locators.readTotalItemsNotice().click();
+		String item1 = All_ClientPortal_Locators.readTotalItemsNotice().getText();
+		String[] bits1 = item1.split(" ");								//Splitting the String
+		
+		if(bits1.length > 2)
+		{
+			Thread.sleep(2000);
+			item1 = All_ClientPortal_Locators.readTotalItemsNotice().getText();
+			bits1 = item1.split(" ");								//Splitting the String
+		}
+		String compliancesCount1 = bits1[bits1.length - 2];				//Getting the second last word (total number of users)
+		
+		if(compliancesCount1.equalsIgnoreCase("to"))
+		{
+			Thread.sleep(2000);
+			item1 = All_ClientPortal_Locators.readTotalItemsNotice().getText();
+			bits1 = item1.split(" ");									//Splitting the String
+			compliancesCount1 = bits1[bits1.length - 2];
+		}
+//		int count1 = Integer.parseInt(compliancesCount1);
+//		if(count < count1)
+//			{
+//			
+//				test.log(LogStatus.PASS, "Total Notice Count increased in grid after adding New Notice - Old Notice Count from Grid  = "+count+" | New Notice Count from Grid = "+count1);
+//				
+//			}
+//			else
+//			{
+//				test.log(LogStatus.FAIL, "Total Notice Count doesn't increased in grid after adding New Notice - Old Notice Count from Grid  = "+count+" | New Notice Count from Grid = "+count1);
+//			}
+				
 				
 
+		  	
+	}
+	
+	
+	public static void ViewAddNewNoticesBackBtn ( ExtentTest test) throws InterruptedException, IOException, AWTException
+	{
+		Thread.sleep(8000);
+		
+		All_ClientPortal_Locators.clickaddnewNotices().click();
+		Thread.sleep(5000);
+		if(All_ClientPortal_Locators.clickaddnewNoticesBack().isDisplayed())
+		{
+			All_ClientPortal_Locators.clickaddnewNoticesBack().click();
+			test.log(LogStatus.PASS, "Back button is working fine ");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "Back button is not working ");
+		}
+		
+		Thread.sleep(8000);
+		All_ClientPortal_Locators.clickaddnewNotices().click();
+		Thread.sleep(5000);
+		
+		if(All_ClientPortal_Locators.clickCloseBtn().isDisplayed())
+		{
+			All_ClientPortal_Locators.clickCloseBtn().click();
+			Thread.sleep(5000);
+			test.log(LogStatus.PASS, "Close popup button is working fine");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "Close popup button is not working ");
+		}
 		  	
 	}
 	
@@ -1908,6 +2272,229 @@ public class All_ClientPortal_Methods extends BasePage {
 		
 		
 	}
+	
+	public static void OpenNotice_BrowseUploadValidation(String validation,  ExtentTest test) throws Exception
+	{
+		Thread.sleep(5000);
+		
+		//RA = Receipt Acknowledgement
+		if(validation.equalsIgnoreCase("RA : PDF"))
+		{
+		Thread.sleep(5000);
+		All_ClientPortal_Locators.OpenNotices().click();
+		Thread.sleep(5000);
+		
+		All_ClientPortal_Locators.View().click();
+		Thread.sleep(5000);
+		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//img[contains(@title,'Overview')])[1]")));
+		Thread.sleep(8000);
+		Thread.sleep(3000);
+		
+		All_ClientPortal_Locators.clickaddnewNotices().click();
+		Thread.sleep(3000);
+		
+		//Notice Received Date:
+		All_ClientPortal_Locators.toggleCalendar1().click();
+		OneCommonMethod.selectCalendarDateFromInput(driver.get(), test, 
+				All_ClientPortal_Locators.toggleCalendar1(), // calendar icon
+				DistributerLocators.Calendar_NavigateToParentView(), // parent view arrow
+				"01-08-2025" // date in dd-MM-yyyy format
+		);
+		
+		//Response Due Date:
+		All_ClientPortal_Locators.toggleCalendar2().click();
+		OneCommonMethod.selectCalendarDateFromInput(driver.get(), test, 
+				All_ClientPortal_Locators.toggleCalendar2(), // calendar icon
+				DistributerLocators.Calendar_NavigateToParentView(), // parent view arrow
+				"01-08-2025" // date in dd-MM-yyyy format
+		);
+		
+		All_ClientPortal_Locators.browse1().click();
+		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\Test.pdf");
+		
+		String pdfFile = getDriver().findElement(By.xpath("//span[@title='Test.pdf']")).getText();
+		
+		if(pdfFile.equalsIgnoreCase("Test.pdf"))
+		{
+			test.log(LogStatus.PASS, "PDF File is uploaded successfully in Receipt Acknowledgement browse button");
+			test.log(LogStatus.PASS, "File Name displayed :- " + pdfFile);
+		}
+		else
+		{
+			test.log(LogStatus.PASS, "PDF File is not uploaded in Recepit Acknowledgement browse button");
+		}
+		}
+		
+		else if(validation.equalsIgnoreCase("RA : Doc"))
+		{
+			All_ClientPortal_Locators.browse1().click();
+			OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleDocxFile.docx");
+			
+			String docFile = getDriver().findElement(By.xpath("//span[@title='SampleDocxFile.docx']")).getText();
+			
+			if(docFile.equalsIgnoreCase("SampleDocxFile.docx"))
+			{
+				test.log(LogStatus.PASS, "Doc File is uploaded successfully in Receipt Acknowledgement browse button");
+				test.log(LogStatus.PASS, "File Name displayed :- " + docFile);
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "Doc File is not uploaded in Recepit Acknowledgement browse button");
+			}
+			
+		}
+		
+	}
+	public static void OpenNotice_BrowseUploadValidation2(String validation,  ExtentTest test) throws Exception
+	{
+		Thread.sleep(5000);
+		
+		//RA = Recepit Acknowledgement
+		if(validation.equalsIgnoreCase("RA : Docs"))
+		{
+			All_ClientPortal_Locators.browse1().click();
+			OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleDocxFile.docx");
+			
+			String docsFile = getDriver().findElement(By.xpath("//span[@title='SampleDocxFile.docx']")).getText();
+			
+			if(docsFile.equalsIgnoreCase("SampleDocxFile.docx"))
+			{
+				test.log(LogStatus.PASS, "Docx File is uploaded successfully in Receipt Acknowledgement browse button");
+				test.log(LogStatus.PASS, "File Name displayed :- " + docsFile);
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "Docs File is not uploaded in Recepit Acknowledgement browse button");
+			}
+		}
+		
+		if(validation.equalsIgnoreCase("RA : Doc"))
+		{
+			All_ClientPortal_Locators.browse1().click();
+			OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleDocFile.doc");
+			
+			String docFile = getDriver().findElement(By.xpath("//span[@title='SampleDocFile.doc']")).getText();
+			
+			if(docFile.equalsIgnoreCase("SampleDocFile.doc"))
+			{
+				test.log(LogStatus.PASS, "Doc File is uploaded successfully in Receipt Acknowledgement browse button");
+				test.log(LogStatus.PASS, "File Name displayed :- " + docFile);
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "Doc File is not uploaded in Recepit Acknowledgement browse button");
+			}
+		}
+		
+		if(validation.equalsIgnoreCase("RA : XLSX"))
+		{
+			Thread.sleep(5000);
+			All_ClientPortal_Locators.browse1().click();
+			OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\ComplianceRecords.xlsx");
+			
+			String xlsxFile = All_ClientPortal_Locators.clickMsg().getText();
+			if(xlsxFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
+			{
+				test.log(LogStatus.PASS, "While uploading XLSX file in Recepit Acknowledgement browse button error message displayed ");
+				test.log(LogStatus.PASS, "Message Displayed:- " + xlsxFile);
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "XLSX File is not uploaded in Recepit Acknowledgement browse button");
+			}
+			Thread.sleep(5000);
+			All_ClientPortal_Locators.clickOkBtn().click();
+			Thread.sleep(5000);
+		}
+		
+		if(validation.equalsIgnoreCase("RA : XLS"))
+		{
+			Thread.sleep(5000);
+			All_ClientPortal_Locators.browse1().click();
+			OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleXlsFile.xls");
+			
+			String xlsFile = All_ClientPortal_Locators.clickMsg().getText();
+			if(xlsFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
+			{
+				test.log(LogStatus.PASS, "While uploading XLS file in Recepit Acknowledgement browse button error message displayed ");
+				test.log(LogStatus.PASS, "Message Displayed:- " + xlsFile);
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "XLS File is not uploaded in Recepit Acknowledgement browse button");
+			}
+			Thread.sleep(5000);
+			All_ClientPortal_Locators.clickOkBtn().click();
+			Thread.sleep(5000);
+		}
+		
+		if(validation.equalsIgnoreCase("RA : ZIP"))
+		{
+			Thread.sleep(5000);
+			All_ClientPortal_Locators.browse1().click();
+			OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleZipFile.zip");
+			
+			String zipFile = All_ClientPortal_Locators.clickMsg().getText();
+			if(zipFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
+			{
+				test.log(LogStatus.PASS, "While uploading ZIP file in Recepit Acknowledgement browse button error message displayed ");
+				test.log(LogStatus.PASS, "Message Displayed:- " + zipFile);
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "ZIP File is not uploaded in Recepit Acknowledgement browse button");
+			}
+			Thread.sleep(5000);
+			All_ClientPortal_Locators.clickOkBtn().click();
+			Thread.sleep(5000);
+		}
+		
+		if(validation.equalsIgnoreCase("RA : JPG"))
+		{
+			Thread.sleep(5000);
+			All_ClientPortal_Locators.browse1().click();
+			OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleJpgFile.jpg");
+			
+			String jpgFile = All_ClientPortal_Locators.clickMsg().getText();
+			if(jpgFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
+			{
+				test.log(LogStatus.PASS, "While uploading JPG file in Recepit Acknowledgement browse button error message displayed ");
+				test.log(LogStatus.PASS, "Message Displayed:- " + jpgFile);
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "JPG File is not uploaded in Recepit Acknowledgement browse button");
+			}
+			Thread.sleep(5000);
+			All_ClientPortal_Locators.clickOkBtn().click();
+			Thread.sleep(5000);
+		}
+		
+		if(validation.equalsIgnoreCase("RA : JPEG"))
+		{
+			Thread.sleep(5000);
+			All_ClientPortal_Locators.browse1().click();
+			OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleJpegFile.jpeg");
+			
+			String jpgFile = All_ClientPortal_Locators.clickMsg().getText();
+			if(jpgFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
+			{
+				test.log(LogStatus.PASS, "While uploading JPEG file in Recepit Acknowledgement browse button error message displayed ");
+				test.log(LogStatus.PASS, "Message Displayed:- " + jpgFile);
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "JPEG File is not uploaded in Recepit Acknowledgement browse button");
+			}
+			Thread.sleep(5000);
+			All_ClientPortal_Locators.clickOkBtn().click();
+			Thread.sleep(5000);
+		}
+		
+		
+	}
+	
 	
 	public static void NoticeSearch(  ExtentTest test) throws InterruptedException, IOException
 	{Thread.sleep(5000);
@@ -2918,6 +3505,9 @@ public class All_ClientPortal_Methods extends BasePage {
   		if(All_ClientPortal_Locators.Back().isEnabled()) {Thread.sleep(5000);
 		 
 		test.log(LogStatus.PASS,  " InitiateAction button working fine."); 
+		Thread.sleep(3000);
+		OneCommonMethod.scroll(driver.get(), 500); 
+		Thread.sleep(6000);
 		All_ClientPortal_Locators.Back().click();
 		test.log(LogStatus.PASS,  " InitiateAction Back button working fine."); 
        }
@@ -3239,7 +3829,10 @@ public class All_ClientPortal_Methods extends BasePage {
   		Thread.sleep(5000);
        	All_ClientPortal_Locators.clickActivityType().click();
   		Thread.sleep(2000);
-  		All_ClientPortal_Locators.selectActivityTypeApproval().click();
+//  		All_ClientPortal_Locators.selectActivityTypeApproval().click();
+  		
+  		All_ClientPortal_Locators.clickActivityType().click();
+  		
   		Thread.sleep(2000);
   		js.executeScript("window.scrollBy(0,5000)");
   		Thread.sleep(2000);
@@ -3506,7 +4099,15 @@ public class All_ClientPortal_Methods extends BasePage {
 		Thread.sleep(3000);
 		
 		
-		All_ClientPortal_Locators.History().click();
+//		All_ClientPortal_Locators.History().click();
+//		All_ClientPortal_Locators.History().click();
+		
+		//Performing double click
+		Actions actions = new Actions(getDriver());
+		// Perform double-click on the element
+		actions.doubleClick(All_ClientPortal_Locators.HistoryButton2()).perform();
+		
+		
 		Thread.sleep(5000);
 		String item = All_ClientPortal_Locators.RegistrationLicencesHistory().getText();
 		Thread.sleep(4000);
@@ -4220,6 +4821,50 @@ public class All_ClientPortal_Methods extends BasePage {
 		
 	}
 	
+	public static void RCCompliedCountVerification(  ExtentTest test) throws InterruptedException, IOException
+	{Thread.sleep(5000);
+	
+		Thread.sleep(2000);
+		JavascriptExecutor js = (JavascriptExecutor) getDriver();
+		
+		All_ClientPortal_Locators.Complied().click();
+		Thread.sleep(8000);
+		
+//		All_ClientPortal_Locators.RCComplied().click();
+//		Thread.sleep(5000);
+				
+		test.log(LogStatus.INFO, "Compliance Performance Complied link is clickable");
+		
+		// Step 1: Get count from "Active" column hyperlink
+		WebElement activeLink = All_ClientPortal_Locators.RCComplied();
+		String activeCountText = activeLink.getText().trim(); // e.g., "22"
+		int activeDashboardCount = Integer.parseInt(activeCountText);
+		test.log(LogStatus.INFO, "Complied count from dashboard: " + activeDashboardCount);
+
+		// Step 2: Click on hyperlink to open grid
+		activeLink.click();
+		Thread.sleep(10000); // or use WebDriverWait if needed
+		test.log(LogStatus.INFO, "Complied hyper link is clickable");
+
+		// Step 3: Get grid count from top bar (e.g., "1 - 10 of 22 items")
+		WebElement gridLabel = All_ClientPortal_Locators.readTotalItemsNotice(); // use your method here
+		String gridText = gridLabel.getText().trim();
+		String[] parts = gridText.split(" ");
+		int activeGridCount = Integer.parseInt(parts[parts.length - 2]);
+		test.log(LogStatus.INFO, "Complied count found in grid: " + activeGridCount);
+
+		// Step 4: Match both counts
+		if (activeDashboardCount == activeGridCount) {
+		    test.log(LogStatus.PASS, "PASS: Complied count from dashboard matches grid count.");
+		} else {
+		    test.log(LogStatus.FAIL, "FAIL: Mismatch. Dashboard = " + activeDashboardCount + ", Grid = " + activeGridCount);
+		}
+		
+		
+
+		
+	}
+	
 	
 	public static void searchRCComplied(  ExtentTest test) throws InterruptedException, IOException
 	{Thread.sleep(5000);
@@ -4236,9 +4881,9 @@ public class All_ClientPortal_Methods extends BasePage {
 		
 		
 		try {Thread.sleep(5000);
-		All_ClientPortal_Locators.compliancePerformanceSearch().sendKeys("67652",Keys.ENTER);
+		All_ClientPortal_Locators.compliancePerformanceSearch().sendKeys("Maharashtra",Keys.ENTER);
 		Thread.sleep(4000);
-		String text = getDriver().findElement(By.xpath("//div[@title='67652']")).getText();
+		String text = getDriver().findElement(By.xpath("//div[@title='Maharashtra']")).getText();
 		
 			
 		test.log(LogStatus.PASS, "Selected Location along with their details should get reflected in the grid.");
@@ -4248,9 +4893,84 @@ public class All_ClientPortal_Methods extends BasePage {
 		}catch(Exception e) {Thread.sleep(5000);
 			test.log(LogStatus.PASS, "no record available");
 		}
-		
+		Thread.sleep(3000);
+		All_ClientPortal_Locators.compliancePerformanceSearch().clear();
+		Thread.sleep(3000);
 		
 	}
+	
+	
+	public static void CP_Complied_ClearBtn(  ExtentTest test) throws InterruptedException, IOException
+	{Thread.sleep(5000);
+	
+//		Thread.sleep(2000);
+//		JavascriptExecutor js = (JavascriptExecutor) getDriver();
+//		
+//		All_ClientPortal_Locators.Complied().click();
+//		Thread.sleep(5000);
+//		
+//		All_ClientPortal_Locators.RCComplied().click();
+		Thread.sleep(5000);
+				
+		
+		All_ClientPortal_Locators.compliancePerformanceSearch().sendKeys("HelloHowAreYou", Keys.ENTER);
+		Thread.sleep(4000);
+
+		if (All_ClientPortal_Locators.Clear().isEnabled()) {
+			Thread.sleep(5000);
+
+			test.log(LogStatus.PASS, " Clear button working successfully.");
+			All_ClientPortal_Locators.Clear().click();
+			
+			Thread.sleep(5000);
+		} else {
+			Thread.sleep(5000);
+			test.log(LogStatus.FAIL, "Clear button does not working properly.");
+		}
+		Thread.sleep(3000);
+		
+	}
+	
+	public static void CP_Complied_ApplyBtn(  ExtentTest test) throws InterruptedException, IOException
+	{
+		Thread.sleep(5000);
+
+		if (All_ClientPortal_Locators.ApplyBtn().isEnabled()) {
+			Thread.sleep(5000);
+
+			All_ClientPortal_Locators.ApplyBtn().click();
+			test.log(LogStatus.PASS, "Apply button working successfully.");
+			
+			Thread.sleep(5000);
+		} else {
+			Thread.sleep(5000);
+			test.log(LogStatus.FAIL, "Apply button does not working properly.");
+		}
+		Thread.sleep(3000);
+		
+	}
+	
+	public static void CP_Complied_ExportBtn(  ExtentTest test) throws InterruptedException, IOException
+	{
+		
+		Thread.sleep(7000);
+		
+	    OneCommonMethod.validateExportedExcelDYNAMIC(
+	    	    driver.get(),
+	    	    test,
+	    	    LoginLocators.Exportbtn(),        // WebElement for export button
+	    	    All_ClientPortal_Locators.readTotalItemsNotice(),     // WebElement for grid count text
+	    	    "Act",                               // Column header to verify
+	    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+	    	);
+		
+		Thread.sleep(5000);
+		
+	}
+	
+	
+	
+	
 	public static void ClearExportRCComplied(  ExtentTest test) throws InterruptedException, IOException
 	{Thread.sleep(5000);
 	
@@ -4436,27 +5156,32 @@ public class All_ClientPortal_Methods extends BasePage {
 		} else {Thread.sleep(5000);
 			test.log(LogStatus.FAIL,  " File does not downloaded.");
 		}
+		Thread.sleep(3000);
+		All_ClientPortal_Locators.clickCloseBtn().click();
+		Thread.sleep(3000);
+		
+		
 	}
 	public static void RCCompliedPagination(  ExtentTest test) throws InterruptedException, IOException
 	{Thread.sleep(5000);
 	
-		Thread.sleep(2000);
-		JavascriptExecutor js = (JavascriptExecutor) getDriver();
-		
-		All_ClientPortal_Locators.Complied().click();
+//		Thread.sleep(2000);
+//		JavascriptExecutor js = (JavascriptExecutor) getDriver();
+//		
+//		All_ClientPortal_Locators.Complied().click();
+//		Thread.sleep(5000);
+//		
+//		All_ClientPortal_Locators.RCComplied().click();
 		Thread.sleep(5000);
 		
-		All_ClientPortal_Locators.RCComplied().click();
-		Thread.sleep(5000);
-		
-		CoordinatorMethod.zoomOutScreen(2); //Zoom Out
+//		CoordinatorMethod.zoomOutScreen(2); //Zoom Out
 		
 		verifyPaginationGoToNextPage(test);
 		Thread.sleep(5000);
 		verifyPaginationGoToLastPage(test);
 		Thread.sleep(5000);
 		verifyItemsPerPageFunctionality(test);
-		
+		Thread.sleep(2000);
 		
 	}
 	
@@ -4656,10 +5381,10 @@ public class All_ClientPortal_Methods extends BasePage {
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		
 		All_ClientPortal_Locators.Complied().click();
-		Thread.sleep(5000);
+		Thread.sleep(7000);
 		
 		All_ClientPortal_Locators.ECComplied().click();
-		Thread.sleep(5000);
+		Thread.sleep(9000);
 		test.log(LogStatus.PASS, "Establishment Compliances 'Complied' hyper link is clickable");		
 		
 		
@@ -4676,38 +5401,136 @@ public class All_ClientPortal_Methods extends BasePage {
 		}catch(Exception e) {Thread.sleep(5000);
 			test.log(LogStatus.PASS, "no record available");
 		}
+		All_ClientPortal_Locators.compliancePerformanceSearch().clear();
+		Thread.sleep(3000);
+		
+	}
+	
+	
+	
+	public static void Merged_CompPer_EST_Comp(String user,  ExtentTest test) throws InterruptedException, IOException
+	{
+		Thread.sleep(5000);
+		Thread.sleep(2000);
+		
+		if(user.equalsIgnoreCase("Register Export"))
+		{
+			All_ClientPortal_Locators.ComplianceDropdownExport().click();
+			All_ClientPortal_Locators.RegisterDropdownExport().click();
+			Thread.sleep(2000);
+			All_ClientPortal_Locators.ApplyBtn().click();
+			Thread.sleep(7000);
+			
+		    OneCommonMethod.validateExportedExcelDYNAMIC(
+		    	    driver.get(),
+		    	    test,
+		    	    LoginLocators.Exportbtn(),        // WebElement for export button
+		    	    All_ClientPortal_Locators.readTotalItemsNotice(),     // WebElement for grid count text
+		    	    "State",                               // Column header to verify
+		    	    "Registers File Exported Successfully ! "     // Success log text (only if PASS)
+		    	);
+		
+		    Thread.sleep(2000);
+		   
+		}
+		
+		else if(user.equalsIgnoreCase("Return Export"))
+		{
+			
+			All_ClientPortal_Locators.ComplianceDropdownExport().click();
+			Thread.sleep(2000);
+			All_ClientPortal_Locators.ReturnDropdownExport().click();
+			Thread.sleep(2000);
+			All_ClientPortal_Locators.ApplyBtn().click();
+			Thread.sleep(7000);
+			
+		    OneCommonMethod.validateExportedExcelDYNAMIC(
+		    	    driver.get(),
+		    	    test,
+		    	    LoginLocators.Exportbtn(),        // WebElement for export button
+		    	    All_ClientPortal_Locators.readTotalItemsNotice(),     // WebElement for grid count text
+		    	    "State",                               // Column header to verify
+		    	    "Returns File Exported Successfully ! "     // Success log text (only if PASS)
+		    	);
+		    Thread.sleep(2000);
+		}
+		
+		else if(user.equalsIgnoreCase("Export Only"))
+		{
+			
+//			All_ClientPortal_Locators.ComplianceDropdownExport().click();
+//			Thread.sleep(2000);
+//			All_ClientPortal_Locators.ReturnDropdownExport().click();
+//			Thread.sleep(2000);
+//			All_ClientPortal_Locators.ApplyBtn().click();
+			Thread.sleep(7000);
+			
+		    OneCommonMethod.validateExportedExcelDYNAMIC(
+		    	    driver.get(),
+		    	    test,
+		    	    LoginLocators.Exportbtn(),        // WebElement for export button
+		    	    All_ClientPortal_Locators.readTotalItemsNotice(),     // WebElement for grid count text
+		    	    "State",                               // Column header to verify
+		    	    "Returns File Exported Successfully ! "     // Success log text (only if PASS)
+		    	);
+		    Thread.sleep(2000);
+		}
+		
+		
 		
 		
 	}
 	
+	
+	
+	
 
-	public static void clearbtnEcComplied(  ExtentTest test) throws InterruptedException, IOException
+	public static void clearbtnEcComplied( String user, ExtentTest test) throws InterruptedException, IOException
 	{Thread.sleep(5000);
 	
 		Thread.sleep(2000);
-		JavascriptExecutor js = (JavascriptExecutor) getDriver();
-		
-		All_ClientPortal_Locators.Complied().click();
-		Thread.sleep(5000);
-		
-		All_ClientPortal_Locators.ECComplied().click();
-		Thread.sleep(10000);
+//		JavascriptExecutor js = (JavascriptExecutor) getDriver();
+//		
+//		All_ClientPortal_Locators.Complied().click();
+//		Thread.sleep(5000);
+//		
+//		All_ClientPortal_Locators.ECComplied().click();
+//		Thread.sleep(10000);
 				
+		if(user.equalsIgnoreCase("Apply button"))
+		{
+		All_ClientPortal_Locators.compliancePerformanceSearch().sendKeys("Register",Keys.ENTER);
+		Thread.sleep(4000);
+
+		if (All_ClientPortal_Locators.ApplyBtn().isEnabled()) {
+			Thread.sleep(5000);
+
+			test.log(LogStatus.PASS, " Apply button working successfully.");
+			All_ClientPortal_Locators.ApplyBtn().click();
+		} else {
+			Thread.sleep(5000);
+			test.log(LogStatus.FAIL, "Apply button does not working properly.");
+		}
+		}
 		
 		
+		//Clear
+		else if(user.equalsIgnoreCase("Clear button"))
+		{
 		All_ClientPortal_Locators.compliancePerformanceSearch().sendKeys("HelloHowAreYou",Keys.ENTER);
 		Thread.sleep(4000);
-		
-		 if(All_ClientPortal_Locators.Clear().isEnabled()) {Thread.sleep(5000);
-		 
-			test.log(LogStatus.PASS,  " Clear button working successfully."); 
+
+		if (All_ClientPortal_Locators.Clear().isEnabled()) {
+			Thread.sleep(5000);
+
+			test.log(LogStatus.PASS, " Clear button working successfully.");
 			All_ClientPortal_Locators.Clear().click();
-	 }
-	 else
-	 {Thread.sleep(5000);
-	 	test.log(LogStatus.FAIL, "Clear button does not working properly.");
-	 }
-	  	 Thread.sleep(3000);
+		} else {
+			Thread.sleep(5000);
+			test.log(LogStatus.FAIL, "Clear button does not working properly.");
+		}
+		}
+		Thread.sleep(3000);
 		
 		
 	}
@@ -4861,11 +5684,11 @@ public class All_ClientPortal_Methods extends BasePage {
 	{Thread.sleep(5000);
 	
 		
-		All_ClientPortal_Locators.Complied().click();
-		Thread.sleep(5000);
-		
-		All_ClientPortal_Locators.ECComplied().click();
-		Thread.sleep(10000);
+//		All_ClientPortal_Locators.Complied().click();
+//		Thread.sleep(5000);
+//		
+//		All_ClientPortal_Locators.ECComplied().click();
+//		Thread.sleep(10000);
 		
 //		All_ClientPortal_Locators.readTotalItemsD().click();					//Clicking on Text of total items just to scroll down.
 		String s = All_ClientPortal_Locators.readTotalItemsD().getText();
@@ -4873,11 +5696,15 @@ public class All_ClientPortal_Methods extends BasePage {
 		
 		All_ClientPortal_Locators.compliancePerformanceViewNo().click();
 		Thread.sleep(5000);
-		All_ClientPortal_Locators.OverviewClose().click();
+		getDriver().findElement(By.xpath("//img[@alt='View Document']")).click();
+		Thread.sleep(8000);
+		All_ClientPortal_Locators.CloseButtonX_2nd().click();
+		Thread.sleep(5000);
+		All_ClientPortal_Locators.CloseButtonX().click();
 		
 		Thread.sleep(3000);
 		
-		test.log(LogStatus.PASS,  " View Successfully.");
+		test.log(LogStatus.PASS,  "View Successfully.");
 		}else {Thread.sleep(5000);
 			Thread.sleep(1000);
 			
@@ -4892,11 +5719,11 @@ public class All_ClientPortal_Methods extends BasePage {
 	{Thread.sleep(5000);
 	
 		
-		All_ClientPortal_Locators.Complied().click();
-		Thread.sleep(5000);
-		
-		All_ClientPortal_Locators.ECComplied().click();
-		Thread.sleep(5000);
+//		All_ClientPortal_Locators.Complied().click();
+//		Thread.sleep(5000);
+//		
+//		All_ClientPortal_Locators.ECComplied().click();
+//		Thread.sleep(5000);
 		
 //		All_ClientPortal_Locators.readTotalItemsD().click();					//Clicking on Text of total items just to scroll down.
 		String s = All_ClientPortal_Locators.readTotalItemsD().getText();
@@ -4907,11 +5734,12 @@ public class All_ClientPortal_Methods extends BasePage {
 		//Explicit wait
 		WebDriverWait wait2 = new WebDriverWait(getDriver(), (30));
 		wait2.until(ExpectedConditions.visibilityOf(All_ClientPortal_Locators.OverviewClose()));
+		Thread.sleep(5000);
 		All_ClientPortal_Locators.OverviewClose().click();
 		
 		Thread.sleep(3000);
 		
-		test.log(LogStatus.PASS,  " Overview Successfully.");
+		test.log(LogStatus.PASS,  "Overview Successfully.");
 		}else {Thread.sleep(5000);
 			Thread.sleep(1000);
 			
@@ -4925,42 +5753,55 @@ public class All_ClientPortal_Methods extends BasePage {
 	{Thread.sleep(5000);
 	
 		
-		All_ClientPortal_Locators.Complied().click();
-		Thread.sleep(5000);
+//		All_ClientPortal_Locators.Complied().click();
+//		Thread.sleep(5000);
+//		
+//		All_ClientPortal_Locators.ECComplied().click();
+//		Thread.sleep(5000);
 		
-		All_ClientPortal_Locators.ECComplied().click();
-		Thread.sleep(5000);
-		
-
-		
-		File dir = new File("C:\\Users\\bilali\\Downloads");
-		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
-
-		Thread.sleep(5000);
 		All_ClientPortal_Locators.compliancePerformanceDownloadBtn().click();
-		Thread.sleep(8000);
-		All_ClientPortal_Locators.compliancePerformanceFileDownPopup().click();
-
-		Thread.sleep(10000);
-		File dir1 = new File("C:\\Users\\bilali\\Downloads");
-		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
+		
+		OneCommonMethod.validateFileDownloadDynamic(
+			    driver.get(),
+			    test,
+			    All_ClientPortal_Locators.compliancePerformanceFileDownPopup(),   // WebElement
+			    "Document File Downloaded"   // Dynamic log message
+			);
+		
+		Thread.sleep(2000);
+		All_ClientPortal_Locators.CloseButtonX().click();
 		Thread.sleep(3000);
-		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
-			test.log(LogStatus.PASS,  " File downloaded successfully.");
-		} else {Thread.sleep(5000);
-			test.log(LogStatus.FAIL,  " File does not downloaded.");
-		}
+		
+
+		
+//		File dir = new File("C:\\Users\\bilali\\Downloads");
+//		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
+//
+//		Thread.sleep(5000);
+//		All_ClientPortal_Locators.compliancePerformanceDownloadBtn().click();
+//		Thread.sleep(8000);
+//		All_ClientPortal_Locators.compliancePerformanceFileDownPopup().click();
+//
+//		Thread.sleep(10000);
+//		File dir1 = new File("C:\\Users\\bilali\\Downloads");
+//		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
+//		Thread.sleep(3000);
+//		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
+//			test.log(LogStatus.PASS,  " File downloaded successfully.");
+//		} else {Thread.sleep(5000);
+//			test.log(LogStatus.FAIL,  " File does not downloaded.");
+//		}
 		
 	}
 	public static void PaginationECComplied(  ExtentTest test) throws InterruptedException, IOException
 	{Thread.sleep(5000);
 	
 		
-		All_ClientPortal_Locators.Complied().click();
-		Thread.sleep(5000);
-		
-		All_ClientPortal_Locators.ECComplied().click();
-		Thread.sleep(5000);
+//		All_ClientPortal_Locators.Complied().click();
+//		Thread.sleep(5000);
+//		
+//		All_ClientPortal_Locators.ECComplied().click();
+//		Thread.sleep(5000);
 		
 		OneCommonMethod.zoomOutScreen(2); // ZoomOut 2 Times
 		
@@ -11167,12 +12008,12 @@ public class All_ClientPortal_Methods extends BasePage {
 		Thread.sleep(1000);
 		All_ClientPortal_Locators.ClickApplyBtn().click(); */
 		
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		All_ClientPortal_Locators.clickLicense().click();
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		All_ClientPortal_Locators.clickRegistration().click();
 		
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		All_ClientPortal_Locators.ExistingLicesne().click();
 
 		Thread.sleep(1000);
@@ -11252,11 +12093,11 @@ public class All_ClientPortal_Methods extends BasePage {
 		Thread.sleep(1000);
 		All_ClientPortal_Locators.ClickApplyBtn().click(); */
 		
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		All_ClientPortal_Locators.clickLicense().click();
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		All_ClientPortal_Locators.clickRegistration().click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		All_ClientPortal_Locators.ExistingLicesne().click();
 		
 			Thread.sleep(3000);
@@ -11434,11 +12275,11 @@ public class All_ClientPortal_Methods extends BasePage {
 		Thread.sleep(1000);
 		All_ClientPortal_Locators.ClickApplyBtn().click(); */
 		
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		All_ClientPortal_Locators.clickLicense().click();
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		All_ClientPortal_Locators.clickRegistration().click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		All_ClientPortal_Locators.ExistingLicesne().click();
 		
 		if(All_ClientPortal_Locators.ExistingLicesneInitiateAction().isEnabled())
@@ -11452,10 +12293,10 @@ public class All_ClientPortal_Methods extends BasePage {
 			test.log(LogStatus.FAIL, "Initiate Action Icon is not clikable");
 		}
 		
-		Thread.sleep(1000);
-		All_ClientPortal_Locators.clickActivityTab().click();
-		Thread.sleep(1000);
-		All_ClientPortal_Locators.selectActivityTab().click();
+		Thread.sleep(4000);
+		All_ClientPortal_Locators.clickActivityDropdown().click();
+		Thread.sleep(4000);
+		All_ClientPortal_Locators.selectApproval().click();
 		
 		Thread.sleep(2000);
 		Actions action = new Actions(getDriver());
@@ -11480,13 +12321,13 @@ public class All_ClientPortal_Methods extends BasePage {
 		{
 			test.log(LogStatus.FAIL, "Message Displayed:-" +msg);
 		}
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		All_ClientPortal_Locators.clickOkBtn().click();
 		
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		
-		WebElement we1 = getDriver().findElement(By.xpath("//button[normalize-space()='Back']"));
-		action.moveToElement(we1).click().build().perform();
+	//	WebElement we1 = getDriver().findElement(By.xpath("//button[normalize-space()='Back']"));
+	//	action.moveToElement(we1).click().build().perform();
 		////Thread.sleep(1000);
 		//Locator.clickBack().click();
 		

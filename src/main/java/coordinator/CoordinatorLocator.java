@@ -148,6 +148,16 @@ public class CoordinatorLocator extends BasePage
 		labour = getDriver().findElement(By.xpath("//*[@class='k-svg-i-calendar k-button-icon k-svg-icon k-icon ng-star-inserted']"));
 		return labour;
 	}
+	public static WebElement NoticeReceivedDateCalendar1()
+	{
+		labour = getDriver().findElement(By.xpath("(//button[@title='Toggle calendar'])[1]"));
+		return labour;
+	}
+	public static WebElement ResponseDueDateCalendar2()
+	{
+		labour = getDriver().findElement(By.xpath("(//button[@title='Toggle calendar'])[2]"));
+		return labour;
+	}
 	public static WebElement clickCalenderReponseDueDate()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("(//*[@class='k-svg-i-calendar k-button-icon k-svg-icon k-icon ng-star-inserted'])[2]"));
@@ -188,6 +198,26 @@ public class CoordinatorLocator extends BasePage
 		labour = getDriver().findElement(By.xpath("//h4[normalize-space()='Notice Saved Successfully']"));
 		return labour;
 	}
+	public static WebElement Message2()
+	{
+		labour = getDriver().findElement(By.xpath("(//h4[@class='f-label'])[2]"));
+		return labour;
+	}
+	public static WebElement Message()
+	{
+		labour = getDriver().findElement(By.xpath("(//h4[@class='f-label'])"));
+		return labour;
+	}
+	public static WebElement Browse1()
+	{
+		labour = getDriver().findElement(By.xpath("(//button[@title='Browse'])[1]"));
+		return labour;
+	}
+	public static WebElement Browse2()
+	{
+		labour = getDriver().findElement(By.xpath("(//button[@title='Browse'])[2]"));
+		return labour;
+	}
 	public static WebElement clickInvalidNotice()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//h4[normalize-space()='Notice Number already exist']"));
@@ -199,9 +229,20 @@ public class CoordinatorLocator extends BasePage
 		labour = getDriver().findElement(By.xpath("//span[normalize-space()='OK']"));
 		return labour;
 	}
-	public static WebElement clickBack()		//Method for searching Username input
+	public static WebElement clickBack()
 	{
 		labour = getDriver().findElement(By.xpath("//button[normalize-space()='Back']"));
+		return labour;
+	}
+	public static WebElement co_ordinatorDashboard()
+	{
+		labour = getDriver().findElement(By.xpath("//h4[normalize-space()='Co-ordinator Dashboard']"));
+		return labour;
+	}
+	
+	public static WebElement NewLicenseRequestTxt()
+	{
+		labour = getDriver().findElement(By.xpath("//a[normalize-space()='New License Request']"));
 		return labour;
 	}
 	public static WebElement clickNoticeExport()		//Method for searching Username input
@@ -447,6 +488,22 @@ public class CoordinatorLocator extends BasePage
 		labour = getDriver().findElement(By.xpath("//span[contains(text(),'Select SME Team')]"));
 		return labour;
 	}
+	public static WebElement clickSDExecutor()
+	{
+		labour = getDriver().findElement(By.xpath("//span[contains(text(),'Select SD Executer Team')]"));
+		return labour;
+	}
+	public static WebElement clickSMETeamQAUser()
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='QA ABC']"));
+		return labour;
+	}
+	public static WebElement clickSDExecutorTeamQAUser()
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='QA SD EXE']"));
+		return labour;
+	}
+	
 	
 	public static WebElement selectSMETeam()		//Method for searching Username input
 	{
@@ -526,11 +583,17 @@ public class CoordinatorLocator extends BasePage
 	public static WebElement plus3()		
 	{
 		labour = getDriver().findElement(By.xpath("(//img[@class='svg-icon-btn'])[3]"));
-		return labour;
+		return labour;                        
 	}
 	public static WebElement plus4()		
 	{
 		labour = getDriver().findElement(By.xpath("(//img[@class='svg-icon-btn'])[4]"));
+		return labour;
+	}
+	
+	public static WebElement yesRadioBtn()		
+	{
+		labour = getDriver().findElement(By.xpath("(//input[@id='rdGen'])[1]"));
 		return labour;
 	}
 	
@@ -541,7 +604,7 @@ public class CoordinatorLocator extends BasePage
 	}
 	public static WebElement selectonRCPDropdownuser()		
 	{
-		labour = getDriver().findElement(By.xpath("//span[normalize-space()='RCP USA']"));
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='QA RCP']"));
 		return labour;
 	}
 	public static WebElement clickonSDExeDropdown()		
@@ -551,7 +614,7 @@ public class CoordinatorLocator extends BasePage
 	}
 	public static WebElement selectonSDExDropdownRITWIK()		
 	{
-		labour = getDriver().findElement(By.xpath("//span[normalize-space()='RITWIK Jaguar']"));
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='QA SD EXE']"));
 		return labour;
 	}
 	

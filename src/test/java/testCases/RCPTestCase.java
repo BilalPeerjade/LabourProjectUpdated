@@ -70,32 +70,31 @@ public class RCPTestCase extends  BasePage
 	
 		/////////////////////////////////Registration//////////////////////////////
 
-	@Test(priority =1)
-	void RCPLogo() throws InterruptedException, IOException
-	{
-	test = extent.startTest("Registration- Pending Applications (Online) count verification");
+		@Test(priority = 1)
+		void RCPLogo() throws InterruptedException, IOException {
+			test = extent.startTest("Verify the TeamLease RegTech logos are displayed after RCP login");
+
+			RCPMethod.RCPLogo(test, "Pending Assignment");
+
+			extent.endTest(test);
+			extent.flush();
+
+		}
+
+		@Test(priority = 2)
+		void RCPcolumnExpandIcon() throws InterruptedException, IOException {
+			test = extent.startTest("Verify if the column expand/collapse icon functions correctly");
+
+			RCPMethod.RCPcolumnExpandIcon(test, "Pending Assignment");
+
+			test = extent.startTest("Verify to check Registration module link is working properly or not?");
+			RCPMethod.RCPRegistration(test, link);
+
+			extent.endTest(test);
+			extent.flush();
+
+		}
 	
-	RCPMethod.RCPLogo(test, "Pending Assignment");
-	
-	extent.endTest(test);
-	extent.flush();
-	
-	}
-	@Test(priority = 2)
-	void RCPcolumnExpandIcon() throws InterruptedException, IOException
-	{
-	test = extent.startTest("Verify if the column expand/collapse icon functions correctly");
-	
-	RCPMethod.RCPcolumnExpandIcon(test, "Pending Assignment");
-	
-	extent.endTest(test);
-	extent.flush();
-	
-	}
-	
-	
-	
-	    
 	
 		@Test(priority = 3)
 		void RegistrationCountMatch() throws InterruptedException, IOException
@@ -210,30 +209,47 @@ public class RCPTestCase extends  BasePage
 		
 		}
 		@Test(priority = 12)
-		void SearchBox() throws InterruptedException, IOException
-		{
-		test = extent.startTest("Registration - Search Box verification");
-		
-		
-		RCPMethod.SearchBox(test);
-		
-		extent.endTest(test);
-		extent.flush();
-		
+		void SearchBox() throws InterruptedException, IOException {
+			test = extent.startTest("Registration - Search Box verification");
+
+			RCPMethod.SearchBox(test);
+
+			extent.endTest(test);
+			extent.flush();
+
+		}
+		@Test(priority = 13)
+		void OTAReport() throws InterruptedException, IOException {
+			test = extent.startTest("Registration - Verify to check OTA Report is exporting correctly");
+
+			RCPMethod.OTAReport(test);
+
+			extent.endTest(test);
+			extent.flush();
+
 		}
 		
 		@Test(priority = 13)
-		void EditIcon() throws InterruptedException, IOException
-		{
-		test = extent.startTest("Registration - Edit Icon verification");
-		
-		
-		RCPMethod.EditIcon(test);
-		
-		extent.endTest(test);
-		extent.flush();
-		
+		void EditIcon() throws InterruptedException, IOException {
+			test = extent.startTest("Registration - Edit Icon verification");
+
+			RCPMethod.EditIcon(test);
+
+			extent.endTest(test);
+			extent.flush();
+
 		}
+		@Test(priority = 13)
+		void EditSubmittedToDept() throws Exception {
+			test = extent.startTest("Registration - Edit - Verify to check Submitted to department button works correctly");
+
+			RCPMethod.EditSubmittedToDept(test);
+
+			extent.endTest(test);
+			extent.flush();
+
+		}
+		
 //		@Test(priority = 14) Hide this due Req is like need to remove delete option from front end 
 		void DeleteButton() throws InterruptedException, IOException
 		{

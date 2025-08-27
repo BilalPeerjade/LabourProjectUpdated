@@ -579,6 +579,7 @@ public class EndToEnd_B_Methods extends BasePage {
 		if(user.equalsIgnoreCase("Performer"))
 		{
 			LoginLocators.Search().sendKeys("TESTAUTO");
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO");
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
 		{
@@ -610,7 +611,7 @@ public class EndToEnd_B_Methods extends BasePage {
 		Thread.sleep(2000);
 		PerformerLocator.clickYear().click();
 		Thread.sleep(2000);
-		PerformerLocator.selectComplianceType1().click();
+		PerformerLocator.Year2025().click();
 		Thread.sleep(2000);
 		PerformerLocator.clickPeriod().click();
 		Thread.sleep(2000);
@@ -858,8 +859,12 @@ public class EndToEnd_B_Methods extends BasePage {
 	        	    15,                  // Column Index
 	        	    1,                  // Header is on row index 1 (i.e. second row)
 	        	    "Pending",          // Sheet Name
-	        	    "Basic Wages Validation"
+	        	    "Basic Wages Validation",
+	        	    0.0   //Toll 
 	        	);
+	        
+	        
+	        
 
 	    
 
@@ -882,7 +887,8 @@ public class EndToEnd_B_Methods extends BasePage {
 			    52,                  // Column Index
 			    1,                  // Header is on row index 1 (i.e. second row)
 			    "All Employees",          // Sheet Name
-			    "(--) All Employees Wages Validation"
+			    "(--) All Employees Wages Validation",
+			    0.0 //Toll
 			);
 
 		
@@ -903,7 +909,8 @@ public class EndToEnd_B_Methods extends BasePage {
 			    12,                  // Column Index
 			    1,                  // Header is on row index 1 (i.e. second row)
 			    "Pending",          // Sheet Name
-			    "Basic Wages Validation"
+			    "Basic Wages Validation",
+			    0.0 //Toll
 			);
 
 		
@@ -915,16 +922,19 @@ public class EndToEnd_B_Methods extends BasePage {
 		
 		WebDriver driver = CommonBusinessUtilis.getDriver();
 		
-        // Validate Basic Wages
 		CommonBusinessUtilis.validateExcelTotalByColumnIndex(
-			    driver,
-			    test,
-			    downloadedExcelFile,
-			    10,                  // Column Index
-			    1,                  // Header is on row index 1 (i.e. second row)
-			    "Remittances",          // Sheet Name
-			    "Basic Wages Validation"
+			    driver,                   // WebDriver instance
+			    test,                     // ExtentTest instance for logging
+			    downloadedExcelFile,      // File object (pending ka Excel)
+			    52,                       // AD column = 29 (0 se start)
+			    1,                        // Header is 2nd row (index 1)
+			    "Pending",                // Sheet name
+			    "DIFF Validation for AD", // Custom log report text
+			    1                       // Tolerance (exact match chahiye)
 			);
+
+		
+		
 		
 	}
 	//Unique Identi
@@ -1070,14 +1080,14 @@ public class EndToEnd_B_Methods extends BasePage {
 		CommonBusinessUtilis.validateColumnWithCalculation_Enhanced(
 		    test,
 		    downloadedExcelFile,
-		    "Pending",     // Sheet ka naam (Remittances)
-		    47,                // baseColIndex (summary ka 1st value column, e.g., "PF Wages" or "PF")
-		    49,                // calcColIndex: doosra summary value, ya wohi for self-check/to show, etc.
+		    "Remittances",     // Sheet ka naam (Remittances)
+		    18,                // baseColIndex (summary ka 1st value column, e.g., "PF Wages" or "PF")
+		    21,                // calcColIndex: doosra summary value, ya wohi for self-check/to show, etc.
 		    "%",               // Operation type (e.g. "%", "*" etc., for now '%' rakh lo)
-		    3.67,                 // Operand (0% agar sirf value capture/report chahiye, calculation waale case ke liye required percent)
+		    12, //%                // Operand (0% agar sirf value capture/report chahiye, calculation waale case ke liye required percent)
 		    1,                 // headerRowIndex (summary block ke start ke upar ka row, mostly 6 ya 7, try and check—ya 0)
 		    "All Summary Block Report", // Log text
-		    1                  // Allowed tolerance (0 agar match check karna hai, warna ignore bhi kar sakte ho—sirf reporting ke liye)
+		    0                  // Allowed tolerance (0 agar match check karna hai, warna ignore bhi kar sakte ho—sirf reporting ke liye)
 		);
 
 

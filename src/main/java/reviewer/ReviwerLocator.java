@@ -59,6 +59,11 @@ public class ReviwerLocator extends BasePage
 		labour = getDriver().findElement(By.xpath("//*[@class='k-list-ul']/li[2]"));
 		return labour;
 	}
+	public static WebElement selectPeriodJan()	
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='January']"));
+		return labour;
+	}
 	public static WebElement selectComplianceType5()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//*[@class='k-list-ul']/li[4]"));
@@ -144,6 +149,11 @@ public class ReviwerLocator extends BasePage
 		labour = getDriver().findElement(By.xpath("(//img[@title='Download'])[2]"));
 		return labour;
 	}
+	public static WebElement clickDownloadDocument()		//Method for searching Username input
+	{
+		labour = getDriver().findElement(By.xpath("//img[@alt='Download Document']"));
+		return labour;
+	}
 	public static WebElement clickDownload2()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//img[@alt='Download Document']"));
@@ -202,6 +212,12 @@ public class ReviwerLocator extends BasePage
 	public static WebElement clickApply()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/ApplyFilter.svg']"));
+		
+		return labour;
+	}
+	public static WebElement clickTriangleStaturyMaster()
+	{
+		labour = getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-right k-treelist-toggle k-svg-icon k-icon ng-star-inserted']"));
 		
 		return labour;
 	}

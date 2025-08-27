@@ -853,9 +853,18 @@ private static WebElement labour = null;			//WebElement variable created for Use
 	public static WebElement clickApply()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/ApplyFilter.svg']"));
-		
 		return labour;
 	}
+
+	public static WebElement EPF_ConsolatedWorkingDownload() {
+		labour = getDriver().findElement(By.xpath("//button[normalize-space()='EPF Consolidated Workings']"));
+		return labour;
+	}
+	public static WebElement ESIC_ConsolatedWorkingDownload() {
+		labour = getDriver().findElement(By.xpath("//button[normalize-space()='ESIC Consolidated Workings']"));
+		return labour;
+	}
+	
 	public static WebElement clickClearBtn()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/ClearFilter.svg']"));
@@ -988,6 +997,16 @@ private static WebElement labour = null;			//WebElement variable created for Use
 		labour = getDriver().findElement(By.xpath("//*[@class='k-list-ul']/li[2]"));
 		return labour;
 	}
+	public static WebElement Year2025()	
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='2024']"));
+		return labour;
+	}
+	public static WebElement Year2024()	
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='2024']"));
+		return labour;
+	}
 	public static WebElement selectComplianceChallan()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//span[normalize-space()='Challan']"));
@@ -1017,6 +1036,21 @@ private static WebElement labour = null;			//WebElement variable created for Use
 	public static WebElement selectComplianceEPF()
 	{
 		labour = getDriver().findElement(By.xpath("//span[normalize-space()='Employee Provident Fund Act']"));
+		return labour;
+	}
+	public static WebElement selectComplianceESIC()
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='Employee State Insurance Act']"));
+		return labour;
+	}
+	public static WebElement selectCompliancePT()
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='Professional Tax Act']"));
+		return labour;
+	}
+	public static WebElement selectComplianceShopsAndEstablishment()
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='Shops and Establishment and Allied Acts']"));
 		return labour;
 	}
 	
