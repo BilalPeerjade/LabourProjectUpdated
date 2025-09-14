@@ -7,7 +7,9 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
@@ -15,9 +17,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
@@ -38,10 +42,12 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import businessTestCases.CommonBusinessUtilis;
+import businessTestCases.CommonBusinessUtilis3;
 import login.BasePage;
 import login.LoginLocators;
 import performer.PerformerLocator;
 import rcp.OneCommonMethod;
+import utils.DownloadHelper;
 import utils.ExcelExtraConfig;
 import utils.ExcelFileDetails;
 import utils.ExcelFilter;
@@ -64,6 +70,11 @@ public class EPF_ConsolatedMethods extends BasePage {
 	public static String masterFilePath = "D:\\Upload Automation Files\\BusinessScenarios\\Month\\EmployeeMaster_TESTAUTO.xlsx";
 	
 		
+	public static String salaryFile = "D:\\Upload Automation Files\\BusinessScenarios\\DOCAUTOO4\\#1 Aug2025\\Sample_challansalary3.xlsx";
+	
+	
+	
+	public static String salaryFileTESTAUTO = "D:\\Upload Automation Files\\BusinessScenarios\\Month\\SampleSalary_TESTAUTO.xlsx";
 	
 	public static final boolean ENABLE_HTML_REPORT_TABLE = true; // HTML Report toggle
 	
@@ -340,26 +351,58 @@ public class EPF_ConsolatedMethods extends BasePage {
 		
 	}
 	
-	public static void Registers_KAR_FORM_A_FOLDER_Redirection( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	
+	public static void ChallanPFRedirectin( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 
-	//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
 		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
-//		if(user.equalsIgnoreCase("Performer"))
-//		{
-//			LoginLocators.Search().sendKeys("TESTAUTO");
-//			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO");
-//		}
-//		else if(user.equalsIgnoreCase("Distributor"))
-//		{
-//			LoginLocators.Search().sendKeys("AVACORED5");	
-//		}
-//		else if(user.equalsIgnoreCase("Reviewer"))
-//		{
-//			LoginLocators.Search().sendKeys("AVACORED5");	
-//		}
+		
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"DOCAUTOO4");
+		
+		
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.WorkspaceArrow()));
+		Thread.sleep(2000);
+		LoginLocators.WorkspaceArrow().click();
+		Thread.sleep(2000);
+		
+		PerformerLocator.clickStatutoryDoc().click();
+		Thread.sleep(2000);
+		PerformerLocator.clickComplianceType().click();
+		Thread.sleep(2000);
+		PerformerLocator.selectComplianceChallan().click();
+		Thread.sleep(2000);
+		PerformerLocator.clickAct2().click();
+		Thread.sleep(2000);
+		PerformerLocator.selectComplianceEPF().click();
+		Thread.sleep(2000);
+		PerformerLocator.clickYear().click();
+		Thread.sleep(2000);
+		formLocators.Year2025().click();
+		Thread.sleep(2000);
+		PerformerLocator.clickPeriod().click();
+		Thread.sleep(2000);
+		formLocators.selectMonthAugust().click();
+		
+		
+		Thread.sleep(2000);
+		PerformerLocator.clickBranch1().click();
+		Thread.sleep(2000);
+		getDriver().findElement(By.xpath("(//span[contains(text(),'Document Automation')])[2]")).click(); //Checkbox
+		Thread.sleep(5000);
+		PerformerLocator.clickApply().click();
+		Thread.sleep(10000);
+		
+		
+	}
+	
+	public static void Registers_KAR_FORM_A_FOLDER_Redirection( ExtentTest test, String user) throws Exception
+	{
+		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		Thread.sleep(7000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		
 		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO");
 		
@@ -396,77 +439,317 @@ public class EPF_ConsolatedMethods extends BasePage {
 		Thread.sleep(2000);
 		PerformerLocator.clickApply().click();
 		Thread.sleep(2000);
-//		getDriver().findElement(By.xpath("(//img[@title='Download'])[1]")).click();
+
 		Thread.sleep(2000);
-//		getDriver().findElement(By.xpath("(//img[@title='Download'])[2]")).click(); 
+
 		Thread.sleep(7000);
 		
-
-		
-//		WebElement triangle = getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-right k-treelist-toggle k-svg-icon k-icon ng-star-inserted']"));
-//		triangle.click();
-//		Thread.sleep(7000);
-//		WebElement FormA = getDriver().findElement(By.xpath("(//img[@title='Download'])[2]"));
-//		
-//		
-//		
-//        // Step 1: Manually download file
-//		FormA.click();
-//		Thread.sleep(5000);
-//		getDriver().findElement(By.xpath("//img[@alt='Download Document']")).click();
-//        Thread.sleep(8000); // wait for file to download
-//
 		
 		
-		
-        // Step 2: Get latest file
-//        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
-//        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
-//        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
-//        downloadedExcelFile = files[0];
-		
-		
-		
-		          // Step 1: Download folder manually
-		          getDriver().findElement(By.xpath("(//img[@title='Download'])[1]")).click(); 
-		          Thread.sleep(8000);
-		          Thread.sleep(8000);
 		  
-		          // Step 2: Find specific file from folder & set globally
-//		          downloadedExcelFile = FileSearchHelper.getFileFromDownloadedFolder(
-//		          "KAR Central Form-B.xlsx", test ); // File Name
-		          
-/**		          downloadedExcelFile = FileSearchHelper.getFileFromLatestFolder(
-		        		    "KAR Central Form A (Part-A)",
-		        		    test
-		        		);
-		          
-		          if (downloadedExcelFile == null) {
-		        	    test.log(LogStatus.FAIL, "File not found in the latest downloaded folder");
-		        	} */
 		          
 		          
+		// Step 1: Click zip Download button
+		getDriver().findElement(By.xpath("(//img[@title='Download'])[1]")).click();
+		Thread.sleep(10000);
+		Thread.sleep(5000);
 
-		          
-		          
-		     //code is taken from perplixity calling code
-//		          FileSearchHelper.extractZipOnce();
-//		          FileSearchHelper.setCurrentTestFile("KAR Central Form A (Part-A)/Central Form A (Part-A).xlsx");
-//		          File testFile = FileSearchHelper.getCurrentTestFile();
-//		          // Use testFile in your test logic
-		          
-		          
-		          
+		// Step 2: Wait until ZIP appears in Downloads (max 30 sec)
+		File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
+		File latestZip = null;
+		for (int i = 0; i < 30; i++) {
+			File[] zipFiles = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".zip"));
+			if (zipFiles != null && zipFiles.length > 0) {
+				Arrays.sort(zipFiles, Comparator.comparingLong(File::lastModified).reversed());
+				latestZip = zipFiles[0];
+				if (latestZip.exists() && latestZip.length() > 0) {
+					break; // ✅ file ready
+				}
+			}
+			Thread.sleep(1000); // wait 1 sec and retry
+		}
 
+		// Step 3: Extract specific Excel from ZIP
+		 downloadedExcelFile = getExcelFromLatestZip("KAR Central Form-B.xlsx", test);
+//		downloadedExcelFile = getExcelFromLatestZip("KAR Central Form A (Part-A).xlsx", test);
 
-        
-        
-        
-        
-        
+		Thread.sleep(4000);
+		
+		
+		
+		
+		if (downloadedExcelFile == null) {
+		    test.log(LogStatus.FAIL, "ZIP extraction failed or file not found.");
+		} else {
+		    test.log(LogStatus.INFO, "Using extracted file: " + downloadedExcelFile.getAbsolutePath());
+		}
+
 		
 		
 	}
+	
+	public static void Registers_Redirection( ExtentTest test, String user) throws Exception
+	{
+		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		Thread.sleep(7000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+		
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO");
+		
+		
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.WorkspaceArrow()));
+		Thread.sleep(2000);
+		LoginLocators.WorkspaceArrow().click();
+		Thread.sleep(2000);
+		
+		PerformerLocator.clickStatutoryDoc().click();
+		Thread.sleep(2000);
+		PerformerLocator.clickComplianceType().click();
+		Thread.sleep(2000);
+		PerformerLocator.selectComplianceRegister().click();
+		Thread.sleep(2000);
+		PerformerLocator.clickAct2().click();
+		Thread.sleep(2000);
+		PerformerLocator.selectComplianceShopsAndEstablishment().click();
+		Thread.sleep(2000);
+		PerformerLocator.clickYear().click();
+		Thread.sleep(2000);
+		PerformerLocator.Year2024().click();
+		Thread.sleep(2000);
+		PerformerLocator.clickPeriod().click();
+		Thread.sleep(2000);
+		PerformerLocator.selectMonth().click();
+		
+		
+		Thread.sleep(2000);
+		PerformerLocator.clickBranch1().click();
+		Thread.sleep(2000);
+		getDriver().findElement(By.xpath("//span[contains(text(),'Karnataka')]")).click();
+		Thread.sleep(2000);
+		PerformerLocator.clickApply().click();
+		Thread.sleep(2000);
+
+		Thread.sleep(2000);
+
+		Thread.sleep(7000);
+	
+	
+	}
+	
+	
+	
+	// Robust ZIP -> extract -> verify method
+	public static File getExcelFromLatestZip(String expectedFileName, ExtentTest test) throws Exception {
+	    File downloadDir = new File(System.getProperty("user.home") + File.separator + "Downloads");
+	    if (!downloadDir.exists()) {
+	        if (test != null) test.log(LogStatus.FAIL, "❌ Downloads folder not found: " + downloadDir.getAbsolutePath());
+	        throw new IllegalStateException("Downloads folder not found: " + downloadDir.getAbsolutePath());
+	    }
+
+	    // find latest zip
+	    File[] zipFiles = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".zip"));
+	    if (zipFiles == null || zipFiles.length == 0) {
+	        if (test != null) test.log(LogStatus.FAIL, "❌ No ZIP files found in Downloads folder");
+	        return null;
+	    }
+	    Arrays.sort(zipFiles, Comparator.comparingLong(File::lastModified).reversed());
+	    File latestZip = zipFiles[0];
+
+	    // log picked zip
+	    if (test != null) test.log(LogStatus.INFO, "📂 ZIP picked: " + latestZip.getName());
+	    System.out.println("DEBUG: ZIP picked -> " + latestZip.getAbsolutePath() + " (size=" + latestZip.length() + ")");
+
+	    // wait until ZIP file appears to be stable (size doesn't change for short period)
+	    final int stabilityChecks = 5;
+	    final long stableDelayMs = 300L;
+	    long prevSize = -1;
+	    int stable = 0;
+	    for (int i = 0; i < stabilityChecks; i++) {
+	        long curSize = latestZip.length();
+	        if (curSize == prevSize && curSize > 0) {
+	            stable++;
+	        } else {
+	            stable = 0;
+	        }
+	        prevSize = curSize;
+	        if (stable >= 2) break; // considered stable
+	        Thread.sleep(stableDelayMs);
+	    }
+
+	    // inspect entries
+	    try (java.util.zip.ZipFile zipFile = new java.util.zip.ZipFile(latestZip)) {
+	        System.out.println("DEBUG: Files inside ZIP:");
+	        zipFile.stream().forEach(e -> System.out.println(" - " + e.getName()));
+
+	        // Try to find expected file (case-insensitive). Try exact filename match, then fuzzy contains.
+	        java.util.zip.ZipEntry entry = zipFile.stream()
+	                .filter(e -> new File(e.getName()).getName().equalsIgnoreCase(expectedFileName.trim()))
+	                .findFirst()
+	                .orElse(null);
+
+	        if (entry == null) {
+	            // fallback: partial/contains match
+	            entry = zipFile.stream()
+	                    .filter(e -> new File(e.getName()).getName().toLowerCase().contains(expectedFileName.toLowerCase().trim()))
+	                    .findFirst()
+	                    .orElse(null);
+	        }
+
+	        if (entry == null) {
+	            if (test != null) test.log(LogStatus.FAIL, "❌ File not found in zip: " + expectedFileName);
+	            System.out.println("DEBUG: File not found in zip by name: " + expectedFileName);
+	            return null;
+	        }
+
+	        // Extract to temp location
+	        File extractedFile = new File(System.getProperty("java.io.tmpdir"), new File(entry.getName()).getName());
+	        try (InputStream is = zipFile.getInputStream(entry);
+	             FileOutputStream fos = new FileOutputStream(extractedFile)) {
+	            byte[] buffer = new byte[4096];
+	            int len;
+	            while ((len = is.read(buffer)) > 0) {
+	                fos.write(buffer, 0, len);
+	            }
+	            fos.flush();
+	        }
+
+	        // quick checks and small retry if size==0
+	        if (extractedFile.length() == 0) {
+	            // small wait and retry read (sometimes OS hasn't flushed)
+	            Thread.sleep(300);
+	            if (extractedFile.length() == 0) {
+	                if (test != null) test.log(LogStatus.FAIL, "❌ Extracted file is empty: " + extractedFile.getName());
+	                System.out.println("DEBUG: Extracted file empty -> " + extractedFile.getAbsolutePath());
+	                return null;
+	            }
+	        }
+
+	        // Try to open with Apache POI to ensure file is a valid XLSX
+	        boolean good = false;
+	        int attempts = 0;
+	        Exception lastEx = null;
+	        while (attempts < 3 && !good) {
+	            attempts++;
+	            try (FileInputStream fis = new FileInputStream(extractedFile)) {
+	                org.apache.poi.ss.usermodel.Workbook wb = org.apache.poi.ss.usermodel.WorkbookFactory.create(fis);
+	                // basic sanity: at least one sheet
+	                if (wb.getNumberOfSheets() > 0) {
+	                    good = true;
+	                }
+	                wb.close();
+	            } catch (Exception e) {
+	                lastEx = e;
+	                System.out.println("DEBUG: POI open failed attempt " + attempts + " -> " + e.getMessage());
+	                Thread.sleep(200);
+	            }
+	        }
+
+	        if (!good) {
+	            if (test != null) test.log(LogStatus.FAIL, "❌ Extracted XLSX not readable: " + extractedFile.getName() + " (POI errors).");
+	            System.out.println("DEBUG: extracted file not readable by POI. lastEx=" + (lastEx==null? "null" : lastEx.getMessage()));
+	            return null;
+	        }
+
+	        // success
+	        if (test != null) test.log(LogStatus.PASS, "📄 xlsx File found & verified: " + extractedFile.getName());
+	        System.out.println("DEBUG: extracted & verified -> " + extractedFile.getAbsolutePath() + " (size=" + extractedFile.length() + ")");
+	        return extractedFile;
+	    } // zipFile auto-closed
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+/*	//Zip Download and Extract:-
+	public static File getExcelFromLatestZip(String expectedFileName, ExtentTest test) throws Exception {
+	    File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
+	    File[] zipFiles = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".zip"));
+	    if (zipFiles == null || zipFiles.length == 0) {
+	        if (test != null) {
+	            test.log(LogStatus.FAIL, "❌ No ZIP files found in Downloads folder");
+	        } else {
+	            System.out.println("❌ No ZIP files found in Downloads folder");
+	        }
+	        return null;
+	    }
+
+	    // Sort by latest modified → pick latest zip
+	    Arrays.sort(zipFiles, Comparator.comparingLong(File::lastModified).reversed());
+	    File latestZip = zipFiles[0];
+
+	    // Log picked ZIP file
+	    if (test != null) {
+	        test.log(LogStatus.INFO, "📂 ZIP picked: " + latestZip.getName());
+	    } else {
+	        System.out.println("📂 ZIP picked: " + latestZip.getName());
+	    }
+
+	    try (java.util.zip.ZipFile zipFile = new java.util.zip.ZipFile(latestZip)) {
+	        // Debug: print entries
+	        System.out.println("🔍 Files inside ZIP:");
+	        zipFile.stream().forEach(e -> System.out.println(" - " + e.getName()));
+
+	        // Try to find expected file (case-insensitive, partial match allowed)
+	        java.util.zip.ZipEntry entry = zipFile.stream()
+	                .filter(e -> new File(e.getName()).getName().toLowerCase().contains(expectedFileName.toLowerCase().trim()))
+	                .findFirst()
+	                .orElse(null);
+
+	        // ❌ File not found case
+	        if (entry == null) {
+	            if (test != null) {
+	                test.log(LogStatus.FAIL, "❌ File not found in zip: " + expectedFileName);
+	            } else {
+	                System.out.println("❌ File not found in zip: " + expectedFileName);
+	            }
+	            return null;
+	        }
+
+	        // Extract file to temp dir
+	        File extractedFile = new File(System.getProperty("java.io.tmpdir"), new File(entry.getName()).getName());
+	        try (InputStream is = zipFile.getInputStream(entry);
+	             FileOutputStream fos = new FileOutputStream(extractedFile)) {
+	            byte[] buffer = new byte[1024];
+	            int len;
+	            while ((len = is.read(buffer)) > 0) {
+	                fos.write(buffer, 0, len);
+	            }
+	        }
+
+	        // Log success
+	        if (test != null) {
+	            test.log(LogStatus.PASS, "📄xlsx File found: " + extractedFile.getName());
+	        } else {
+	            System.out.println("📄 File found: " + extractedFile.getName());
+	        }
+
+	        return extractedFile;
+	    }
+	}
+
+
+	*/
 	
 	
 	
@@ -797,10 +1080,327 @@ public class EPF_ConsolatedMethods extends BasePage {
 		
 	}
 	
-	public static void Registers_Form_A_check( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	public static void PF_AllEMPWorkings_Test( ExtentTest test, String user) throws Exception
+	{
+		ChallanPFRedirectin(test,user);
+		
+		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
+		d1.clickDownload("345678765456794", 1);
+		
+		Thread.sleep(5000);
+        // Step 1: Manually download file
+		formLocators.downloadDocument5().click();
+        Thread.sleep(10000); // wait for file to download
+
+        // Step 2: Get latest file
+        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
+        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
+        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
+        downloadedExcelFile = files[0];
+        
+        
+        
+        
+        
+     // ---------- Simple ready-to-drop calling (uses your globals downloadedExcelFile & salaryFile) ----------
+        ExcelExtraConfig extraConfig = new ExcelExtraConfig("NO", ExcelUtils.columnLetterToIndex("H"), "VPF");
+
+        List<ExcelFilter> masterFilters = new ArrayList<>();
+        List<ExcelFilter> downloadedFilters = new ArrayList<>();
+
+        // master filters you gave
+        masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("AD"), Arrays.asList("Chattishgad Branch")));
+        masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("AF"), Arrays.asList("Yes")));
+        
+        //Downloaded filters
+        downloadedFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("G"), Arrays.asList("VPF")));
+
+        // header map: Master.I is total (~63000) and downloaded header "Basic" is in H (we pass H, util will apply +7 internally)
+        Map<String, String> headerMap = new HashMap<>();
+        headerMap.put("I", "VPF");    // Master sheet column I (expected ~63000)
+        headerMap.put("H", "Basic");             // Downloaded sheet header to locate "Basic" (utility will use +7 as per your rule)
+
+        // FINAL call — simple, same style as your reference
+        CommonBusinessUtilis3.validateExcelCalculation(
+            downloadedExcelFile,
+            salaryFile,
+            test,
+            "All_Employees.H = Master.I",   // keep H here (your util will use header H and startRowOffset to apply +7 logic)
+            "MASTER",
+            "All_Employees",                // or "All_Employees" if your util prefers alias — keep as your project expects All Employees
+            masterFilters,
+            downloadedFilters,
+            extraConfig,
+            1,       // tolerance %
+            false,   // compareRowByRow
+            7,       // startRowOffset (you wanted 7 — used here)
+            headerMap,
+            "🧪 Validating VPF/Basic+7: All Employees.(Basic+7) = MASTER.I (expected ~63000)"
+        );
+
+        
+        
+        
+        
+        
+		
+		
+	}
+	public static void PF_AllEMPWorkings_Test2( ExtentTest test, String user) throws Exception
+	{
+		ChallanPFRedirectin(test,user);
+		
+		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
+		d1.clickDownload("345678765456795", 1);
+		
+		Thread.sleep(5000);
+        // Step 1: Manually download file
+		formLocators.downloadDocument5().click();
+        Thread.sleep(10000); // wait for file to download
+
+        // Step 2: Get latest file
+        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
+        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
+        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
+        downloadedExcelFile = files[0];
+        
+        
+        
+        
+        
+     // ---------- Simple ready-to-drop calling (uses your globals downloadedExcelFile & salaryFile) ----------
+        ExcelExtraConfig extraConfig = new ExcelExtraConfig("NO", ExcelUtils.columnLetterToIndex("G"), "VPF");
+
+        List<ExcelFilter> masterFilters = new ArrayList<>();
+        List<ExcelFilter> downloadedFilters = new ArrayList<>();
+
+        // master filters you gave
+        masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("AD"), Arrays.asList("DaraNHaveli Branch")));
+        masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("AF"), Arrays.asList("Yes")));
+        
+        //Downloaded filters
+        downloadedFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("G"), Arrays.asList("VPF")));
+
+        // header map: Master.I is total (~63000) and downloaded header "Basic" is in H (we pass H, util will apply +7 internally)
+        Map<String, String> headerMap = new HashMap<>();
+        headerMap.put("I", "VPF");    // Master sheet column I (expected ~63000)
+        headerMap.put("H", "Basic");             // Downloaded sheet header to locate "Basic" (utility will use +7 as per your rule)
+
+        // FINAL call — simple, same style as your reference
+        CommonBusinessUtilis3.validateExcelCalculation(
+            downloadedExcelFile,
+            salaryFile,
+            test,
+            "All_Employees.H = Master.I",   // keep H here (your util will use header H and startRowOffset to apply +7 logic)
+            "MASTER",
+            "All_Employees",                // or "All_Employees" if your util prefers alias — keep as your project expects All Employees
+            masterFilters,
+            downloadedFilters,
+            extraConfig,
+            1,       // tolerance %
+            false,   // compareRowByRow
+            7,       // startRowOffset (you wanted 7 — used here)
+            headerMap,
+            "🧪 Validating VPF as per masters"
+        );
+
+		
+	}
+	public static void PF_AllEMPWorkings_Test3( ExtentTest test, String user) throws Exception
+	{
+	     // ---------- Simple ready-to-drop calling (uses your globals downloadedExcelFile & salaryFile) ----------
+        ExcelExtraConfig extraConfig = new ExcelExtraConfig("NO", ExcelUtils.columnLetterToIndex("G"), "VPF");
+
+        List<ExcelFilter> masterFilters = new ArrayList<>();
+        List<ExcelFilter> downloadedFilters = new ArrayList<>();
+        
+        
+
+        // master filters you gave
+        masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("AD"), Arrays.asList("DaraNHaveli Branch")));
+        masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("AF"), Arrays.asList("Yes")));
+        
+        //Downloaded filters
+        downloadedFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("G"), Arrays.asList("EPS Wages")));
+
+        // header map: Master.I is total (~63000) and downloaded header "Basic" is in H (we pass H, util will apply +7 internally)
+        Map<String, String> headerMap = new HashMap<>();
+        headerMap.put("P", "PF Gross");    // Master sheet column I (expected ~63000)
+        headerMap.put("H", "Basic");             // Downloaded sheet header to locate "Basic" (utility will use +7 as per your rule)
+
+        // FINAL call — simple, same style as your reference
+        CommonBusinessUtilis3.validateExcelCalculation(
+            downloadedExcelFile,
+            salaryFile,
+            test,
+            "All_Employees.H = Master.P",   // keep H here (your util will use header H and startRowOffset to apply +7 logic)
+            "MASTER",
+            "All_Employees",                // or "All_Employees" if your util prefers alias — keep as your project expects All Employees
+            masterFilters,
+            downloadedFilters,
+            extraConfig,
+            1,       // tolerance %
+            false,   // compareRowByRow
+            2,       // startRowOffset (you wanted 7 — used here)
+            headerMap,
+            "🧪 Validating VPF as per masters"
+        );
+
+		
+	}
+	public static void PF_AllEMPWorkings_Test4( ExtentTest test, String user) throws Exception
+	{
+	     // ---------- Simple ready-to-drop calling (uses your globals downloadedExcelFile & salaryFile) ----------
+        ExcelExtraConfig extraConfig = new ExcelExtraConfig("NO", ExcelUtils.columnLetterToIndex("G"), "VPF");
+
+        List<ExcelFilter> masterFilters = new ArrayList<>();
+        List<ExcelFilter> downloadedFilters = new ArrayList<>();
+
+        // master filters you gave
+        masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("AD"), Arrays.asList("DaraNHaveli Branch")));
+        masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("AF"), Arrays.asList("Yes")));
+        
+        //Downloaded filters
+ //     downloadedFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("G"), Arrays.asList("EPS Wages")));
+
+        // header map: Master.I is total (~63000) and downloaded header "Basic" is in H (we pass H, util will apply +7 internally)
+        Map<String, String> headerMap = new HashMap<>();
+        headerMap.put("P", "PF Gross");    // Master sheet column I (expected ~63000)
+        headerMap.put("V", "12% (EPF) A/C No 1");             // Downloaded sheet header to locate "Basic" (utility will use +7 as per your rule)
+
+        // FINAL call — simple, same style as your reference
+        CommonBusinessUtilis3.validateExcelCalculation(
+            downloadedExcelFile,
+            salaryFile,
+            test,
+            "All_Employees.V = Master.P * 0.12",   // keep H here (your util will use header H and startRowOffset to apply +7 logic)
+            "MASTER",
+            "All_Employees",                // or "All_Employees" if your util prefers alias — keep as your project expects All Employees
+            masterFilters,
+            downloadedFilters,
+            extraConfig,
+            1,       // tolerance %
+            true,   // compareRowByRow
+            2,       // startRowOffset (you wanted 2 — used here)
+            headerMap,
+            "🧪 Validating VPF as per masters"
+        );
+
+		
+	}
+	public static void PF_AllEMPWorkings_Test5( ExtentTest test, String user) throws Exception
+	{
+	     // ---------- Simple ready-to-drop calling (uses your globals downloadedExcelFile & salaryFile) ----------
+        ExcelExtraConfig extraConfig = new ExcelExtraConfig("NO", ExcelUtils.columnLetterToIndex("G"), "VPF");
+
+        List<ExcelFilter> masterFilters = new ArrayList<>();
+        List<ExcelFilter> downloadedFilters = new ArrayList<>();
+
+        // master filters you gave
+        masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("AD"), Arrays.asList("DaraNHaveli Branch")));
+        masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("AF"), Arrays.asList("Yes")));
+        
+        //Downloaded filters
+ //     downloadedFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("G"), Arrays.asList("EPS Wages")));
+
+        // header map: Master.I is total (~63000) and downloaded header "Basic" is in H (we pass H, util will apply +7 internally)
+        Map<String, String> headerMap = new HashMap<>();
+        headerMap.put("P", "PF Gross");    // Master sheet column I (expected ~63000)
+        headerMap.put("V", "12% (EPF) A/C No 1");             // Downloaded sheet header to locate "Basic" (utility will use +7 as per your rule)
+
+        // FINAL call — simple, same style as your reference
+        CommonBusinessUtilis3.validateExcelCalculation(
+            downloadedExcelFile,
+            salaryFile,
+            test,
+            "All_Employees.V = Master.P * 0.12",
+            "MASTER",
+            "All_Employees",
+            masterFilters,
+            downloadedFilters,
+            extraConfig,
+            1,       
+            false,   
+            1,
+            headerMap,
+            "🧪 Validating VPF as per masters"
+        );
+
+		
+	}
+	public static void RegisterFormB_Test( ExtentTest test, String user) throws Exception
 	{
 		
-		Registers_KAR_FORM_A_Redirection(test,user);
+		
+		Registers_KAR_FORM_A_FOLDER_Redirection(test,user);
+		
+/**		Registers_Redirection(test,user);
+		
+		formLocators.triangle().click();
+		Thread.sleep(5000);
+		
+		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
+		d1.clickDownload("Maintaining Register of Wages in Form B", 1);
+		
+		Thread.sleep(5000);
+        // Step 1: Manually download file
+		formLocators.downloadDocument().click();
+        Thread.sleep(10000); // wait for file to download
+
+        // Step 2: Get latest file
+        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
+        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
+        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
+        downloadedExcelFile = files[0];   **/
+		
+		
+		
+		
+		
+		ExcelExtraConfig extraConfig = new ExcelExtraConfig("YES",ExcelUtils.columnLetterToIndex("A"),"Total");
+
+			List<ExcelFilter> masterFilters = new ArrayList<>();
+			List<ExcelFilter> targetFilters = new ArrayList<>();
+			masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("AL"),Arrays.asList("Karnataka Branch")));
+			
+			Map<String, String> headerMap = new HashMap<>();
+			headerMap.put("C", "Basic"); // Master sheet MonthlyEmployeeChallanSalary
+			headerMap.put("H", "Basic Pay");        // Downloaded sheet All Emp Workings
+
+			CommonBusinessUtilis3.validateExcelCalculation(
+			    downloadedExcelFile,
+			    salaryFileTESTAUTO,
+			    test,
+			    "Central_Form_B.H = Master.C",
+			    "MASTER",
+			    "Central_Form_B",
+			    masterFilters,
+			    targetFilters,
+			    extraConfig,
+			    1,      // tolerance 1% (won't help here — differences ~10%)
+			    true,
+			    3, // Jump 
+			    headerMap,
+			    "🧪 Validating ESI: All Emp Workings.K ≈ Master.R * (0.0075 + 0.0375)"
+			);
+			
+			
+			
+			
+			
+			
+
+		
+		
+		
+	}
+	
+	public static void Registers_Form_A_check( ExtentTest test, String user) throws Exception
+	{
+		
+//		Registers_KAR_FORM_A_Redirection(test,user);
+		
+		Registers_KAR_FORM_A_FOLDER_Redirection(test,user);
 		
 		CommonBusinessUtilis.validateExcelBusinessData(
 			    downloadedExcelFile,
@@ -842,6 +1442,54 @@ public class EPF_ConsolatedMethods extends BasePage {
 			    ),
 			    "" //Total log if req
 			);
+		
+		
+		
+		
+		//2
+		CommonBusinessUtilis.validateExcelBusinessData(
+			    downloadedExcelFile,
+			    test,
+			    new ExcelFileDetails(
+			        masterFilePath,
+			        "EmployeeMaster",  // ✅ Sheet name from master file
+			        5,                 // ✅ Column index for EmpName in Master (F column = index 5)
+			        Arrays.asList(
+			            new ExcelFilter(6, Arrays.asList("MAH"))  // ✅ J column = index 6
+			        ),
+			        "YES"               // ✅ No filter to apply
+			    ),
+			    new ExcelTargetValidation(
+			        "Central Form A (Part-A)",      // ✅ Sheet name in downloaded file
+			        2,                 // ✅ Column index where Employee Names appear (C column = index 2)
+			        "Name",   // ✅ Keyword to search in header row (or logs)
+			        1                  // ✅ Start directly from header row
+			    ),
+			    new ExcelExtraConfig("", 0, ""),  // ✅ No Total logic needed
+			    "🧪 Validating based on Master File"
+			);
+		
+		
+		CommonBusinessUtilis.validateExcelBusinessData(
+			    downloadedExcelFile,
+			    test,
+			    null,
+			    new ExcelTargetValidation(
+			        "Remittance",   // ✅ Downloaded file sheet name
+			        1,          // ✅ Column index to sum/validate (B column = index 1)
+			        "Basic",    // ✅ Just for log, ya optionally keyword to start from
+			        0           // ✅ Start from first row
+			    ),
+			    new ExcelExtraConfig(
+			        "NO",       // ✅ Don’t apply Total row logic
+			        1,          // ✅ Column index where “Total” will be checked if YES
+			        "Total"     // ✅ Keyword to stop at
+			    ),
+			    "" //Total log if req
+			);
+		
+		
+		
 		
 	}
 	
@@ -895,10 +1543,152 @@ public class EPF_ConsolatedMethods extends BasePage {
 		
 	}
 	
-	public static void RegisterFolderRedirectionChecking( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	public static void RegisterFolderRedirectionChecking( ExtentTest test, String user) throws Exception
 	{
 		
 		Registers_KAR_FORM_A_FOLDER_Redirection(test,user);
+		
+		
+		
+		
+		
+		
+	/*	
+		// 🧪 Step 3: Prepare master file filters
+		List<ExcelFilter> allFilters = new ArrayList<>();
+		allFilters.add(new ExcelFilter(38, Arrays.asList("Active"))); // Employment Status
+		allFilters.add(new ExcelFilter(9, Arrays.asList("KAR")));      // State filter
+		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));     // AadharSeeding
+
+		// 📊 Step 4: Prepare ExcelFileDetails for Master (Employee IDs from EmpID col index=3)
+		String masterSheetName = "EmployeeMaster";
+		int masterColumnIndex = 3;  // EmpID column
+		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
+		    masterFilePath,
+		    masterSheetName,
+		    masterColumnIndex,
+		    allFilters,
+		    "YES"   // Yes = filters applied
+		);
+
+		// 🎯 Step 5: Prepare Target validation for downloaded file
+		String targetSheetName = "Central Form-B";
+		int targetColumnIndex = 0;  // Sl. No. in Employee Register (EmpIDs like EM08, EM09)
+		String targetHeaderKeyword = "Sl. No. in Employee Register";
+		int targetStartRow = 16;    // Data starts here
+
+		ExcelTargetValidation targetValidation = new ExcelTargetValidation(
+		    targetSheetName,
+		    targetColumnIndex,
+		    targetHeaderKeyword,
+		    targetStartRow
+		);
+
+		// 🛠️ Step 6: Prepare Extra Config (No total row logic here)
+		String totalLogicEnabled = "";
+		int totalColumnIndex = 0;
+		String totalKeyword = "";
+
+		ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+		    totalLogicEnabled,
+		    totalColumnIndex,
+		    totalKeyword
+		);
+
+		// ✅ Step 7: Final call to reusable validator
+		CommonBusinessUtilis.validateExcelBusinessData(
+		    downloadedExcelFile,
+		    test,
+		    masterFileDetails,
+		    targetValidation,
+		    extraConfig,
+		    "Employee IDs are reflecting properly as per masters!"
+		);
+
+	*/	
+		
+		
+	/*     // 🧪 Step 3: Prepare master file filters
+        List<ExcelFilter> allFilters = new ArrayList<>();
+        
+        allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+ 
+        allFilters.add(new ExcelFilter(9, Arrays.asList("KAR")));
+
+        allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+        
+        // 📊 Step 4: Prepare ExcelFileDetails for Master
+        String masterSheetName = "EmployeeMaster";
+        int masterColumnIndex = 3;
+        ExcelFileDetails masterFileDetails = new ExcelFileDetails(
+            masterFilePath,
+            masterSheetName,
+            masterColumnIndex,
+            allFilters,
+            "YES"   // Yes filters to apply
+        );
+
+        // 🎯 Step 5: Prepare Target validation for downloaded file
+        String targetSheetName = "Central Form-B";
+        int targetColumnIndex = 1;
+        String targetHeaderKeyword = "Sl. No. in Employee Register";
+        int targetStartRow = 2;
+
+        ExcelTargetValidation targetValidation = new ExcelTargetValidation(
+            targetSheetName,
+            targetColumnIndex,
+            targetHeaderKeyword,
+            targetStartRow
+        );
+
+        // 🛠️ Step 6: Prepare Extra Config (No total row logic here)
+        String totalLogicEnabled = "";
+        int totalColumnIndex = 0;
+        String totalKeyword = "";
+
+        ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+            totalLogicEnabled,
+            totalColumnIndex,
+            totalKeyword
+        );
+
+        // ✅ Step 7: Final call to reusable validator
+        CommonBusinessUtilis.validateExcelBusinessData(
+            downloadedExcelFile,
+            test,
+            masterFileDetails,
+            targetValidation,
+            extraConfig,
+            "Employee IDs are reflecting properly as per masters!"
+        );
+		
+		
+		
+		*/
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+/*		
+		
 		
 		CommonBusinessUtilis.validateExcelBusinessData(
 				testFile,
@@ -940,7 +1730,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 			    ),
 			    "" //Total log if req
 			);
-		
+		*/
 		
 	}
 	

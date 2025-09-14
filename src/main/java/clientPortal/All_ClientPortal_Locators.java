@@ -41,7 +41,7 @@ public class All_ClientPortal_Locators extends BasePage {
 	
 	public static WebElement EntityTri2( )		//Method for closing Message Popup
 	{
-		clients = getDriver().findElement(By.xpath("(//*[@class='k-svg-i-caret-alt-right k-svg-icon k-icon ng-star-inserted'])[5]"));
+		clients = getDriver().findElement(By.xpath("(//*[@class='k-svg-i-caret-alt-right k-svg-icon k-icon ng-star-inserted'])[4]"));
 		return clients;
 	}
 	
@@ -72,7 +72,7 @@ public class All_ClientPortal_Locators extends BasePage {
 	
 	public static WebElement SelectYear( )		//Method for closing Message Popup
 	{
-		clients = getDriver().findElement(By.xpath("//*[@class='k-input-value-text']"));
+		clients = getDriver().findElement(By.xpath("(//span[@class='k-input-value-text'][normalize-space()='2025'])[1]"));
 		return clients;
 	}
 	
@@ -476,13 +476,13 @@ public class All_ClientPortal_Locators extends BasePage {
 	
 	public static WebElement ActiveCol( )		
 	{
-		clients = getDriver().findElement(By.xpath("(//div[@class='cell-content total-click'])"));
+		clients = getDriver().findElement(By.xpath("(//div[@class='cell-content total-click ng-star-inserted'])"));
 		return clients;
 	}
 	
 	public static WebElement ExpiredCol( )		
 	{
-		clients = getDriver().findElement(By.xpath("(//div[@class='cell-content total-click'])[2]"));
+		clients = getDriver().findElement(By.xpath("(//div[@class='cell-content total-click ng-star-inserted'])[2]"));
 		return clients;
 	}
 	
@@ -506,7 +506,7 @@ public class All_ClientPortal_Locators extends BasePage {
 	
 	public static WebElement ComplianceDropdownExport( )		
 	{
-		clients = getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon']"));
+		clients = getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted']"));
 		return clients;
 	}
 	
@@ -536,7 +536,7 @@ public class All_ClientPortal_Locators extends BasePage {
 	
 	public static WebElement readTotalItemsD( )		
 	{
-		clients = getDriver().findElement(By.xpath("//kendo-pager-info[@class='k-pager-info k-label']")); //body > app-root > div > app-layout > section > div > div > app-client-entity-dashboard-grid > div.col-12.colpadding0.ng-star-inserted > app-grid-action-item > kendo-grid > kendo-pager > kendo-pager-info
+		clients = getDriver().findElement(By.xpath("//kendo-pager-info[@class='k-pager-info k-label ng-star-inserted']")); //body > app-root > div > app-layout > section > div > div > app-client-entity-dashboard-grid > div.col-12.colpadding0.ng-star-inserted > app-grid-action-item > kendo-grid > kendo-pager > kendo-pager-info
 		return clients;
 	}
 	
@@ -750,7 +750,7 @@ public class All_ClientPortal_Locators extends BasePage {
 	
 	public static WebElement number( )		
 	{
-		clients = getDriver().findElement(By.xpath("//div[@class='month-number number-overdue'][normalize-space()='18']"));
+		clients = getDriver().findElement(By.xpath("//div[@class='month-number number-overdue'][normalize-space()='2']"));
 		return clients;
 	}
 	public static WebElement number2( )		
@@ -896,9 +896,9 @@ public class All_ClientPortal_Locators extends BasePage {
 		return clients;
 	}
 	
-	public static WebElement Challan( )		
+	public static WebElement Challan( )		 //Dropdown triangle
 	{
-		clients = getDriver().findElement(By.xpath("//*[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon']"));
+		clients = getDriver().findElement(By.xpath("//*[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted']"));
 		return clients;
 	}
 	
@@ -1209,7 +1209,7 @@ public static WebElement clickLicense()		//Method for searching Username input
 	}
 	public static WebElement clickLocation1()		//Method for searching Username input
 	{
-		labour = getDriver().findElement(By.xpath("(//*[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted'])[3]"));
+		labour = getDriver().findElement(By.xpath("//span[contains(text(),'Select Location')]"));
 		return labour;
 	}
 	public static WebElement selectLocation1()		//Method for searching Username input
@@ -1236,7 +1236,7 @@ public static WebElement clickLicense()		//Method for searching Username input
 	}
 	public static WebElement clickModeOfReceipt()		//Method for searching Username input
 	{
-		labour = getDriver().findElement(By.xpath("(//*[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted'])[5]"));
+		labour = getDriver().findElement(By.xpath("//span[contains(text(),'Select Receipt Mode')]"));
 		return labour;
 	}
 	public static WebElement clickLicenseType()		//Method for searching Username input
@@ -1599,12 +1599,12 @@ public static WebElement clickLicense()		//Method for searching Username input
 	}
 	public static WebElement clickNoticeType()		//Method for searching Username input
 	{
-		labour = getDriver().findElement(By.xpath("(//*[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted'])[6]"));
+		labour = getDriver().findElement(By.xpath("//span[contains(text(),'Select Notice Type')]"));
 		return labour;
 	}
 	public static WebElement clickRisk()		//Method for searching Username input
 	{
-		labour = getDriver().findElement(By.xpath("(//*[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted'])[7]"));
+		labour = getDriver().findElement(By.xpath("//span[contains(text(),'Select Risk')]"));
 		return labour;
 	}
 	public static WebElement clickRemark()		//Method for searching Username input
@@ -2126,7 +2126,7 @@ public static WebElement clickLicense()		//Method for searching Username input
 	}
 	public static WebElement inputperiodDrp()	
 	{
-		labour = getDriver().findElement(By.xpath("//span[contains(text(),'August')]"));
+		labour = getDriver().findElement(By.xpath("//span[contains(text(),'September')]"));
 		return labour;
 	}
 	public static WebElement inputperiodDrpSelect1()	

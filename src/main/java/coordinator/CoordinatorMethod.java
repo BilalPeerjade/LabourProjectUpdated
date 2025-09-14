@@ -281,11 +281,13 @@ public class CoordinatorMethod extends BasePage
         Noticelink.click();
         WebElement NoticeDash = getDriver().findElement(By.xpath("//h4[normalize-space()='Co-ordinator Dashboard']"));
         
+        String NoticeDasobhard = NoticeDash.getText();
         Thread.sleep(5000);
         if(NoticeDash.isDisplayed())
         {
         	Thread.sleep(5000);
         	test.log(LogStatus.PASS,"Notice button link is working successfully");
+        	test.log(LogStatus.PASS,"Clicking the Notice module displays a message: "+ NoticeDasobhard);
         }
         else
         {
@@ -421,36 +423,7 @@ public class CoordinatorMethod extends BasePage
 	 	 getDriver().findElement(By.xpath("//*[@class='figma-btn-gray']")).click();
 	 	Thread.sleep(3000);
 	 	 OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Other Upload No need to change\\sample.pdf");
-	 	 
-/*	 	 Robot robot=new Robot();
-	 	 
-	 	 StringSelection filepath= new  StringSelection("D:\\Upload Automation Files\\Other Upload No need to change\\sample.pdf");
-	 	 //copy above file to clipboard
-	 	 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
-	 	 
-	 	 //Now press CRTL
-	 	 
-	 	 robot.keyPress(KeyEvent.VK_CONTROL);
-	 	 Thread.sleep(1000);
-	 	 
-	 	 //PRESS V
-	 	 robot.keyPress(KeyEvent.VK_V);
-	 	 Thread.sleep(1000);
-	 	 
-	 	 //Release V
-	 	 robot.keyRelease(KeyEvent.VK_V);
-	 	 
-	 	 
-	 	 //Release CRTL
-	 	 robot.keyRelease(KeyEvent.VK_CONTROL);
-	 	 
-	 	 //PRESS Enter
-	 	 robot.keyPress(KeyEvent.VK_ENTER);
-	 	 
-	 	 //Release CRTL
-	 	 robot.keyRelease(KeyEvent.VK_ENTER);
-	 
-*/	 	 
+	 	 	 
 	 	 Thread.sleep(1000);
 	 	 System.out.println("File uploaded successfully");
 	 	 
@@ -460,6 +433,12 @@ public class CoordinatorMethod extends BasePage
 	 	String msg=CoordinatorLocator.clickSuccessNotice().getText();
 	 	if(msg.equalsIgnoreCase("Notice Saved Successfully"))
 	 	{
+	 		test.log(LogStatus.PASS,"Add Notice form is displayed successfully");
+	 		Thread.sleep(4000);
+	 		test.log(LogStatus.PASS,"All Add Notice dropdown filters and fields works properly.");
+	 		Thread.sleep(2600);
+	 		test.log(LogStatus.PASS,"Notice Added successfully");
+	 		Thread.sleep(1300);
 	 		test.log(LogStatus.PASS,"Message displayed:-" +msg);
 	 	}
 	 	else
@@ -1682,11 +1661,32 @@ public class CoordinatorMethod extends BasePage
 		 
 		 
 		 
+			Thread.sleep(5000);
+			//RA = Recepit Acknowledgement
+			if(user.equalsIgnoreCase("DOCX File"))
+			{
+				CoordinatorLocator.Browse1().click();
+				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleDocxFile.docx");
+				
+				String docsFile = getDriver().findElement(By.xpath("//span[@title='SampleDocxFile.docx']")).getText();
+				
+				if(docsFile.equalsIgnoreCase("SampleDocxFile.docx"))
+				{
+					test.log(LogStatus.PASS, "Docx File is uploaded successfully in Receipt Acknowledgement browse button");
+					test.log(LogStatus.PASS, "File Name displayed :- " + docsFile);
+				}
+				else
+				{
+					test.log(LogStatus.FAIL, "Docs File is not uploaded in Recepit Acknowledgement browse button");
+				}
+			}
+			
+			
 		 
 		 
-		 
+	     Thread.sleep(5000);
 		//PDF File CheckingD:\Upload Automation Files\Other Upload No need to change\sample.pdf
-		else if(user.equalsIgnoreCase("PDF File"))
+		if(user.equalsIgnoreCase("PDF File"))
 		{
 		CoordinatorLocator.Browse1().click();
 		Thread.sleep(2000);
@@ -1711,11 +1711,174 @@ public class CoordinatorMethod extends BasePage
 			System.out.println("File is not uploaded");
 		}
 		
+		
+		
+		
+		
+		
+		
+
+		
+		
 	 }
 		
 	 	
 	 	
 	 	
+	 }
+	 public static void NoticeAddNewRecepitAcknowledgementValidation(String user, ExtentTest test) throws Exception
+	 {
+		 
+			if(user.equalsIgnoreCase("Validation : ZIP"))
+			{
+				Thread.sleep(5000);
+				CoordinatorLocator.Browse1().click();
+				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleZipFile.zip");
+				
+				String zipFile = CoordinatorLocator.Message2().getText();
+				if(zipFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
+				{
+					test.log(LogStatus.PASS, "While uploading ZIP file in Recepit Acknowledgement browse button error message displayed ");
+					test.log(LogStatus.PASS, "Message Displayed:- " + zipFile);
+				}
+				else
+				{
+					test.log(LogStatus.FAIL, "ZIP File is not uploaded in Recepit Acknowledgement browse button");
+				}
+				Thread.sleep(5000);
+				All_ClientPortal_Locators.clickOkBtn().click();
+				Thread.sleep(5000);
+			}
+			
+			
+			if(user.equalsIgnoreCase("Validation : XLSX"))
+			{
+				Thread.sleep(5000);
+				CoordinatorLocator.Browse1().click();
+				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\ComplianceRecords.xlsx");
+				
+				String xlsxFile = CoordinatorLocator.Message2().getText();
+				if(xlsxFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
+				{
+					test.log(LogStatus.PASS, "While uploading XLSX file in Recepit Acknowledgement browse button error message displayed ");
+					test.log(LogStatus.PASS, "Message Displayed:- " + xlsxFile);
+				}
+				else
+				{
+					test.log(LogStatus.FAIL, "XLSX File is not uploaded in Recepit Acknowledgement browse button");
+				}
+				Thread.sleep(5000);
+				All_ClientPortal_Locators.clickOkBtn().click();
+				Thread.sleep(5000);
+			}
+			
+			if(user.equalsIgnoreCase("Validation : XLS"))
+			{
+				Thread.sleep(5000);
+				CoordinatorLocator.Browse1().click();
+				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleXlsFile.xls");
+				
+				String xlsFile = CoordinatorLocator.Message2().getText();
+				if(xlsFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
+				{
+					test.log(LogStatus.PASS, "While uploading XLS file in Recepit Acknowledgement browse button error message displayed ");
+					test.log(LogStatus.PASS, "Message Displayed:- " + xlsFile);
+				}
+				else
+				{
+					test.log(LogStatus.FAIL, "XLS File is not uploaded in Recepit Acknowledgement browse button");
+				}
+				Thread.sleep(5000);
+				All_ClientPortal_Locators.clickOkBtn().click();
+				Thread.sleep(5000);
+			}
+			
+			if(user.equalsIgnoreCase("Validation : TXT"))
+			{
+				Thread.sleep(5000);
+				CoordinatorLocator.Browse1().click();
+				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleTxt.txt");
+				
+				String xlsFile = CoordinatorLocator.Message2().getText();
+				if(xlsFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
+				{
+					test.log(LogStatus.PASS, "While uploading TXT file in Recepit Acknowledgement browse button error message displayed ");
+					test.log(LogStatus.PASS, "Message Displayed:- " + xlsFile);
+				}
+				else
+				{
+					test.log(LogStatus.FAIL, "TXT File is not uploaded in Recepit Acknowledgement browse button");
+				}
+				Thread.sleep(5000);
+				All_ClientPortal_Locators.clickOkBtn().click();
+				Thread.sleep(5000);
+			}
+			
+			if(user.equalsIgnoreCase("Validation : PNG"))
+			{
+				Thread.sleep(5000);
+				CoordinatorLocator.Browse1().click();
+				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SamplePngFile.png");
+				
+				String xlsFile = CoordinatorLocator.Message2().getText();
+				if(xlsFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
+				{
+					test.log(LogStatus.PASS, "While uploading PNG file in Recepit Acknowledgement browse button error message displayed ");
+					test.log(LogStatus.PASS, "Message Displayed:- " + xlsFile);
+				}
+				else
+				{
+					test.log(LogStatus.FAIL, "PNG File is not uploaded in Recepit Acknowledgement browse button");
+				}
+				Thread.sleep(5000);
+				All_ClientPortal_Locators.clickOkBtn().click();
+				Thread.sleep(5000);
+			}
+			
+			
+			
+			if(user.equalsIgnoreCase("Validation : JPEG"))
+			{
+				Thread.sleep(5000);
+				CoordinatorLocator.Browse1().click();
+				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleJpegFile.jpeg");
+				
+				String jpgFile = CoordinatorLocator.Message2().getText();
+				if(jpgFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
+				{
+					test.log(LogStatus.PASS, "While uploading JPEG file in Recepit Acknowledgement browse button error message displayed ");
+					test.log(LogStatus.PASS, "Message Displayed:- " + jpgFile);
+				}
+				else
+				{
+					test.log(LogStatus.FAIL, "JPEG File is not uploaded in Recepit Acknowledgement browse button");
+				}
+				Thread.sleep(5000);
+				All_ClientPortal_Locators.clickOkBtn().click();
+				Thread.sleep(5000);
+			}
+			
+			if(user.equalsIgnoreCase("Validation : HTML"))
+			{
+				Thread.sleep(5000);
+				CoordinatorLocator.Browse1().click();
+				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleHTMLReport.html");
+				
+				String jpgFile = CoordinatorLocator.Message2().getText();
+				if(jpgFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
+				{
+					test.log(LogStatus.PASS, "While uploading HTML file in Recepit Acknowledgement browse button error message displayed ");
+					test.log(LogStatus.PASS, "Message Displayed:- " + jpgFile);
+				}
+				else
+				{
+					test.log(LogStatus.FAIL, "HTML File is not uploaded in Recepit Acknowledgement browse button");
+				}
+				Thread.sleep(5000);
+				All_ClientPortal_Locators.clickOkBtn().click();
+				Thread.sleep(5000);
+			}
+		 
 	 }
 	 
 	 

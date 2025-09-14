@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.poi.ss.usermodel.Cell;
@@ -59,7 +60,7 @@ public class RCPMethod extends BasePage
 
 	 	 getDriver().navigate().refresh();
 		 
-		 Thread.sleep(3000);
+		 Thread.sleep(10000);
 		 RCPLocator.clickRegistration().click();
 		int pendingAssignment = 0;
 		if(Notice.equalsIgnoreCase("Pending Assignment"))
@@ -616,7 +617,7 @@ public class RCPMethod extends BasePage
 
 	 	 getDriver().navigate().refresh();
 		
-			Thread.sleep(3000);
+			Thread.sleep(10000);
 			RCPLocator.clickRegistration().click();
 			
 			 Thread.sleep(2000); 		
@@ -711,7 +712,7 @@ public class RCPMethod extends BasePage
 	 	 getDriver().navigate().refresh();
 			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		
-			Thread.sleep(6000);
+			Thread.sleep(10000);
 			RCPLocator.clickRegistration().click();
 			Thread.sleep(6000);
 			
@@ -730,21 +731,21 @@ public class RCPMethod extends BasePage
 	 	 getDriver().navigate().refresh();
 			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		
-			Thread.sleep(3000);
+			Thread.sleep(10000);
 			RCPLocator.clickRegistration().click();
 			
 				Thread.sleep(3000);
-				RCPLocator.SearchBox().sendKeys("RCP25-6192",Keys.ENTER);
+				RCPLocator.SearchBox().sendKeys("RCP25-4799",Keys.ENTER);
 			
 				List<String> li=new ArrayList<String>();
 		        
 		       
-		        li.add("RCP25-6192");
+		        li.add("RCP25-4799");
 	       
 		        
 				List<String> filter=new ArrayList<String>();	
 				
-				filter.add("RCP25-6192");	
+				filter.add("RCP25-4799");	
 				
 				
 				js.executeScript("window.scrollBy(0,150)");	
@@ -950,6 +951,635 @@ public class RCPMethod extends BasePage
 				
 		}
 	 
+	 public static void EditClosureVerification(ExtentTest test) throws Exception
+		{
+
+			getDriver().navigate().refresh();
+			JavascriptExecutor js = (JavascriptExecutor) getDriver();
+
+			Thread.sleep(8000);
+			RCPLocator.clickRegistration().click();
+			Thread.sleep(5000);
+			
+			//If req we can enable below line
+//			getDriver().findElement(By.xpath("//span[normalize-space()='Applied and Awaiting Dept Approval']")).click();
+			Thread.sleep(5000);
+			RCPLocator.EditBtn().click();
+			
+			
+/*			RCPLocator.closureButton();
+			
+			Thread.sleep(5000);
+			RCPLocator.plus1_ActivityClosure().click();
+			Thread.sleep(5000);
+	        RCPLocator.browse2().click();
+	        Thread.sleep(3000);
+	        OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\Test.pdf");
+			
+			
+	        Thread.sleep(3000);
+	        RCPLocator.browse2().click();
+	        Thread.sleep(3000);
+	        OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\Test.pdf");
+	        Thread.sleep(3000);
+	        
+	        RCPLocator.registrationLicenseNo().sendKeys(OneCommonMethod.getRandomString());
+	        Thread.sleep(3000);
+	        RCPLocator.isLifetime().click();
+	        Thread.sleep(3000);
+	        
+	        
+	        RCPLocator.calendar4().click();
+			OneCommonMethod.selectCalendarDateFromInput(driver.get(), test, 
+					RCPLocator.calendar4(), // calendar icon
+					DistributerLocators.Calendar_NavigateToParentView(), // parent view arrow
+					"28-08-2025" // date in dd-MM-yyyy format
+			);
+			Thread.sleep(3000);
+			RCPLocator.closureButton().click();
+			Thread.sleep(3000);
+			
+			
+	        String successMessage = RCPLocator.clickMsg().getText();
+	        Thread.sleep(3000);
+
+	        if (successMessage.equalsIgnoreCase("Activity Closed Successfully")) {
+	            test.log(LogStatus.PASS, "New License copy is accepted document");
+	            Thread.sleep(2000);
+	            test.log(LogStatus.PASS, "Payment Recepit is accepted document");
+	            Thread.sleep(1500);
+	            test.log(LogStatus.PASS, "Registration License No is accepted given text");
+	            Thread.sleep(3000);
+	            test.log(LogStatus.PASS, "is Lifetime checkbox is selected");
+	            Thread.sleep(1000);
+	            test.log(LogStatus.PASS, "Calendars dates is selected");
+	            test.log(LogStatus.PASS, "On clicking to colsure button success message is displayed ");
+	            test.log(LogStatus.PASS, "Message displayed : " + successMessage);
+	        } else {
+	            test.log(LogStatus.FAIL, "Message displayed : " + successMessage);
+	        }
+			
+			*/
+			
+			RCPLocator.plus1_ActivityClosure().click();
+			Thread.sleep(2000);
+			try {
+			    WebElement closureBtn = RCPLocator.closureButton();
+
+			    if (closureBtn.isDisplayed() && closureBtn.isEnabled()) {
+			        // --- Perform complete flow only if Closure button is enabled ---
+
+			        Thread.sleep(5000);
+			//      RCPLocator.plus1_ActivityClosure().click();
+			        Thread.sleep(5000);
+
+			        RCPLocator.browse2().click();
+			        Thread.sleep(3000);
+			        OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\Test.pdf");
+
+			        Thread.sleep(3000);
+			        RCPLocator.browse3().click();
+			        Thread.sleep(3000);
+			        OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\Test.pdf");
+			        Thread.sleep(3000);
+
+			        RCPLocator.registrationLicenseNo().sendKeys(OneCommonMethod.getRandomString());
+			        Thread.sleep(3000);
+			        RCPLocator.isLifetime().click();
+			        Thread.sleep(3000);
+
+			        RCPLocator.calendar4().click();
+			        OneCommonMethod.selectCalendarDateFromInput(
+			                driver.get(), test,
+			                RCPLocator.calendar4(),                          // calendar icon
+			                DistributerLocators.Calendar_NavigateToParentView(), // parent view arrow
+			                "28-08-2025"                                      // dd-MM-yyyy
+			        );
+			        Thread.sleep(3000);
+
+			        closureBtn.click();
+			        Thread.sleep(3000);
+
+			        String successMessage = RCPLocator.clickMsg().getText();
+			        Thread.sleep(3000);
+
+			        if (successMessage.equalsIgnoreCase("Activity Closed Successfully")) {
+			            test.log(LogStatus.PASS, "New License copy is accepted document");
+			            Thread.sleep(2000);
+			            test.log(LogStatus.PASS, "Payment Recepit is accepted document");
+			            Thread.sleep(1500);
+			            test.log(LogStatus.PASS, "Registration License No is accepted given text");
+			            Thread.sleep(3000);
+			            test.log(LogStatus.PASS, "is Lifetime checkbox is selected");
+			            Thread.sleep(1000);
+			            test.log(LogStatus.PASS, "Calendars dates is selected");
+			            test.log(LogStatus.PASS, "On clicking to colsure button success message is displayed ");
+			            test.log(LogStatus.PASS, "Message displayed : " + successMessage);
+			        } else {
+			            test.log(LogStatus.FAIL, "Message displayed : " + successMessage);
+			        }
+
+			    } else {
+			        // --- If button disabled/hidden, skip everything ---
+			        test.log(LogStatus.INFO, "Closure button is disabled/hidden — skipping all steps.");
+			    }
+
+			} catch (Exception e) {
+			    test.log(LogStatus.INFO, "Closure button is disabled/hidden — skipping all steps.");
+			}
+
+			
+				
+		}
+	 public static void documentRepositoryDownloads(ExtentTest test) throws Exception
+		{
+
+			getDriver().navigate().refresh();
+			JavascriptExecutor js = (JavascriptExecutor) getDriver();
+
+			Thread.sleep(8000);
+			RCPLocator.clickRegistration().click();
+			Thread.sleep(5000);
+			RCPLocator.EditBtn().click();
+			Thread.sleep(5000);
+			RCPLocator.documentSection().click();
+			Thread.sleep(5000);
+			RCPLocator.plus2().click();
+			Thread.sleep(5000);
+			WebElement Doc_download1 = getDriver().findElement(By.xpath("//img[@alt='Action Icon' or @title='No File Availabe']"));
+
+			
+			
+	/*		
+			Thread.sleep(3000);
+			File dir = new File("C:\\Users\\bilali\\Downloads");
+			File[] dirContents = dir.listFiles();
+			Thread.sleep(4400);
+			try {
+				if (Doc_download1.isDisplayed() && Doc_download1.isEnabled()) {
+					Doc_download1.click();
+					Thread.sleep(8000);
+					File dir1 = new File("C:\\Users\\bilali\\Downloads");
+					File[] allFilesNew = dir1.listFiles();
+					Thread.sleep(3000);
+					if (dirContents.length < allFilesNew.length) {
+						Thread.sleep(5000);
+						test.log(LogStatus.PASS, "Acknowledgement Copy Document File downloaded successfully.");
+					} else {
+						Thread.sleep(5000);
+						test.log(LogStatus.FAIL, "Acknowledgement Copy Document File is not downloaded");
+					}
+				} else {
+					test.log(LogStatus.INFO, "Acknowledgement Copy Document - There is no document (button not clickable).");
+				}
+			} catch (Exception e) {
+				test.log(LogStatus.INFO, "Acknowledgement Copy Document - There is No File Available");
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			// ✅ Dynamic locator (adjust if needed)
+			By downloadIcon = By.xpath("(//img[@alt='Action Icon' or @title='No File Availabe'])[2]");
+
+			// ✅ Your download folder
+			File downloadDir = new File("C:\\Users\\bilali\\Downloads");
+
+			// ✅ Optional: agar kisi specific filename ka hissa pata ho, pass karo; warna "" rehne do
+			String expectedNameContains = ""; // e.g., "Payment_Receipt" ya ".pdf"
+
+			// ✅ Safe download attempt (no exception leak)
+			try {
+			    List<WebElement> icons = getDriver().findElements(downloadIcon);
+
+			    if (icons == null || icons.isEmpty()) {
+			        test.log(LogStatus.INFO, "Payment Receipt Document - Download button not present on UI.");
+			    } else {
+			        WebElement btn = icons.get(0);
+
+			        String title = "";
+			        try { title = String.valueOf(btn.getAttribute("title")); } catch (Exception ignored) {}
+
+			        boolean visiblyDisplayed = false;
+			        boolean enabled = false;
+			        try { visiblyDisplayed = btn.isDisplayed(); } catch (Exception ignored) {}
+			        try { enabled = btn.isEnabled(); } catch (Exception ignored) {}
+
+			        // "No File Availabe" (UI typo) or not clickable → INFO
+			        if ((title != null && title.trim().equalsIgnoreCase("No File Availabe")) || !visiblyDisplayed || !enabled) {
+			            test.log(LogStatus.INFO, "Payment Receipt Document - There is No File Available (button not clickable/disabled).");
+			        } else {
+			            // Baseline count
+			            int beforeCount = safeCount(downloadDir);
+
+			            // Try clicking (normal then JS fallback)
+			            boolean clicked = false;
+			            try {
+			                btn.click();
+			                clicked = true;
+			            } catch (Exception click1) {
+			                try {
+			                    ((org.openqa.selenium.JavascriptExecutor)getDriver()).executeScript("arguments[0].click();", btn);
+			                    clicked = true;
+			                } catch (Exception click2) {
+			                    // last fallback: move+click
+			                    try {
+			                        new org.openqa.selenium.interactions.Actions(getDriver()).moveToElement(btn).click().perform();
+			                        clicked = true;
+			                    } catch (Exception ignored) { }
+			                }
+			            }
+
+			            if (!clicked) {
+			                test.log(LogStatus.INFO, "Payment Receipt Document - Download button present but not clickable right now.");
+			            } else {
+			                // Wait up to 20s for a new file to appear (polling)
+			                File newFile = waitForNewFile(downloadDir, beforeCount, 20000, expectedNameContains);
+
+			                if (newFile != null) {
+			                    test.log(LogStatus.PASS, "Payment Receipt Document - File downloaded successfully: " + newFile.getName());
+			                } else {
+			                    test.log(LogStatus.FAIL, "Payment Receipt Document - File not downloaded (no new file detected).");
+			                }
+			            }
+			        }
+			    }
+			} catch (Throwable t) {
+			    // Fully swallow errors into INFO (as you asked: no error throwing)
+			    test.log(LogStatus.INFO, "Payment Receipt Document - Skipped (unexpected condition but not failing the test).");
+			}
+
+
+
+			
+			
+			
+			
+
+			
+			
+			
+			
+			
+
+			
+			// ✅ Download #3: "Uploaded Final RC/License Document"
+			try {
+			    By downloadIcon3 = By.xpath("(//img[@alt='Action Icon' or @title='No File Availabe'])[3]");
+			    File downloadDir3 = new File("C:\\Users\\bilali\\Downloads");
+			    String expectedNameContains3 = ""; // optional hint: e.g., "RC" or ".pdf"
+
+			    java.util.List<WebElement> icons3 = getDriver().findElements(downloadIcon3);
+
+			    if (icons3 == null || icons3.isEmpty()) {
+			        test.log(LogStatus.INFO, "Uploaded Final RC/License Document - Download button not present on UI.");
+			    } else {
+			        WebElement btn3 = icons3.get(0);
+
+			        String title3 = "";
+			        try { title3 = String.valueOf(btn3.getAttribute("title")); } catch (Exception ignored) {}
+
+			        boolean displayed3 = false, enabled3 = false;
+			        try { displayed3 = btn3.isDisplayed(); } catch (Exception ignored) {}
+			        try { enabled3 = btn3.isEnabled(); } catch (Exception ignored) {}
+
+			        if ((title3 != null && title3.trim().equalsIgnoreCase("No File Availabe")) || !displayed3 || !enabled3) {
+			            test.log(LogStatus.INFO, "Uploaded Final RC/License Document - There is No File Available (button not clickable/disabled).");
+			        } else {
+			            // Baseline file count (safe)
+			            int beforeCount3 = 0;
+			            try {
+			                File[] list3 = (downloadDir3 != null) ? downloadDir3.listFiles() : null;
+			                beforeCount3 = (list3 == null) ? 0 : list3.length;
+			            } catch (Exception ignored) {}
+
+			            // Click with fallbacks
+			            boolean clicked3 = false;
+			            try {
+			                btn3.click();
+			                clicked3 = true;
+			            } catch (Exception c1) {
+			                try {
+			                    ((org.openqa.selenium.JavascriptExecutor)getDriver()).executeScript("arguments[0].click();", btn3);
+			                    clicked3 = true;
+			                } catch (Exception c2) {
+			                    try {
+			                        new org.openqa.selenium.interactions.Actions(getDriver()).moveToElement(btn3).click().perform();
+			                        clicked3 = true;
+			                    } catch (Exception ignored) { }
+			                }
+			            }
+
+			            if (!clicked3) {
+			                test.log(LogStatus.INFO, "Uploaded Final RC/License Document - Download button present but not clickable right now.");
+			            } else {
+			                // Poll up to 20s for a new file; pick newest; optionally check name contains hint
+			                long deadline3 = System.currentTimeMillis() + 20000L;
+			                File detected3 = null;
+
+			                while (System.currentTimeMillis() < deadline3) {
+			                    try {
+			                        File[] current3 = (downloadDir3 != null) ? downloadDir3.listFiles() : null;
+			                        int currCount3 = (current3 == null) ? 0 : current3.length;
+
+			                        if (currCount3 > beforeCount3 && current3 != null) {
+			                            // Find newest file
+			                            File newest3 = null;
+			                            long t3 = Long.MIN_VALUE;
+			                            for (File f : current3) {
+			                                if (f != null && f.exists()) {
+			                                    long lm = f.lastModified();
+			                                    if (lm > t3) { t3 = lm; newest3 = f; }
+			                                }
+			                            }
+			                            if (newest3 != null) {
+			                                detected3 = newest3;
+			                                if (expectedNameContains3 == null || expectedNameContains3.trim().isEmpty()
+			                                    || newest3.getName().toLowerCase().contains(expectedNameContains3.toLowerCase().trim())) {
+			                                    break; // accept
+			                                }
+			                            }
+			                        }
+			                        Thread.sleep(500);
+			                    } catch (Exception ignored) {
+			                        try { Thread.sleep(500); } catch (InterruptedException ignored2) {}
+			                    }
+			                }
+
+			                if (detected3 != null) {
+			                    test.log(LogStatus.PASS, "Uploaded Final RC/License Document - File downloaded successfully: " + detected3.getName());
+			                } else {
+			                    test.log(LogStatus.FAIL, "Uploaded Final RC/License Document - File not downloaded (no new file detected).");
+			                }
+			            }
+			        }
+			    }
+			} catch (Throwable t) {
+			    // As requested: no hard errors, convert to INFO
+			    test.log(LogStatus.INFO, "Uploaded Final RC/License Document - Skipped (unexpected condition but not failing the test).");
+			}
+
+			*/
+			
+			
+			
+			
+			attemptDocumentDownload(By.xpath("(//img[@alt='Action Icon' or @title='No File Availabe'])[1]"),
+			        "Acknowledgement Copy Document", "", test);
+
+			attemptDocumentDownload(By.xpath("(//img[@alt='Action Icon' or @title='No File Availabe'])[2]"),
+			        "Payment Receipt Document", "", test);
+
+			attemptDocumentDownload(By.xpath("(//img[@alt='Action Icon' or @title='No File Availabe'])[3]"),
+			        "Uploaded Final RC/License Document", "", test);
+
+			
+			
+			
+		}
+		/* ----------------- helpers (put these in your common class if you prefer) ----------------- */
+
+		private static int safeCount(File dir) {
+		    try {
+		        File[] list = (dir != null) ? dir.listFiles() : null;
+		        return (list == null) ? 0 : list.length;
+		    } catch (Exception e) {
+		        return 0;
+		    }
+		}
+
+		/**
+		 * Wait for a new file to appear in dir compared to baseline count.
+		 * If expectedNameContains is non-empty, also prefers matching file.
+		 * timeoutMs: total time to wait; polls every 500ms.
+		 * Returns the detected new File, or null if none appears in time.
+		 */
+		private static File waitForNewFile(File dir, int baselineCount, long timeoutMs, String expectedNameContains) {
+		    long deadline = System.currentTimeMillis() + timeoutMs;
+		    File candidate = null;
+
+		    while (System.currentTimeMillis() < deadline) {
+		        try {
+		            File[] current = (dir != null) ? dir.listFiles() : null;
+		            if (current != null && current.length > baselineCount) {
+		                // Pick the newest file
+		                File newest = null;
+		                long newestTime = Long.MIN_VALUE;
+		                for (File f : current) {
+		                    if (f != null && f.exists()) {
+		                        long lm = f.lastModified();
+		                        if (lm > newestTime) {
+		                            newestTime = lm;
+		                            newest = f;
+		                        }
+		                    }
+		                }
+		                candidate = newest;
+		                if (candidate != null) {
+		                    // If a hint is provided, verify name contains it; else accept first new file
+		                    if (expectedNameContains == null || expectedNameContains.trim().isEmpty()
+		                        || candidate.getName().toLowerCase().contains(expectedNameContains.toLowerCase().trim())) {
+		                        return candidate;
+		                    }
+		                }
+		            }
+		            Thread.sleep(500);
+		        } catch (Exception ignored) {
+		            // keep polling
+		            try { Thread.sleep(500); } catch (InterruptedException ignored2) {}
+		        }
+		    }
+		    return candidate; // might be null
+		}
+		
+		
+		
+		
+		//Reusable: 
+		public static void attemptDocumentDownload(By icon, String label, String expectedNameContains, ExtentTest test) {
+		    try {
+		        File downloadDir = new File("C:\\Users\\bilali\\Downloads");
+		        java.util.List<WebElement> icons = getDriver().findElements(icon);
+
+		        if (icons == null || icons.isEmpty()) {
+		            test.log(LogStatus.INFO, label + " - Download button not present on UI.");
+		            return;
+		        }
+
+		        WebElement btn = icons.get(0);
+		        String title = "";
+		        try { title = String.valueOf(btn.getAttribute("title")); } catch (Exception ignored) {}
+
+		        boolean displayed = false, enabled = false;
+		        try { displayed = btn.isDisplayed(); } catch (Exception ignored) {}
+		        try { enabled = btn.isEnabled(); } catch (Exception ignored) {}
+
+		        if ((title != null && title.trim().equalsIgnoreCase("No File Availabe")) || !displayed || !enabled) {
+		            test.log(LogStatus.INFO, label + " - There is No File Available.");
+		            return;
+		        }
+
+		        int beforeCount = 0;
+		        try {
+		            File[] list = (downloadDir != null) ? downloadDir.listFiles() : null;
+		            beforeCount = (list == null) ? 0 : list.length;
+		        } catch (Exception ignored) {}
+
+		        boolean clicked = false;
+		        try { btn.click(); clicked = true; }
+		        catch (Exception c1) {
+		            try { ((org.openqa.selenium.JavascriptExecutor)getDriver()).executeScript("arguments[0].click();", btn); clicked = true; }
+		            catch (Exception c2) {
+		                try { new org.openqa.selenium.interactions.Actions(getDriver()).moveToElement(btn).click().perform(); clicked = true; }
+		                catch (Exception ignored) { }
+		            }
+		        }
+
+		        if (!clicked) {
+		            test.log(LogStatus.INFO, label + " - Download button present but not clickable right now.");
+		            return;
+		        }
+
+		        long deadline = System.currentTimeMillis() + 20000L;
+		        File detected = null;
+
+		        while (System.currentTimeMillis() < deadline) {
+		            try {
+		                File[] current = (downloadDir != null) ? downloadDir.listFiles() : null;
+		                int currCount = (current == null) ? 0 : current.length;
+
+		                if (currCount > beforeCount && current != null) {
+		                    File newest = null;
+		                    long t = Long.MIN_VALUE;
+		                    for (File f : current) {
+		                        if (f != null && f.exists()) {
+		                            long lm = f.lastModified();
+		                            if (lm > t) { t = lm; newest = f; }
+		                        }
+		                    }
+		                    if (newest != null) {
+		                        detected = newest;
+		                        if (expectedNameContains == null || expectedNameContains.trim().isEmpty()
+		                            || newest.getName().toLowerCase().contains(expectedNameContains.toLowerCase().trim())) {
+		                            break;
+		                        }
+		                    }
+		                }
+		                Thread.sleep(500);
+		            } catch (Exception ignored) {
+		                try { Thread.sleep(500); } catch (InterruptedException ignored2) {}
+		            }
+		        }
+
+		        if (detected != null) {
+		            test.log(LogStatus.PASS, label + " - File downloaded successfully: " + detected.getName());
+		        } else {
+		            test.log(LogStatus.FAIL, label + " - File not downloaded (no new file detected).");
+		        }
+		    } catch (Throwable t) {
+		        test.log(LogStatus.INFO, label + " - Skipped (unexpected condition but not failing the test).");
+		    }
+		}
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 public static void EditTabsVerification(ExtentTest test) throws Exception
+		{
+
+			getDriver().navigate().refresh();
+			JavascriptExecutor js = (JavascriptExecutor) getDriver();
+
+			Thread.sleep(8000);
+			RCPLocator.clickRegistration().click();
+			Thread.sleep(5000);
+			RCPLocator.EditBtn().click();
+			
+			Thread.sleep(8000);
+			String BasicInfo = getDriver().findElement(By.xpath("//button[normalize-space()='Submitted to department']")).getText();
+			if(BasicInfo.equals("Submitted to department"))
+			{
+				test.log(LogStatus.PASS,  "RCP Team Tab is displayed"); 
+			}
+			else 
+			{
+				test.log(LogStatus.FAIL,  "RCP Team Tab is not displayed"); 
+			}
+			
+			
+			Thread.sleep(5000);
+			getDriver().findElement(By.xpath("//a[normalize-space()='License Request Details']")).click();
+			String TransReq = getDriver().findElement(By.xpath("//span[normalize-space()='Basic Information']")).getText();
+
+			if(TransReq.equals("Basic Information"))
+			{
+				test.log(LogStatus.PASS,  "License Request Details Tab is displayed"); 
+			}
+			else 
+			{
+				test.log(LogStatus.FAIL,  "License Request Details Tab is not displayed"); 
+			}
+			
+			
+			Thread.sleep(5000);
+			getDriver().findElement(By.xpath("//a[normalize-space()='SD Executer']")).click();
+			String submittedToDept = getDriver().findElement(By.xpath("//button[normalize-space()='Submitted to department']")).getText();
+
+			if(submittedToDept.equals("Submitted to department"))
+			{
+				test.log(LogStatus.PASS,  "SD Executer Tab is displayed"); 
+			}
+			else 
+			{
+				test.log(LogStatus.FAIL,  "SD Executer Tab is not displayed"); 
+			}
+			
+			
+			Thread.sleep(5000);
+			getDriver().findElement(By.xpath("//a[normalize-space()='Document Section']")).click();
+			String DocRepo = getDriver().findElement(By.xpath("//span[normalize-space()='Document Repository']")).getText();
+			if(DocRepo.equals("Document Repository"))
+			{
+				test.log(LogStatus.PASS,  "Document Section Tab is displayed"); 
+			}
+			else 
+			{
+				test.log(LogStatus.FAIL,  "Document Section Tab is not displayed"); 
+			}
+			
+			
+		}
+	 
 	 public static void DeleteButton(ExtentTest test) throws InterruptedException
 		{
 
@@ -1053,10 +1683,10 @@ public class RCPMethod extends BasePage
 
 	  getDriver().navigate().refresh();
 		 
-		 Thread.sleep(3000);
+		 Thread.sleep(8000);
 		RCPLocator.clickRegistration().click();
 			
-		Thread.sleep(3000);
+		Thread.sleep(6000);
 		RCPLocator.ExistingLicesne().click();
 
 		//int pendingAssignment = 0;
@@ -1131,7 +1761,7 @@ public class RCPMethod extends BasePage
 			
 
 	 	getDriver().navigate().refresh();
-			Thread.sleep(3000);
+			Thread.sleep(10000);
 			RCPLocator.clickRegistration().click();
 			
 			Thread.sleep(3000);

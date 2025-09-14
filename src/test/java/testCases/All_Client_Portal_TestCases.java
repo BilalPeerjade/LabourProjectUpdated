@@ -531,6 +531,21 @@ public class All_Client_Portal_TestCases extends BasePage {
 		test = extent.startTest("'Open Notices' - View - Add New - Receipt Acknowledgement - Verify to check error message to upload JPEG file");
 		All_ClientPortal_Methods.OpenNotice_BrowseUploadValidation2("RA : JPEG",test);
 		
+		test = extent.startTest("'Open Notices' - View - Add New - Receipt Acknowledgement - Verify to check error message to upload More than 30MB file");
+		All_ClientPortal_Methods.OpenNotice_BrowseUploadValidation2("RA : More than 30MB",test);
+		
+		test = extent.startTest("'Open Notices' - View - Add New - Notice Document - Verify to upload PDF file");
+		All_ClientPortal_Methods.OpenNotice_BrowseUploadValidation2("ND : PDF",test);
+		
+		test = extent.startTest("'Open Notices' - View - Add New - Notice Document - Verify to upload DOCX file");
+		All_ClientPortal_Methods.OpenNotice_BrowseUploadValidation2("ND : Docs",test);
+		
+		test = extent.startTest("'Open Notices' - View - Add New - Notice Document - Verify to upload DOC file");
+		All_ClientPortal_Methods.OpenNotice_BrowseUploadValidation2("ND : Doc",test);
+		
+		test = extent.startTest("'Open Notices' - View - Add New - Notice Document - Verify to check error message to upload XLSX file");
+		All_ClientPortal_Methods.OpenNotice_BrowseUploadValidation2("ND : XLSX",test);
+		
 		extent.endTest(test);
 		extent.flush();
 	}
@@ -959,8 +974,8 @@ public class All_Client_Portal_TestCases extends BasePage {
 	{
 		test = extent.startTest("Compliance Performance Graph – Establishment Compliances - Click on the overdue count to verify if the 'Export button' works correctly?");
 		
-		All_ClientPortal_Methods.filterEntity(test);
-		
+	//	All_ClientPortal_Methods.filterEntity(test);
+		All_ClientPortal_Methods.filterEntityAUTO2(test);
 		All_ClientPortal_Methods.exportEC(test);
 		
 		extent.endTest(test);
@@ -1730,8 +1745,10 @@ public class All_Client_Portal_TestCases extends BasePage {
 		test = extent.startTest("'Notice Status' - Closed - View button working or not?");
 		
 		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		
 		All_ClientPortal_Methods.ClosedView(test);
+		
+		test = extent.startTest("'Notice Status' - Closed - Download button working or not?");
+		All_ClientPortal_Methods.ClosedDownload(test);
 		
 		extent.endTest(test);
 		extent.flush();
@@ -2072,7 +2089,7 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 	
 	
 	
-	
+	/*
 	
 	// ---Compliance Calendar---
 	@Test(priority = 137) //2 test case 
@@ -2089,8 +2106,9 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 	@Test(priority = 138) //2 test case 
 	void CalendarExport() throws InterruptedException, IOException
 	{
-		test = extent.startTest("'My Compliance Calendar - Export button working or not?");
-		All_ClientPortal_Methods.filterEntity(test);
+		test = extent.startTest("'My Compliance Calendar - Export button working or not?");	
+//		All_ClientPortal_Methods.filterEntity(test);
+		All_ClientPortal_Methods.filterEntityAUTO2(test);
 		All_ClientPortal_Methods.CalendarExport(test);
 		
 		extent.endTest(test);
@@ -2100,7 +2118,8 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 	void CalendarCount() throws InterruptedException, IOException
 	{
 		test = extent.startTest("'My Compliance Calendar - Calendar Count Verification");
-		All_ClientPortal_Methods.filterEntity(test);
+//		All_ClientPortal_Methods.filterEntity(test);
+		All_ClientPortal_Methods.filterEntityAUTO2(test);
 		All_ClientPortal_Methods.CalendarCount(test);
 		
 		extent.endTest(test);
@@ -2111,7 +2130,8 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 	void CalendarOverviewPagination() throws InterruptedException, IOException
 	{
 		test = extent.startTest("'My Compliance Calendar - Overview button & all Pagination buttons are working or not?");
-		All_ClientPortal_Methods.filterEntity(test);
+//		All_ClientPortal_Methods.filterEntity(test);
+		All_ClientPortal_Methods.filterEntityAUTO2(test);
 		All_ClientPortal_Methods.CalendarOverviewPagination(test);
 		
 		extent.endTest(test);
@@ -2142,10 +2162,10 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 	
 	
 	
+	**/
 	
 	
 	
-	/**
 	
 	//---------Part 2-------For Daily Execution------
 
@@ -3252,7 +3272,7 @@ void ChallanDocBulkDownload() throws InterruptedException, IOException, AWTExcep
 		
     
 	
-		*/
+		
 	
 	  
 	   

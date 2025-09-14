@@ -73,6 +73,11 @@ public class formLocators extends BasePage {
 		labour = getDriver().findElement(By.xpath("//span[contains(text(),'January')]"));
 		return labour;
 	}
+	public static WebElement selectMonthAugust()
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='August']"));
+		return labour;
+	}
 	public static WebElement selectMonthFeb()
 	{
 		labour = getDriver().findElement(By.xpath("//span[contains(text(),'January')]"));
@@ -123,7 +128,29 @@ public class formLocators extends BasePage {
 		labour = getDriver().findElement(By.xpath("//button[normalize-space()='PT Consolidated Workings']"));
 		return labour;
 	}
+	
 
+	public static WebElement downloadDocument()		
+	{
+		labour = getDriver().findElement(By.xpath("//img[@alt='Download Document']"));
+		return labour;
+	}
+	public static WebElement downloadDocument5()		
+	{
+		labour = getDriver().findElement(By.xpath("(//img[@alt='Download Document'])[5]"));
+		return labour;
+	}
+	public static WebElement closeXbutton()		
+	{
+		labour = getDriver().findElement(By.xpath("//button[@title='Close']"));
+		return labour;
+	}
+	
+	public static WebElement triangle()		
+	{
+		labour = getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-right k-treelist-toggle k-svg-icon k-icon ng-star-inserted']"));
+		return labour;
+	}
 
 	
 	

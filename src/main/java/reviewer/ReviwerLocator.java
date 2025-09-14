@@ -171,7 +171,17 @@ public class ReviwerLocator extends BasePage
 	}
 	public static WebElement clickview()		//Method for searching Username input
 	{
-		labour = getDriver().findElement(By.xpath("	//img[@title='View']"));
+		labour = getDriver().findElement(By.xpath("//img[@title='View']"));
+		return labour;
+	}
+	public static WebElement viewDocument()	
+	{
+		labour = getDriver().findElement(By.xpath("//img[@alt='View Document']"));
+		return labour;
+	}
+	public static WebElement documentView()	
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='Document Viewer']"));
 		return labour;
 	}
 	public static WebElement clickview1()		//Method for searching Username input

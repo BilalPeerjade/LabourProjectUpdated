@@ -26,6 +26,7 @@ import com.relevantcodes.extentreports.LogStatus;
 import clientPortal.All_ClientPortal_Methods;
 import distributor.MethodsD;
 import formsCalculations.EPF_ConsolatedMethods;
+import formsCalculations.ESI_Methods;
 import login.BasePage;
 import login.LoginLocators;
 import performer.LocatorsP;
@@ -561,9 +562,9 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 	
 	
 	
-	
+	//zip folder download checked :--
 	@Test(priority = 2) 
-	void Registers_KAR_FormA() throws InterruptedException, IOException, AWTException
+	void Registers_KAR_FormA() throws Exception
 	{			
 		
 		test = extent.startTest("Form A - Employee Name");
@@ -588,10 +589,10 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 	}
 	
 	@Test(priority = 3) 
-	void RegisterFolderRedirectionChecking() throws InterruptedException, IOException, AWTException
+	void RegisterFolderRedirectionChecking() throws Exception
 	{			
 		
-		test = extent.startTest("Register Folder - KAR Form A ");
+		test = extent.startTest("Register Folder - KAR Form A ---------");
 		EPF_ConsolatedMethods.RegisterFolderRedirectionChecking(test, link);
 		
 		
@@ -616,6 +617,72 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 	
 	
 	
+	
+	
+	// Future proof
+	
+	// Calculation 
+	//ESIC
+	@Test(priority = 1)
+	void ESIC_AllEMPWorkings_Test() throws InterruptedException, IOException, AWTException 
+	{
+		test = extent.startTest("ESI Code wise - 400100 - All Emp Workings - Validate 'E E' are reflecting correctly");
+		ESI_Methods.ESIC_AllEMPWorkings_Test(test, "Performer");
+		
+		test = extent.startTest("ESI Code wise - 400100 - All Emp Workings - Validate 'E R' are reflecting correctly");
+		ESI_Methods.ESIC_AllEMPWorkings_Test1(test, "Performer");
+		
+		test = extent.startTest("ESI Code wise - 400100 - All Emp Workings - Validate 'TOTAL' are reflecting correctly");
+		ESI_Methods.ESIC_AllEMPWorkings_Test3(test, "Performer");
+
+		extent.endTest(test);
+		extent.flush();
+	}
+	//PF checking:
+	@Test(priority = 2) 
+	void PF_AllEMPWorkings_Test() throws Exception
+	{			
+		test = extent.startTest("PF - All Employee - PF Summary for wages details - Verify to check VPF are reflecting correctly or not ");
+		EPF_ConsolatedMethods.PF_AllEMPWorkings_Test(test, link);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	// DaraNHaveli Branch 
+	@Test(priority = 2)
+	void PF_AllEMPWorkings_Test2() throws Exception {
+
+		test = extent.startTest("PF - All Employee - PF Summary for wages details - Verify to check VPF are reflecting correctly or not ");
+		EPF_ConsolatedMethods.PF_AllEMPWorkings_Test2(test, link);
+		
+		test = extent.startTest("PF - All Employee - PF Summary for wages details - Verify to check EPS Wages are reflecting correctly or not ");
+		EPF_ConsolatedMethods.PF_AllEMPWorkings_Test3(test, link);
+		
+		
+		//Calculation 12%
+		test = extent.startTest("V - 12% (EPF) A/C No 1 - row by row");
+		EPF_ConsolatedMethods.PF_AllEMPWorkings_Test4(test, link);
+		//Calculation 12% same TC Total
+		test = extent.startTest("V - 12% (EPF) A/C No 1 - Total");
+		EPF_ConsolatedMethods.PF_AllEMPWorkings_Test5(test, link);
+
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	
+	//Registers: Cal
+	@Test(priority = 2) 
+	void RegisterFormB_Test() throws Exception
+	{			
+		
+		test = extent.startTest("Register - Form B - Verify to check basic pay is reflecting as per masters or not");
+		EPF_ConsolatedMethods.RegisterFormB_Test(test, link);
+		
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 	
 	
 	

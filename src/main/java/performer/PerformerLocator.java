@@ -1048,6 +1048,11 @@ private static WebElement labour = null;			//WebElement variable created for Use
 		labour = getDriver().findElement(By.xpath("//span[normalize-space()='Professional Tax Act']"));
 		return labour;
 	}
+	public static WebElement selectComplianceESI()
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='Employee State Insurance Act']"));
+		return labour;
+	}
 	public static WebElement selectComplianceShopsAndEstablishment()
 	{
 		labour = getDriver().findElement(By.xpath("//span[normalize-space()='Shops and Establishment and Allied Acts']"));

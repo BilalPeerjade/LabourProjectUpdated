@@ -365,7 +365,26 @@ public static void StateDocZipFile(ExtentTest test, String user) throws Interrup
 			    ReviwerLocator.clickDownloadDocument(),   // WebElement
 			    "File is downloaded successfully"   // Dynamic log message
 			);
+		Thread.sleep(5000);
+		ReviwerLocator.clickcloseBtn().click();
+		Thread.sleep(5000);
 		
+	}
+	public static void StateViewDocSingle(ExtentTest test, String user) throws InterruptedException {
+		
+		Thread.sleep(8000);
+		ReviwerLocator.clickview().click();
+  		Thread.sleep(5000);
+  		ReviwerLocator.viewDocument().click();
+  		Thread.sleep(5000);
+  		if(ReviwerLocator.documentView().isDisplayed()) {
+  			test.log(LogStatus.PASS,  "Document view successfully");	
+  			
+  		}
+  		else {
+  			test.log(LogStatus.FAIL,  "View document button is not working");	
+  		}
+
 	}
 	
 	public static void StateDownloadDocOverview(ExtentTest test, String user) throws InterruptedException {

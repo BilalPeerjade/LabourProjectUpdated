@@ -1057,6 +1057,52 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 	   		extent.flush();
 	   	}
 		
+		
+		
+		@Test(priority = 400)
+		void Report() throws InterruptedException, IOException
+		{
+			test = extent.startTest("My Report - Compliance Assignment Report ");
+			
+			MethodsD.CompAssignmentReport(test,"Distributor");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		@Test(priority = 401)
+		void StatusReport() throws InterruptedException, IOException
+		{
+			test = extent.startTest("My Report - Status Report ");
+			
+			MethodsD.DistMyReportStatusReport(test,"Distributor");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		@Test(priority = 402)
+		void VariousReport() throws InterruptedException, IOException
+		{
+			test = extent.startTest("My Report - Various Report ");
+			
+			MethodsD.VariousReport(test,"Distributor");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		@Test(priority = 403)
+		void CLRAAssignmentReport() throws InterruptedException, IOException
+		{
+			test = extent.startTest("My Report - CLRA Assignment Report");
+			
+			MethodsD.CLRAAssignmentReport(test,"Distributor");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
 	
 	
 	

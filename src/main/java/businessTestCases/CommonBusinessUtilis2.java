@@ -204,7 +204,7 @@
 //            }
 //
 //            List<Double> lhsTrim = lhsValues.subList(0, n);
-//            List<Double> rhsTrim = rhsValues.subList(0, n);
+//           List<Double> rhsTrim = rhsValues.subList(0, n);
 //
 //            // Row-wise pass/fail
 //            int passCount = 0;

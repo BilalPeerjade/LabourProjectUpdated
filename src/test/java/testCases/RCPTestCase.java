@@ -200,7 +200,6 @@ public class RCPTestCase extends  BasePage
 		{
 		test = extent.startTest("Registration - RCP Dashboard Page Export Button verification");
 		
-		
 		RCPMethod.ExportBtn(test, workbook);
 		
 		extent.endTest(test);
@@ -239,7 +238,7 @@ public class RCPTestCase extends  BasePage
 			extent.flush();
 
 		}
-		@Test(priority = 13)
+		@Test(priority = 14)
 		void EditSubmittedToDept() throws Exception {
 			test = extent.startTest("Registration - Edit - Verify to check Submitted to department button works correctly");
 
@@ -249,6 +248,39 @@ public class RCPTestCase extends  BasePage
 			extent.flush();
 
 		}
+
+		@Test(priority = 15)
+		void EditClosureVerification() throws Exception {
+			test = extent.startTest("Registration - Edit - Verify to check Closure button activity works correctly");
+
+			RCPMethod.EditClosureVerification(test);
+
+			extent.endTest(test);
+			extent.flush();
+
+		}
+		@Test(priority = 16)
+		void EditTabsVerification() throws Exception {
+			test = extent.startTest("Registration - Edit - Verify to check all tabs are working correctly");
+
+			RCPMethod.EditTabsVerification(test);
+
+			extent.endTest(test);
+			extent.flush();
+
+		}
+		@Test(priority = 16)
+		void documentRepositoryDownloads() throws Exception {
+			test = extent.startTest("Registration - Edit - Document Repository - Verify to check documents are downloading correctly");
+
+			RCPMethod.documentRepositoryDownloads(test);
+
+			extent.endTest(test);
+			extent.flush();
+
+		}
+		
+		
 		
 //		@Test(priority = 14) Hide this due Req is like need to remove delete option from front end 
 		void DeleteButton() throws InterruptedException, IOException
@@ -319,28 +351,24 @@ public class RCPTestCase extends  BasePage
 		}
 		
 		@Test(priority = 20)
-		void ExsitingLicenseExport() throws InterruptedException, IOException
-		{
-		test = extent.startTest("Registration - Existing License-Export Butoon verification");
-		
-		
-		RCPMethod.ExistingLicsneExportBtn(test,workbook);
-		
-		extent.endTest(test);
-		extent.flush();
-		
+		void ExsitingLicenseExport() throws InterruptedException, IOException {
+			test = extent.startTest("Registration - Existing License-Export Butoon verification");
+
+			RCPMethod.ExistingLicsneExportBtn(test, workbook);
+
+			extent.endTest(test);
+			extent.flush();
 		}
+		
 		@Test(priority = 21)
-		void SearchBoxExistiongLicense() throws InterruptedException, IOException
-		{
-		test = extent.startTest("Registration - Existing Licenses -Search Box verification");
-		
-		
-		RCPMethod.SearchBoxExistiongLicense(test);
-		
-		extent.endTest(test);
-		extent.flush();
-		
+		void SearchBoxExistiongLicense() throws InterruptedException, IOException {
+			test = extent.startTest("Registration - Existing Licenses - Search Box verification");
+
+			RCPMethod.SearchBoxExistiongLicense(test);
+
+			extent.endTest(test);
+			extent.flush();
+
 		}
 		@Test(priority = 22)
 		void ExistingLicenseViewIcon() throws InterruptedException, IOException

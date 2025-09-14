@@ -662,7 +662,7 @@ import rcp.OneCommonMethod;
 		{
 			test = extent.startTest("Status Report ");
 			
-			MethodsD.StatusReport(test,"Distributor");
+			MethodsD.DistMyReportStatusReport(test,"Distributor");
 			
 			extent.endTest(test);
 			extent.flush();

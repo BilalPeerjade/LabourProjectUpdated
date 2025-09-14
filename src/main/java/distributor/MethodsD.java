@@ -7517,7 +7517,7 @@ else {
 	}
 	
 	
-	public static void Report(ExtentTest test,String user) throws InterruptedException, IOException
+	public static void CompAssignmentReport(ExtentTest test,String user) throws InterruptedException, IOException
 	{
 	
 
@@ -7682,7 +7682,7 @@ else {
 
 	
 	
-	public static void StatusReport(ExtentTest test,String user) throws InterruptedException, IOException
+	public static void DistMyReportStatusReport(ExtentTest test,String user) throws InterruptedException, IOException
 	{
 	
 

@@ -90,7 +90,7 @@ public class All_Performer_TestCases extends BasePage{
 	}
 	
 	
-/**	
+/**
 	
 	@Test(priority = 1) //Bilal
 	void CompanyLogo() throws InterruptedException, IOException
@@ -565,10 +565,10 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
    		extent.flush();
    	}
 	
-   	
+   	**/
    	 
-	**/
 	
+	//Part 2
    	
    	
    	
@@ -945,6 +945,9 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 
 		test = extent.startTest("Statutory Documents - Registers - Verify to download document file");
 		ReviewerMethod.StateDownloadDocSingle(test, "Performer");
+		
+		test = extent.startTest("Statutory Documents - Registers - Verify to view document file");
+		ReviewerMethod.StateViewDocSingle(test, "Performer");
 
 		extent.endTest(test);
 		extent.flush();

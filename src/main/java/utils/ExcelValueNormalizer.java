@@ -13,7 +13,10 @@ public class ExcelValueNormalizer {
         STATE_MAP.put("guj", "gujarat");
         STATE_MAP.put("mah", "maharashtra");
         STATE_MAP.put("kar", "karnataka");
-        // ✅ Tu apne hisaab se aur states add kar sakta hai
+        STATE_MAP.put("anp", "andhra pradesh");
+        STATE_MAP.put("bhr", "bihar");
+        STATE_MAP.put("jak", "jharkhand");
+        // PT States value 
     }
 
     /**
@@ -158,7 +161,7 @@ public class ExcelValueNormalizer {
         keralaSlabs.add(new SlabRule(60000, 74999, 600));
         keralaSlabs.add(new SlabRule(75000, 99999, 750));
         keralaSlabs.add(new SlabRule(100000, 124999, 1000));
-        keralaSlabs.add(new SlabRule(125000, 99999, 1250));
+        keralaSlabs.add(new SlabRule(125000, 999999, 1250));
         PT_SLAB_MAP.put("kerala", keralaSlabs);
 
         // 🔹 Maharashtra
@@ -209,7 +212,8 @@ public class ExcelValueNormalizer {
         odishaSlabs.add(new SlabRule(1, 13333, 0));
         odishaSlabs.add(new SlabRule(13334, 25000, 125));
         odishaSlabs.add(new SlabRule(25001, 99999, 200));
-        PT_SLAB_MAP.put("odisha", odishaSlabs);
+ //     PT_SLAB_MAP.put("odisha", odishaSlabs);
+        PT_SLAB_MAP.put("orissa", odishaSlabs);
 
         // 🔹 Punjab
         List<SlabRule> punjabSlabs = new ArrayList<>();
@@ -266,6 +270,35 @@ public class ExcelValueNormalizer {
         westBengalSlabs.add(new SlabRule(25001, 40000, 150));
         westBengalSlabs.add(new SlabRule(40001, 99999, 200));
         PT_SLAB_MAP.put("west bengal", westBengalSlabs);
+        
+        // 🔹 MAP: Madhey Pardesh 
+        List<SlabRule> madheyPardesh = new ArrayList<>();
+        madheyPardesh.add(new SlabRule(0, 18750, 0));
+        madheyPardesh.add(new SlabRule(18750, 25000, 125));
+        madheyPardesh.add(new SlabRule(25001, 33333, 166));
+        madheyPardesh.add(new SlabRule(33334, 99999, 208));
+        PT_SLAB_MAP.put("madhya pradesh", madheyPardesh);
+        
+        // 🔹 JAK : Jarkhand
+        List<SlabRule> jharkhand = new ArrayList<>();
+        jharkhand.add(new SlabRule(0, 24999, 0));
+        jharkhand.add(new SlabRule(25000, 41667, 100));
+        jharkhand.add(new SlabRule(41668, 66667, 150));
+        jharkhand.add(new SlabRule(66668, 83333, 175));
+        jharkhand.add(new SlabRule(83334, 999999, 208));
+        PT_SLAB_MAP.put("jharkhand", jharkhand);
+        
+        // 🔹 PND : Jarkhand
+        List<SlabRule> pondicherry = new ArrayList<>();
+        pondicherry.add(new SlabRule(1, 16666, 0));
+        pondicherry.add(new SlabRule(16667, 33334, 42));
+        pondicherry.add(new SlabRule(33335, 50000, 84));
+        pondicherry.add(new SlabRule(50001, 66667, 125));
+        pondicherry.add(new SlabRule(66668, 83334, 167));
+        pondicherry.add(new SlabRule(83335, 999999, 209));
+        PT_SLAB_MAP.put("pondicherry", pondicherry);
+        
+        
     }
 
 

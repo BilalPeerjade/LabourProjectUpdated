@@ -201,6 +201,26 @@ public class RCPLocator extends BasePage
 		labour = getDriver().findElement(By.xpath("(//img[@title='Edit'])"));
 		return labour;
 	}
+	public static WebElement documentSection()	
+	{
+		labour = getDriver().findElement(By.xpath("//a[normalize-space()='Document Section']"));
+		return labour;
+	}
+	public static WebElement plus2()	
+	{
+		labour = getDriver().findElement(By.xpath("(//img[@class='svg-icon-btn'])[2]"));
+		return labour;
+	}
+	public static WebElement plus1_ActivityClosure()
+	{
+		labour = getDriver().findElement(By.xpath("//img[@class='svg-icon-btn']"));
+		return labour;
+	}
+	public static WebElement closureButton()
+	{
+		labour = getDriver().findElement(By.xpath("//button[normalize-space()='Closure']"));
+		return labour;
+	}
 	public static WebElement submittedToDeptBtn()
 	{
 		labour = getDriver().findElement(By.xpath("//button[normalize-space()='Submitted to department']"));
@@ -214,6 +234,31 @@ public class RCPLocator extends BasePage
 	public static WebElement browse1()
 	{
 		labour = getDriver().findElement(By.xpath("//button[normalize-space()='Browse']"));
+		return labour;
+	}
+	public static WebElement browse2()
+	{
+		labour = getDriver().findElement(By.xpath("(//button[normalize-space()='Browse'])[2]"));
+		return labour;
+	}
+	public static WebElement browse3()
+	{
+		labour = getDriver().findElement(By.xpath("(//button[normalize-space()='Browse'])[3]"));
+		return labour;
+	}
+	public static WebElement registrationLicenseNo()
+	{
+		labour = getDriver().findElement(By.xpath("//input[@class='f-textbox ng-untouched ng-pristine ng-valid'] "));
+		return labour;
+	}
+	public static WebElement isLifetime()
+	{
+		labour = getDriver().findElement(By.xpath("//input[@id='rdGen']"));
+		return labour;
+	}
+	public static WebElement calendar4()
+	{
+		labour = getDriver().findElement(By.xpath("(//button[@title='Toggle calendar'])[4]"));
 		return labour;
 	}
 	public static WebElement clickMsg()		//Method for searching Username input

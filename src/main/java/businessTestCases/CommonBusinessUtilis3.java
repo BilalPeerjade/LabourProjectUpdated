@@ -46,8 +46,13 @@ public class CommonBusinessUtilis3 {
         // Automatic common normalization: underscores -> spaces (we still allow explicit alias)
         // Add explicit aliases if needed:
         SHEET_ALIAS.put("PT_Report", "PT Report");
+        SHEET_ALIAS.put("All_Emp_Workings", "All Emp Workings");
         SHEET_ALIAS.put("Non_Applicable_Employees", "Non Applicable Employees");
         SHEET_ALIAS.put("Master", "MonthlyEmployeeSalary");
+        SHEET_ALIAS.put("Master", "MonthlyEmployeeChallanSalary");
+        SHEET_ALIAS.put("All_Employees", "All Employees"); //PF
+        SHEET_ALIAS.put("Central_Form_B", "Central Form-B");
+        
         // You can add more mappings here if some sheet names are irregular:
         // SHEET_ALIAS.put("Emp_Salary", "Employee Salary");
     }
@@ -185,7 +190,7 @@ public class CommonBusinessUtilis3 {
                 Double rhsTotal = sumNonNull(rhsValues);
 
                 // Log sample as HTML if enabled
-                HTMLCalculationReport.logTotalsTable(
+ /*               HTMLCalculationReport.logTotalsTable(
                 	    test,
                 	    "Totals Comparison",
                 	    lhsBinding.sheetName,
@@ -194,7 +199,19 @@ public class CommonBusinessUtilis3 {
                 	    rhsComp.displayInfo,        // RHS expression string (multi-columns ke case me yeh best hota hai)
                 	    lhsTotal,
                 	    rhsTotal
+                	); */
+                HTMLCalculationReport.logTotalsTable(
+                	    test,
+                	    "Totals Comparison",
+                	    lhsBinding.sheetName,
+                	    lhsBinding.columnLetter,
+                	    lhsBinding.headerName,
+                	    rhsComp.displayInfo,        // RHS expression string ...
+                	    lhsTotal,
+                	    rhsTotal,
+                	    tolerance
                 	);
+
 
 
                 
@@ -229,7 +246,7 @@ public class CommonBusinessUtilis3 {
             boolean allPass = (passCount == n);
 
             // HTML sample
-            HTMLCalculationReport.logRowByRowTable(
+ /*           HTMLCalculationReport.logRowByRowTable(
             	    test,
             	    "Row-by-Row Comparison (first " + Math.min(n,5) + " rows shown)",
             	    lhsBinding.sheetName,
@@ -238,7 +255,19 @@ public class CommonBusinessUtilis3 {
             	    rhsComp.displayInfo,   // RHS side ko expression ke form me show karenge
             	    lhsTrim,
             	    rhsTrim
+            	); */
+            HTMLCalculationReport.logRowByRowTable(
+            	    test,
+            	    "Row-by-Row Comparison (first " + Math.min(n,5) + " rows shown)",
+            	    lhsBinding.sheetName,
+            	    lhsBinding.columnLetter,
+            	    lhsBinding.headerName,
+            	    rhsComp.displayInfo,   // RHS side expression
+            	    lhsTrim,
+            	    rhsTrim,
+            	    tolerance
             	);
+
 
             if (allPass) {
                 test.log(LogStatus.PASS, successMessage + " (All " + n + " rows within tolerance)");

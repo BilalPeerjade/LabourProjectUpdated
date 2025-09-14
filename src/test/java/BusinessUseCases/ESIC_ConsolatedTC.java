@@ -135,7 +135,18 @@ public class ESIC_ConsolatedTC extends BasePage {
 	
 	
 	
-	
+	@Test(priority = 10)
+	void ESIC_AllEMPWorkings_ESINo() throws InterruptedException, IOException, AWTException 
+	{
+		test = extent.startTest("ESI Consolidated - All Emp Workings - Validate ESI NO are reflecting correctly");
+		ESIC_ConsolatedMethod.ESIC_AllEMPWorkings_ESINo(test, "Performer");
+		
+		test = extent.startTest("ESI Consolidated - All Emp Workings - Validate Client ESI Code are reflecting correctly");
+		ESIC_ConsolatedMethod.ESIC_AllEMPWorkings_ClientESICode(test, "Performer");
+
+		extent.endTest(test);
+		extent.flush();
+	}
 	
 	
 	

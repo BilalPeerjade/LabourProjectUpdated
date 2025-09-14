@@ -453,7 +453,7 @@ public class ReviewerTest extends BasePage {
 		{
 			test = extent.startTest("Compliance Assignment Report ");
 			
-			MethodsD.Report(test,"Distributor");
+			MethodsD.CompAssignmentReport(test,"Distributor");
 			
 			extent.endTest(test);
 			extent.flush();
@@ -464,7 +464,7 @@ public class ReviewerTest extends BasePage {
 		{
 			test = extent.startTest("Status Report ");
 			
-			MethodsD.StatusReport(test,"Distributor");
+			MethodsD.DistMyReportStatusReport(test,"Distributor");
 			
 			extent.endTest(test);
 			extent.flush();

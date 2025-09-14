@@ -8,6 +8,7 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
@@ -21,6 +22,7 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
@@ -58,6 +60,11 @@ import utils.ExcelValueNormalizer;
 import utils.HTMLBuilder;
 
 
+//--
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import com.aventstack.extentreports.Status;
+
 
 public class PT_ConsolidatedMethods extends BasePage {
 	
@@ -65,9 +72,17 @@ public class PT_ConsolidatedMethods extends BasePage {
 	
 	public static File downloadedExcelFile; // shared file for all test cases
 
-	public static String EMPmasterFilePath = "D:\\Upload Automation Files\\BusinessScenarios\\Month\\EmployeeMaster_TESTAUTO.xlsx";
+//	public static String EMPmasterFilePath = "D:\\Upload Automation Files\\BusinessScenarios\\Month\\EmployeeMaster_TESTAUTO.xlsx";
+
+	//DOCAUTOO4
+	public static String EMPmasterFilePath = "D:\\Upload Automation Files\\BusinessScenarios\\DOCAUTOO4\\EmployeeMaster.xlsx";
+//	public static String salaryFile = "D:\\Upload Automation Files\\BusinessScenarios\\DOCAUTOO4\\#1 Aug2025\\Sample_challanSalary.xlsx";
+	public static String salaryFile = "D:\\Upload Automation Files\\BusinessScenarios\\DOCAUTOO4\\#1 Aug2025\\Sample_challansalary3.xlsx";
 	
-	public static String salaryFile = "D:\\Upload Automation Files\\BusinessScenarios\\Month\\SampleSalary_TESTAUTO.xlsx";
+	
+//	public static String salaryFile = "D:\\Upload Automation Files\\BusinessScenarios\\Month\\SampleSalary_TESTAUTO.xlsx";
+	
+	
 	
 	public static String salaryFile_NAEmployee = "D:\\Upload Automation Files\\BusinessScenarios\\Month\\SampleSalaryNAEmployeeTESTAUTO.xlsx";
 	
@@ -87,7 +102,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(formLocators.Search()));
 		
-		OneCommonMethod.searchEntityAndSelect(driver.get(),test,formLocators.Search(),"TESTAUTO");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,formLocators.Search(),"DOCAUTOO4");
 		
 		
 		Thread.sleep(2000);
@@ -108,11 +123,11 @@ public class PT_ConsolidatedMethods extends BasePage {
 		Thread.sleep(2000);
 		formLocators.clickYear().click();
 		Thread.sleep(2000);
-		formLocators.Year2024().click();
+		formLocators.Year2025().click();
 		Thread.sleep(2000);
 		formLocators.clickPeriod().click();
 		Thread.sleep(2000);
-		formLocators.selectMonthJan().click();
+		formLocators.selectMonthAugust().click();
 		
 		Thread.sleep(2000);
 		formLocators.clickBranch1().click();
@@ -145,7 +160,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(formLocators.Search()));
 		
-		OneCommonMethod.searchEntityAndSelect(driver.get(),test,formLocators.Search(),"TESTAUTO");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,formLocators.Search(),"DOCAUTOO4");
 		
 		
 		Thread.sleep(2000);
@@ -166,11 +181,11 @@ public class PT_ConsolidatedMethods extends BasePage {
 		Thread.sleep(2000);
 		formLocators.clickYear().click();
 		Thread.sleep(2000);
-		formLocators.Year2024().click();
+		formLocators.Year2025().click();
 		Thread.sleep(2000);
 		formLocators.clickPeriod().click();
 		Thread.sleep(2000);
-		formLocators.selectMonthJan().click();
+		formLocators.selectMonthAugust().click();
 		
 		Thread.sleep(2000);
 		formLocators.clickBranch1().click();
@@ -197,11 +212,11 @@ public class PT_ConsolidatedMethods extends BasePage {
         
         
         
-        // 🧪 Step 3: Prepare master file filters
-        int filterColumnIndex = 6;
+/*        // 🧪 Step 3: Prepare master file filters
+        int filterColumnIndex = 38;
         List<String> filterValues = new ArrayList<>();
-        filterValues.add("KAR");
-
+        filterValues.add("Active"); 
+        
         ExcelFilter regionFilter = new ExcelFilter(filterColumnIndex, filterValues);
         List<ExcelFilter> allFilters = new ArrayList<>();
         allFilters.add(regionFilter);
@@ -250,7 +265,67 @@ public class PT_ConsolidatedMethods extends BasePage {
             extraConfig,
             "Employee IDs are reflecting properly as per masters!"
         );
-		
+		*/
+        
+        
+     // 📌 Step 1: Prepare MULTI filters for Master (0-based indices)
+        List<ExcelFilter> allFilters = new ArrayList<>();
+
+        // Example filter-1: Status (column 38) == "Active"
+        allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+
+        // Example filter-2:
+        allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+
+        // 🗂️ Step 2: Master file details
+        String masterSheetName   = "EmployeeMaster";
+        int masterColumnIndex    = 3;  // e.g., EmpID/Name column used by your utility (0-based)
+        String applyFilterFlag   = "YES"; // << IMPORTANT: to enable applying the filters
+
+        ExcelFileDetails masterFileDetails = new ExcelFileDetails(
+                EMPmasterFilePath,
+                masterSheetName,
+                masterColumnIndex,
+                allFilters,
+                applyFilterFlag
+        );
+
+        // 🎯 Step 3: Target validation (downloaded file)
+        String targetSheetName      = "PT Report";
+        int targetColumnIndex       = 1;             // 0-based (e.g., column B)
+        String targetHeaderKeyword  = "Employee ID"; // header text to locate column/row
+        int targetStartRow          = 0;
+
+        ExcelTargetValidation targetValidation = new ExcelTargetValidation(
+                targetSheetName,
+                targetColumnIndex,
+                targetHeaderKeyword,
+                targetStartRow
+        );
+
+        // ⚙️ Step 4: Extra config (no total logic in this scenario)
+        String totalLogicEnabled = "NO"; // keep NO if you don't want total-row flow
+        int totalColumnIndex     = 0;
+        String totalKeyword      = "";
+
+        ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+                totalLogicEnabled,
+                totalColumnIndex,
+                totalKeyword
+        );
+
+        // ✅ Step 5: Final call
+        CommonBusinessUtilis.validateExcelBusinessData(
+                downloadedExcelFile,
+                test,
+                masterFileDetails,
+                targetValidation,
+                extraConfig,
+                "Employee IDs are reflecting properly as per masters! (multi-filter)"
+        );
+        
+        
+        
 	}
 	
 	public static void ChallanPTConsolated_PTReport_EmployeeName( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
@@ -260,7 +335,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(formLocators.Search()));
 		
-		OneCommonMethod.searchEntityAndSelect(driver.get(),test,formLocators.Search(),"TESTAUTO");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,formLocators.Search(),"DOCAUTOO4");
 		
 		
 		Thread.sleep(2000);
@@ -281,11 +356,11 @@ public class PT_ConsolidatedMethods extends BasePage {
 		Thread.sleep(2000);
 		formLocators.clickYear().click();
 		Thread.sleep(2000);
-		formLocators.Year2024().click();
+		formLocators.Year2025().click();
 		Thread.sleep(2000);
 		formLocators.clickPeriod().click();
 		Thread.sleep(2000);
-		formLocators.selectMonthJan().click();
+		formLocators.selectMonthAugust().click();
 		
 		Thread.sleep(2000);
 		formLocators.clickBranch1().click();
@@ -311,7 +386,60 @@ public class PT_ConsolidatedMethods extends BasePage {
         
         
         
-        // 🎯 Step 1: Prepare Target validation first (Downloaded file details)
+     // 🎯 Step 1: Prepare Target validation first (Downloaded file details)
+        String targetHeaderKeyword = "Emp Name";
+        int targetColumnIndex = 2;
+        String targetSheetName = "PT Report";
+        int targetStartRow = 0;
+
+        ExcelTargetValidation targetValidation = new ExcelTargetValidation(
+            targetSheetName,
+            targetColumnIndex,
+            targetHeaderKeyword,
+            targetStartRow
+        );
+
+        // 🧪 Step 2: Prepare Master file filters
+        List<ExcelFilter> allFilters = new ArrayList<>();
+
+        // Filter-1:
+        allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+
+        // Filter-2:
+        allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+
+        // 📊 Step 3: Prepare Master file details
+        int masterColumnIndex = 5;
+        String masterSheetName = "EmployeeMaster";
+
+        ExcelFileDetails masterFileDetails = new ExcelFileDetails(
+            EMPmasterFilePath,
+            masterSheetName,
+            masterColumnIndex,
+            allFilters,
+            "YES"   // ⚡ changed to YES because filters are now present
+        );
+
+        // 🛠️ Step 4: Extra Config — No total logic
+        ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+            "", 0, ""
+        );
+
+        // ✅ Step 5: Final call to reusable validator
+        CommonBusinessUtilis.validateExcelBusinessData(
+            downloadedExcelFile,
+            test,
+            masterFileDetails,
+            targetValidation,
+            extraConfig,
+            "Employee Names are reflecting properly as per masters!"
+        );
+
+        
+        
+        
+        
+ /*       // 🎯 Step 1: Prepare Target validation first (Downloaded file details)
         String targetHeaderKeyword = "Emp Name";
         int targetColumnIndex = 2;
         String targetSheetName = "PT Report";
@@ -354,7 +482,7 @@ public class PT_ConsolidatedMethods extends BasePage {
             targetValidation,
             extraConfig,
             "Employee Names are reflecting properly as per masters!"
-        );
+        ); */
 		
 	}
 	
@@ -487,7 +615,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(formLocators.Search()));
 		
-		OneCommonMethod.searchEntityAndSelect(driver.get(),test,formLocators.Search(),"TESTAUTO");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,formLocators.Search(),"DOCAUTOO4");
 		
 		
 		Thread.sleep(2000);
@@ -508,11 +636,11 @@ public class PT_ConsolidatedMethods extends BasePage {
 		Thread.sleep(2000);
 		formLocators.clickYear().click();
 		Thread.sleep(2000);
-		formLocators.Year2024().click();
+		formLocators.Year2025().click();
 		Thread.sleep(2000);
 		formLocators.clickPeriod().click();
 		Thread.sleep(2000);
-		formLocators.selectMonthJan().click();
+		formLocators.selectMonthAugust().click();
 		
 		Thread.sleep(2000);
 		formLocators.clickBranch1().click();
@@ -554,27 +682,25 @@ public class PT_ConsolidatedMethods extends BasePage {
         
         
         
-        // 🧪 Step 3: Prepare master file filters
-        int filterColumnIndex = 6;
-        List<String> filterValues = new ArrayList<>();
-        filterValues.add("KAR");
-
-        ExcelFilter regionFilter = new ExcelFilter(filterColumnIndex, filterValues);
+     // 🧪 Step 3: Prepare master file filters
         List<ExcelFilter> allFilters = new ArrayList<>();
-        allFilters.add(regionFilter);
+
+        // Filter-2: Status filter (column 38) == "Active"
+        allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+
+        // Filter-3: Another filter (column 58) == "Yes"
+        allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
 
         // 📊 Step 4: Prepare ExcelFileDetails for Master
         String masterSheetName = "EmployeeMaster";
         int masterColumnIndex = 10;
         ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-        	EMPmasterFilePath,
+            EMPmasterFilePath,
             masterSheetName,
             masterColumnIndex,
             allFilters,
-            "NO"
+            "YES"   // ⚡ use YES since filters are applied
         );
-        
-        
 
         // 🎯 Step 5: Prepare Target validation for downloaded file
         String targetSheetName = "PT Report";
@@ -588,7 +714,6 @@ public class PT_ConsolidatedMethods extends BasePage {
             targetHeaderKeyword,
             targetStartRow
         );
-        
 
         // 🛠️ Step 6: Prepare Extra Config (No total row logic here)
         String totalLogicEnabled = "";
@@ -600,8 +725,8 @@ public class PT_ConsolidatedMethods extends BasePage {
             totalColumnIndex,
             totalKeyword
         );
-        
-     // ✅ Enable Smart Text Match + Date Match
+
+        // ✅ Enable Smart Text Match + Date Match
         extraConfig.setEnableSmartTextMatch("YES"); // GUJ↔Gujarat, Female↔FeMale
         extraConfig.setEnableDateMatch("NO");      // 01-01-2025 ↔ 01-Jan-2025
 
@@ -614,6 +739,7 @@ public class PT_ConsolidatedMethods extends BasePage {
             extraConfig,
             "Genders are reflecting properly as per masters!"
         );
+
 		
 	}
 	public static void ChallanPTConsolated_NAE_Gender( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
@@ -679,9 +805,9 @@ public class PT_ConsolidatedMethods extends BasePage {
         
         
         // 🧪 Step 3: Prepare master file filters
-        int filterColumnIndex = 6;
+        int filterColumnIndex = 58;
         List<String> filterValues = new ArrayList<>();
-        filterValues.add("KAR");
+        filterValues.add("No");
 
         ExcelFilter regionFilter = new ExcelFilter(filterColumnIndex, filterValues);
         List<ExcelFilter> allFilters = new ArrayList<>();
@@ -691,11 +817,11 @@ public class PT_ConsolidatedMethods extends BasePage {
         String masterSheetName = "EmployeeMaster";
         int masterColumnIndex = 10;
         ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-        	EmployeeMaster_NAEmployee,
+        	EMPmasterFilePath,
             masterSheetName,
             masterColumnIndex,
             allFilters,
-            "NO"
+            "Yes"
         );
         
         
@@ -748,7 +874,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(formLocators.Search()));
 		
-		OneCommonMethod.searchEntityAndSelect(driver.get(),test,formLocators.Search(),"TESTAUTO");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,formLocators.Search(),"DOCAUTOO4");
 		
 		
 		Thread.sleep(2000);
@@ -769,11 +895,11 @@ public class PT_ConsolidatedMethods extends BasePage {
 		Thread.sleep(2000);
 		formLocators.clickYear().click();
 		Thread.sleep(2000);
-		formLocators.Year2024().click();
+		formLocators.Year2025().click();
 		Thread.sleep(2000);
 		formLocators.clickPeriod().click();
 		Thread.sleep(2000);
-		formLocators.selectMonthJan().click();
+		formLocators.selectMonthAugust().click();
 		
 		Thread.sleep(2000);
 		formLocators.clickBranch1().click();
@@ -799,15 +925,6 @@ public class PT_ConsolidatedMethods extends BasePage {
         
         
         
-        //
-//        ExcelExtraConfig extraConfig = new ExcelExtraConfig();
-//        extraConfig.setEnableSmartTextMatch("YES"); // Enable smart match
-//        
-//
-//        
-//        ExcelExtraConfig extraConfig = new ExcelExtraConfig();
-//        extraConfig.setEnableSmartTextMatch("YES"); // For loose matching
-//        extraConfig.setEnableDateMatch("YES");      // For date normalization
 
         
         
@@ -815,27 +932,25 @@ public class PT_ConsolidatedMethods extends BasePage {
         
         
         
-        // 🧪 Step 3: Prepare master file filters
-        int filterColumnIndex = 6;
-        List<String> filterValues = new ArrayList<>();
-        filterValues.add("KAR");
-
-        ExcelFilter regionFilter = new ExcelFilter(filterColumnIndex, filterValues);
+     // 🧪 Step 3: Prepare master file filters
         List<ExcelFilter> allFilters = new ArrayList<>();
-        allFilters.add(regionFilter);
+
+        // Filter-1: Status filter (column 38) == "Active"
+        allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+
+        // Filter-2: Another filter (column 58) == "Yes"
+        allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
 
         // 📊 Step 4: Prepare ExcelFileDetails for Master
         String masterSheetName = "EmployeeMaster";
         int masterColumnIndex = 8;
         ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-        	EMPmasterFilePath,
+            EMPmasterFilePath,
             masterSheetName,
             masterColumnIndex,
             allFilters,
-            "NO"
+            "YES"   // ⚡ filters ko enable karna zaroori hai
         );
-        
-        
 
         // 🎯 Step 5: Prepare Target validation for downloaded file
         String targetSheetName = "PT Report";
@@ -849,7 +964,6 @@ public class PT_ConsolidatedMethods extends BasePage {
             targetHeaderKeyword,
             targetStartRow
         );
-        
 
         // 🛠️ Step 6: Prepare Extra Config (No total row logic here)
         String totalLogicEnabled = "";
@@ -861,8 +975,8 @@ public class PT_ConsolidatedMethods extends BasePage {
             totalColumnIndex,
             totalKeyword
         );
-        
-     // ✅ Enable Smart Text Match + Date Match
+
+        // ✅ Enable Smart Text Match + Date Match
         extraConfig.setEnableSmartTextMatch("YES"); // GUJ↔Gujarat, Female↔FeMale
         extraConfig.setEnableDateMatch("YES");      // 01-01-2025 ↔ 01-Jan-2025
 
@@ -875,6 +989,7 @@ public class PT_ConsolidatedMethods extends BasePage {
             extraConfig,
             "Branches are reflecting properly as per masters!"
         );
+
 		
 	}
 	
@@ -885,7 +1000,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(formLocators.Search()));
 		
-		OneCommonMethod.searchEntityAndSelect(driver.get(),test,formLocators.Search(),"TESTAUTO");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,formLocators.Search(),"DOCAUTOO4");
 		
 		
 		Thread.sleep(2000);
@@ -906,11 +1021,11 @@ public class PT_ConsolidatedMethods extends BasePage {
 		Thread.sleep(2000);
 		formLocators.clickYear().click();
 		Thread.sleep(2000);
-		formLocators.Year2024().click();
+		formLocators.Year2025().click();
 		Thread.sleep(2000);
 		formLocators.clickPeriod().click();
 		Thread.sleep(2000);
-		formLocators.selectMonthJan().click();
+		formLocators.selectMonthAugust().click();
 		
 		Thread.sleep(2000);
 		formLocators.clickBranch1().click();
@@ -938,27 +1053,23 @@ public class PT_ConsolidatedMethods extends BasePage {
         
         
         
-        // 🧪 Step 3: Prepare master file filters
-        int filterColumnIndex = 6;
-        List<String> filterValues = new ArrayList<>();
-        filterValues.add("KAR");
-
-        ExcelFilter regionFilter = new ExcelFilter(filterColumnIndex, filterValues);
+     // 🧪 Step 3: Prepare master file filters
         List<ExcelFilter> allFilters = new ArrayList<>();
-        allFilters.add(regionFilter);
+
+        // Filter-1: 20
+        allFilters.add(new ExcelFilter(21, Arrays.asList("Yes")));
+
 
         // 📊 Step 4: Prepare ExcelFileDetails for Master
-        String masterSheetName = "MonthlyEmployeeSalary";
+        String masterSheetName = "MonthlyEmployeeChallanSalary";
         int masterColumnIndex = 16;
         ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-        	salaryFile,
+            salaryFile,
             masterSheetName,
             masterColumnIndex,
             allFilters,
-            "NO"
+            "YES"   // ⚡ Filters ko apply karne ke liye YES
         );
-        
-        
 
         // 🎯 Step 5: Prepare Target validation for downloaded file
         String targetSheetName = "PT Report";
@@ -972,7 +1083,6 @@ public class PT_ConsolidatedMethods extends BasePage {
             targetHeaderKeyword,
             targetStartRow
         );
-        
 
         // 🛠️ Step 6: Prepare Extra Config (No total row logic here)
         String totalLogicEnabled = "";
@@ -984,10 +1094,10 @@ public class PT_ConsolidatedMethods extends BasePage {
             totalColumnIndex,
             totalKeyword
         );
-        
-     // ✅ Enable Smart Text Match + Date Match
-//        extraConfig.setEnableSmartTextMatch("NO"); // GUJ↔Gujarat, Female↔FeMale
- //       extraConfig.setEnableDateMatch("NO");      // 01-01-2025 ↔ 01-Jan-2025
+
+        // ✅ Enable Smart Text Match + Date Match (optional)
+        // extraConfig.setEnableSmartTextMatch("NO");
+        // extraConfig.setEnableDateMatch("NO");
 
         // ✅ Step 7: Final call to reusable validator
         CommonBusinessUtilis.validateExcelBusinessData(
@@ -998,6 +1108,7 @@ public class PT_ConsolidatedMethods extends BasePage {
             extraConfig,
             "PT Gross wages are reflecting properly as per masters!"
         );
+
 		
 	}
 	
@@ -1049,9 +1160,11 @@ public class PT_ConsolidatedMethods extends BasePage {
 		    "Total"                              // keyword jo sheet me likha hai
 		);
 
-		// Filters agar chahiye to add kar, warna empty list
+/*		// Filters agar chahiye to add kar, warna empty list
 		List<ExcelFilter> masterFilters = new ArrayList<>();
 		List<ExcelFilter> targetFilters = new ArrayList<>();
+		
+		
 
 		// Header map (optional, logs me accha dikhega)
 		Map<String, String> headerMap = new HashMap<>();
@@ -1075,40 +1188,42 @@ public class PT_ConsolidatedMethods extends BasePage {
 		    headerMap,                        // header labels
 		    "PT Gross wages total is coming properly as per masters"
 		);
+		
+		*/
+		
+		List<ExcelFilter> masterFilters = new ArrayList<>();
+		List<ExcelFilter> targetFilters = new ArrayList<>();
 
-/*        ExcelExtraConfig extraConfig = new ExcelExtraConfig(
-                "YES",                               // enable total logic? "YES"/"NO"
-                ExcelUtils.columnLetterToIndex("A"), // column index where "Total" keyword might be present (L -> 11)
-                "Total"                              // total keyword (case-insensitive)
-            );
-        
-        List<ExcelFilter> masterFilters = new ArrayList<>();   // add filters if needed
-        List<ExcelFilter> targetFilters = new ArrayList<>();      
- //     masterFilters.add(new ExcelFilter(6, Arrays.asList("PUNE")));
+		// filter Column V for exact "YES"
+//		masterFilters.add(new ExcelFilter(21, Arrays.asList("YES")));
+		
+		//This is also work for direct column Name as V
+		masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("V"), Arrays.asList("YES")));
+		
+//		targetFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("G"), Arrays.asList("Andhra Pradesh")));
 
-        Map<String, String> headerMap = new HashMap<>();
-        headerMap.put("Q", "PT Gross");     // optional: header keywords per column letter
-        headerMap.put("I", "PT Gross wages");
-//       headerMap.put("L", "Diffrence");
+		Map<String, String> headerMap = new HashMap<>();
+		headerMap.put("Q", "PT Gross");
+		headerMap.put("I", "PT Gross wages");
 
+		// call
+		CommonBusinessUtilis3.validateExcelCalculation(
+		    downloadedExcelFile,
+		    salaryFile,
+		    test,
+		    "PT_Report.I = Master.Q",
+		    "MASTER",
+		    "PT Report",
+		    masterFilters,
+		    targetFilters,
+		    extraConfig,
+		    0.01,
+		    false,
+		    0,
+		    headerMap,
+		    "PT Gross wages total is coming properly as per masters"
+		);
 
-        CommonBusinessUtilis3.validateExcelCalculation(
-        	    downloadedExcelFile,
-        	    salaryFile,
-        	    test,
-        	    "PT_Report.I = Master.Q",
-        	    "MASTER",
-        	    "PT Report",
-        	    masterFilters,
-        	    targetFilters,
-        	    extraConfig,
-        	    0.01,
-        	    false,
-        	    0,
-        	    headerMap,
-        	    "Validating Master.H - Downloaded.K = Downloaded.L"
-        	);
-*/		
 		
 		
 	}
@@ -1455,9 +1570,9 @@ public class PT_ConsolidatedMethods extends BasePage {
         
         
         // 🧪 Step 3: Prepare master file filters
-        int filterColumnIndex = 6;
+        int filterColumnIndex = 58;
         List<String> filterValues = new ArrayList<>();
-        filterValues.add("KAR");
+        filterValues.add("No");
 
         ExcelFilter regionFilter = new ExcelFilter(filterColumnIndex, filterValues);
         List<ExcelFilter> allFilters = new ArrayList<>();
@@ -1467,11 +1582,11 @@ public class PT_ConsolidatedMethods extends BasePage {
         String masterSheetName = "EmployeeMaster";
         int masterColumnIndex = 8;
         ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-        	EmployeeMaster_NAEmployee,
+        	EMPmasterFilePath,
             masterSheetName,
             masterColumnIndex,
             allFilters,
-            "NO"
+            "Yes"
         );
         
         
@@ -1606,10 +1721,834 @@ public class PT_ConsolidatedMethods extends BasePage {
 
 		ChallanPTConsolated_Redirection(test,user);
 		
-		PT_ConsolidatedMethods.validatePTAmounts(downloadedExcelFile, test);
+//		PT_ConsolidatedMethods.validatePTAmounts(downloadedExcelFile, test);
+		
+		test.log(LogStatus.INFO,
+			    "ℹ️ LOGIC GIVEN: PT values are derived from backend slab rules based on employee gross wages and state-wise PT rules. " +
+			    "Each state has different slabs. For states like MAHARASHTRA, ODISHA, MADHYA PRADESH, JAMMU & KASHMIR, and KARNATAKA, " +
+			    "the PT amount increases in 2nd+ generation runs as per backend rules. " +
+			    "Additionally, for MAHARASHTRA Female employees: Gross ≤ 25000 → PT = 0, Gross > 25000 → PT = 200.");
+		
+		
+		Map<String, Integer> runCounts = new HashMap<>();
+		runCounts.put("MAHARASHTRA", 1);
+		runCounts.put("MADHYA PRADESH", 1);
+		runCounts.put("ODISHA", 1);
+		runCounts.put("JAMMU & KASHMIR", 1);
+		runCounts.put("KARNATAKA", 1);
+
+		PT_ConsolidatedMethods.validatePTAmountsUpdatedFlexible(downloadedExcelFile, test, runCounts);
+
         
 		
 	}
+	
+	
+	
+	
+/**	// ====== Unified validator with integrated diagnostics ======
+	public static void validatePTAmountsUpdatedFlexible(
+	        File downloadedExcelFile,
+	        ExtentTest test,
+	        Map<String, Integer> stateRunCounts) {
+		
+		//
+	    // ----- normalize stateRunCounts keys and log (prevents caller-case-mismatch) -----
+	    Map<String, Integer> normalizedRunCounts = new HashMap<>();
+	    if (stateRunCounts != null && !stateRunCounts.isEmpty()) {
+	        for (Map.Entry<String, Integer> e : stateRunCounts.entrySet()) {
+	            String k = e.getKey();
+	            if (k == null) continue;
+	            normalizedRunCounts.put(k.trim().toUpperCase(), e.getValue());
+	        }
+	    }
+	    stateRunCounts = normalizedRunCounts;
+	    test.log(LogStatus.INFO, "State run-counts (normalized): " + stateRunCounts.toString());
+	    // -------------------------------------------------------------------------------
+
+		
+		
+		
+		
+		
+		
+		
+		
+
+	    try (FileInputStream fis = new FileInputStream(downloadedExcelFile);
+	         Workbook wb = WorkbookFactory.create(fis)) {
+
+	        // 1) Pick sheet safely
+	        Sheet sheet = wb.getSheet("PT Report");
+	        if (sheet == null) sheet = wb.getSheet("PTChallan");
+	        if (sheet == null) sheet = wb.getNumberOfSheets() > 0 ? wb.getSheetAt(0) : null;
+
+	        if (sheet == null) {
+	            test.log(LogStatus.ERROR, "❌ No sheet found (expected 'PT Report' or 'PTChallan') in: " + downloadedExcelFile.getName());
+	            return;
+	        }
+
+	        // 2) Header row
+	        Row header = sheet.getRow(0);
+	        if (header == null) {
+	            test.log(LogStatus.ERROR, "❌ Header row missing in sheet: " + sheet.getSheetName());
+	            return;
+	        }
+
+	        // 3) Resolve columns by header text (case-insensitive contains match)
+	        int colState   = findColIndex(header, "PT State", "Client PT State", "PTState");
+	        int colGender  = findColIndex(header, "Gender");
+	        int colGross   = findColIndex(header, "PT Gross wages", "Gross", "PT Gross");
+	        int colPT      = findColIndex(header, "PT amount(As per slab)", "PT amount", "PT Amount");
+
+	        // Optional columns to detect TOTAL rows
+	        int colEmpName = findColIndex(header, "Emp Name", "Employee Name", "Employee");
+	        int colSlNo    = findColIndex(header, "Sl No", "S.No", "Sr No", "Sr.No");
+
+	        if (colState < 0 || colGender < 0 || colGross < 0 || colPT < 0) {
+	            test.log(LogStatus.ERROR,
+	                    "❌ Required columns not found. Need headers like: " +
+	                    "[PT State/Client PT State], [Gender], [PT Gross wages], [PT amount/PT amount(As per slab)]. " +
+	                    "Found in sheet: " + sheet.getSheetName());
+	            return;
+	        }
+
+	        // 4) Per-state counters & override counters
+	        Map<String, Integer> stateRowCount = new HashMap<>();
+	        Map<String, Integer> stateMismatchCount = new HashMap<>();
+	        Map<String, Set<Integer>> statePTValues = new HashMap<>();
+	        Map<String, Integer> overrideCounters = new HashMap<>();
+
+	        // Diagnostics maps
+	        Map<String, Integer> diagStateTotal = new HashMap<>();
+	        Map<String, Map<Integer,Integer>> diagBaseCount = new HashMap<>();
+	        Map<String, Map<Integer,Integer>> diagActualCount = new HashMap<>();
+	        Map<String, Integer> diagWouldOverride = new HashMap<>();
+
+	        int skippedTotalRows = 0;
+
+	        int last = sheet.getLastRowNum();
+	        for (int r = 1; r <= last; r++) { // skip header
+	            Row row = sheet.getRow(r);
+	            if (row == null) continue;
+
+	            try {
+	                String state  = getString(row.getCell(colState));
+	                String gender = getString(row.getCell(colGender));
+	                Double grossD = getNumeric(row.getCell(colGross));
+	                Double actual = getNumeric(row.getCell(colPT));
+
+	                // --- skip rows with blank/unknown state ---
+	                if (state == null || state.trim().isEmpty()) {
+	                    skippedTotalRows++;
+	                    continue;
+	                }
+
+	                // --- skip typical TOTAL rows (by name or serial) ---
+	                boolean isTotalRow = false;
+	                if (!isTotalRow && colEmpName >= 0) {
+	                    String empName = getString(row.getCell(colEmpName));
+	                    if (empName != null && empName.trim().toLowerCase().contains("total")) isTotalRow = true;
+	                }
+	                if (!isTotalRow && colSlNo >= 0) {
+	                    String slNo = getString(row.getCell(colSlNo));
+	                    if (slNo != null && slNo.trim().toLowerCase().contains("total")) isTotalRow = true;
+	                }
+	                if (isTotalRow) {
+	                    skippedTotalRows++;
+	                    continue;
+	                }
+
+	                // --- basic sanity on numbers ---
+	                if (gender == null || grossD == null || actual == null) {
+	                    test.log(LogStatus.WARNING, "⚠ Row " + (r + 1) + " skipped (missing/invalid data).");
+	                    continue;
+	                }
+	                if (grossD <= 0) {
+	                    skippedTotalRows++;
+	                    continue;           // ignore garbage
+	                }
+	                if (actual < 0 || actual > 5000) { // PT unrealistic guard
+	                    skippedTotalRows++;
+	                    continue;
+	                }
+
+	                // Normalize state key for maps
+	                String stKey = state.trim().toUpperCase();
+
+	                // 5) Base PT from backend slab
+	                int basePT = ExcelValueNormalizer.getPTAmount(state, grossD.intValue());
+
+	                // 6) Per-state runCount (default 1)
+	                int runCount = 1;
+	                if (stateRunCounts != null && !stateRunCounts.isEmpty()) {
+	                    runCount = stateRunCounts.getOrDefault(stKey, 1);
+	                }
+
+	                // 7) Compute expected PT and update override counters
+	                int expectedPT = applyStateOverridesAggregated(state, basePT, grossD, gender, runCount, overrideCounters);
+
+	                // 8) Update main counters
+	                stateRowCount.put(state, stateRowCount.getOrDefault(state, 0) + 1);
+	                if (expectedPT != actual.intValue()) {
+	                    stateMismatchCount.put(state, stateMismatchCount.getOrDefault(state, 0) + 1);
+	                }
+	                statePTValues.computeIfAbsent(state, k -> new HashSet<>()).add(actual.intValue());
+
+	                // ---------- Diagnostics collection ----------
+	                // total
+	                diagStateTotal.put(stKey, diagStateTotal.getOrDefault(stKey, 0) + 1);
+
+	                // base distribution
+	                diagBaseCount.computeIfAbsent(stKey, k -> new HashMap<>());
+	                Map<Integer,Integer> bm = diagBaseCount.get(stKey);
+	                bm.put(basePT, bm.getOrDefault(basePT, 0) + 1);
+
+	                // actual distribution
+	                diagActualCount.computeIfAbsent(stKey, k -> new HashMap<>());
+	                Map<Integer,Integer> am = diagActualCount.get(stKey);
+	                am.put(actual.intValue(), am.getOrDefault(actual.intValue(), 0) + 1);
+
+	                // would override?
+	                int wouldBe = applyStateOverridesAggregated(state, basePT, grossD, gender, runCount, new HashMap<>());
+	                if (wouldBe != basePT) {
+	                    diagWouldOverride.put(stKey, diagWouldOverride.getOrDefault(stKey, 0) + 1);
+	                }
+	                // ---------- end diagnostics ----------
+
+	            } catch (Exception ex) {
+	                test.log(LogStatus.WARNING, "⚠ Row " + (r + 1) + " error: " + ex.getMessage());
+	            }
+	        }
+
+	        // 9) Final summary per state
+	        for (String state : stateRowCount.keySet()) {
+	            int totalRows = stateRowCount.get(state);
+	            int mismatches = stateMismatchCount.getOrDefault(state, 0);
+	            Set<Integer> ptValues = statePTValues.getOrDefault(state, new HashSet<>());
+
+	            if (mismatches == 0) {
+	                test.log(LogStatus.PASS, "✅ State " + state.toUpperCase() +
+	                        " | All " + totalRows + " rows matched as per masters. | PT Values: " + ptValues);
+	            } else {
+	                test.log(LogStatus.FAIL, "❌ State " + state.toUpperCase() +
+	                        " | " + mismatches + " out of " + totalRows +
+	                        " rows mismatched as per masters. | PT Values: " + ptValues);
+	            }
+	        }
+
+	        // 10) Aggregated override counters
+	        for (Entry<String, Integer> e : overrideCounters.entrySet()) {
+	            test.log(LogStatus.INFO, e.getKey() + " | Count = " + e.getValue());
+	        }
+
+	        // 11) Diagnostics logging (one block)
+	        logPerStateDiagnostics(diagStateTotal, diagBaseCount, diagActualCount, diagWouldOverride, test);
+
+	        // 12) Optional debug line: how many TOTAL/blank rows were skipped
+	        if (skippedTotalRows > 0) {
+	            test.log(LogStatus.INFO, "Skipped TOTAL/blank rows: " + skippedTotalRows);
+	        }
+
+	    } catch (Exception e) {
+	        test.log(LogStatus.ERROR, "❌ Exception in validatePTAmountsUpdatedFlexible: " + e.getMessage());
+	        e.printStackTrace();
+	    }
+	}
+
+
+	// ====== Helper: apply overrides and aggregate counts (no per-row INFO spam) ======
+	private static int applyStateOverridesAggregated(
+	        String state,
+	        int expectedPT,
+	        double gross,
+	        String gender,
+	        int runCount,
+	        Map<String, Integer> counters) {
+
+	    int finalPT = expectedPT;
+	    String st = (state == null) ? "" : state.trim().toUpperCase();
+
+	    switch (st) {
+	        case "MAHARASHTRA":
+	            if ("FEMALE".equalsIgnoreCase(gender)) {
+	                if (gross <= 25000) {
+	                    finalPT = 0;
+	                    bump(counters, "Maharashtra Female | Gross ≤ 25000 | PT = 0");
+	                } else {
+	                    finalPT = 200;
+	                    bump(counters, "Maharashtra Female | Gross > 25000 | PT = 200");
+	                }
+	            }
+	            if (runCount >= 2 && expectedPT == 200) {
+	                finalPT = 300;
+	                bump(counters, "Maharashtra 2nd+ run override → PT = 300");
+	            }
+	            break;
+
+	        case "ODISHA":
+	            if (runCount >= 2 && expectedPT == 200) {
+	                finalPT = 300;
+	                bump(counters, "Odisha 2nd+ run override → PT = 300");
+	            }
+	            break;
+
+	        case "MADHYA PRADESH":
+	            if (runCount >= 2) {
+	                if (expectedPT == 166) {
+	                    finalPT = 174;
+	                    bump(counters, "Madhya Pradesh 2nd+ run override → 166 → 174");
+	                } else if (expectedPT == 208) {
+	                    finalPT = 212;
+	                    bump(counters, "Madhya Pradesh 2nd+ run override → 208 → 212");
+	                }
+	            }
+	            break;
+
+	        case "JAMMU & KASHMIR":
+	            if (runCount >= 2 && expectedPT == 208) {
+	                finalPT = 212;
+	                bump(counters, "J&K 2nd+ run override → 208 → 212");
+	            }
+	            break;
+
+	        case "KARNATAKA":
+	            if (runCount >= 2 && expectedPT == 200) {
+	                finalPT = 300;
+	                bump(counters, "Karnataka 2nd+ run override → 200 → 300");
+	            }
+	            break;
+	    }
+	    return finalPT;
+	}
+
+	// ====== Diagnostics logger ======
+	private static void logPerStateDiagnostics(
+	        Map<String, Integer> stateTotal,
+	        Map<String, Map<Integer, Integer>> stateBasePTCount,
+	        Map<String, Map<Integer, Integer>> stateActualPTCount,
+	        Map<String, Integer> stateWouldBeOverridden,
+	        ExtentTest test) {
+
+	    test.log(LogStatus.INFO, "----- PER-STATE DIAGNOSTICS START -----");
+	    for (String st : stateTotal.keySet()) {
+	        int total = stateTotal.getOrDefault(st, 0);
+	        Map<Integer,Integer> baseMap = stateBasePTCount.getOrDefault(st, new HashMap<>());
+	        Map<Integer,Integer> actualMap = stateActualPTCount.getOrDefault(st, new HashMap<>());
+	        int overridden = stateWouldBeOverridden.getOrDefault(st, 0);
+
+	        StringBuilder sb = new StringBuilder();
+	        sb.append("State ").append(st).append(" | Total rows: ").append(total)
+	          .append(" | OverriddenCandidates: ").append(overridden)
+	          .append(" | BasePT distribution: ").append(baseMap.toString())
+	          .append(" | ActualPT distribution: ").append(actualMap.toString());
+
+	        test.log(LogStatus.INFO, sb.toString());
+	    }
+	    test.log(LogStatus.INFO, "----- PER-STATE DIAGNOSTICS END -----");
+	}
+
+	// ====== Small helpers ======
+	private static void bump(Map<String, Integer> map, String key) {
+	    map.put(key, map.getOrDefault(key, 0) + 1);
+	}
+
+	private static int findColIndex(Row header, String... candidates) {
+	    for (Cell c : header) {
+	        String h = getString(c);
+	        if (h == null) continue;
+	        for (String cand : candidates) {
+	            if (h.equalsIgnoreCase(cand) || h.toLowerCase().contains(cand.toLowerCase())) {
+	                return c.getColumnIndex();
+	            }
+	        }
+	    }
+	    return -1;
+	}
+
+	private static String getString(Cell cell) {
+	    if (cell == null) return null;
+	    CellType t = cell.getCellType();
+	    if (t == CellType.STRING)  return cell.getStringCellValue().trim();
+	    if (t == CellType.NUMERIC) return String.valueOf((long) cell.getNumericCellValue());
+	    if (t == CellType.BOOLEAN) return String.valueOf(cell.getBooleanCellValue());
+	    return null;
+	}
+
+	private static Double getNumeric(Cell cell) {
+	    if (cell == null) return null;
+	    CellType t = cell.getCellType();
+	    if (t == CellType.NUMERIC) return cell.getNumericCellValue();
+	    if (t == CellType.STRING) {
+	        try { return Double.parseDouble(cell.getStringCellValue().trim()); }
+	        catch (Exception ignore) { return null; }
+	    }
+	    return null;
+	}
+
+**/
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// ====== Unified validator: works for both "PT Report" (consolidated) and "PTChallan" (state-wise) ======
+	public static void validatePTAmountsUpdatedFlexible(
+	        File downloadedExcelFile,
+	        ExtentTest test,
+	        Map<String, Integer> stateRunCounts) {
+
+	    try (FileInputStream fis = new FileInputStream(downloadedExcelFile);
+	         Workbook wb = WorkbookFactory.create(fis)) {
+
+	        // 1) Pick sheet safely
+	        Sheet sheet = wb.getSheet("PT Report");
+	        if (sheet == null) sheet = wb.getSheet("PTChallan");
+	        if (sheet == null) sheet = wb.getNumberOfSheets() > 0 ? wb.getSheetAt(0) : null;
+
+	        if (sheet == null) {
+	            test.log(LogStatus.ERROR, "❌ No sheet found (expected 'PT Report' or 'PTChallan') in: " + downloadedExcelFile.getName());
+	            return;
+	        }
+
+	        // 2) Header row
+	        Row header = sheet.getRow(0);
+	        if (header == null) {
+	            test.log(LogStatus.ERROR, "❌ Header row missing in sheet: " + sheet.getSheetName());
+	            return;
+	        }
+
+	        // 3) Resolve columns by header text (case-insensitive contains match)
+	        int colState   = findColIndex(header, "PT State", "Client PT State");
+	        int colGender  = findColIndex(header, "Gender");
+	        int colGross   = findColIndex(header, "PT Gross wages", "Gross");
+	        int colPT      = findColIndex(header, "PT amount(As per slab)", "PT amount");
+
+	        // Optional columns to detect TOTAL rows
+	        int colEmpName = findColIndex(header, "Emp Name", "Employee Name", "Employee");
+	        int colSlNo    = findColIndex(header, "Sl No", "S.No", "Sr No", "Sr.No");
+
+	        if (colState < 0 || colGender < 0 || colGross < 0 || colPT < 0) {
+	            test.log(LogStatus.ERROR,
+	                    "❌ Required columns not found. Need headers like: " +
+	                    "[PT State/Client PT State], [Gender], [PT Gross wages], [PT amount/PT amount(As per slab)]. " +
+	                    "Found in sheet: " + sheet.getSheetName());
+	            return;
+	        }
+
+	        // 4) Per-state counters
+	        Map<String, Integer> stateRowCount = new HashMap<>();
+	        Map<String, Integer> stateMismatchCount = new HashMap<>();
+	        Map<String, Set<Integer>> statePTValues = new HashMap<>();
+
+	        // Aggregated override counters (one line per rule with Count)
+	        Map<String, Integer> overrideCounters = new HashMap<>();
+
+	        int last = sheet.getLastRowNum();
+	        for (int r = 1; r <= last; r++) { // skip header
+	            Row row = sheet.getRow(r);
+	            if (row == null) continue;
+
+	            try {
+	                String state  = getString(row.getCell(colState));
+	                String gender = getString(row.getCell(colGender));
+	                Double grossD = getNumeric(row.getCell(colGross));
+	                Double actual = getNumeric(row.getCell(colPT));
+
+	                // --- skip rows with blank/unknown state ---
+	                if (state == null || state.trim().isEmpty()) {
+	                    // likely TOTAL / summary row → skip silently
+	                    continue;
+	                }
+
+	                // --- skip typical TOTAL rows (by name or serial) ---
+	                boolean isTotalRow = false;
+	                if (!isTotalRow && colEmpName >= 0) {
+	                    String empName = getString(row.getCell(colEmpName));
+	                    if (empName != null && empName.trim().toLowerCase().contains("total")) isTotalRow = true;
+	                }
+	                if (!isTotalRow && colSlNo >= 0) {
+	                    String slNo = getString(row.getCell(colSlNo));
+	                    if (slNo != null && slNo.trim().toLowerCase().contains("total")) isTotalRow = true;
+	                }
+	                if (isTotalRow) continue;
+
+	                // --- basic sanity on numbers ---
+	                if (gender == null || grossD == null || actual == null) {
+	                    test.log(LogStatus.WARNING, "⚠ Row " + (r + 1) + " skipped (missing/invalid data).");
+	                    continue;
+	                }
+	                if (grossD <= 0) continue;           // ignore garbage
+	                if (actual < 0 || actual > 5000) {   // PT cannot be massive; ignore summary spillovers
+	                    continue;
+	                }
+
+	                // 5) Base PT from backend slab (ExcelValueNormalizer expects int gross)
+	                int basePT = ExcelValueNormalizer.getPTAmount(state, grossD.intValue());
+
+	                // 6) Per-state runCount (default 1)
+	                int runCount = 1;
+	                if (stateRunCounts != null && !stateRunCounts.isEmpty()) {
+	                    runCount = stateRunCounts.getOrDefault(state.trim().toUpperCase(), 1);
+	                }
+
+	                // 7) Apply overrides (with aggregated counters)
+	                int expectedPT = applyStateOverridesAggregated(
+	                        state, basePT, grossD, gender, runCount, overrideCounters);
+
+	                // 8) Update state counters
+	                stateRowCount.put(state, stateRowCount.getOrDefault(state, 0) + 1);
+	                if (expectedPT != actual.intValue()) {
+	                    stateMismatchCount.put(state, stateMismatchCount.getOrDefault(state, 0) + 1);
+	                }
+	                statePTValues.computeIfAbsent(state, k -> new HashSet<>()).add(actual.intValue());
+
+	            } catch (Exception ex) {
+	                test.log(LogStatus.WARNING, "⚠ Row " + (r + 1) + " error: " + ex.getMessage());
+	            }
+	        }
+
+	        // 9) Final summary per state
+	        for (String state : stateRowCount.keySet()) {
+	            int totalRows = stateRowCount.get(state);
+	            int mismatches = stateMismatchCount.getOrDefault(state, 0);
+	            Set<Integer> ptValues = statePTValues.getOrDefault(state, new HashSet<>());
+
+	            if (mismatches == 0) {
+	                test.log(LogStatus.PASS, "✅ State " + state.toUpperCase() +
+	                        " | All Employee count <b>" + totalRows + "</b> rows matched as per backend logic. | PT Values: " + ptValues);
+	            } else {
+	                test.log(LogStatus.FAIL, "❌ State " + state.toUpperCase() +
+	                        " | " + mismatches + " out of " + totalRows +
+	                        " rows mismatched as per backend logic. | PT Values: " + ptValues);
+	            }
+	        }
+
+	        // 10) Aggregated override counters
+	        for (Map.Entry<String, Integer> e : overrideCounters.entrySet()) {
+	            test.log(LogStatus.INFO, e.getKey() + " | Count = " + e.getValue());
+	        }
+
+	    } catch (Exception e) {
+	        test.log(LogStatus.ERROR, "❌ Exception in validatePTAmountsUpdatedFlexible: " + e.getMessage());
+	        e.printStackTrace();
+	    }
+	}
+
+
+	// ====== Helper: apply overrides and aggregate counts (no per-row INFO spam) ======
+	private static int applyStateOverridesAggregated(
+	        String state,
+	        int expectedPT,
+	        double gross,
+	        String gender,
+	        int runCount,
+	        Map<String, Integer> counters) {
+
+	    int finalPT = expectedPT;
+	    String st = (state == null) ? "" : state.trim().toUpperCase();
+
+	    switch (st) {
+	        case "MAHARASHTRA":
+	            if ("FEMALE".equalsIgnoreCase(gender)) {
+	                if (gross <= 25000) {
+	                    finalPT = 0;
+	                    bump(counters, "Maharashtra Female | Gross ≤ 25000 | PT = 0");
+	                } else {
+	                    finalPT = 200;
+	                    bump(counters, "Maharashtra Female | Gross > 25000 | PT = 200");
+	                }
+	            }
+	            if (runCount >= 2 && expectedPT == 200) {
+	                finalPT = 300;
+	                bump(counters, "Maharashtra 2nd+ run override → PT = 300");
+	            }
+	            break;
+
+	        case "ODISHA":
+	            if (runCount >= 2 && expectedPT == 200) {
+	                finalPT = 300;
+	                bump(counters, "Odisha 2nd+ run override → PT = 300");
+	            }
+	            break;
+
+	        case "MADHYA PRADESH":
+	        	if("MADHYA PRADESH".equalsIgnoreCase(st)) {
+	            if (runCount >= 2) {
+	                if (expectedPT == 166) {
+	                    finalPT = 174;
+	                    bump(counters, "Madhya Pradesh 2nd+ run override → 166 → 174");
+	                } else if (expectedPT == 208) {
+	                    finalPT = 212;
+	                    bump(counters, "Madhya Pradesh 2nd+ run override → 208 → 212");
+	                }
+	            }
+	        	}
+	            break;
+
+	        case "JAMMU & KASHMIR":
+	            if (runCount >= 2 && expectedPT == 208) {
+	                finalPT = 212;
+	                bump(counters, "J&K 2nd+ run override → 208 → 212");
+	            }
+	            break;
+
+	        case "KARNATAKA":
+	            if (runCount >= 2 && expectedPT == 200) {
+	                finalPT = 300;
+	                bump(counters, "Karnataka 2nd+ run override → 200 → 300");
+	            }
+	            break;
+	    }
+	    return finalPT;
+	}
+
+	// ====== Small helpers ======
+	private static void bump(Map<String, Integer> map, String key) {
+	    map.put(key, map.getOrDefault(key, 0) + 1);
+	}
+
+	private static int findColIndex(Row header, String... candidates) {
+	    for (Cell c : header) {
+	        String h = getString(c);
+	        if (h == null) continue;
+	        for (String cand : candidates) {
+	            if (h.equalsIgnoreCase(cand) || h.toLowerCase().contains(cand.toLowerCase())) {
+	                return c.getColumnIndex();
+	            }
+	        }
+	    }
+	    return -1;
+	}
+
+	private static String getString(Cell cell) {
+	    if (cell == null) return null;
+	    switch (cell.getCellType()) {
+	        case STRING:  return cell.getStringCellValue().trim();
+	        case NUMERIC: return String.valueOf((long) cell.getNumericCellValue());
+	        case BOOLEAN: return String.valueOf(cell.getBooleanCellValue());
+	        default: return null;
+	    }
+	}
+
+	private static Double getNumeric(Cell cell) {
+	    if (cell == null) return null;
+	    switch (cell.getCellType()) {
+	        case NUMERIC: return cell.getNumericCellValue();
+	        case STRING:
+	            try { return Double.parseDouble(cell.getStringCellValue().trim()); }
+	            catch (Exception ignore) { return null; }
+	        default: return null;
+	    }
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+/*
+	public static void validatePTAmountsUpdated(
+	        File downloadedExcelFile,
+	        ExtentTest test,
+	        Map<String, Integer> stateRunCounts) {
+
+	    try (FileInputStream fis = new FileInputStream(downloadedExcelFile);
+	         Workbook wb = WorkbookFactory.create(fis)) {
+
+	        Sheet sheet = wb.getSheet("PT Report");
+	        if (sheet == null) {
+	            test.log(LogStatus.ERROR, "❌ Sheet 'PT Report' not found in file: " + downloadedExcelFile.getName());
+	            return;
+	        }
+
+	        // Track counts & values per state
+	        Map<String, Integer> stateRowCount = new HashMap<>();
+	        Map<String, Integer> stateMismatchCount = new HashMap<>();
+	        Map<String, Set<Integer>> statePTValues = new HashMap<>();
+
+	        // 🔹 Aggregated override counters
+	        Map<String, Integer> overrideCounters = new HashMap<>();
+
+	        for (Row row : sheet) {
+	            if (row.getRowNum() == 0) continue; // skip header
+
+	            try {
+	                // State (col index 6 = G)
+	                Cell stateCell = row.getCell(6);
+	                if (stateCell == null) continue;
+	                String state = stateCell.getStringCellValue().trim();
+
+	                // Gender (col index 5 = F)
+	                Cell genderCell = row.getCell(5);
+	                String gender = (genderCell != null) ? genderCell.getStringCellValue().trim() : "";
+
+	                // Gross Wages (col index 8 = I)
+	                Cell grossCell = row.getCell(8);
+	                if (grossCell == null) continue;
+	                double gross = grossCell.getNumericCellValue();
+
+	                // Actual PT Amount (col index 10 = K)
+	                Cell ptCell = row.getCell(10);
+	                if (ptCell == null) continue;
+	                double actualPT = ptCell.getNumericCellValue();
+
+	                // Base PT slab from backend
+	                int basePT = ExcelValueNormalizer.getPTAmount(state, (int) gross);
+
+	                // State-specific run count (default = 1)
+	                int runCount = stateRunCounts.getOrDefault(state.toUpperCase(), 1);
+
+	                // Apply overrides (with counter tracking)
+	                int expectedPT = applyStateOverrides(
+	                        state, basePT, gross, gender, runCount, overrideCounters);
+
+	                // Row counters
+	                stateRowCount.put(state, stateRowCount.getOrDefault(state, 0) + 1);
+	                if (expectedPT != (int) actualPT) {
+	                    stateMismatchCount.put(state, stateMismatchCount.getOrDefault(state, 0) + 1);
+	                }
+
+	                // Collect unique PT values
+	                statePTValues.computeIfAbsent(state, k -> new HashSet<>()).add((int) actualPT);
+
+	            } catch (Exception ex) {
+	                test.log(LogStatus.WARNING, "⚠ Row " + (row.getRowNum() + 1) +
+	                        " skipped due to error: " + ex.getMessage());
+	            }
+	        }
+
+	        // Final summary per state
+	        for (String state : stateRowCount.keySet()) {
+	            int totalRows = stateRowCount.get(state);
+	            int mismatches = stateMismatchCount.getOrDefault(state, 0);
+	            Set<Integer> ptValues = statePTValues.getOrDefault(state, new HashSet<>());
+
+	            if (mismatches == 0) {
+	                test.log(LogStatus.PASS, "✅ State " + state.toUpperCase() +
+	                        " | All " + totalRows + " rows matched as per masters." +
+	                        " | PT Values: " + ptValues);
+	            } else {
+	                test.log(LogStatus.FAIL, "❌ State " + state.toUpperCase() +
+	                        " | " + mismatches + " out of " + totalRows +
+	                        " rows mismatched as per masters." +
+	                        " | PT Values: " + ptValues);
+	            }
+	        }
+
+	        // 🔹 Log aggregated override counters
+	        for (Map.Entry<String,Integer> entry : overrideCounters.entrySet()) {
+	            test.log(LogStatus.INFO, entry.getKey() + " | Count = " + entry.getValue());
+	        }
+
+	    } catch (Exception e) {
+	        test.log(LogStatus.ERROR, "❌ Exception in validatePTAmountsUpdated: " + e.getMessage());
+	        e.printStackTrace();
+	    }
+	}
+
+
+	// 🔹 Helper for overrides (aggregated logging only)
+	private static int applyStateOverrides(
+	        String state,
+	        int expectedPT,
+	        double gross,
+	        String gender,
+	        int runCount,
+	        Map<String,Integer> overrideCounters) {
+
+	    int finalPT = expectedPT;
+
+	    switch (state.toUpperCase()) {
+	        case "MAHARASHTRA":
+	            if ("FEMALE".equalsIgnoreCase(gender)) {
+	                if (gross <= 25000) {
+	                    finalPT = 0;
+	                    String key = "Maharashtra Female | Gross ≤ 25000 | PT = 0";
+	                    overrideCounters.put(key, overrideCounters.getOrDefault(key, 0) + 1);
+	                } else {
+	                    finalPT = 200;
+	                    String key = "Maharashtra Female | Gross > 25000 | PT = 200";
+	                    overrideCounters.put(key, overrideCounters.getOrDefault(key, 0) + 1);
+	                }
+	            }
+	            if (runCount >= 2 && expectedPT == 200) {
+	                finalPT = 300;
+	                String key = "Maharashtra 2nd+ run override → PT = 300";
+	                overrideCounters.put(key, overrideCounters.getOrDefault(key, 0) + 1);
+	            }
+	            break;
+
+	        case "ODISHA":
+	            if (runCount >= 2 && expectedPT == 200) {
+	                finalPT = 300;
+	                String key = "Odisha 2nd+ run override → PT = 300";
+	                overrideCounters.put(key, overrideCounters.getOrDefault(key, 0) + 1);
+	            }
+	            break;
+
+	        case "MADHYA PRADESH":
+	            if (runCount >= 2) {
+	                if (expectedPT == 166) {
+	                    finalPT = 174;
+	                    String key = "Madhya Pradesh 2nd+ run override → 166 → 174";
+	                    overrideCounters.put(key, overrideCounters.getOrDefault(key, 0) + 1);
+	                } else if (expectedPT == 208) {
+	                    finalPT = 212;
+	                    String key = "Madhya Pradesh 2nd+ run override → 208 → 212";
+	                    overrideCounters.put(key, overrideCounters.getOrDefault(key, 0) + 1);
+	                }
+	            }
+	            break;
+
+	        case "JAMMU & KASHMIR":
+	            if (runCount >= 2 && expectedPT == 208) {
+	                finalPT = 212;
+	                String key = "J&K 2nd+ run override → 208 → 212";
+	                overrideCounters.put(key, overrideCounters.getOrDefault(key, 0) + 1);
+	            }
+	            break;
+
+	        case "KARNATAKA":
+	            if (runCount >= 2 && expectedPT == 200) {
+	                finalPT = 300;
+	                String key = "Karnataka 2nd+ run override → 200 → 300";
+	                overrideCounters.put(key, overrideCounters.getOrDefault(key, 0) + 1);
+	            }
+	            break;
+	    }
+
+	    return finalPT;
+	}
+
+	
+
+*/
+
+
+	
+	
+
+	
+	
+	
+	
 	public static void validatePTAmounts(File downloadedExcelFile, ExtentTest test) {
 	    try (FileInputStream fis = new FileInputStream(downloadedExcelFile)) {
 	        Workbook wb = WorkbookFactory.create(fis);
@@ -1810,41 +2749,74 @@ public class PT_ConsolidatedMethods extends BasePage {
         
         
         
+        //DOCAUTOO4:--
+        
+        // 📌 Step 1: Prepare MULTI filters for Master (0-based indices)
+        List<ExcelFilter> allFilters = new ArrayList<>();
+
+        // Example filter-1: Status (column 38) == "Active"
+        allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+
+        // Example filter-2:
+        allFilters.add(new ExcelFilter(58, Arrays.asList("No")));
+
+        // 🗂️ Step 2: Master file details
+        String masterSheetName   = "EmployeeMaster";
+        int masterColumnIndex    = 3;  // e.g., EmpID/Name column used by your utility (0-based)
+        String applyFilterFlag   = "YES"; // << IMPORTANT: to enable applying the filters
+
+        ExcelFileDetails masterFileDetails = new ExcelFileDetails(
+                EMPmasterFilePath,
+                masterSheetName,
+                masterColumnIndex,
+                allFilters,
+                applyFilterFlag
+        );
+
+        // 🎯 Step 3: Target validation (downloaded file)
+        String targetSheetName      = "Non Applicable Employees";
+        int targetColumnIndex       = 1;             // 0-based (e.g., column B)
+        String targetHeaderKeyword  = "Employee ID"; // header text to locate column/row
+        int targetStartRow          = 0;
+
+        ExcelTargetValidation targetValidation = new ExcelTargetValidation(
+                targetSheetName,
+                targetColumnIndex,
+                targetHeaderKeyword,
+                targetStartRow
+        );
+
+        // ⚙️ Step 4: Extra config (no total logic in this scenario)
+        String totalLogicEnabled = "NO"; // keep NO if you don't want total-row flow
+        int totalColumnIndex     = 0;
+        String totalKeyword      = "";
+
+        ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+                totalLogicEnabled,
+                totalColumnIndex,
+                totalKeyword
+        );
+
+        // ✅ Step 5: Final call
+        CommonBusinessUtilis.validateExcelBusinessData(
+                downloadedExcelFile,
+                test,
+                masterFileDetails,
+                targetValidation,
+                extraConfig,
+                "Employee IDs are reflecting properly as per masters! (multi-filter)"
+        );
         
         
-/**		CommonBusinessUtilis.validateExcelBusinessData(
-			    downloadedExcelFile,
-			    test,
-			    new ExcelFileDetails(
-			        masterFilePath,
-			        "EmployeeMaster",  // ✅ Sheet name from master file
-			        5,                 // ✅ Column index for EmpName in Master (F column = index 5)
-			        Arrays.asList(
-			            new ExcelFilter(58, Arrays.asList("No"))  // ✅ J column = index 6
-			        ),
-			        "YES"               // ✅ No filter to apply
-			    ),
-			    new ExcelTargetValidation(
-			        "Non Applicable Employees",      // ✅ Sheet name in downloaded file
-			        1,                 // ✅ Column index where Employee Names appear (C column = index 2)
-			        "Employee ID",   // ✅ Keyword to search in header row (or logs)
-			        0                  // ✅ Start directly from header row
-			    ),
-			    new ExcelExtraConfig("", 0, ""),  // ✅ No Total logic needed
-			    "🧪 Validating based on Master File"
-			);
-        
-        **/
         
         
         
         
-        
-        // 🧪 Step 3: Prepare master file filters
+  /*      // 🧪 Step 3: Prepare master file filters
         int filterColumnIndex = 58;
         List<String> filterValues = new ArrayList<>();
         filterValues.add("No"); //FiName
-        filterValues.add(""); //Blank
+//      filterValues.add(""); //Blank
 
         ExcelFilter regionFilter = new ExcelFilter(filterColumnIndex, filterValues);
         List<ExcelFilter> allFilters = new ArrayList<>();
@@ -1854,11 +2826,11 @@ public class PT_ConsolidatedMethods extends BasePage {
         String masterSheetName = "EmployeeMaster";
         int masterColumnIndex = 3;
         ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-        	EmployeeMaster_NAEmployee,
+        	EMPmasterFilePath,
             masterSheetName,
             masterColumnIndex,
             allFilters,
-            "No"
+            "Yes"
         );
 
         // 🎯 Step 5: Prepare Target validation for downloaded file
@@ -1894,7 +2866,7 @@ public class PT_ConsolidatedMethods extends BasePage {
             extraConfig,
             "Employee IDs are reflecting properly as per masters!"
         );
-		
+		*/
 	}
 	public static void ChallanPTConsolated_NAE_EmployeeName( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
@@ -1957,7 +2929,7 @@ public class PT_ConsolidatedMethods extends BasePage {
         // 🎯 Step 1: Prepare Target validation first (Downloaded file details)
         String targetHeaderKeyword = "Emp Name";
         int targetColumnIndex = 2;
-        String targetSheetName = "PT Report";
+        String targetSheetName = "Non Applicable Employees";
         int targetStartRow = 0;
 
         ExcelTargetValidation targetValidation = new ExcelTargetValidation(
@@ -1968,8 +2940,8 @@ public class PT_ConsolidatedMethods extends BasePage {
         );
 
         // 🧪 Step 2: Prepare Master file filters
-        List<String> filterValues = Arrays.asList("KAR");
-        ExcelFilter regionFilter = new ExcelFilter(6, filterValues);
+        List<String> filterValues = Arrays.asList("No");
+        ExcelFilter regionFilter = new ExcelFilter(58, filterValues);
         List<ExcelFilter> allFilters = Collections.singletonList(regionFilter);
 
         // 📊 Step 3: Prepare Master file details
@@ -1977,11 +2949,11 @@ public class PT_ConsolidatedMethods extends BasePage {
         String masterSheetName = "EmployeeMaster";
 
         ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-        	EmployeeMaster_NAEmployee,
+        	EMPmasterFilePath,
             masterSheetName,
             masterColumnIndex,
             allFilters,
-            "NO"
+            "Yes"
         );
 
         // 🛠️ Step 4: Extra Config — No total logic

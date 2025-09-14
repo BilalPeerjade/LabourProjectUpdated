@@ -240,11 +240,36 @@ public class CoordinatorTestCases extends BasePage
    		test = extent.startTest("Notices - Add New - Verify to check Receipt Acknowledgement Browse button is enabled or not ");
    		CoordinatorMethod.NoticeAddNewRecepitAcknowledgement("Doc File",test);
 		
-   		test = extent.startTest("Notices - Add New - Receipt Acknowledgement - Verify to upload Doc file");
+   		test = extent.startTest("Notices - Add New - Receipt Acknowledgement - Verify to upload DOC file");
    		CoordinatorMethod.NoticeAddNewRecepitAcknowledgement_2("Doc File",test);
+   		
+   		test = extent.startTest("Notices - Add New - Receipt Acknowledgement - Verify to upload DOCX file");
+   		CoordinatorMethod.NoticeAddNewRecepitAcknowledgement_2("DOCX File",test);
    		
    		test = extent.startTest("Notices - Add New - Receipt Acknowledgement - Verify to upload PDF file");
    		CoordinatorMethod.NoticeAddNewRecepitAcknowledgement_2("PDF File",test);
+   		
+   		
+   		test = extent.startTest("Notices - Add New - Receipt Acknowledgement - Verify to check error with upload XLS file");
+   		CoordinatorMethod.NoticeAddNewRecepitAcknowledgementValidation("Validation : XLS",test);
+   		
+   		test = extent.startTest("Notices - Add New - Receipt Acknowledgement - Verify to check error with upload {XLSX} file");
+   		CoordinatorMethod.NoticeAddNewRecepitAcknowledgementValidation("Validation : XLSX",test);
+   		
+   		test = extent.startTest("Notices - Add New - Receipt Acknowledgement - Verify to check error with upload ZIP file");
+   		CoordinatorMethod.NoticeAddNewRecepitAcknowledgementValidation("Validation : ZIP",test);
+   		
+   		test = extent.startTest("Notices - Add New - Receipt Acknowledgement - Verify to check error with upload TXT file");
+   		CoordinatorMethod.NoticeAddNewRecepitAcknowledgementValidation("Validation : TXT",test);
+   		
+   		test = extent.startTest("Notices - Add New - Receipt Acknowledgement - Verify to check error with upload PNG file");
+   		CoordinatorMethod.NoticeAddNewRecepitAcknowledgementValidation("Validation : PNG",test);
+   		
+   		test = extent.startTest("Notices - Add New - Receipt Acknowledgement - Verify to check error with upload JPEG file");
+   		CoordinatorMethod.NoticeAddNewRecepitAcknowledgementValidation("Validation : JPEG",test);
+   		
+   		test = extent.startTest("Notices - Add New - Receipt Acknowledgement - Verify to check error with upload HTML file");
+   		CoordinatorMethod.NoticeAddNewRecepitAcknowledgementValidation("Validation : HTML",test);
    		
    		
    		extent.endTest(test);
@@ -663,7 +688,7 @@ public class CoordinatorTestCases extends BasePage
    	}
  	
  	//Sometimes running sometimes not
-//	@Test(priority = 44) //Bilal   Pending Tried with all clicks but now working
+	@Test(priority = 44) //Bilal   Pending Tried with all clicks but now working
    	void EditIconDocumentRepoDownload() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Registration - Edit - Verify to download documents from document repository.");

@@ -307,6 +307,126 @@ public class ESIC_ConsolatedMethod extends BasePage {
             "Client Employee ESI are reflecting properly as per masters !"
         );
 	}
+	
+	public static void ESIC_AllEMPWorkings_ESINo( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		ESIC_Consolated_Redirection(test, user);
+		
+		
+        // 🧪 Step 3: Prepare master file filters
+        int filterColumnIndex = 38;
+        List<String> filterValues = new ArrayList<>();
+        filterValues.add("Active");
+
+        ExcelFilter regionFilter = new ExcelFilter(filterColumnIndex, filterValues);
+        List<ExcelFilter> allFilters = new ArrayList<>();
+        allFilters.add(regionFilter);
+
+        // 📊 Step 4: Prepare ExcelFileDetails for Master
+        String masterSheetName = "EmployeeMaster";
+        int masterColumnIndex = 18;
+        ExcelFileDetails masterFileDetails = new ExcelFileDetails(
+        	EMPmasterFilePath,
+            masterSheetName,
+            masterColumnIndex,
+            allFilters,
+            "Yes"
+        );
+
+        // 🎯 Step 5: Prepare Target validation for downloaded file
+        String targetSheetName = "All Emp Workings";
+        int targetColumnIndex = 12;
+        String targetHeaderKeyword = "ESI NO";
+        int targetStartRow = 0;
+
+        ExcelTargetValidation targetValidation = new ExcelTargetValidation(
+            targetSheetName,
+            targetColumnIndex,
+            targetHeaderKeyword,
+            targetStartRow
+        );
+
+        // 🛠️ Step 6: Prepare Extra Config (No total row logic here)
+        String totalLogicEnabled = "";
+        int totalColumnIndex = 0;
+        String totalKeyword = "";
+
+        ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+            totalLogicEnabled,
+            totalColumnIndex,
+            totalKeyword
+        );
+
+        // ✅ Step 7: Final call to reusable validator
+        CommonBusinessUtilis.validateExcelBusinessData(
+            downloadedExcelFile,
+            test,
+            masterFileDetails,
+            targetValidation,
+            extraConfig,
+            "ESI NO are reflecting properly as per masters !"
+        );
+	}
+	public static void ESIC_AllEMPWorkings_ClientESICode( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+	//	ESIC_Consolated_Redirection(test, user);
+		
+		
+        // 🧪 Step 3: Prepare master file filters
+        int filterColumnIndex = 38;
+        List<String> filterValues = new ArrayList<>();
+        filterValues.add("Active");
+
+        ExcelFilter regionFilter = new ExcelFilter(filterColumnIndex, filterValues);
+        List<ExcelFilter> allFilters = new ArrayList<>();
+        allFilters.add(regionFilter);
+
+        // 📊 Step 4: Prepare ExcelFileDetails for Master
+        String masterSheetName = "EmployeeMaster";
+        int masterColumnIndex = 86;
+        ExcelFileDetails masterFileDetails = new ExcelFileDetails(
+        	EMPmasterFilePath,
+            masterSheetName,
+            masterColumnIndex,
+            allFilters,
+            "Yes"
+        );
+
+        // 🎯 Step 5: Prepare Target validation for downloaded file
+        String targetSheetName = "All Emp Workings";
+        int targetColumnIndex = 13;
+        String targetHeaderKeyword = "Client ESICode";
+        int targetStartRow = 0;
+
+        ExcelTargetValidation targetValidation = new ExcelTargetValidation(
+            targetSheetName,
+            targetColumnIndex,
+            targetHeaderKeyword,
+            targetStartRow
+        );
+
+        // 🛠️ Step 6: Prepare Extra Config (No total row logic here)
+        String totalLogicEnabled = "";
+        int totalColumnIndex = 0;
+        String totalKeyword = "";
+
+        ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+            totalLogicEnabled,
+            totalColumnIndex,
+            totalKeyword
+        );
+
+        // ✅ Step 7: Final call to reusable validator
+        CommonBusinessUtilis.validateExcelBusinessData(
+            downloadedExcelFile,
+            test,
+            masterFileDetails,
+            targetValidation,
+            extraConfig,
+            "Client ESI Code are reflecting properly as per masters !"
+        );
+	}
+	
 	public static void ESIC_AllEMPWorkings_EmployeeName( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		ESIC_Consolated_Redirection(test, user);

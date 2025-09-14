@@ -761,7 +761,7 @@ public class PerformerTest extends BasePage {
 	{
 		test = extent.startTest("Compliance Assignment Report ");
 		
-		MethodsD.Report(test,"Performer");
+		MethodsD.CompAssignmentReport(test,"Performer");
 		
 		extent.endTest(test);
 		extent.flush();
@@ -772,7 +772,7 @@ public class PerformerTest extends BasePage {
 	{
 		test = extent.startTest("Status Report ");
 		
-		MethodsD.StatusReport(test,"Performer");
+		MethodsD.DistMyReportStatusReport(test,"Performer");
 		
 		extent.endTest(test);
 		extent.flush();

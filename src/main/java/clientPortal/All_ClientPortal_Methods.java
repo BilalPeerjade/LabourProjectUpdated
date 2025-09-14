@@ -2368,7 +2368,7 @@ public class All_ClientPortal_Methods extends BasePage {
 				test.log(LogStatus.FAIL, "Docs File is not uploaded in Recepit Acknowledgement browse button");
 			}
 		}
-		
+		Thread.sleep(5000);
 		if(validation.equalsIgnoreCase("RA : Doc"))
 		{
 			All_ClientPortal_Locators.browse1().click();
@@ -2386,7 +2386,7 @@ public class All_ClientPortal_Methods extends BasePage {
 				test.log(LogStatus.FAIL, "Doc File is not uploaded in Recepit Acknowledgement browse button");
 			}
 		}
-		
+		Thread.sleep(5000);
 		if(validation.equalsIgnoreCase("RA : XLSX"))
 		{
 			Thread.sleep(5000);
@@ -2407,7 +2407,7 @@ public class All_ClientPortal_Methods extends BasePage {
 			All_ClientPortal_Locators.clickOkBtn().click();
 			Thread.sleep(5000);
 		}
-		
+		Thread.sleep(5000);
 		if(validation.equalsIgnoreCase("RA : XLS"))
 		{
 			Thread.sleep(5000);
@@ -2428,7 +2428,7 @@ public class All_ClientPortal_Methods extends BasePage {
 			All_ClientPortal_Locators.clickOkBtn().click();
 			Thread.sleep(5000);
 		}
-		
+		Thread.sleep(5000);
 		if(validation.equalsIgnoreCase("RA : ZIP"))
 		{
 			Thread.sleep(5000);
@@ -2449,7 +2449,7 @@ public class All_ClientPortal_Methods extends BasePage {
 			All_ClientPortal_Locators.clickOkBtn().click();
 			Thread.sleep(5000);
 		}
-		
+		Thread.sleep(5000);
 		if(validation.equalsIgnoreCase("RA : JPG"))
 		{
 			Thread.sleep(5000);
@@ -2470,7 +2470,7 @@ public class All_ClientPortal_Methods extends BasePage {
 			All_ClientPortal_Locators.clickOkBtn().click();
 			Thread.sleep(5000);
 		}
-		
+		Thread.sleep(5000);
 		if(validation.equalsIgnoreCase("RA : JPEG"))
 		{
 			Thread.sleep(5000);
@@ -2491,7 +2491,120 @@ public class All_ClientPortal_Methods extends BasePage {
 			All_ClientPortal_Locators.clickOkBtn().click();
 			Thread.sleep(5000);
 		}
+		Thread.sleep(5000);
+		if(validation.equalsIgnoreCase("RA : More than 30MB"))
+		{
+			Thread.sleep(5000);
+			All_ClientPortal_Locators.browse1().click();
+			OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\99mb.pdf");
+			Thread.sleep(5000);Thread.sleep(5000);
+			String jpgFile = All_ClientPortal_Locators.clickMsg().getText();
+			if(jpgFile.equalsIgnoreCase("File size should not exceed 30Mb limit"))
+			{
+				test.log(LogStatus.PASS, "While uploading More than 30MB file in Recepit Acknowledgement browse button error message displayed ");
+				test.log(LogStatus.PASS, "Message Displayed:- " + jpgFile);
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "More than 30MB File is not uploaded in Recepit Acknowledgement browse button");
+				test.log(LogStatus.FAIL, "Message displayed: " + jpgFile);
+			}
+			Thread.sleep(5000);
+			All_ClientPortal_Locators.clickOkBtn().click();
+			Thread.sleep(5000);
+		}
 		
+		
+		
+		
+		Thread.sleep(5000);
+		
+		//ND = Notice Document
+		if(validation.equalsIgnoreCase("ND : PDF"))
+		{
+			All_ClientPortal_Locators.browse2().click();
+			OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\Test.pdf");
+			
+			String pdfFile = getDriver().findElement(By.xpath("//span[@title='Test.pdf']")).getText();
+			
+			if(pdfFile.equalsIgnoreCase("Test.pdf"))
+			{
+				test.log(LogStatus.PASS, "PDF File is uploaded successfully in Notice Document browse button");
+				test.log(LogStatus.PASS, "File Name displayed :- " + pdfFile);
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "PDF File is not uploaded in Notice Document browse button");
+			}
+		}
+		
+		
+		Thread.sleep(5000);
+		
+		//ND = Notice Document
+		if(validation.equalsIgnoreCase("ND : Docs"))
+		{
+			All_ClientPortal_Locators.browse2().click();
+			OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleDocxFile.docx");
+			
+			String docsFile = getDriver().findElement(By.xpath("//span[@title='SampleDocxFile.docx']")).getText();
+			
+			if(docsFile.equalsIgnoreCase("SampleDocxFile.docx"))
+			{
+				test.log(LogStatus.PASS, "Docx File is uploaded successfully in Notice Document browse button");
+				test.log(LogStatus.PASS, "File Name displayed :- " + docsFile);
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "Docx File is not uploaded in Notice Document browse button");
+			}
+		}
+		
+		Thread.sleep(5000);
+		if(validation.equalsIgnoreCase("ND : Doc"))
+		{
+			All_ClientPortal_Locators.browse2().click();
+			OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleDocFile.doc");
+			
+			String docFile = getDriver().findElement(By.xpath("//span[@title='SampleDocFile.doc']")).getText();
+			
+			if(docFile.equalsIgnoreCase("SampleDocFile.doc"))
+			{
+				test.log(LogStatus.PASS, "Doc File is uploaded successfully in Notice Document browse button");
+				test.log(LogStatus.PASS, "File Name displayed :- " + docFile);
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "Doc File is not uploaded in Notice Document browse button");
+			}
+		}
+		
+		Thread.sleep(5000);
+		if(validation.equalsIgnoreCase("ND : XLSX"))
+		{
+			Thread.sleep(5000);
+			All_ClientPortal_Locators.browse2().click();
+			OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\ComplianceRecords.xlsx");
+			
+			String xlsxFile = All_ClientPortal_Locators.clickMsg().getText();
+			if(xlsxFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
+			{
+				test.log(LogStatus.PASS, "While uploading XLSX file in Notice Document browse button error message displayed ");
+				test.log(LogStatus.PASS, "Message Displayed:- " + xlsxFile);
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "Message Displayed:- " + xlsxFile);
+			}
+			Thread.sleep(5000);
+			All_ClientPortal_Locators.clickOkBtn().click();
+			Thread.sleep(5000);
+		}
+		
+		
+	}
+	public static void OpenNotice_BrowseUploadValidation3(String validation,  ExtentTest test) throws Exception
+	{
 		
 	}
 	
@@ -4105,7 +4218,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		//Performing double click
 		Actions actions = new Actions(getDriver());
 		// Perform double-click on the element
-		actions.doubleClick(All_ClientPortal_Locators.HistoryButton2()).perform();
+		actions.doubleClick(All_ClientPortal_Locators.History()).perform();
 		
 		
 		Thread.sleep(5000);
@@ -6723,6 +6836,17 @@ public class All_ClientPortal_Methods extends BasePage {
 			test.log(LogStatus.PASS,  "View successfully.");
 		
 		
+	}
+	public static void ClosedDownload(  ExtentTest test) throws InterruptedException, IOException
+	{     Thread.sleep(5000);
+	
+	OneCommonMethod.validateFileDownloadDynamic(
+		    driver.get(),
+		    test,
+		    All_ClientPortal_Locators.compliancePerformanceFileDownPopup(),   // WebElement
+		    "Document File Downloaded"   // Dynamic log message
+		);
+	
 	}
 	public static void NoticeStatusClosedPagination(  ExtentTest test) throws InterruptedException, IOException
 	{Thread.sleep(5000);
@@ -9794,7 +9918,7 @@ public class All_ClientPortal_Methods extends BasePage {
    		
    	 	All_ClientPortal_Locators.InputUpload().click();
    	 
-   		Thread.sleep(5000);
+   		Thread.sleep(8000);
    		All_ClientPortal_Locators.Challan().click();
    		Thread.sleep(5000);
    		All_ClientPortal_Locators.Challan1().click();
