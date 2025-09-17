@@ -22,7 +22,7 @@ import java.lang.reflect.Method;
 public class ExcelUtils {
 
     // ✅ Read specific column from master file with optional filter
-    public static Set<String> readFilteredColumnValues(String filePath, String sheetName, int targetColumnIndex, List<ExcelFilter> filters) {
+    public static Set<String> readFilteredColumnValues(String filePath, String sheetName, int targetColumnIndex, List<methodsb> filters) {
         Set<String> values = new HashSet<>();
 
         try (FileInputStream fis = new FileInputStream(new File(filePath))) {
@@ -35,7 +35,7 @@ public class ExcelUtils {
                 boolean match = true;
 
                 if (filters != null) {
-                    for (ExcelFilter filter : filters) {
+                    for (methodsb filter : filters) {
                         Cell filterCell = row.getCell(filter.getColumnIndex());
                         String cellValue = filterCell != null ? filterCell.toString().trim() : "";
                         if (!filter.getValues().contains(cellValue)) {

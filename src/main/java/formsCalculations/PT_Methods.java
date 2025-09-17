@@ -41,7 +41,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import businessChallanForms.PT_ConsolidatedMethods;
-import businessTestCases.CommonBusinessUtilis;
+import businessTestCases.UtilisOne;
 import businessTestCases.FilePath;
 import login.BasePage;
 import login.LoginLocators;
@@ -50,7 +50,7 @@ import rcp.OneCommonMethod;
 import utils.DownloadHelper;
 import utils.ExcelExtraConfig;
 import utils.ExcelFileDetails;
-import utils.ExcelFilter;
+import utils.methodsb;
 import utils.ExcelTargetValidation;
 import utils.ExcelUtils;
 import utils.ExcelValueNormalizer;
@@ -67,16 +67,17 @@ public class PT_Methods extends BasePage{
 	
 	//DOCAUTOO4
 //	public static String masterFilePath = "D:\\Upload Automation Files\\BusinessScenarios\\DOCAUTOO4\\EmployeeMaster.xlsx";
-//	public static String masterFilePath = "D:\\Upload Automation Files\\BusinessScenarios\\DOCAUTOO4\\#1 Aug2025\\EmployeeMaster2.xlsx";
+	public static String masterFilePath = "D:\\Upload Automation Files\\BusinessScenarios\\DOCAUTOO4\\#1 Aug2025\\EmployeeMaster2.xlsx";
 	public static String salaryFile = "D:\\Upload Automation Files\\BusinessScenarios\\Month\\SampleSalary_TESTAUTO.xlsx";
 	
-	public static final boolean ENABLE_HTML_REPORT_TABLE = false; // HTML Report toggle
+
 	
 	
 	
 	
 	
 	
+
 	
 	
 	
@@ -268,12 +269,12 @@ public class PT_Methods extends BasePage{
         */
         
         
-     // 🧪 Step 3: Prepare master file filters
+      
         int filterColumnIndex = 6;
         List<String> filterValues = Arrays.asList("KAR");
-        ExcelFilter regionFilter = new ExcelFilter(filterColumnIndex, filterValues);
-        List<ExcelFilter> allFilters = new ArrayList<>();
-        allFilters.add(regionFilter);
+        methodsb regionFilter = new methodsb(filterColumnIndex, filterValues);
+        List<methodsb> af = new ArrayList<>();
+        af.add(regionFilter);
 
         // 📊 Step 4: Prepare ExcelFileDetails for Master
         String masterSheetName = "EmployeeMaster";
@@ -282,7 +283,7 @@ public class PT_Methods extends BasePage{
         	FilePath.EMPLOYEE_MASTER,
             masterSheetName,
             masterColumnIndex,
-            allFilters,
+            af,
             "NO"
         );
 
@@ -302,7 +303,7 @@ public class PT_Methods extends BasePage{
         ExcelExtraConfig extraConfig = new ExcelExtraConfig("", 0, "");
 
         // ✅ Step 7: Final call to reusable validator
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
         	downloadedExcelFile,
             test,
             masterFileDetails,
@@ -446,14 +447,14 @@ public class PT_Methods extends BasePage{
         
         
         
-        // 🧪 Step 3: Prepare master file filters
+         
         int filterColumnIndex = 6;
         List<String> filterValues = new ArrayList<>();
         filterValues.add("KAR");
 
-        ExcelFilter regionFilter = new ExcelFilter(filterColumnIndex, filterValues);
-        List<ExcelFilter> allFilters = new ArrayList<>();
-        allFilters.add(regionFilter);
+        methodsb regionFilter = new methodsb(filterColumnIndex, filterValues);
+        List<methodsb> af = new ArrayList<>();
+        af.add(regionFilter);
 
         // 📊 Step 4: Prepare ExcelFileDetails for Master
         String masterSheetName = "EmployeeMaster";
@@ -462,7 +463,7 @@ public class PT_Methods extends BasePage{
         	FilePath.EMPLOYEE_MASTER,
             masterSheetName,
             masterColumnIndex,
-            allFilters,
+            af,
             "NO"
         );
 
@@ -491,7 +492,7 @@ public class PT_Methods extends BasePage{
         );
 
         // ✅ Step 7: Final call to reusable validator
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -695,12 +696,12 @@ public class PT_Methods extends BasePage{
         */
         
         
- /*    // 🧪 Step 3: Prepare master file filters
+ /*     
         int filterColumnIndex = 6;
         List<String> filterValues = Arrays.asList("KAR");
         ExcelFilter regionFilter = new ExcelFilter(filterColumnIndex, filterValues);
-        List<ExcelFilter> allFilters = new ArrayList<>();
-        allFilters.add(regionFilter);
+        List<ExcelFilter> af = new ArrayList<>();
+        af.add(regionFilter);
 
         // 📊 Step 4: Prepare ExcelFileDetails for Master
         String masterSheetName = "EmployeeMaster";
@@ -709,7 +710,7 @@ public class PT_Methods extends BasePage{
         	masterFilePath,
             masterSheetName,
             masterColumnIndex,
-            allFilters,
+            af,
             "NO"
         );
 
@@ -739,104 +740,104 @@ public class PT_Methods extends BasePage{
             "Validating Emplpoyee Names from Employee Master file"
         );
         */
-        
-        try {
-		    // ✅ FILTER setup: Only select rows in master file where State == "KAR"
-		    ExcelFilter filter = new ExcelFilter();
-		    filter.setColumnName("State"); // only for readability/logging
-		    filter.setValues(Arrays.asList("KAR"));
-		    List<ExcelFilter> filters = new ArrayList<>();
-		    filters.add(filter);
-
-		    // ✅ MASTER FILE CONFIG
-		    ExcelFileDetails masterDetails = new ExcelFileDetails();
-		    masterDetails.setFilePath(FilePath.EMPLOYEE_MASTER); // Global master path
-		    masterDetails.setSheetName("EmployeeMaster");
-		    masterDetails.setEmpNameColumnIndex(3); // D column (0-based)
-		    masterDetails.setApplyFilter("NO");
-		    masterDetails.setFilters(filters);
-
-		    // ✅ DOWNLOADED FILE CONFIG
-		    ExcelTargetValidation targetDetails = new ExcelTargetValidation();
-		    targetDetails.setSheetName("PTChallan");
-		    targetDetails.setColumnIndex(1); // B column (0-based)
-		    targetDetails.setHeaderKeyword("Employee ID");
-
-		    // ✅ EXTRA CONFIG (NO Total logic here)
-		    ExcelExtraConfig extraConfig = new ExcelExtraConfig();
-		    extraConfig.setEnable("NO"); // we don't want total row validation
-
-		    if (downloadedExcelFile == null || !downloadedExcelFile.exists()) {
-		        test.log(LogStatus.FAIL, "❌ Downloaded file is missing.");
-		        return;
-		    }
-
-		    test.log(LogStatus.INFO, "📄 Data Fetch file name: " + downloadedExcelFile.getName());
-
-		    // ✅ FETCH values from Master
-		    Set<String> masterValues = ExcelUtils.readFilteredColumnValues(
-		        masterDetails.getFilePath(),
-		        masterDetails.getSheetName(),
-		        masterDetails.getEmpNameColumnIndex(),
-		        masterDetails.getFilters()
-		    );
-
-		    if (masterValues.isEmpty()) {
-		        test.log(LogStatus.PASS, "✅ No employees matched in master for given filter — skipping validation.");
-		        return;
-		    }
-
-		    // ✅ FETCH values from Downloaded file
-		    Set<String> downloadedValues = ExcelUtils.readColumnValues(
-		        downloadedExcelFile,
-		        targetDetails.getSheetName(),
-		        targetDetails.getColumnIndex()
-		    );
-
-		    List<String> missing = masterValues.stream()
-		        .filter(v -> !downloadedValues.contains(v))
-		        .collect(Collectors.toList());
-
-		    if (missing.isEmpty()) {
-		        test.log(LogStatus.PASS, "✅ All expected Employee IDs found in downloaded file.");
-		    } else {
-		        test.log(LogStatus.FAIL, "❌ Missing Employee IDs: " + String.join(", ", missing));
-
-		        if (ENABLE_HTML_REPORT_TABLE) {
-		            String htmlTable = HTMLBuilder.createDetailedComparisonTable(
-		                masterValues,
-		                downloadedValues,
-		                masterDetails.getFilePath(),
-		                masterDetails.getSheetName(),
-		                masterDetails.getEmpNameColumnIndex(),
-		                targetDetails.getColumnIndex(),
-		                targetDetails.getHeaderKeyword()
-		            );
-		            test.log(LogStatus.INFO, htmlTable);
-		        }
-		    }
-
-		    // ✅ TOTAL LOGIC EXAMPLE (for a second sheet if required)
-		    ExcelTargetValidation totalTarget = new ExcelTargetValidation();
-		    totalTarget.setSheetName("Remittance");
-		    totalTarget.setColumnIndex(1); // Column to sum (e.g., Basic Wages)
-		    totalTarget.setHeaderKeyword("Basic");
-
-		    ExcelExtraConfig totalConfig = new ExcelExtraConfig();
-		    totalConfig.setEnable("YES");
-		    totalConfig.setColumnIndex(1); // Same column to sum
-		    totalConfig.setStopAtKeyword("Total"); // Stop summing when this keyword appears in col A
-
-		    ExcelUtils.validateTotalTillKeyword(downloadedExcelFile, test, totalTarget, totalConfig);
-
-		} catch (Exception e) {
-		    test.log(LogStatus.ERROR, "❌ Exception: " + e.getMessage());
-		    e.printStackTrace();
-		}
-        
-        
-		
-		
+//        
+//        try {
+//		    // ✅ FILTER setup: Only select rows in master file where State == "KAR"
+//		    methodsb filter = new methodsb();
+//		    filter.setColumnName("State"); // only for readability/logging
+//		    filter.setValues(Arrays.asList("KAR"));
+//		    List<methodsb> filters = new ArrayList<>();
+//		    filters.add(filter);
+//
+//		    // ✅ MASTER FILE CONFIG
+//		    ExcelFileDetails masterDetails = new ExcelFileDetails();
+//		    masterDetails.setFilePath(FilePath.EMPLOYEE_MASTER); // Global master path
+//		    masterDetails.setSheetName("EmployeeMaster");
+//		    masterDetails.setEmpNameColumnIndex(3); // D column (0-based)
+//		    masterDetails.setApplyFilter("NO");
+//		    masterDetails.setFilters(filters);
+//
+//		    // ✅ DOWNLOADED FILE CONFIG
+//		    ExcelTargetValidation targetDetails = new ExcelTargetValidation();
+//		    targetDetails.setSheetName("PTChallan");
+//		    targetDetails.setColumnIndex(1); // B column (0-based)
+//		    targetDetails.setHeaderKeyword("Employee ID");
+//
+//		    // ✅ EXTRA CONFIG (NO Total logic here)
+//		    ExcelExtraConfig extraConfig = new ExcelExtraConfig();
+//		    extraConfig.setEnable("NO"); // we don't want total row validation
+//
+//		    if (downloadedExcelFile == null || !downloadedExcelFile.exists()) {
+//		        test.log(LogStatus.FAIL, "❌ Downloaded file is missing.");
+//		        return;
+//		    }
+//
+//		    test.log(LogStatus.INFO, "📄 Data Fetch file name: " + downloadedExcelFile.getName());
+//
+//		    // ✅ FETCH values from Master
+//		    Set<String> masterValues = ExcelUtils.readFilteredColumnValues(
+//		        masterDetails.getFilePath(),
+//		        masterDetails.getSheetName(),
+//		        masterDetails.getEmpNameColumnIndex(),
+//		        masterDetails.getFilters()
+//		    );
+//
+//		    if (masterValues.isEmpty()) {
+//		        test.log(LogStatus.PASS, "✅ No employees matched in master for given filter — skipping validation.");
+//		        return;
+//		    }
+//
+//		    // ✅ FETCH values from Downloaded file
+//		    Set<String> downloadedValues = ExcelUtils.readColumnValues(
+//		        downloadedExcelFile,
+//		        targetDetails.getSheetName(),
+//		        targetDetails.getColumnIndex()
+//		    );
+//
+//		    List<String> missing = masterValues.stream()
+//		        .filter(v -> !downloadedValues.contains(v))
+//		        .collect(Collectors.toList());
+//
+//		    if (missing.isEmpty()) {
+//		        test.log(LogStatus.PASS, "✅ All expected Employee IDs found in downloaded file.");
+//		    } else {
+//		        test.log(LogStatus.FAIL, "❌ Missing Employee IDs: " + String.join(", ", missing));
+//
+//		        if (ENABLE_HTML_REPORT_TABLE) {
+//		            String htmlTable = HTMLBuilder.createDetailedComparisonTable(
+//		                masterValues,
+//		                downloadedValues,
+//		                masterDetails.getFilePath(),
+//		                masterDetails.getSheetName(),
+//		                masterDetails.getEmpNameColumnIndex(),
+//		                targetDetails.getColumnIndex(),
+//		                targetDetails.getHeaderKeyword()
+//		            );
+//		            test.log(LogStatus.INFO, htmlTable);
+//		        }
+//		    }
+//
+//		    // ✅ TOTAL LOGIC EXAMPLE (for a second sheet if required)
+//		    ExcelTargetValidation totalTarget = new ExcelTargetValidation();
+//		    totalTarget.setSheetName("Remittance");
+//		    totalTarget.setColumnIndex(1); // Column to sum (e.g., Basic Wages)
+//		    totalTarget.setHeaderKeyword("Basic");
+//
+//		    ExcelExtraConfig totalConfig = new ExcelExtraConfig();
+//		    totalConfig.setEnable("YES");
+//		    totalConfig.setColumnIndex(1); // Same column to sum
+//		    totalConfig.setStopAtKeyword("Total"); // Stop summing when this keyword appears in col A
+//
+//		    ExcelUtils.validateTotalTillKeyword(downloadedExcelFile, test, totalTarget, totalConfig);
+//
+//		} catch (Exception e) {
+//		    test.log(LogStatus.ERROR, "❌ Exception: " + e.getMessage());
+//		    e.printStackTrace();
+//		}
+//        
+//        
+//		
+//		
 	}
 	
 	public static void Challan_PT_EmployeeNamee( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
@@ -931,10 +932,10 @@ public class PT_Methods extends BasePage{
             targetStartRow
         );
 
-        // 🧪 Step 2: Prepare Master file filters
+         
         List<String> filterValues = Arrays.asList("KAR");
-        ExcelFilter regionFilter = new ExcelFilter(6, filterValues);
-        List<ExcelFilter> allFilters = Collections.singletonList(regionFilter);
+        methodsb regionFilter = new methodsb(6, filterValues);
+        List<methodsb> af = Collections.singletonList(regionFilter);
 
         // 📊 Step 3: Prepare Master file details
         int masterColumnIndex = 5;
@@ -944,7 +945,7 @@ public class PT_Methods extends BasePage{
         	FilePath.EMPLOYEE_MASTER,
             masterSheetName,
             masterColumnIndex,
-            allFilters,
+            af,
             "NO"
         );
 
@@ -954,7 +955,7 @@ public class PT_Methods extends BasePage{
         );
 
         // ✅ Step 5: Final call to reusable validator
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -1051,14 +1052,14 @@ public class PT_Methods extends BasePage{
         
         
         
-        // 🧪 Step 3: Prepare master file filters
+         
         int filterColumnIndex = 6;
         List<String> filterValues = new ArrayList<>();
         filterValues.add("KAR");
 
-        ExcelFilter regionFilter = new ExcelFilter(filterColumnIndex, filterValues);
-        List<ExcelFilter> allFilters = new ArrayList<>();
-        allFilters.add(regionFilter);
+        methodsb regionFilter = new methodsb(filterColumnIndex, filterValues);
+        List<methodsb> af = new ArrayList<>();
+        af.add(regionFilter);
 
         // 📊 Step 4: Prepare ExcelFileDetails for Master
         String masterSheetName = "EmployeeMaster";
@@ -1067,7 +1068,7 @@ public class PT_Methods extends BasePage{
         	FilePath.EMPLOYEE_MASTER,
             masterSheetName,
             masterColumnIndex,
-            allFilters,
+            af,
             "NO"
         );
 
@@ -1096,7 +1097,7 @@ public class PT_Methods extends BasePage{
         );
 
         // ✅ Step 7: Final call to reusable validator
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -1199,23 +1200,23 @@ public class PT_Methods extends BasePage{
         
         
         
-        // 🧪 Step 3: Prepare master file filters
+         
         int filterColumnIndex = 6;
         List<String> filterValues = new ArrayList<>();
         filterValues.add("KAR");
 
-        ExcelFilter regionFilter = new ExcelFilter(filterColumnIndex, filterValues);
-        List<ExcelFilter> allFilters = new ArrayList<>();
-        allFilters.add(regionFilter);
+        methodsb regionFilter = new methodsb(filterColumnIndex, filterValues);
+        List<methodsb> af = new ArrayList<>();
+        af.add(regionFilter);
 
         // 📊 Step 4: Prepare ExcelFileDetails for Master
         String masterSheetName = "MonthlyEmployeeSalary";
         int masterColumnIndex = 16;
         ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-            salaryFile,
+            FilePath.SALARY_FILE,
             masterSheetName,
             masterColumnIndex,
-            allFilters,
+            af,
             "NO"
         );
 
@@ -1244,7 +1245,7 @@ public class PT_Methods extends BasePage{
         );
 
         // ✅ Step 7: Final call to reusable validator
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -1769,10 +1770,10 @@ public class PT_Methods extends BasePage{
             targetStartRow
         );
 
-        // 🧪 Step 2: Prepare Master file filters
+         
         List<String> filterValues = Arrays.asList("KAR");
-        ExcelFilter regionFilter = new ExcelFilter(6, filterValues);
-        List<ExcelFilter> allFilters = Collections.singletonList(regionFilter);
+        methodsb regionFilter = new methodsb(6, filterValues);
+        List<methodsb> af = Collections.singletonList(regionFilter);
 
         // 📊 Step 3: Prepare Master file details
         int masterColumnIndex = 10;
@@ -1782,7 +1783,7 @@ public class PT_Methods extends BasePage{
             FilePath.EMPLOYEE_MASTER,
             masterSheetName,
             masterColumnIndex,
-            allFilters,
+            af,
             "NO"
         );
 
@@ -1792,7 +1793,7 @@ public class PT_Methods extends BasePage{
         );
 
         // ✅ Step 5: Final call to reusable validator
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -1823,14 +1824,14 @@ public class PT_Methods extends BasePage{
         
         
         
-     // 🧪 Step 3: Prepare master file filters
-        List<ExcelFilter> allFilters = new ArrayList<>();
+      
+        List<methodsb> af = new ArrayList<>();
         
-        allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+        af.add(new methodsb(38, Arrays.asList("Active")));
  
-        allFilters.add(new ExcelFilter(9, Arrays.asList("ANP")));
+        af.add(new methodsb(9, Arrays.asList("ANP")));
 
-        allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+        af.add(new methodsb(58, Arrays.asList("Yes")));
         
         // 📊 Step 4: Prepare ExcelFileDetails for Master
         String masterSheetName = "EmployeeMaster";
@@ -1839,7 +1840,7 @@ public class PT_Methods extends BasePage{
             FilePath.EMPLOYEE_MASTER,
             masterSheetName,
             masterColumnIndex,
-            allFilters,
+            af,
             "YES"   // Yes filters to apply
         );
 
@@ -1868,7 +1869,7 @@ public class PT_Methods extends BasePage{
         );
 
         // ✅ Step 7: Final call to reusable validator
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -1900,14 +1901,14 @@ public class PT_Methods extends BasePage{
         
         
         
-     // 🧪 Step 3: Prepare master file filters
-        List<ExcelFilter> allFilters = new ArrayList<>();
+      
+        List<methodsb> af = new ArrayList<>();
         
-        allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+        af.add(new methodsb(38, Arrays.asList("Active")));
  
-        allFilters.add(new ExcelFilter(9, Arrays.asList("BHR")));
+        af.add(new methodsb(9, Arrays.asList("BHR")));
 
-        allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+        af.add(new methodsb(58, Arrays.asList("Yes")));
         
         // 📊 Step 4: Prepare ExcelFileDetails for Master
         String masterSheetName = "EmployeeMaster";
@@ -1916,7 +1917,7 @@ public class PT_Methods extends BasePage{
             FilePath.EMPLOYEE_MASTER,
             masterSheetName,
             masterColumnIndex,
-            allFilters,
+            af,
             "YES"   // Yes filters to apply
         );
 
@@ -1945,7 +1946,7 @@ public class PT_Methods extends BasePage{
         );
 
         // ✅ Step 7: Final call to reusable validator
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -1976,14 +1977,14 @@ public class PT_Methods extends BasePage{
         
         
         
-     // 🧪 Step 3: Prepare master file filters
-        List<ExcelFilter> allFilters = new ArrayList<>();
+      
+        List<methodsb> af = new ArrayList<>();
         
-        allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+        af.add(new methodsb(38, Arrays.asList("Active")));
  
-        allFilters.add(new ExcelFilter(9, Arrays.asList("MAH")));
+        af.add(new methodsb(9, Arrays.asList("MAH")));
 
-        allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+        af.add(new methodsb(58, Arrays.asList("Yes")));
         
         // 📊 Step 4: Prepare ExcelFileDetails for Master
         String masterSheetName = "EmployeeMaster";
@@ -1992,7 +1993,7 @@ public class PT_Methods extends BasePage{
         	FilePath.EMPLOYEE_MASTER,
             masterSheetName,
             masterColumnIndex,
-            allFilters,
+            af,
             "YES"   // Yes filters to apply
         );
 
@@ -2021,7 +2022,7 @@ public class PT_Methods extends BasePage{
         );
 
         // ✅ Step 7: Final call to reusable validator
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -2052,14 +2053,14 @@ public class PT_Methods extends BasePage{
         
         
         
-     // 🧪 Step 3: Prepare master file filters
-        List<ExcelFilter> allFilters = new ArrayList<>();
+      
+        List<methodsb> af = new ArrayList<>();
         
-        allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+        af.add(new methodsb(38, Arrays.asList("Active")));
  
-        allFilters.add(new ExcelFilter(9, Arrays.asList("ORS")));
+        af.add(new methodsb(9, Arrays.asList("ORS")));
 
-        allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+        af.add(new methodsb(58, Arrays.asList("Yes")));
         
         // 📊 Step 4: Prepare ExcelFileDetails for Master
         String masterSheetName = "EmployeeMaster";
@@ -2068,7 +2069,7 @@ public class PT_Methods extends BasePage{
         	FilePath.EMPLOYEE_MASTER,
             masterSheetName,
             masterColumnIndex,
-            allFilters,
+            af,
             "YES"   // Yes filters to apply
         );
 
@@ -2097,7 +2098,7 @@ public class PT_Methods extends BasePage{
         );
 
         // ✅ Step 7: Final call to reusable validator
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -2128,14 +2129,14 @@ public class PT_Methods extends BasePage{
         
         
         
-     // 🧪 Step 3: Prepare master file filters
-        List<ExcelFilter> allFilters = new ArrayList<>();
+      
+        List<methodsb> af = new ArrayList<>();
         
-        allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+        af.add(new methodsb(38, Arrays.asList("Active")));
  
-        allFilters.add(new ExcelFilter(9, Arrays.asList("PND")));
+        af.add(new methodsb(9, Arrays.asList("PND")));
 
-        allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+        af.add(new methodsb(58, Arrays.asList("Yes")));
         
         // 📊 Step 4: Prepare ExcelFileDetails for Master
         String masterSheetName = "EmployeeMaster";
@@ -2144,7 +2145,7 @@ public class PT_Methods extends BasePage{
         	FilePath.EMPLOYEE_MASTER,
             masterSheetName,
             masterColumnIndex,
-            allFilters,
+            af,
             "YES"   // Yes filters to apply
         );
 
@@ -2173,7 +2174,7 @@ public class PT_Methods extends BasePage{
         );
 
         // ✅ Step 7: Final call to reusable validator
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -2204,14 +2205,14 @@ public class PT_Methods extends BasePage{
         
         
         
-     // 🧪 Step 3: Prepare master file filters
-        List<ExcelFilter> allFilters = new ArrayList<>();
+      
+        List<methodsb> af = new ArrayList<>();
         
-        allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+        af.add(new methodsb(38, Arrays.asList("Active")));
  
-        allFilters.add(new ExcelFilter(9, Arrays.asList("PJB")));
+        af.add(new methodsb(9, Arrays.asList("PJB")));
 
-        allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+        af.add(new methodsb(58, Arrays.asList("Yes")));
         
         // 📊 Step 4: Prepare ExcelFileDetails for Master
         String masterSheetName = "EmployeeMaster";
@@ -2220,7 +2221,7 @@ public class PT_Methods extends BasePage{
         	FilePath.EMPLOYEE_MASTER,
             masterSheetName,
             masterColumnIndex,
-            allFilters,
+            af,
             "YES"   // Yes filters to apply
         );
 
@@ -2249,7 +2250,7 @@ public class PT_Methods extends BasePage{
         );
 
         // ✅ Step 7: Final call to reusable validator
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -2281,14 +2282,14 @@ public class PT_Methods extends BasePage{
         
         
         
-     // 🧪 Step 3: Prepare master file filters
-        List<ExcelFilter> allFilters = new ArrayList<>();
+      
+        List<methodsb> af = new ArrayList<>();
         
-        allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+        af.add(new methodsb(38, Arrays.asList("Active")));
  
-        allFilters.add(new ExcelFilter(9, Arrays.asList("KAR")));
+        af.add(new methodsb(9, Arrays.asList("KAR")));
 
-        allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+        af.add(new methodsb(58, Arrays.asList("Yes")));
         
         // 📊 Step 4: Prepare ExcelFileDetails for Master
         String masterSheetName = "EmployeeMaster";
@@ -2297,7 +2298,7 @@ public class PT_Methods extends BasePage{
         	FilePath.EMPLOYEE_MASTER,
             masterSheetName,
             masterColumnIndex,
-            allFilters,
+            af,
             "YES"   // Yes filters to apply
         );
 
@@ -2326,7 +2327,7 @@ public class PT_Methods extends BasePage{
         );
 
         // ✅ Step 7: Final call to reusable validator
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -2357,14 +2358,14 @@ public class PT_Methods extends BasePage{
         
         
         
-     // 🧪 Step 3: Prepare master file filters
-        List<ExcelFilter> allFilters = new ArrayList<>();
+      
+        List<methodsb> af = new ArrayList<>();
         
-        allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+        af.add(new methodsb(38, Arrays.asList("Active")));
  
-        allFilters.add(new ExcelFilter(9, Arrays.asList("KRL")));
+        af.add(new methodsb(9, Arrays.asList("KRL")));
 
-        allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+        af.add(new methodsb(58, Arrays.asList("Yes")));
         
         // 📊 Step 4: Prepare ExcelFileDetails for Master
         String masterSheetName = "EmployeeMaster";
@@ -2373,7 +2374,7 @@ public class PT_Methods extends BasePage{
         	FilePath.EMPLOYEE_MASTER,
             masterSheetName,
             masterColumnIndex,
-            allFilters,
+            af,
             "YES"   // Yes filters to apply
         );
 
@@ -2402,7 +2403,7 @@ public class PT_Methods extends BasePage{
         );
 
         // ✅ Step 7: Final call to reusable validator
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -2433,14 +2434,14 @@ public class PT_Methods extends BasePage{
         
         
         
-     // 🧪 Step 3: Prepare master file filters
-        List<ExcelFilter> allFilters = new ArrayList<>();
+      
+        List<methodsb> af = new ArrayList<>();
         
-        allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+        af.add(new methodsb(38, Arrays.asList("Active")));
  
-        allFilters.add(new ExcelFilter(9, Arrays.asList("MAP")));
+        af.add(new methodsb(9, Arrays.asList("MAP")));
 
-        allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+        af.add(new methodsb(58, Arrays.asList("Yes")));
         
         // 📊 Step 4: Prepare ExcelFileDetails for Master
         String masterSheetName = "EmployeeMaster";
@@ -2449,7 +2450,7 @@ public class PT_Methods extends BasePage{
         	FilePath.EMPLOYEE_MASTER,
             masterSheetName,
             masterColumnIndex,
-            allFilters,
+            af,
             "YES"   // Yes filters to apply
         );
 
@@ -2478,7 +2479,7 @@ public class PT_Methods extends BasePage{
         );
 
         // ✅ Step 7: Final call to reusable validator
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -2510,14 +2511,14 @@ public class PT_Methods extends BasePage{
         
         
         
-     // 🧪 Step 3: Prepare master file filters
-        List<ExcelFilter> allFilters = new ArrayList<>();
+      
+        List<methodsb> af = new ArrayList<>();
         
-        allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+        af.add(new methodsb(38, Arrays.asList("Active")));
  
-        allFilters.add(new ExcelFilter(9, Arrays.asList("JAK")));
+        af.add(new methodsb(9, Arrays.asList("JAK")));
 
-        allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+        af.add(new methodsb(58, Arrays.asList("Yes")));
         
         // 📊 Step 4: Prepare ExcelFileDetails for Master
         String masterSheetName = "EmployeeMaster";
@@ -2526,7 +2527,7 @@ public class PT_Methods extends BasePage{
         	FilePath.EMPLOYEE_MASTER,
             masterSheetName,
             masterColumnIndex,
-            allFilters,
+            af,
             "YES"   // Yes filters to apply
         );
 
@@ -2555,7 +2556,7 @@ public class PT_Methods extends BasePage{
         );
 
         // ✅ Step 7: Final call to reusable validator
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -2580,17 +2581,17 @@ public class PT_Methods extends BasePage{
 		    targetStartRow
 		);
 
-		// 🧪 Step 2: Prepare Master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("ANP")));
+		 
+		af.add(new methodsb(9, Arrays.asList("ANP")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 3: Prepare Master file details
 		int masterColumnIndex = 5;
@@ -2600,7 +2601,7 @@ public class PT_Methods extends BasePage{
 			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ filters ko apply karna hai
 		);
 
@@ -2610,7 +2611,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 5: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -2635,17 +2636,17 @@ public class PT_Methods extends BasePage{
 		    targetStartRow
 		);
 
-		// 🧪 Step 2: Prepare Master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("BHR")));
+		 
+		af.add(new methodsb(9, Arrays.asList("BHR")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 3: Prepare Master file details
 		int masterColumnIndex = 5;
@@ -2655,7 +2656,7 @@ public class PT_Methods extends BasePage{
 			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ filters ko apply karna hai
 		);
 
@@ -2665,7 +2666,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 5: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -2690,17 +2691,17 @@ public class PT_Methods extends BasePage{
 		    targetStartRow
 		);
 
-		// 🧪 Step 2: Prepare Master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("MAH")));
+		 
+		af.add(new methodsb(9, Arrays.asList("MAH")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 3: Prepare Master file details
 		int masterColumnIndex = 5;
@@ -2710,7 +2711,7 @@ public class PT_Methods extends BasePage{
 			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ filters ko apply karna hai
 		);
 
@@ -2720,7 +2721,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 5: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -2745,17 +2746,17 @@ public class PT_Methods extends BasePage{
 		    targetStartRow
 		);
 
-		// 🧪 Step 2: Prepare Master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("ORS")));
+		 
+		af.add(new methodsb(9, Arrays.asList("ORS")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 3: Prepare Master file details
 		int masterColumnIndex = 5;
@@ -2765,7 +2766,7 @@ public class PT_Methods extends BasePage{
 			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ filters ko apply karna hai
 		);
 
@@ -2775,7 +2776,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 5: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -2800,17 +2801,17 @@ public class PT_Methods extends BasePage{
 		    targetStartRow
 		);
 
-		// 🧪 Step 2: Prepare Master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("PJB")));
+		 
+		af.add(new methodsb(9, Arrays.asList("PJB")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 3: Prepare Master file details
 		int masterColumnIndex = 5;
@@ -2820,7 +2821,7 @@ public class PT_Methods extends BasePage{
 			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ filters ko apply karna hai
 		);
 
@@ -2830,7 +2831,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 5: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -2855,17 +2856,17 @@ public class PT_Methods extends BasePage{
 		    targetStartRow
 		);
 
-		// 🧪 Step 2: Prepare Master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("PND")));
+		 
+		af.add(new methodsb(9, Arrays.asList("PND")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 3: Prepare Master file details
 		int masterColumnIndex = 5;
@@ -2875,7 +2876,7 @@ public class PT_Methods extends BasePage{
 			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ filters ko apply karna hai
 		);
 
@@ -2885,7 +2886,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 5: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -2910,17 +2911,17 @@ public class PT_Methods extends BasePage{
 		    targetStartRow
 		);
 
-		// 🧪 Step 2: Prepare Master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("KAR")));
+		 
+		af.add(new methodsb(9, Arrays.asList("KAR")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 3: Prepare Master file details
 		int masterColumnIndex = 5;
@@ -2930,7 +2931,7 @@ public class PT_Methods extends BasePage{
 			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ filters ko apply karna hai
 		);
 
@@ -2940,7 +2941,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 5: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -2965,17 +2966,17 @@ public class PT_Methods extends BasePage{
 		    targetStartRow
 		);
 
-		// 🧪 Step 2: Prepare Master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("KRL")));
+		 
+		af.add(new methodsb(9, Arrays.asList("KRL")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 3: Prepare Master file details
 		int masterColumnIndex = 5;
@@ -2985,7 +2986,7 @@ public class PT_Methods extends BasePage{
 			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ filters ko apply karna hai
 		);
 
@@ -2995,7 +2996,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 5: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3020,17 +3021,17 @@ public class PT_Methods extends BasePage{
 		    targetStartRow
 		);
 
-		// 🧪 Step 2: Prepare Master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("MAP")));
+		 
+		af.add(new methodsb(9, Arrays.asList("MAP")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 3: Prepare Master file details
 		int masterColumnIndex = 5;
@@ -3040,7 +3041,7 @@ public class PT_Methods extends BasePage{
 			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ filters ko apply karna hai
 		);
 
@@ -3050,7 +3051,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 5: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3075,17 +3076,17 @@ public class PT_Methods extends BasePage{
 		    targetStartRow
 		);
 
-		// 🧪 Step 2: Prepare Master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("JAK")));
+		 
+		af.add(new methodsb(9, Arrays.asList("JAK")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 3: Prepare Master file details
 		int masterColumnIndex = 5;
@@ -3095,7 +3096,7 @@ public class PT_Methods extends BasePage{
 			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ filters ko apply karna hai
 		);
 
@@ -3105,7 +3106,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 5: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3130,17 +3131,17 @@ public class PT_Methods extends BasePage{
 		    targetStartRow
 		);
 
-		// 🧪 Step 2: Prepare Master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("ANP")));
+		 
+		af.add(new methodsb(9, Arrays.asList("ANP")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 3: Prepare Master file details
 		int masterColumnIndex = 10;
@@ -3150,7 +3151,7 @@ public class PT_Methods extends BasePage{
 			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ enable filters
 		);
 
@@ -3160,7 +3161,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 5: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3185,17 +3186,17 @@ public class PT_Methods extends BasePage{
 		    targetStartRow
 		);
 
-		// 🧪 Step 2: Prepare Master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("BHR")));
+		 
+		af.add(new methodsb(9, Arrays.asList("BHR")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 3: Prepare Master file details
 		int masterColumnIndex = 10;
@@ -3205,7 +3206,7 @@ public class PT_Methods extends BasePage{
 			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ enable filters
 		);
 
@@ -3215,7 +3216,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 5: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3240,17 +3241,17 @@ public class PT_Methods extends BasePage{
 		    targetStartRow
 		);
 
-		// 🧪 Step 2: Prepare Master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("MAH")));
+		 
+		af.add(new methodsb(9, Arrays.asList("MAH")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 3: Prepare Master file details
 		int masterColumnIndex = 10;
@@ -3260,7 +3261,7 @@ public class PT_Methods extends BasePage{
 			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ enable filters
 		);
 
@@ -3270,7 +3271,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 5: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3295,17 +3296,17 @@ public class PT_Methods extends BasePage{
 		    targetStartRow
 		);
 
-		// 🧪 Step 2: Prepare Master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("ORS")));
+		 
+		af.add(new methodsb(9, Arrays.asList("ORS")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 3: Prepare Master file details
 		int masterColumnIndex = 10;
@@ -3315,7 +3316,7 @@ public class PT_Methods extends BasePage{
 			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ enable filters
 		);
 
@@ -3325,7 +3326,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 5: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3350,17 +3351,17 @@ public class PT_Methods extends BasePage{
 		    targetStartRow
 		);
 
-		// 🧪 Step 2: Prepare Master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("PND")));
+		 
+		af.add(new methodsb(9, Arrays.asList("PND")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 3: Prepare Master file details
 		int masterColumnIndex = 10;
@@ -3370,7 +3371,7 @@ public class PT_Methods extends BasePage{
 			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ enable filters
 		);
 
@@ -3380,7 +3381,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 5: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3405,17 +3406,17 @@ public class PT_Methods extends BasePage{
 		    targetStartRow
 		);
 
-		// 🧪 Step 2: Prepare Master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("KAR")));
+		 
+		af.add(new methodsb(9, Arrays.asList("KAR")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 3: Prepare Master file details
 		int masterColumnIndex = 10;
@@ -3425,7 +3426,7 @@ public class PT_Methods extends BasePage{
 			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ enable filters
 		);
 
@@ -3435,7 +3436,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 5: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3460,17 +3461,17 @@ public class PT_Methods extends BasePage{
 		    targetStartRow
 		);
 
-		// 🧪 Step 2: Prepare Master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("KRL")));
+		 
+		af.add(new methodsb(9, Arrays.asList("KRL")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 3: Prepare Master file details
 		int masterColumnIndex = 10;
@@ -3480,7 +3481,7 @@ public class PT_Methods extends BasePage{
 			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ enable filters
 		);
 
@@ -3490,7 +3491,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 5: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3515,17 +3516,17 @@ public class PT_Methods extends BasePage{
 		    targetStartRow
 		);
 
-		// 🧪 Step 2: Prepare Master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("MAP")));
+		 
+		af.add(new methodsb(9, Arrays.asList("MAP")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 3: Prepare Master file details
 		int masterColumnIndex = 10;
@@ -3535,7 +3536,7 @@ public class PT_Methods extends BasePage{
 			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ enable filters
 		);
 
@@ -3545,7 +3546,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 5: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3570,17 +3571,17 @@ public class PT_Methods extends BasePage{
 		    targetStartRow
 		);
 
-		// 🧪 Step 2: Prepare Master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("JAK")));
+		 
+		af.add(new methodsb(9, Arrays.asList("JAK")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 3: Prepare Master file details
 		int masterColumnIndex = 10;
@@ -3590,7 +3591,7 @@ public class PT_Methods extends BasePage{
 				FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ enable filters
 		);
 
@@ -3600,7 +3601,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 5: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3625,17 +3626,17 @@ public class PT_Methods extends BasePage{
 		    targetStartRow
 		);
 
-		// 🧪 Step 2: Prepare Master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("ANP")));
+		 
+		af.add(new methodsb(9, Arrays.asList("ANP")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 3: Prepare Master file details
 		int masterColumnIndex = 9;
@@ -3645,7 +3646,7 @@ public class PT_Methods extends BasePage{
 			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ enable filters
 		);
 
@@ -3661,7 +3662,7 @@ public class PT_Methods extends BasePage{
 		
 
 		// ✅ Step 5: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3686,17 +3687,17 @@ public class PT_Methods extends BasePage{
 		    targetStartRow
 		);
 
-		// 🧪 Step 2: Prepare Master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("BHR")));
+		 
+		af.add(new methodsb(9, Arrays.asList("BHR")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 3: Prepare Master file details
 		int masterColumnIndex = 9;
@@ -3706,7 +3707,7 @@ public class PT_Methods extends BasePage{
 			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ enable filters
 		);
 
@@ -3722,7 +3723,7 @@ public class PT_Methods extends BasePage{
 		
 
 		// ✅ Step 5: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3747,17 +3748,17 @@ public class PT_Methods extends BasePage{
 		    targetStartRow
 		);
 
-		// 🧪 Step 2: Prepare Master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("MAH")));
+		 
+		af.add(new methodsb(9, Arrays.asList("MAH")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 3: Prepare Master file details
 		int masterColumnIndex = 9;
@@ -3767,7 +3768,7 @@ public class PT_Methods extends BasePage{
 			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ enable filters
 		);
 
@@ -3783,7 +3784,7 @@ public class PT_Methods extends BasePage{
 		
 
 		// ✅ Step 5: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3808,17 +3809,17 @@ public class PT_Methods extends BasePage{
 		    targetStartRow
 		);
 
-		// 🧪 Step 2: Prepare Master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("ORS")));
+		 
+		af.add(new methodsb(9, Arrays.asList("ORS")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 3: Prepare Master file details
 		int masterColumnIndex = 9;
@@ -3828,7 +3829,7 @@ public class PT_Methods extends BasePage{
 			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ enable filters
 		);
 
@@ -3844,7 +3845,7 @@ public class PT_Methods extends BasePage{
 		
 
 		// ✅ Step 5: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3869,17 +3870,17 @@ public class PT_Methods extends BasePage{
 		    targetStartRow
 		);
 
-		// 🧪 Step 2: Prepare Master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("PND")));
+		 
+		af.add(new methodsb(9, Arrays.asList("PND")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 3: Prepare Master file details
 		int masterColumnIndex = 9;
@@ -3889,7 +3890,7 @@ public class PT_Methods extends BasePage{
 			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ enable filters
 		);
 
@@ -3905,7 +3906,7 @@ public class PT_Methods extends BasePage{
 		
 
 		// ✅ Step 5: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3930,17 +3931,17 @@ public class PT_Methods extends BasePage{
 		    targetStartRow
 		);
 
-		// 🧪 Step 2: Prepare Master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("KAR")));
+		 
+		af.add(new methodsb(9, Arrays.asList("KAR")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 3: Prepare Master file details
 		int masterColumnIndex = 9;
@@ -3950,7 +3951,7 @@ public class PT_Methods extends BasePage{
 			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ enable filters
 		);
 
@@ -3966,7 +3967,7 @@ public class PT_Methods extends BasePage{
 		
 
 		// ✅ Step 5: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3991,17 +3992,17 @@ public class PT_Methods extends BasePage{
 		    targetStartRow
 		);
 
-		// 🧪 Step 2: Prepare Master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("KRL")));
+		 
+		af.add(new methodsb(9, Arrays.asList("KRL")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 3: Prepare Master file details
 		int masterColumnIndex = 9;
@@ -4011,7 +4012,7 @@ public class PT_Methods extends BasePage{
 				FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ enable filters
 		);
 
@@ -4027,7 +4028,7 @@ public class PT_Methods extends BasePage{
 		
 
 		// ✅ Step 5: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -4052,17 +4053,17 @@ public class PT_Methods extends BasePage{
 		    targetStartRow
 		);
 
-		// 🧪 Step 2: Prepare Master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("MAP")));
+		 
+		af.add(new methodsb(9, Arrays.asList("MAP")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 3: Prepare Master file details
 		int masterColumnIndex = 9;
@@ -4072,7 +4073,7 @@ public class PT_Methods extends BasePage{
 				FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ enable filters
 		);
 
@@ -4088,7 +4089,7 @@ public class PT_Methods extends BasePage{
 		
 
 		// ✅ Step 5: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -4113,17 +4114,17 @@ public class PT_Methods extends BasePage{
 		    targetStartRow
 		);
 
-		// 🧪 Step 2: Prepare Master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("JAK")));
+		 
+		af.add(new methodsb(9, Arrays.asList("JAK")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 3: Prepare Master file details
 		int masterColumnIndex = 9;
@@ -4133,7 +4134,7 @@ public class PT_Methods extends BasePage{
 				FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ enable filters
 		);
 
@@ -4149,7 +4150,7 @@ public class PT_Methods extends BasePage{
 		
 
 		// ✅ Step 5: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -4162,17 +4163,17 @@ public class PT_Methods extends BasePage{
 	
 	public static void Challan_PT_ANP_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		// 🧪 Step 3: Prepare master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("ANP")));
+		 
+		af.add(new methodsb(9, Arrays.asList("ANP")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 4: Prepare ExcelFileDetails for Master
 		String masterSheetName = "EmployeeMaster";
@@ -4181,7 +4182,7 @@ public class PT_Methods extends BasePage{
 				FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ filters ko apply karne ke liye YES
 		);
 
@@ -4210,7 +4211,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 7: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -4222,17 +4223,17 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_BHR_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		// 🧪 Step 3: Prepare master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("BHR")));
+		 
+		af.add(new methodsb(9, Arrays.asList("BHR")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 4: Prepare ExcelFileDetails for Master
 		String masterSheetName = "EmployeeMaster";
@@ -4241,7 +4242,7 @@ public class PT_Methods extends BasePage{
 				FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ filters ko apply karne ke liye YES
 		);
 
@@ -4270,7 +4271,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 7: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -4282,17 +4283,17 @@ public class PT_Methods extends BasePage{
 	}	
 	public static void Challan_PT_MAH_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		// 🧪 Step 3: Prepare master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("MAH")));
+		 
+		af.add(new methodsb(9, Arrays.asList("MAH")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 4: Prepare ExcelFileDetails for Master
 		String masterSheetName = "EmployeeMaster";
@@ -4301,7 +4302,7 @@ public class PT_Methods extends BasePage{
 				FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ filters ko apply karne ke liye YES
 		);
 
@@ -4330,7 +4331,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 7: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -4342,17 +4343,17 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_ORS_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		// 🧪 Step 3: Prepare master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("ORS")));
+		 
+		af.add(new methodsb(9, Arrays.asList("ORS")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 4: Prepare ExcelFileDetails for Master
 		String masterSheetName = "EmployeeMaster";
@@ -4361,7 +4362,7 @@ public class PT_Methods extends BasePage{
 				FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ filters ko apply karne ke liye YES
 		);
 
@@ -4390,7 +4391,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 7: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -4402,17 +4403,17 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_PND_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		// 🧪 Step 3: Prepare master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("ORS")));
+		 
+		af.add(new methodsb(9, Arrays.asList("ORS")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 4: Prepare ExcelFileDetails for Master
 		String masterSheetName = "EmployeeMaster";
@@ -4421,7 +4422,7 @@ public class PT_Methods extends BasePage{
 				FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ filters ko apply karne ke liye YES
 		);
 
@@ -4450,7 +4451,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 7: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -4462,17 +4463,17 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_KAR_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		// 🧪 Step 3: Prepare master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("KAR")));
+		 
+		af.add(new methodsb(9, Arrays.asList("KAR")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 4: Prepare ExcelFileDetails for Master
 		String masterSheetName = "EmployeeMaster";
@@ -4481,7 +4482,7 @@ public class PT_Methods extends BasePage{
 				FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ filters ko apply karne ke liye YES
 		);
 
@@ -4510,7 +4511,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 7: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -4522,17 +4523,17 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_KRL_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		// 🧪 Step 3: Prepare master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("KRL")));
+		 
+		af.add(new methodsb(9, Arrays.asList("KRL")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 4: Prepare ExcelFileDetails for Master
 		String masterSheetName = "EmployeeMaster";
@@ -4541,7 +4542,7 @@ public class PT_Methods extends BasePage{
 			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ filters ko apply karne ke liye YES
 		);
 
@@ -4570,7 +4571,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 7: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -4582,17 +4583,17 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_MAP_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		// 🧪 Step 3: Prepare master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("MAP")));
+		 
+		af.add(new methodsb(9, Arrays.asList("MAP")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 4: Prepare ExcelFileDetails for Master
 		String masterSheetName = "EmployeeMaster";
@@ -4601,7 +4602,7 @@ public class PT_Methods extends BasePage{
 			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ filters ko apply karne ke liye YES
 		);
 
@@ -4630,7 +4631,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 7: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -4642,17 +4643,17 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_JAK_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		// 🧪 Step 3: Prepare master file filters
-		List<ExcelFilter> allFilters = new ArrayList<>();
+		 
+		List<methodsb> af = new ArrayList<>();
 
-		// Filter-1: Status (column 38) == "Active"
-		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
 
-		// Filter-2: Some column (column 9) == "ANP"
-		allFilters.add(new ExcelFilter(9, Arrays.asList("JAK")));
+		 
+		af.add(new methodsb(9, Arrays.asList("JAK")));
 
-		// Filter-3: Another column (column 58) == "Yes"
-		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
 
 		// 📊 Step 4: Prepare ExcelFileDetails for Master
 		String masterSheetName = "EmployeeMaster";
@@ -4661,7 +4662,7 @@ public class PT_Methods extends BasePage{
 			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
-		    allFilters,
+		    af,
 		    "YES"   // ⚡ filters ko apply karne ke liye YES
 		);
 
@@ -4690,7 +4691,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 7: Final call to reusable validator
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,

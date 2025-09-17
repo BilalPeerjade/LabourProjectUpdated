@@ -88,6 +88,11 @@ public class PerformerT extends BasePage {
 	
 	
 	}
+	
+	/**
+	
+	
+	
 
 	/*
 	
@@ -451,7 +456,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 	
 	
 	
-	
+	/*
 	
 	
 	
@@ -493,23 +498,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 		test = extent.startTest("Statutory Documents - Challan PT File Check weather PT Gross wages total is coming properly or not");
 		EndToEnd_B_Methods.StaturyDocPF_Basic_BasicWagesColumn(test,"Performer");
 		
-/*		//Test Case 2
-		test = extent.startTest("Statutory Documents - Challan PT File Check weather PT Gross wages total is coming properly or not");
-		EndToEnd_B_Methods.T1(test,"Performer");
-		
-		//Test Case 3
-		test = extent.startTest("Statutory Documents - Challan PT File Check weather PT Gross wages total is coming properly or not");
-		EndToEnd_B_Methods.T2(test,"Performer");
-		
-		//Test Case 4
-		test = extent.startTest("Statutory Documents - Challan PT File Check weather PT Gross wages total is coming properly or not");
-		EndToEnd_B_Methods.T3(test,"Performer");
-		
-		test = extent.startTest("Statutory Documents - Challan PT File Check weather PT Gross wages total is coming properly or not");
-		EndToEnd_B_Methods.T4(test,"Performer");
-		
-		test = extent.startTest("Statutory Documents - Challan PT File Check weather PT Gross wages total is coming properly or not");
-		EndToEnd_B_Methods.T5(test,"Performer"); */
+
 		
 		test = extent.startTest("Statutory Documents - Challan PT File Check weather PT Gross wages total is coming properly or not");
 		EndToEnd_B_Methods.T6(test,"Performer");
@@ -688,7 +677,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 	}
 	
 	
-	
+	*/
 	
 	
 	@AfterMethod

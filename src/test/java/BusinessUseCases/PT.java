@@ -185,8 +185,7 @@ public class PT extends BasePage {
 		@Test(priority = 1) 
 		void Challan_PT_ANP_EmployeeID() throws InterruptedException, IOException, AWTException
 		{
-			//Andhra Pradesh
-			//1
+			
 			test = extent.startTest("PT Challan - ANP - Validate Employee IDs are reflecting correctly");
 			PT_Methods.Challan_PT_ANP_EmployeeID(test, "");
 			
@@ -211,8 +210,7 @@ public class PT extends BasePage {
 			PT_Methods.Challan_PT_ANP_PTAmount(test,"Performer");
 			
 			
-			//Bihar
-			//1
+			
 			test = extent.startTest("PT Challan - BHR - Validate Employee IDs are reflecting correctly");
 			PT_Methods.Challan_PT_BHR_EmployeeID(test, "");
 			
@@ -232,7 +230,7 @@ public class PT extends BasePage {
 			PT_Methods.Challan_PT_BHR_PTAmount(test,"Performer");
 			
 			
-			//Jharkhand 
+			
 			test = extent.startTest("PT Challan - JAK - Validate Employee IDs are reflecting correctly");
 			PT_Methods.Challan_PT_JAK_EmployeeID(test, "");
 						
@@ -252,8 +250,7 @@ public class PT extends BasePage {
 			PT_Methods.Challan_PT_JAK_PTAmount(test,"Performer");
 			
 			
-			//Karnataka:
-			//1
+			
 			test = extent.startTest("PT Challan - KAR - Validate Employee IDs are reflecting correctly");
 			PT_Methods.Challan_PT_KAR_EmployeeID(test, "");
 						
@@ -269,12 +266,12 @@ public class PT extends BasePage {
 			test = extent.startTest("PT Challan - KAR - Validate 'Locations' are reflecting correctly");
 			PT_Methods.Challan_PT_KAR_Location(test, "");
 			
-			//6
+			
 			test = extent.startTest("PT Challan - KAR - Validate 'PT amount' are reflecting correctly");
 			PT_Methods.Challan_PT_KAR_PTAmount(test,"Performer");
 			
 			
-			//Kerala
+			
 			test = extent.startTest("PT Challan - KRL - Validate Employee IDs are reflecting correctly");
 			PT_Methods.Challan_PT_KRL_EmployeeID(test, "");
 						
@@ -290,13 +287,13 @@ public class PT extends BasePage {
 			test = extent.startTest("PT Challan - KRL - Validate 'Locations' are reflecting correctly");
 			PT_Methods.Challan_PT_KRL_Location(test, "");
 			
-			//6
+			
 			test = extent.startTest("PT Challan - KRL - Validate 'PT amount' are reflecting correctly");
 			PT_Methods.Challan_PT_KRL_PTAmount(test,"Performer");
 			
 
 
-			//Madhya Pradesh
+			
 			test = extent.startTest("PT Challan - MAP - Validate Employee IDs are reflecting correctly");
 			PT_Methods.Challan_PT_MAP_EmployeeID(test, "");
 						
@@ -319,8 +316,7 @@ public class PT extends BasePage {
 			
 			
 			
-			//Maharashtra:
-			//1
+			
 			test = extent.startTest("PT Challan - MAH - Validate Employee IDs are reflecting correctly");
 			PT_Methods.Challan_PT_MAH_EmployeeID(test, "");
 						
@@ -336,12 +332,12 @@ public class PT extends BasePage {
 			test = extent.startTest("PT Challan - MAHH - Validate 'Locations' are reflecting correctly");
 			PT_Methods.Challan_PT_MAH_Location(test, "");
 			
-			//6
+			
 			test = extent.startTest("PT Challan - MAH - Validate 'PT amount' are reflecting correctly");
 			PT_Methods.Challan_PT_MAH_PTAmount(test,"Performer");
 			
 			
-			//Orissa
+			
 			test = extent.startTest("PT Challan - ORS - Validate Employee IDs are reflecting correctly");
 			PT_Methods.Challan_PT_ORS_EmployeeID(test, "");
 						
@@ -361,7 +357,7 @@ public class PT extends BasePage {
 			PT_Methods.Challan_PT_ORS_PTAmount(test,"Performer");
 			
 			
-			//Pondecherry 
+			
 			test = extent.startTest("PT Challan - PND - Validate Employee IDs are reflecting correctly");
 			PT_Methods.Challan_PT_PND_EmployeeID(test, "");
 						
@@ -381,7 +377,7 @@ public class PT extends BasePage {
 			PT_Methods.Challan_PT_PND_PTAmount(test,"Performer");
 			
 			
-			//Punjab
+			
 			test = extent.startTest("PT Challan - PJB - Validate Employee IDs are reflecting correctly");
 			PT_Methods.Challan_PT_PND_EmployeeID(test, "");
 						

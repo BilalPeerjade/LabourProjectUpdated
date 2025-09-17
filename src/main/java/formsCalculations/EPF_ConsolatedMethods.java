@@ -41,8 +41,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-import businessTestCases.CommonBusinessUtilis;
-import businessTestCases.CommonBusinessUtilis3;
+import businessTestCases.UtilisOne;
+import businessTestCases.Utilis3;
 import businessTestCases.FilePath;
 import login.BasePage;
 import login.LoginLocators;
@@ -51,7 +51,7 @@ import rcp.OneCommonMethod;
 import utils.DownloadHelper;
 import utils.ExcelExtraConfig;
 import utils.ExcelFileDetails;
-import utils.ExcelFilter;
+import utils.methodsb;
 import utils.ExcelTargetValidation;
 import utils.ExcelUtils;
 import utils.FileSearchHelper;
@@ -768,7 +768,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 
 		try {
 			// Step 1: Initialize WebDriver (as per your existing utilities)
-			driver = CommonBusinessUtilis.getDriver();
+			driver = UtilisOne.getDriver();
 
 			// Step 2: Manually download file via selenium click
 //			PerformerLocator.EPF_ConsolatedWorkingDownload().click();
@@ -883,7 +883,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 		
 		
 		{
-			WebDriver driver = CommonBusinessUtilis.getDriver();
+			WebDriver driver = UtilisOne.getDriver();
 
 			// Step 1: Get Latest Downloaded File
 			File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
@@ -963,7 +963,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 		EPF_Consolated_Redirection(test, user);
 		
 		
-		WebDriver driver = CommonBusinessUtilis.getDriver();
+		WebDriver driver = UtilisOne.getDriver();
 		
 		
 /**		CommonBusinessUtilis.validateExcelBusinessData(
@@ -991,7 +991,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 
 		*/
 		
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 			    downloadedExcelFile,
 			    test,
 			    new ExcelFileDetails(
@@ -999,7 +999,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 			        "EmployeeMaster",  // ✅ Sheet name from master file
 			        3,                 // ✅ Column index for EmpName in Master (F column = index 5)
 			        Arrays.asList(
-			            new ExcelFilter(6, Arrays.asList("KAR"))  // ✅ J column = index 6
+			            new methodsb(6, Arrays.asList("KAR"))  // ✅ J column = index 6
 			        ),
 			        "NO"               // ✅ No filter to apply
 			    ),
@@ -1014,7 +1014,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 			);
 		
 		
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 			    downloadedExcelFile,
 			    test,
 			    null,
@@ -1039,7 +1039,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 	public static void PfCO_Remittance_EmployeeCheck2( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 			    downloadedExcelFile,
 			    test,
 			    new ExcelFileDetails(
@@ -1047,7 +1047,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 			        "EmployeeMaster",  // ✅ Sheet name from master file
 			        5,                 // ✅ Column index for EmpName in Master (F column = index 5)
 			        Arrays.asList(
-			            new ExcelFilter(6, Arrays.asList("KAR"))  // ✅ J column = index 6
+			            new methodsb(6, Arrays.asList("KAR"))  // ✅ J column = index 6
 			        ),
 			        "NO"               // ✅ No filter to apply
 			    ),
@@ -1062,7 +1062,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 			);
 		
 		
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 			    downloadedExcelFile,
 			    test,
 			    null,
@@ -1108,15 +1108,15 @@ public class EPF_ConsolatedMethods extends BasePage {
      // ---------- Simple ready-to-drop calling (uses your globals downloadedExcelFile & salaryFile) ----------
         ExcelExtraConfig extraConfig = new ExcelExtraConfig("NO", ExcelUtils.columnLetterToIndex("H"), "VPF");
 
-        List<ExcelFilter> masterFilters = new ArrayList<>();
-        List<ExcelFilter> downloadedFilters = new ArrayList<>();
+        List<methodsb> masterFilters = new ArrayList<>();
+        List<methodsb> downloadedFilters = new ArrayList<>();
 
         // master filters you gave
-        masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("AD"), Arrays.asList("Chattishgad Branch")));
-        masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("AF"), Arrays.asList("Yes")));
+        masterFilters.add(new methodsb(ExcelUtils.columnLetterToIndex("AD"), Arrays.asList("Chattishgad Branch")));
+        masterFilters.add(new methodsb(ExcelUtils.columnLetterToIndex("AF"), Arrays.asList("Yes")));
         
         //Downloaded filters
-        downloadedFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("G"), Arrays.asList("VPF")));
+        downloadedFilters.add(new methodsb(ExcelUtils.columnLetterToIndex("G"), Arrays.asList("VPF")));
 
         // header map: Master.I is total (~63000) and downloaded header "Basic" is in H (we pass H, util will apply +7 internally)
         Map<String, String> headerMap = new HashMap<>();
@@ -1124,7 +1124,7 @@ public class EPF_ConsolatedMethods extends BasePage {
         headerMap.put("H", "Basic");             // Downloaded sheet header to locate "Basic" (utility will use +7 as per your rule)
 
         // FINAL call — simple, same style as your reference
-        CommonBusinessUtilis3.validateExcelCalculation(
+        Utilis3.validateExcelCalculation(
             downloadedExcelFile,
             FilePath.SALARY_FILE,
             test,
@@ -1174,15 +1174,15 @@ public class EPF_ConsolatedMethods extends BasePage {
      // ---------- Simple ready-to-drop calling (uses your globals downloadedExcelFile & salaryFile) ----------
         ExcelExtraConfig extraConfig = new ExcelExtraConfig("NO", ExcelUtils.columnLetterToIndex("G"), "VPF");
 
-        List<ExcelFilter> masterFilters = new ArrayList<>();
-        List<ExcelFilter> downloadedFilters = new ArrayList<>();
+        List<methodsb> masterFilters = new ArrayList<>();
+        List<methodsb> downloadedFilters = new ArrayList<>();
 
         // master filters you gave
-        masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("AD"), Arrays.asList("DaraNHaveli Branch")));
-        masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("AF"), Arrays.asList("Yes")));
+        masterFilters.add(new methodsb(ExcelUtils.columnLetterToIndex("AD"), Arrays.asList("DaraNHaveli Branch")));
+        masterFilters.add(new methodsb(ExcelUtils.columnLetterToIndex("AF"), Arrays.asList("Yes")));
         
         //Downloaded filters
-        downloadedFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("G"), Arrays.asList("VPF")));
+        downloadedFilters.add(new methodsb(ExcelUtils.columnLetterToIndex("G"), Arrays.asList("VPF")));
 
         // header map: Master.I is total (~63000) and downloaded header "Basic" is in H (we pass H, util will apply +7 internally)
         Map<String, String> headerMap = new HashMap<>();
@@ -1190,7 +1190,7 @@ public class EPF_ConsolatedMethods extends BasePage {
         headerMap.put("H", "Basic");             // Downloaded sheet header to locate "Basic" (utility will use +7 as per your rule)
 
         // FINAL call — simple, same style as your reference
-        CommonBusinessUtilis3.validateExcelCalculation(
+        Utilis3.validateExcelCalculation(
             downloadedExcelFile,
             FilePath.SALARY_FILE,
             test,
@@ -1214,17 +1214,17 @@ public class EPF_ConsolatedMethods extends BasePage {
 	     // ---------- Simple ready-to-drop calling (uses your globals downloadedExcelFile & salaryFile) ----------
         ExcelExtraConfig extraConfig = new ExcelExtraConfig("NO", ExcelUtils.columnLetterToIndex("G"), "VPF");
 
-        List<ExcelFilter> masterFilters = new ArrayList<>();
-        List<ExcelFilter> downloadedFilters = new ArrayList<>();
+        List<methodsb> masterFilters = new ArrayList<>();
+        List<methodsb> downloadedFilters = new ArrayList<>();
         
         
 
         // master filters you gave
-        masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("AD"), Arrays.asList("DaraNHaveli Branch")));
-        masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("AF"), Arrays.asList("Yes")));
+        masterFilters.add(new methodsb(ExcelUtils.columnLetterToIndex("AD"), Arrays.asList("DaraNHaveli Branch")));
+        masterFilters.add(new methodsb(ExcelUtils.columnLetterToIndex("AF"), Arrays.asList("Yes")));
         
         //Downloaded filters
-        downloadedFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("G"), Arrays.asList("EPS Wages")));
+        downloadedFilters.add(new methodsb(ExcelUtils.columnLetterToIndex("G"), Arrays.asList("EPS Wages")));
 
         // header map: Master.I is total (~63000) and downloaded header "Basic" is in H (we pass H, util will apply +7 internally)
         Map<String, String> headerMap = new HashMap<>();
@@ -1232,7 +1232,7 @@ public class EPF_ConsolatedMethods extends BasePage {
         headerMap.put("H", "Basic");             // Downloaded sheet header to locate "Basic" (utility will use +7 as per your rule)
 
         // FINAL call — simple, same style as your reference
-        CommonBusinessUtilis3.validateExcelCalculation(
+        Utilis3.validateExcelCalculation(
             downloadedExcelFile,
             FilePath.SALARY_FILE,
             test,
@@ -1256,12 +1256,12 @@ public class EPF_ConsolatedMethods extends BasePage {
 	     // ---------- Simple ready-to-drop calling (uses your globals downloadedExcelFile & salaryFile) ----------
         ExcelExtraConfig extraConfig = new ExcelExtraConfig("NO", ExcelUtils.columnLetterToIndex("G"), "VPF");
 
-        List<ExcelFilter> masterFilters = new ArrayList<>();
-        List<ExcelFilter> downloadedFilters = new ArrayList<>();
+        List<methodsb> masterFilters = new ArrayList<>();
+        List<methodsb> downloadedFilters = new ArrayList<>();
 
         // master filters you gave
-        masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("AD"), Arrays.asList("DaraNHaveli Branch")));
-        masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("AF"), Arrays.asList("Yes")));
+        masterFilters.add(new methodsb(ExcelUtils.columnLetterToIndex("AD"), Arrays.asList("DaraNHaveli Branch")));
+        masterFilters.add(new methodsb(ExcelUtils.columnLetterToIndex("AF"), Arrays.asList("Yes")));
         
         //Downloaded filters
  //     downloadedFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("G"), Arrays.asList("EPS Wages")));
@@ -1272,7 +1272,7 @@ public class EPF_ConsolatedMethods extends BasePage {
         headerMap.put("V", "12% (EPF) A/C No 1");             // Downloaded sheet header to locate "Basic" (utility will use +7 as per your rule)
 
         // FINAL call — simple, same style as your reference
-        CommonBusinessUtilis3.validateExcelCalculation(
+        Utilis3.validateExcelCalculation(
             downloadedExcelFile,
             FilePath.SALARY_FILE,
             test,
@@ -1296,12 +1296,12 @@ public class EPF_ConsolatedMethods extends BasePage {
 	     // ---------- Simple ready-to-drop calling (uses your globals downloadedExcelFile & salaryFile) ----------
         ExcelExtraConfig extraConfig = new ExcelExtraConfig("NO", ExcelUtils.columnLetterToIndex("G"), "VPF");
 
-        List<ExcelFilter> masterFilters = new ArrayList<>();
-        List<ExcelFilter> downloadedFilters = new ArrayList<>();
+        List<methodsb> masterFilters = new ArrayList<>();
+        List<methodsb> downloadedFilters = new ArrayList<>();
 
         // master filters you gave
-        masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("AD"), Arrays.asList("DaraNHaveli Branch")));
-        masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("AF"), Arrays.asList("Yes")));
+        masterFilters.add(new methodsb(ExcelUtils.columnLetterToIndex("AD"), Arrays.asList("DaraNHaveli Branch")));
+        masterFilters.add(new methodsb(ExcelUtils.columnLetterToIndex("AF"), Arrays.asList("Yes")));
         
         //Downloaded filters
  //     downloadedFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("G"), Arrays.asList("EPS Wages")));
@@ -1312,7 +1312,7 @@ public class EPF_ConsolatedMethods extends BasePage {
         headerMap.put("V", "12% (EPF) A/C No 1");             // Downloaded sheet header to locate "Basic" (utility will use +7 as per your rule)
 
         // FINAL call — simple, same style as your reference
-        CommonBusinessUtilis3.validateExcelCalculation(
+        Utilis3.validateExcelCalculation(
             downloadedExcelFile,
             FilePath.SALARY_FILE,
             test,
@@ -1362,15 +1362,15 @@ public class EPF_ConsolatedMethods extends BasePage {
 		
 		ExcelExtraConfig extraConfig = new ExcelExtraConfig("YES",ExcelUtils.columnLetterToIndex("A"),"Total");
 
-			List<ExcelFilter> masterFilters = new ArrayList<>();
-			List<ExcelFilter> targetFilters = new ArrayList<>();
-			masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("AL"),Arrays.asList("Karnataka Branch")));
+			List<methodsb> masterFilters = new ArrayList<>();
+			List<methodsb> targetFilters = new ArrayList<>();
+			masterFilters.add(new methodsb(ExcelUtils.columnLetterToIndex("AL"),Arrays.asList("Karnataka Branch")));
 			
 			Map<String, String> headerMap = new HashMap<>();
 			headerMap.put("C", "Basic"); // Master sheet MonthlyEmployeeChallanSalary
 			headerMap.put("H", "Basic Pay");        // Downloaded sheet All Emp Workings
 
-			CommonBusinessUtilis3.validateExcelCalculation(
+			Utilis3.validateExcelCalculation(
 			    downloadedExcelFile,
 			    salaryFileTESTAUTO,
 			    test,
@@ -1405,7 +1405,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 		
 		Registers_KAR_FORM_A_FOLDER_Redirection(test,user);
 		
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 			    downloadedExcelFile,
 			    test,
 			    new ExcelFileDetails(
@@ -1413,7 +1413,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 			        "EmployeeMaster",  // ✅ Sheet name from master file
 			        5,                 // ✅ Column index for EmpName in Master (F column = index 5)
 			        Arrays.asList(
-			            new ExcelFilter(6, Arrays.asList("KAR"))  // ✅ J column = index 6
+			            new methodsb(6, Arrays.asList("KAR"))  // ✅ J column = index 6
 			        ),
 			        "YES"               // ✅ No filter to apply
 			    ),
@@ -1428,7 +1428,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 			);
 		
 		
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 			    downloadedExcelFile,
 			    test,
 			    null,
@@ -1450,7 +1450,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 		
 		
 		//2
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 			    downloadedExcelFile,
 			    test,
 			    new ExcelFileDetails(
@@ -1458,7 +1458,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 			        "EmployeeMaster",  // ✅ Sheet name from master file
 			        5,                 // ✅ Column index for EmpName in Master (F column = index 5)
 			        Arrays.asList(
-			            new ExcelFilter(6, Arrays.asList("MAH"))  // ✅ J column = index 6
+			            new methodsb(6, Arrays.asList("MAH"))  // ✅ J column = index 6
 			        ),
 			        "YES"               // ✅ No filter to apply
 			    ),
@@ -1473,7 +1473,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 			);
 		
 		
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 			    downloadedExcelFile,
 			    test,
 			    null,
@@ -1502,7 +1502,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 		
 		Challan_PT_Redirection(test,user);
 		
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 			    downloadedExcelFile,
 			    test,
 			    new ExcelFileDetails(
@@ -1510,7 +1510,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 			        "EmployeeMaster",  // ✅ Sheet name from master file
 			        3,                 // ✅ Column index for EmpName in Master (F column = index 5)
 			        Arrays.asList(
-			            new ExcelFilter(6, Arrays.asList("KAR"))  // ✅ J column = index 6
+			            new methodsb(6, Arrays.asList("KAR"))  // ✅ J column = index 6
 			        ),
 			        "NO"               // ✅ No filter to apply
 			    ),
@@ -1525,7 +1525,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 			);
 		
 		
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 			    downloadedExcelFile,
 			    test,
 			    null,
@@ -1746,11 +1746,11 @@ public class EPF_ConsolatedMethods extends BasePage {
 		
 		try {
 	        // --- Setup Helper Class Instances ---
-	        ExcelFilter stateFilter = new ExcelFilter();
+	        methodsb stateFilter = new methodsb();
 	        stateFilter.setColumnName("State");
 	        stateFilter.setValues(Arrays.asList("MH"));
 
-	        List<ExcelFilter> filters = new ArrayList<>();
+	        List<methodsb> filters = new ArrayList<>();
 	        filters.add(stateFilter);
 
 	        ExcelFileDetails masterDetails = new ExcelFileDetails();
@@ -1833,7 +1833,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 		
 		Challan_PT_Redirection(test,user);
 		
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 			    downloadedExcelFile,
 			    test,
 			    new ExcelFileDetails(
@@ -1841,7 +1841,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 			        "EmployeeMaster",
 			        3,
 			        Arrays.asList(
-			            new ExcelFilter(6, Arrays.asList("KAR"))
+			            new methodsb(6, Arrays.asList("KAR"))
 			        ),
 			        "NO"
 			    ),
@@ -1855,7 +1855,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 			    "🧪 Validating PT based on Master File"
 			);
 
-			CommonBusinessUtilis.validateExcelBusinessData(
+			UtilisOne.validateExcelBusinessData(
 			    downloadedExcelFile,
 			    test,
 			    null,
