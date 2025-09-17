@@ -627,13 +627,16 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 	void ESIC_AllEMPWorkings_Test() throws InterruptedException, IOException, AWTException 
 	{
 		test = extent.startTest("ESI Code wise - 400100 - All Emp Workings - Validate 'E E' are reflecting correctly");
-		ESI_Methods.ESIC_AllEMPWorkings_Test(test, "Performer");
+		ESI_Methods.Challan_ESI_400100_EmployeeID(test, "Performer");
 		
 		test = extent.startTest("ESI Code wise - 400100 - All Emp Workings - Validate 'E R' are reflecting correctly");
 		ESI_Methods.ESIC_AllEMPWorkings_Test1(test, "Performer");
 		
 		test = extent.startTest("ESI Code wise - 400100 - All Emp Workings - Validate 'TOTAL' are reflecting correctly");
 		ESI_Methods.ESIC_AllEMPWorkings_Test3(test, "Performer");
+		
+		test = extent.startTest("ESI Code wise - 400100 - All Emp Workings - valiodate EE (Dwonloaded vs Downloaded Checking)");
+		ESI_Methods.ESIC_AllEMPWorkings_Test4(test, "Performer");
 
 		extent.endTest(test);
 		extent.flush();

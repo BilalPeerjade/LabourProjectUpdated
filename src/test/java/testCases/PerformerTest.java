@@ -28,6 +28,7 @@ import login.BasePage;
 import login.LoginLocators;
 import performer.LocatorsP;
 import performer.MethodsP;
+import rcp.OneCommonMethod;
 
 public class PerformerTest extends BasePage {
 	
@@ -337,7 +338,7 @@ public class PerformerTest extends BasePage {
 	}
 
 		
-	@Test(priority = 22)
+	@Test(priority = 22) //Moved
 	void RiskSummaryNotCompliedGraph() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Bar Graph -Risk Summary - Not Complied - Count Verification");
@@ -346,7 +347,9 @@ public class PerformerTest extends BasePage {
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	//	LoginLocators.Search().sendKeys("WWKRG");
-		LoginLocators.Search().sendKeys("AVACORED5");
+		LoginLocators.Search().sendKeys("TESTAUTO2");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+		
 		Thread.sleep(5000);
 //		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
 		Thread.sleep(8000);
@@ -354,7 +357,7 @@ public class PerformerTest extends BasePage {
 		Thread.sleep(10000);
 		LoginLocators.SelectPeriodDashboard().click();
 		Thread.sleep(2000);
-		LoginLocators.SelectPeriodValue1().click();
+		LoginLocators.SelectPeriodValue2024().click();
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	    

@@ -43,6 +43,7 @@ import com.relevantcodes.extentreports.LogStatus;
 import businessChallanForms.PT_ConsolidatedMethods;
 import businessTestCases.CommonBusinessUtilis;
 import businessTestCases.CommonBusinessUtilis3;
+import businessTestCases.FilePath;
 import login.BasePage;
 import login.LoginLocators;
 import performer.PerformerLocator;
@@ -120,6 +121,17 @@ public class ESI_Methods extends BasePage {
 		
 	}
 	
+	
+	// Top of class me likho
+	
+
+	
+	
+
+
+
+
+	
 	public static void Challan_ESI_400100_EmployeeID( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		Challan_ESI_StaturyDocRedirection(test,user);
@@ -193,6 +205,22 @@ public class ESI_Methods extends BasePage {
             extraConfig,
             "Employee IDs are reflecting properly as per masters!"
         );
+        
+        
+        
+        
+        
+        
+        WebDriver driver = CommonBusinessUtilis.getDriver();
+        CommonBusinessUtilis.validateColumnHasUniqueValues(
+	    driver,
+	    test,
+	    downloadedExcelFile,
+	    0,                 // Column Index for Employee Number (e.g., column F)
+	    0,                 // Header at row 2 (i.e., index 1)
+	    "All Emp Workings",         // Sheet name
+	    "All serial numbers are unique nos" );     // Log/Report label — It will display this log if pass
+        
 		
 	}
 	public static void ESIC_AllEMPWorkings_Test( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
@@ -318,7 +346,6 @@ public class ESI_Methods extends BasePage {
 		List<ExcelFilter> masterFilters = new ArrayList<>();
 		List<ExcelFilter> downloadedFilters = new ArrayList<>();
 
-//		masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("X"), Arrays.asList("Yes")));
 		masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("Y"), Arrays.asList("400100")));
 		
 		
@@ -332,7 +359,7 @@ public class ESI_Methods extends BasePage {
 		    downloadedExcelFile,   // File object for ESI_400100_Aug_2025 (12).xlsx
 		    salaryFile,            // master file path or string pointing to Sample_challansalary3.xlsx
 		    test,                  // ExtentTest test object
-		    "All_Emp_Workings.J = Master.R * 0.0375", // calculation rule
+		    "All_Emp_Workings.J = Master.R * 0.0325", // calculation rule
 		    "MASTER",              // rhsSource (your code used "MASTER" earlier)
 		    "PT_Report",           // defaultSheetName (normalizes via alias map inside CommonBusinessUtilis3)
 		    masterFilters,
@@ -347,13 +374,16 @@ public class ESI_Methods extends BasePage {
 	}
 	public static void ESIC_AllEMPWorkings_Test3( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		ExcelExtraConfig extraConfig = new ExcelExtraConfig("YES",
+/**		ExcelExtraConfig extraConfig = new ExcelExtraConfig("YES",
 			    ExcelUtils.columnLetterToIndex("A"),"Total");
 
 			List<ExcelFilter> masterFilters = new ArrayList<>();
 			List<ExcelFilter> targetFilters = new ArrayList<>();
-			masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("Y"),
-			    Arrays.asList("400100")));
+			masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("Y"),Arrays.asList("400100")));
+			
+			targetFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("A"),Arrays.asList("Total")));
+			
+			
 			
 			Map<String, String> headerMap = new HashMap<>();
 			headerMap.put("R", "ESI Gross"); // Master sheet MonthlyEmployeeChallanSalary
@@ -375,6 +405,130 @@ public class ESI_Methods extends BasePage {
 			    headerMap,
 			    "🧪 Validating ESI: All Emp Workings.K ≈ Master.R * (0.0075 + 0.0375)"
 			);
+**/
+		
+		
+		
+		ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+			    "NO",                                // NO => don't sum, just take direct cell
+			    ExcelUtils.columnLetterToIndex("A"),"Total");
+
+			List<ExcelFilter> masterFilters = new ArrayList<>();
+			masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("Y"), Arrays.asList("400100")));
+
+			List<ExcelFilter> targetFilters = new ArrayList<>();
+			targetFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("A"), Arrays.asList("Total"))); // pick only Total row
+
+			Map<String, String> headerMap = new HashMap<>();
+			headerMap.put("R", "ESI Gross"); // Master
+			headerMap.put("K", "Total");     // Downloaded
+
+			String calculationRule = "K = R * 0.0075 + R * 0.0375"; 
+			String defaultSheetName = "All Emp Workings";
+
+			CommonBusinessUtilis3.validateExcelCalculation(
+			    downloadedExcelFile,
+			    FilePath.SALARY_FILE,
+			    test,
+			    calculationRule,
+			    "MASTER",
+			    defaultSheetName,
+			    masterFilters,
+			    targetFilters,       // now filter ensures only Total row picked
+			    extraConfig,         // NO => direct total row check
+			    1,
+			    false,
+			    0,
+			    headerMap,
+			    "🧪 Validating ESI: All Emp Workings.K (Total row) ≈ Master.R * (0.0075 + 0.0375)"
+			);
+
+
+		
+		
+		
+	}
+	public static void ESIC_AllEMPWorkings_Test4( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		ExcelExtraConfig extraConfig = new ExcelExtraConfig("YES",
+			    ExcelUtils.columnLetterToIndex("A"),"Total");
+
+			List<ExcelFilter> masterFilters = new ArrayList<>();
+			List<ExcelFilter> targetFilters = new ArrayList<>();
+//			masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("Y"),Arrays.asList("400100")));
+			
+//			targetFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("A"),Arrays.asList("Total")));
+			
+			
+			
+			Map<String, String> headerMap = new HashMap<>();
+			headerMap.put("G", "ESI Wages"); // Master sheet MonthlyEmployeeChallanSalary
+			headerMap.put("I", "EE");        // Downloaded sheet All Emp Workings
+
+			CommonBusinessUtilis3.validateExcelCalculation(
+			    downloadedExcelFile,
+			    salaryFile,
+			    test,
+			    "I = G * 0.0075",    // I G
+			    "DOWNLOADED",
+			    "All Emp Workings",  //sheet
+			    
+			    masterFilters,
+			    targetFilters,
+			    extraConfig,
+			    1,      
+			    false,
+			    0,
+			    headerMap,
+			    "🧪 Validating ESI: All Emp Workings.K ≈ Master.R * (0.0075 + 0.0375)"
+			);
+			
+		/*  //This will applied directly Downloaded to downloaded  
+		// --- prepare extra config (same as your original)
+		ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+		    "YES",
+		    ExcelUtils.columnLetterToIndex("A"),
+		    "Total"
+		);
+
+		// --- prepare filters (empty lists kept as you had them)
+		List<ExcelFilter> masterFilters = new ArrayList<>();
+		List<ExcelFilter> targetFilters = new ArrayList<>();
+		// masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("Y"), Arrays.asList("400100")));
+		// targetFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("A"), Arrays.asList("Total")));
+
+		// --- header map (same as you provided)
+		Map<String, String> headerMap = new HashMap<>();
+		headerMap.put("G", "ESI Wages"); // Master sheet MonthlyEmployeeChallanSalary
+		headerMap.put("I", "EE");        // Downloaded sheet All Emp Workings
+
+		// === IMPORTANT CHANGE: use column-only expression and set default sheet name to the downloaded sheet
+		String calculationRule = "I = G * 0.0075";     // column-only (no sheet prefix with spaces)
+		String defaultSheetName = "All Emp Workings";  // name of the downloaded sheet (exact, includes spaces)
+
+		// --- tolerance & other flags (same as your original)
+		int tolerancePercent = 1;   // 1% tolerance
+		boolean skipHeader = false;
+		int startRowIndex = 0;      // adjust if needed
+
+		// --- final call
+		CommonBusinessUtilis3.validateExcelCalculation(
+		    downloadedExcelFile,              // File or ExcelFileDetails for downloaded file
+		    salaryFile,                       // File or ExcelFileDetails for master file
+		    test,                             // ExtentTest or your test logger object
+		    calculationRule,                  // "I = G * 0.0075"
+		    "DOWNLOADED",                     // target type (same as your original)
+		    defaultSheetName,                 // "All Emp Workings" -> default sheet for column-only rule
+		    masterFilters,
+		    targetFilters,
+		    extraConfig,
+		    tolerancePercent,
+		    skipHeader,
+		    startRowIndex,
+		    headerMap,
+		    "🧪 Validating ESI: All Emp Workings.K ≈ Master.R * (0.0075 + 0.0375)" // descriptive log text
+		);
+*/
 
 		
 	}

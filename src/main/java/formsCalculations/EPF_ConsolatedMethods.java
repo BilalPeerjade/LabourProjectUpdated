@@ -43,6 +43,7 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import businessTestCases.CommonBusinessUtilis;
 import businessTestCases.CommonBusinessUtilis3;
+import businessTestCases.FilePath;
 import login.BasePage;
 import login.LoginLocators;
 import performer.PerformerLocator;
@@ -70,7 +71,9 @@ public class EPF_ConsolatedMethods extends BasePage {
 	public static String masterFilePath = "D:\\Upload Automation Files\\BusinessScenarios\\Month\\EmployeeMaster_TESTAUTO.xlsx";
 	
 		
-	public static String salaryFile = "D:\\Upload Automation Files\\BusinessScenarios\\DOCAUTOO4\\#1 Aug2025\\Sample_challansalary3.xlsx";
+//	public static String salaryFile = "D:\\Upload Automation Files\\BusinessScenarios\\DOCAUTOO4\\#1 Aug2025\\Sample_challansalary3.xlsx";
+	
+//	String file = FilePath.salaryFile;
 	
 	
 	
@@ -1123,7 +1126,7 @@ public class EPF_ConsolatedMethods extends BasePage {
         // FINAL call — simple, same style as your reference
         CommonBusinessUtilis3.validateExcelCalculation(
             downloadedExcelFile,
-            salaryFile,
+            FilePath.SALARY_FILE,
             test,
             "All_Employees.H = Master.I",   // keep H here (your util will use header H and startRowOffset to apply +7 logic)
             "MASTER",
@@ -1189,7 +1192,7 @@ public class EPF_ConsolatedMethods extends BasePage {
         // FINAL call — simple, same style as your reference
         CommonBusinessUtilis3.validateExcelCalculation(
             downloadedExcelFile,
-            salaryFile,
+            FilePath.SALARY_FILE,
             test,
             "All_Employees.H = Master.I",   // keep H here (your util will use header H and startRowOffset to apply +7 logic)
             "MASTER",
@@ -1231,7 +1234,7 @@ public class EPF_ConsolatedMethods extends BasePage {
         // FINAL call — simple, same style as your reference
         CommonBusinessUtilis3.validateExcelCalculation(
             downloadedExcelFile,
-            salaryFile,
+            FilePath.SALARY_FILE,
             test,
             "All_Employees.H = Master.P",   // keep H here (your util will use header H and startRowOffset to apply +7 logic)
             "MASTER",
@@ -1271,7 +1274,7 @@ public class EPF_ConsolatedMethods extends BasePage {
         // FINAL call — simple, same style as your reference
         CommonBusinessUtilis3.validateExcelCalculation(
             downloadedExcelFile,
-            salaryFile,
+            FilePath.SALARY_FILE,
             test,
             "All_Employees.V = Master.P * 0.12",   // keep H here (your util will use header H and startRowOffset to apply +7 logic)
             "MASTER",
@@ -1311,7 +1314,7 @@ public class EPF_ConsolatedMethods extends BasePage {
         // FINAL call — simple, same style as your reference
         CommonBusinessUtilis3.validateExcelCalculation(
             downloadedExcelFile,
-            salaryFile,
+            FilePath.SALARY_FILE,
             test,
             "All_Employees.V = Master.P * 0.12",
             "MASTER",

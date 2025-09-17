@@ -70,10 +70,10 @@ public class All_Distributor_TWO  extends BasePage {
 	@BeforeMethod
 	void Login() throws InterruptedException, IOException
 	{
-		initialization(link,0,"Statutory");
+		initialization2(link,0,"Statutory");
 	
 	}
-	/**
+	
 	@Test(priority = 1) //Bilal
 	void CompanyLogo() throws InterruptedException, IOException
 	{
@@ -522,7 +522,7 @@ public class All_Distributor_TWO  extends BasePage {
 		}
 		
 		
-		*/
+		/**
 		
 		//Part 2
 		
@@ -1111,7 +1111,7 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 	
 	
 	   
-	   
+	   **/
 	   
 	   
 	   

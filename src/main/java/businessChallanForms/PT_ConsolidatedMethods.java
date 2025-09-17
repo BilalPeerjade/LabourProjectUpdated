@@ -2098,13 +2098,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	// ====== Unified validator: works for both "PT Report" (consolidated) and "PTChallan" (state-wise) ======
+	// ====== Unified validator with integrated diagnostics and PT-value counts ======
 	public static void validatePTAmountsUpdatedFlexible(
 	        File downloadedExcelFile,
 	        ExtentTest test,
@@ -2131,10 +2125,10 @@ public class PT_ConsolidatedMethods extends BasePage {
 	        }
 
 	        // 3) Resolve columns by header text (case-insensitive contains match)
-	        int colState   = findColIndex(header, "PT State", "Client PT State");
+	        int colState   = findColIndex(header, "PT State", "Client PT State", "PTState");
 	        int colGender  = findColIndex(header, "Gender");
-	        int colGross   = findColIndex(header, "PT Gross wages", "Gross");
-	        int colPT      = findColIndex(header, "PT amount(As per slab)", "PT amount");
+	        int colGross   = findColIndex(header, "PT Gross wages", "Gross", "PT Gross");
+	        int colPT      = findColIndex(header, "PT amount(As per slab)", "PT amount", "PT Amount");
 
 	        // Optional columns to detect TOTAL rows
 	        int colEmpName = findColIndex(header, "Emp Name", "Employee Name", "Employee");
@@ -2148,13 +2142,20 @@ public class PT_ConsolidatedMethods extends BasePage {
 	            return;
 	        }
 
-	        // 4) Per-state counters
+	        // 4) Per-state counters & override counters
 	        Map<String, Integer> stateRowCount = new HashMap<>();
 	        Map<String, Integer> stateMismatchCount = new HashMap<>();
-	        Map<String, Set<Integer>> statePTValues = new HashMap<>();
-
-	        // Aggregated override counters (one line per rule with Count)
+	        // state -> (ptValue -> count)
+	        Map<String, Map<Integer, Integer>> statePTValueCounts = new HashMap<>();
 	        Map<String, Integer> overrideCounters = new HashMap<>();
+
+	        // Diagnostics maps
+	        Map<String, Integer> diagStateTotal = new HashMap<>();
+	        Map<String, Map<Integer,Integer>> diagBaseCount = new HashMap<>();
+	        Map<String, Map<Integer,Integer>> diagActualCount = new HashMap<>();
+	        Map<String, Integer> diagWouldOverride = new HashMap<>();
+
+	        int skippedTotalRows = 0;
 
 	        int last = sheet.getLastRowNum();
 	        for (int r = 1; r <= last; r++) { // skip header
@@ -2169,7 +2170,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 
 	                // --- skip rows with blank/unknown state ---
 	                if (state == null || state.trim().isEmpty()) {
-	                    // likely TOTAL / summary row → skip silently
+	                    skippedTotalRows++;
 	                    continue;
 	                }
 
@@ -2183,62 +2184,118 @@ public class PT_ConsolidatedMethods extends BasePage {
 	                    String slNo = getString(row.getCell(colSlNo));
 	                    if (slNo != null && slNo.trim().toLowerCase().contains("total")) isTotalRow = true;
 	                }
-	                if (isTotalRow) continue;
+	                if (isTotalRow) {
+	                    skippedTotalRows++;
+	                    continue;
+	                }
 
 	                // --- basic sanity on numbers ---
 	                if (gender == null || grossD == null || actual == null) {
 	                    test.log(LogStatus.WARNING, "⚠ Row " + (r + 1) + " skipped (missing/invalid data).");
 	                    continue;
 	                }
-	                if (grossD <= 0) continue;           // ignore garbage
-	                if (actual < 0 || actual > 5000) {   // PT cannot be massive; ignore summary spillovers
+	                if (grossD <= 0) {
+	                    skippedTotalRows++;
+	                    continue;           // ignore garbage
+	                }
+	                if (actual < 0 || actual > 5000) { // PT unrealistic guard
+	                    skippedTotalRows++;
 	                    continue;
 	                }
 
-	                // 5) Base PT from backend slab (ExcelValueNormalizer expects int gross)
+	                // Normalize state key for maps
+	                String stKey = state.trim().toUpperCase();
+
+	                // 5) Base PT from backend slab
 	                int basePT = ExcelValueNormalizer.getPTAmount(state, grossD.intValue());
 
 	                // 6) Per-state runCount (default 1)
 	                int runCount = 1;
 	                if (stateRunCounts != null && !stateRunCounts.isEmpty()) {
-	                    runCount = stateRunCounts.getOrDefault(state.trim().toUpperCase(), 1);
+	                    runCount = stateRunCounts.getOrDefault(stKey, 1);
 	                }
 
-	                // 7) Apply overrides (with aggregated counters)
-	                int expectedPT = applyStateOverridesAggregated(
-	                        state, basePT, grossD, gender, runCount, overrideCounters);
+	                // 7) Compute expected PT and update override counters
+	                int expectedPT = applyStateOverridesAggregated(state, basePT, grossD, gender, runCount, overrideCounters);
 
-	                // 8) Update state counters
+	                // 8) Update main counters
 	                stateRowCount.put(state, stateRowCount.getOrDefault(state, 0) + 1);
 	                if (expectedPT != actual.intValue()) {
 	                    stateMismatchCount.put(state, stateMismatchCount.getOrDefault(state, 0) + 1);
 	                }
-	                statePTValues.computeIfAbsent(state, k -> new HashSet<>()).add(actual.intValue());
+
+	                // update PT counts per state
+	                int actualPTInt = actual.intValue();
+	                statePTValueCounts.computeIfAbsent(state, k -> new HashMap<>());
+	                Map<Integer,Integer> ptCountMap = statePTValueCounts.get(state);
+	                ptCountMap.put(actualPTInt, ptCountMap.getOrDefault(actualPTInt, 0) + 1);
+
+	                // ---------- Diagnostics collection ----------
+	                // total
+	                diagStateTotal.put(stKey, diagStateTotal.getOrDefault(stKey, 0) + 1);
+
+	                // base distribution
+	                diagBaseCount.computeIfAbsent(stKey, k -> new HashMap<>());
+	                Map<Integer,Integer> bm = diagBaseCount.get(stKey);
+	                bm.put(basePT, bm.getOrDefault(basePT, 0) + 1);
+
+	                // actual distribution
+	                diagActualCount.computeIfAbsent(stKey, k -> new HashMap<>());
+	                Map<Integer,Integer> am = diagActualCount.get(stKey);
+	                am.put(actualPTInt, am.getOrDefault(actualPTInt, 0) + 1);
+
+	                // would override?
+	                int wouldBe = applyStateOverridesAggregated(state, basePT, grossD, gender, runCount, new HashMap<>());
+	                if (wouldBe != basePT) {
+	                    diagWouldOverride.put(stKey, diagWouldOverride.getOrDefault(stKey, 0) + 1);
+	                }
+	                // ---------- end diagnostics ----------
 
 	            } catch (Exception ex) {
 	                test.log(LogStatus.WARNING, "⚠ Row " + (r + 1) + " error: " + ex.getMessage());
 	            }
 	        }
 
-	        // 9) Final summary per state
+	        // 9) Final summary per state (with PT counts)
 	        for (String state : stateRowCount.keySet()) {
 	            int totalRows = stateRowCount.get(state);
 	            int mismatches = stateMismatchCount.getOrDefault(state, 0);
-	            Set<Integer> ptValues = statePTValues.getOrDefault(state, new HashSet<>());
+	            Map<Integer,Integer> ptCounts = statePTValueCounts.getOrDefault(state, new HashMap<>());
+
+	            // Format PT values as: [0:217, 200:339] sorted by PT value ascending
+	            List<Integer> sortedKeys = new ArrayList<>(ptCounts.keySet());
+	            Collections.sort(sortedKeys);
+	            StringBuilder ptSummary = new StringBuilder();
+	            ptSummary.append("[");
+	            boolean first = true;
+	            for (Integer k : sortedKeys) {
+	                if (!first) ptSummary.append(", ");
+	                ptSummary.append("").append(k).append(" : <b>").append(ptCounts.get(k)).append("</b>");
+	                first = false;
+	            }
+	            ptSummary.append("]");
 
 	            if (mismatches == 0) {
 	                test.log(LogStatus.PASS, "✅ State " + state.toUpperCase() +
-	                        " | All Employee count <b>" + totalRows + "</b> rows matched as per backend logic. | PT Values: " + ptValues);
+	                        " | All Employee count <b>" + totalRows + "</b> rows matched as per backend logic. | PT Values: " + ptSummary.toString());
 	            } else {
 	                test.log(LogStatus.FAIL, "❌ State " + state.toUpperCase() +
 	                        " | " + mismatches + " out of " + totalRows +
-	                        " rows mismatched as per backend logic. | PT Values: " + ptValues);
+	                        " rows mismatched as per backend logic. | PT Values: " + ptSummary.toString());
 	            }
 	        }
 
 	        // 10) Aggregated override counters
-	        for (Map.Entry<String, Integer> e : overrideCounters.entrySet()) {
+	        for (Entry<String, Integer> e : overrideCounters.entrySet()) {
 	            test.log(LogStatus.INFO, e.getKey() + " | Count = " + e.getValue());
+	        }
+
+	        // 11) Diagnostics logging (one block)
+//	        logPerStateDiagnostics(diagStateTotal, diagBaseCount, diagActualCount, diagWouldOverride, test);
+
+	        // 12) Optional debug line: how many TOTAL/blank rows were skipped
+	        if (skippedTotalRows > 0) {
+	            test.log(LogStatus.INFO, "Skipped TOTAL/blank rows: " + skippedTotalRows);
 	        }
 
 	    } catch (Exception e) {
@@ -2285,7 +2342,6 @@ public class PT_ConsolidatedMethods extends BasePage {
 	            break;
 
 	        case "MADHYA PRADESH":
-	        	if("MADHYA PRADESH".equalsIgnoreCase(st)) {
 	            if (runCount >= 2) {
 	                if (expectedPT == 166) {
 	                    finalPT = 174;
@@ -2295,7 +2351,6 @@ public class PT_ConsolidatedMethods extends BasePage {
 	                    bump(counters, "Madhya Pradesh 2nd+ run override → 208 → 212");
 	                }
 	            }
-	        	}
 	            break;
 
 	        case "JAMMU & KASHMIR":
@@ -2315,7 +2370,33 @@ public class PT_ConsolidatedMethods extends BasePage {
 	    return finalPT;
 	}
 
-	// ====== Small helpers ======
+	// ====== Diagnostics logger ======
+	private static void logPerStateDiagnostics(
+	        Map<String, Integer> stateTotal,
+	        Map<String, Map<Integer, Integer>> stateBasePTCount,
+	        Map<String, Map<Integer, Integer>> stateActualPTCount,
+	        Map<String, Integer> stateWouldBeOverridden,
+	        ExtentTest test) {
+
+	    test.log(LogStatus.INFO, "----- PER-STATE DIAGNOSTICS START -----");
+	    for (String st : stateTotal.keySet()) {
+	        int total = stateTotal.getOrDefault(st, 0);
+	        Map<Integer,Integer> baseMap = stateBasePTCount.getOrDefault(st, new HashMap<>());
+	        Map<Integer,Integer> actualMap = stateActualPTCount.getOrDefault(st, new HashMap<>());
+	        int overridden = stateWouldBeOverridden.getOrDefault(st, 0);
+
+	        StringBuilder sb = new StringBuilder();
+	        sb.append("State ").append(st).append(" | Total rows: ").append(total)
+	          .append(" | OverriddenCandidates: ").append(overridden)
+	          .append(" | BasePT distribution: ").append(baseMap.toString())
+	          .append(" | ActualPT distribution: ").append(actualMap.toString());
+
+	        test.log(LogStatus.INFO, sb.toString());
+	    }
+	    test.log(LogStatus.INFO, "----- PER-STATE DIAGNOSTICS END -----");
+	}
+
+	/// ====== Small helpers ======
 	private static void bump(Map<String, Integer> map, String key) {
 	    map.put(key, map.getOrDefault(key, 0) + 1);
 	}
@@ -2335,24 +2416,291 @@ public class PT_ConsolidatedMethods extends BasePage {
 
 	private static String getString(Cell cell) {
 	    if (cell == null) return null;
-	    switch (cell.getCellType()) {
-	        case STRING:  return cell.getStringCellValue().trim();
-	        case NUMERIC: return String.valueOf((long) cell.getNumericCellValue());
-	        case BOOLEAN: return String.valueOf(cell.getBooleanCellValue());
-	        default: return null;
-	    }
+	    CellType t = cell.getCellType();
+	    if (t == CellType.STRING)  return cell.getStringCellValue().trim();
+	    if (t == CellType.NUMERIC) return String.valueOf((long) cell.getNumericCellValue());
+	    if (t == CellType.BOOLEAN) return String.valueOf(cell.getBooleanCellValue());
+	    return null;
 	}
 
 	private static Double getNumeric(Cell cell) {
 	    if (cell == null) return null;
-	    switch (cell.getCellType()) {
-	        case NUMERIC: return cell.getNumericCellValue();
-	        case STRING:
-	            try { return Double.parseDouble(cell.getStringCellValue().trim()); }
-	            catch (Exception ignore) { return null; }
-	        default: return null;
+	    CellType t = cell.getCellType();
+	    if (t == CellType.NUMERIC) return cell.getNumericCellValue();
+	    if (t == CellType.STRING) {
+	        try { return Double.parseDouble(cell.getStringCellValue().trim()); }
+	        catch (Exception ignore) { return null; }
 	    }
+	    return null;
 	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+//	// ====== Unified validator: works for both "PT Report" (consolidated) and "PTChallan" (state-wise) ======
+//	public static void validatePTAmountsUpdatedFlexible(
+//	        File downloadedExcelFile,
+//	        ExtentTest test,
+//	        Map<String, Integer> stateRunCounts) {
+//
+//	    try (FileInputStream fis = new FileInputStream(downloadedExcelFile);
+//	         Workbook wb = WorkbookFactory.create(fis)) {
+//
+//	        // 1) Pick sheet safely
+//	        Sheet sheet = wb.getSheet("PT Report");
+//	        if (sheet == null) sheet = wb.getSheet("PTChallan");
+//	        if (sheet == null) sheet = wb.getNumberOfSheets() > 0 ? wb.getSheetAt(0) : null;
+//
+//	        if (sheet == null) {
+//	            test.log(LogStatus.ERROR, "❌ No sheet found (expected 'PT Report' or 'PTChallan') in: " + downloadedExcelFile.getName());
+//	            return;
+//	        }
+//
+//	        // 2) Header row
+//	        Row header = sheet.getRow(0);
+//	        if (header == null) {
+//	            test.log(LogStatus.ERROR, "❌ Header row missing in sheet: " + sheet.getSheetName());
+//	            return;
+//	        }
+//
+//	        // 3) Resolve columns by header text (case-insensitive contains match)
+//	        int colState   = findColIndex(header, "PT State", "Client PT State");
+//	        int colGender  = findColIndex(header, "Gender");
+//	        int colGross   = findColIndex(header, "PT Gross wages", "Gross");
+//	        int colPT      = findColIndex(header, "PT amount(As per slab)", "PT amount");
+//
+//	        // Optional columns to detect TOTAL rows
+//	        int colEmpName = findColIndex(header, "Emp Name", "Employee Name", "Employee");
+//	        int colSlNo    = findColIndex(header, "Sl No", "S.No", "Sr No", "Sr.No");
+//
+//	        if (colState < 0 || colGender < 0 || colGross < 0 || colPT < 0) {
+//	            test.log(LogStatus.ERROR,
+//	                    "❌ Required columns not found. Need headers like: " +
+//	                    "[PT State/Client PT State], [Gender], [PT Gross wages], [PT amount/PT amount(As per slab)]. " +
+//	                    "Found in sheet: " + sheet.getSheetName());
+//	            return;
+//	        }
+//
+//	        // 4) Per-state counters
+//	        Map<String, Integer> stateRowCount = new HashMap<>();
+//	        Map<String, Integer> stateMismatchCount = new HashMap<>();
+//	        Map<String, Set<Integer>> statePTValues = new HashMap<>();
+//
+//	        // Aggregated override counters (one line per rule with Count)
+//	        Map<String, Integer> overrideCounters = new HashMap<>();
+//
+//	        int last = sheet.getLastRowNum();
+//	        for (int r = 1; r <= last; r++) { // skip header
+//	            Row row = sheet.getRow(r);
+//	            if (row == null) continue;
+//
+//	            try {
+//	                String state  = getString(row.getCell(colState));
+//	                String gender = getString(row.getCell(colGender));
+//	                Double grossD = getNumeric(row.getCell(colGross));
+//	                Double actual = getNumeric(row.getCell(colPT));
+//
+//	                // --- skip rows with blank/unknown state ---
+//	                if (state == null || state.trim().isEmpty()) {
+//	                    // likely TOTAL / summary row → skip silently
+//	                    continue;
+//	                }
+//
+//	                // --- skip typical TOTAL rows (by name or serial) ---
+//	                boolean isTotalRow = false;
+//	                if (!isTotalRow && colEmpName >= 0) {
+//	                    String empName = getString(row.getCell(colEmpName));
+//	                    if (empName != null && empName.trim().toLowerCase().contains("total")) isTotalRow = true;
+//	                }
+//	                if (!isTotalRow && colSlNo >= 0) {
+//	                    String slNo = getString(row.getCell(colSlNo));
+//	                    if (slNo != null && slNo.trim().toLowerCase().contains("total")) isTotalRow = true;
+//	                }
+//	                if (isTotalRow) continue;
+//
+//	                // --- basic sanity on numbers ---
+//	                if (gender == null || grossD == null || actual == null) {
+//	                    test.log(LogStatus.WARNING, "⚠ Row " + (r + 1) + " skipped (missing/invalid data).");
+//	                    continue;
+//	                }
+//	                if (grossD <= 0) continue;           // ignore garbage
+//	                if (actual < 0 || actual > 5000) {   // PT cannot be massive; ignore summary spillovers
+//	                    continue;
+//	                }
+//
+//	                // 5) Base PT from backend slab (ExcelValueNormalizer expects int gross)
+//	                int basePT = ExcelValueNormalizer.getPTAmount(state, grossD.intValue());
+//
+//	                // 6) Per-state runCount (default 1)
+//	                int runCount = 1;
+//	                if (stateRunCounts != null && !stateRunCounts.isEmpty()) {
+//	                    runCount = stateRunCounts.getOrDefault(state.trim().toUpperCase(), 1);
+//	                }
+//
+//	                // 7) Apply overrides (with aggregated counters)
+//	                int expectedPT = applyStateOverridesAggregated(
+//	                        state, basePT, grossD, gender, runCount, overrideCounters);
+//
+//	                // 8) Update state counters
+//	                stateRowCount.put(state, stateRowCount.getOrDefault(state, 0) + 1);
+//	                if (expectedPT != actual.intValue()) {
+//	                    stateMismatchCount.put(state, stateMismatchCount.getOrDefault(state, 0) + 1);
+//	                }
+//	                statePTValues.computeIfAbsent(state, k -> new HashSet<>()).add(actual.intValue());
+//
+//	            } catch (Exception ex) {
+//	                test.log(LogStatus.WARNING, "⚠ Row " + (r + 1) + " error: " + ex.getMessage());
+//	            }
+//	        }
+//
+//	        // 9) Final summary per state
+//	        for (String state : stateRowCount.keySet()) {
+//	            int totalRows = stateRowCount.get(state);
+//	            int mismatches = stateMismatchCount.getOrDefault(state, 0);
+//	            Set<Integer> ptValues = statePTValues.getOrDefault(state, new HashSet<>());
+//
+//	            if (mismatches == 0) {
+//	                test.log(LogStatus.PASS, "✅ State " + state.toUpperCase() +
+//	                        " | All Employee count <b>" + totalRows + "</b> rows matched as per backend logic. | PT Values: " + ptValues);
+//	            } else {
+//	                test.log(LogStatus.FAIL, "❌ State " + state.toUpperCase() +
+//	                        " | " + mismatches + " out of " + totalRows +
+//	                        " rows mismatched as per backend logic. | PT Values: " + ptValues);
+//	            }
+//	        }
+//
+//	        // 10) Aggregated override counters
+//	        for (Map.Entry<String, Integer> e : overrideCounters.entrySet()) {
+//	            test.log(LogStatus.INFO, e.getKey() + " | Count = " + e.getValue());
+//	        }
+//
+//	    } catch (Exception e) {
+//	        test.log(LogStatus.ERROR, "❌ Exception in validatePTAmountsUpdatedFlexible: " + e.getMessage());
+//	        e.printStackTrace();
+//	    }
+//	}
+//
+//
+//	// ====== Helper: apply overrides and aggregate counts (no per-row INFO spam) ======
+//	private static int applyStateOverridesAggregated(
+//	        String state,
+//	        int expectedPT,
+//	        double gross,
+//	        String gender,
+//	        int runCount,
+//	        Map<String, Integer> counters) {
+//
+//	    int finalPT = expectedPT;
+//	    String st = (state == null) ? "" : state.trim().toUpperCase();
+//
+//	    switch (st) {
+//	        case "MAHARASHTRA":
+//	            if ("FEMALE".equalsIgnoreCase(gender)) {
+//	                if (gross <= 25000) {
+//	                    finalPT = 0;
+//	                    bump(counters, "Maharashtra Female | Gross ≤ 25000 | PT = 0");
+//	                } else {
+//	                    finalPT = 200;
+//	                    bump(counters, "Maharashtra Female | Gross > 25000 | PT = 200");
+//	                }
+//	            }
+//	            if (runCount >= 2 && expectedPT == 200) {
+//	                finalPT = 300;
+//	                bump(counters, "Maharashtra 2nd+ run override → PT = 300");
+//	            }
+//	            break;
+//
+//	        case "ODISHA":
+//	            if (runCount >= 2 && expectedPT == 200) {
+//	                finalPT = 300;
+//	                bump(counters, "Odisha 2nd+ run override → PT = 300");
+//	            }
+//	            break;
+//
+//	        case "MADHYA PRADESH":
+//	        	if("MADHYA PRADESH".equalsIgnoreCase(st)) {
+//	            if (runCount >= 2) {
+//	                if (expectedPT == 166) {
+//	                    finalPT = 174;
+//	                    bump(counters, "Madhya Pradesh 2nd+ run override → 166 → 174");
+//	                } else if (expectedPT == 208) {
+//	                    finalPT = 212;
+//	                    bump(counters, "Madhya Pradesh 2nd+ run override → 208 → 212");
+//	                }
+//	            }
+//	        	}
+//	            break;
+//
+//	        case "JAMMU & KASHMIR":
+//	            if (runCount >= 2 && expectedPT == 208) {
+//	                finalPT = 212;
+//	                bump(counters, "J&K 2nd+ run override → 208 → 212");
+//	            }
+//	            break;
+//
+//	        case "KARNATAKA":
+//	            if (runCount >= 2 && expectedPT == 200) {
+//	                finalPT = 300;
+//	                bump(counters, "Karnataka 2nd+ run override → 200 → 300");
+//	            }
+//	            break;
+//	    }
+//	    return finalPT;
+//	}
+//
+//	// ====== Small helpers ======
+//	private static void bump(Map<String, Integer> map, String key) {
+//	    map.put(key, map.getOrDefault(key, 0) + 1);
+//	}
+//
+//	private static int findColIndex(Row header, String... candidates) {
+//	    for (Cell c : header) {
+//	        String h = getString(c);
+//	        if (h == null) continue;
+//	        for (String cand : candidates) {
+//	            if (h.equalsIgnoreCase(cand) || h.toLowerCase().contains(cand.toLowerCase())) {
+//	                return c.getColumnIndex();
+//	            }
+//	        }
+//	    }
+//	    return -1;
+//	}
+//
+//	private static String getString(Cell cell) {
+//	    if (cell == null) return null;
+//	    switch (cell.getCellType()) {
+//	        case STRING:  return cell.getStringCellValue().trim();
+//	        case NUMERIC: return String.valueOf((long) cell.getNumericCellValue());
+//	        case BOOLEAN: return String.valueOf(cell.getBooleanCellValue());
+//	        default: return null;
+//	    }
+//	}
+//
+//	private static Double getNumeric(Cell cell) {
+//	    if (cell == null) return null;
+//	    switch (cell.getCellType()) {
+//	        case NUMERIC: return cell.getNumericCellValue();
+//	        case STRING:
+//	            try { return Double.parseDouble(cell.getStringCellValue().trim()); }
+//	            catch (Exception ignore) { return null; }
+//	        default: return null;
+//	    }
+//	}
 
 	
 	
@@ -2605,7 +2953,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 	            if (mismatches == 0) {
 	                test.log(LogStatus.PASS, "✅ State " + state.toUpperCase() +
 	                        " | All " + totalRows + " rows matched as per masters." +
-	                        " | PT Values: " + ptValues);
+	                        " | PT Values : " + ptValues);
 	            } else {
 	                test.log(LogStatus.FAIL, "❌ State " + state.toUpperCase() +
 	                        " | " + mismatches + " out of " + totalRows +

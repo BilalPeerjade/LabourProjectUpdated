@@ -16,6 +16,11 @@ public class ExcelValueNormalizer {
         STATE_MAP.put("anp", "andhra pradesh");
         STATE_MAP.put("bhr", "bihar");
         STATE_MAP.put("jak", "jharkhand");
+        STATE_MAP.put("krl", "kerala");
+        STATE_MAP.put("map", "Madhya Pradesh");
+        STATE_MAP.put("ors", "orissa");
+        STATE_MAP.put("pnd", "pondicherry");
+        
         // PT States value 
     }
 

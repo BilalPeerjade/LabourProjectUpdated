@@ -3,14 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testCases.SMETestCase">
+      <class name="BusinessUseCases.PT">
         <methods>
-          <include name="Overdue"/>
-          <include name="close"/>
-          <include name="Login"/>
           <include name="setBrowser"/>
+          <include name="browserClosing"/>
+          <include name="Closing"/>
+          <include name="Login"/>
+          <include name="Challan_PT_ANP_EmployeeID"/>
         </methods>
-      </class> <!-- testCases.SMETestCase -->
+      </class> <!-- BusinessUseCases.PT -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

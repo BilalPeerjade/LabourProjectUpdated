@@ -90,7 +90,7 @@ public class All_Performer_TestCases extends BasePage{
 	}
 	
 	
-/**
+
 	
 	@Test(priority = 1) //Bilal
 	void CompanyLogo() throws InterruptedException, IOException
@@ -298,6 +298,82 @@ public class All_Performer_TestCases extends BasePage{
 		extent.endTest(test);
 		extent.flush();
 	}
+	
+	
+	@Test(priority = 29) 
+	void RiskSummaryNotCompliedGraph() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Bar Graph -Risk Summary - Not Complied - Count Verification");
+		
+		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		Thread.sleep(7000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+	//	LoginLocators.Search().sendKeys("WWKRG");
+		LoginLocators.Search().sendKeys("TESTAUTO2");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+		
+		Thread.sleep(5000);
+//		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+		Thread.sleep(8000);
+		LoginLocators.DashboardArrow().click();
+		Thread.sleep(10000);
+		LoginLocators.SelectPeriodDashboard().click();
+		Thread.sleep(2000);
+		LoginLocators.SelectPeriodValue2024().click();
+		Thread.sleep(2000);
+		JavascriptExecutor js = (JavascriptExecutor) getDriver();
+	    
+	    js.executeScript("window.scrollBy(0,300)");
+	    Thread.sleep(2000);
+	    
+		Thread.sleep(3000);
+		int high = Integer.parseInt(LocatorsP.HighRisk1().getText());	//Reading Dashboard count.
+		int medium = Integer.parseInt(LocatorsP.MediumRisk1().getText());	//Reading Dashboard count.
+		int low = Integer.parseInt(LocatorsP.LowRisk1().getText());	//Reading Dashboard count.
+		
+		Thread.sleep(500);
+		
+			if(high >= 0)
+			{
+				//Methods.HighRisk(test);
+				MethodsP.RiskGraph( test, "High", high);
+			}
+			else
+			{
+				test.log(LogStatus.PASS, "'High' Risk Compliance Count = "+high);
+			}
+			
+			if(medium >= 0)
+			{
+				js.executeScript("window.scrollBy(0,300)");
+				MethodsP.RiskGraph( test, "Medium", medium);
+			}
+			else
+			{
+				js.executeScript("window.scrollBy(0,300)");
+				test.log(LogStatus.PASS, "'Medium' Risk Compliance Count = "+high);
+			}
+			
+			if(low >= 0)
+			{
+				js.executeScript("window.scrollBy(0,300)");
+				MethodsP.RiskGraph( test, "Low", low);
+			}
+			else
+			{
+				js.executeScript("window.scrollBy(0,300)");
+				test.log(LogStatus.PASS, "'Low' Risk Compliance Count = "+low);
+			}
+					
+			Thread.sleep(5000);
+		
+			Thread.sleep(2000);
+			LoginLocators.Dashboard().click();			//Clicking on Dashboard
+			Thread.sleep(2000);
+		extent.endTest(test);
+		extent.flush();
+	}
+	
 	
 	
 	
@@ -565,7 +641,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
    		extent.flush();
    	}
 	
-   	**/
+   	
    	 
 	
 	//Part 2

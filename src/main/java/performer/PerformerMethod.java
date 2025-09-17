@@ -5913,7 +5913,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 	
 		WebDriverWait wait = new WebDriverWait(getDriver(), (30));
 	 	Thread.sleep(2000);
-		PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
 	 	Thread.sleep(5000);
 		PerformerLocator.clickWorkspaceArrow().click();
 	 	Thread.sleep(5000);
@@ -5964,19 +5964,19 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 		    Thread.sleep(10000);
 			if(user.equalsIgnoreCase("Performer"))
 			{
-				LoginLocators.Search().sendKeys("TESTAUTO3");
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 				PerformerLocator.clickWorkspaceArrow().click();
 			 	Thread.sleep(5000);
 			}
 			else if(user.equalsIgnoreCase("Distributor"))
 			{
-				LoginLocators.Search().sendKeys("TESTAUTO3");
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 				PerformerLocator.DistributorPremisesArrow().click();
 				Thread.sleep(5000);
 			}
 			else if(user.equalsIgnoreCase("Reviewer"))
-			{
-				LoginLocators.Search().sendKeys("TESTAUTO3");	
+			{	
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 				PerformerLocator.ReviewerStaturyDocumentArrow().click();
 			 	Thread.sleep(5000);
 			}
@@ -6231,19 +6231,19 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			if(user.equalsIgnoreCase("Performer"))
 			{
-				LoginLocators.Search().sendKeys("TESTAUTO3");
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 				Thread.sleep(5000);
 				PerformerLocator.clickWorkspaceArrow().click();
 			}
 			else if(user.equalsIgnoreCase("Distributor"))
 			{
-				LoginLocators.Search().sendKeys("TESTAUTO3");
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 				Thread.sleep(5000);
 				PerformerLocator.DistributorPremisesArrow().click();
 			}
 			else if(user.equalsIgnoreCase("Reviewer"))
 			{
-				LoginLocators.Search().sendKeys("TESTAUTO3");
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 				Thread.sleep(5000);
 				PerformerLocator.ReviewerStaturyDocumentArrow().click();
 			}

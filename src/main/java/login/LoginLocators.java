@@ -349,6 +349,11 @@ public class LoginLocators extends BasePage {
 		submit = getDriver().findElement(By.cssSelector("body > app-root > div > app-layout > section > div > div > app-compliance-dashboard > app-dashboard-compliance-popup > kendo-dialog > div.k-window.k-dialog.ng-tns-c1063677181-1 > kendo-dialog-titlebar > div > button > kendo-icon-wrapper > kendo-svgicon"));
 		return submit;
 	}
+	public static WebElement ClosePopUp_2()	
+	{
+		submit = getDriver().findElement(By.cssSelector("(//button[@title='Close'])[2]"));
+		return submit;
+	}
 	public static WebElement Close()	//Method for searching button for Save/Sign-in
 	{
 		submit = getDriver().findElement(By.xpath("//button[@class='k-window-titlebar-action k-dialog-titlebar-action k-button k-icon-button k-button-md k-rounded-md k-button-flat-base k-button-flat']"));

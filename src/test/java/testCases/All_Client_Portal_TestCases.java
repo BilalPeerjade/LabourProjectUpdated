@@ -546,6 +546,21 @@ public class All_Client_Portal_TestCases extends BasePage {
 		test = extent.startTest("'Open Notices' - View - Add New - Notice Document - Verify to check error message to upload XLSX file");
 		All_ClientPortal_Methods.OpenNotice_BrowseUploadValidation2("ND : XLSX",test);
 		
+		test = extent.startTest("'Open Notices' - View - Add New - Notice Document - Verify to check error message to upload XLS file");
+		All_ClientPortal_Methods.OpenNotice_BrowseUploadValidation2("ND : XLS",test);
+		
+		test = extent.startTest("'Open Notices' - View - Add New - Notice Document - Verify to check error message to upload ZIP file");
+		All_ClientPortal_Methods.OpenNotice_BrowseUploadValidation2("ND : ZIP",test);
+		
+		test = extent.startTest("'Open Notices' - View - Add New - Notice Document - Verify to check error message to upload JPG file");
+		All_ClientPortal_Methods.OpenNotice_BrowseUploadValidation2("ND : JPG",test);
+		
+		test = extent.startTest("'Open Notices' - View - Add New - Notice Document - Verify to check error message to upload JPEG file");
+		All_ClientPortal_Methods.OpenNotice_BrowseUploadValidation2("ND : JPEG",test);
+		
+		test = extent.startTest("'Open Notices' - View - Add New - Notice Document - Verify to check error message to upload More than 30MB file");
+		All_ClientPortal_Methods.OpenNotice_BrowseUploadValidation2("RA : More than 30MB",test);
+		
 		extent.endTest(test);
 		extent.flush();
 	}

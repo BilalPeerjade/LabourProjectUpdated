@@ -2594,7 +2594,120 @@ public class All_ClientPortal_Methods extends BasePage {
 			}
 			else
 			{
+				test.log(LogStatus.FAIL, "While uploading XLSX file in Notice Document message is not reflected properly");
 				test.log(LogStatus.FAIL, "Message Displayed:- " + xlsxFile);
+			}
+			Thread.sleep(5000);
+			All_ClientPortal_Locators.clickOkBtn().click();
+			Thread.sleep(5000);
+		}
+		
+		Thread.sleep(5000);
+		if(validation.equalsIgnoreCase("ND : XLS"))
+		{
+			Thread.sleep(5000);
+			All_ClientPortal_Locators.browse2().click();
+			OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleXlsFile.xls");
+			
+			String xlsxFile = All_ClientPortal_Locators.clickMsg().getText();
+			if(xlsxFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
+			{
+				test.log(LogStatus.PASS, "While uploading XLS file in Notice Document browse button error message displayed ");
+				test.log(LogStatus.PASS, "Message Displayed:- " + xlsxFile);
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "While uploading XLS file in Notice Document message is not reflected properly");
+				test.log(LogStatus.FAIL, "Message Displayed:- " + xlsxFile);
+			}
+			Thread.sleep(5000);
+			All_ClientPortal_Locators.clickOkBtn().click();
+			Thread.sleep(5000);
+		}
+		
+		Thread.sleep(5000);
+		if(validation.equalsIgnoreCase("ND : ZIP"))
+		{
+			Thread.sleep(5000);
+			All_ClientPortal_Locators.browse2().click();
+			OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleZipFile.zip");
+			
+			String zipFile = All_ClientPortal_Locators.clickMsg().getText();
+			if(zipFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
+			{
+				test.log(LogStatus.PASS, "While uploading ZIP file in Notice Document browse button error message displayed ");
+				test.log(LogStatus.PASS, "Message Displayed:- " + zipFile);
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "ZIP File is not uploaded in Notice Document browse button");
+			}
+			Thread.sleep(5000);
+			All_ClientPortal_Locators.clickOkBtn().click();
+			Thread.sleep(5000);
+		}
+		
+		Thread.sleep(5000);
+		if(validation.equalsIgnoreCase("ND : JPG"))
+		{
+			Thread.sleep(5000);
+			All_ClientPortal_Locators.browse2().click();
+			OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleJpgFile.jpg");
+			
+			String jpgFile = All_ClientPortal_Locators.clickMsg().getText();
+			if(jpgFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
+			{
+				test.log(LogStatus.PASS, "While uploading JPG file in Notice Document browse button error message displayed ");
+				test.log(LogStatus.PASS, "Message Displayed:- " + jpgFile);
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "JPG File is not uploaded in Notice Document browse button");
+			}
+			Thread.sleep(5000);
+			All_ClientPortal_Locators.clickOkBtn().click();
+			Thread.sleep(5000);
+		}
+		
+		Thread.sleep(5000);
+		if(validation.equalsIgnoreCase("ND : JPEG"))
+		{
+			Thread.sleep(5000);
+			All_ClientPortal_Locators.browse2().click();
+			OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleJpegFile.jpeg");
+			
+			String jpgFile = All_ClientPortal_Locators.clickMsg().getText();
+			if(jpgFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
+			{
+				test.log(LogStatus.PASS, "While uploading JPEG file in Notice Document browse button error message displayed ");
+				test.log(LogStatus.PASS, "Message Displayed:- " + jpgFile);
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "JPEG File is not uploaded in Notice Document browse button");
+			}
+			Thread.sleep(5000);
+			All_ClientPortal_Locators.clickOkBtn().click();
+			Thread.sleep(5000);
+		}
+		
+		Thread.sleep(5000);
+		if(validation.equalsIgnoreCase("ND : More than 30MB"))
+		{
+			Thread.sleep(5000);
+			All_ClientPortal_Locators.browse2().click();
+			OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\99mb.pdf");
+			Thread.sleep(5000);Thread.sleep(5000);
+			String jpgFile = All_ClientPortal_Locators.clickMsg().getText();
+			if(jpgFile.equalsIgnoreCase("File size should not exceed 30Mb limit"))
+			{
+				test.log(LogStatus.PASS, "While uploading More than 30MB file in Recepit Acknowledgement browse button error message displayed ");
+				test.log(LogStatus.PASS, "Message Displayed:- " + jpgFile);
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "More than 30MB File is not uploaded in Recepit Acknowledgement browse button");
+				test.log(LogStatus.FAIL, "Message displayed: " + jpgFile);
 			}
 			Thread.sleep(5000);
 			All_ClientPortal_Locators.clickOkBtn().click();

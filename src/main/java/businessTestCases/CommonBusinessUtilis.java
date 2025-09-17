@@ -184,7 +184,7 @@ public class CommonBusinessUtilis {
      * 2. Validating a downloaded column till a row containing a "Total" keyword
      */
 	
-	private static final boolean ENABLE_HTML_REPORT_TABLE = true; //HTML Report
+	private static final boolean ENABLE_HTML_REPORT_TABLE = false; //HTML Report
 
 	
     public static void validateExcelBusinessData(
@@ -387,7 +387,7 @@ public class CommonBusinessUtilis {
                 if (extraConfig != null && "YES".equalsIgnoreCase(extraConfig.getEnableSmartTextMatch())) {
                     tempNormalized = tempNormalized.stream()
                             .map(utils.ExcelValueNormalizer::normalize)
-                            .collect(Collectors.toList());
+                            .collect(Collectors.toList()); //This will normalize values like: NA, N/A, N.A, -, _, null, nil, not available, NA
                 }
 
                 final List<String> normalizedFoundNames = tempNormalized; // final = required for lambda capture

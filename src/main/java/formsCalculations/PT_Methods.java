@@ -42,6 +42,7 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import businessChallanForms.PT_ConsolidatedMethods;
 import businessTestCases.CommonBusinessUtilis;
+import businessTestCases.FilePath;
 import login.BasePage;
 import login.LoginLocators;
 import performer.PerformerLocator;
@@ -66,7 +67,7 @@ public class PT_Methods extends BasePage{
 	
 	//DOCAUTOO4
 //	public static String masterFilePath = "D:\\Upload Automation Files\\BusinessScenarios\\DOCAUTOO4\\EmployeeMaster.xlsx";
-	public static String masterFilePath = "D:\\Upload Automation Files\\BusinessScenarios\\DOCAUTOO4\\#1 Aug2025\\EmployeeMaster2.xlsx";
+//	public static String masterFilePath = "D:\\Upload Automation Files\\BusinessScenarios\\DOCAUTOO4\\#1 Aug2025\\EmployeeMaster2.xlsx";
 	public static String salaryFile = "D:\\Upload Automation Files\\BusinessScenarios\\Month\\SampleSalary_TESTAUTO.xlsx";
 	
 	public static final boolean ENABLE_HTML_REPORT_TABLE = false; // HTML Report toggle
@@ -278,7 +279,7 @@ public class PT_Methods extends BasePage{
         String masterSheetName = "EmployeeMaster";
         int masterColumnIndex = 3;
         ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-        	masterFilePath,
+        	FilePath.EMPLOYEE_MASTER,
             masterSheetName,
             masterColumnIndex,
             allFilters,
@@ -458,7 +459,7 @@ public class PT_Methods extends BasePage{
         String masterSheetName = "EmployeeMaster";
         int masterColumnIndex = 3;
         ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-            masterFilePath,
+        	FilePath.EMPLOYEE_MASTER,
             masterSheetName,
             masterColumnIndex,
             allFilters,
@@ -749,7 +750,7 @@ public class PT_Methods extends BasePage{
 
 		    // ✅ MASTER FILE CONFIG
 		    ExcelFileDetails masterDetails = new ExcelFileDetails();
-		    masterDetails.setFilePath(masterFilePath); // Global master path
+		    masterDetails.setFilePath(FilePath.EMPLOYEE_MASTER); // Global master path
 		    masterDetails.setSheetName("EmployeeMaster");
 		    masterDetails.setEmpNameColumnIndex(3); // D column (0-based)
 		    masterDetails.setApplyFilter("NO");
@@ -940,7 +941,7 @@ public class PT_Methods extends BasePage{
         String masterSheetName = "EmployeeMaster";
 
         ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-            masterFilePath,
+        	FilePath.EMPLOYEE_MASTER,
             masterSheetName,
             masterColumnIndex,
             allFilters,
@@ -1063,7 +1064,7 @@ public class PT_Methods extends BasePage{
         String masterSheetName = "EmployeeMaster";
         int masterColumnIndex = 8;
         ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-            masterFilePath,
+        	FilePath.EMPLOYEE_MASTER,
             masterSheetName,
             masterColumnIndex,
             allFilters,
@@ -1415,8 +1416,23 @@ public class PT_Methods extends BasePage{
 		Map<String, Integer> runCounts = new HashMap<>();
 //		runCounts.put("MAHARASHTRA", 1); // set generation count for that state
 		PT_ConsolidatedMethods.validatePTAmountsUpdatedFlexible(downloadedExcelFile, test, runCounts);
-
 		
+	}
+	public static void Challan_PT_ORS_PTAmount( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+//		PT_Methods.validatePTAmounts(downloadedExcelFile, test);
+		
+		Map<String, Integer> runCounts = new HashMap<>();
+		runCounts.put("Orissa", 1); // set generation count for that state
+		PT_ConsolidatedMethods.validatePTAmountsUpdatedFlexible(downloadedExcelFile, test, runCounts);
+	}
+	public static void Challan_PT_PND_PTAmount( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+//		PT_Methods.validatePTAmounts(downloadedExcelFile, test);
+		
+		Map<String, Integer> runCounts = new HashMap<>();
+		runCounts.put("", 1); // set generation count for that state
+		PT_ConsolidatedMethods.validatePTAmountsUpdatedFlexible(downloadedExcelFile, test, runCounts);
 	}
 	
 	public static void validatePTAmounts(File downloadedExcelFile, ExtentTest test) {
@@ -1763,7 +1779,7 @@ public class PT_Methods extends BasePage{
         String masterSheetName = "EmployeeMaster";
 
         ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-            masterFilePath,
+            FilePath.EMPLOYEE_MASTER,
             masterSheetName,
             masterColumnIndex,
             allFilters,
@@ -1820,7 +1836,7 @@ public class PT_Methods extends BasePage{
         String masterSheetName = "EmployeeMaster";
         int masterColumnIndex = 3;
         ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-            masterFilePath,
+            FilePath.EMPLOYEE_MASTER,
             masterSheetName,
             masterColumnIndex,
             allFilters,
@@ -1897,7 +1913,7 @@ public class PT_Methods extends BasePage{
         String masterSheetName = "EmployeeMaster";
         int masterColumnIndex = 3;
         ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-            masterFilePath,
+            FilePath.EMPLOYEE_MASTER,
             masterSheetName,
             masterColumnIndex,
             allFilters,
@@ -1973,7 +1989,235 @@ public class PT_Methods extends BasePage{
         String masterSheetName = "EmployeeMaster";
         int masterColumnIndex = 3;
         ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-            masterFilePath,
+        	FilePath.EMPLOYEE_MASTER,
+            masterSheetName,
+            masterColumnIndex,
+            allFilters,
+            "YES"   // Yes filters to apply
+        );
+
+        // 🎯 Step 5: Prepare Target validation for downloaded file
+        String targetSheetName = "PTChallan";
+        int targetColumnIndex = 1;
+        String targetHeaderKeyword = "Employee ID";
+        int targetStartRow = 0;
+
+        ExcelTargetValidation targetValidation = new ExcelTargetValidation(
+            targetSheetName,
+            targetColumnIndex,
+            targetHeaderKeyword,
+            targetStartRow
+        );
+
+        // 🛠️ Step 6: Prepare Extra Config (No total row logic here)
+        String totalLogicEnabled = "";
+        int totalColumnIndex = 0;
+        String totalKeyword = "";
+
+        ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+            totalLogicEnabled,
+            totalColumnIndex,
+            totalKeyword
+        );
+
+        // ✅ Step 7: Final call to reusable validator
+        CommonBusinessUtilis.validateExcelBusinessData(
+            downloadedExcelFile,
+            test,
+            masterFileDetails,
+            targetValidation,
+            extraConfig,
+            "Employee IDs are reflecting properly as per masters!"
+        );
+	}
+	public static void Challan_PT_ORS_EmployeeID( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+//		Challan_PT_StaturyDocRedirection(test,user);
+		formLocators.closeXbutton().click();
+		Thread.sleep(5000);
+		
+		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
+		d1.clickDownload("ORS", 1);
+		
+		Thread.sleep(5000);
+        // Step 1: Manually download file
+		formLocators.downloadDocument().click();
+        Thread.sleep(10000); // wait for file to download
+
+        // Step 2: Get latest file
+        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
+        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
+        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
+        downloadedExcelFile = files[0];
+        
+        
+        
+     // 🧪 Step 3: Prepare master file filters
+        List<ExcelFilter> allFilters = new ArrayList<>();
+        
+        allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+ 
+        allFilters.add(new ExcelFilter(9, Arrays.asList("ORS")));
+
+        allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+        
+        // 📊 Step 4: Prepare ExcelFileDetails for Master
+        String masterSheetName = "EmployeeMaster";
+        int masterColumnIndex = 3;
+        ExcelFileDetails masterFileDetails = new ExcelFileDetails(
+        	FilePath.EMPLOYEE_MASTER,
+            masterSheetName,
+            masterColumnIndex,
+            allFilters,
+            "YES"   // Yes filters to apply
+        );
+
+        // 🎯 Step 5: Prepare Target validation for downloaded file
+        String targetSheetName = "PTChallan";
+        int targetColumnIndex = 1;
+        String targetHeaderKeyword = "Employee ID";
+        int targetStartRow = 0;
+
+        ExcelTargetValidation targetValidation = new ExcelTargetValidation(
+            targetSheetName,
+            targetColumnIndex,
+            targetHeaderKeyword,
+            targetStartRow
+        );
+
+        // 🛠️ Step 6: Prepare Extra Config (No total row logic here)
+        String totalLogicEnabled = "";
+        int totalColumnIndex = 0;
+        String totalKeyword = "";
+
+        ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+            totalLogicEnabled,
+            totalColumnIndex,
+            totalKeyword
+        );
+
+        // ✅ Step 7: Final call to reusable validator
+        CommonBusinessUtilis.validateExcelBusinessData(
+            downloadedExcelFile,
+            test,
+            masterFileDetails,
+            targetValidation,
+            extraConfig,
+            "Employee IDs are reflecting properly as per masters!"
+        );
+	}
+	public static void Challan_PT_PND_EmployeeID( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+//		Challan_PT_StaturyDocRedirection(test,user);
+		formLocators.closeXbutton().click();
+		Thread.sleep(5000);
+		
+		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
+		d1.clickDownload("PND", 1);
+		
+		Thread.sleep(5000);
+        // Step 1: Manually download file
+		formLocators.downloadDocument().click();
+        Thread.sleep(10000); // wait for file to download
+
+        // Step 2: Get latest file
+        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
+        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
+        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
+        downloadedExcelFile = files[0];
+        
+        
+        
+     // 🧪 Step 3: Prepare master file filters
+        List<ExcelFilter> allFilters = new ArrayList<>();
+        
+        allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+ 
+        allFilters.add(new ExcelFilter(9, Arrays.asList("PND")));
+
+        allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+        
+        // 📊 Step 4: Prepare ExcelFileDetails for Master
+        String masterSheetName = "EmployeeMaster";
+        int masterColumnIndex = 3;
+        ExcelFileDetails masterFileDetails = new ExcelFileDetails(
+        	FilePath.EMPLOYEE_MASTER,
+            masterSheetName,
+            masterColumnIndex,
+            allFilters,
+            "YES"   // Yes filters to apply
+        );
+
+        // 🎯 Step 5: Prepare Target validation for downloaded file
+        String targetSheetName = "PTChallan";
+        int targetColumnIndex = 1;
+        String targetHeaderKeyword = "Employee ID";
+        int targetStartRow = 0;
+
+        ExcelTargetValidation targetValidation = new ExcelTargetValidation(
+            targetSheetName,
+            targetColumnIndex,
+            targetHeaderKeyword,
+            targetStartRow
+        );
+
+        // 🛠️ Step 6: Prepare Extra Config (No total row logic here)
+        String totalLogicEnabled = "";
+        int totalColumnIndex = 0;
+        String totalKeyword = "";
+
+        ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+            totalLogicEnabled,
+            totalColumnIndex,
+            totalKeyword
+        );
+
+        // ✅ Step 7: Final call to reusable validator
+        CommonBusinessUtilis.validateExcelBusinessData(
+            downloadedExcelFile,
+            test,
+            masterFileDetails,
+            targetValidation,
+            extraConfig,
+            "Employee IDs are reflecting properly as per masters!"
+        );
+	}
+	public static void Challan_PT_PJB_EmployeeID( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+//		Challan_PT_StaturyDocRedirection(test,user);
+		formLocators.closeXbutton().click();
+		Thread.sleep(5000);
+		
+		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
+		d1.clickDownload("PJB", 1);
+		
+		Thread.sleep(5000);
+        // Step 1: Manually download file
+		formLocators.downloadDocument().click();
+        Thread.sleep(10000); // wait for file to download
+
+        // Step 2: Get latest file
+        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
+        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
+        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
+        downloadedExcelFile = files[0];
+        
+        
+        
+     // 🧪 Step 3: Prepare master file filters
+        List<ExcelFilter> allFilters = new ArrayList<>();
+        
+        allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+ 
+        allFilters.add(new ExcelFilter(9, Arrays.asList("PJB")));
+
+        allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+        
+        // 📊 Step 4: Prepare ExcelFileDetails for Master
+        String masterSheetName = "EmployeeMaster";
+        int masterColumnIndex = 3;
+        ExcelFileDetails masterFileDetails = new ExcelFileDetails(
+        	FilePath.EMPLOYEE_MASTER,
             masterSheetName,
             masterColumnIndex,
             allFilters,
@@ -2050,7 +2294,7 @@ public class PT_Methods extends BasePage{
         String masterSheetName = "EmployeeMaster";
         int masterColumnIndex = 3;
         ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-            masterFilePath,
+        	FilePath.EMPLOYEE_MASTER,
             masterSheetName,
             masterColumnIndex,
             allFilters,
@@ -2126,7 +2370,7 @@ public class PT_Methods extends BasePage{
         String masterSheetName = "EmployeeMaster";
         int masterColumnIndex = 3;
         ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-            masterFilePath,
+        	FilePath.EMPLOYEE_MASTER,
             masterSheetName,
             masterColumnIndex,
             allFilters,
@@ -2202,7 +2446,7 @@ public class PT_Methods extends BasePage{
         String masterSheetName = "EmployeeMaster";
         int masterColumnIndex = 3;
         ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-            masterFilePath,
+        	FilePath.EMPLOYEE_MASTER,
             masterSheetName,
             masterColumnIndex,
             allFilters,
@@ -2279,7 +2523,7 @@ public class PT_Methods extends BasePage{
         String masterSheetName = "EmployeeMaster";
         int masterColumnIndex = 3;
         ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-            masterFilePath,
+        	FilePath.EMPLOYEE_MASTER,
             masterSheetName,
             masterColumnIndex,
             allFilters,
@@ -2353,7 +2597,7 @@ public class PT_Methods extends BasePage{
 		String masterSheetName = "EmployeeMaster";
 
 		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-		    masterFilePath,
+			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
 		    allFilters,
@@ -2408,7 +2652,7 @@ public class PT_Methods extends BasePage{
 		String masterSheetName = "EmployeeMaster";
 
 		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-		    masterFilePath,
+			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
 		    allFilters,
@@ -2463,7 +2707,172 @@ public class PT_Methods extends BasePage{
 		String masterSheetName = "EmployeeMaster";
 
 		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-		    masterFilePath,
+			FilePath.EMPLOYEE_MASTER,
+		    masterSheetName,
+		    masterColumnIndex,
+		    allFilters,
+		    "YES"   // ⚡ filters ko apply karna hai
+		);
+
+		// 🛠️ Step 4: Extra Config — No total logic
+		ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+		    "", 0, ""
+		);
+
+		// ✅ Step 5: Final call to reusable validator
+		CommonBusinessUtilis.validateExcelBusinessData(
+		    downloadedExcelFile,
+		    test,
+		    masterFileDetails,
+		    targetValidation,
+		    extraConfig,
+		    "Validating Employee Names from Employee Master file"
+		);
+
+	}
+	public static void Challan_PT_ORS_EmployeeName( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		// 🎯 Step 1: Prepare Target validation first (Downloaded file details)
+		String targetHeaderKeyword = "Emp Name";
+		int targetColumnIndex = 2;
+		String targetSheetName = "PTChallan";
+		int targetStartRow = 0;
+
+		ExcelTargetValidation targetValidation = new ExcelTargetValidation(
+		    targetSheetName,
+		    targetColumnIndex,
+		    targetHeaderKeyword,
+		    targetStartRow
+		);
+
+		// 🧪 Step 2: Prepare Master file filters
+		List<ExcelFilter> allFilters = new ArrayList<>();
+
+		// Filter-1: Status (column 38) == "Active"
+		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+
+		// Filter-2: Some column (column 9) == "ANP"
+		allFilters.add(new ExcelFilter(9, Arrays.asList("ORS")));
+
+		// Filter-3: Another column (column 58) == "Yes"
+		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+
+		// 📊 Step 3: Prepare Master file details
+		int masterColumnIndex = 5;
+		String masterSheetName = "EmployeeMaster";
+
+		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
+			FilePath.EMPLOYEE_MASTER,
+		    masterSheetName,
+		    masterColumnIndex,
+		    allFilters,
+		    "YES"   // ⚡ filters ko apply karna hai
+		);
+
+		// 🛠️ Step 4: Extra Config — No total logic
+		ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+		    "", 0, ""
+		);
+
+		// ✅ Step 5: Final call to reusable validator
+		CommonBusinessUtilis.validateExcelBusinessData(
+		    downloadedExcelFile,
+		    test,
+		    masterFileDetails,
+		    targetValidation,
+		    extraConfig,
+		    "Validating Employee Names from Employee Master file"
+		);
+
+	}
+	public static void Challan_PT_PJB_EmployeeName( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		// 🎯 Step 1: Prepare Target validation first (Downloaded file details)
+		String targetHeaderKeyword = "Emp Name";
+		int targetColumnIndex = 2;
+		String targetSheetName = "PTChallan";
+		int targetStartRow = 0;
+
+		ExcelTargetValidation targetValidation = new ExcelTargetValidation(
+		    targetSheetName,
+		    targetColumnIndex,
+		    targetHeaderKeyword,
+		    targetStartRow
+		);
+
+		// 🧪 Step 2: Prepare Master file filters
+		List<ExcelFilter> allFilters = new ArrayList<>();
+
+		// Filter-1: Status (column 38) == "Active"
+		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+
+		// Filter-2: Some column (column 9) == "ANP"
+		allFilters.add(new ExcelFilter(9, Arrays.asList("PJB")));
+
+		// Filter-3: Another column (column 58) == "Yes"
+		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+
+		// 📊 Step 3: Prepare Master file details
+		int masterColumnIndex = 5;
+		String masterSheetName = "EmployeeMaster";
+
+		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
+			FilePath.EMPLOYEE_MASTER,
+		    masterSheetName,
+		    masterColumnIndex,
+		    allFilters,
+		    "YES"   // ⚡ filters ko apply karna hai
+		);
+
+		// 🛠️ Step 4: Extra Config — No total logic
+		ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+		    "", 0, ""
+		);
+
+		// ✅ Step 5: Final call to reusable validator
+		CommonBusinessUtilis.validateExcelBusinessData(
+		    downloadedExcelFile,
+		    test,
+		    masterFileDetails,
+		    targetValidation,
+		    extraConfig,
+		    "Validating Employee Names from Employee Master file"
+		);
+
+	}
+	public static void Challan_PT_PND_EmployeeName( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		// 🎯 Step 1: Prepare Target validation first (Downloaded file details)
+		String targetHeaderKeyword = "Emp Name";
+		int targetColumnIndex = 2;
+		String targetSheetName = "PTChallan";
+		int targetStartRow = 0;
+
+		ExcelTargetValidation targetValidation = new ExcelTargetValidation(
+		    targetSheetName,
+		    targetColumnIndex,
+		    targetHeaderKeyword,
+		    targetStartRow
+		);
+
+		// 🧪 Step 2: Prepare Master file filters
+		List<ExcelFilter> allFilters = new ArrayList<>();
+
+		// Filter-1: Status (column 38) == "Active"
+		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+
+		// Filter-2: Some column (column 9) == "ANP"
+		allFilters.add(new ExcelFilter(9, Arrays.asList("PND")));
+
+		// Filter-3: Another column (column 58) == "Yes"
+		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+
+		// 📊 Step 3: Prepare Master file details
+		int masterColumnIndex = 5;
+		String masterSheetName = "EmployeeMaster";
+
+		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
+			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
 		    allFilters,
@@ -2518,7 +2927,7 @@ public class PT_Methods extends BasePage{
 		String masterSheetName = "EmployeeMaster";
 
 		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-		    masterFilePath,
+			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
 		    allFilters,
@@ -2573,7 +2982,7 @@ public class PT_Methods extends BasePage{
 		String masterSheetName = "EmployeeMaster";
 
 		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-		    masterFilePath,
+			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
 		    allFilters,
@@ -2628,7 +3037,7 @@ public class PT_Methods extends BasePage{
 		String masterSheetName = "EmployeeMaster";
 
 		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-		    masterFilePath,
+			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
 		    allFilters,
@@ -2683,7 +3092,7 @@ public class PT_Methods extends BasePage{
 		String masterSheetName = "EmployeeMaster";
 
 		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-		    masterFilePath,
+			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
 		    allFilters,
@@ -2738,7 +3147,7 @@ public class PT_Methods extends BasePage{
 		String masterSheetName = "EmployeeMaster";
 
 		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-		    masterFilePath,
+			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
 		    allFilters,
@@ -2793,7 +3202,7 @@ public class PT_Methods extends BasePage{
 		String masterSheetName = "EmployeeMaster";
 
 		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-		    masterFilePath,
+			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
 		    allFilters,
@@ -2848,7 +3257,117 @@ public class PT_Methods extends BasePage{
 		String masterSheetName = "EmployeeMaster";
 
 		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-		    masterFilePath,
+			FilePath.EMPLOYEE_MASTER,
+		    masterSheetName,
+		    masterColumnIndex,
+		    allFilters,
+		    "YES"   // ⚡ enable filters
+		);
+
+		// 🛠️ Step 4: Extra Config — No total logic
+		ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+		    "", 0, ""
+		);
+
+		// ✅ Step 5: Final call to reusable validator
+		CommonBusinessUtilis.validateExcelBusinessData(
+		    downloadedExcelFile,
+		    test,
+		    masterFileDetails,
+		    targetValidation,
+		    extraConfig,
+		    "Validating Genders from Employee Master file"
+		);
+
+	}
+	public static void Challan_PT_ORS_Gender( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		// 🎯 Step 1: Prepare Target validation first (Downloaded file details)
+		String targetHeaderKeyword = "Gender";
+		int targetColumnIndex = 3;
+		String targetSheetName = "PTChallan";
+		int targetStartRow = 0;
+
+		ExcelTargetValidation targetValidation = new ExcelTargetValidation(
+		    targetSheetName,
+		    targetColumnIndex,
+		    targetHeaderKeyword,
+		    targetStartRow
+		);
+
+		// 🧪 Step 2: Prepare Master file filters
+		List<ExcelFilter> allFilters = new ArrayList<>();
+
+		// Filter-1: Status (column 38) == "Active"
+		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+
+		// Filter-2: Some column (column 9) == "ANP"
+		allFilters.add(new ExcelFilter(9, Arrays.asList("ORS")));
+
+		// Filter-3: Another column (column 58) == "Yes"
+		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+
+		// 📊 Step 3: Prepare Master file details
+		int masterColumnIndex = 10;
+		String masterSheetName = "EmployeeMaster";
+
+		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
+			FilePath.EMPLOYEE_MASTER,
+		    masterSheetName,
+		    masterColumnIndex,
+		    allFilters,
+		    "YES"   // ⚡ enable filters
+		);
+
+		// 🛠️ Step 4: Extra Config — No total logic
+		ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+		    "", 0, ""
+		);
+
+		// ✅ Step 5: Final call to reusable validator
+		CommonBusinessUtilis.validateExcelBusinessData(
+		    downloadedExcelFile,
+		    test,
+		    masterFileDetails,
+		    targetValidation,
+		    extraConfig,
+		    "Validating Genders from Employee Master file"
+		);
+
+	}
+	public static void Challan_PT_PND_Gender( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		// 🎯 Step 1: Prepare Target validation first (Downloaded file details)
+		String targetHeaderKeyword = "Gender";
+		int targetColumnIndex = 3;
+		String targetSheetName = "PTChallan";
+		int targetStartRow = 0;
+
+		ExcelTargetValidation targetValidation = new ExcelTargetValidation(
+		    targetSheetName,
+		    targetColumnIndex,
+		    targetHeaderKeyword,
+		    targetStartRow
+		);
+
+		// 🧪 Step 2: Prepare Master file filters
+		List<ExcelFilter> allFilters = new ArrayList<>();
+
+		// Filter-1: Status (column 38) == "Active"
+		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+
+		// Filter-2: Some column (column 9) == "ANP"
+		allFilters.add(new ExcelFilter(9, Arrays.asList("PND")));
+
+		// Filter-3: Another column (column 58) == "Yes"
+		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+
+		// 📊 Step 3: Prepare Master file details
+		int masterColumnIndex = 10;
+		String masterSheetName = "EmployeeMaster";
+
+		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
+			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
 		    allFilters,
@@ -2903,7 +3422,7 @@ public class PT_Methods extends BasePage{
 		String masterSheetName = "EmployeeMaster";
 
 		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-		    masterFilePath,
+			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
 		    allFilters,
@@ -2958,7 +3477,7 @@ public class PT_Methods extends BasePage{
 		String masterSheetName = "EmployeeMaster";
 
 		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-		    masterFilePath,
+			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
 		    allFilters,
@@ -3013,7 +3532,7 @@ public class PT_Methods extends BasePage{
 		String masterSheetName = "EmployeeMaster";
 
 		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-		    masterFilePath,
+			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
 		    allFilters,
@@ -3068,7 +3587,7 @@ public class PT_Methods extends BasePage{
 		String masterSheetName = "EmployeeMaster";
 
 		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-		    masterFilePath,
+				FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
 		    allFilters,
@@ -3123,7 +3642,7 @@ public class PT_Methods extends BasePage{
 		String masterSheetName = "EmployeeMaster";
 
 		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-		    masterFilePath,
+			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
 		    allFilters,
@@ -3184,7 +3703,7 @@ public class PT_Methods extends BasePage{
 		String masterSheetName = "EmployeeMaster";
 
 		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-		    masterFilePath,
+			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
 		    allFilters,
@@ -3245,7 +3764,129 @@ public class PT_Methods extends BasePage{
 		String masterSheetName = "EmployeeMaster";
 
 		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-		    masterFilePath,
+			FilePath.EMPLOYEE_MASTER,
+		    masterSheetName,
+		    masterColumnIndex,
+		    allFilters,
+		    "YES"   // ⚡ enable filters
+		);
+
+		// 🛠️ Step 4: Extra Config — No total logic
+		ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+		    "", 0, ""
+		);
+
+		
+		// ✅ Enable Smart Text Match + Date Match
+		extraConfig.setEnableSmartTextMatch("YES"); // ✅ This will use ExcelValueNormalizer
+		extraConfig.setEnableDateMatch("NO");
+		
+
+		// ✅ Step 5: Final call to reusable validator
+		CommonBusinessUtilis.validateExcelBusinessData(
+		    downloadedExcelFile,
+		    test,
+		    masterFileDetails,
+		    targetValidation,
+		    extraConfig,
+		    "Validating PT State from Employee Master file"
+		);
+
+	}
+	public static void Challan_PT_ORS_PTState( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		// 🎯 Step 1: Prepare Target validation first (Downloaded file details)
+		String targetHeaderKeyword = "PT State";
+		int targetColumnIndex = 4;
+		String targetSheetName = "PTChallan";
+		int targetStartRow = 0;
+
+		ExcelTargetValidation targetValidation = new ExcelTargetValidation(
+		    targetSheetName,
+		    targetColumnIndex,
+		    targetHeaderKeyword,
+		    targetStartRow
+		);
+
+		// 🧪 Step 2: Prepare Master file filters
+		List<ExcelFilter> allFilters = new ArrayList<>();
+
+		// Filter-1: Status (column 38) == "Active"
+		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+
+		// Filter-2: Some column (column 9) == "ANP"
+		allFilters.add(new ExcelFilter(9, Arrays.asList("ORS")));
+
+		// Filter-3: Another column (column 58) == "Yes"
+		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+
+		// 📊 Step 3: Prepare Master file details
+		int masterColumnIndex = 9;
+		String masterSheetName = "EmployeeMaster";
+
+		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
+			FilePath.EMPLOYEE_MASTER,
+		    masterSheetName,
+		    masterColumnIndex,
+		    allFilters,
+		    "YES"   // ⚡ enable filters
+		);
+
+		// 🛠️ Step 4: Extra Config — No total logic
+		ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+		    "", 0, ""
+		);
+
+		
+		// ✅ Enable Smart Text Match + Date Match
+		extraConfig.setEnableSmartTextMatch("YES"); // ✅ This will use ExcelValueNormalizer
+		extraConfig.setEnableDateMatch("NO");
+		
+
+		// ✅ Step 5: Final call to reusable validator
+		CommonBusinessUtilis.validateExcelBusinessData(
+		    downloadedExcelFile,
+		    test,
+		    masterFileDetails,
+		    targetValidation,
+		    extraConfig,
+		    "Validating PT State from Employee Master file"
+		);
+
+	}
+	public static void Challan_PT_PND_PTState( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		// 🎯 Step 1: Prepare Target validation first (Downloaded file details)
+		String targetHeaderKeyword = "PT State";
+		int targetColumnIndex = 4;
+		String targetSheetName = "PTChallan";
+		int targetStartRow = 0;
+
+		ExcelTargetValidation targetValidation = new ExcelTargetValidation(
+		    targetSheetName,
+		    targetColumnIndex,
+		    targetHeaderKeyword,
+		    targetStartRow
+		);
+
+		// 🧪 Step 2: Prepare Master file filters
+		List<ExcelFilter> allFilters = new ArrayList<>();
+
+		// Filter-1: Status (column 38) == "Active"
+		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+
+		// Filter-2: Some column (column 9) == "ANP"
+		allFilters.add(new ExcelFilter(9, Arrays.asList("PND")));
+
+		// Filter-3: Another column (column 58) == "Yes"
+		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+
+		// 📊 Step 3: Prepare Master file details
+		int masterColumnIndex = 9;
+		String masterSheetName = "EmployeeMaster";
+
+		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
+			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
 		    allFilters,
@@ -3306,7 +3947,7 @@ public class PT_Methods extends BasePage{
 		String masterSheetName = "EmployeeMaster";
 
 		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-		    masterFilePath,
+			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
 		    allFilters,
@@ -3367,7 +4008,7 @@ public class PT_Methods extends BasePage{
 		String masterSheetName = "EmployeeMaster";
 
 		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-		    masterFilePath,
+				FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
 		    allFilters,
@@ -3428,7 +4069,7 @@ public class PT_Methods extends BasePage{
 		String masterSheetName = "EmployeeMaster";
 
 		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-		    masterFilePath,
+				FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
 		    allFilters,
@@ -3489,7 +4130,7 @@ public class PT_Methods extends BasePage{
 		String masterSheetName = "EmployeeMaster";
 
 		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-		    masterFilePath,
+				FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
 		    allFilters,
@@ -3537,7 +4178,7 @@ public class PT_Methods extends BasePage{
 		String masterSheetName = "EmployeeMaster";
 		int masterColumnIndex = 8;
 		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-		    masterFilePath,
+				FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
 		    allFilters,
@@ -3597,7 +4238,7 @@ public class PT_Methods extends BasePage{
 		String masterSheetName = "EmployeeMaster";
 		int masterColumnIndex = 8;
 		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-		    masterFilePath,
+				FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
 		    allFilters,
@@ -3657,7 +4298,127 @@ public class PT_Methods extends BasePage{
 		String masterSheetName = "EmployeeMaster";
 		int masterColumnIndex = 8;
 		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-		    masterFilePath,
+				FilePath.EMPLOYEE_MASTER,
+		    masterSheetName,
+		    masterColumnIndex,
+		    allFilters,
+		    "YES"   // ⚡ filters ko apply karne ke liye YES
+		);
+
+		// 🎯 Step 5: Prepare Target validation for downloaded file
+		String targetSheetName = "PTChallan";
+		int targetColumnIndex = 5;
+		String targetHeaderKeyword = "Location";
+		int targetStartRow = 0;
+
+		ExcelTargetValidation targetValidation = new ExcelTargetValidation(
+		    targetSheetName,
+		    targetColumnIndex,
+		    targetHeaderKeyword,
+		    targetStartRow
+		);
+
+		// 🛠️ Step 6: Prepare Extra Config (No total row logic here)
+		String totalLogicEnabled = "";
+		int totalColumnIndex = 0;
+		String totalKeyword = "";
+
+		ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+		    totalLogicEnabled,
+		    totalColumnIndex,
+		    totalKeyword
+		);
+
+		// ✅ Step 7: Final call to reusable validator
+		CommonBusinessUtilis.validateExcelBusinessData(
+		    downloadedExcelFile,
+		    test,
+		    masterFileDetails,
+		    targetValidation,
+		    extraConfig,
+		    "Locations are reflecting properly as per masters!"
+		);
+
+	}
+	public static void Challan_PT_ORS_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		// 🧪 Step 3: Prepare master file filters
+		List<ExcelFilter> allFilters = new ArrayList<>();
+
+		// Filter-1: Status (column 38) == "Active"
+		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+
+		// Filter-2: Some column (column 9) == "ANP"
+		allFilters.add(new ExcelFilter(9, Arrays.asList("ORS")));
+
+		// Filter-3: Another column (column 58) == "Yes"
+		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+
+		// 📊 Step 4: Prepare ExcelFileDetails for Master
+		String masterSheetName = "EmployeeMaster";
+		int masterColumnIndex = 8;
+		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
+				FilePath.EMPLOYEE_MASTER,
+		    masterSheetName,
+		    masterColumnIndex,
+		    allFilters,
+		    "YES"   // ⚡ filters ko apply karne ke liye YES
+		);
+
+		// 🎯 Step 5: Prepare Target validation for downloaded file
+		String targetSheetName = "PTChallan";
+		int targetColumnIndex = 5;
+		String targetHeaderKeyword = "Location";
+		int targetStartRow = 0;
+
+		ExcelTargetValidation targetValidation = new ExcelTargetValidation(
+		    targetSheetName,
+		    targetColumnIndex,
+		    targetHeaderKeyword,
+		    targetStartRow
+		);
+
+		// 🛠️ Step 6: Prepare Extra Config (No total row logic here)
+		String totalLogicEnabled = "";
+		int totalColumnIndex = 0;
+		String totalKeyword = "";
+
+		ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+		    totalLogicEnabled,
+		    totalColumnIndex,
+		    totalKeyword
+		);
+
+		// ✅ Step 7: Final call to reusable validator
+		CommonBusinessUtilis.validateExcelBusinessData(
+		    downloadedExcelFile,
+		    test,
+		    masterFileDetails,
+		    targetValidation,
+		    extraConfig,
+		    "Locations are reflecting properly as per masters!"
+		);
+
+	}
+	public static void Challan_PT_PND_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		// 🧪 Step 3: Prepare master file filters
+		List<ExcelFilter> allFilters = new ArrayList<>();
+
+		// Filter-1: Status (column 38) == "Active"
+		allFilters.add(new ExcelFilter(38, Arrays.asList("Active")));
+
+		// Filter-2: Some column (column 9) == "ANP"
+		allFilters.add(new ExcelFilter(9, Arrays.asList("ORS")));
+
+		// Filter-3: Another column (column 58) == "Yes"
+		allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
+
+		// 📊 Step 4: Prepare ExcelFileDetails for Master
+		String masterSheetName = "EmployeeMaster";
+		int masterColumnIndex = 8;
+		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
+				FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
 		    allFilters,
@@ -3717,7 +4478,7 @@ public class PT_Methods extends BasePage{
 		String masterSheetName = "EmployeeMaster";
 		int masterColumnIndex = 8;
 		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-		    masterFilePath,
+				FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
 		    allFilters,
@@ -3777,7 +4538,7 @@ public class PT_Methods extends BasePage{
 		String masterSheetName = "EmployeeMaster";
 		int masterColumnIndex = 8;
 		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-		    masterFilePath,
+			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
 		    allFilters,
@@ -3837,7 +4598,7 @@ public class PT_Methods extends BasePage{
 		String masterSheetName = "EmployeeMaster";
 		int masterColumnIndex = 8;
 		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-		    masterFilePath,
+			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
 		    allFilters,
@@ -3897,7 +4658,7 @@ public class PT_Methods extends BasePage{
 		String masterSheetName = "EmployeeMaster";
 		int masterColumnIndex = 8;
 		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-		    masterFilePath,
+			FilePath.EMPLOYEE_MASTER,
 		    masterSheetName,
 		    masterColumnIndex,
 		    allFilters,

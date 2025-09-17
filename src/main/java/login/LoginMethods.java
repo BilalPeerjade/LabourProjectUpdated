@@ -26,7 +26,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 
-
+//UserLogin2:
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class LoginMethods extends BasePage {
@@ -60,21 +63,108 @@ public class LoginMethods extends BasePage {
 	}
 
 	
-	public static void UserLogin(String username, String password) throws InterruptedException
-	{		
-		//WebDriverWait wait = new WebDriverWait(getDriver(), 40);
+	public static void UserLogin(String username, String password) throws InterruptedException {
+		// WebDriverWait wait = new WebDriverWait(getDriver(), 40);
 		WebDriverWait wait1 = new WebDriverWait(getDriver(), 60);
-		
-		LoginLocators.setUname().sendKeys(username);		//Sent username to input box 
+
+		LoginLocators.setUname().sendKeys(username); // Sent username to input box
 		Thread.sleep(3000);
-		LoginLocators.setPassword().sendKeys(password);	//Sent password to input box
+		LoginLocators.setPassword().sendKeys(password); // Sent password to input box
 		Thread.sleep(3000);
-		LoginLocators.clickSubmit().click();				//Clicked on Sign-in button
+		LoginLocators.clickSubmit().click(); // Clicked on Sign-in button
 		Thread.sleep(3000);
-		
-		
-		
-}
+
+	}
+	
+	
+	public static void UserLogin2(String username, String password) throws InterruptedException {
+	    WebDriver driver = getDriver();
+	    WebDriverWait wait1 = new WebDriverWait(driver, 60);
+	    final int MAX_RETRIES = 3;
+
+	    boolean unameOk = false;
+	    boolean passOk = false;
+
+	    for (int attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+	        try {
+	            // --- username: re-find and check value ---
+	            WebElement u = LoginLocators.setUname(); // should re-find element each call
+	            wait1.until(ExpectedConditions.visibilityOf(u));
+	            String curU = safeGetValue(u);
+	            if (!username.equals(curU)) {
+	                try { u.clear(); } catch (Exception ignore) {}
+	                u.click();
+	                u.sendKeys(username);
+	                Thread.sleep(200);
+	                curU = safeGetValue(u);
+	            }
+	            if (username.equals(curU)) unameOk = true;
+
+	            // --- password: re-find and check value ---
+	            WebElement p = LoginLocators.setPassword();
+	            wait1.until(ExpectedConditions.visibilityOf(p));
+	            String curP = safeGetValue(p);
+	            if (!password.equals(curP)) {
+	                try { p.clear(); } catch (Exception ignore) {}
+	                p.click();
+	                p.sendKeys(password);
+	                Thread.sleep(200);
+	                curP = safeGetValue(p);
+	            }
+	            if (password.equals(curP)) passOk = true;
+
+	            // If both ok, break early
+	            if (unameOk && passOk) break;
+
+	        } catch (StaleElementReferenceException sere) {
+	            // element refreshed - just retry
+	        } catch (TimeoutException te) {
+	            // wait timed out - retry
+	        } catch (Exception e) {
+	            // optional: log e.getMessage()
+	        }
+	        Thread.sleep(400); // small backoff then next attempt
+	    }
+
+	    if (!unameOk) throw new RuntimeException("Unable to set username after retries");
+	    if (!passOk) throw new RuntimeException("Unable to set password after retries");
+
+	    // now click submit with simple retry (doesn't re-type inputs)
+	    boolean clicked = false;
+	    for (int attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+	        try {
+	            WebElement btn = LoginLocators.clickSubmit();
+	            wait1.until(ExpectedConditions.elementToBeClickable(btn));
+	            btn.click();
+	            clicked = true;
+	            break;
+	        } catch (StaleElementReferenceException | TimeoutException | ElementClickInterceptedException e) {
+	            // retry
+	        } catch (Exception e) {
+	            // last resort retry
+	        }
+	        Thread.sleep(300);
+	    }
+	    if (!clicked) throw new RuntimeException("Submit click failed after retries");
+	}
+
+	// helper to safely read input value (handles nulls)
+	private static String safeGetValue(WebElement e) {
+	    try {
+	        String v = e.getAttribute("value");
+	        return v == null ? "" : v;
+	    } catch (Exception ex) {
+	        return "";
+	    }
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 

@@ -1756,17 +1756,17 @@ else {
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
 		{
-			LoginLocators.Search().sendKeys("TESTAUTO2");
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 			Thread.sleep(7000);
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 			Thread.sleep(7000);
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
 		{
-			LoginLocators.Search().sendKeys("TESTAUTO2");
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 			Thread.sleep(7000);
 		}
 		//LoginLocatorsLoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
@@ -1884,7 +1884,7 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	Thread.sleep(3000);	
 	test.log(LogStatus.PASS, "Branch Code Filters working Properly");
 	LoginLocators.CloseBranchCode().click();
-	Thread.sleep(3000);
+	Thread.sleep(6000);
 	LoginLocators.ClosePopUp().click();
 	Thread.sleep(3000);
 	}
@@ -1906,15 +1906,15 @@ jse.executeScript("arguments[0].click();", ViewButton);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
 		{
-			LoginLocators.Search().sendKeys("TESTAUTO2");
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
-		{
-			LoginLocators.Search().sendKeys("TESTAUTO2");	
+		{	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
 		{
-			LoginLocators.Search().sendKeys("TESTAUTO2");	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 		}
 	//	LoginLocatorsLoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
 	//	LoginLocators.Search().sendKeys("WWKRG");
@@ -2044,15 +2044,15 @@ else {
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
 		{
-			LoginLocators.Search().sendKeys("TESTAUTO2");
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
-		{
-			LoginLocators.Search().sendKeys("TESTAUTO2");	
+		{	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
 		{
-			LoginLocators.Search().sendKeys("TESTAUTO2");	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 		}
 	//	LoginLocators.Search().sendKeys("WWKRG");
 		//LoginLocatorsLoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
@@ -2180,15 +2180,15 @@ else {
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
 		{
-			LoginLocators.Search().sendKeys("TESTAUTO2");
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
 		{
-			LoginLocators.Search().sendKeys("TESTAUTO2");	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 		}
 	//	LoginLocators.Search().sendKeys("WWKRG");
 	//	LoginLocatorsLoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
@@ -2467,15 +2467,15 @@ else {
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
 		{
-			LoginLocators.Search().sendKeys("TESTAUTO2");
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
 		{
-			LoginLocators.Search().sendKeys("TESTAUTO2");	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
 		{
-			LoginLocators.Search().sendKeys("TESTAUTO2");	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 		}
 	//	LoginLocatorsLoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
 	//	LoginLocators.Search().sendKeys("WWKRG");
@@ -4289,15 +4289,15 @@ else {
 		Thread.sleep(3000);	
 		if(user.equalsIgnoreCase("Performer"))
 		{
-			LoginLocators.Search().sendKeys("TESTAUTO2");
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
 		{
-			LoginLocators.Search().sendKeys("TESTAUTO2");	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
 		}
 	//	LoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
 	//	LoginLocators.Search().sendKeys("WWKRG");
@@ -4451,15 +4451,15 @@ else {
 		Thread.sleep(5000);	Thread.sleep(5000);	Thread.sleep(5000);	
 		if(user.equalsIgnoreCase("Performer"))
 		{
-			LoginLocators.Search().sendKeys("TESTAUTO");
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO");
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
-		{
-			LoginLocators.Search().sendKeys("TESTAUTO");	
+		{	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO");
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
 		}
 	//	LoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
 	//	LoginLocators.Search().sendKeys("WWKRG");
@@ -4601,15 +4601,15 @@ else {
 		Thread.sleep(5000);	Thread.sleep(5000);	Thread.sleep(3000);	
 		if(user.equalsIgnoreCase("Performer"))
 		{
-			LoginLocators.Search().sendKeys("TESTAUTO2");
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
 		{
-			LoginLocators.Search().sendKeys("TESTAUTO2");	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
 		}
 	//	LoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
 	//	LoginLocators.Search().sendKeys("WWKRG");
@@ -4751,15 +4751,15 @@ else {
 		Thread.sleep(5000);	Thread.sleep(5000);	Thread.sleep(3000);	
 		if(user.equalsIgnoreCase("Performer"))
 		{
-			LoginLocators.Search().sendKeys("TESTAUTO2");
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
 		{
-			LoginLocators.Search().sendKeys("TESTAUTO2");	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
 		{
-			LoginLocators.Search().sendKeys("TESTAUTO2");	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 		}
 	//	LoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
 		//LoginLocators.Search().sendKeys("WWKRG");
@@ -5110,15 +5110,15 @@ else {
 		Thread.sleep(3000);	
 		if(user.equalsIgnoreCase("Performer"))
 		{
-			LoginLocators.Search().sendKeys("TESTAUTO2");
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
-		{
-			LoginLocators.Search().sendKeys("TESTAUTO2");	
+		{	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
 		}
 	//	LoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
 	//	LoginLocators.Search().sendKeys("WWKRG");
@@ -5255,15 +5255,15 @@ else {
 		Thread.sleep(3000);	
 		if(user.equalsIgnoreCase("Performer"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
 		{
-			LoginLocators.Search().sendKeys("TESTAUTO2");	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
-		{
-			LoginLocators.Search().sendKeys("AVACORED5");	
+		{	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 		}
 	//	LoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
 	//	LoginLocators.Search().sendKeys("WWKRG");
@@ -6727,7 +6727,6 @@ else {
 		Thread.sleep(3000);	
 		if(user.equalsIgnoreCase("Performer"))
 		{
-			LoginLocators.Search().sendKeys("TESTAUTO2");
 			 OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
@@ -6941,15 +6940,15 @@ else {
 		Thread.sleep(5000);	Thread.sleep(5000);	Thread.sleep(5000);	
 		if(user.equalsIgnoreCase("Performer"))
 		{
-			LoginLocators.Search().sendKeys("TESTAUTO2");
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
-		{
-			LoginLocators.Search().sendKeys("AVACORED5");	
+		{	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
-		{
-			LoginLocators.Search().sendKeys("AVACORED5");	
+		{	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
 		}
 	//	LoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
 	//	LoginLocators.Search().sendKeys("WWKRG");
@@ -7102,6 +7101,9 @@ else {
 				
 				
 				System.out.println(filter.get(i)+" : "+Pas);
+				
+				test.log(LogStatus.PASS, "period dropdown is working properly"); //me
+				test.log(LogStatus.PASS, "year dropdown is working properly");
 	 }
 		text.clear();
 		pass.clear();
@@ -7151,14 +7153,15 @@ else {
 		if(user.equalsIgnoreCase("Performer"))
 		{
 			LoginLocators.Search().sendKeys("TESTAUTO2");
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
 		}
 	//	LoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
 	//	LoginLocators.Search().sendKeys("WWKRG");
@@ -7309,6 +7312,9 @@ else {
 			 test.log(LogStatus.PASS,  filter.get(i)+" dropdown working properly.");
 				test.log(LogStatus.PASS, filter.get(i)+" displayed : "+Pas);	
 				System.out.println(filter.get(i)+" : "+Pas);
+				
+				test.log(LogStatus.PASS, "period dropdown is working properly"); //me
+				test.log(LogStatus.PASS, "year dropdown is working properly");
 	 }
 		text.clear();
 		pass.clear();
