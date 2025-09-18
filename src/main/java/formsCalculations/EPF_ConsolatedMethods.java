@@ -895,7 +895,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 			Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
 			File downloadedExcelFile = files[0];
 
-			// Step 2: Validate file existence
+			
 			if (downloadedExcelFile == null || !downloadedExcelFile.exists()) {
 				test.log(LogStatus.FAIL, "❌ Excel file not found to validate.");
 				return;
@@ -911,7 +911,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 				return;
 			}
 
-			// Step 4: Calculate column total up to "Total"
+			
 			int columnIndex = 13;
 			int headerRowIndex = 0;
 			double calculatedTotal = 0.0;

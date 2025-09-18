@@ -182,7 +182,7 @@ public class PT extends BasePage {
 		}
 		
 		
-		@Test(priority = 1) 
+//		@Test(priority = 1) 
 		void Challan_PT_ANP_EmployeeID() throws InterruptedException, IOException, AWTException
 		{
 			

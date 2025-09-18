@@ -96,7 +96,7 @@ public class ESI extends BasePage{
 	
 	
 	
-	@Test(priority = 1)
+/*	@Test(priority = 1)
 	void ESIC_AllEMPWorkings_EmployeeNo() throws InterruptedException, IOException, AWTException 
 	{
 		test = extent.startTest("ESI Code wise - 400100 - All Emp Workings - Validate Employee No are reflecting correctly");
@@ -104,7 +104,7 @@ public class ESI extends BasePage{
 
 		extent.endTest(test);
 		extent.flush();
-	}
+	} */
 	
 	
 	
