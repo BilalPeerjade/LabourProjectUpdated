@@ -522,7 +522,7 @@ public class All_Distributor_TWO  extends BasePage {
 		}
 		
 		
-		/**
+
 		
 		//Part 2
 		
@@ -1111,7 +1111,7 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 	
 	
 	   
-	   **/
+	   
 	   
 	   
 	   

@@ -5513,6 +5513,29 @@ public class All_Distributor_Methods extends BasePage {
 		}
 		Thread.sleep(1000);
 		DistributerLocators.clickOkBtn().click();
+		Thread.sleep(4000);
+		DistributerLocators.TypetosearchCLRA().click();
+		Thread.sleep(1000);
+		DistributerLocators.TypetosearchCLRA().sendKeys("190484");
+		
+		
+		
+		String texttt = getDriver().findElement(By.xpath("//tbody/tr[1]/td[1]")).getText();
+		
+		if(texttt.equals("190484"))
+		{
+			test.log(LogStatus.PASS, "Type to search field is working fine");
+			test.log(LogStatus.PASS, "Searched text is displayed in grid" + texttt);
+		}
+		else
+		{
+			test.log(LogStatus.FAIL	, "Type to search field is not working properly");
+			test.log(LogStatus.FAIL, "Searched text is displayed in grid" + texttt);
+		}
+		
+		
+		
+		
 
 		Thread.sleep(1000);
 		if (DistributerLocators.clickClearBtn().isEnabled()) {

@@ -536,7 +536,7 @@ public class All_ClientPortal_Locators extends BasePage {
 	
 	public static WebElement readTotalItemsD( )		
 	{
-		clients = getDriver().findElement(By.xpath("//kendo-pager-info[@class='k-pager-info k-label ng-star-inserted']")); //body > app-root > div > app-layout > section > div > div > app-client-entity-dashboard-grid > div.col-12.colpadding0.ng-star-inserted > app-grid-action-item > kendo-grid > kendo-pager > kendo-pager-info
+		clients = getDriver().findElement(By.xpath("//kendo-pager-info[@class='k-pager-info k-label']")); ////kendo-pager-info[@class='k-pager-info k-label ng-star-inserted']
 		return clients;
 	}
 	

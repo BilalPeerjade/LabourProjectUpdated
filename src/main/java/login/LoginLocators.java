@@ -1422,9 +1422,29 @@ public class LoginLocators extends BasePage {
 		submit = getDriver().findElement(By.xpath("//a[normalize-space()='ECR Master']"));
 		return submit;
 	}
-	public static WebElement ECRConfirmation()	//Method for searching button for Save/Sign-in
+	public static WebElement ECRConfirmation()
 	{
-		submit = getDriver().findElement(By.xpath("//ul[@class='nav nav-tabs']//li[3]"));
+		submit = getDriver().findElement(By.xpath("//a[normalize-space()='ECR Confirmation']"));
+		return submit;
+	}
+	public static WebElement ECR_Period()
+	{
+		submit = getDriver().findElement(By.xpath("(//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon'])[1]"));
+		return submit;
+	}
+	public static WebElement ECR_Year()
+	{
+		submit = getDriver().findElement(By.xpath("(//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon'])[2]"));
+		return submit;
+	}
+	public static WebElement ECR_Apply()
+	{
+		submit = getDriver().findElement(By.xpath("//button[@title='Apply']"));
+		return submit;
+	}
+	public static WebElement ECR_Download()
+	{
+		submit = getDriver().findElement(By.xpath("(//img[@title='Download'])[1]"));
 		return submit;
 	}
 	

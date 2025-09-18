@@ -33,16 +33,28 @@ public class methodsb {
 	}
 
 	
+	
+	
+	
+	
 
-	
-	
-	
+	//
 	public List<String> getValues() {
 	    if (!ena) {
-	        return null; 
+	        
+	        return java.util.Collections.emptyList();
 	    }
 	    return values;
 	}
+	
+//	public List<String> getValues() {
+//	    if (!ena) {
+//	        return null; 
+//	    }
+//	    return values;
+//	}
+	
+
 
 
 

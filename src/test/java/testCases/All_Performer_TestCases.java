@@ -976,6 +976,18 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 		extent.endTest(test);
 		extent.flush();
 	}
+	
+	
+	@Test(priority = 260)
+	void ECRConfirmationGrid() throws InterruptedException, IOException, AWTException
+	{
+		test = extent.startTest("Workspace - ECR Confirmation - Verify to check grid data is reflecting or not?");
+		
+		MethodsD.ECRConfirmationGrid(test,"Performer");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 	//---------Statutory Documents--------
 	
     @Test(priority = 300)

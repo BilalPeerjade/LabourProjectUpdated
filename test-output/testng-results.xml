@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="7" total="8" passed="1" failed="0" skipped="0">
+<testng-results ignored="80" total="81" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-17T20:18:11 IST" name="Default suite" finished-at="2025-09-17T20:24:05 IST" duration-ms="354410">
+  <suite started-at="2025-09-18T12:51:36 IST" name="Default suite" finished-at="2025-09-18T12:54:53 IST" duration-ms="197061">
     <groups>
     </groups>
-    <test started-at="2025-09-17T20:18:11 IST" name="Default test" finished-at="2025-09-17T20:24:05 IST" duration-ms="354410">
-      <class name="BusinessUseCases.PT">
-        <test-method is-config="true" signature="setBrowser()[pri:0, instance:BusinessUseCases.PT@7c9d8e2]" started-at="2025-09-17T20:18:11 IST" name="setBrowser" finished-at="2025-09-17T20:18:12 IST" duration-ms="647" status="PASS">
+    <test started-at="2025-09-18T12:51:36 IST" name="Default test" finished-at="2025-09-18T12:54:53 IST" duration-ms="197061">
+      <class name="testCases.All_Distributor_TWO">
+        <test-method is-config="true" signature="setBrowser()[pri:0, instance:testCases.All_Distributor_TWO@7c9d8e2]" started-at="2025-09-18T12:51:36 IST" name="setBrowser" finished-at="2025-09-18T12:51:37 IST" duration-ms="748" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setBrowser -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:BusinessUseCases.PT@7c9d8e2]" started-at="2025-09-17T20:18:12 IST" name="Login" finished-at="2025-09-17T20:18:28 IST" duration-ms="16098" status="PASS">
+        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Distributor_TWO@7c9d8e2]" started-at="2025-09-18T12:51:37 IST" name="Login" finished-at="2025-09-18T12:51:51 IST" duration-ms="14227" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method signature="Challan_PT_ANP_EmployeeID()[pri:1, instance:BusinessUseCases.PT@7c9d8e2]" started-at="2025-09-17T20:18:28 IST" name="Challan_PT_ANP_EmployeeID" finished-at="2025-09-17T20:24:04 IST" duration-ms="336142" status="PASS">
+        <test-method signature="CorporateEntity_BulkUploadVerification()[pri:26, instance:testCases.All_Distributor_TWO@7c9d8e2]" started-at="2025-09-18T12:51:51 IST" name="CorporateEntity_BulkUploadVerification" finished-at="2025-09-18T12:54:53 IST" duration-ms="181591" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Challan_PT_ANP_EmployeeID -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:BusinessUseCases.PT@7c9d8e2]" started-at="2025-09-17T20:24:04 IST" name="browserClosing" finished-at="2025-09-17T20:24:05 IST" duration-ms="1466" status="PASS">
+        </test-method> <!-- CorporateEntity_BulkUploadVerification -->
+        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Distributor_TWO@7c9d8e2]" started-at="2025-09-18T12:54:53 IST" name="browserClosing" finished-at="2025-09-18T12:54:53 IST" duration-ms="406" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Closing()[pri:0, instance:BusinessUseCases.PT@7c9d8e2]" started-at="2025-09-17T20:24:05 IST" name="Closing" finished-at="2025-09-17T20:24:05 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="Closing()[pri:0, instance:testCases.All_Distributor_TWO@7c9d8e2]" started-at="2025-09-18T12:54:53 IST" name="Closing" finished-at="2025-09-18T12:54:53 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Closing -->
-      </class> <!-- BusinessUseCases.PT -->
+      </class> <!-- testCases.All_Distributor_TWO -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

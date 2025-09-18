@@ -685,9 +685,81 @@ else {
 	    }
 	    
 	    
+	    PerformerLocator.clickOkBtn().click();
+	    Thread.sleep(5000);
+	    //Invalid template
+	    LoginLocators. Browes().click();
+	    Thread.sleep(2000);
 	    
-		
+		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Corporate-Entity\\EntityUploadINVALID.xlsx");
+		Thread.sleep(3000);
+	    LoginLocators. UploadBtn().click();
+	    Thread.sleep(5000);
 	    
+	    String invalidTemplate = LoginLocators.UploadSuccessfully().getText();
+	    Thread.sleep(2000);
+	    if(invalidTemplate.equalsIgnoreCase("Invalid Template"))
+	    {
+	    	test.log(LogStatus.PASS,"While uploading invalid file error message is displayed ");
+	    	test.log(LogStatus.PASS,"Message Displayed = " + invalidTemplate);
+	    }
+	    else
+	    {
+	    	test.log(LogStatus.FAIL	,"While uploading invalid file message is displayed ");
+    	    test.log(LogStatus.FAIL,"Message Displayed = " + invalidTemplate);
+	    }
+	    
+	    
+	    
+	    PerformerLocator.clickOkBtn().click();
+	    Thread.sleep(5000);
+	    //File with diffrent format
+	    LoginLocators. Browes().click();
+	    Thread.sleep(2000);
+	    
+		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Corporate-Entity\\Test.pdf");
+		Thread.sleep(3000);
+//	    LoginLocators. UploadBtn().click();
+	    Thread.sleep(5000);
+	    
+	    String fileDiffrentFormat = LoginLocators.UploadSuccessfully().getText();
+	    Thread.sleep(2000);
+	    if(fileDiffrentFormat.equalsIgnoreCase("Please upload XLSX file only"))
+	    {
+	    	test.log(LogStatus.PASS,"While uploading file with diffrent format error message is displayed ");
+	    	test.log(LogStatus.PASS,"Message Displayed = " + fileDiffrentFormat);
+	    }
+	    else
+	    {
+	    	test.log(LogStatus.FAIL	,"While uploading file with diffrent format message is displayed ");
+    	    test.log(LogStatus.FAIL,"Message Displayed = " + fileDiffrentFormat);
+	    }
+	    
+	    
+	    
+	    PerformerLocator.clickOkBtn().click();
+	    Thread.sleep(5000);
+	    //Uplaoded file error
+	    LoginLocators. Browes().click();
+	    Thread.sleep(2000);
+	    
+		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Corporate-Entity\\EntityUploadWithError.xlsx");
+		Thread.sleep(3000);
+	    LoginLocators. UploadBtn().click();
+	    Thread.sleep(5000);
+	    
+	    String errorWhileUploading = LoginLocators.UploadSuccessfully().getText();
+	    Thread.sleep(2000);
+	    if(errorWhileUploading.equalsIgnoreCase("Error while uploading file.Error file downloaded"))
+	    {
+	    	test.log(LogStatus.PASS,"While uploading file with some error message is displayed ");
+	    	test.log(LogStatus.PASS,"Message Displayed = " + errorWhileUploading);
+	    }
+	    else
+	    {
+	    	test.log(LogStatus.FAIL	,"While uploading file with some error message is displayed ");
+    	    test.log(LogStatus.FAIL,"Message Displayed = " + errorWhileUploading);
+	    }
 	    
 	    
 	    
@@ -13847,6 +13919,59 @@ public static void ECRMasterInvalidClientID( ExtentTest test, String user) throw
 	
 	
 	
+	
+}
+
+public static void ECRConfirmationGrid( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+{
+
+//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
+	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	Thread.sleep(7000);
+	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+	if(user.equalsIgnoreCase("Performer"))
+	{
+		LoginLocators.Search().sendKeys("TESTAUTO");
+	}
+	else if(user.equalsIgnoreCase("Distributor"))
+	{
+		LoginLocators.Search().sendKeys("AVACORED5");	
+	}
+	else if(user.equalsIgnoreCase("Reviewer"))
+	{
+		LoginLocators.Search().sendKeys("AVACORED5");	
+	}
+	
+	Thread.sleep(2000);
+	wait.until(ExpectedConditions.visibilityOf(LoginLocators.WorkspaceArrow()));
+	Thread.sleep(500);
+	LoginLocators.WorkspaceArrow().click();
+	Thread.sleep(500);
+	LoginLocators.ECRConfirmation().click();
+	Thread.sleep(2000);
+	
+	
+	
+	LoginLocators.ECR_Period().click();
+	Thread.sleep(2000);
+	LoginLocators.PeriodJan().click();
+	Thread.sleep(2000);
+	LoginLocators.ECR_Year().click();
+	Thread.sleep(2000);
+	LoginLocators.Year2024().click();
+	Thread.sleep(2000);
+	LoginLocators.ECR_Apply().click();
+	Thread.sleep(2000);
+//	LoginLocators.ECR_Download().click();
+	
+	if(LoginLocators.ECR_Download().isDisplayed())
+	{
+		test.log(LogStatus.PASS,  "ECR Confirmation Period dropdown is working fine");
+		Thread.sleep(2000);
+		test.log(LogStatus.PASS,  "ECR Confirmation year dropdown is working fine");
+		Thread.sleep(3000);
+		test.log(LogStatus.PASS,  "ECR Confirmation apply button is working fine");
+	}
 	
 }
 
