@@ -5609,6 +5609,14 @@ public class All_ClientPortal_Methods extends BasePage {
 		All_ClientPortal_Locators.Complied().click();
 		Thread.sleep(7000);
 		
+		
+		
+		
+		
+		
+		
+		
+		
 		All_ClientPortal_Locators.ECComplied().click();
 		Thread.sleep(9000);
 		test.log(LogStatus.PASS, "Establishment Compliances 'Complied' hyper link is clickable");		
@@ -6064,28 +6072,70 @@ public class All_ClientPortal_Methods extends BasePage {
 		All_ClientPortal_Locators.ECOverdue().click();
 		Thread.sleep(5000);
 		
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
-	//	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//img[contains(@title,'Overview')])[1]")));
-		Thread.sleep(8000);
-		Thread.sleep(3000);
-		File dir = new File("C:\\Users\\bilali\\Downloads");
-		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
-
-		Thread.sleep(500);
-		Locators.Export().click();
-		Thread.sleep(5000);
-		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/app-root/div/app-layout/section/div/div/app-client-entity-dashboard-grid/div[3]/kendo-loader/div")));
-		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\bilali\\Downloads");
-		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
-		Thread.sleep(3000);
-		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
-			test.log(LogStatus.PASS,  " File downloaded successfully.");
-		} else {Thread.sleep(5000);
-			test.log(LogStatus.FAIL,  " File does not downloaded.");
-		}
+		
+	    OneCommonMethod.validateExportedExcelDYNAMIC(
+	    	    driver.get(),
+	    	    test,
+	    	    LoginLocators.Exportbtn(),        // WebElement for export button
+	    	    All_ClientPortal_Locators.readTotalItemsNotice(),     // WebElement for grid count text
+	    	    "Notice Type",                               // Column header to verify
+	    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+	    	);
 		
 	}
+	public static void exportECWithRegister(  ExtentTest test) throws InterruptedException, IOException
+	{
+		Thread.sleep(5000);
+		WebElement compliancedrp = getDriver().findElement(By.xpath("(//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon'])[1]"));
+		Thread.sleep(3000);
+		compliancedrp.click();
+		Thread.sleep(5000);
+		All_ClientPortal_Locators.complianceSelectOnRegisters().click();
+		Thread.sleep(2000);
+		All_ClientPortal_Locators.Apply().click();
+		Thread.sleep(6000);
+		
+		
+		
+	    OneCommonMethod.validateExportedExcelDYNAMIC(
+	    	    driver.get(),
+	    	    test,
+	    	    LoginLocators.Exportbtn(),        // WebElement for export button
+	    	    All_ClientPortal_Locators.readTotalItemsNotice(),     // WebElement for grid count text
+	    	    "Notice Type",                               // Column header to verify
+	    	    "Registers File Exported Successfully ! "     // Success log text (only if PASS)
+	    	);
+		
+		
+	}
+	
+	
+	public static void exportECWithReturn(  ExtentTest test) throws InterruptedException, IOException
+	{
+		Thread.sleep(5000);
+		WebElement compliancedrp = getDriver().findElement(By.xpath("(//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon'])[1]"));
+		Thread.sleep(3000);
+		compliancedrp.click();
+		Thread.sleep(5000);
+		All_ClientPortal_Locators.complianceSelectOnReturn().click();
+		Thread.sleep(2000);
+		All_ClientPortal_Locators.Apply().click();
+		Thread.sleep(6000);
+		
+		
+		
+	    OneCommonMethod.validateExportedExcelDYNAMIC(
+	    	    driver.get(),
+	    	    test,
+	    	    LoginLocators.Exportbtn(),        // WebElement for export button
+	    	    All_ClientPortal_Locators.readTotalItemsNotice(),     // WebElement for grid count text
+	    	    "Notice Type",                               // Column header to verify
+	    	    "Return File Exported Successfully ! "     // Success log text (only if PASS)
+	    	);
+		
+		
+	}
+	
 	
 	public static void FCOverdue(  ExtentTest test) throws InterruptedException, IOException
 	{Thread.sleep(5000);
@@ -9318,40 +9368,32 @@ public class All_ClientPortal_Methods extends BasePage {
   		  	
   	}
   	
-    public static void InputUploadNofile ( ExtentTest test) throws InterruptedException, IOException, AWTException
-  	{Thread.sleep(5000);		
-  		
-  		Thread.sleep(3000);
-  		/*	All_ClientPortal_Locators.SelectEntity().click();
-		Thread.sleep(2000);
-	//  	All_ClientPortal_Locators.EntityTri1().click();
-		Thread.sleep(2000);
-		
-		All_ClientPortal_Locators.AVAAEntity().click();
-		Thread.sleep(2000);
-		All_ClientPortal_Locators.Apply().click();
-		Thread.sleep(4000);
-		*/
-  		
-  	 	All_ClientPortal_Locators.InputUpload().click();
-  	 
-  		Thread.sleep(3000);
+	public static void InputUploadNofile(ExtentTest test) throws InterruptedException, IOException, AWTException {
+		Thread.sleep(5000);
 
-  		 Locators.Upload().click();
-  					
-  					Thread.sleep(3000);
-  				
-  					String text1 = getDriver().findElement(By.xpath("//h4[@class='f-label']")).getText();
-  					
-  					if(!text1.equalsIgnoreCase("File uploaded successfully")) {Thread.sleep(5000);
-  						test.log(LogStatus.PASS,"Message Displayed : "+text1);
-  				
-  					}else {Thread.sleep(5000);
-  						test.log(LogStatus.FAIL,"Message Displayed : "+text1);
-  					}
-  						Locators.ok().click();
-  		  	
-  	}
+		Thread.sleep(3000);
+
+		All_ClientPortal_Locators.InputUpload().click();
+
+		Thread.sleep(3000);
+
+		Locators.Upload().click();
+
+		Thread.sleep(3000);
+
+		String text1 = getDriver().findElement(By.xpath("//h4[@class='f-label']")).getText();
+
+		if (!text1.equalsIgnoreCase("File uploaded successfully")) {
+			Thread.sleep(5000);
+			test.log(LogStatus.PASS, "Message Displayed : " + text1);
+
+		} else {
+			Thread.sleep(5000);
+			test.log(LogStatus.FAIL, "Message Displayed : " + text1);
+		}
+		Locators.ok().click();
+		Thread.sleep(3000);
+	}
   	
     public static void IUHistory(  ExtentTest test) throws InterruptedException, IOException
 	{Thread.sleep(5000);
@@ -10007,10 +10049,144 @@ public class All_ClientPortal_Methods extends BasePage {
 			Thread.sleep(5000);
 			test.log(LogStatus.FAIL, "Salary File: Final input uploaded not downloaded");
 		}
+		
 
+	}
+
+	public static void inputUploadRegisterOtherUpload(ExtentTest test) throws Exception {
+		Thread.sleep(5000);
+		All_ClientPortal_Locators.Browse2().click();
+		Thread.sleep(3000);
+		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\OtherTwo\\Empty.zip");
+		Thread.sleep(3000);
+		All_ClientPortal_Locators.upload2().click();
+
+		Thread.sleep(3000);
+
+		String text1 = getDriver().findElement(By.xpath("//h4[@class='f-label']")).getText();
+
+		if (text1.equalsIgnoreCase("File uploaded successfully")) {
+			Thread.sleep(5000);
+			test.log(LogStatus.PASS, "Message Displayed : " + text1);
+
+		} else {
+			Thread.sleep(5000);
+			test.log(LogStatus.FAIL, "Message Displayed : " + text1);
+		}
+		Thread.sleep(3000);
+		Locators.ok().click();
+
+	}
+	public static void inputUploadRegisterSalaryOtherUpload(ExtentTest test) throws Exception {
+		Thread.sleep(5000);
+		All_ClientPortal_Locators.Browse4().click();
+		Thread.sleep(3000);
+		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\OtherTwo\\Empty.zip");
+		Thread.sleep(3000);
+		All_ClientPortal_Locators.upload4().click();
+
+		Thread.sleep(3000);
+
+		String text1 = getDriver().findElement(By.xpath("//h4[@class='f-label']")).getText();
+
+		if (text1.equalsIgnoreCase("File uploaded successfully")) {
+			Thread.sleep(5000);
+			test.log(LogStatus.PASS, "Message Displayed : " + text1);
+
+		} else {
+			Thread.sleep(5000);
+			test.log(LogStatus.FAIL, "Message Displayed : " + text1);
+		}
+		Thread.sleep(3000);
+		Locators.ok().click();
+
+	}
+	public static void inputUploadRegisterOtherUploadError(ExtentTest test) throws Exception {
+		Thread.sleep(5000);
+		All_ClientPortal_Locators.upload2().click();
+
+		Thread.sleep(3000);
+
+		String text1 = getDriver().findElement(By.xpath("//h4[@class='f-label']")).getText();
+
+		if (text1.equalsIgnoreCase("No file chosen")) {
+			Thread.sleep(5000);
+			test.log(LogStatus.PASS, "Message Displayed : " + text1);
+
+		} else {
+			Thread.sleep(5000);
+			test.log(LogStatus.FAIL, "Message Displayed : " + text1);
+		}
+		Thread.sleep(3000);
+		Locators.ok().click();
+		Thread.sleep(3000);
+
+	}
+	public static void inputUploadRegisterSalaryUploadError(ExtentTest test) throws Exception {
+		Thread.sleep(5000);
+		All_ClientPortal_Locators.upload3().click();
+
+		Thread.sleep(3000);
+
+		String text1 = getDriver().findElement(By.xpath("//h4[@class='f-label']")).getText();
+
+		if (text1.equalsIgnoreCase("No file chosen")) {
+			Thread.sleep(5000);
+			test.log(LogStatus.PASS, "Message Displayed : " + text1);
+
+		} else {
+			Thread.sleep(5000);
+			test.log(LogStatus.FAIL, "Message Displayed : " + text1);
+		}
+		Thread.sleep(3000);
+		Locators.ok().click();
+		Thread.sleep(3000);
 
 	}
 	
+	public static void inputUploadReturnSalaryUploadError(ExtentTest test) throws Exception {
+		Thread.sleep(5000);
+		All_ClientPortal_Locators.upload1().click();
+
+		Thread.sleep(3000);
+
+		String text1 = getDriver().findElement(By.xpath("//h4[@class='f-label']")).getText();
+
+		if (text1.equalsIgnoreCase("No file chosen")) {
+			Thread.sleep(5000);
+			test.log(LogStatus.PASS, "Message Displayed : " + text1);
+
+		} else {
+			Thread.sleep(5000);
+			test.log(LogStatus.FAIL, "Message Displayed : " + text1);
+		}
+		Thread.sleep(3000);
+		Locators.ok().click();
+		Thread.sleep(3000);
+
+	}
+	
+	public static void inputUploadRegisterSalaryOtherUploadError(ExtentTest test) throws Exception {
+		Thread.sleep(5000);
+		All_ClientPortal_Locators.upload4().click();
+
+		Thread.sleep(3000);
+
+		String text1 = getDriver().findElement(By.xpath("//h4[@class='f-label']")).getText();
+
+		if (text1.equalsIgnoreCase("No file chosen")) {
+			Thread.sleep(5000);
+			test.log(LogStatus.PASS, "Message Displayed : " + text1);
+
+		} else {
+			Thread.sleep(5000);
+			test.log(LogStatus.FAIL, "Message Displayed : " + text1);
+		}
+		Thread.sleep(3000);
+		Locators.ok().click();
+		Thread.sleep(3000);
+
+	}
   	
     public static void InputUploadTemChha ( ExtentTest test) throws InterruptedException, IOException, AWTException
    	{Thread.sleep(5000);		
@@ -10716,6 +10892,12 @@ public class All_ClientPortal_Methods extends BasePage {
 			test.log(LogStatus.FAIL, "Sample Template File does not downloaded.");
 		}
 
+
+	}
+	
+	public static void InputUploadReturnSalaryUpload(ExtentTest test) throws InterruptedException, IOException, AWTException {
+		
+		
 		// Logic for File Upload
 		All_ClientPortal_Locators.BrowseIn().click();
 		Thread.sleep(3000);
@@ -10736,12 +10918,15 @@ public class All_ClientPortal_Methods extends BasePage {
 
 		// Release V
 		robot.keyRelease(KeyEvent.VK_V);
+		Thread.sleep(1000);
 
 		// Release CRTL
 		robot.keyRelease(KeyEvent.VK_CONTROL);
+		Thread.sleep(1000);
 
 		// PRESS Enter
 		robot.keyPress(KeyEvent.VK_ENTER);
+		Thread.sleep(1000);
 
 		// Release CRTL
 		robot.keyRelease(KeyEvent.VK_ENTER);
@@ -10763,8 +10948,11 @@ public class All_ClientPortal_Methods extends BasePage {
 			test.log(LogStatus.FAIL, "Message Displayed : " + text1);
 		}
 		Locators.ok().click();
-
+		
+		
+		
 	}
+	
 	
 	public static void InputUploadReturnOtherUp(ExtentTest test) throws InterruptedException, IOException, AWTException {
 		Thread.sleep(5000);

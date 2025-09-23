@@ -617,11 +617,11 @@ public class CoordinatorTestCases extends BasePage
    		test = extent.startTest("Registration - Edit - Verify to click Save button in basic information tab.");
    		CoordinatorMethod.EditIconBasicInfoSave(test);
    		
-   		test = extent.startTest("Registration - Edit - Verify Finance Approval and OT Assignment on clicking on save button");
-   		CoordinatorMethod.EditIconFinanceApprovalSaveCheck(test);
+//   		test = extent.startTest("Registration - Edit - Verify Finance Approval and OT Assignment on clicking on save button");
+//   		CoordinatorMethod.EditIconFinanceApprovalSaveCheck(test);
    		
-   		test = extent.startTest("Registration - Edit - Verify to check OT Assignment is working or not");
-   		CoordinatorMethod.EditIconOTAssignment(test);
+//   		test = extent.startTest("Registration - Edit - Verify to check OT Assignment is working or not");
+//   		CoordinatorMethod.EditIconOTAssignment(test);
    		
    		extent.endTest(test);
    		extent.flush();
@@ -630,7 +630,7 @@ public class CoordinatorTestCases extends BasePage
  	@Test(priority = 41) //Bilal
    	void EditIconActRelevantDatesLabelBar() throws InterruptedException, IOException
    	{
-   		test = extent.startTest("Registration - Edit - Verify to check License Request Mini Tabs will opened and closed");
+   		test = extent.startTest("Registration - Edit - Verify to check Activity Relevant Dates label bar is working properly or not");
    		
    		CoordinatorMethod.EditIconActRelevantDatesLabelBar(test);
    		

@@ -150,6 +150,18 @@ public class All_Reviewer_TestCase extends BasePage {
 		}
 		
 		
+		@Test(priority = 15) //Bilal
+		void ProceedToDashboard() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Verify to check proceed to dashboard button is working or not?");
+			
+			MethodsD.ProceedToDashboard(test,"Reviewer");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		
 	//Dashboard Test Cases:--- (NOTE: need to write and add Filter verification test cases) alternative sequence wise
 		
 		@Test(priority = 20)

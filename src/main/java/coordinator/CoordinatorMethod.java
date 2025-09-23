@@ -2755,9 +2755,9 @@ public class CoordinatorMethod extends BasePage
 			Thread.sleep(5000);
 			CoordinatorLocator.EditBtn().click();
 			Thread.sleep(6000);
-			CoordinatorLocator.plus4().click();
+			CoordinatorLocator.plus3().click();
 			
-			String txt = getDriver().findElement(By.xpath("//label[normalize-space()='Finance Approved Date']")).getText();
+			String txt = getDriver().findElement(By.xpath("//label[normalize-space()='Application Submitted To SD']")).getText();
 			if(txt.equals("Finance Approved Date"))
 			{
 				test.log(LogStatus.PASS, "Activity Relevant Dates label bar is working fine");
@@ -2769,7 +2769,7 @@ public class CoordinatorMethod extends BasePage
 			}
 			
 			Thread.sleep(5000);
-			CoordinatorLocator.plus4().click();
+			CoordinatorLocator.plus3().click();
 			
 			
 			
@@ -4052,6 +4052,8 @@ public class CoordinatorMethod extends BasePage
 		
 	
 	    
+		
+		
 	    //To call this method just put below line
 		//zoomOutScreen(2); // 2 times zoom out
 	    public static void zoomOutScreen(int times) {

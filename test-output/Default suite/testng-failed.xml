@@ -3,15 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testCases.All_Distributor_TWO">
+      <class name="testCases.CoordinatorTestCases">
         <methods>
-          <include name="CorporateEntity_BulkUploadVerification"/>
-          <include name="Closing"/>
-          <include name="setBrowser"/>
           <include name="Login"/>
-          <include name="browserClosing"/>
+          <include name="close"/>
+          <include name="EditIconActRelevantDatesLabelBar"/>
+          <include name="setBrowser"/>
         </methods>
-      </class> <!-- testCases.All_Distributor_TWO -->
+      </class> <!-- testCases.CoordinatorTestCases -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

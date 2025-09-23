@@ -673,6 +673,31 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
    	}
     
     
+    @Test(priority = 110)
+    void employeeMasterReportExport() throws InterruptedException, IOException, AWTException
+    {
+    	test = extent.startTest("OnBoard Employee- Employee Report - Verify to export Employee Master Report");
+    	
+    	PerformerMethod.employeeMasterReportExport2(test);
+    	
+    	extent.endTest(test);
+    	extent.flush();
+
+    }
+    
+    @Test(priority = 111)
+    void employeeLimitedExport() throws InterruptedException, IOException, AWTException
+    {
+    	test = extent.startTest("OnBoard Employee - Employee Report - Verify to export Employee Limited Column Report");
+    	
+    	PerformerMethod.employeeLimitedExport(test);
+    	
+    	extent.endTest(test);
+    	extent.flush();
+
+    }
+    
+    
     
    	//Premises Master / OnBoard Entity---
 	@Test(priority = 150)
@@ -1247,6 +1272,16 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 	//------ Reports -------
 	
 	
+	@Test(priority = 450)
+	void StatusReport() throws InterruptedException, IOException
+	{
+		test = extent.startTest("My Report - Status Report ");
+		
+		MethodsD.DistMyReportStatusReport(test,"Performer");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 	
 	
 	@AfterMethod

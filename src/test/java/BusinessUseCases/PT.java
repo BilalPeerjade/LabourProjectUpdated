@@ -181,216 +181,249 @@ public class PT extends BasePage {
 			PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
 		}
 		
-		
-//		@Test(priority = 1) 
-		void Challan_PT_ANP_EmployeeID() throws InterruptedException, IOException, AWTException
-		{
-			
-			test = extent.startTest("PT Challan - ANP - Validate Employee IDs are reflecting correctly");
-			PT_Methods.Challan_PT_ANP_EmployeeID(test, "");
-			
-			//2
-			test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
-			PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
-			
-			//3
-			test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
-			PT_Methods.Challan_PT_ANP_Gender(test, "");
-			
-			//4 PT state (Pending)
-			test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
-			PT_Methods.Challan_PT_ANP_PTState(test, "");
-			
-			//5 
-			test = extent.startTest("PT Challan - ANP - Validate 'Locations' are reflecting correctly");
-			PT_Methods.Challan_PT_ANP_Location(test, "");
-			
-			//6
-			test = extent.startTest("PT Challan - ANP - Validate 'PT amount' are reflecting correctly");
-			PT_Methods.Challan_PT_ANP_PTAmount(test,"Performer");
-			
-			
-			
-			test = extent.startTest("PT Challan - BHR - Validate Employee IDs are reflecting correctly");
-			PT_Methods.Challan_PT_BHR_EmployeeID(test, "");
-			
-			test = extent.startTest("PT Challan - BHR - Validate 'Employee Names' are reflecting correctly");
-			PT_Methods.Challan_PT_BHR_EmployeeName(test, "");
-			
-			test = extent.startTest("PT Challan - BHR - Validate 'Genders' are reflecting correctly");
-			PT_Methods.Challan_PT_BHR_Gender(test, "");
-			
-			test = extent.startTest("PT Challan - BHR - Validate 'PT State' are reflecting correctly");
-			PT_Methods.Challan_PT_BHR_PTState(test, "");
-			
-			test = extent.startTest("PT Challan - BHR - Validate 'Locations' are reflecting correctly");
-			PT_Methods.Challan_PT_BHR_Location(test, "");
-			
-			test = extent.startTest("PT Challan - BHR - Validate 'PT amount' are reflecting correctly");
-			PT_Methods.Challan_PT_BHR_PTAmount(test,"Performer");
-			
-			
-			
-			test = extent.startTest("PT Challan - JAK - Validate Employee IDs are reflecting correctly");
-			PT_Methods.Challan_PT_JAK_EmployeeID(test, "");
-						
-			test = extent.startTest("PT Challan - JAK - Validate 'Employee Names' are reflecting correctly");
-			PT_Methods.Challan_PT_JAK_EmployeeName(test, "");
-			
-			test = extent.startTest("PT Challan - JAK - Validate 'Genders' are reflecting correctly");
-			PT_Methods.Challan_PT_JAK_Gender(test, "");
-			
-			test = extent.startTest("PT Challan - JAK - Validate 'PT State' are reflecting correctly");
-			PT_Methods.Challan_PT_JAK_PTState(test, "");
-			
-			test = extent.startTest("PT Challan - JAK - Validate 'Locations' are reflecting correctly");
-			PT_Methods.Challan_PT_JAK_Location(test, "");
-			
-			test = extent.startTest("PT Challan - JAK - Validate 'PT amount' are reflecting correctly");
-			PT_Methods.Challan_PT_JAK_PTAmount(test,"Performer");
-			
-			
-			
-			test = extent.startTest("PT Challan - KAR - Validate Employee IDs are reflecting correctly");
-			PT_Methods.Challan_PT_KAR_EmployeeID(test, "");
-						
-			test = extent.startTest("PT Challan - KAR - Validate 'Employee Names' are reflecting correctly");
-			PT_Methods.Challan_PT_KAR_EmployeeName(test, "");
-			
-			test = extent.startTest("PT Challan - KAR - Validate 'Genders' are reflecting correctly");
-			PT_Methods.Challan_PT_KAR_Gender(test, "");
-			
-			test = extent.startTest("PT Challan - KAR - Validate 'PT State' are reflecting correctly");
-			PT_Methods.Challan_PT_KAR_PTState(test, "");
-			
-			test = extent.startTest("PT Challan - KAR - Validate 'Locations' are reflecting correctly");
-			PT_Methods.Challan_PT_KAR_Location(test, "");
-			
-			
-			test = extent.startTest("PT Challan - KAR - Validate 'PT amount' are reflecting correctly");
-			PT_Methods.Challan_PT_KAR_PTAmount(test,"Performer");
-			
-			
-			
-			test = extent.startTest("PT Challan - KRL - Validate Employee IDs are reflecting correctly");
-			PT_Methods.Challan_PT_KRL_EmployeeID(test, "");
-						
-			test = extent.startTest("PT Challan - KRL - Validate 'Employee Names' are reflecting correctly");
-			PT_Methods.Challan_PT_KRL_EmployeeName(test, "");
-			
-			test = extent.startTest("PT Challan - KRL - Validate 'Genders' are reflecting correctly");
-			PT_Methods.Challan_PT_KRL_Gender(test, "");
-			
-			test = extent.startTest("PT Challan - KRL - Validate 'PT State' are reflecting correctly");
-			PT_Methods.Challan_PT_KRL_PTState(test, "");
-			
-			test = extent.startTest("PT Challan - KRL - Validate 'Locations' are reflecting correctly");
-			PT_Methods.Challan_PT_KRL_Location(test, "");
-			
-			
-			test = extent.startTest("PT Challan - KRL - Validate 'PT amount' are reflecting correctly");
-			PT_Methods.Challan_PT_KRL_PTAmount(test,"Performer");
-			
-
-
-			
-			test = extent.startTest("PT Challan - MAP - Validate Employee IDs are reflecting correctly");
-			PT_Methods.Challan_PT_MAP_EmployeeID(test, "");
-						
-			test = extent.startTest("PT Challan - MAP - Validate 'Employee Names' are reflecting correctly");
-			PT_Methods.Challan_PT_MAP_EmployeeName(test, "");
-			
-			test = extent.startTest("PT Challan - MAP - Validate 'Genders' are reflecting correctly");
-			PT_Methods.Challan_PT_MAP_Gender(test, "");
-			
-			test = extent.startTest("PT Challan - MAP - Validate 'PT State' are reflecting correctly");
-			PT_Methods.Challan_PT_MAP_PTState(test, "");
-			
-			test = extent.startTest("PT Challan - MAP - Validate 'Locations' are reflecting correctly");
-			PT_Methods.Challan_PT_MAP_Location(test, "");
-			
-			//6
-			test = extent.startTest("PT Challan - MAP - Validate 'PT amount' are reflecting correctly");
-			PT_Methods.Challan_PT_MAP_PTAmount(test,"Performer");
-			
-			
-			
-			
-			
-			test = extent.startTest("PT Challan - MAH - Validate Employee IDs are reflecting correctly");
-			PT_Methods.Challan_PT_MAH_EmployeeID(test, "");
-						
-			test = extent.startTest("PT Challan - MAH - Validate 'Employee Names' are reflecting correctly");
-			PT_Methods.Challan_PT_MAH_EmployeeName(test, "");
-			
-			test = extent.startTest("PT Challan - MAH - Validate 'Genders' are reflecting correctly");
-			PT_Methods.Challan_PT_MAH_Gender(test, "");
-			
-			test = extent.startTest("PT Challan - MAH - Validate 'PT State' are reflecting correctly");
-			PT_Methods.Challan_PT_MAH_PTState(test, "");
-			
-			test = extent.startTest("PT Challan - MAHH - Validate 'Locations' are reflecting correctly");
-			PT_Methods.Challan_PT_MAH_Location(test, "");
-			
-			
-			test = extent.startTest("PT Challan - MAH - Validate 'PT amount' are reflecting correctly");
-			PT_Methods.Challan_PT_MAH_PTAmount(test,"Performer");
-			
-			
-			
-			test = extent.startTest("PT Challan - ORS - Validate Employee IDs are reflecting correctly");
-			PT_Methods.Challan_PT_ORS_EmployeeID(test, "");
-						
-			test = extent.startTest("PT Challan - ORS - Validate 'Employee Names' are reflecting correctly");
-			PT_Methods.Challan_PT_ORS_EmployeeName(test, "");
-			
-			test = extent.startTest("PT Challan - ORS - Validate 'Genders' are reflecting correctly");
-			PT_Methods.Challan_PT_ORS_Gender(test, "");
-			
-			test = extent.startTest("PT Challan - ORS - Validate 'PT State' are reflecting correctly");
-			PT_Methods.Challan_PT_ORS_PTState(test, "");
-			
-			test = extent.startTest("PT Challan - ORS - Validate 'Locations' are reflecting correctly");
-			PT_Methods.Challan_PT_ORS_Location(test, "");
-			
-			test = extent.startTest("PT Challan - ORS - Validate 'PT amount' are reflecting correctly");
-			PT_Methods.Challan_PT_ORS_PTAmount(test,"Performer");
-			
-			
-			
-			test = extent.startTest("PT Challan - PND - Validate Employee IDs are reflecting correctly");
-			PT_Methods.Challan_PT_PND_EmployeeID(test, "");
-						
-			test = extent.startTest("PT Challan - PND - Validate 'Employee Names' are reflecting correctly");
-			PT_Methods.Challan_PT_PND_EmployeeName(test, "");
-			
-			test = extent.startTest("PT Challan - PND - Validate 'Genders' are reflecting correctly");
-			PT_Methods.Challan_PT_PND_Gender(test, "");
-			
-			test = extent.startTest("PT Challan - PND - Validate 'PT State' are reflecting correctly");
-			PT_Methods.Challan_PT_PND_PTState(test, "");
-			
-			test = extent.startTest("PT Challan - PND - Validate 'Locations' are reflecting correctly");
-			PT_Methods.Challan_PT_PND_Location(test, "");
-			
-			test = extent.startTest("PT Challan - PND - Validate 'PT amount' are reflecting correctly");
-			PT_Methods.Challan_PT_PND_PTAmount(test,"Performer");
-			
-			
-			
-			test = extent.startTest("PT Challan - PJB - Validate Employee IDs are reflecting correctly");
-			PT_Methods.Challan_PT_PND_EmployeeID(test, "");
-						
-			test = extent.startTest("PT Challan - PJB - Validate 'Employee Names' are reflecting correctly");
-			PT_Methods.Challan_PT_PJB_EmployeeName(test, "");
-			
-			
-			
-			
-			extent.endTest(test);
-			extent.flush();
-		}
-		
+	//Pending	
+////		@Test(priority = 1) 
+//		void Challan_PT_ANP_EmployeeID() throws InterruptedException, IOException, AWTException
+//		{
+//			
+//			test = extent.startTest("PT Challan - ANP - Validate Employee IDs are reflecting correctly");
+//			PT_Methods.Challan_PT_ANP_EmployeeID(test, "");
+//			
+//			//2
+//			test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+//			PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+//			
+//			//3
+//			test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+//			PT_Methods.Challan_PT_ANP_Gender(test, "");
+//			
+//			//4 PT state (Pending)
+//			test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+//			PT_Methods.Challan_PT_ANP_PTState(test, "");
+//			
+//			//5 
+//			test = extent.startTest("PT Challan - ANP - Validate 'Locations' are reflecting correctly");
+//			PT_Methods.Challan_PT_ANP_Location(test, "");
+//			
+//			//6
+//			test = extent.startTest("PT Challan - ANP - Validate 'PT amount' are reflecting correctly");
+//			PT_Methods.Challan_PT_ANP_PTAmount(test,"Performer");
+//			
+//			
+//			
+//			test = extent.startTest("PT Challan - BHR - Validate Employee IDs are reflecting correctly");
+//			PT_Methods.Challan_PT_BHR_EmployeeID(test, "");
+//			
+//			test = extent.startTest("PT Challan - BHR - Validate 'Employee Names' are reflecting correctly");
+//			PT_Methods.Challan_PT_BHR_EmployeeName(test, "");
+//			
+//			test = extent.startTest("PT Challan - BHR - Validate 'Genders' are reflecting correctly");
+//			PT_Methods.Challan_PT_BHR_Gender(test, "");
+//			
+//			test = extent.startTest("PT Challan - BHR - Validate 'PT State' are reflecting correctly");
+//			PT_Methods.Challan_PT_BHR_PTState(test, "");
+//			
+//			test = extent.startTest("PT Challan - BHR - Validate 'Locations' are reflecting correctly");
+//			PT_Methods.Challan_PT_BHR_Location(test, "");
+//			
+//			test = extent.startTest("PT Challan - BHR - Validate 'PT amount' are reflecting correctly");
+//			PT_Methods.Challan_PT_BHR_PTAmount(test,"Performer");
+//			
+//			
+//			
+//			test = extent.startTest("PT Challan - JAK - Validate Employee IDs are reflecting correctly");
+//			PT_Methods.Challan_PT_JAK_EmployeeID(test, "");
+//						
+//			test = extent.startTest("PT Challan - JAK - Validate 'Employee Names' are reflecting correctly");
+//			PT_Methods.Challan_PT_JAK_EmployeeName(test, "");
+//			
+//			test = extent.startTest("PT Challan - JAK - Validate 'Genders' are reflecting correctly");
+//			PT_Methods.Challan_PT_JAK_Gender(test, "");
+//			
+//			test = extent.startTest("PT Challan - JAK - Validate 'PT State' are reflecting correctly");
+//			PT_Methods.Challan_PT_JAK_PTState(test, "");
+//			
+//			test = extent.startTest("PT Challan - JAK - Validate 'Locations' are reflecting correctly");
+//			PT_Methods.Challan_PT_JAK_Location(test, "");
+//			
+//			test = extent.startTest("PT Challan - JAK - Validate 'PT amount' are reflecting correctly");
+//			PT_Methods.Challan_PT_JAK_PTAmount(test,"Performer");
+//			
+//			
+//			
+//			test = extent.startTest("PT Challan - KAR - Validate Employee IDs are reflecting correctly");
+//			PT_Methods.Challan_PT_KAR_EmployeeID(test, "");
+//						
+//			test = extent.startTest("PT Challan - KAR - Validate 'Employee Names' are reflecting correctly");
+//			PT_Methods.Challan_PT_KAR_EmployeeName(test, "");
+//			
+//			test = extent.startTest("PT Challan - KAR - Validate 'Genders' are reflecting correctly");
+//			PT_Methods.Challan_PT_KAR_Gender(test, "");
+//			
+//			test = extent.startTest("PT Challan - KAR - Validate 'PT State' are reflecting correctly");
+//			PT_Methods.Challan_PT_KAR_PTState(test, "");
+//			
+//			test = extent.startTest("PT Challan - KAR - Validate 'Locations' are reflecting correctly");
+//			PT_Methods.Challan_PT_KAR_Location(test, "");
+//			
+//			
+//			test = extent.startTest("PT Challan - KAR - Validate 'PT amount' are reflecting correctly");
+//			PT_Methods.Challan_PT_KAR_PTAmount(test,"Performer");
+//			
+//			
+//			
+//			test = extent.startTest("PT Challan - KRL - Validate Employee IDs are reflecting correctly");
+//			PT_Methods.Challan_PT_KRL_EmployeeID(test, "");
+//						
+//			test = extent.startTest("PT Challan - KRL - Validate 'Employee Names' are reflecting correctly");
+//			PT_Methods.Challan_PT_KRL_EmployeeName(test, "");
+//			
+//			test = extent.startTest("PT Challan - KRL - Validate 'Genders' are reflecting correctly");
+//			PT_Methods.Challan_PT_KRL_Gender(test, "");
+//			
+//			test = extent.startTest("PT Challan - KRL - Validate 'PT State' are reflecting correctly");
+//			PT_Methods.Challan_PT_KRL_PTState(test, "");
+//			
+//			test = extent.startTest("PT Challan - KRL - Validate 'Locations' are reflecting correctly");
+//			PT_Methods.Challan_PT_KRL_Location(test, "");
+//			
+//			
+//			test = extent.startTest("PT Challan - KRL - Validate 'PT amount' are reflecting correctly");
+//			PT_Methods.Challan_PT_KRL_PTAmount(test,"Performer");
+//			
+//
+//
+//			
+//			test = extent.startTest("PT Challan - MAP - Validate Employee IDs are reflecting correctly");
+//			PT_Methods.Challan_PT_MAP_EmployeeID(test, "");
+//						
+//			test = extent.startTest("PT Challan - MAP - Validate 'Employee Names' are reflecting correctly");
+//			PT_Methods.Challan_PT_MAP_EmployeeName(test, "");
+//			
+//			test = extent.startTest("PT Challan - MAP - Validate 'Genders' are reflecting correctly");
+//			PT_Methods.Challan_PT_MAP_Gender(test, "");
+//			
+//			test = extent.startTest("PT Challan - MAP - Validate 'PT State' are reflecting correctly");
+//			PT_Methods.Challan_PT_MAP_PTState(test, "");
+//			
+//			test = extent.startTest("PT Challan - MAP - Validate 'Locations' are reflecting correctly");
+//			PT_Methods.Challan_PT_MAP_Location(test, "");
+//			
+//			//6
+//			test = extent.startTest("PT Challan - MAP - Validate 'PT amount' are reflecting correctly");
+//			PT_Methods.Challan_PT_MAP_PTAmount(test,"Performer");
+//			
+//			
+//			
+//			
+//			
+//			test = extent.startTest("PT Challan - MAH - Validate Employee IDs are reflecting correctly");
+//			PT_Methods.Challan_PT_MAH_EmployeeID(test, "");
+//						
+//			test = extent.startTest("PT Challan - MAH - Validate 'Employee Names' are reflecting correctly");
+//			PT_Methods.Challan_PT_MAH_EmployeeName(test, "");
+//			
+//			test = extent.startTest("PT Challan - MAH - Validate 'Genders' are reflecting correctly");
+//			PT_Methods.Challan_PT_MAH_Gender(test, "");
+//			
+//			test = extent.startTest("PT Challan - MAH - Validate 'PT State' are reflecting correctly");
+//			PT_Methods.Challan_PT_MAH_PTState(test, "");
+//			
+//			test = extent.startTest("PT Challan - MAHH - Validate 'Locations' are reflecting correctly");
+//			PT_Methods.Challan_PT_MAH_Location(test, "");
+//			
+//			
+//			test = extent.startTest("PT Challan - MAH - Validate 'PT amount' are reflecting correctly");
+//			PT_Methods.Challan_PT_MAH_PTAmount(test,"Performer");
+//			
+//			
+//			
+//			test = extent.startTest("PT Challan - ORS - Validate Employee IDs are reflecting correctly");
+//			PT_Methods.Challan_PT_ORS_EmployeeID(test, "");
+//						
+//			test = extent.startTest("PT Challan - ORS - Validate 'Employee Names' are reflecting correctly");
+//			PT_Methods.Challan_PT_ORS_EmployeeName(test, "");
+//			
+//			test = extent.startTest("PT Challan - ORS - Validate 'Genders' are reflecting correctly");
+//			PT_Methods.Challan_PT_ORS_Gender(test, "");
+//			
+//			test = extent.startTest("PT Challan - ORS - Validate 'PT State' are reflecting correctly");
+//			PT_Methods.Challan_PT_ORS_PTState(test, "");
+//			
+//			test = extent.startTest("PT Challan - ORS - Validate 'Locations' are reflecting correctly");
+//			PT_Methods.Challan_PT_ORS_Location(test, "");
+//			
+//			test = extent.startTest("PT Challan - ORS - Validate 'PT amount' are reflecting correctly");
+//			PT_Methods.Challan_PT_ORS_PTAmount(test,"Performer");
+//			
+//			
+//			
+//			test = extent.startTest("PT Challan - PND - Validate Employee IDs are reflecting correctly");
+//			PT_Methods.Challan_PT_PND_EmployeeID(test, "");
+//						
+//			test = extent.startTest("PT Challan - PND - Validate 'Employee Names' are reflecting correctly");
+//			PT_Methods.Challan_PT_PND_EmployeeName(test, "");
+//			
+//			test = extent.startTest("PT Challan - PND - Validate 'Genders' are reflecting correctly");
+//			PT_Methods.Challan_PT_PND_Gender(test, "");
+//			
+//			test = extent.startTest("PT Challan - PND - Validate 'PT State' are reflecting correctly");
+//			PT_Methods.Challan_PT_PND_PTState(test, "");
+//			
+//			test = extent.startTest("PT Challan - PND - Validate 'Locations' are reflecting correctly");
+//			PT_Methods.Challan_PT_PND_Location(test, "");
+//			
+//			test = extent.startTest("PT Challan - PND - Validate 'PT amount' are reflecting correctly");
+//			PT_Methods.Challan_PT_PND_PTAmount(test,"Performer");
+//			
+//			
+//			
+//			test = extent.startTest("PT Challan - PJB - Validate Employee IDs are reflecting correctly");
+//			PT_Methods.Challan_PT_PJB_EmployeeID(test, "");
+//						
+//			test = extent.startTest("PT Challan - PJB - Validate 'Employee Names' are reflecting correctly");
+//			PT_Methods.Challan_PT_PJB_EmployeeName(test, "");
+//			
+//			test = extent.startTest("PT Challan - PJB - Validate 'Genders' are reflecting correctly");
+//			PT_Methods.Challan_PT_PJB_Gender(test, "");
+//			
+//			test = extent.startTest("PT Challan - PJB - Validate 'PT State' are reflecting correctly");
+//			PT_Methods.Challan_PT_PJB_PTState(test, "");
+//			
+//			test = extent.startTest("PT Challan - PJB - Validate 'Locations' are reflecting correctly");
+//			PT_Methods.Challan_PT_PJB_Location(test, "");
+//			
+//			test = extent.startTest("PT Challan - PJB - Validate 'PT amount' are reflecting correctly");
+//			PT_Methods.Challan_PT_PJB_PTAmount(test,"Performer");
+//			
+//			
+//			
+//
+//			//Tamil Nadu N
+//			test = extent.startTest("PT Challan - TMN - Validate Employee IDs are reflecting correctly");
+//			PT_Methods.Challan_PT_TMN_EmployeeID(test, "");
+//						
+//			test = extent.startTest("PT Challan - TMN - Validate 'Employee Names' are reflecting correctly");
+//			PT_Methods.Challan_PT_TMN_EmployeeName(test, "");
+//			
+//			test = extent.startTest("PT Challan - TMN - Validate 'Genders' are reflecting correctly");
+//			PT_Methods.Challan_PT_TMN_Gender(test, "");
+//			
+//			test = extent.startTest("PT Challan - TMN - Validate 'PT State' are reflecting correctly");
+//			PT_Methods.Challan_PT_TMN_PTState(test, "");
+//			
+//			test = extent.startTest("PT Challan - TMN - Validate 'Locations' are reflecting correctly");
+//			PT_Methods.Challan_PT_TMN_Location(test, "");
+//			
+//			test = extent.startTest("PT Challan - TMN - Validate 'PT amount' are reflecting correctly");
+//			PT_Methods.Challan_PT_TMN_PTAmount(test,"Performer");
+//			
+//
+//			
+//			extent.endTest(test);
+//			extent.flush();
+//		}
+//		
 		
 		
 		

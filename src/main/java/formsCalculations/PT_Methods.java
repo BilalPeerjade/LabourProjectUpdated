@@ -1436,6 +1436,22 @@ public class PT_Methods extends BasePage{
 		PT_ConsolidatedMethods.validatePTAmountsUpdatedFlexible(downloadedExcelFile, test, runCounts);
 	}
 	
+	public static void Challan_PT_PJB_PTAmount( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+//		PT_Methods.validatePTAmounts(downloadedExcelFile, test);
+		
+		Map<String, Integer> runCounts = new HashMap<>();
+		runCounts.put("", 1); // set generation count for that state
+		PT_ConsolidatedMethods.validatePTAmountsUpdatedFlexible(downloadedExcelFile, test, runCounts);
+	}
+	public static void Challan_PT_TMN_PTAmount( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+//		PT_Methods.validatePTAmounts(downloadedExcelFile, test);
+		
+		Map<String, Integer> runCounts = new HashMap<>();
+		runCounts.put("", 1); // set generation count for that state
+		PT_ConsolidatedMethods.validatePTAmountsUpdatedFlexible(downloadedExcelFile, test, runCounts);
+	}
 	public static void validatePTAmounts(File downloadedExcelFile, ExtentTest test) {
 	    try (FileInputStream fis = new FileInputStream(downloadedExcelFile)) {
 	        Workbook wb = WorkbookFactory.create(fis);
@@ -2183,6 +2199,82 @@ public class PT_Methods extends BasePage{
             "Employee IDs are reflecting properly as per masters!"
         );
 	}
+	public static void Challan_PT_TMN_EmployeeID( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+//		Challan_PT_StaturyDocRedirection(test,user);
+		formLocators.closeXbutton().click();
+		Thread.sleep(5000);
+		
+		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
+		d1.clickDownload("TMN", 1);
+		
+		Thread.sleep(5000);
+        // Step 1: Manually download file
+		formLocators.downloadDocument().click();
+        Thread.sleep(10000); // wait for file to download
+
+        // Step 2: Get latest file
+        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
+        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
+        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
+        downloadedExcelFile = files[0];
+        
+        
+        
+      
+        List<methodsb> af = new ArrayList<>();
+        
+        af.add(new methodsb(38, Arrays.asList("Active")));
+ 
+        af.add(new methodsb(9, Arrays.asList("TMN")));
+
+        af.add(new methodsb(58, Arrays.asList("Yes")));
+        
+        // 📊 Step 4: Prepare ExcelFileDetails for Master
+        String masterSheetName = "EmployeeMaster";
+        int masterColumnIndex = 3;
+        ExcelFileDetails masterFileDetails = new ExcelFileDetails(
+        	FilePath.EMPLOYEE_MASTER,
+            masterSheetName,
+            masterColumnIndex,
+            af,
+            "YES"   // Yes filters to apply
+        );
+
+        // 🎯 Step 5: Prepare Target validation for downloaded file
+        String targetSheetName = "PTChallan";
+        int targetColumnIndex = 1;
+        String targetHeaderKeyword = "Employee ID";
+        int targetStartRow = 0;
+
+        ExcelTargetValidation targetValidation = new ExcelTargetValidation(
+            targetSheetName,
+            targetColumnIndex,
+            targetHeaderKeyword,
+            targetStartRow
+        );
+
+        // 🛠️ Step 6: Prepare Extra Config (No total row logic here)
+        String totalLogicEnabled = "";
+        int totalColumnIndex = 0;
+        String totalKeyword = "";
+
+        ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+            totalLogicEnabled,
+            totalColumnIndex,
+            totalKeyword
+        );
+
+        // ✅ Step 7: Final call to reusable validator
+        UtilisOne.validateExcelBusinessData(
+            downloadedExcelFile,
+            test,
+            masterFileDetails,
+            targetValidation,
+            extraConfig,
+            "Employee IDs are reflecting properly as per masters!"
+        );
+	}
 	public static void Challan_PT_PJB_EmployeeID( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 //		Challan_PT_StaturyDocRedirection(test,user);
@@ -2841,6 +2933,55 @@ public class PT_Methods extends BasePage{
 		);
 
 	}
+	public static void Challan_PT_TMN_EmployeeName( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		
+		String targetSheetName     = "PTChallan";
+		int targetColumnIndex      = 2;
+		String targetHeaderKeyword = "Emp Name";
+		int targetStartRow         = 0;
+
+		ExcelTargetValidation targetValidation = new ExcelTargetValidation(
+		    targetSheetName,
+		    targetColumnIndex,
+		    targetHeaderKeyword,
+		    targetStartRow
+		);
+
+		
+		int masterColumnIndex      = 5;
+		String masterSheetName     = "EmployeeMaster";
+
+		List<methodsb> af = new ArrayList<>();
+		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new methodsb(9,  Arrays.asList("TMN")));
+		af.add(new methodsb(58, Arrays.asList("Yes")));
+
+		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
+		    FilePath.EMPLOYEE_MASTER,
+		    masterSheetName,
+		    masterColumnIndex,
+		    af,
+		    "YES"   
+		);
+
+		// 🔹 Extra config
+		ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+		    "", 0, ""
+		);
+
+		// 🔹 Final validation call
+		UtilisOne.validateExcelBusinessData(
+		    downloadedExcelFile,
+		    test,
+		    masterFileDetails,
+		    targetValidation,
+		    extraConfig,
+		    "Validating Employee Names from Employee Master file"
+		);
+
+
+	}
 	public static void Challan_PT_PND_EmployeeName( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		 
@@ -3391,6 +3532,90 @@ public class PT_Methods extends BasePage{
 		);
 
 	}
+	public static void Challan_PT_PJB_Gender( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		 
+		String targetHeaderKeyword = "Gender";
+		int targetColumnIndex = 3;
+		String targetSheetName = "PTChallan";
+		int targetStartRow = 0;
+
+		ExcelTargetValidation targetValidation = new ExcelTargetValidation(
+		    targetSheetName,
+		    targetColumnIndex,
+		    targetHeaderKeyword,
+		    targetStartRow
+		);
+
+		 
+		List<methodsb> af = new ArrayList<>();
+
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
+
+		 
+		af.add(new methodsb(9, Arrays.asList("PJB")));
+
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
+
+		 
+		int masterColumnIndex = 10;
+		String masterSheetName = "EmployeeMaster";
+
+		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
+			FilePath.EMPLOYEE_MASTER,
+		    masterSheetName,
+		    masterColumnIndex,
+		    af,
+		    "YES"    
+		);
+
+		 
+		ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+		    "", 0, ""
+		);
+
+		 
+		UtilisOne.validateExcelBusinessData(
+		    downloadedExcelFile,
+		    test,
+		    masterFileDetails,
+		    targetValidation,
+		    extraConfig,
+		    "Validating Genders from Employee Master file"
+		);
+
+	}
+	public static void Challan_PT_TMN_Gender( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		 
+		// --- Compact / inline style (functionality unchanged) ---
+		UtilisOne.validateExcelBusinessData(
+		    downloadedExcelFile,
+		    test,
+		    new ExcelFileDetails(
+		        FilePath.EMPLOYEE_MASTER,                 
+		        "EmployeeMaster",                         
+		        10,                                       
+		        Arrays.asList(                            
+		            new methodsb(38, Arrays.asList("Active")),
+		            new methodsb(9,  Arrays.asList("TMN")),
+		            new methodsb(58, Arrays.asList("Yes"))
+		        ),
+		        "YES"                                     
+		    ),
+		    new ExcelTargetValidation(                    
+		        "PTChallan",                              
+		        3,                                        
+		        "Gender",                                 
+		        0                                        
+		    ),
+		    new ExcelExtraConfig("", 0, ""),              
+		    "Validating Genders from Employee Master file"
+		);
+
+	}
 	public static void Challan_PT_KAR_Gender( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		 
@@ -3914,6 +4139,110 @@ public class PT_Methods extends BasePage{
 		    extraConfig,
 		    "Validating PT State from Employee Master file"
 		);
+
+	}
+	public static void Challan_PT_PJB_PTState( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		 
+		String targetHeaderKeyword = "PT State";
+		int targetColumnIndex = 4;
+		String targetSheetName = "PTChallan";
+		int targetStartRow = 0;
+
+		ExcelTargetValidation targetValidation = new ExcelTargetValidation(
+		    targetSheetName,
+		    targetColumnIndex,
+		    targetHeaderKeyword,
+		    targetStartRow
+		);
+
+		 
+		List<methodsb> af = new ArrayList<>();
+
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
+
+		 
+		af.add(new methodsb(9, Arrays.asList("PJB")));
+
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
+
+		 
+		int masterColumnIndex = 9;
+		String masterSheetName = "EmployeeMaster";
+
+		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
+			FilePath.EMPLOYEE_MASTER,
+		    masterSheetName,
+		    masterColumnIndex,
+		    af,
+		    "YES"    
+		);
+
+		 
+		ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+		    "", 0, ""
+		);
+
+		
+		// ✅ Enable Smart Text Match + Date Match
+		extraConfig.setEnableSmartTextMatch("YES");  
+		extraConfig.setEnableDateMatch("NO");
+		
+
+		 
+		UtilisOne.validateExcelBusinessData(
+		    downloadedExcelFile,
+		    test,
+		    masterFileDetails,
+		    targetValidation,
+		    extraConfig,
+		    "Validating PT State from Employee Master file"
+		);
+
+	}
+	public static void Challan_PT_TMN_PTState( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		// --- Extra config prepared first (explicit flags set early) ---
+		ExcelExtraConfig cfg = new ExcelExtraConfig("", 0, "");
+		cfg.setEnableSmartTextMatch("YES");
+		cfg.setEnableDateMatch("NO");
+
+		
+		List<methodsb> filters = new ArrayList<methodsb>() {{
+		    add(new methodsb(38, Arrays.asList("Active")));
+		    add(new methodsb(9,  Arrays.asList("TMN")));
+		    add(new methodsb(58, Arrays.asList("Yes")));
+		}};
+
+		
+		ExcelFileDetails masterDetails = new ExcelFileDetails(
+		    FilePath.EMPLOYEE_MASTER,   
+		    "EmployeeMaster",           
+		    9,                         
+		    filters,                    
+		    "YES"                       
+		);
+
+		
+		ExcelTargetValidation targetVal = new ExcelTargetValidation(
+		    "PTChallan",    
+		    4,              
+		    "PT State",     
+		    0               // start row
+		);
+
+		
+		UtilisOne.validateExcelBusinessData(
+		    downloadedExcelFile,
+		    test,
+		    masterDetails,
+		    targetVal,
+		    cfg,
+		    "Validating PT State from Employee Master file"
+		);
+
 
 	}
 	public static void Challan_PT_KAR_PTState( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
@@ -4459,6 +4788,119 @@ public class PT_Methods extends BasePage{
 		    extraConfig,
 		    "Locations are reflecting properly as per masters!"
 		);
+
+	}
+	
+	public static void Challan_PT_PJB_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		 
+		List<methodsb> af = new ArrayList<>();
+
+		 
+		af.add(new methodsb(38, Arrays.asList("Active")));
+
+		 
+		af.add(new methodsb(9, Arrays.asList("PJB")));
+
+		 
+		af.add(new methodsb(58, Arrays.asList("Yes")));
+
+		// 📊 Step 4: Prepare ExcelFileDetails for Master
+		String masterSheetName = "EmployeeMaster";
+		int masterColumnIndex = 8;
+		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
+				FilePath.EMPLOYEE_MASTER,
+		    masterSheetName,
+		    masterColumnIndex,
+		    af,
+		    "YES"   // ⚡ filters ko apply karne ke liye YES
+		);
+
+		// 🎯 Step 5: Prepare Target validation for downloaded file
+		String targetSheetName = "PTChallan";
+		int targetColumnIndex = 5;
+		String targetHeaderKeyword = "Location";
+		int targetStartRow = 0;
+
+		ExcelTargetValidation targetValidation = new ExcelTargetValidation(
+		    targetSheetName,
+		    targetColumnIndex,
+		    targetHeaderKeyword,
+		    targetStartRow
+		);
+
+		// 🛠️ Step 6: Prepare Extra Config (No total row logic here)
+		String totalLogicEnabled = "";
+		int totalColumnIndex = 0;
+		String totalKeyword = "";
+
+		ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+		    totalLogicEnabled,
+		    totalColumnIndex,
+		    totalKeyword
+		);
+
+		// ✅ Step 7: Final call to reusable validator
+		UtilisOne.validateExcelBusinessData(
+		    downloadedExcelFile,
+		    test,
+		    masterFileDetails,
+		    targetValidation,
+		    extraConfig,
+		    "Locations are reflecting properly as per masters!"
+		);
+
+	}
+	public static void Challan_PT_TMN_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		 
+		
+		List<methodsb> filtersList = Arrays.asList(
+		    new methodsb(38, Arrays.asList("Active")),
+		    new methodsb(9,  Arrays.asList("TMN")),
+		    new methodsb(58, Arrays.asList("Yes"))
+		);
+
+		
+		String masterSheet = "EmployeeMaster";
+		int masterColIndex = 8;
+		ExcelFileDetails masterDetails = new ExcelFileDetails(
+		    FilePath.EMPLOYEE_MASTER, 
+		    masterSheet,             
+		    masterColIndex,          
+		    filtersList,             
+		    "YES"                    
+		);
+
+		
+		ExcelTargetValidation targetVal = new ExcelTargetValidation(
+		    "PTChallan", 
+		    5,           
+		    "Location",  
+		    0            
+		);
+
+		
+		String totalLogicFlag = "";
+		int totalColIndex = 0;
+		String totalKeyword = "";
+
+		ExcelExtraConfig cfg = new ExcelExtraConfig(
+		    totalLogicFlag,
+		    totalColIndex,
+		    totalKeyword
+		);
+
+		
+		UtilisOne.validateExcelBusinessData(
+		    downloadedExcelFile,
+		    test,
+		    masterDetails,
+		    targetVal,
+		    cfg,
+		    "Locations are reflecting properly as per masters!"
+		);
+
 
 	}
 	public static void Challan_PT_KAR_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException

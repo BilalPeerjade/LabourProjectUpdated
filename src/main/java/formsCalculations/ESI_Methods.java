@@ -421,9 +421,11 @@ public class ESI_Methods extends BasePage {
 
 			Map<String, String> headerMap = new HashMap<>();
 			headerMap.put("R", "ESI Gross"); // Master
-			headerMap.put("K", "Total");     // Downloaded
+//			headerMap.put("K", "Total");     // Downloaded
+			headerMap.put("G", "Total");     // Downloaded
 
-			String calculationRule = "K = R * 0.0075 + R * 0.0375"; 
+//			String calculationRule = "K = R * 0.0075 + R * 0.0375"; 
+			String calculationRule = "G = R * 0.0075 + R * 0.0375"; 
 			String defaultSheetName = "All Emp Workings";
 
 			Utilis3.validateExcelCalculation(

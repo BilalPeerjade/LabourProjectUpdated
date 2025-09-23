@@ -982,6 +982,11 @@ public class LoginLocators extends BasePage {
 		submit = getDriver().findElement(By.xpath("(//input[@class='k-input-inner'])[1]"));
 		return submit;
 	}
+	public static WebElement Yearvalue2025()
+	{
+		submit = getDriver().findElement(By.xpath("//span[normalize-space()='2025']"));
+		return submit;
+	}
 	public static WebElement Yearvalue()	//Method for searching button for Save/Sign-in
 	{
 		submit = getDriver().findElement(By.xpath("//ul[@class='k-list-ul']/li/input"));

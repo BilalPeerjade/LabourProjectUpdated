@@ -866,6 +866,36 @@ public class All_ClientPortal_Locators extends BasePage {
 		clients = getDriver().findElement(By.xpath("(//button[@class='figma-btn-gray'][normalize-space()='Browse'])[1]"));
 		return clients;
 	}
+	public static WebElement Browse2( )		
+	{
+		clients = getDriver().findElement(By.xpath("(//button[@title='Browse'])[2]"));
+		return clients;
+	}
+	public static WebElement Browse4( )		
+	{
+		clients = getDriver().findElement(By.xpath("(//button[@title='Browse'])[4]"));
+		return clients;
+	}
+	public static WebElement upload2( )		
+	{
+		clients = getDriver().findElement(By.xpath("(//button[@title='Upload'])[2]"));
+		return clients;
+	}
+	public static WebElement upload3( )		
+	{
+		clients = getDriver().findElement(By.xpath("(//button[@title='Upload'])[3]"));
+		return clients;
+	}
+	public static WebElement upload1( )		
+	{
+		clients = getDriver().findElement(By.xpath("(//button[@title='Upload'])[1]"));
+		return clients;
+	}
+	public static WebElement upload4( )		
+	{
+		clients = getDriver().findElement(By.xpath("(//button[@title='Upload'])[4]"));
+		return clients;
+	}
 	public static WebElement BrowseInOtherUpload1( )		
 	{
 		clients = getDriver().findElement(By.xpath("(//button[@class='figma-btn-gray'][normalize-space()='Browse'])[2]"));

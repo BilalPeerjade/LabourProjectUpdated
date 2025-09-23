@@ -559,7 +559,7 @@ public class All_Distributor_TWO  extends BasePage {
 	   		extent.endTest(test);
 	   		extent.flush();
 	   	}
-		@Test(priority = 103) //Bilal
+//		@Test(priority = 103) // Hide functionality
 	   	void StateCitySealANDSignatureInvalid() throws Exception
 	   	{
 	   		test = extent.startTest("Manage Master - State City - Verify to check error without file selection and upload more than 4 kb file in seal and signature upload ");

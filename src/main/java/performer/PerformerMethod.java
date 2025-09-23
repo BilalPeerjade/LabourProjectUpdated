@@ -1381,13 +1381,14 @@ public class PerformerMethod extends BasePage
 			Thread.sleep(1000);
 			PerformerLocator.clickdashboard().click();
 		}
-	 public static void EmployeeReport( ExtentTest test) throws InterruptedException, IOException, AWTException
+	 public static void employeeMasterReportExport2( ExtentTest test) throws InterruptedException, IOException, AWTException
 		{
 		 	WebDriverWait  wait=new WebDriverWait(getDriver(), 20);
 		 	Thread.sleep(1000);
-			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
+			PerformerLocator.SerchCustomer().sendKeys("TESTAUTO2");
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 			Thread.sleep(1000);
-			PerformerLocator.clickDashboard().click();
+			PerformerLocator.clickWorkspaceArrow().click();
 			Thread.sleep(7000);
 			PerformerLocator.clickOnboardEmployee().click();
 			Thread.sleep(1000);
@@ -1403,11 +1404,11 @@ public class PerformerMethod extends BasePage
 			File dir = new File("C:\\Users\\bilali\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
-			Thread.sleep(1000);
+			Thread.sleep(5000);
 			PerformerLocator.clickExport().click();
 			
-			Thread.sleep(1000);
-			wait.until(ExpectedConditions.invisibilityOf(PerformerLocator.gridLoad()));
+			Thread.sleep(5000);
+//			wait.until(ExpectedConditions.invisibilityOf(PerformerLocator.gridLoad()));
 			
 		
 			Thread.sleep(1000);
@@ -1462,12 +1463,13 @@ public class PerformerMethod extends BasePage
 			
 		}
 			
-	 public static void EmployeeLimitedColumnReport( ExtentTest test) throws InterruptedException, IOException, AWTException
+	 public static void employeeLimitedExport( ExtentTest test) throws InterruptedException, IOException, AWTException
 		{
 		 
 			 WebDriverWait  wait=new WebDriverWait(getDriver(), 20);
 			 Thread.sleep(1000);
-			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
+			PerformerLocator.SerchCustomer().sendKeys("TESTAUTO2");
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 			Thread.sleep(1000);
 			PerformerLocator.clickDashboard().click();
 			Thread.sleep(7000);
@@ -1487,11 +1489,11 @@ public class PerformerMethod extends BasePage
 			File dir = new File("C:\\Users\\bilali\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
-			Thread.sleep(2000);
+			Thread.sleep(4000);
 			PerformerLocator.clickExport().click();
 			
-			Thread.sleep(1000);
-			wait.until(ExpectedConditions.invisibilityOf(PerformerLocator.gridLoad()));
+			Thread.sleep(4000);
+//			wait.until(ExpectedConditions.invisibilityOf(PerformerLocator.gridLoad()));
 			
 		
 			Thread.sleep(3000);

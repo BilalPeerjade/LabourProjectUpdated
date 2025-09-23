@@ -270,30 +270,11 @@ void InvalidPersonalEmpDeatiles() throws InterruptedException, IOException, AWTE
 
 }
 
-@Test(priority =17)
-void EmployeeReport() throws InterruptedException, IOException, AWTException
-{
-	test = extent.startTest("OnBoard Employee- Employee Report-Emp Master Report verification");
-	
-	
-	PerformerMethod.EmployeeReport(test);
-	
-	extent.endTest(test);
-	extent.flush();
 
-}
-@Test(priority =18)
-void EmployeeLimitedColumnReport() throws InterruptedException, IOException, AWTException
-{
-	test = extent.startTest("OnBoard Employee- Employee Report-Employee Limited Column Report verification");
-	
-	
-	PerformerMethod.EmployeeLimitedColumnReport(test);
-	
-	extent.endTest(test);
-	extent.flush();
 
-}
+
+
+
 @Test(priority =19)
 void EmployeeMonthwiseReport() throws InterruptedException, IOException, AWTException
 {

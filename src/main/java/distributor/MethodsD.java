@@ -7769,7 +7769,7 @@ else {
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");
+			LoginLocators.Search().sendKeys("TESTAUTO2");
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
 		{
@@ -7790,7 +7790,7 @@ else {
 		Thread.sleep(2000);
 		
 		 LoginLocators.StatusReport().click();
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 			LoginLocators.Branch1().click();
 			Thread.sleep(2000);
 			LoginLocators.BranchCheckBox().click();
@@ -7801,7 +7801,7 @@ else {
 			Thread.sleep(2000);
 			LoginLocators.Year().click();
 			Thread.sleep(2000);
-			LoginLocators.Yearvalue().click();
+			LoginLocators.Yearvalue2025().click();
 			Thread.sleep(2000);
 			LoginLocators.period().click();
 			Thread.sleep(2000);
@@ -7813,7 +7813,19 @@ else {
 			Thread.sleep(2000);
 			LoginLocators.ApplyBtn1().click();
 		    Thread.sleep(9000);
-		    MethodsD.GridAndExcelCountMatch2(test,workbook);
+//		    MethodsD.GridAndExcelCountMatch2(test,workbook);
+		    
+		    OneCommonMethod.validateExportedExcelDYNAMIC(
+		    	    driver.get(),
+		    	    test,
+		    	    LoginLocators.Exportbtn(),        // WebElement for export button
+		    	    All_ClientPortal_Locators.readTotalItemsNotice(),     // WebElement for grid count text
+		    	    "Act",                               // Column header to verify
+		    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+		    	);
+		    
+		    
+		    
 			Thread.sleep(3000);
 		    
 //		    File dir = new File("C:\\Users\\bilali\\Downloads");
