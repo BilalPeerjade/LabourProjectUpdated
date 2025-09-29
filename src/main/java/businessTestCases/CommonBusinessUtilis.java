@@ -184,7 +184,7 @@ public class CommonBusinessUtilis {
      * 2. Validating a downloaded column till a row containing a "Total" keyword
      */
 	
-	private static final boolean ENABLE_HTML_REPORT_TABLE = true;
+	private static final boolean ENABLE_HTML_REPORT_TABLE = false;
 
 	
     public static void validateExcelBusinessData(
