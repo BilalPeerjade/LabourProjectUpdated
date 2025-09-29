@@ -57,7 +57,10 @@ public class SMETestCase extends BasePage
 	@BeforeMethod
 	void Login() throws InterruptedException, IOException
 	{
+
 		initialization(link,9,"Labour");
+
+	
 	
 	}
 	

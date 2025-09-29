@@ -47,7 +47,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-import businessTestCases.UtilisOne;
+import businessTestCases.CommonBusinessUtilis;
 import clientPortal.All_ClientPortal_Locators;
 import login.BasePage;
 import login.LoginLocators;
@@ -838,7 +838,7 @@ public class EndToEnd_B_Methods extends BasePage {
 		
 
 	    
-	        WebDriver driver = UtilisOne.getDriver(); // ya jo bhi driver method hai
+	        WebDriver driver = CommonBusinessUtilis.getDriver(); // ya jo bhi driver method hai
 	        
 
 	        // Step 1: Manually download file
@@ -856,7 +856,7 @@ public class EndToEnd_B_Methods extends BasePage {
 	        
 	        
 
-	        UtilisOne.validateExcelTotalByColumnIndex(
+	        CommonBusinessUtilis.validateExcelTotalByColumnIndex(
 	        	    driver,
 	        	    test,
 	        	    downloadedExcelFile,
@@ -879,12 +879,12 @@ public class EndToEnd_B_Methods extends BasePage {
 	public static void T7( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		
-		WebDriver driver = UtilisOne.getDriver();
+		WebDriver driver = CommonBusinessUtilis.getDriver();
 
 	
 		
         // Validate Basic Wages
-		UtilisOne.validateExcelTotalByColumnIndex(
+		CommonBusinessUtilis.validateExcelTotalByColumnIndex(
 			    driver,
 			    test,
 			    downloadedExcelFile,
@@ -903,10 +903,10 @@ public class EndToEnd_B_Methods extends BasePage {
 		
 		
         
-		WebDriver driver = UtilisOne.getDriver();
+		WebDriver driver = CommonBusinessUtilis.getDriver();
 		
         // Validate Basic Wages
-		UtilisOne.validateExcelTotalByColumnIndex(
+		CommonBusinessUtilis.validateExcelTotalByColumnIndex(
 			    driver,
 			    test,
 			    downloadedExcelFile,
@@ -924,9 +924,9 @@ public class EndToEnd_B_Methods extends BasePage {
 	public static void T9( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		
-		WebDriver driver = UtilisOne.getDriver();
+		WebDriver driver = CommonBusinessUtilis.getDriver();
 		
-		UtilisOne.validateExcelTotalByColumnIndex(
+		CommonBusinessUtilis.validateExcelTotalByColumnIndex(
 			    driver,                   // WebDriver instance
 			    test,                     // ExtentTest instance for logging
 			    downloadedExcelFile,      // File object (pending ka Excel)
@@ -944,7 +944,7 @@ public class EndToEnd_B_Methods extends BasePage {
 	//Unique Identi
 	public static void T10( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		WebDriver driver = UtilisOne.getDriver();
+		WebDriver driver = CommonBusinessUtilis.getDriver();
 
 /*		// ✅ Step 1: Manually download
 	//	driver.findElement(By.xpath("(//img[@alt='Download Document'])[5]")).click();
@@ -960,7 +960,7 @@ public class EndToEnd_B_Methods extends BasePage {
 		*/
 		
 		// ✅ Step 3: Call uniqueness method
-		UtilisOne.validateColumnHasUniqueValues(
+		CommonBusinessUtilis.validateColumnHasUniqueValues(
 			    driver,
 			    test,
 			    downloadedExcelFile,
@@ -977,9 +977,9 @@ public class EndToEnd_B_Methods extends BasePage {
 	
 	public static void T11( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		WebDriver driver = UtilisOne.getDriver();
+		WebDriver driver = CommonBusinessUtilis.getDriver();
 		// ✅ Step 3: Call uniqueness method
-		UtilisOne.validateColumnHasUniqueValues(
+		CommonBusinessUtilis.validateColumnHasUniqueValues(
 			    driver,
 			    test,
 			    downloadedExcelFile,
@@ -993,9 +993,9 @@ public class EndToEnd_B_Methods extends BasePage {
 	
 	public static void T12( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		WebDriver driver = UtilisOne.getDriver();
+		WebDriver driver = CommonBusinessUtilis.getDriver();
 		// ✅ Step 3: Call uniqueness method
-		UtilisOne.validateColumnHasUniqueValues(
+		CommonBusinessUtilis.validateColumnHasUniqueValues(
 			    driver,
 			    test,
 			    downloadedExcelFile,
@@ -1009,9 +1009,9 @@ public class EndToEnd_B_Methods extends BasePage {
 	}
 	public static void T13( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		WebDriver driver = UtilisOne.getDriver();
-		File downloadedExcelFile = UtilisOne.getLatestDownloadedExcelFile();
-		UtilisOne.validateTotalCellValueWithTotalSummary(
+		WebDriver driver = CommonBusinessUtilis.getDriver();
+		File downloadedExcelFile = CommonBusinessUtilis.getLatestDownloadedExcelFile();
+		CommonBusinessUtilis.validateTotalCellValueWithTotalSummary(
 		    driver,
 		    test,
 		    downloadedExcelFile,
@@ -1027,9 +1027,9 @@ public class EndToEnd_B_Methods extends BasePage {
 	}
 	public static void T14( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		WebDriver driver = UtilisOne.getDriver();
-		File downloadedExcelFile = UtilisOne.getLatestDownloadedExcelFile();
-		UtilisOne.validateTotalCellValueWithTotalSummary(
+		WebDriver driver = CommonBusinessUtilis.getDriver();
+		File downloadedExcelFile = CommonBusinessUtilis.getLatestDownloadedExcelFile();
+		CommonBusinessUtilis.validateTotalCellValueWithTotalSummary(
 		    driver,
 		    test,
 		    downloadedExcelFile,
@@ -1045,9 +1045,9 @@ public class EndToEnd_B_Methods extends BasePage {
 	}
 	public static void T15( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		WebDriver driver = UtilisOne.getDriver();
-		File downloadedExcelFile = UtilisOne.getLatestDownloadedExcelFile();
-		UtilisOne.validateTotalCellValueWithTotalSummary(
+		WebDriver driver = CommonBusinessUtilis.getDriver();
+		File downloadedExcelFile = CommonBusinessUtilis.getLatestDownloadedExcelFile();
+		CommonBusinessUtilis.validateTotalCellValueWithTotalSummary(
 		    driver,
 		    test,
 		    downloadedExcelFile,
@@ -1063,7 +1063,7 @@ public class EndToEnd_B_Methods extends BasePage {
 	}
 	public static void T16( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		WebDriver driver = UtilisOne.getDriver();
+		WebDriver driver = CommonBusinessUtilis.getDriver();
 		//	File downloadedExcelFile = CommonBusinessUtilis.getLatestDownloadedExcelFile();
 /*		
 		//File file = getLatestDownloadedExcelFile();
@@ -1080,8 +1080,8 @@ public class EndToEnd_B_Methods extends BasePage {
 			    1                                     // allowedTolerance
 			); */
 		
-		File downloadedExcelFile = UtilisOne.getLatestDownloadedExcelFile();
-		UtilisOne.validateColumnWithCalculation_Enhanced(
+		File downloadedExcelFile = CommonBusinessUtilis.getLatestDownloadedExcelFile();
+		CommonBusinessUtilis.validateColumnWithCalculation_Enhanced(
 		    test,
 		    downloadedExcelFile,
 		    "Remittances",     // Sheet ka naam (Remittances)

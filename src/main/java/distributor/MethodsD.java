@@ -305,6 +305,23 @@ else {
 		
 	
 }
+	public static void testchecking( ExtentTest test, String user) throws InterruptedException, IOException
+	{
+		
+		LoginLocators.WorkspaceArrow().click();
+		
+		test.log(LogStatus.PASS,"Login working ");
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
 	public static void Logout( ExtentTest test, String user) throws InterruptedException, IOException
 	{
 	

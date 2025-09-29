@@ -216,7 +216,7 @@ public class PT_Consolidated extends BasePage {
 		
 		
 		//Non Applicable Employees  NAE
-		@Test(priority = 20) 
+		@Test(priority = 20) //Done
 		void ChallanPTConsolated_NAE_EmployeeIds() throws InterruptedException, IOException, AWTException
 		{
 			test = extent.startTest("PT Consolidated - Non Applicable Employees - Validate Employee IDs are reflecting correctly");
@@ -226,7 +226,7 @@ public class PT_Consolidated extends BasePage {
 			extent.endTest(test);
 			extent.flush();
 		}
-		@Test(priority = 21) 
+		@Test(priority = 21) //Done
 		void ChallanPTConsolated_NAE_EmployeeName() throws InterruptedException, IOException, AWTException
 		{
 			test = extent.startTest("PT Consolidated - Non Applicable Employees - Validate Employee Names are reflecting correctly");
@@ -236,7 +236,7 @@ public class PT_Consolidated extends BasePage {
 			extent.endTest(test);
 			extent.flush();
 		}
-		@Test(priority = 22) 
+		@Test(priority = 22) //Done
 		void ChallanPTConsolated_NAE_Gender() throws InterruptedException, IOException, AWTException
 		{
 			test = extent.startTest("PT Consolidated - Non Applicable Employees - Validate Genders are reflecting correctly");
@@ -247,7 +247,7 @@ public class PT_Consolidated extends BasePage {
 			extent.flush();
 		}
 		
-		@Test(priority = 23) 
+		@Test(priority = 23) //Done
 		void ChallanPTConsolated_NAE_Branch() throws InterruptedException, IOException, AWTException
 		{
 			test = extent.startTest("PT Consolidated - Non Applicable Employees - Validate Branches are reflecting correctly");

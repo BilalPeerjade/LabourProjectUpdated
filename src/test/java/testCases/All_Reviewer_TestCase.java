@@ -66,7 +66,8 @@ public class All_Reviewer_TestCase extends BasePage {
 		@BeforeMethod
 		void Login() throws InterruptedException, IOException
 		{
-			initialization(link,2,"Statutory");
+	//		initialization(link,2,"Statutory");
+			Initialization(link,2,"Statutory");
 		
 		}
 		

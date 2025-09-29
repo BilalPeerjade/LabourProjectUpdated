@@ -1334,6 +1334,7 @@ public class All_Client_Portal_TestCases extends BasePage {
 	
 	
 	
+	
 	@Test(priority = 85) //07/02/2025
 	void RegistrationSView() throws InterruptedException, IOException
 	{
@@ -2296,13 +2297,13 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 		All_ClientPortal_Methods.InputUploadSA(test);
 		
 		
-		test = extent.startTest("'Input Upload - Register - Salary - Verify to check Upload column error without uploading file");
+		test = extent.startTest("Input Upload - Register - Salary - Verify to check Upload column error without uploading file");
 		All_ClientPortal_Methods.inputUploadRegisterSalaryUploadError(test);
 		
-		test = extent.startTest("'Input Upload - Register - Salary - Verify to check Other Upload column error without uploading file");
+		test = extent.startTest("Input Upload - Register - Salary - Verify to check Other Upload column error without uploading file");
 		All_ClientPortal_Methods.inputUploadRegisterSalaryOtherUploadError(test);
 		
-		test = extent.startTest("'Input Upload - Register - Salary - Verify to check Other Upload column upload file works correctly or not");
+		test = extent.startTest("Input Upload - Register - Salary - Verify to check Other Upload column upload file works correctly or not");
 		All_ClientPortal_Methods.inputUploadRegisterSalaryOtherUpload(test);
 		
 		
@@ -2313,7 +2314,7 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 //	@Test(priority = 213) 
 	void InputUploadInavlidSA() throws InterruptedException, IOException, AWTException
 	{
-		test = extent.startTest("'Input Upload - Register - Salary - Validate upload with Invalid details.");
+		test = extent.startTest("Input Upload - Register - Salary - Validate upload with Invalid details.");
 		All_ClientPortal_Methods.filterEntityAUTO2(test);
 		All_ClientPortal_Methods.InputUploadInavlidSA(test);
 		
@@ -2335,7 +2336,7 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 //	@Test(priority = 215) 
 	void InputUploadInvalidformateSa() throws InterruptedException, IOException, AWTException
 	{
-		test = extent.startTest("'Input Upload - Register - Salary - Validate error message for the invalid formate file upload.");
+		test = extent.startTest("Input Upload - Register - Salary - Validate error message for the invalid formate file upload.");
 		All_ClientPortal_Methods.filterEntityAUTO2(test);
 		All_ClientPortal_Methods.InputUploadInvalidformateSa(test);
 		
@@ -2346,7 +2347,7 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 //	@Test(priority = 216) 
 	void InputUploadInvalidTempSa() throws InterruptedException, IOException, AWTException
 	{
-		test = extent.startTest("'Input Upload - Register - Salary - Validate error message displayed for invalid template file upload.");
+		test = extent.startTest("Input Upload - Register - Salary - Validate error message displayed for invalid template file upload.");
 		All_ClientPortal_Methods.filterEntityAUTO2(test);
 		All_ClientPortal_Methods.InputUploadInvalidTempSa(test);
 		
@@ -2357,7 +2358,7 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 //	@Test(priority = 217) 
 	void InputUploadNofileSa() throws InterruptedException, IOException, AWTException
 	{
-		test = extent.startTest("'Input Upload - Register - Salary - Validate validation message for the no choose file clicking on upload");
+		test = extent.startTest("Input Upload - Register - Salary - Validate validation message for the no choose file clicking on upload");
 		All_ClientPortal_Methods.filterEntityAUTO2(test);
 		All_ClientPortal_Methods.InputUploadNofileSa(test);
 		
@@ -2368,7 +2369,7 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 //	@Test(priority = 218)  
 	void IUHistorySa() throws InterruptedException, IOException, AWTException
 	{
-		test = extent.startTest("'Input Upload - Register - Salary - History button working or not");
+		test = extent.startTest("Input Upload - Register - Salary - History button working or not");
 		All_ClientPortal_Methods.filterEntityAUTO2(test);
 		All_ClientPortal_Methods.IUHistorySa(test);
 		
@@ -2379,7 +2380,7 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 	@Test(priority = 219)  
 	void IUHistoryDSA() throws InterruptedException, IOException, AWTException
 	{
-		test = extent.startTest("'Input Upload - Register - Salary - History - Input History get downloaded or not");
+		test = extent.startTest("Input Upload - Register - Salary - History - Input History get downloaded or not");
 		All_ClientPortal_Methods.filterEntityAUTO2(test);
 		All_ClientPortal_Methods.IUHistoryDSA(test);
 		
@@ -2389,7 +2390,7 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 	@Test(priority = 220)  //Bilal
 	void IUFianlUploadDownload() throws InterruptedException, IOException, AWTException
 	{
-		test = extent.startTest("'Input Upload - Register - Salary - Attendance and Salary Final Upload download or not?");
+		test = extent.startTest("Input Upload - Register - Salary - Attendance and Salary Final Upload download or not?");
 		All_ClientPortal_Methods.filterEntityAUTO2(test);
 		All_ClientPortal_Methods.IUFianlUploadDownload(test);
 		
@@ -2399,7 +2400,7 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 	@Test(priority = 221)  
 	void IUFianlUploadDownloadSalary() throws Exception
 	{
-		test = extent.startTest("'Input Upload - Register - Salary - Salary Final Upload download or not?");
+		test = extent.startTest("Input Upload - Register - Salary - Salary Final Upload download or not?");
 		All_ClientPortal_Methods.filterEntityAUTO2(test);
 		All_ClientPortal_Methods.IUFianlUploadDownloadSalary(test);
 		
@@ -2412,7 +2413,7 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 	@Test(priority = 222) 
 	void InputUploadTemChha() throws InterruptedException, IOException, AWTException
 	{
-		test = extent.startTest("'Input Upload - Challan - Salary - To check whether sample template get downloaded or not?");
+		test = extent.startTest("Input Upload - Challan - Salary - To check whether sample template get downloaded or not?");
 		All_ClientPortal_Methods.filterEntityAUTO2(test);
 		All_ClientPortal_Methods.InputUploadTemChha(test);
 		
@@ -2421,70 +2422,30 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 	}
 	
 	@Test(priority = 223) 
-	void InputUploadCh() throws InterruptedException, IOException, AWTException
+	void InputUploadCh() throws Exception
 	{
-		test = extent.startTest("'Input Upload - Challan - Salary - Validate browse and upload file");
+		test = extent.startTest("Input Upload - Challan - Salary - Validate browse and upload file");
 		All_ClientPortal_Methods.filterEntityAUTO2(test);
 		All_ClientPortal_Methods.InputUploadCh(test);
 		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-//	@Test(priority = 223) 
-	void InputUploadInavlidCh() throws InterruptedException, IOException, AWTException
-	{
-		test = extent.startTest("'Input Upload - Challan - Salary - Validate upload with Invalid details.");
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.InputUploadInavlidCh(test);
 		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-//	@Test(priority = 224) 
-	void InputUploadBlankCh() throws InterruptedException, IOException, AWTException
-	{
-		test = extent.startTest("'Input Upload  - Challan - Salary  - Validate  upload with Balnk sheet.");
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.InputUploadBlankCh(test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-//	@Test(priority = 225) //14/02/2025
-	void InputUploadInvalidformateCh() throws InterruptedException, IOException, AWTException
-	{
-		test = extent.startTest("'Input Upload - Challan - Salary - Validate error message for the invalid formate file upload.");
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.InputUploadInvalidformateCh(test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-//	@Test(priority = 226) 
-	void InputUploadInvalidTempCh() throws InterruptedException, IOException, AWTException
-	{
-		test = extent.startTest("'Input Upload - Challan - Salary - Validate error message displayed for invalid template file upload.");
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.InputUploadInvalidTempCh(test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-	@Test(priority = 227) 
-	void InputUploadNofileCh() throws InterruptedException, IOException, AWTException
-	{
-		test = extent.startTest("'Input Upload - Challan - Salary - Validate validation message for the no choose file clicking on upload");
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
+		test = extent.startTest("Input Upload - Challan - Salary - Validate error to without upload file in upload column");
 		All_ClientPortal_Methods.InputUploadNofileCh(test);
 		
+		
+		test = extent.startTest("Input Upload - Challan - Salary - Validate to upload fine in other uploads");
+		All_ClientPortal_Methods.inputUploadChallanSalaryOtherUpload(test);
+		
+		test = extent.startTest("Input Upload - Challan - Salary - Validate error to without upload fine in other uploads");
+		All_ClientPortal_Methods.inputUploadChallanSalaryOtherUploadError(test);
+		
 		extent.endTest(test);
 		extent.flush();
 	}
+	
+
+	
+	
 	
 	@Test(priority = 228)  
 	void IUHistoryCh() throws InterruptedException, IOException, AWTException
@@ -2517,12 +2478,15 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 		All_ClientPortal_Methods.filterEntityAUTO2(test);
 		All_ClientPortal_Methods.InputUploadReturn(test);
 		
-		test = extent.startTest("'Input Upload - Return - Salary - Validate upload column upload file");
+		test = extent.startTest("'Input Upload - Return - Salary - Validate upload column error without upload file");
 		All_ClientPortal_Methods.inputUploadReturnSalaryUploadError(test);
 		
 		test = extent.startTest("'Input Upload - Return - Salary - Validate upload column upload file");
 		All_ClientPortal_Methods.InputUploadReturnSalaryUpload(test);
 		
+		
+		test = extent.startTest("'Input Upload - Return - Salary - Validate to download file from final input upload column ");
+		All_ClientPortal_Methods.inputUploadReturnFinalInputDownload(test);
 		
 		
 		
@@ -2530,11 +2494,17 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 		extent.flush();
 	}
 	@Test(priority = 233) //Bilal 
-	void InputUploadReturnOtherUp() throws InterruptedException, IOException, AWTException
+	void InputUploadReturnOtherUp() throws Exception
 	{
-		test = extent.startTest("'Input Upload - Return - Salary - Validate to upload Other Files.");
+		
+		test = extent.startTest("'Input Upload - Return - Salary - Validate to upload file in Other Uploads column");
 		All_ClientPortal_Methods.filterEntityAUTO2(test);
 		All_ClientPortal_Methods.InputUploadReturnOtherUp(test);
+		
+		
+		test = extent.startTest("'Input Upload - Return - Salary - Validate error to without file in Other Uploads column ");
+		All_ClientPortal_Methods.inputUploadReturnSalaryOtherUploadError(test);
+		
 		
 		extent.endTest(test);
 		extent.flush();
@@ -2618,18 +2588,42 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 	
 	     //Snehal TC - ClientPortalTestCase.Java 
 	
-	   @Test(priority = 241)
-   	    void AddNewLicense() throws InterruptedException, IOException
-   	{
-   		test = extent.startTest("Registration - Add New License Request");
-   		All_ClientPortal_Methods.filterEntityAUTO2(test);
-   		
-   		All_ClientPortal_Methods.AddNewLicense(test, workbook);
-   		
-   		extent.endTest(test);
-   		extent.flush();
+			@Test(priority = 241)
+			void AddNewLicense() throws InterruptedException, IOException {
+				test = extent.startTest("Registration - Add New License Request");
+				All_ClientPortal_Methods.filterEntityAUTO2(test);
 
-   	}
+				All_ClientPortal_Methods.AddNewLicense(test, workbook);
+
+				extent.endTest(test);
+				extent.flush();
+
+			}
+			
+			@Test(priority = 241)
+			void addLicenseFieldChecking() throws InterruptedException, IOException {
+				
+				test = extent.startTest("Registration - Add New - Verify to check Entity dropdown is disabled or not");
+				All_ClientPortal_Methods.filterEntityAUTO2(test);
+				All_ClientPortal_Methods.addLicenseFieldChecking(test, workbook, "Entity Dropdown");
+				
+				
+				test = extent.startTest("Registration - Add New - Verify to check Activity Type dropdown is disabled or not");
+				All_ClientPortal_Methods.addLicenseFieldChecking(test, workbook, "Activity Type Dropdown");
+				
+				
+				test = extent.startTest("Registration - Add New - Verify to check fields is displayed errors or not while entering invalid email and contact no");
+				All_ClientPortal_Methods.addLicenseFieldsErrors(test, workbook);
+				
+				
+				test = extent.startTest("Registration - Add New - Verify to check Back button is working or not");
+				All_ClientPortal_Methods.addLicenseBackButton(test, workbook);
+				
+
+				extent.endTest(test);
+				extent.flush();
+
+			}
 	@Test(priority = 242)
    	void ExportBtn() throws InterruptedException, IOException
    	{
@@ -2683,6 +2677,17 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
    		All_ClientPortal_Methods.filterEntityAUTO2(test);
    		
    		All_ClientPortal_Methods.EditIconsMiniTabs(test);
+   		
+   		extent.endTest(test);
+   		extent.flush();
+   	}
+	@Test(priority = 247) 
+   	void registrationPagination() throws InterruptedException, IOException
+   	{
+   		test = extent.startTest("Registration - Verify to check all paginations working or not");
+   		All_ClientPortal_Methods.filterEntityAUTO2(test);
+   		
+   		All_ClientPortal_Methods.registrationPagination(test);
    		
    		extent.endTest(test);
    		extent.flush();

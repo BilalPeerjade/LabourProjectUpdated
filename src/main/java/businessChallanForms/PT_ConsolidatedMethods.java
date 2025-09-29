@@ -42,9 +42,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-import businessTestCases.UtilisOne;
+import businessTestCases.CommonBusinessUtilis;
 
-import businessTestCases.Utilis3;
+import businessTestCases.CommonBusinessUtilis3;
+import businessTestCases.FilePath;
 import formsCalculations.PT_Methods;
 import formsCalculations.formLocators;
 import login.BasePage;
@@ -53,7 +54,7 @@ import performer.PerformerLocator;
 import rcp.OneCommonMethod;
 import utils.ExcelExtraConfig;
 import utils.ExcelFileDetails;
-import utils.methodsb;
+import utils.ExcelF;
 import utils.ExcelTargetValidation;
 import utils.ExcelUtils;
 import utils.ExcelValueNormalizer;
@@ -71,6 +72,8 @@ public class PT_ConsolidatedMethods extends BasePage {
 	static String filePath ="D:\\Labour Angular\\LabourMergeProject\\LabourMergeProject\\TestData\\Labour.xlsx";
 	
 	public static File downloadedExcelFile; // shared file for all test cases
+	
+
 
 //	public static String EMPmasterFilePath = "D:\\Upload Automation Files\\BusinessScenarios\\Month\\EmployeeMaster_TESTAUTO.xlsx";
 
@@ -269,13 +272,13 @@ public class PT_ConsolidatedMethods extends BasePage {
         
         
      // 📌 Step 1: Prepare MULTI filters for Master (0-based indices)
-        List<methodsb> allFilters = new ArrayList<>();
+        List<ExcelF> allFilters = new ArrayList<>();
 
         // Example filter-1: Status (column 38) == "Active"
-        allFilters.add(new methodsb(38, Arrays.asList("Active")));
+        allFilters.add(new ExcelF(38, Arrays.asList("Active")));
 
         // Example filter-2:
-        allFilters.add(new methodsb(58, Arrays.asList("Yes")));
+        allFilters.add(new ExcelF(58, Arrays.asList("Yes")));
 
         // 🗂️ Step 2: Master file details
         String masterSheetName   = "EmployeeMaster";
@@ -315,7 +318,7 @@ public class PT_ConsolidatedMethods extends BasePage {
         );
 
         // ✅ Step 5: Final call
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
                 downloadedExcelFile,
                 test,
                 masterFileDetails,
@@ -400,13 +403,13 @@ public class PT_ConsolidatedMethods extends BasePage {
         );
 
         // 🧪 Step 2: Prepare Master file filters
-        List<methodsb> allFilters = new ArrayList<>();
+        List<ExcelF> allFilters = new ArrayList<>();
 
         // Filter-1:
-        allFilters.add(new methodsb(38, Arrays.asList("Active")));
+        allFilters.add(new ExcelF(38, Arrays.asList("Active")));
 
         // Filter-2:
-        allFilters.add(new methodsb(58, Arrays.asList("Yes")));
+        allFilters.add(new ExcelF(58, Arrays.asList("Yes")));
 
         // 📊 Step 3: Prepare Master file details
         int masterColumnIndex = 5;
@@ -426,7 +429,7 @@ public class PT_ConsolidatedMethods extends BasePage {
         );
 
         // ✅ Step 5: Final call to reusable validator
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -550,8 +553,8 @@ public class PT_ConsolidatedMethods extends BasePage {
         List<String> filterValues = new ArrayList<>();
         filterValues.add("KAR");
 
-        methodsb regionFilter = new methodsb(filterColumnIndex, filterValues);
-        List<methodsb> allFilters = new ArrayList<>();
+        ExcelF regionFilter = new ExcelF(filterColumnIndex, filterValues);
+        List<ExcelF> allFilters = new ArrayList<>();
         allFilters.add(regionFilter);
 
         // 📊 Step 4: Prepare ExcelFileDetails for Master
@@ -597,7 +600,7 @@ public class PT_ConsolidatedMethods extends BasePage {
         extraConfig.setEnableDateMatch("NO");      // 01-01-2025 ↔ 01-Jan-2025
 
         // ✅ Step 7: Final call to reusable validator
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -683,13 +686,13 @@ public class PT_ConsolidatedMethods extends BasePage {
         
         
      // 🧪 Step 3: Prepare master file filters
-        List<methodsb> allFilters = new ArrayList<>();
+        List<ExcelF> allFilters = new ArrayList<>();
 
         // Filter-2: Status filter (column 38) == "Active"
-        allFilters.add(new methodsb(38, Arrays.asList("Active")));
+        allFilters.add(new ExcelF(38, Arrays.asList("Active")));
 
         // Filter-3: Another filter (column 58) == "Yes"
-        allFilters.add(new methodsb(58, Arrays.asList("Yes")));
+        allFilters.add(new ExcelF(58, Arrays.asList("Yes")));
 
         // 📊 Step 4: Prepare ExcelFileDetails for Master
         String masterSheetName = "EmployeeMaster";
@@ -731,7 +734,7 @@ public class PT_ConsolidatedMethods extends BasePage {
         extraConfig.setEnableDateMatch("NO");      // 01-01-2025 ↔ 01-Jan-2025
 
         // ✅ Step 7: Final call to reusable validator
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -749,7 +752,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(formLocators.Search()));
 		
-		OneCommonMethod.searchEntityAndSelect(driver.get(),test,formLocators.Search(),"TESTAUTO");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,formLocators.Search(),"DOCAUTOO4");
 		
 		
 		Thread.sleep(2000);
@@ -770,11 +773,11 @@ public class PT_ConsolidatedMethods extends BasePage {
 		Thread.sleep(2000);
 		formLocators.clickYear().click();
 		Thread.sleep(2000);
-		formLocators.Year2024().click();
+		formLocators.Year2025().click();
 		Thread.sleep(2000);
 		formLocators.clickPeriod().click();
 		Thread.sleep(2000);
-		formLocators.selectMonthJan().click();
+		formLocators.selectMonthAugust().click();
 		
 		Thread.sleep(2000);
 		formLocators.clickBranch1().click();
@@ -809,15 +812,16 @@ public class PT_ConsolidatedMethods extends BasePage {
         List<String> filterValues = new ArrayList<>();
         filterValues.add("No");
 
-        methodsb regionFilter = new methodsb(filterColumnIndex, filterValues);
-        List<methodsb> allFilters = new ArrayList<>();
+        ExcelF regionFilter = new ExcelF(filterColumnIndex, filterValues);
+        List<ExcelF> allFilters = new ArrayList<>();
         allFilters.add(regionFilter);
 
         // 📊 Step 4: Prepare ExcelFileDetails for Master
         String masterSheetName = "EmployeeMaster";
         int masterColumnIndex = 10;
         ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-        	EMPmasterFilePath,
+        	
+        	FilePath.EMPLOYEE_MASTER,
             masterSheetName,
             masterColumnIndex,
             allFilters,
@@ -856,7 +860,7 @@ public class PT_ConsolidatedMethods extends BasePage {
         extraConfig.setEnableDateMatch("NO");      // 01-01-2025 ↔ 01-Jan-2025
 
         // ✅ Step 7: Final call to reusable validator
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -933,13 +937,13 @@ public class PT_ConsolidatedMethods extends BasePage {
         
         
      // 🧪 Step 3: Prepare master file filters
-        List<methodsb> allFilters = new ArrayList<>();
+        List<ExcelF> allFilters = new ArrayList<>();
 
         // Filter-1: Status filter (column 38) == "Active"
-        allFilters.add(new methodsb(38, Arrays.asList("Active")));
+        allFilters.add(new ExcelF(38, Arrays.asList("Active")));
 
         // Filter-2: Another filter (column 58) == "Yes"
-        allFilters.add(new methodsb(58, Arrays.asList("Yes")));
+        allFilters.add(new ExcelF(58, Arrays.asList("Yes")));
 
         // 📊 Step 4: Prepare ExcelFileDetails for Master
         String masterSheetName = "EmployeeMaster";
@@ -981,7 +985,7 @@ public class PT_ConsolidatedMethods extends BasePage {
         extraConfig.setEnableDateMatch("YES");      // 01-01-2025 ↔ 01-Jan-2025
 
         // ✅ Step 7: Final call to reusable validator
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -1054,10 +1058,10 @@ public class PT_ConsolidatedMethods extends BasePage {
         
         
      // 🧪 Step 3: Prepare master file filters
-        List<methodsb> allFilters = new ArrayList<>();
+        List<ExcelF> allFilters = new ArrayList<>();
 
         // Filter-1: 20
-        allFilters.add(new methodsb(21, Arrays.asList("Yes")));
+        allFilters.add(new ExcelF(21, Arrays.asList("Yes")));
 
 
         // 📊 Step 4: Prepare ExcelFileDetails for Master
@@ -1100,7 +1104,7 @@ public class PT_ConsolidatedMethods extends BasePage {
         // extraConfig.setEnableDateMatch("NO");
 
         // ✅ Step 7: Final call to reusable validator
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -1191,14 +1195,14 @@ public class PT_ConsolidatedMethods extends BasePage {
 		
 		*/
 		
-		List<methodsb> masterFilters = new ArrayList<>();
-		List<methodsb> targetFilters = new ArrayList<>();
+		List<ExcelF> masterFilters = new ArrayList<>();
+		List<ExcelF> targetFilters = new ArrayList<>();
 
 		// filter Column V for exact "YES"
 //		masterFilters.add(new ExcelFilter(21, Arrays.asList("YES")));
 		
 		//This is also work for direct column Name as V
-		masterFilters.add(new methodsb(ExcelUtils.columnLetterToIndex("V"), Arrays.asList("YES")));
+		masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("V"), Arrays.asList("YES")));
 		
 //		targetFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("G"), Arrays.asList("Andhra Pradesh")));
 
@@ -1207,7 +1211,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 		headerMap.put("I", "PT Gross wages");
 
 		// call
-		Utilis3.validateExcelCalculation(
+		CommonBusinessUtilis3.validateExcelCalculation(
 		    downloadedExcelFile,
 		    salaryFile,
 		    test,
@@ -1242,10 +1246,10 @@ public class PT_ConsolidatedMethods extends BasePage {
 		);
 
 		// Filters 
-		List<methodsb> masterFilters = new ArrayList<>();
+		List<ExcelF> masterFilters = new ArrayList<>();
 		
 		
-		List<methodsb> targetFilters = new ArrayList<>();
+		List<ExcelF> targetFilters = new ArrayList<>();
 
 		// Header map (optional, logs me accha dikhega)
 		Map<String, String> headerMap = new HashMap<>();
@@ -1253,7 +1257,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 		headerMap.put("J", "Client PT deduction");
 
 		// ✅ Calling: Master.Q ka sum == Downloaded.I ka Total
-		Utilis3.validateExcelCalculation(
+		CommonBusinessUtilis3.validateExcelCalculation(
 		    downloadedExcelFile,              // File downloaded
 		    salaryFile,                       // Master file
 		    test,                             // ExtentTest
@@ -1338,8 +1342,8 @@ public class PT_ConsolidatedMethods extends BasePage {
         List<String> filterValues = new ArrayList<>();
         filterValues.add("KAR");
 
-        methodsb regionFilter = new methodsb(filterColumnIndex, filterValues);
-        List<methodsb> allFilters = new ArrayList<>();
+        ExcelF regionFilter = new ExcelF(filterColumnIndex, filterValues);
+        List<ExcelF> allFilters = new ArrayList<>();
         allFilters.add(regionFilter);
 
         // 📊 Step 4: Prepare ExcelFileDetails for Master
@@ -1385,7 +1389,7 @@ public class PT_ConsolidatedMethods extends BasePage {
  //       extraConfig.setEnableDateMatch("NO");      // 01-01-2025 ↔ 01-Jan-2025
 
         // ✅ Step 7: Final call to reusable validator
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -1403,7 +1407,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(formLocators.Search()));
 		
-		OneCommonMethod.searchEntityAndSelect(driver.get(),test,formLocators.Search(),"TESTAUTO");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,formLocators.Search(),"DOCAUTOO4");
 		
 		
 		Thread.sleep(2000);
@@ -1424,11 +1428,11 @@ public class PT_ConsolidatedMethods extends BasePage {
 		Thread.sleep(2000);
 		formLocators.clickYear().click();
 		Thread.sleep(2000);
-		formLocators.Year2024().click();
+		formLocators.Year2025().click();
 		Thread.sleep(2000);
 		formLocators.clickPeriod().click();
 		Thread.sleep(2000);
-		formLocators.selectMonthJan().click();
+		formLocators.selectMonthAug().click();
 		
 		Thread.sleep(2000);
 		formLocators.clickBranch1().click();
@@ -1474,8 +1478,8 @@ public class PT_ConsolidatedMethods extends BasePage {
                 "Total"                              // total keyword (case-insensitive)
             );
         
-        List<methodsb> masterFilters = new ArrayList<>();   // add filters if needed
-        List<methodsb> targetFilters = new ArrayList<>();      
+        List<ExcelF> masterFilters = new ArrayList<>();   // add filters if needed
+        List<ExcelF> targetFilters = new ArrayList<>();      
  //     masterFilters.add(new ExcelFilter(6, Arrays.asList("PUNE")));
 
         Map<String, String> headerMap = new HashMap<>();
@@ -1484,7 +1488,7 @@ public class PT_ConsolidatedMethods extends BasePage {
         headerMap.put("L", "Diffrence");
 
 
-        Utilis3.validateExcelCalculation(
+        CommonBusinessUtilis3.validateExcelCalculation(
         	    downloadedExcelFile,
         	    salaryFile,
         	    test,
@@ -1574,15 +1578,15 @@ public class PT_ConsolidatedMethods extends BasePage {
         List<String> filterValues = new ArrayList<>();
         filterValues.add("No");
 
-        methodsb regionFilter = new methodsb(filterColumnIndex, filterValues);
-        List<methodsb> allFilters = new ArrayList<>();
+        ExcelF regionFilter = new ExcelF(filterColumnIndex, filterValues);
+        List<ExcelF> allFilters = new ArrayList<>();
         allFilters.add(regionFilter);
 
         // 📊 Step 4: Prepare ExcelFileDetails for Master
         String masterSheetName = "EmployeeMaster";
         int masterColumnIndex = 8;
         ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-        	EMPmasterFilePath,
+        	FilePath.EMPLOYEE_MASTER,
             masterSheetName,
             masterColumnIndex,
             allFilters,
@@ -1621,7 +1625,7 @@ public class PT_ConsolidatedMethods extends BasePage {
         extraConfig.setEnableDateMatch("YES");      // 01-01-2025 ↔ 01-Jan-2025
 
         // ✅ Step 7: Final call to reusable validator
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -1643,11 +1647,11 @@ public class PT_ConsolidatedMethods extends BasePage {
 		);
 
 		// Filters 
-		List<methodsb> masterFilters = new ArrayList<>();
-		masterFilters.add(new methodsb(6, Arrays.asList("")));
+		List<ExcelF> masterFilters = new ArrayList<>();
+		masterFilters.add(new ExcelF(6, Arrays.asList("")));
 		
 		
-		List<methodsb> targetFilters = new ArrayList<>();
+		List<ExcelF> targetFilters = new ArrayList<>();
 
 		// Header map (optional, logs me accha dikhega)
 		Map<String, String> headerMap = new HashMap<>();
@@ -1655,7 +1659,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 		headerMap.put("J", "Client PT deduction");
 
 		// ✅ Calling: Master.Q ka sum == Downloaded.I ka Total
-		Utilis3.validateExcelCalculation(
+		CommonBusinessUtilis3.validateExcelCalculation(
 		    downloadedExcelFile,              // File downloaded
 		    salaryFile_NAEmployee,                       // Master file
 		    test,                             // ExtentTest
@@ -1685,11 +1689,11 @@ public class PT_ConsolidatedMethods extends BasePage {
 		);
 
 		// Filters 
-		List<methodsb> masterFilters = new ArrayList<>();
-		masterFilters.add(new methodsb(6, Arrays.asList("")));
+		List<ExcelF> masterFilters = new ArrayList<>();
+		masterFilters.add(new ExcelF(6, Arrays.asList("")));
 		
 		
-		List<methodsb> targetFilters = new ArrayList<>();
+		List<ExcelF> targetFilters = new ArrayList<>();
 
 		// Header map (optional, logs me accha dikhega)
 		Map<String, String> headerMap = new HashMap<>();
@@ -1697,7 +1701,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 		headerMap.put("I", "Client PT deduction");
 
 		// ✅ Calling: Master.Q ka sum == Downloaded.I ka Total
-		Utilis3.validateExcelCalculation(
+		CommonBusinessUtilis3.validateExcelCalculation(
 		    downloadedExcelFile,              // File downloaded
 		    salaryFile_NAEmployee,                       // Master file
 		    test,                             // ExtentTest
@@ -2982,8 +2986,8 @@ public class PT_ConsolidatedMethods extends BasePage {
         List<String> filterValues = new ArrayList<>();
         filterValues.add("");
 
-        methodsb regionFilter = new methodsb(filterColumnIndex, filterValues);
-        List<methodsb> allFilters = new ArrayList<>();
+        ExcelF regionFilter = new ExcelF(filterColumnIndex, filterValues);
+        List<ExcelF> allFilters = new ArrayList<>();
         allFilters.add(regionFilter);
 
         // 📊 Step 4: Prepare ExcelFileDetails for Master
@@ -3029,7 +3033,7 @@ public class PT_ConsolidatedMethods extends BasePage {
  //       extraConfig.setEnableDateMatch("NO");      // 01-01-2025 ↔ 01-Jan-2025
 
         // ✅ Step 7: Final call to reusable validator
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -3046,7 +3050,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(formLocators.Search()));
 		
-		OneCommonMethod.searchEntityAndSelect(driver.get(),test,formLocators.Search(),"TESTAUTO");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,formLocators.Search(),"DOCAUTOO4");
 		
 		
 		Thread.sleep(2000);
@@ -3067,11 +3071,11 @@ public class PT_ConsolidatedMethods extends BasePage {
 		Thread.sleep(2000);
 		formLocators.clickYear().click();
 		Thread.sleep(2000);
-		formLocators.Year2024().click();
+		formLocators.Year2025().click();
 		Thread.sleep(2000);
 		formLocators.clickPeriod().click();
 		Thread.sleep(2000);
-		formLocators.selectMonthJan().click();
+		formLocators.selectMonthAugust().click();
 		
 		Thread.sleep(2000);
 		formLocators.clickBranch1().click();
@@ -3100,13 +3104,13 @@ public class PT_ConsolidatedMethods extends BasePage {
         //DOCAUTOO4:--
         
         // 📌 Step 1: Prepare MULTI filters for Master (0-based indices)
-        List<methodsb> allFilters = new ArrayList<>();
+        List<ExcelF> allFilters = new ArrayList<>();
 
         // Example filter-1: Status (column 38) == "Active"
-        allFilters.add(new methodsb(38, Arrays.asList("Active")));
+        allFilters.add(new ExcelF(38, Arrays.asList("Active")));
 
         // Example filter-2:
-        allFilters.add(new methodsb(58, Arrays.asList("No")));
+        allFilters.add(new ExcelF(58, Arrays.asList("No")));
 
         // 🗂️ Step 2: Master file details
         String masterSheetName   = "EmployeeMaster";
@@ -3114,7 +3118,8 @@ public class PT_ConsolidatedMethods extends BasePage {
         String applyFilterFlag   = "YES"; // << IMPORTANT: to enable applying the filters
 
         ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-                EMPmasterFilePath,
+    //          EMPmasterFilePath,
+                FilePath.EMPLOYEE_MASTER,
                 masterSheetName,
                 masterColumnIndex,
                 allFilters,
@@ -3146,7 +3151,7 @@ public class PT_ConsolidatedMethods extends BasePage {
         );
 
         // ✅ Step 5: Final call
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
                 downloadedExcelFile,
                 test,
                 masterFileDetails,
@@ -3223,7 +3228,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(formLocators.Search()));
 		
-		OneCommonMethod.searchEntityAndSelect(driver.get(),test,formLocators.Search(),"TESTAUTO");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,formLocators.Search(),"DOCAUTOO4");
 		
 		
 		Thread.sleep(2000);
@@ -3244,11 +3249,11 @@ public class PT_ConsolidatedMethods extends BasePage {
 		Thread.sleep(2000);
 		formLocators.clickYear().click();
 		Thread.sleep(2000);
-		formLocators.Year2024().click();
+		formLocators.Year2025().click();
 		Thread.sleep(2000);
 		formLocators.clickPeriod().click();
 		Thread.sleep(2000);
-		formLocators.selectMonthJan().click();
+		formLocators.selectMonthAugust().click();
 		
 		Thread.sleep(2000);
 		formLocators.clickBranch1().click();
@@ -3289,15 +3294,16 @@ public class PT_ConsolidatedMethods extends BasePage {
 
         // 🧪 Step 2: Prepare Master file filters
         List<String> filterValues = Arrays.asList("No");
-        methodsb regionFilter = new methodsb(58, filterValues);
-        List<methodsb> allFilters = Collections.singletonList(regionFilter);
+        ExcelF regionFilter = new ExcelF(58, filterValues);
+        List<ExcelF> allFilters = Collections.singletonList(regionFilter);
 
         // 📊 Step 3: Prepare Master file details
         int masterColumnIndex = 5;
         String masterSheetName = "EmployeeMaster";
 
         ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-        	EMPmasterFilePath,
+   
+        	FilePath.EMPLOYEE_MASTER,
             masterSheetName,
             masterColumnIndex,
             allFilters,
@@ -3310,7 +3316,7 @@ public class PT_ConsolidatedMethods extends BasePage {
         );
 
         // ✅ Step 5: Final call to reusable validator
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,

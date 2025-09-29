@@ -37,14 +37,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-import businessTestCases.UtilisOne;
+import businessTestCases.CommonBusinessUtilis;
 import login.BasePage;
 import login.LoginLocators;
 import performer.PerformerLocator;
 import rcp.OneCommonMethod;
 import utils.ExcelExtraConfig;
 import utils.ExcelFileDetails;
-import utils.methodsb;
+import utils.ExcelF;
 import utils.ExcelTargetValidation;
 import utils.ExcelUtils;
 import utils.FileSearchHelper;
@@ -140,8 +140,8 @@ public class ESIC_ConsolatedMethod extends BasePage {
         List<String> filterValues = new ArrayList<>();
         filterValues.add("KAR");
 
-        methodsb regionFilter = new methodsb(filterColumnIndex, filterValues);
-        List<methodsb> allFilters = new ArrayList<>();
+        ExcelF regionFilter = new ExcelF(filterColumnIndex, filterValues);
+        List<ExcelF> allFilters = new ArrayList<>();
         allFilters.add(regionFilter);
 
         // 📊 Step 4: Prepare ExcelFileDetails for Master
@@ -180,7 +180,7 @@ public class ESIC_ConsolatedMethod extends BasePage {
         );
 
         // ✅ Step 7: Final call to reusable validator
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -199,8 +199,8 @@ public class ESIC_ConsolatedMethod extends BasePage {
         List<String> filterValues = new ArrayList<>();
         filterValues.add("KAR");
 
-        methodsb regionFilter = new methodsb(filterColumnIndex, filterValues);
-        List<methodsb> allFilters = new ArrayList<>();
+        ExcelF regionFilter = new ExcelF(filterColumnIndex, filterValues);
+        List<ExcelF> allFilters = new ArrayList<>();
         allFilters.add(regionFilter);
 
         // 📊 Step 4: Prepare ExcelFileDetails for Master
@@ -239,7 +239,7 @@ public class ESIC_ConsolatedMethod extends BasePage {
         );
 
         // ✅ Step 7: Final call to reusable validator
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -258,8 +258,8 @@ public class ESIC_ConsolatedMethod extends BasePage {
         List<String> filterValues = new ArrayList<>();
         filterValues.add("KAR");
 
-        methodsb regionFilter = new methodsb(filterColumnIndex, filterValues);
-        List<methodsb> allFilters = new ArrayList<>();
+        ExcelF regionFilter = new ExcelF(filterColumnIndex, filterValues);
+        List<ExcelF> allFilters = new ArrayList<>();
         allFilters.add(regionFilter);
 
         // 📊 Step 4: Prepare ExcelFileDetails for Master
@@ -298,7 +298,7 @@ public class ESIC_ConsolatedMethod extends BasePage {
         );
 
         // ✅ Step 7: Final call to reusable validator
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -318,8 +318,8 @@ public class ESIC_ConsolatedMethod extends BasePage {
         List<String> filterValues = new ArrayList<>();
         filterValues.add("Active");
 
-        methodsb regionFilter = new methodsb(filterColumnIndex, filterValues);
-        List<methodsb> allFilters = new ArrayList<>();
+        ExcelF regionFilter = new ExcelF(filterColumnIndex, filterValues);
+        List<ExcelF> allFilters = new ArrayList<>();
         allFilters.add(regionFilter);
 
         // 📊 Step 4: Prepare ExcelFileDetails for Master
@@ -358,7 +358,7 @@ public class ESIC_ConsolatedMethod extends BasePage {
         );
 
         // ✅ Step 7: Final call to reusable validator
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -377,8 +377,8 @@ public class ESIC_ConsolatedMethod extends BasePage {
         List<String> filterValues = new ArrayList<>();
         filterValues.add("Active");
 
-        methodsb regionFilter = new methodsb(filterColumnIndex, filterValues);
-        List<methodsb> allFilters = new ArrayList<>();
+        ExcelF regionFilter = new ExcelF(filterColumnIndex, filterValues);
+        List<ExcelF> allFilters = new ArrayList<>();
         allFilters.add(regionFilter);
 
         // 📊 Step 4: Prepare ExcelFileDetails for Master
@@ -417,7 +417,7 @@ public class ESIC_ConsolatedMethod extends BasePage {
         );
 
         // ✅ Step 7: Final call to reusable validator
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -437,8 +437,8 @@ public class ESIC_ConsolatedMethod extends BasePage {
         List<String> filterValues = new ArrayList<>();
         filterValues.add("KAR");
 
-        methodsb regionFilter = new methodsb(filterColumnIndex, filterValues);
-        List<methodsb> allFilters = new ArrayList<>();
+        ExcelF regionFilter = new ExcelF(filterColumnIndex, filterValues);
+        List<ExcelF> allFilters = new ArrayList<>();
         allFilters.add(regionFilter);
 
         // 📊 Step 4: Prepare ExcelFileDetails for Master
@@ -477,7 +477,7 @@ public class ESIC_ConsolatedMethod extends BasePage {
         );
 
         // ✅ Step 7: Final call to reusable validator
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -497,8 +497,8 @@ public class ESIC_ConsolatedMethod extends BasePage {
         List<String> filterValues = new ArrayList<>();
         filterValues.add("KAR");
 
-        methodsb regionFilter = new methodsb(filterColumnIndex, filterValues);
-        List<methodsb> allFilters = new ArrayList<>();
+        ExcelF regionFilter = new ExcelF(filterColumnIndex, filterValues);
+        List<ExcelF> allFilters = new ArrayList<>();
         allFilters.add(regionFilter);
 
         // 📊 Step 4: Prepare ExcelFileDetails for Master
@@ -537,7 +537,7 @@ public class ESIC_ConsolatedMethod extends BasePage {
         );
 
         // ✅ Step 7: Final call to reusable validator
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,

@@ -39,6 +39,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import coordinator.CoordinatorDisabledField;
 import coordinator.CoordinatorLocator;
 import coordinator.CoordinatorMethod;
 import distributor.DistributerLocators;
@@ -4136,6 +4137,15 @@ public class All_ClientPortal_Methods extends BasePage {
 		}
 		
 		
+		
+		
+		
+		
+		//--- not working triangle 
+//		WebElement triangle = getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-right k-treelist-toggle k-svg-icon k-icon']"));
+//		Thread.sleep(5000);
+//		triangle.click();
+//		Thread.sleep(5000);
 		
 
 
@@ -10101,6 +10111,31 @@ public class All_ClientPortal_Methods extends BasePage {
 		Locators.ok().click();
 
 	}
+	public static void inputUploadChallanSalaryOtherUpload(ExtentTest test) throws Exception {
+		Thread.sleep(5000);
+		All_ClientPortal_Locators.browse2().click();
+		Thread.sleep(3000);
+		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\OtherTwo\\Empty.zip");
+		Thread.sleep(3000);
+		All_ClientPortal_Locators.upload2().click();
+
+		Thread.sleep(3000);
+
+		String text1 = getDriver().findElement(By.xpath("//h4[@class='f-label']")).getText();
+
+		if (text1.equalsIgnoreCase("File uploaded successfully")) {
+			Thread.sleep(5000);
+			test.log(LogStatus.PASS, "Message Displayed : " + text1);
+
+		} else {
+			Thread.sleep(5000);
+			test.log(LogStatus.FAIL, "Message Displayed : " + text1);
+		}
+		Thread.sleep(3000);
+		Locators.ok().click();
+		Thread.sleep(3000);
+
+	}
 	public static void inputUploadRegisterOtherUploadError(ExtentTest test) throws Exception {
 		Thread.sleep(5000);
 		All_ClientPortal_Locators.upload2().click();
@@ -10165,10 +10200,52 @@ public class All_ClientPortal_Methods extends BasePage {
 		Thread.sleep(3000);
 
 	}
+	public static void inputUploadReturnSalaryOtherUploadError(ExtentTest test) throws Exception {
+		Thread.sleep(5000);
+		All_ClientPortal_Locators.upload2().click();
+
+		Thread.sleep(3000);
+
+		String text1 = getDriver().findElement(By.xpath("//h4[@class='f-label']")).getText();
+
+		if (text1.equalsIgnoreCase("No file chosen")) {
+			Thread.sleep(5000);
+			test.log(LogStatus.PASS, "Message Displayed : " + text1);
+
+		} else {
+			Thread.sleep(5000);
+			test.log(LogStatus.FAIL, "Message Displayed : " + text1);
+		}
+		Thread.sleep(3000);
+		Locators.ok().click();
+		Thread.sleep(3000);
+
+	}
 	
 	public static void inputUploadRegisterSalaryOtherUploadError(ExtentTest test) throws Exception {
 		Thread.sleep(5000);
 		All_ClientPortal_Locators.upload4().click();
+
+		Thread.sleep(3000);
+
+		String text1 = getDriver().findElement(By.xpath("//h4[@class='f-label']")).getText();
+
+		if (text1.equalsIgnoreCase("No file chosen")) {
+			Thread.sleep(5000);
+			test.log(LogStatus.PASS, "Message Displayed : " + text1);
+
+		} else {
+			Thread.sleep(5000);
+			test.log(LogStatus.FAIL, "Message Displayed : " + text1);
+		}
+		Thread.sleep(3000);
+		Locators.ok().click();
+		Thread.sleep(3000);
+
+	}
+	public static void inputUploadChallanSalaryOtherUploadError(ExtentTest test) throws Exception {
+		Thread.sleep(5000);
+		All_ClientPortal_Locators.upload2().click();
 
 		Thread.sleep(3000);
 
@@ -10600,29 +10677,18 @@ public class All_ClientPortal_Methods extends BasePage {
   	}
     
     
-    public static void InputUploadNofileCh ( ExtentTest test) throws InterruptedException, IOException, AWTException
+	public static void InputUploadNofileCh ( ExtentTest test) throws InterruptedException, IOException, AWTException
   	{Thread.sleep(5000);		
   		
-  		Thread.sleep(3000);
-  	/*	All_ClientPortal_Locators.SelectEntity().click();
-  		Thread.sleep(2000);
-  	  	All_ClientPortal_Locators.EntityTri1().click();
-  		Thread.sleep(2000);
-  		
-  		All_ClientPortal_Locators.AVAAEntity().click();
-  		Thread.sleep(2000);
-  		All_ClientPortal_Locators.Apply().click();
-  		Thread.sleep(4000);
-  		*/
-  	 	All_ClientPortal_Locators.InputUpload().click();
-  	 
-  		Thread.sleep(3000);
-  		All_ClientPortal_Locators.Challan().click();
-   		Thread.sleep(2000);
-   		All_ClientPortal_Locators.Challan1().click();
-   		Thread.sleep(4000);
-   		All_ClientPortal_Locators.Apply().click();
-   		Thread.sleep(4000);
+//  	 	All_ClientPortal_Locators.InputUpload().click();
+//  	 
+//  		Thread.sleep(3000);
+//  		All_ClientPortal_Locators.Challan().click();
+//   		Thread.sleep(2000);
+//   		All_ClientPortal_Locators.Challan1().click();
+//   		Thread.sleep(4000);
+//   		All_ClientPortal_Locators.Apply().click();
+//   		Thread.sleep(4000);
 
   		 Locators.Upload().click();
   					
@@ -10636,7 +10702,9 @@ public class All_ClientPortal_Methods extends BasePage {
   					}else {Thread.sleep(5000);
   						test.log(LogStatus.FAIL,"Message Displayed : "+text1);
   					}
+  					Thread.sleep(2000);
   						Locators.ok().click();
+  						Thread.sleep(3000);
   		  	
   	}
     
@@ -10906,6 +10974,7 @@ public class All_ClientPortal_Methods extends BasePage {
 				"D:\\Upload Automation Files\\Other Upload No need to change\\Sample-MonthlyAttendance.xlsx");
 		// copy above file to clipboard
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
+		Thread.sleep(1000);
 
 		// Now press CRTL
 
@@ -10947,9 +11016,15 @@ public class All_ClientPortal_Methods extends BasePage {
 			Thread.sleep(5000);
 			test.log(LogStatus.FAIL, "Message Displayed : " + text1);
 		}
+		Thread.sleep(5000);
 		Locators.ok().click();
 		
 		
+		
+	}
+	public static void inputUploadReturnFinalInputDownload(ExtentTest test) throws InterruptedException, IOException, AWTException {
+		
+		OneCommonMethod.validateFileDownloadDynamic(getDriver(), test, All_ClientPortal_Locators.download1(), "File downloaded successfully !");
 		
 	}
 	
@@ -11662,7 +11737,122 @@ public class All_ClientPortal_Methods extends BasePage {
     
     
 
+	public static void addLicenseFieldChecking( ExtentTest test,XSSFWorkbook workbook, String field) throws InterruptedException, IOException
+	{
 	
+		
+		
+		if(field.equalsIgnoreCase("Entity Dropdown"))
+		{
+			//Steps:
+			Thread.sleep(4000);
+			All_ClientPortal_Locators.clickLicense().click();
+			Thread.sleep(2000);
+			All_ClientPortal_Locators.clickRegistration().click();
+			Thread.sleep(10000);
+			All_ClientPortal_Locators.clickAddNew().click();
+			Thread.sleep(5000);
+			
+			
+			
+			//Validations
+			OneCommonMethod.verifyFieldIsTrulyNonEditable(
+			CoordinatorDisabledField.entityDropdown(), 
+			test, "Entity Dropdown",
+			"");
+		}
+		if(field.equalsIgnoreCase("Activity Type Dropdown"))
+		{
+			OneCommonMethod.verifyFieldIsTrulyNonEditable(
+			CoordinatorDisabledField.activityTypeDropdown(), 
+			test, "Activity Type Dropdown",
+			"");
+		}
+		
+		
+	}
+	public static void addLicenseFieldsErrors( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+	{
+		Thread.sleep(2000);
+		WebElement employerEmailId = getDriver().findElement(By.xpath("(//input[@type='text'])[5]"));
+		WebElement employerContact = getDriver().findElement(By.xpath("(//input[@type='text'])[6]"));
+		WebElement emailId = getDriver().findElement(By.xpath("(//input[@type='text'])[7]"));
+		WebElement contact = getDriver().findElement(By.xpath("(//input[@type='text'])[8]"));
+		
+		Thread.sleep(2000);
+		employerEmailId.sendKeys("aa");Thread.sleep(2000);
+		employerContact.sendKeys("99");Thread.sleep(2000);
+		emailId.sendKeys("bb");Thread.sleep(2000);
+		contact.sendKeys("88");Thread.sleep(2000);
+		
+		
+		String text1 = getDriver().findElement(By.xpath("(//div[contains(text(),'Please enter a valid email address.')])[1]")).getText();
+		Thread.sleep(2000);
+		String text2 = getDriver().findElement(By.xpath("(//div[contains(text(),'Mobile number must be 10 digits.')])[1]")).getText();
+		Thread.sleep(2000);
+		String text3 = getDriver().findElement(By.xpath("(//div[contains(text(),'Please enter a valid email address.')])[2]")).getText();
+		Thread.sleep(2000);
+		String text4 = getDriver().findElement(By.xpath("(//div[contains(text(),'Mobile number must be 10 digits.')])[2]")).getText();
+		Thread.sleep(2000);
+		
+		if(text1.equalsIgnoreCase("Please enter a valid email address.")) {
+			test.log(LogStatus.PASS,  "While entering invalid email in Employeer Emaid Id feild error message is displayed");
+			test.log(LogStatus.PASS,  "Message displayed " + text1);
+		}
+		else {
+			test.log(LogStatus.FAIL,  "Error message is not displayed in Employeer Email Id field");
+		}
+		
+		
+		if(text2.equalsIgnoreCase("Mobile number must be 10 digits.")) {
+			test.log(LogStatus.PASS,  "While entering invalid email in Employeer Contact feild error message is displayed");
+			test.log(LogStatus.PASS,  "Message displayed " + text2);
+		}
+		else {
+			test.log(LogStatus.FAIL,  "Error message is not displayed in Employeer Contact field");
+		}
+		
+		
+		if(text3.equalsIgnoreCase("Please enter a valid email address.")) {
+			test.log(LogStatus.PASS,  "While entering invalid email in List of (Occupier/Manager) - Emaid Id feild error message is displayed");
+			test.log(LogStatus.PASS,  "Message displayed " + text3);
+		}
+		else {
+			test.log(LogStatus.FAIL,  "Error message is not displayed in List of (Occupier/Manager) -  Email Id field");
+		}
+		
+		
+		if(text4.equalsIgnoreCase("Mobile number must be 10 digits.")) {
+			test.log(LogStatus.PASS,  "While entering invalid email in List of (Occupier/Manager) - Contact No feild error message is displayed");
+			test.log(LogStatus.PASS,  "Message displayed " + text4);
+		}
+		else {
+			test.log(LogStatus.FAIL,  "Error message is not displayed in List of (Occupier/Manager) - Contact No field");
+		}
+		
+	}
+	
+	public static void addLicenseBackButton( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+	{
+		 OneCommonMethod.scroll(driver.get(), 400); 
+		 Thread.sleep(1000);
+		 All_ClientPortal_Locators.clickBack().click();
+		 Thread.sleep(5000);
+		 if(All_ClientPortal_Locators.newLicenseRequestMessage().isDisplayed())
+		 {
+			 Thread.sleep(1000);
+			 String messText = All_ClientPortal_Locators.newLicenseRequestMessage().getText();
+			 Thread.sleep(1000);
+			 test.log(LogStatus.PASS,  "Add New back button is working fine");
+			 test.log(LogStatus.PASS,  "On clicking to back button message displayed in screen : " + messText);
+		 }
+		 else
+		 {
+			 test.log(LogStatus.FAIL,  "Add New Back button is not working");
+		 }
+		 
+		 
+	}
     
     
     
@@ -11670,18 +11860,6 @@ public class All_ClientPortal_Methods extends BasePage {
 	public static void AddNewLicense( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 	{
 	
-/*		Thread.sleep(3000);
-		All_ClientPortal_Locators.clickEntity().click();
-		Thread.sleep(3000);
-		All_ClientPortal_Locators.clickTringle1().click();
-		Thread.sleep(1000);
-		All_ClientPortal_Locators.selectEnity().click();
-		Thread.sleep(1000);
-		All_ClientPortal_Locators.clickYear().click();
-		Thread.sleep(1000);
-		All_ClientPortal_Locators.selectYear().click();
-		Thread.sleep(1000);
-		All_ClientPortal_Locators.ClickApplyBtn().click(); */
 		
 		Thread.sleep(1000);
 		All_ClientPortal_Locators.clickLicense().click();
@@ -12135,6 +12313,30 @@ public class All_ClientPortal_Methods extends BasePage {
 		}
 		
 	}
+	
+	public static void registrationPagination(  ExtentTest test) throws InterruptedException, IOException
+	{Thread.sleep(5000);
+	
+		Thread.sleep(2000);
+		JavascriptExecutor js = (JavascriptExecutor) getDriver();
+	
+		
+		Thread.sleep(4000);
+		All_ClientPortal_Locators.clickLicense().click();
+		Thread.sleep(4000);
+		All_ClientPortal_Locators.clickRegistration().click();
+		
+		Thread.sleep(5000);
+		
+		verifyPaginationGoToNextPage(test);
+		Thread.sleep(5000);
+		verifyPaginationGoToLastPage(test);
+		Thread.sleep(5000);
+		verifyItemsPerPageFunctionality(test);
+		
+	
+	}
+	
 	
 	public static void EditIconsMiniTabs(ExtentTest test) throws InterruptedException
 	{

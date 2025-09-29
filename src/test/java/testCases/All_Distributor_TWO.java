@@ -70,7 +70,7 @@ public class All_Distributor_TWO  extends BasePage {
 	@BeforeMethod
 	void Login() throws InterruptedException, IOException
 	{
-		initialization2(link,0,"Statutory");
+		Initialization(link,0,"Statutory");
 	
 	}
 	

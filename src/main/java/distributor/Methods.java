@@ -4855,7 +4855,7 @@ Locators.UploadAddressMapping().click();
 					Thread.sleep(4000);
 					String text2 = Locators.MessageTextF4().getText();
 					
-					if(text2.equalsIgnoreCase("Please Enter Valid Paycode Sequence. It should be less or equal to '200'."))
+					if(text2.equalsIgnoreCase("Sequence Order should not be more than 200"))
 					{
 						test.log(LogStatus.PASS,"Pay code is not added");
 						test.log(LogStatus.PASS,"Message Displayed : "+text2);

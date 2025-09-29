@@ -20,6 +20,7 @@ public class ExcelValueNormalizer {
         STATE_MAP.put("map", "Madhya Pradesh");
         STATE_MAP.put("ors", "orissa");
         STATE_MAP.put("pnd", "pondicherry");
+        STATE_MAP.put("trp", "tripura");
         
         // PT States value 
     }
@@ -302,6 +303,9 @@ public class ExcelValueNormalizer {
         pondicherry.add(new SlabRule(66668, 83334, 167));
         pondicherry.add(new SlabRule(83335, 999999, 209));
         PT_SLAB_MAP.put("pondicherry", pondicherry);
+        
+        
+        
         
         
     }

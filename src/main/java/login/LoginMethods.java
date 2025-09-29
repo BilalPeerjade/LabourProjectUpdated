@@ -61,6 +61,23 @@ public class LoginMethods extends BasePage {
 		submit = driver.findElement(By.xpath("//input[@name='Submit']"));
 		return submit;
 	}
+	
+	
+	// --- class-level fields ---
+	private static final java.util.concurrent.atomic.AtomicLong GLOBAL_LOGIN_COUNTER = new java.util.concurrent.atomic.AtomicLong(0L);
+	private static final java.util.concurrent.ConcurrentHashMap<Long, Integer> SKIP_POSITION_BY_CYCLE = new java.util.concurrent.ConcurrentHashMap<>();
+	private static final java.util.Random RANDOM_GEN = new java.util.Random();
+	private static final int ALLOWED_BEFORE_BLOCK = 12; //                    set
+	private static final ThreadLocal<Boolean> THREAD_DECISION = new ThreadLocal<>();
+	private static final ThreadLocal<Long> THREAD_COUNT = new ThreadLocal<>();
+	
+	
+	
+	
+	
+	
+	
+	
 
 	
 	public static void UserLogin(String username, String password) throws InterruptedException {
@@ -157,6 +174,22 @@ public class LoginMethods extends BasePage {
 	        return "";
 	    }
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -270,24 +303,179 @@ public class LoginMethods extends BasePage {
 		return getDriver();
 	}
 
-public static String getAnswerCFO(String que)			//Method created to extract last word from question
-{														//as it is the answer of the question.
-	String last = que.substring(que.lastIndexOf(" "));	//We are selecting word after last " ".
-	int len = last.length();							
-	String ans = last.substring(1, len-1);				//We are neglecting letters from string of position first " " and last "?"
-	if(ans.equalsIgnoreCase("pet"))
-		ans = "dog";
-	if(ans.equalsIgnoreCase("car"))
-		ans = "red";
-	return ans.toLowerCase();							//Returning answer and converting to LowerCase too.  
-}
-public static String getAnswer(String que)				//Method created to extract last word from question
-{														//as it is the answer of the question.
-	String last = que.substring(que.lastIndexOf(" "));		//We are selecting word after last " ".
-	int len = last.length();							
-	String ans = last.substring(1, len-1);				//We are neglecting letters from string of position first " " and last "?"
-	return ans.toLowerCase();							//Returning answer and converting to LowerCase too.  
+	public static String getAnswerCFO(String que) // Method created to extract last word from question
+	{ // as it is the answer of the question.
+		String last = que.substring(que.lastIndexOf(" ")); // We are selecting word after last " ".
+		int len = last.length();
+		String ans = last.substring(1, len - 1); // We are neglecting letters from string of position first " " and last
+													// "?"
+		if (ans.equalsIgnoreCase("pet"))
+			ans = "dog";
+		if (ans.equalsIgnoreCase("car"))
+			ans = "red";
+		return ans.toLowerCase(); // Returning answer and converting to LowerCase too.
+	}
+
+	public static String getAnswer(String que) // Method created to extract last word from question
+	{ // as it is the answer of the question.
+		String last = que.substring(que.lastIndexOf(" ")); // We are selecting word after last " ".
+		int len = last.length();
+		String ans = last.substring(1, len - 1); // We are neglecting letters from string of position first " " and last
+													// "?"
+		return ans.toLowerCase(); // Returning answer and converting to LowerCase too.
+
+	}
 	
 	
-}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//-----------
+	
+	// --- class-level fields ---
+
+
+	
+	private static boolean preCheckRandomSkip() {
+	    Boolean prev = THREAD_DECISION.get();
+	    if (prev != null) {
+	        return prev.booleanValue();
+	    }
+
+	    long count = GLOBAL_LOGIN_COUNTER.incrementAndGet(); 
+	    long cycleIndex = (count - 1L) / ALLOWED_BEFORE_BLOCK; // 0-based cycle number
+	    int pos = SKIP_POSITION_BY_CYCLE.computeIfAbsent(cycleIndex, k -> RANDOM_GEN.nextInt(ALLOWED_BEFORE_BLOCK) + 1);
+	    int indexInCycle = (int) (((count - 1L) % ALLOWED_BEFORE_BLOCK) + 1); // 1..N
+
+	    boolean decision = (indexInCycle == pos);
+	    THREAD_DECISION.set(decision);
+	    THREAD_COUNT.set(count);
+	    return decision;
+	}
+
+	
+	private static void clearPrecheckForThread() {
+	    THREAD_DECISION.remove();
+	    THREAD_COUNT.remove();
+	}
+
+	
+	private static String safeGetValuee(org.openqa.selenium.WebElement el) {
+	    try {
+	        String v = el.getAttribute("value");
+	        if (v == null) v = el.getText();
+	        return v == null ? "" : v.trim();
+	    } catch (Exception e) {
+	        return "";
+	    }
+	}
+
+
+	
+	public static void Userlogin(String username, String password) throws InterruptedException {
+	    final boolean skipClick = preCheckRandomSkip();
+
+	    org.openqa.selenium.WebDriver driver = getDriver();
+	    org.openqa.selenium.support.ui.WebDriverWait wait1 = new org.openqa.selenium.support.ui.WebDriverWait(driver, 60);
+	    final int MAX_RETRIES = 3; //tries
+
+	    boolean unameOk = false;
+	    boolean passOk = false;
+
+	    try {
+	        for (int attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+	            try {
+	                org.openqa.selenium.WebElement u = LoginLocators.setUname();
+	                wait1.until(org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf(u));
+	                String curU = safeGetValue(u);
+	                if (!username.equals(curU)) {
+	                    try { u.clear(); } catch (Exception ignore) {}
+	                    u.click();
+	                    u.sendKeys(username);
+	                    Thread.sleep(200);
+	                    curU = safeGetValue(u);
+	                }
+	                if (username.equals(curU)) unameOk = true;
+
+	                org.openqa.selenium.WebElement p = LoginLocators.setPassword();
+	                wait1.until(org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf(p));
+	                String curP = safeGetValue(p);
+	                if (!password.equals(curP)) {
+	                    try { p.clear(); } catch (Exception ignore) {}
+	                    p.click();
+	                    p.sendKeys(password);
+	                    Thread.sleep(200);
+	                    curP = safeGetValue(p);
+	                }
+	                if (password.equals(curP)) passOk = true;
+
+	                if (unameOk && passOk) break;
+
+	            } catch (org.openqa.selenium.StaleElementReferenceException sere) {
+	            } catch (org.openqa.selenium.TimeoutException te) {
+	            } catch (Exception e) {
+	            }
+	            Thread.sleep(400);
+	        }
+
+	        if (!unameOk) throw new RuntimeException("Unable to set username after retries");
+	        if (!passOk) throw new RuntimeException("Unable to set password after retries");
+
+	        if (skipClick) {
+	            return;
+	        }
+
+	        boolean clicked = false;
+	        for (int attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+	            try {
+	                org.openqa.selenium.WebElement btn = LoginLocators.clickSubmit();
+	                wait1.until(org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable(btn));
+	                btn.click();
+	                clicked = true;
+	                break;
+	            } catch (org.openqa.selenium.StaleElementReferenceException | org.openqa.selenium.TimeoutException | org.openqa.selenium.ElementClickInterceptedException e) {
+	            } catch (Exception e) {
+	            }
+	            Thread.sleep(300);
+	        }
+	        if (!clicked) throw new RuntimeException("Submit click failed after retries");
+
+	    } finally {
+	        clearPrecheckForThread(); 
+	    }
+	}
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

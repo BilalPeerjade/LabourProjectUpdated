@@ -41,7 +41,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import businessChallanForms.PT_ConsolidatedMethods;
-import businessTestCases.UtilisOne;
+import businessTestCases.CommonBusinessUtilis;
 import businessTestCases.FilePath;
 import login.BasePage;
 import login.LoginLocators;
@@ -50,7 +50,7 @@ import rcp.OneCommonMethod;
 import utils.DownloadHelper;
 import utils.ExcelExtraConfig;
 import utils.ExcelFileDetails;
-import utils.methodsb;
+import utils.ExcelF;
 import utils.ExcelTargetValidation;
 import utils.ExcelUtils;
 import utils.ExcelValueNormalizer;
@@ -272,8 +272,8 @@ public class PT_Methods extends BasePage{
       
         int filterColumnIndex = 6;
         List<String> filterValues = Arrays.asList("KAR");
-        methodsb regionFilter = new methodsb(filterColumnIndex, filterValues);
-        List<methodsb> af = new ArrayList<>();
+        ExcelF regionFilter = new ExcelF(filterColumnIndex, filterValues);
+        List<ExcelF> af = new ArrayList<>();
         af.add(regionFilter);
 
         // 📊 Step 4: Prepare ExcelFileDetails for Master
@@ -303,7 +303,7 @@ public class PT_Methods extends BasePage{
         ExcelExtraConfig extraConfig = new ExcelExtraConfig("", 0, "");
 
         // ✅ Step 7: Final call to reusable validator
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
         	downloadedExcelFile,
             test,
             masterFileDetails,
@@ -452,8 +452,8 @@ public class PT_Methods extends BasePage{
         List<String> filterValues = new ArrayList<>();
         filterValues.add("KAR");
 
-        methodsb regionFilter = new methodsb(filterColumnIndex, filterValues);
-        List<methodsb> af = new ArrayList<>();
+        ExcelF regionFilter = new ExcelF(filterColumnIndex, filterValues);
+        List<ExcelF> af = new ArrayList<>();
         af.add(regionFilter);
 
         // 📊 Step 4: Prepare ExcelFileDetails for Master
@@ -492,7 +492,7 @@ public class PT_Methods extends BasePage{
         );
 
         // ✅ Step 7: Final call to reusable validator
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -934,8 +934,8 @@ public class PT_Methods extends BasePage{
 
          
         List<String> filterValues = Arrays.asList("KAR");
-        methodsb regionFilter = new methodsb(6, filterValues);
-        List<methodsb> af = Collections.singletonList(regionFilter);
+        ExcelF regionFilter = new ExcelF(6, filterValues);
+        List<ExcelF> af = Collections.singletonList(regionFilter);
 
          
         int masterColumnIndex = 5;
@@ -955,7 +955,7 @@ public class PT_Methods extends BasePage{
         );
 
          
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -1057,8 +1057,8 @@ public class PT_Methods extends BasePage{
         List<String> filterValues = new ArrayList<>();
         filterValues.add("KAR");
 
-        methodsb regionFilter = new methodsb(filterColumnIndex, filterValues);
-        List<methodsb> af = new ArrayList<>();
+        ExcelF regionFilter = new ExcelF(filterColumnIndex, filterValues);
+        List<ExcelF> af = new ArrayList<>();
         af.add(regionFilter);
 
         // 📊 Step 4: Prepare ExcelFileDetails for Master
@@ -1097,7 +1097,7 @@ public class PT_Methods extends BasePage{
         );
 
         // ✅ Step 7: Final call to reusable validator
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -1205,8 +1205,8 @@ public class PT_Methods extends BasePage{
         List<String> filterValues = new ArrayList<>();
         filterValues.add("KAR");
 
-        methodsb regionFilter = new methodsb(filterColumnIndex, filterValues);
-        List<methodsb> af = new ArrayList<>();
+        ExcelF regionFilter = new ExcelF(filterColumnIndex, filterValues);
+        List<ExcelF> af = new ArrayList<>();
         af.add(regionFilter);
 
         // 📊 Step 4: Prepare ExcelFileDetails for Master
@@ -1245,7 +1245,7 @@ public class PT_Methods extends BasePage{
         );
 
         // ✅ Step 7: Final call to reusable validator
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -1437,6 +1437,14 @@ public class PT_Methods extends BasePage{
 	}
 	
 	public static void Challan_PT_PJB_PTAmount( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+//		PT_Methods.validatePTAmounts(downloadedExcelFile, test);
+		
+		Map<String, Integer> runCounts = new HashMap<>();
+		runCounts.put("", 1); // set generation count for that state
+		PT_ConsolidatedMethods.validatePTAmountsUpdatedFlexible(downloadedExcelFile, test, runCounts);
+	}
+	public static void Challan_PT_TRP_PTAmount( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 //		PT_Methods.validatePTAmounts(downloadedExcelFile, test);
 		
@@ -1788,8 +1796,8 @@ public class PT_Methods extends BasePage{
 
          
         List<String> filterValues = Arrays.asList("KAR");
-        methodsb regionFilter = new methodsb(6, filterValues);
-        List<methodsb> af = Collections.singletonList(regionFilter);
+        ExcelF regionFilter = new ExcelF(6, filterValues);
+        List<ExcelF> af = Collections.singletonList(regionFilter);
 
          
         int masterColumnIndex = 10;
@@ -1809,7 +1817,7 @@ public class PT_Methods extends BasePage{
         );
 
          
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -1841,13 +1849,13 @@ public class PT_Methods extends BasePage{
         
         
       
-        List<methodsb> af = new ArrayList<>();
+        List<ExcelF> af = new ArrayList<>();
         
-        af.add(new methodsb(38, Arrays.asList("Active")));
+        af.add(new ExcelF(38, Arrays.asList("Active")));
  
-        af.add(new methodsb(9, Arrays.asList("ANP")));
+        af.add(new ExcelF(9, Arrays.asList("ANP")));
 
-        af.add(new methodsb(58, Arrays.asList("Yes")));
+        af.add(new ExcelF(58, Arrays.asList("Yes")));
         
         // 📊 Step 4: Prepare ExcelFileDetails for Master
         String masterSheetName = "EmployeeMaster";
@@ -1885,7 +1893,7 @@ public class PT_Methods extends BasePage{
         );
 
         // ✅ Step 7: Final call to reusable validator
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -1918,13 +1926,13 @@ public class PT_Methods extends BasePage{
         
         
       
-        List<methodsb> af = new ArrayList<>();
+        List<ExcelF> af = new ArrayList<>();
         
-        af.add(new methodsb(38, Arrays.asList("Active")));
+        af.add(new ExcelF(38, Arrays.asList("Active")));
  
-        af.add(new methodsb(9, Arrays.asList("BHR")));
+        af.add(new ExcelF(9, Arrays.asList("BHR")));
 
-        af.add(new methodsb(58, Arrays.asList("Yes")));
+        af.add(new ExcelF(58, Arrays.asList("Yes")));
         
         // 📊 Step 4: Prepare ExcelFileDetails for Master
         String masterSheetName = "EmployeeMaster";
@@ -1962,7 +1970,7 @@ public class PT_Methods extends BasePage{
         );
 
         // ✅ Step 7: Final call to reusable validator
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -1994,13 +2002,13 @@ public class PT_Methods extends BasePage{
         
         
       
-        List<methodsb> af = new ArrayList<>();
+        List<ExcelF> af = new ArrayList<>();
         
-        af.add(new methodsb(38, Arrays.asList("Active")));
+        af.add(new ExcelF(38, Arrays.asList("Active")));
  
-        af.add(new methodsb(9, Arrays.asList("MAH")));
+        af.add(new ExcelF(9, Arrays.asList("MAH")));
 
-        af.add(new methodsb(58, Arrays.asList("Yes")));
+        af.add(new ExcelF(58, Arrays.asList("Yes")));
         
         // 📊 Step 4: Prepare ExcelFileDetails for Master
         String masterSheetName = "EmployeeMaster";
@@ -2038,7 +2046,7 @@ public class PT_Methods extends BasePage{
         );
 
         // ✅ Step 7: Final call to reusable validator
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -2070,13 +2078,13 @@ public class PT_Methods extends BasePage{
         
         
       
-        List<methodsb> af = new ArrayList<>();
+        List<ExcelF> af = new ArrayList<>();
         
-        af.add(new methodsb(38, Arrays.asList("Active")));
+        af.add(new ExcelF(38, Arrays.asList("Active")));
  
-        af.add(new methodsb(9, Arrays.asList("ORS")));
+        af.add(new ExcelF(9, Arrays.asList("ORS")));
 
-        af.add(new methodsb(58, Arrays.asList("Yes")));
+        af.add(new ExcelF(58, Arrays.asList("Yes")));
         
         // 📊 Step 4: Prepare ExcelFileDetails for Master
         String masterSheetName = "EmployeeMaster";
@@ -2114,7 +2122,7 @@ public class PT_Methods extends BasePage{
         );
 
         // ✅ Step 7: Final call to reusable validator
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -2146,13 +2154,13 @@ public class PT_Methods extends BasePage{
         
         
       
-        List<methodsb> af = new ArrayList<>();
+        List<ExcelF> af = new ArrayList<>();
         
-        af.add(new methodsb(38, Arrays.asList("Active")));
+        af.add(new ExcelF(38, Arrays.asList("Active")));
  
-        af.add(new methodsb(9, Arrays.asList("PND")));
+        af.add(new ExcelF(9, Arrays.asList("PND")));
 
-        af.add(new methodsb(58, Arrays.asList("Yes")));
+        af.add(new ExcelF(58, Arrays.asList("Yes")));
         
         // 📊 Step 4: Prepare ExcelFileDetails for Master
         String masterSheetName = "EmployeeMaster";
@@ -2190,7 +2198,7 @@ public class PT_Methods extends BasePage{
         );
 
         // ✅ Step 7: Final call to reusable validator
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -2222,13 +2230,13 @@ public class PT_Methods extends BasePage{
         
         
       
-        List<methodsb> af = new ArrayList<>();
+        List<ExcelF> af = new ArrayList<>();
         
-        af.add(new methodsb(38, Arrays.asList("Active")));
+        af.add(new ExcelF(38, Arrays.asList("Active")));
  
-        af.add(new methodsb(9, Arrays.asList("TMN")));
+        af.add(new ExcelF(9, Arrays.asList("TMN")));
 
-        af.add(new methodsb(58, Arrays.asList("Yes")));
+        af.add(new ExcelF(58, Arrays.asList("Yes")));
         
         // 📊 Step 4: Prepare ExcelFileDetails for Master
         String masterSheetName = "EmployeeMaster";
@@ -2266,7 +2274,7 @@ public class PT_Methods extends BasePage{
         );
 
         // ✅ Step 7: Final call to reusable validator
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -2298,13 +2306,13 @@ public class PT_Methods extends BasePage{
         
         
       
-        List<methodsb> af = new ArrayList<>();
+        List<ExcelF> af = new ArrayList<>();
         
-        af.add(new methodsb(38, Arrays.asList("Active")));
+        af.add(new ExcelF(38, Arrays.asList("Active")));
  
-        af.add(new methodsb(9, Arrays.asList("PJB")));
+        af.add(new ExcelF(9, Arrays.asList("PJB")));
 
-        af.add(new methodsb(58, Arrays.asList("Yes")));
+        af.add(new ExcelF(58, Arrays.asList("Yes")));
         
         // 📊 Step 4: Prepare ExcelFileDetails for Master
         String masterSheetName = "EmployeeMaster";
@@ -2342,7 +2350,7 @@ public class PT_Methods extends BasePage{
         );
 
         // ✅ Step 7: Final call to reusable validator
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -2350,6 +2358,67 @@ public class PT_Methods extends BasePage{
             extraConfig,
             "Employee IDs are reflecting properly as per masters!"
         );
+	}
+	public static void Challan_PT_TRP_EmployeeID( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+//		Challan_PT_StaturyDocRedirection(test,user);
+		formLocators.closeXbutton().click();
+		Thread.sleep(5000);
+		
+		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
+		d1.clickDownload("TRP", 1);
+		
+		Thread.sleep(5000);
+        // Step 1: Manually download file
+		formLocators.downloadDocument().click();
+        Thread.sleep(10000); // wait for file to download
+
+        // Step 2: Get latest file
+        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
+        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
+        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
+        downloadedExcelFile = files[0];
+        
+        
+        
+      
+     
+        List<ExcelF> filters = Arrays.asList(
+            new ExcelF(38, Arrays.asList("Active")),
+            new ExcelF(9,  Arrays.asList("TRP")),
+            new ExcelF(58, Arrays.asList("Yes"))
+        );
+
+       
+        ExcelFileDetails masterDetails = new ExcelFileDetails(
+            FilePath.EMPLOYEE_MASTER,
+            "EmployeeMaster",
+            3,
+            filters,
+            "YES"
+        );
+
+        
+        ExcelTargetValidation targetVal = new ExcelTargetValidation(
+            "PTChallan",
+            1,
+            "Employee ID",
+            0
+        );
+
+        
+        ExcelExtraConfig cfg = new ExcelExtraConfig("", 0, "");
+
+        // Final call
+        CommonBusinessUtilis.validateExcelBusinessData(
+            downloadedExcelFile,
+            test,
+            masterDetails,
+            targetVal,
+            cfg,
+            "Employee IDs are reflecting properly as per masters!"
+        );
+
 	}
 	
 	public static void Challan_PT_KAR_EmployeeID( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
@@ -2375,13 +2444,13 @@ public class PT_Methods extends BasePage{
         
         
       
-        List<methodsb> af = new ArrayList<>();
+        List<ExcelF> af = new ArrayList<>();
         
-        af.add(new methodsb(38, Arrays.asList("Active")));
+        af.add(new ExcelF(38, Arrays.asList("Active")));
  
-        af.add(new methodsb(9, Arrays.asList("KAR")));
+        af.add(new ExcelF(9, Arrays.asList("KAR")));
 
-        af.add(new methodsb(58, Arrays.asList("Yes")));
+        af.add(new ExcelF(58, Arrays.asList("Yes")));
         
         // 📊 Step 4: Prepare ExcelFileDetails for Master
         String masterSheetName = "EmployeeMaster";
@@ -2419,7 +2488,7 @@ public class PT_Methods extends BasePage{
         );
 
         // ✅ Step 7: Final call to reusable validator
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -2451,13 +2520,13 @@ public class PT_Methods extends BasePage{
         
         
       
-        List<methodsb> af = new ArrayList<>();
+        List<ExcelF> af = new ArrayList<>();
         
-        af.add(new methodsb(38, Arrays.asList("Active")));
+        af.add(new ExcelF(38, Arrays.asList("Active")));
  
-        af.add(new methodsb(9, Arrays.asList("KRL")));
+        af.add(new ExcelF(9, Arrays.asList("KRL")));
 
-        af.add(new methodsb(58, Arrays.asList("Yes")));
+        af.add(new ExcelF(58, Arrays.asList("Yes")));
         
         // 📊 Step 4: Prepare ExcelFileDetails for Master
         String masterSheetName = "EmployeeMaster";
@@ -2495,7 +2564,7 @@ public class PT_Methods extends BasePage{
         );
 
         // ✅ Step 7: Final call to reusable validator
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -2527,13 +2596,13 @@ public class PT_Methods extends BasePage{
         
         
       
-        List<methodsb> af = new ArrayList<>();
+        List<ExcelF> af = new ArrayList<>();
         
-        af.add(new methodsb(38, Arrays.asList("Active")));
+        af.add(new ExcelF(38, Arrays.asList("Active")));
  
-        af.add(new methodsb(9, Arrays.asList("MAP")));
+        af.add(new ExcelF(9, Arrays.asList("MAP")));
 
-        af.add(new methodsb(58, Arrays.asList("Yes")));
+        af.add(new ExcelF(58, Arrays.asList("Yes")));
         
         // 📊 Step 4: Prepare ExcelFileDetails for Master
         String masterSheetName = "EmployeeMaster";
@@ -2571,7 +2640,7 @@ public class PT_Methods extends BasePage{
         );
 
         // ✅ Step 7: Final call to reusable validator
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -2604,13 +2673,13 @@ public class PT_Methods extends BasePage{
         
         
       
-        List<methodsb> af = new ArrayList<>();
+        List<ExcelF> af = new ArrayList<>();
         
-        af.add(new methodsb(38, Arrays.asList("Active")));
+        af.add(new ExcelF(38, Arrays.asList("Active")));
  
-        af.add(new methodsb(9, Arrays.asList("JAK")));
+        af.add(new ExcelF(9, Arrays.asList("JAK")));
 
-        af.add(new methodsb(58, Arrays.asList("Yes")));
+        af.add(new ExcelF(58, Arrays.asList("Yes")));
         
         // 📊 Step 4: Prepare ExcelFileDetails for Master
         String masterSheetName = "EmployeeMaster";
@@ -2648,7 +2717,7 @@ public class PT_Methods extends BasePage{
         );
 
         // ✅ Step 7: Final call to reusable validator
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -2674,16 +2743,16 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("ANP")));
+		af.add(new ExcelF(9, Arrays.asList("ANP")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		 
 		int masterColumnIndex = 5;
@@ -2703,7 +2772,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -2729,16 +2798,16 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("BHR")));
+		af.add(new ExcelF(9, Arrays.asList("BHR")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		 
 		int masterColumnIndex = 5;
@@ -2758,7 +2827,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -2784,16 +2853,16 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("MAH")));
+		af.add(new ExcelF(9, Arrays.asList("MAH")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		 
 		int masterColumnIndex = 5;
@@ -2813,7 +2882,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -2839,16 +2908,16 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("ORS")));
+		af.add(new ExcelF(9, Arrays.asList("ORS")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		 
 		int masterColumnIndex = 5;
@@ -2868,7 +2937,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -2894,16 +2963,16 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("PJB")));
+		af.add(new ExcelF(9, Arrays.asList("PJB")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		 
 		int masterColumnIndex = 5;
@@ -2923,7 +2992,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -2931,6 +3000,44 @@ public class PT_Methods extends BasePage{
 		    extraConfig,
 		    "Validating Employee Names from Employee Master file"
 		);
+
+	}
+	public static void Challan_PT_TRP_EmployeeName( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		 
+		
+		CommonBusinessUtilis.validateExcelBusinessData(
+		    downloadedExcelFile, 
+		    test,                
+
+		    
+		    new ExcelFileDetails(
+		        FilePath.EMPLOYEE_MASTER,  
+		        "EmployeeMaster",           
+		        5,                         
+		        Arrays.asList(              
+		            new ExcelF(38, Arrays.asList("Active")), 
+		            new ExcelF(9,  Arrays.asList("TRP")),    
+		            new ExcelF(58, Arrays.asList("Yes"))    
+		        ),
+		        "YES"                       // apply
+		    ),
+
+		    
+		    new ExcelTargetValidation(
+		        "PTChallan",    
+		        2,              
+		        "Emp Name",     
+		        0               // start row
+		    ),
+
+		    /* extra config (inline empty) */
+		    new ExcelExtraConfig("", 0, ""),
+
+		    
+		    "Validating Employee Names from Employee Master file"
+		);
+
 
 	}
 	public static void Challan_PT_TMN_EmployeeName( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
@@ -2952,10 +3059,10 @@ public class PT_Methods extends BasePage{
 		int masterColumnIndex      = 5;
 		String masterSheetName     = "EmployeeMaster";
 
-		List<methodsb> af = new ArrayList<>();
-		af.add(new methodsb(38, Arrays.asList("Active")));
-		af.add(new methodsb(9,  Arrays.asList("TMN")));
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		List<ExcelF> af = new ArrayList<>();
+		af.add(new ExcelF(38, Arrays.asList("Active")));
+		af.add(new ExcelF(9,  Arrays.asList("TMN")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
 		    FilePath.EMPLOYEE_MASTER,
@@ -2971,7 +3078,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// 🔹 Final validation call
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -2998,16 +3105,16 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("PND")));
+		af.add(new ExcelF(9, Arrays.asList("PND")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		 
 		int masterColumnIndex = 5;
@@ -3027,7 +3134,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3053,16 +3160,16 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("KAR")));
+		af.add(new ExcelF(9, Arrays.asList("KAR")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		 
 		int masterColumnIndex = 5;
@@ -3082,7 +3189,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3108,16 +3215,16 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("KRL")));
+		af.add(new ExcelF(9, Arrays.asList("KRL")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		 
 		int masterColumnIndex = 5;
@@ -3137,7 +3244,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3163,16 +3270,16 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("MAP")));
+		af.add(new ExcelF(9, Arrays.asList("MAP")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		 
 		int masterColumnIndex = 5;
@@ -3192,7 +3299,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3218,16 +3325,16 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("JAK")));
+		af.add(new ExcelF(9, Arrays.asList("JAK")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		 
 		int masterColumnIndex = 5;
@@ -3247,7 +3354,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3273,16 +3380,16 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("ANP")));
+		af.add(new ExcelF(9, Arrays.asList("ANP")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		 
 		int masterColumnIndex = 10;
@@ -3302,7 +3409,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3328,16 +3435,16 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("BHR")));
+		af.add(new ExcelF(9, Arrays.asList("BHR")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		 
 		int masterColumnIndex = 10;
@@ -3357,7 +3464,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3383,16 +3490,16 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("MAH")));
+		af.add(new ExcelF(9, Arrays.asList("MAH")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		 
 		int masterColumnIndex = 10;
@@ -3412,7 +3519,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3438,16 +3545,16 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("ORS")));
+		af.add(new ExcelF(9, Arrays.asList("ORS")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		 
 		int masterColumnIndex = 10;
@@ -3467,7 +3574,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3493,16 +3600,16 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("PND")));
+		af.add(new ExcelF(9, Arrays.asList("PND")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		 
 		int masterColumnIndex = 10;
@@ -3522,7 +3629,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3548,16 +3655,16 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("PJB")));
+		af.add(new ExcelF(9, Arrays.asList("PJB")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		 
 		int masterColumnIndex = 10;
@@ -3577,7 +3684,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3587,11 +3694,55 @@ public class PT_Methods extends BasePage{
 		);
 
 	}
+	public static void Challan_PT_TRP_Gender( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		 
+		
+		final List<ExcelF> filterRules = new ArrayList<>(Arrays.asList(
+		    new ExcelF(38, Arrays.asList("Active")),
+		    new ExcelF(9,  Arrays.asList("TRP")),
+		    new ExcelF(58, Arrays.asList("Yes"))
+		));
+
+		
+		final String masterSheet = "EmployeeMaster";
+		final int masterColIdx = 10;
+		final ExcelFileDetails masterDetails = new ExcelFileDetails(
+		    FilePath.EMPLOYEE_MASTER,
+		    masterSheet,
+		    masterColIdx,
+		    filterRules,
+		    "YES"    // apply
+		);
+
+		
+		final ExcelTargetValidation targetDef = new ExcelTargetValidation(
+		    "PTChallan",   
+		    3,             
+		    "Gender",      
+		    0              
+		);
+
+		
+		final ExcelExtraConfig cfg = new ExcelExtraConfig("", 0, "");
+
+		
+		CommonBusinessUtilis.validateExcelBusinessData(
+		    downloadedExcelFile,
+		    test,
+		    masterDetails,
+		    targetDef,
+		    cfg,
+		    "Validating Genders from Employee Master file"
+		);
+
+
+	}
 	public static void Challan_PT_TMN_Gender( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		 
 		// --- Compact / inline style (functionality unchanged) ---
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    new ExcelFileDetails(
@@ -3599,9 +3750,9 @@ public class PT_Methods extends BasePage{
 		        "EmployeeMaster",                         
 		        10,                                       
 		        Arrays.asList(                            
-		            new methodsb(38, Arrays.asList("Active")),
-		            new methodsb(9,  Arrays.asList("TMN")),
-		            new methodsb(58, Arrays.asList("Yes"))
+		            new ExcelF(38, Arrays.asList("Active")),
+		            new ExcelF(9,  Arrays.asList("TMN")),
+		            new ExcelF(58, Arrays.asList("Yes"))
 		        ),
 		        "YES"                                     
 		    ),
@@ -3632,16 +3783,16 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("KAR")));
+		af.add(new ExcelF(9, Arrays.asList("KAR")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		 
 		int masterColumnIndex = 10;
@@ -3661,7 +3812,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3687,16 +3838,16 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("KRL")));
+		af.add(new ExcelF(9, Arrays.asList("KRL")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		 
 		int masterColumnIndex = 10;
@@ -3716,7 +3867,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3742,16 +3893,16 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("MAP")));
+		af.add(new ExcelF(9, Arrays.asList("MAP")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		 
 		int masterColumnIndex = 10;
@@ -3771,7 +3922,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3797,16 +3948,16 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("JAK")));
+		af.add(new ExcelF(9, Arrays.asList("JAK")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		 
 		int masterColumnIndex = 10;
@@ -3826,7 +3977,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3852,16 +4003,16 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("ANP")));
+		af.add(new ExcelF(9, Arrays.asList("ANP")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		 
 		int masterColumnIndex = 9;
@@ -3887,7 +4038,7 @@ public class PT_Methods extends BasePage{
 		
 
 		 
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3913,16 +4064,16 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("BHR")));
+		af.add(new ExcelF(9, Arrays.asList("BHR")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		 
 		int masterColumnIndex = 9;
@@ -3948,7 +4099,7 @@ public class PT_Methods extends BasePage{
 		
 
 		 
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -3974,16 +4125,16 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("MAH")));
+		af.add(new ExcelF(9, Arrays.asList("MAH")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		 
 		int masterColumnIndex = 9;
@@ -4009,7 +4160,7 @@ public class PT_Methods extends BasePage{
 		
 
 		 
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -4035,16 +4186,16 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("ORS")));
+		af.add(new ExcelF(9, Arrays.asList("ORS")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		 
 		int masterColumnIndex = 9;
@@ -4070,7 +4221,7 @@ public class PT_Methods extends BasePage{
 		
 
 		 
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -4096,16 +4247,16 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("PND")));
+		af.add(new ExcelF(9, Arrays.asList("PND")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		 
 		int masterColumnIndex = 9;
@@ -4131,7 +4282,7 @@ public class PT_Methods extends BasePage{
 		
 
 		 
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -4157,16 +4308,16 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("PJB")));
+		af.add(new ExcelF(9, Arrays.asList("PJB")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		 
 		int masterColumnIndex = 9;
@@ -4192,7 +4343,7 @@ public class PT_Methods extends BasePage{
 		
 
 		 
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -4200,6 +4351,59 @@ public class PT_Methods extends BasePage{
 		    extraConfig,
 		    "Validating PT State from Employee Master file"
 		);
+
+	}
+	public static void Challan_PT_TRP_PTState( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		 
+		
+		ExcelExtraConfig cfg = new ExcelExtraConfig("", 0, "");
+		cfg.setEnableSmartTextMatch("YES");
+		cfg.setEnableDateMatch("NO");
+
+		
+		List<ExcelF> rules = new ArrayList<>(Arrays.asList(
+		    new ExcelF(38, Arrays.asList("Active")),
+		    new ExcelF(9,  Arrays.asList("TRP")),
+		    new ExcelF(58, Arrays.asList("Yes"))
+		));
+
+		
+		final String masterPath = FilePath.EMPLOYEE_MASTER;
+		final String masterSheet = "EmployeeMaster";
+		final int masterCol = 9;
+
+		ExcelFileDetails masterInfo = new ExcelFileDetails(
+		    masterPath,
+		    masterSheet,
+		    masterCol,
+		    rules,
+		    "YES"
+		);
+
+		
+		final String tgtSheet = "PTChallan";
+		final int tgtCol = 4;
+		final String tgtHeader = "PT State";
+		final int tgtStart = 0;
+
+		ExcelTargetValidation targetVal = new ExcelTargetValidation(
+		    tgtSheet,
+		    tgtCol,
+		    tgtHeader,
+		    tgtStart
+		);
+
+		
+		CommonBusinessUtilis.validateExcelBusinessData(
+		    downloadedExcelFile,
+		    test,
+		    masterInfo,
+		    targetVal,
+		    cfg,
+		    "Validating PT State from Employee Master file"
+		);
+
 
 	}
 	public static void Challan_PT_TMN_PTState( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
@@ -4210,10 +4414,10 @@ public class PT_Methods extends BasePage{
 		cfg.setEnableDateMatch("NO");
 
 		
-		List<methodsb> filters = new ArrayList<methodsb>() {{
-		    add(new methodsb(38, Arrays.asList("Active")));
-		    add(new methodsb(9,  Arrays.asList("TMN")));
-		    add(new methodsb(58, Arrays.asList("Yes")));
+		List<ExcelF> filters = new ArrayList<ExcelF>() {{
+		    add(new ExcelF(38, Arrays.asList("Active")));
+		    add(new ExcelF(9,  Arrays.asList("TMN")));
+		    add(new ExcelF(58, Arrays.asList("Yes")));
 		}};
 
 		
@@ -4234,7 +4438,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterDetails,
@@ -4261,16 +4465,16 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("KAR")));
+		af.add(new ExcelF(9, Arrays.asList("KAR")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		 
 		int masterColumnIndex = 9;
@@ -4296,7 +4500,7 @@ public class PT_Methods extends BasePage{
 		
 
 		 
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -4322,16 +4526,16 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("KRL")));
+		af.add(new ExcelF(9, Arrays.asList("KRL")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		 
 		int masterColumnIndex = 9;
@@ -4357,7 +4561,7 @@ public class PT_Methods extends BasePage{
 		
 
 		 
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -4383,16 +4587,16 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("MAP")));
+		af.add(new ExcelF(9, Arrays.asList("MAP")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		 
 		int masterColumnIndex = 9;
@@ -4418,7 +4622,7 @@ public class PT_Methods extends BasePage{
 		
 
 		 
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -4444,16 +4648,16 @@ public class PT_Methods extends BasePage{
 		);
 
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("JAK")));
+		af.add(new ExcelF(9, Arrays.asList("JAK")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		 
 		int masterColumnIndex = 9;
@@ -4479,7 +4683,7 @@ public class PT_Methods extends BasePage{
 		
 
 		 
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -4493,16 +4697,16 @@ public class PT_Methods extends BasePage{
 	public static void Challan_PT_ANP_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("ANP")));
+		af.add(new ExcelF(9, Arrays.asList("ANP")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		// 📊 Step 4: Prepare ExcelFileDetails for Master
 		String masterSheetName = "EmployeeMaster";
@@ -4540,7 +4744,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 7: Final call to reusable validator
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -4550,19 +4754,439 @@ public class PT_Methods extends BasePage{
 		);
 
 	}
+	public static void Challan_PT_ANP_PTGrossWages( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		 
+		List<ExcelF> af = new ArrayList<>();
+
+		 
+//		af.add(new methodsb(38, Arrays.asList("Active")));
+
+		 
+//		af.add(new methodsb(19, Arrays.asList("ANP")));
+//		 
+//		af.add(new methodsb(21, Arrays.asList("Yes")));
+		af.add(new ExcelF(ExcelUtils.columnLetterToIndex("AA"),Arrays.asList("ANP")));
+		af.add(new ExcelF(ExcelUtils.columnLetterToIndex("AC"),Arrays.asList("Yes")));
+
+		// 📊 Step 4: Prepare ExcelFileDetails for Master
+		String masterSheetName = "MonthlyEmployeeChallanSalary";
+		int masterColumnIndex = 16;
+		ExcelFileDetails masterFileDetails = new ExcelFileDetails(
+				FilePath.SALARY_FILE,
+		    masterSheetName,
+		    masterColumnIndex,
+		    af,
+		    "YES"   
+		);
+
+		// 🎯 Step 5: Prepare Target validation for downloaded file
+		String targetSheetName = "PTChallan";
+		int targetColumnIndex = 6;
+		String targetHeaderKeyword = "PT Gross wages";
+		int targetStartRow = 0;
+
+		ExcelTargetValidation targetValidation = new ExcelTargetValidation(
+		    targetSheetName,
+		    targetColumnIndex,
+		    targetHeaderKeyword,
+		    targetStartRow
+		);
+
+		// 🛠️ Step 6: Prepare Extra Config (No total row logic here)
+		String totalLogicEnabled = "";
+		int totalColumnIndex = 0;
+		String totalKeyword = "";
+
+		ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+		    totalLogicEnabled,
+		    totalColumnIndex,
+		    totalKeyword
+		);
+
+		// ✅ Step 7: Final call to reusable validator
+		CommonBusinessUtilis.validateExcelBusinessData(
+		    downloadedExcelFile,
+		    test,
+		    masterFileDetails,
+		    targetValidation,
+		    extraConfig,
+		    "PT Gross Wages are reflecting properly as per masters!"
+		);
+
+	}
+	public static void Challan_PT_BHR_PTGrossWages( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		
+		CommonBusinessUtilis.validateExcelBusinessData(
+		    downloadedExcelFile,
+		    test,
+		    new ExcelFileDetails(
+		        FilePath.SALARY_FILE,
+		        "MonthlyEmployeeChallanSalary",
+		        16,
+		        Arrays.asList(
+		            new ExcelF(ExcelUtils.columnLetterToIndex("AA"), Arrays.asList("BHR")),
+		            new ExcelF(ExcelUtils.columnLetterToIndex("AC"), Arrays.asList("Yes"))
+		        ),
+		        "YES"
+		    ),
+		    new ExcelTargetValidation(
+		        "PTChallan",
+		        6,
+		        "PT Gross wages",
+		        0
+		    ),
+		    new ExcelExtraConfig("", 0, ""),
+		    "PT Gross Wages are reflecting properly as per masters!"
+		);
+
+
+	}
+	public static void Challan_PT_JAK_PTGrossWages( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		
+		CommonBusinessUtilis.validateExcelBusinessData(
+		    downloadedExcelFile,
+		    test,
+		    new ExcelFileDetails(
+		        FilePath.SALARY_FILE,
+		        "MonthlyEmployeeChallanSalary",
+		        16,
+		        Arrays.asList(
+		            new ExcelF(ExcelUtils.columnLetterToIndex("AA"), Arrays.asList("JAK")),
+		            new ExcelF(ExcelUtils.columnLetterToIndex("AC"), Arrays.asList("Yes"))
+		        ),
+		        "YES"
+		    ),
+		    new ExcelTargetValidation(
+		        "PTChallan",
+		        6,
+		        "PT Gross wages",
+		        0
+		    ),
+		    new ExcelExtraConfig("", 0, ""),
+		    "PT Gross Wages are reflecting properly as per masters!"
+		);
+
+
+	}
+	public static void Challan_PT_KRL_PTGrossWages( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		
+		CommonBusinessUtilis.validateExcelBusinessData(
+		    downloadedExcelFile,
+		    test,
+		    new ExcelFileDetails(
+		        FilePath.SALARY_FILE,
+		        "MonthlyEmployeeChallanSalary",
+		        16,
+		        Arrays.asList(
+		            new ExcelF(ExcelUtils.columnLetterToIndex("AA"), Arrays.asList("KRL")),
+		            new ExcelF(ExcelUtils.columnLetterToIndex("AC"), Arrays.asList("Yes"))
+		        ),
+		        "YES"
+		    ),
+		    new ExcelTargetValidation(
+		        "PTChallan",
+		        6,
+		        "PT Gross wages",
+		        0
+		    ),
+		    new ExcelExtraConfig("", 0, ""),
+		    "PT Gross Wages are reflecting properly as per masters!"
+		);
+
+
+	}
+	public static void Challan_PT_MAP_PTGrossWages( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		
+		CommonBusinessUtilis.validateExcelBusinessData(
+		    downloadedExcelFile,
+		    test,
+		    new ExcelFileDetails(
+		        FilePath.SALARY_FILE,
+		        "MonthlyEmployeeChallanSalary",
+		        16,
+		        Arrays.asList(
+		            new ExcelF(ExcelUtils.columnLetterToIndex("AA"), Arrays.asList("MAP")),
+		            new ExcelF(ExcelUtils.columnLetterToIndex("AC"), Arrays.asList("Yes"))
+		        ),
+		        "YES"
+		    ),
+		    new ExcelTargetValidation(
+		        "PTChallan",
+		        6,
+		        "PT Gross wages",
+		        0
+		    ),
+		    new ExcelExtraConfig("", 0, ""),
+		    "PT Gross Wages are reflecting properly as per masters!"
+		);
+
+
+	}
+	public static void Challan_PT_ORS_PTGrossWages( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		
+		CommonBusinessUtilis.validateExcelBusinessData(
+		    downloadedExcelFile,
+		    test,
+		    new ExcelFileDetails(
+		        FilePath.SALARY_FILE,
+		        "MonthlyEmployeeChallanSalary",
+		        16,
+		        Arrays.asList(
+		            new ExcelF(ExcelUtils.columnLetterToIndex("AA"), Arrays.asList("ORS")),
+		            new ExcelF(ExcelUtils.columnLetterToIndex("AC"), Arrays.asList("Yes"))
+		        ),
+		        "YES"
+		    ),
+		    new ExcelTargetValidation(
+		        "PTChallan",
+		        6,
+		        "PT Gross wages",
+		        0
+		    ),
+		    new ExcelExtraConfig("", 0, ""),
+		    "PT Gross Wages are reflecting properly as per masters!"
+		);
+
+
+	}
+	public static void Challan_PT_PND_PTGrossWages( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		
+		CommonBusinessUtilis.validateExcelBusinessData(
+		    downloadedExcelFile,
+		    test,
+		    new ExcelFileDetails(
+		        FilePath.SALARY_FILE,
+		        "MonthlyEmployeeChallanSalary",
+		        16,
+		        Arrays.asList(
+		            new ExcelF(ExcelUtils.columnLetterToIndex("AA"), Arrays.asList("PND")),
+		            new ExcelF(ExcelUtils.columnLetterToIndex("AC"), Arrays.asList("Yes"))
+		        ),
+		        "YES"
+		    ),
+		    new ExcelTargetValidation(
+		        "PTChallan",
+		        6,
+		        "PT Gross wages",
+		        0
+		    ),
+		    new ExcelExtraConfig("", 0, ""),
+		    "PT Gross Wages are reflecting properly as per masters!"
+		);
+
+
+	}
+	public static void Challan_PT_TMN_PTGrossWages( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		
+		CommonBusinessUtilis.validateExcelBusinessData(
+		    downloadedExcelFile,
+		    test,
+		    new ExcelFileDetails(
+		        FilePath.SALARY_FILE,
+		        "MonthlyEmployeeChallanSalary",
+		        16,
+		        Arrays.asList(
+		            new ExcelF(ExcelUtils.columnLetterToIndex("AA"), Arrays.asList("TMN")),
+		            new ExcelF(ExcelUtils.columnLetterToIndex("AC"), Arrays.asList("Yes"))
+		        ),
+		        "YES"
+		    ),
+		    new ExcelTargetValidation(
+		        "PTChallan",
+		        6,
+		        "PT Gross wages",
+		        0
+		    ),
+		    new ExcelExtraConfig("", 0, ""),
+		    "PT Gross Wages are reflecting properly as per masters!"
+		);
+
+
+	}
+	public static void Challan_PT_TRP_PTGrossWages( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		
+		CommonBusinessUtilis.validateExcelBusinessData(
+		    downloadedExcelFile,
+		    test,
+		    new ExcelFileDetails(
+		        FilePath.SALARY_FILE,
+		        "MonthlyEmployeeChallanSalary",
+		        16,
+		        Arrays.asList(
+		            new ExcelF(ExcelUtils.columnLetterToIndex("AA"), Arrays.asList("TRP")),
+		            new ExcelF(ExcelUtils.columnLetterToIndex("AC"), Arrays.asList("Yes"))
+		        ),
+		        "YES"
+		    ),
+		    new ExcelTargetValidation(
+		        "PTChallan",
+		        6,
+		        "PT Gross wages",
+		        0
+		    ),
+		    new ExcelExtraConfig("", 0, ""),
+		    "PT Gross Wages are reflecting properly as per masters!"
+		);
+
+
+	}
+	public static void Challan_PT_KAR_PTGrossWages( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		
+		final int colAA = ExcelUtils.columnLetterToIndex("AA");
+		final int colAC = ExcelUtils.columnLetterToIndex("AC");
+
+		
+		final List<ExcelF> salaryFilters = new ArrayList<ExcelF>() {{
+		    add(new ExcelF(colAA, Arrays.asList("KAR")));
+		    add(new ExcelF(colAC, Arrays.asList("Yes")));
+		}};
+
+		// ==== Master metadata assembled with different var names ====
+		final String salaryMasterSheet = "MonthlyEmployeeChallanSalary";
+		final int salaryMasterColIdx = 16;
+		final ExcelFileDetails salaryMasterDetails = new ExcelFileDetails(
+		    FilePath.SALARY_FILE,        // file path
+		    salaryMasterSheet,          
+		    salaryMasterColIdx,          
+		    salaryFilters,               
+		    "YES"                        // apply 
+		);
+
+		// ==== Target descriptor
+		final ExcelTargetValidation downloadedTarget = new ExcelTargetValidation(
+		    "PTChallan",         // sheet
+		    6,                   // target column index
+		    "PT Gross wages",    // header keyword
+		    0                    // start row
+		);
+
+		// ==== Extra config built as a named variable 
+		final ExcelExtraConfig extras = new ExcelExtraConfig("", 0, "");
+
+		// ==== Final invocation (unchanged API, same arg order & values) ====
+		CommonBusinessUtilis.validateExcelBusinessData(
+		    downloadedExcelFile,
+		    test,
+		    salaryMasterDetails,
+		    downloadedTarget,
+		    extras,
+		    "PT Gross Wages are reflecting properly as per masters!"
+		);
+
+	}
+	public static void Challan_PT_MAH_PTGrossWages( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		
+		final int colAA = ExcelUtils.columnLetterToIndex("AA");
+		final int colAC = ExcelUtils.columnLetterToIndex("AC");
+
+		
+		final List<ExcelF> salaryFilters = new ArrayList<ExcelF>() {{
+		    add(new ExcelF(colAA, Arrays.asList("MAH")));
+		    add(new ExcelF(colAC, Arrays.asList("Yes")));
+		}};
+
+		// ==== Master metadata assembled with different var names ====
+		final String salaryMasterSheet = "MonthlyEmployeeChallanSalary";
+		final int salaryMasterColIdx = 16;
+		final ExcelFileDetails salaryMasterDetails = new ExcelFileDetails(
+		    FilePath.SALARY_FILE,        // file path
+		    salaryMasterSheet,          
+		    salaryMasterColIdx,          
+		    salaryFilters,               
+		    "YES"                        // apply 
+		);
+
+		// ==== Target descriptor
+		final ExcelTargetValidation downloadedTarget = new ExcelTargetValidation(
+		    "PTChallan",         // sheet
+		    6,                   // target column index
+		    "PT Gross wages",    // header keyword
+		    0                    // start row
+		);
+
+		// ==== Extra config built as a named variable 
+		final ExcelExtraConfig extras = new ExcelExtraConfig("", 0, "");
+
+		// ==== Final invocation (unchanged API, same arg order & values) ====
+		CommonBusinessUtilis.validateExcelBusinessData(
+		    downloadedExcelFile,
+		    test,
+		    salaryMasterDetails,
+		    downloadedTarget,
+		    extras,
+		    "PT Gross Wages are reflecting properly as per masters!"
+		);
+
+	}
+	public static void Challan_PT_PJB_PTGrossWages( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		
+		final int colAA = ExcelUtils.columnLetterToIndex("AA");
+		final int colAC = ExcelUtils.columnLetterToIndex("AC");
+
+		
+		final List<ExcelF> salaryFilters = new ArrayList<ExcelF>() {{
+		    add(new ExcelF(colAA, Arrays.asList("PJB")));
+		    add(new ExcelF(colAC, Arrays.asList("Yes")));
+		}};
+
+		// ==== Master metadata assembled with different var names ====
+		final String salaryMasterSheet = "MonthlyEmployeeChallanSalary";
+		final int salaryMasterColIdx = 16;
+		final ExcelFileDetails salaryMasterDetails = new ExcelFileDetails(
+		    FilePath.SALARY_FILE,        // file path
+		    salaryMasterSheet,          
+		    salaryMasterColIdx,          
+		    salaryFilters,               
+		    "YES"                        // apply 
+		);
+
+		// ==== Target descriptor
+		final ExcelTargetValidation downloadedTarget = new ExcelTargetValidation(
+		    "PTChallan",         // sheet
+		    6,                   // target column index
+		    "PT Gross wages",    // header keyword
+		    0                    // start row
+		);
+
+		// ==== Extra config built as a named variable 
+		final ExcelExtraConfig extras = new ExcelExtraConfig("", 0, "");
+
+		// ==== Final invocation (unchanged API, same arg order & values) ====
+		CommonBusinessUtilis.validateExcelBusinessData(
+		    downloadedExcelFile,
+		    test,
+		    salaryMasterDetails,
+		    downloadedTarget,
+		    extras,
+		    "PT Gross Wages are reflecting properly as per masters!"
+		);
+
+	}
 	public static void Challan_PT_BHR_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("BHR")));
+		af.add(new ExcelF(9, Arrays.asList("BHR")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		// 📊 Step 4: Prepare ExcelFileDetails for Master
 		String masterSheetName = "EmployeeMaster";
@@ -4600,7 +5224,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 7: Final call to reusable validator
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -4613,16 +5237,16 @@ public class PT_Methods extends BasePage{
 	public static void Challan_PT_MAH_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("MAH")));
+		af.add(new ExcelF(9, Arrays.asList("MAH")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		// 📊 Step 4: Prepare ExcelFileDetails for Master
 		String masterSheetName = "EmployeeMaster";
@@ -4660,7 +5284,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 7: Final call to reusable validator
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -4673,16 +5297,16 @@ public class PT_Methods extends BasePage{
 	public static void Challan_PT_ORS_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("ORS")));
+		af.add(new ExcelF(9, Arrays.asList("ORS")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		// 📊 Step 4: Prepare ExcelFileDetails for Master
 		String masterSheetName = "EmployeeMaster";
@@ -4720,7 +5344,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 7: Final call to reusable validator
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -4733,16 +5357,16 @@ public class PT_Methods extends BasePage{
 	public static void Challan_PT_PND_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("ORS")));
+		af.add(new ExcelF(9, Arrays.asList("ORS")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		// 📊 Step 4: Prepare ExcelFileDetails for Master
 		String masterSheetName = "EmployeeMaster";
@@ -4780,7 +5404,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 7: Final call to reusable validator
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -4794,16 +5418,16 @@ public class PT_Methods extends BasePage{
 	public static void Challan_PT_PJB_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("PJB")));
+		af.add(new ExcelF(9, Arrays.asList("PJB")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		// 📊 Step 4: Prepare ExcelFileDetails for Master
 		String masterSheetName = "EmployeeMaster";
@@ -4841,7 +5465,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 7: Final call to reusable validator
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -4851,14 +5475,57 @@ public class PT_Methods extends BasePage{
 		);
 
 	}
+	public static void Challan_PT_TRP_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		
+		final ExcelTargetValidation tgt = new ExcelTargetValidation(
+		    "PTChallan",   
+		    5,             
+		    "Location",   
+		    0              
+		);
+
+		
+		final List<ExcelF> rules = new ArrayList<>(Arrays.asList(
+		    new ExcelF(38, Arrays.asList("Active")),
+		    new ExcelF(9,  Arrays.asList("TRP")),
+		    new ExcelF(58, Arrays.asList("Yes"))
+		));
+
+		
+		final ExcelFileDetails masterInfo = new ExcelFileDetails(
+		    FilePath.EMPLOYEE_MASTER, 
+		    "EmployeeMaster",         
+		    8,                       
+		    rules,                    
+		    "YES"                     
+		);
+
+		
+		final String totalLogicFlag = "";
+		final int totalColIdx = 0;
+		final String totalKey = "";
+		final ExcelExtraConfig cfg = new ExcelExtraConfig(totalLogicFlag, totalColIdx, totalKey);
+
+		// --- Final 
+		CommonBusinessUtilis.validateExcelBusinessData(
+		    downloadedExcelFile,
+		    test,
+		    masterInfo,
+		    tgt,
+		    cfg,
+		    "Locations are reflecting properly as per masters!"
+		);
+
+	}
 	public static void Challan_PT_TMN_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		 
 		
-		List<methodsb> filtersList = Arrays.asList(
-		    new methodsb(38, Arrays.asList("Active")),
-		    new methodsb(9,  Arrays.asList("TMN")),
-		    new methodsb(58, Arrays.asList("Yes"))
+		List<ExcelF> filtersList = Arrays.asList(
+		    new ExcelF(38, Arrays.asList("Active")),
+		    new ExcelF(9,  Arrays.asList("TMN")),
+		    new ExcelF(58, Arrays.asList("Yes"))
 		);
 
 		
@@ -4892,7 +5559,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterDetails,
@@ -4906,16 +5573,16 @@ public class PT_Methods extends BasePage{
 	public static void Challan_PT_KAR_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("KAR")));
+		af.add(new ExcelF(9, Arrays.asList("KAR")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		// 📊 Step 4: Prepare ExcelFileDetails for Master
 		String masterSheetName = "EmployeeMaster";
@@ -4953,7 +5620,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 7: Final call to reusable validator
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -4966,16 +5633,16 @@ public class PT_Methods extends BasePage{
 	public static void Challan_PT_KRL_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("KRL")));
+		af.add(new ExcelF(9, Arrays.asList("KRL")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		// 📊 Step 4: Prepare ExcelFileDetails for Master
 		String masterSheetName = "EmployeeMaster";
@@ -5013,7 +5680,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 7: Final call to reusable validator
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -5026,16 +5693,16 @@ public class PT_Methods extends BasePage{
 	public static void Challan_PT_MAP_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("MAP")));
+		af.add(new ExcelF(9, Arrays.asList("MAP")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		// 📊 Step 4: Prepare ExcelFileDetails for Master
 		String masterSheetName = "EmployeeMaster";
@@ -5073,7 +5740,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 7: Final call to reusable validator
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,
@@ -5086,16 +5753,16 @@ public class PT_Methods extends BasePage{
 	public static void Challan_PT_JAK_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		 
-		List<methodsb> af = new ArrayList<>();
+		List<ExcelF> af = new ArrayList<>();
 
 		 
-		af.add(new methodsb(38, Arrays.asList("Active")));
+		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new methodsb(9, Arrays.asList("JAK")));
+		af.add(new ExcelF(9, Arrays.asList("JAK")));
 
 		 
-		af.add(new methodsb(58, Arrays.asList("Yes")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
 
 		// 📊 Step 4: Prepare ExcelFileDetails for Master
 		String masterSheetName = "EmployeeMaster";
@@ -5133,7 +5800,7 @@ public class PT_Methods extends BasePage{
 		);
 
 		// ✅ Step 7: Final call to reusable validator
-		UtilisOne.validateExcelBusinessData(
+		CommonBusinessUtilis.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
 		    masterFileDetails,

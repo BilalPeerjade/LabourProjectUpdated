@@ -5,9 +5,9 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import utils.ExcelExpressionParser;
 import utils.ExcelExtraConfig;
-import utils.ExcelFilter;
+import utils.ExcelF;
 import utils.ExcelUtils;
-import utils.HTMLCalculationReport;
+import utils.HTMLReport;
 
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -17,7 +17,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * CommonBusinessUtilis3
+ * CommonBusinessUtilis3 - Utilis3
  *
  * Patched/calculation-ready version of CommonBusinessUtilis2 with:
  *  - sheet alias/underscore→space normalization
@@ -53,7 +53,6 @@ public class CommonBusinessUtilis3 {
         SHEET_ALIAS.put("All_Employees", "All Employees"); //PF
         SHEET_ALIAS.put("Central_Form_B", "Central Form-B");
         
-        // You can add more mappings here if some sheet names are irregular:
         // SHEET_ALIAS.put("Emp_Salary", "Employee Salary");
     }
 
@@ -84,6 +83,7 @@ public class CommonBusinessUtilis3 {
      * @param startRowOffset       rows to skip after header (headerRow + startRowOffset => data start)
      * @param headerKeywords       map columnLetter -> headerKeyword (optional; can be null)
      * @param successMessage       message to log on full pass
+     * 
      */
     public static void validateExcelCalculation(
             File downloadedExcelFile,
@@ -92,8 +92,8 @@ public class CommonBusinessUtilis3 {
             String calculationRule,
             String rhsSource,
             String defaultSheetName,
-            List<ExcelFilter> masterFilters,
-            List<ExcelFilter> downloadedFilters,
+            List<ExcelF> masterFilters,
+            List<ExcelF> downloadedFilters,
             ExcelExtraConfig extraConfig,
             double tolerance,
             boolean compareRowByRow,
@@ -200,7 +200,7 @@ public class CommonBusinessUtilis3 {
                 	    lhsTotal,
                 	    rhsTotal
                 	); */
-                HTMLCalculationReport.logTotalsTable(
+                HTMLReport.logTotalsTable(
                 	    test,
                 	    "Totals Comparison",
                 	    lhsBinding.sheetName,
@@ -256,7 +256,7 @@ public class CommonBusinessUtilis3 {
             	    lhsTrim,
             	    rhsTrim
             	); */
-            HTMLCalculationReport.logRowByRowTable(
+            HTMLReport.logRowByRowTable(
             	    test,
             	    "Row-by-Row Comparison (first " + Math.min(n,5) + " rows shown)",
             	    lhsBinding.sheetName,
@@ -315,7 +315,7 @@ public class CommonBusinessUtilis3 {
             int startRowOffset,
             ExcelExtraConfig extraConfig,
             String fileTag,
-            List<ExcelFilter> filters,
+            List<ExcelF> filters,
             ExtentTest test
     ) {
         ColumnBinding b = new ColumnBinding();
@@ -476,7 +476,7 @@ public class CommonBusinessUtilis3 {
             int startRowOffset,
             ExcelExtraConfig extraConfig,
             String rhsSource, // "MASTER" or "DOWNLOADED"
-            List<ExcelFilter> rhsFilters,
+            List<ExcelF> rhsFilters,
             boolean rowByRow,
             ExtentTest test
     ) {

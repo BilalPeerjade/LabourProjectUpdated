@@ -891,6 +891,11 @@ public class All_ClientPortal_Locators extends BasePage {
 		clients = getDriver().findElement(By.xpath("(//button[@title='Upload'])[1]"));
 		return clients;
 	}
+	public static WebElement download1( )		
+	{
+		clients = getDriver().findElement(By.xpath("(//button[@title='Download'])[1]"));
+		return clients;
+	}
 	public static WebElement upload4( )		
 	{
 		clients = getDriver().findElement(By.xpath("(//button[@title='Upload'])[4]"));
@@ -1347,6 +1352,11 @@ public static WebElement clickLicense()		//Method for searching Username input
 	public static WebElement clickBack()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//button[normalize-space()='Back']"));
+		return labour;
+	}
+	public static WebElement newLicenseRequestMessage()
+	{
+		labour = getDriver().findElement(By.xpath("//a[normalize-space()='New License Request']"));
 		return labour;
 	}
 	public static WebElement clickBackArrow()		//Method for searching Username input

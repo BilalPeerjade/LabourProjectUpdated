@@ -5,9 +5,9 @@
     <classes>
       <class name="testCases.CoordinatorTestCases">
         <methods>
+          <include name="ExistingLicenseDownload"/>
           <include name="Login"/>
           <include name="close"/>
-          <include name="EditIconActRelevantDatesLabelBar"/>
           <include name="setBrowser"/>
         </methods>
       </class> <!-- testCases.CoordinatorTestCases -->

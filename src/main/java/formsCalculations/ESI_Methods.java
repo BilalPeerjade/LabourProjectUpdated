@@ -41,8 +41,8 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import businessChallanForms.PT_ConsolidatedMethods;
-import businessTestCases.UtilisOne;
-import businessTestCases.Utilis3;
+import businessTestCases.CommonBusinessUtilis;
+import businessTestCases.CommonBusinessUtilis3;
 import businessTestCases.FilePath;
 import login.BasePage;
 import login.LoginLocators;
@@ -51,7 +51,7 @@ import rcp.OneCommonMethod;
 import utils.DownloadHelper;
 import utils.ExcelExtraConfig;
 import utils.ExcelFileDetails;
-import utils.methodsb;
+import utils.ExcelF;
 import utils.ExcelTargetValidation;
 import utils.ExcelUtils;
 import utils.ExcelValueNormalizer;
@@ -153,11 +153,11 @@ public class ESI_Methods extends BasePage {
         
         
      // 🧪 Step 3: Prepare master file filters
-        List<methodsb> allFilters = new ArrayList<>();
+        List<ExcelF> allFilters = new ArrayList<>();
         
-        allFilters.add(new methodsb(38, Arrays.asList("Active")));
+        allFilters.add(new ExcelF(38, Arrays.asList("Active")));
  
-        allFilters.add(new methodsb(85, Arrays.asList("400100")));
+        allFilters.add(new ExcelF(85, Arrays.asList("400100")));
 
 //      allFilters.add(new ExcelFilter(58, Arrays.asList("Yes")));
         
@@ -197,7 +197,7 @@ public class ESI_Methods extends BasePage {
         );
 
         // ✅ Step 7: Final call to reusable validator
-        UtilisOne.validateExcelBusinessData(
+        CommonBusinessUtilis.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -211,8 +211,8 @@ public class ESI_Methods extends BasePage {
         
         
         
-        WebDriver driver = UtilisOne.getDriver();
-        UtilisOne.validateColumnHasUniqueValues(
+        WebDriver driver = CommonBusinessUtilis.getDriver();
+        CommonBusinessUtilis.validateColumnHasUniqueValues(
 	    driver,
 	    test,
 	    downloadedExcelFile,
@@ -253,11 +253,11 @@ public class ESI_Methods extends BasePage {
 		);
 
 		// Filters (if you need, sample as you gave earlier)
-		List<methodsb> masterFilters = new ArrayList<>();
-		List<methodsb> downloadedFilters = new ArrayList<>();
+		List<ExcelF> masterFilters = new ArrayList<>();
+		List<ExcelF> downloadedFilters = new ArrayList<>();
 
 //		masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("X"), Arrays.asList("Yes")));
-		masterFilters.add(new methodsb(ExcelUtils.columnLetterToIndex("Y"), Arrays.asList("400100")));
+		masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("Y"), Arrays.asList("400100")));
 		
 		
 		Map<String, String> headerMap = new HashMap<>();
@@ -266,7 +266,7 @@ public class ESI_Methods extends BasePage {
 
 
 		// Call validator
-		Utilis3.validateExcelCalculation(
+		CommonBusinessUtilis3.validateExcelCalculation(
 		    downloadedExcelFile,   // File object for ESI_400100_Aug_2025 (12).xlsx
 		    salaryFile,            // master file path or string pointing to Sample_challansalary3.xlsx
 		    test,                  // ExtentTest test object
@@ -343,10 +343,10 @@ public class ESI_Methods extends BasePage {
 		);
 
 		// Filters (if you need, sample as you gave earlier)
-		List<methodsb> masterFilters = new ArrayList<>();
-		List<methodsb> downloadedFilters = new ArrayList<>();
+		List<ExcelF> masterFilters = new ArrayList<>();
+		List<ExcelF> downloadedFilters = new ArrayList<>();
 
-		masterFilters.add(new methodsb(ExcelUtils.columnLetterToIndex("Y"), Arrays.asList("400100")));
+		masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("Y"), Arrays.asList("400100")));
 		
 		
 		Map<String, String> headerMap = new HashMap<>();
@@ -355,7 +355,7 @@ public class ESI_Methods extends BasePage {
 
 
 		// Call validator
-		Utilis3.validateExcelCalculation(
+		CommonBusinessUtilis3.validateExcelCalculation(
 		    downloadedExcelFile,   // File object for ESI_400100_Aug_2025 (12).xlsx
 		    salaryFile,            // master file path or string pointing to Sample_challansalary3.xlsx
 		    test,                  // ExtentTest test object
@@ -413,11 +413,11 @@ public class ESI_Methods extends BasePage {
 			    "NO",                                // NO => don't sum, just take direct cell
 			    ExcelUtils.columnLetterToIndex("A"),"Total");
 
-			List<methodsb> masterFilters = new ArrayList<>();
-			masterFilters.add(new methodsb(ExcelUtils.columnLetterToIndex("Y"), Arrays.asList("400100")));
+			List<ExcelF> masterFilters = new ArrayList<>();
+			masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("Y"), Arrays.asList("400100")));
 
-			List<methodsb> targetFilters = new ArrayList<>();
-			targetFilters.add(new methodsb(ExcelUtils.columnLetterToIndex("A"), Arrays.asList("Total"))); // pick only Total row
+			List<ExcelF> targetFilters = new ArrayList<>();
+			targetFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("A"), Arrays.asList("Total"))); // pick only Total row
 
 			Map<String, String> headerMap = new HashMap<>();
 			headerMap.put("R", "ESI Gross"); // Master
@@ -428,7 +428,7 @@ public class ESI_Methods extends BasePage {
 			String calculationRule = "G = R * 0.0075 + R * 0.0375"; 
 			String defaultSheetName = "All Emp Workings";
 
-			Utilis3.validateExcelCalculation(
+			CommonBusinessUtilis3.validateExcelCalculation(
 			    downloadedExcelFile,
 			    FilePath.SALARY_FILE,
 			    test,
@@ -455,8 +455,8 @@ public class ESI_Methods extends BasePage {
 		ExcelExtraConfig extraConfig = new ExcelExtraConfig("YES",
 			    ExcelUtils.columnLetterToIndex("A"),"Total");
 
-			List<methodsb> masterFilters = new ArrayList<>();
-			List<methodsb> targetFilters = new ArrayList<>();
+			List<ExcelF> masterFilters = new ArrayList<>();
+			List<ExcelF> targetFilters = new ArrayList<>();
 //			masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("Y"),Arrays.asList("400100")));
 			
 //			targetFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("A"),Arrays.asList("Total")));
@@ -467,7 +467,7 @@ public class ESI_Methods extends BasePage {
 			headerMap.put("G", "ESI Wages"); // Master sheet MonthlyEmployeeChallanSalary
 			headerMap.put("I", "EE");        // Downloaded sheet All Emp Workings
 
-			Utilis3.validateExcelCalculation(
+			CommonBusinessUtilis3.validateExcelCalculation(
 			    downloadedExcelFile,
 			    salaryFile,
 			    test,

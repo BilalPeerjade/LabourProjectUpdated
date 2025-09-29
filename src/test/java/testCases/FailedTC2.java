@@ -67,18 +67,18 @@ public class FailedTC2 extends BasePage {
 	}
 	
 	//Client Portal Before Method
-	@BeforeMethod
+/*	@BeforeMethod
 	void Login() throws InterruptedException, IOException
 	{
 		initialization(link,6,"Statutory"); //Need to change
 	
 	} 
-	
+*/	
 	//Performer Before Method
-/*	@BeforeMethod
+	@BeforeMethod
 	void Login() throws InterruptedException, IOException
 	{
-		initialization(link,1,"Statutory");
+		Initialization(link,1,"Statutory");
 		
 		XSSFSheet sheet = ReadExcel(count);
 		Row row0 = sheet.getRow(0);						//Selected 0th index row (First row)
@@ -95,387 +95,260 @@ public class FailedTC2 extends BasePage {
 	
 	
 	}
-	*/
+	
 	
 	
 
 	
-	@Test(priority = 76) //2 test case //10/02/2025
-	void RegistrationStatusExport() throws InterruptedException, IOException
-	{
-		test = extent.startTest("'Registration Status' - Active - Export button working or not?");
-		
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		
-		All_ClientPortal_Methods.RegistrationStatusExport(test);
-		
+	@Test(priority = 2) // Bilal
+	void Logout1() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
 		extent.endTest(test);
 		extent.flush();
 	}
-	
-	@Test(priority = 77) // Bilal 1 done
-	void RegistrationActiveEditbtn() throws InterruptedException, IOException
-	{
-	test = extent.startTest("'Registration Status' - Active - Edit button working or not?");
-	
-	All_ClientPortal_Methods.filterEntityAUTO2(test);
-	All_ClientPortal_Methods.RegistrationActiveEditbtn(test);
-	extent.endTest(test);
-	extent.flush();
-	
-	}
-	
-	@Test(priority = 78) //Bilal 2 done
-	void RegistrationActiveEditSearch() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Registrations Status' - Active - Edit - search field working or not?");
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.RegistrationActiveEditSearch(test);
-		
+	@Test(priority = 2) // Bilal
+	void Logout2() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
 		extent.endTest(test);
 		extent.flush();
 	}
-	
-	@Test(priority = 79) //Bilal 3 Done
-	void RegistrationActiveEditExport() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Registrations Status' - Active - Edit - Export button is working or not?");
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.RegistrationActiveEditExport(test);
-		
+	@Test(priority = 2) // Bilal
+	void Logout3() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 80) //Bilal 4 Done
-	void RegistrationActiveEditClear() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Registrations Status' - Active - Edit - Clear button is working or not?");
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.RegistrationActiveEditClear(test);
-		
+	@Test(priority = 2) // Bilal
+	void Logout4() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
 		extent.endTest(test);
 		extent.flush();
 	}
-	
-	@Test(priority = 81) //Bilal 5 Done
-	void RegistrationActiveEditView() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Registrations Status' - Active - Edit - View button is working or not?");
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.RegistrationActiveEditView(test);
-		
+	@Test(priority = 2) // Bilal
+	void Logout5() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 82) //Bilal ---
-	void RegistrationActiveEditInitiateActionSubmit() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Registrations Status' - Active - Edit - InitiateAction Submit button is working or not?");
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.RegistrationActiveEditInitiateActionSubmit(test);
-		
+	@Test(priority = 2) // Bilal
+	void Logout6() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
 		extent.endTest(test);
 		extent.flush();
 	}
-	
-	
-	@Test(priority = 83) //Bilal 6 Done
-	void RegistrationActiveEditInitiateAction() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Registrations Status' - Active - Edit - InitiateAction Back button is working or not?");
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.RegistrationActiveEditInitiateAction(test);
-		
+	@Test(priority = 2) // Bilal
+	void Logout7() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 84) //Bilal 7 test case is failing 
-	void RegistrationActiveEditDownloadbtn() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Registrations Status' - Active - Edit - Download button is working or not?");
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		All_ClientPortal_Methods.RegistrationActiveEditDownloadbtn(test);
-		
+	@Test(priority = 2) // Bilal
+	void Logout8() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
 		extent.endTest(test);
 		extent.flush();
 	}
-	
-	
-	
-	@Test(priority = 85) //07/02/2025
-	void RegistrationSView() throws InterruptedException, IOException
-	{
-		test = extent.startTest("'Registration Status' - Active - view button working or not?");
-		
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		
-		All_ClientPortal_Methods.RegistrationSView(test);
-		
+	@Test(priority = 2) // Bilal
+	void Logout9() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
 		extent.endTest(test);
 		extent.flush();
 	}
-	
-	@Test(priority = 86) //07/02/2025
-	void DownloadActive() throws InterruptedException, IOException
-	{
-		test = extent.startTest("'Registration Status' - Active - Download button working or not?");
-		
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		
-		All_ClientPortal_Methods.DownloadActive(test);
-		
+	@Test(priority = 2) // Bilal
+	void Logout10() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
 		extent.endTest(test);
 		extent.flush();
 	}
-	
-	@Test(priority = 87) //07/02/2025 //Search Bilal
-	void RegistrationSHistory() throws InterruptedException, IOException
-	{
-		test = extent.startTest("'Registration Status' - Active - History button and Type to search field are working or not?");
-		
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		
-		All_ClientPortal_Methods.RegistrationSHistory(test);
-		
+	@Test(priority = 2) // Bilal
+	void Logout11() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
 		extent.endTest(test);
 		extent.flush();
 	}
-	
-	@Test(priority = 88) //07/02/2025
-	void RegistrationSHistoryExport() throws InterruptedException, IOException
-	{
-		test = extent.startTest("'Registration Status' - Active - History - Export button working or not?");
-		
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		
-		All_ClientPortal_Methods.RegistrationSHistoryExport(test);
-		
+	@Test(priority = 2) // Bilal
+	void Logout12() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 89) //07/02/2025
-	void RegistrationSActivePagination() throws InterruptedException, IOException
-	{
-		test = extent.startTest("'Registration Status' - Active - Verify to check all Pagination buttons are working fine or not?");
-		
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		
-		All_ClientPortal_Methods.RegistrationSActivePagination(test);
-		
+	@Test(priority = 2) // Bilal
+	void Logout13() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
 		extent.endTest(test);
 		extent.flush();
 	}
-	
-
-	
-	@Test(priority = 90) //Bilal
-	void RegistrationStatusEx() throws InterruptedException, IOException
-	{
-		test = extent.startTest("'Registration Status' - Verify Expired link is working and Expired count is matching with grid or not?");
-		
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		
-		All_ClientPortal_Methods.RegistrationStatusEx(test);
-		
+	@Test(priority = 2) // Bilal
+	void Logout14() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
 		extent.endTest(test);
 		extent.flush();
 	}
-	
-	
-	
-	
-	@Test(priority = 91) //2 test case //24/02/2025
-	void RegistrationStatusExportE() throws InterruptedException, IOException
-	{
-		test = extent.startTest("'Registration Status' - Expired - Export button working or not?");
-		
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		
-		All_ClientPortal_Methods.RegistrationStatusExportE(test);
-		
+	@Test(priority = 2) // Bilal
+	void Logout15() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 92) //25/02/2025
-	void ExpiredSearch() throws InterruptedException, IOException
-	{
-		test = extent.startTest("'Registration Status' - Expired - Validate Search field working or not?");
-		
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		
-		All_ClientPortal_Methods.ExpiredSearch(test);
-		
+	@Test(priority = 2) // Bilal
+	void Logout16() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
 		extent.endTest(test);
 		extent.flush();
 	}
-	
-	@Test(priority = 93) //Bilal 8 Done
-	void RegistrationStatusEdit() throws InterruptedException, IOException
-	{
-		test = extent.startTest("'Registration Status' - Expired - Edit button working or not?");
-		
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		
-		All_ClientPortal_Methods.RegistrationStatusEdit(test);
-		
+	@Test(priority = 2) // Bilal
+	void Logou5t() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 94) //Bilal 9 Done
-	void RegistrationStatusEditSearch() throws InterruptedException, IOException
-	{
-		test = extent.startTest("'Registration Status' - Expired - Edit - Search field working or not?");
-		
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		
-		All_ClientPortal_Methods.RegistrationStatusEditSearch(test);
-		
+	@Test(priority = 2) // Bilal
+	void Logout19() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 95) //Bilal 10 Done
-	void RegistrationStatusEditExport() throws InterruptedException, IOException
-	{
-		test = extent.startTest("'Registration Status' - Expired - Edit - Export button working or not?");
-		
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		
-		All_ClientPortal_Methods.RegistrationStatusEditExport(test);
-		
+	@Test(priority = 2) // Bilal
+	void Logout20() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
 		extent.endTest(test);
 		extent.flush();
 	}
-	
-
-	@Test(priority = 96) //Bilal 11 Done
-	void RegistrationStatusEditClearbtn() throws InterruptedException, IOException
-	{
-		test = extent.startTest("'Registration Status' - Expired - Edit - Clear button working or not?");
-		
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		
-		All_ClientPortal_Methods.RegistrationStatusEditClearbtn(test);
-		
+	@Test(priority = 2) // Bilal
+	void Logout21() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
 		extent.endTest(test);
 		extent.flush();
 	}
-	
-	@Test(priority = 97) //Bilal 12 Done
-	void RegistrationStatusEditView() throws InterruptedException, IOException
-	{
-		test = extent.startTest("'Registration Status' - Expired - Edit - View button working or not?");
-		
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		
-		All_ClientPortal_Methods.RegistrationStatusEditView(test);
-		
+	@Test(priority = 2) // Bilal
+	void Logout22() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
 		extent.endTest(test);
 		extent.flush();
 	}
-	
-	
-	
-	@Test(priority = 98) //Bilal 13 Done
-	void RegistrationStatusEditInitiateAction() throws InterruptedException, IOException
-	{
-		test = extent.startTest("'Registration Status' - Expired - Edit - InitiateAction Back button working or not?");
-		
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		
-		All_ClientPortal_Methods.RegistrationStatusEditInitiateAction(test);
-		
+	@Test(priority = 2) // Bilal
+	void Logout223() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
 		extent.endTest(test);
 		extent.flush();
 	}
-	
-	
-	@Test(priority = 99) //Bilal 14 failed file is not getting download
-	void RegistrationStatusEditDownloadbtn() throws InterruptedException, IOException
-	{
-		test = extent.startTest("'Registration Status' - Expired - Edit - Download button working or not?");
-		
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		
-		All_ClientPortal_Methods.RegistrationStatusEditDownloadbtn(test);
-		
+	@Test(priority = 2) // Bilal
+	void Logout23() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
 		extent.endTest(test);
 		extent.flush();
 	}
-	
-	
-	@Test(priority = 100) //25/02/2025
-	void RegistrationSViewEx() throws InterruptedException, IOException
-	{
-		test = extent.startTest("'Registration Status' - Expired - View button working or not?");
-		
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		
-		All_ClientPortal_Methods.RegistrationSViewEx(test);
-		
+	@Test(priority = 2) // Bilal
+	void Logo24ut() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
 		extent.endTest(test);
 		extent.flush();
 	}
-	
-	@Test(priority = 101) //25/02/2025
-	void DownloadActiveEx() throws InterruptedException, IOException
-	{
-		test = extent.startTest("'Registration Status' - Expired - Download button working or not?");
-		
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		
-		All_ClientPortal_Methods.DownloadActiveEx(test);
-		
+	@Test(priority = 2) // Bilal
+	void Logoasasut() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
 		extent.endTest(test);
 		extent.flush();
 	}
-	
-	@Test(priority = 102) //25/02/2025
-	void RegistrationSHistoryEx() throws InterruptedException, IOException
-	{
-		test = extent.startTest("'Registration Status' - Expired - History button working or not?");
-		
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		
-		All_ClientPortal_Methods.RegistrationSHistoryEx(test);
-		
+	@Test(priority = 2) // Bilal
+	void Logodadut() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 103) //25/02/2025
-	void RegistrationSHistorySearch() throws InterruptedException, IOException
-	{
-		test = extent.startTest("'Registration Status' - Expired - History - Search field working or not?");
-		
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		
-		All_ClientPortal_Methods.RegistrationSHistorySearch(test);
-		
+	@Test(priority = 2) // Bilal
+	void Logofaut() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
 		extent.endTest(test);
 		extent.flush();
 	}
-	
-	
-	@Test(priority = 104) //25/02/2025
-	void RegistrationSHistoryExportEx() throws InterruptedException, IOException
-	{
-		test = extent.startTest("'Registration Status' - Expired - History - Export button working or not?");
-		
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		
-		All_ClientPortal_Methods.RegistrationSHistoryExportEx(test);
-		
+	@Test(priority = 2) // Bilal
+	void Loaaagout() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 105) //25/02/2025
-	void RegistrationSHistoryViewDownload() throws InterruptedException, IOException
-	{
-		test = extent.startTest("'Registration Status' - Expired - History - View and Download button working or not?");
-		
-		All_ClientPortal_Methods.filterEntityAUTO2(test);
-		
-		All_ClientPortal_Methods.RegistrationSHistoryViewDownload(test);
-		
+	@Test(priority = 2) // Bilal
+	void Logo11ut() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
+		extent.endTest(test);
+		extent.flush();
+	}
+	@Test(priority = 2) // Bilal
+	void Log22out() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
+		extent.endTest(test);
+		extent.flush();
+	}
+	@Test(priority = 2) // Bilal
+	void Logo33ut() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
+		extent.endTest(test);
+		extent.flush();
+	}
+	@Test(priority = 2) // Bilal
+	void Logoudat() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
+		extent.endTest(test);
+		extent.flush();
+	}
+	@Test(priority = 2) // Bilal
+	void Logoudast() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
+		extent.endTest(test);
+		extent.flush();
+	}
+	@Test(priority = 2) // Bilal
+	void Logosasut() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
+		extent.endTest(test);
+		extent.flush();
+	}
+	@Test(priority = 2) // Bilal
+	void Logosaasut() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
+		extent.endTest(test);
+		extent.flush();
+	}
+	@Test(priority = 2) // Bilal
+	void Logout() throws InterruptedException, IOException {
+		test = extent.startTest("Checking");
+		MethodsD.testchecking(test, "Performer");
 		extent.endTest(test);
 		extent.flush();
 	}

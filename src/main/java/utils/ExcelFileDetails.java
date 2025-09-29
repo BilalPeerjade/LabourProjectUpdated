@@ -13,10 +13,10 @@ public class ExcelFileDetails {
 	private String filePath; //Making public
 	private String sheetName;
 	private int empNameColumnIndex;
-	private List<methodsb> filters;
+	private List<ExcelF> filters;
 	private String applyFilter;
 
-	public ExcelFileDetails(String filePath, String sheetName, int empNameColumnIndex, List<methodsb> filters,
+	public ExcelFileDetails(String filePath, String sheetName, int empNameColumnIndex, List<ExcelF> filters,
 			String applyFilter) {
 		this.filePath = filePath;
 		this.sheetName = sheetName;
@@ -42,7 +42,7 @@ public class ExcelFileDetails {
 		return empNameColumnIndex;
 	}
 
-	public List<methodsb> getFilters() {
+	public List<ExcelF> getFilters() {
 		return filters;
 	}
 
@@ -75,7 +75,7 @@ public class ExcelFileDetails {
         this.empNameColumnIndex = empNameColumnIndex;
     }
 
-    public void setFilters(List<methodsb> filters) {
+    public void setFilters(List<ExcelF> filters) {
         this.filters = filters;
     }
 

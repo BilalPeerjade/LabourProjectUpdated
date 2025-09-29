@@ -83,5 +83,20 @@ public class CoordinatorDisabledField extends BasePage {
 	
 	
 	
+	
+	
+	//-----Client Portal----
+	public static WebElement entityDropdown()
+	{
+		labour = getDriver().findElement(By.xpath("(//div[@class='require-container'])[1]"));
+		return labour;
+	}
+	public static WebElement activityTypeDropdown()
+	{
+		labour = getDriver().findElement(By.xpath("(//div[@class='require-container'])[5]"));
+		return labour;
+	}
+	
+	
 
 }
