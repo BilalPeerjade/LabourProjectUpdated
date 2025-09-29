@@ -97,7 +97,7 @@ public class ExcelF {
         return !ena;
     }
     
-    private boolean ena = true; 
+    private boolean ena = false; 
 
 
 
