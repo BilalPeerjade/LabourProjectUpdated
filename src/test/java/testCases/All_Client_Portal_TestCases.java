@@ -24,8 +24,6 @@ import clientPortal.All_ClientPortal_Methods;
 import clientPortal.All_ClientPortal_Methods;
 import login.BasePage;
 
-
-
 public class All_Client_Portal_TestCases extends BasePage {
 	public static WebElement upload = null;		//WebElement to get upload button
 	public static ExtentReports extent;			//Instance created for report file
@@ -65,14 +63,7 @@ public class All_Client_Portal_TestCases extends BasePage {
 	
 	}
 	
-	
-	
-	
 
-	
-	
-	
-	
 	// Mayuri TCs - ClientTest.Java 1 to 112
 	@Test(priority = 1) //
 	void Clientlogo() throws InterruptedException, IOException

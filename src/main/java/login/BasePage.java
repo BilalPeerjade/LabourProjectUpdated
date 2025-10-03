@@ -63,7 +63,7 @@ import businessTestCases.FilePath;
 	    protected   String password;
 	    protected String url;
 	    
-	    String filePath ="D:\\Labour Angular\\LabourMergeProject\\LabourMergeProject\\TestData\\Labour.xlsx";
+	    String filePath ="D:\\AutomationLabour\\LabourProjectUpdated\\TestData\\Labour.xlsx";
 	    
 		public static WebDriver getDriver() {
 			return driver.get();
@@ -72,7 +72,7 @@ import businessTestCases.FilePath;
 		public static XSSFSheet ReadExcel(int no) throws IOException
 		{
 			//String workingDir = System.getProperty("webdriver.chrome.driver","C:/March2022/PerformerPom/Driver/chromedriver.exe");
-			fis = new FileInputStream("D:\\Labour Angular\\LabourMergeProject\\LabourMergeProject\\TestData\\Labour.xlsx");
+			fis = new FileInputStream("D:\\AutomationLabour\\LabourProjectUpdated\\TestData\\Labour.xlsx");
 			workbook = new XSSFWorkbook(fis);
 			sheet = workbook.getSheetAt(no);					//Retrieving third sheet of Workbook
 			return sheet;
@@ -171,7 +171,7 @@ import businessTestCases.FilePath;
 	private void openBrower(int no) throws IOException {
 
 		if (browser.contains("chrome")) {
-					System.setProperty("webdriver.chrome.driver", "D:\\Labour Angular\\LabourMergeProject\\LabourMergeProject\\chromedriver.exe");
+					System.setProperty("webdriver.chrome.driver", "D:\\AutomationLabour\\LabourProjectUpdated\\chromedriver.exe");
 					//WebDriverManager.chromedriver().setup();
 					ChromeOptions options = new ChromeOptions();
 					options.addArguments("--remote-allow-origins=*");
@@ -210,14 +210,6 @@ import businessTestCases.FilePath;
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	//n
 	public void Initialization(String link,int no,String text) throws InterruptedException, IOException {
 		try {
 		//loadProperties(no);
@@ -236,18 +228,10 @@ import businessTestCases.FilePath;
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	public void initialization2(String link,int no,String text) throws InterruptedException, IOException {
-		try {
+	public void initialization2(String link,int no,String text) throws InterruptedException, IOException
+	{
+		try
+		{
 		//loadProperties(no);
 		openBrower(no);
 		
@@ -263,52 +247,33 @@ import businessTestCases.FilePath;
 			
 	}
 	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-	
-	
-	public void initializationSDExecutor(String link,int no,String text) throws InterruptedException, IOException {
-		try {
+		
+	public void initializationSDExecutor(String link,int no,String text) throws InterruptedException, IOException
+	{
+		try
+		{
 		//loadProperties(no);
 		openBrower(no);
-		
-		}catch(Exception e) {
+	
+		}
+		catch(Exception e) 
+		{
 			e.printStackTrace();
 		}
 		
-
-		
 		read_Login_username(no);
 		read_Login_password(no);
-		
-		
+	
 		LoginMethods.UserLoginSDExecutor(uname,password,"SD");		//Method of Login class to login user.
 		
-		
-		
-		
-
 	}
 	
 	
-	
-
-	public void closeBrowser() {
+	public void closeBrowser() 
+	{
 		getDriver().quit();
 		driver.remove();
 	}
-	}
+}
 
 
