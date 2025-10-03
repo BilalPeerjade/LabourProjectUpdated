@@ -23,6 +23,7 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import businessChallanForms.PT_ConsolidatedMethods;
 import clientPortal.All_ClientPortal_Methods;
 import distributor.MethodsD;
 import formsCalculations.EPF_ConsolatedMethods;
@@ -36,7 +37,7 @@ import rcp.EndToEnd_B_Methods;
 
 public class TTTTT extends BasePage {
 	
-	
+	//Class for just checking
 	public static WebElement upload = null;		//WebElement to get upload button
 	public static ExtentReports extent;			//Instance created for report file
 	public static ExtentTest test;				//Instance created for tests
@@ -456,7 +457,6 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 	
 	
 	
-	/*
 	
 	
 	
@@ -467,83 +467,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 	
 	
 	
-	//E2E Suggest by bhagyesh sir
-	@Test(priority = 27) //
-	void StaturyDocPF_Basic_EPFwagesMatching() throws InterruptedException, IOException, AWTException
-	{
-		test = extent.startTest("Statutory Documents - Challan PT File Check weather PT Gross wages total is coming properly or not");
-		
-		EndToEnd_B_Methods.StaturyDocPF_Basic_EPFwagesMatching(test,"Performer");
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@Test(priority = 500) //
-	void StaturyDocPF_Basic_BasicWagesColumn() throws InterruptedException, IOException, AWTException
-	{
-		//Test Case 1
-		test = extent.startTest("Statutory Documents - Challan PT File Check weather PT Gross wages total is coming properly or not");
-		EndToEnd_B_Methods.StaturyDocPF_Basic_BasicWagesColumn(test,"Performer");
-		
 
-		
-		test = extent.startTest("Statutory Documents - Challan PT File Check weather PT Gross wages total is coming properly or not");
-		EndToEnd_B_Methods.T6(test,"Performer");
-		
-		test = extent.startTest("Statutory Documents - Challan PT File Check weather PT Gross wages total is coming properly or not");
-		EndToEnd_B_Methods.T7(test,"Performer");
-		
-		test = extent.startTest("Statutory Documents - Challan PT File Check weather PT Gross wages total is coming properly or not");
-		EndToEnd_B_Methods.T8(test,"Performer");
-		
-		test = extent.startTest("Statutory Documents - Toll");
-		EndToEnd_B_Methods.T9(test,"Performer");
-		
-		test = extent.startTest("Statutory Documents - PF Gross Uniqness");
-		EndToEnd_B_Methods.T10(test,"Performer");
-		
-		test = extent.startTest("Statutory Documents - PF Gross Uniqness serial number");
-		EndToEnd_B_Methods.T11(test,"Performer");
-		
-		test = extent.startTest("Statutory Documents - PF Gross Uniqness PF Number");
-		EndToEnd_B_Methods.T12(test,"Performer");
-		
-		test = extent.startTest("Statutory Documents - Total matching");
-		EndToEnd_B_Methods.T13(test,"Performer");
-		
-//		test = extent.startTest("Statutory Documents - Total matching");
-//		EndToEnd_B_Methods.T14(test,"Performer");
-		
-		test = extent.startTest("Statutory Documents - Total matching");
-		EndToEnd_B_Methods.T15(test,"Performer");
-
-
-		test = extent.startTest("Statutory Documents - Total matching");
-		EndToEnd_B_Methods.T16(test,"Performer");
-		
-		
-//		test = extent.startTest("Statutory Documents - Total matching");
-//		EndToEnd_B_Methods.T15(test,"Performer");
-		
-		
-		
-		
-		extent.endTest(test);
-		extent.flush();
-	}
 	
 	
 	
@@ -551,132 +475,13 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 	
 	
 	
-	//zip folder download checked :--
-	@Test(priority = 2) 
-	void Registers_KAR_FormA() throws Exception
-	{			
-		
-		test = extent.startTest("Form A - Employee Name");
-		EPF_ConsolatedMethods.Registers_Form_A_check(test, link);
-		
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-	
-	@Test(priority = 3) 
-	void Challan_PT_GUJA() throws InterruptedException, IOException, AWTException
-	{			
-		
-		test = extent.startTest("Challan PT - Employee Name");
-		EPF_ConsolatedMethods.Challan_PT_GUJA(test, link);
-		
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-	@Test(priority = 3) 
-	void RegisterFolderRedirectionChecking() throws Exception
-	{			
-		
-		test = extent.startTest("Register Folder - KAR Form A ---------");
-		EPF_ConsolatedMethods.RegisterFolderRedirectionChecking(test, link);
-		
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-	
-	//single method
-	@Test(priority = 3) 
-	void Challan_PT_GUJFormATest() throws InterruptedException, IOException, AWTException
-	{			
-		
-		test = extent.startTest("Challan PT - Employee Name");
-		EPF_ConsolatedMethods.Challan_PT_GUJFormATest(test, link);
-		
-		
-		extent.endTest(test);
-		extent.flush();
-	}
 	
 	
 	
 	
 	
-*/	
-
-//	
-//	//ESIC
-//	@Test(priority = 1)
-//	void ESIC_AllEMPWorkings_Test() throws InterruptedException, IOException, AWTException 
-//	{
-//		test = extent.startTest("ESI Code wise - 400100 - All Emp Workings - Validate 'E E' are reflecting correctly");
-//		ESI_Methods.Challan_ESI_400100_EmployeeID(test, "Performer");
-//		
-//		test = extent.startTest("ESI Code wise - 400100 - All Emp Workings - Validate 'E R' are reflecting correctly");
-//		ESI_Methods.ESIC_AllEMPWorkings_Test1(test, "Performer");
-//		
-//		test = extent.startTest("ESI Code wise - 400100 - All Emp Workings - Validate 'TOTAL' are reflecting correctly");
-//		ESI_Methods.ESIC_AllEMPWorkings_Test3(test, "Performer");
-//		
-//		test = extent.startTest("ESI Code wise - 400100 - All Emp Workings - valiodate EE (Dwonloaded vs Downloaded Checking)");
-//		ESI_Methods.ESIC_AllEMPWorkings_Test4(test, "Performer");
-//
-//		extent.endTest(test);
-//		extent.flush();
-//	}
-//	//PF checking:
-//	@Test(priority = 2) 
-//	void PF_AllEMPWorkings_Test() throws Exception
-//	{			
-//		test = extent.startTest("PF - All Employee - PF Summary for wages details - Verify to check VPF are reflecting correctly or not ");
-//		EPF_ConsolatedMethods.PF_AllEMPWorkings_Test(test, link);
-//		
-//		extent.endTest(test);
-//		extent.flush();
-//	}
-//	// DaraNHaveli Branch 
-//	@Test(priority = 2)
-//	void PF_AllEMPWorkings_Test2() throws Exception {
-//
-//		test = extent.startTest("PF - All Employee - PF Summary for wages details - Verify to check VPF are reflecting correctly or not ");
-//		EPF_ConsolatedMethods.PF_AllEMPWorkings_Test2(test, link);
-//		
-//		test = extent.startTest("PF - All Employee - PF Summary for wages details - Verify to check EPS Wages are reflecting correctly or not ");
-//		EPF_ConsolatedMethods.PF_AllEMPWorkings_Test3(test, link);
-//		
-//		
-//		//Calculation 12%
-//		test = extent.startTest("V - 12% (EPF) A/C No 1 - row by row");
-//		EPF_ConsolatedMethods.PF_AllEMPWorkings_Test4(test, link);
-//		//Calculation 12% same TC Total
-//		test = extent.startTest("V - 12% (EPF) A/C No 1 - Total");
-//		EPF_ConsolatedMethods.PF_AllEMPWorkings_Test5(test, link);
-//
-//		extent.endTest(test);
-//		extent.flush();
-//	}
-//	
-//	
-//	//Registers: Cal
-//	@Test(priority = 2) 
-//	void RegisterFormB_Test() throws Exception
-//	{			
-//		
-//		test = extent.startTest("Register - Form B - Verify to check basic pay is reflecting as per masters or not");
-//		EPF_ConsolatedMethods.RegisterFormB_Test(test, link);
-//		
-//		
-//		extent.endTest(test);
-//		extent.flush();
-//	}
 	
 	
-//	*/
 	
 	
 	@AfterMethod

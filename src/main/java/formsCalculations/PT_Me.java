@@ -56,8 +56,8 @@ import utils.ExcelUtils;
 import utils.ExcelValueNormalizer;
 import utils.HTMLBuilder;
 
-
-public class PT_Methods extends BasePage{
+public class PT_Me extends BasePage{
+	
 	
 	static String filePath ="D:\\Labour Angular\\LabourMergeProject\\LabourMergeProject\\TestData\\Labour.xlsx";
 	
@@ -70,14 +70,12 @@ public class PT_Methods extends BasePage{
 	public static String masterFilePath = "D:\\Upload Automation Files\\BusinessScenarios\\DOCAUTOO4\\#1 Aug2025\\EmployeeMaster2.xlsx";
 	public static String salaryFile = "D:\\Upload Automation Files\\BusinessScenarios\\Month\\SampleSalary_TESTAUTO.xlsx";
 	
-
-	public static String master = null;
 	
 	
 	
 	
 	
-
+	
 	
 	
 	
@@ -363,7 +361,7 @@ public class PT_Methods extends BasePage{
 		Thread.sleep(10000);
 		
 		
-		OneCommonMethod.zoomOutScreen(3);
+//		OneCommonMethod.zoomOutScreen(3);
 		Thread.sleep(2000);
 		
 	}
@@ -1364,6 +1362,8 @@ public class PT_Methods extends BasePage{
 	
 	public static void Challan_PT_ANP_PTAmount( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadANPFile(test,"");
 //		PT_Methods.validatePTAmounts(downloadedExcelFile, test);
 		
 		Map<String, Integer> runCounts = new HashMap<>();
@@ -1373,6 +1373,8 @@ public class PT_Methods extends BasePage{
 	
 	public static void Challan_PT_BHR_PTAmount( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadBHRFile(test,"");
 //		PT_Methods.validatePTAmounts(downloadedExcelFile, test);
 		
 		Map<String, Integer> runCounts = new HashMap<>();
@@ -1381,6 +1383,10 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_GUJ_PTAmount( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadGUJFile(test,"");
+		
+		
 //		PT_Methods.validatePTAmounts(downloadedExcelFile, test);
 		
 		Map<String, Integer> runCounts = new HashMap<>();
@@ -1389,6 +1395,9 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_KAR_PTAmount( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadKARFile(test,"");
+		
 //		PT_Methods.validatePTAmounts(downloadedExcelFile, test);
 		
 		Map<String, Integer> runCounts = new HashMap<>();
@@ -1397,6 +1406,9 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_KRL_PTAmount( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadKRLFile(test,"");
+		
 //		PT_Methods.validatePTAmounts(downloadedExcelFile, test);
 		
 		Map<String, Integer> runCounts = new HashMap<>();
@@ -1405,6 +1417,9 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_MAP_PTAmount( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadMAPFile(test,"");
+		
 //		PT_Methods.validatePTAmounts(downloadedExcelFile, test);
 		
 		Map<String, Integer> runCounts = new HashMap<>();
@@ -1413,6 +1428,9 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_JAK_PTAmount( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadJAKFile(test,"");
+		
 //		PT_Methods.validatePTAmounts(downloadedExcelFile, test);
 		
 		Map<String, Integer> runCounts = new HashMap<>();
@@ -1421,6 +1439,10 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_MAH_PTAmount( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadMAHFile(test,"");
+		
+		
 //		PT_Methods.validatePTAmounts(downloadedExcelFile, test);
 		
 		
@@ -1432,6 +1454,8 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_ORS_PTAmount( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadORSFile(test,"");
 //		PT_Methods.validatePTAmounts(downloadedExcelFile, test);
 		
 		Map<String, Integer> runCounts = new HashMap<>();
@@ -1440,6 +1464,8 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_PND_PTAmount( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadPNDFile(test,"");
 //		PT_Methods.validatePTAmounts(downloadedExcelFile, test);
 		
 		Map<String, Integer> runCounts = new HashMap<>();
@@ -1449,6 +1475,8 @@ public class PT_Methods extends BasePage{
 	
 	public static void Challan_PT_PJB_PTAmount( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadPJBFile(test,"");
 //		PT_Methods.validatePTAmounts(downloadedExcelFile, test);
 		
 		Map<String, Integer> runCounts = new HashMap<>();
@@ -1457,6 +1485,9 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_TRP_PTAmount( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadTRPFile(test,"");
+		
 //		PT_Methods.validatePTAmounts(downloadedExcelFile, test);
 		
 		Map<String, Integer> runCounts = new HashMap<>();
@@ -1465,6 +1496,8 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_WEB_PTAmount( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadWEBFile(test,"");
 //		PT_Methods.validatePTAmounts(downloadedExcelFile, test);
 		
 		Map<String, Integer> runCounts = new HashMap<>();
@@ -1473,6 +1506,9 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_TMN_PTAmount( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadTMNFile(test,"");
+		
 //		PT_Methods.validatePTAmounts(downloadedExcelFile, test);
 		
 		Map<String, Integer> runCounts = new HashMap<>();
@@ -1846,11 +1882,8 @@ public class PT_Methods extends BasePage{
         );
 		
 	}
-	
-	public static void Challan_PT_ANP_EmployeeID( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	public static void downloadANPFile( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		Challan_PT_StaturyDocRedirection(test,user);
-		
 		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
 		d1.clickDownload("ANP", 1);
 		
@@ -1864,6 +1897,226 @@ public class PT_Methods extends BasePage{
         File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
         Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
         downloadedExcelFile = files[0];
+	}
+	public static void downloadBHRFile( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
+		d1.clickDownload("BHR", 1);
+		
+		Thread.sleep(5000);
+        // Step 1: Manually download file
+		formLocators.downloadDocument().click();
+        Thread.sleep(10000); // wait for file to download
+
+        // Step 2: Get latest file
+        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
+        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
+        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
+        downloadedExcelFile = files[0];
+	}
+	
+	public static void downloadGUJFile( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
+		d1.clickDownload("GUJ", 1);
+		
+		Thread.sleep(5000);
+        // Step 1: Manually download file
+		formLocators.downloadDocument().click();
+        Thread.sleep(10000); // wait for file to download
+
+        // Step 2: Get latest file
+        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
+        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
+        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
+        downloadedExcelFile = files[0];
+	}
+	
+	public static void downloadJAKFile( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
+		d1.clickDownload("JAK", 1);
+		
+		Thread.sleep(5000);
+        // Step 1: Manually download file
+		formLocators.downloadDocument().click();
+        Thread.sleep(10000); // wait for file to download
+
+        // Step 2: Get latest file
+        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
+        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
+        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
+        downloadedExcelFile = files[0];
+	}
+	
+	public static void downloadKARFile( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
+		d1.clickDownload("KAR", 1);
+		
+		Thread.sleep(5000);
+        // Step 1: Manually download file
+		formLocators.downloadDocument().click();
+        Thread.sleep(10000); // wait for file to download
+
+        // Step 2: Get latest file
+        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
+        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
+        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
+        downloadedExcelFile = files[0];
+	}
+	public static void downloadKRLFile( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
+		d1.clickDownload("KAR", 1);
+		
+		Thread.sleep(5000);
+        // Step 1: Manually download file
+		formLocators.downloadDocument().click();
+        Thread.sleep(10000); // wait for file to download
+
+        // Step 2: Get latest file
+        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
+        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
+        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
+        downloadedExcelFile = files[0];
+	}
+	public static void downloadMAPFile( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
+		d1.clickDownload("MAP", 1);
+		
+		Thread.sleep(5000);
+        // Step 1: Manually download file
+		formLocators.downloadDocument().click();
+        Thread.sleep(10000); // wait for file to download
+
+        // Step 2: Get latest file
+        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
+        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
+        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
+        downloadedExcelFile = files[0];
+	}
+	
+	public static void downloadMAHFile( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
+		d1.clickDownload("MAH", 1);
+		
+		Thread.sleep(5000);
+        // Step 1: Manually download file
+		formLocators.downloadDocument().click();
+        Thread.sleep(10000); // wait for file to download
+
+        // Step 2: Get latest file
+        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
+        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
+        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
+        downloadedExcelFile = files[0];
+	}
+	public static void downloadORSFile( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
+		d1.clickDownload("ORS", 1);
+		
+		Thread.sleep(5000);
+        // Step 1: Manually download file
+		formLocators.downloadDocument().click();
+        Thread.sleep(10000); // wait for file to download
+
+        // Step 2: Get latest file
+        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
+        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
+        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
+        downloadedExcelFile = files[0];
+	}
+	public static void downloadPNDFile( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
+		d1.clickDownload("PND", 1);
+		
+		Thread.sleep(5000);
+        // Step 1: Manually download file
+		formLocators.downloadDocument().click();
+        Thread.sleep(10000); // wait for file to download
+
+        // Step 2: Get latest file
+        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
+        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
+        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
+        downloadedExcelFile = files[0];
+	}
+	public static void downloadPJBFile( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
+		d1.clickDownload("PJB", 1);
+		
+		Thread.sleep(5000);
+        // Step 1: Manually download file
+		formLocators.downloadDocument().click();
+        Thread.sleep(10000); // wait for file to download
+
+        // Step 2: Get latest file
+        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
+        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
+        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
+        downloadedExcelFile = files[0];
+	}
+	public static void downloadTMNFile( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
+		d1.clickDownload("TMN", 1);
+		
+		Thread.sleep(5000);
+        // Step 1: Manually download file
+		formLocators.downloadDocument().click();
+        Thread.sleep(10000); // wait for file to download
+
+        // Step 2: Get latest file
+        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
+        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
+        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
+        downloadedExcelFile = files[0];
+	}
+	public static void downloadTRPFile( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
+		d1.clickDownload("TRP", 1);
+		
+		Thread.sleep(5000);
+        // Step 1: Manually download file
+		formLocators.downloadDocument().click();
+        Thread.sleep(10000); // wait for file to download
+
+        // Step 2: Get latest file
+        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
+        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
+        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
+        downloadedExcelFile = files[0];
+	}
+	public static void downloadWEBFile( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
+		d1.clickDownload("WEB", 1);
+		
+		Thread.sleep(5000);
+        // Step 1: Manually download file
+		formLocators.downloadDocument().click();
+        Thread.sleep(10000); // wait for file to download
+
+        // Step 2: Get latest file
+        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
+        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
+        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
+        downloadedExcelFile = files[0];
+	}
+	
+	public static void Challan_PT_ANP_EmployeeID( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadANPFile(test,"");
+		
+
         
         
         
@@ -1927,21 +2180,8 @@ public class PT_Methods extends BasePage{
 //		Challan_PT_StaturyDocRedirection(test,user);
 		
 		
-		formLocators.closeXbutton().click();
-		Thread.sleep(5000);
-		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
-		d1.clickDownload("WEB", 1);
-		
-		Thread.sleep(5000);
-        // Step 1: Manually download file
-		formLocators.downloadDocument().click();
-        Thread.sleep(10000); // wait for file to download
-
-        // Step 2: Get latest file
-        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
-        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
-        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
-        downloadedExcelFile = files[0];
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadWEBFile(test,"");
         
         
         
@@ -2003,22 +2243,13 @@ public class PT_Methods extends BasePage{
 	public static void Challan_PT_BHR_EmployeeID( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 //		Challan_PT_StaturyDocRedirection(test,user);
-		formLocators.closeXbutton().click();
-		Thread.sleep(5000);
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadBHRFile(test,"");
 		
-		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
-		d1.clickDownload("BHR", 1);
 		
-		Thread.sleep(5000);
-        // Step 1: Manually download file
-		formLocators.downloadDocument().click();
-        Thread.sleep(10000); // wait for file to download
+		
+		
 
-        // Step 2: Get latest file
-        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
-        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
-        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
-        downloadedExcelFile = files[0];
         
         
         
@@ -2078,23 +2309,8 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_GUJ_EmployeeID( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-//		Challan_PT_StaturyDocRedirection(test,user);
-		formLocators.closeXbutton().click();
-		Thread.sleep(5000);
-		
-		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
-		d1.clickDownload("GUJ", 1);
-		
-		Thread.sleep(5000);
-        // Step 1: Manually download file
-		formLocators.downloadDocument().click();
-        Thread.sleep(10000); // wait for file to download
-
-        // Step 2: Get latest file
-        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
-        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
-        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
-        downloadedExcelFile = files[0];
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadGUJFile(test,"");
         
         
         
@@ -2155,22 +2371,8 @@ public class PT_Methods extends BasePage{
 	public static void Challan_PT_MAH_EmployeeID( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 //		Challan_PT_StaturyDocRedirection(test,user);
-		formLocators.closeXbutton().click();
-		Thread.sleep(5000);
-		
-		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
-		d1.clickDownload("MAH", 1);
-		
-		Thread.sleep(5000);
-        // Step 1: Manually download file
-		formLocators.downloadDocument().click();
-        Thread.sleep(10000); // wait for file to download
-
-        // Step 2: Get latest file
-        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
-        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
-        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
-        downloadedExcelFile = files[0];
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadMAHFile(test,"");
         
         
         
@@ -2231,22 +2433,8 @@ public class PT_Methods extends BasePage{
 	public static void Challan_PT_ORS_EmployeeID( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 //		Challan_PT_StaturyDocRedirection(test,user);
-		formLocators.closeXbutton().click();
-		Thread.sleep(5000);
-		
-		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
-		d1.clickDownload("ORS", 1);
-		
-		Thread.sleep(5000);
-        // Step 1: Manually download file
-		formLocators.downloadDocument().click();
-        Thread.sleep(10000); // wait for file to download
-
-        // Step 2: Get latest file
-        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
-        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
-        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
-        downloadedExcelFile = files[0];
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadORSFile(test,"");
         
         
         
@@ -2307,22 +2495,8 @@ public class PT_Methods extends BasePage{
 	public static void Challan_PT_PND_EmployeeID( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 //		Challan_PT_StaturyDocRedirection(test,user);
-		formLocators.closeXbutton().click();
-		Thread.sleep(5000);
-		
-		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
-		d1.clickDownload("PND", 1);
-		
-		Thread.sleep(5000);
-        // Step 1: Manually download file
-		formLocators.downloadDocument().click();
-        Thread.sleep(10000); // wait for file to download
-
-        // Step 2: Get latest file
-        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
-        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
-        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
-        downloadedExcelFile = files[0];
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadPNDFile(test,"");
         
         
         
@@ -2383,22 +2557,8 @@ public class PT_Methods extends BasePage{
 	public static void Challan_PT_TMN_EmployeeID( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 //		Challan_PT_StaturyDocRedirection(test,user);
-		formLocators.closeXbutton().click();
-		Thread.sleep(5000);
-		
-		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
-		d1.clickDownload("TMN", 1);
-		
-		Thread.sleep(5000);
-        // Step 1: Manually download file
-		formLocators.downloadDocument().click();
-        Thread.sleep(10000); // wait for file to download
-
-        // Step 2: Get latest file
-        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
-        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
-        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
-        downloadedExcelFile = files[0];
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadTMNFile(test,"");
         
         
         
@@ -2459,22 +2619,8 @@ public class PT_Methods extends BasePage{
 	public static void Challan_PT_PJB_EmployeeID( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 //		Challan_PT_StaturyDocRedirection(test,user);
-		formLocators.closeXbutton().click();
-		Thread.sleep(5000);
-		
-		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
-		d1.clickDownload("PJB", 1);
-		
-		Thread.sleep(5000);
-        // Step 1: Manually download file
-		formLocators.downloadDocument().click();
-        Thread.sleep(10000); // wait for file to download
-
-        // Step 2: Get latest file
-        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
-        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
-        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
-        downloadedExcelFile = files[0];
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadPJBFile(test,"");
         
         
         
@@ -2535,22 +2681,8 @@ public class PT_Methods extends BasePage{
 	public static void Challan_PT_TRP_EmployeeID( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 //		Challan_PT_StaturyDocRedirection(test,user);
-		formLocators.closeXbutton().click();
-		Thread.sleep(5000);
-		
-		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
-		d1.clickDownload("TRP", 1);
-		
-		Thread.sleep(5000);
-        // Step 1: Manually download file
-		formLocators.downloadDocument().click();
-        Thread.sleep(10000); // wait for file to download
-
-        // Step 2: Get latest file
-        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
-        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
-        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
-        downloadedExcelFile = files[0];
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadTRPFile(test,"");
         
         
         
@@ -2596,23 +2728,8 @@ public class PT_Methods extends BasePage{
 	
 	public static void Challan_PT_KAR_EmployeeID( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-//		Challan_PT_StaturyDocRedirection(test,user);
-		formLocators.closeXbutton().click();
-		Thread.sleep(5000);
-		
-		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
-		d1.clickDownload("KAR", 1);
-		
-		Thread.sleep(5000);
-        // Step 1: Manually download file
-		formLocators.downloadDocument().click();
-        Thread.sleep(10000); // wait for file to download
-
-        // Step 2: Get latest file
-        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
-        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
-        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
-        downloadedExcelFile = files[0];
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadKARFile(test,"");
         
         
         
@@ -2673,22 +2790,8 @@ public class PT_Methods extends BasePage{
 	public static void Challan_PT_KRL_EmployeeID( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 //		Challan_PT_StaturyDocRedirection(test,user);
-		formLocators.closeXbutton().click();
-		Thread.sleep(5000);
-		
-		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
-		d1.clickDownload("KRL", 1);
-		
-		Thread.sleep(5000);
-        // Step 1: Manually download file
-		formLocators.downloadDocument().click();
-        Thread.sleep(10000); // wait for file to download
-
-        // Step 2: Get latest file
-        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
-        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
-        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
-        downloadedExcelFile = files[0];
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadKRLFile(test,"");
         
         
         
@@ -2749,22 +2852,8 @@ public class PT_Methods extends BasePage{
 	public static void Challan_PT_MAP_EmployeeID( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 //		Challan_PT_StaturyDocRedirection(test,user);
-		formLocators.closeXbutton().click();
-		Thread.sleep(5000);
-		
-		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
-		d1.clickDownload("MAP", 1);
-		
-		Thread.sleep(5000);
-        // Step 1: Manually download file
-		formLocators.downloadDocument().click();
-        Thread.sleep(10000); // wait for file to download
-
-        // Step 2: Get latest file
-        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
-        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
-        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
-        downloadedExcelFile = files[0];
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadMAPFile(test,"");
         
         
         
@@ -2825,23 +2914,9 @@ public class PT_Methods extends BasePage{
 	
 	public static void Challan_PT_JAK_EmployeeID( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-//		Challan_PT_StaturyDocRedirection(test,user);
-		formLocators.closeXbutton().click();
-		Thread.sleep(5000);
-		
-		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
-		d1.clickDownload("JAK", 1);
-		
-		Thread.sleep(5000);
-        // Step 1: Manually download file
-		formLocators.downloadDocument().click();
-        Thread.sleep(10000); // wait for file to download
 
-        // Step 2: Get latest file
-        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
-        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
-        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
-        downloadedExcelFile = files[0];
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadJAKFile(test,"");
         
         
         
@@ -2904,9 +2979,10 @@ public class PT_Methods extends BasePage{
 	{
 		
 		
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadANPFile(test,"");
 		
 		
-		 
 		String targetHeaderKeyword = "Emp Name";
 		int targetColumnIndex = 2;
 		String targetSheetName = "PTChallan";
@@ -2962,6 +3038,9 @@ public class PT_Methods extends BasePage{
 	public static void Challan_PT_BHR_EmployeeName( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		 
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadBHRFile(test,"");
+		
 		String targetHeaderKeyword = "Emp Name";
 		int targetColumnIndex = 2;
 		String targetSheetName = "PTChallan";
@@ -3016,6 +3095,10 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_MAH_EmployeeName( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadMAHFile(test,"");
+		
+		
 		 
 		String targetHeaderKeyword = "Emp Name";
 		int targetColumnIndex = 2;
@@ -3071,7 +3154,9 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_ORS_EmployeeName( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		 
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadORSFile(test,"");
+		
 		String targetHeaderKeyword = "Emp Name";
 		int targetColumnIndex = 2;
 		String targetSheetName = "PTChallan";
@@ -3126,7 +3211,9 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_PJB_EmployeeName( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		 
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadPJBFile(test,"");
+		
 		String targetHeaderKeyword = "Emp Name";
 		int targetColumnIndex = 2;
 		String targetSheetName = "PTChallan";
@@ -3181,7 +3268,8 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_TRP_EmployeeName( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		 
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadTRPFile(test,"");
 		
 		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile, 
@@ -3220,6 +3308,8 @@ public class PT_Methods extends BasePage{
 	public static void Challan_PT_WEB_EmployeeName( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		 
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadWEBFile(test,"");
 		
 		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile, 
@@ -3257,6 +3347,8 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_TMN_EmployeeName( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadTMNFile(test,"");
 		
 		String targetSheetName     = "PTChallan";
 		int targetColumnIndex      = 2;
@@ -3306,6 +3398,9 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_GUJ_EmployeeName( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadGUJFile(test,"");
+		
 		
 		String targetSheetName     = "PTChallan";
 		int targetColumnIndex      = 2;
@@ -3355,7 +3450,9 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_PND_EmployeeName( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		 
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadPNDFile(test,"");
+		
 		String targetHeaderKeyword = "Emp Name";
 		int targetColumnIndex = 2;
 		String targetSheetName = "PTChallan";
@@ -3410,7 +3507,10 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_KAR_EmployeeName( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		 
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadKARFile(test,""); 
+		
+		
 		String targetHeaderKeyword = "Emp Name";
 		int targetColumnIndex = 2;
 		String targetSheetName = "PTChallan";
@@ -3465,7 +3565,10 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_KRL_EmployeeName( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		 
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadKRLFile(test,""); 
+		
+		
 		String targetHeaderKeyword = "Emp Name";
 		int targetColumnIndex = 2;
 		String targetSheetName = "PTChallan";
@@ -3520,6 +3623,10 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_MAP_EmployeeName( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadMAPFile(test,"");
+		
+		
 		 
 		String targetHeaderKeyword = "Emp Name";
 		int targetColumnIndex = 2;
@@ -3575,7 +3682,11 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_JAK_EmployeeName( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		 
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadJAKFile(test,""); 
+		
+		
+		
 		String targetHeaderKeyword = "Emp Name";
 		int targetColumnIndex = 2;
 		String targetSheetName = "PTChallan";
@@ -3630,6 +3741,8 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_ANP_Gender( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadANPFile(test,"");
 		 
 		String targetHeaderKeyword = "Gender";
 		int targetColumnIndex = 3;
@@ -3685,6 +3798,8 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_BHR_Gender( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadBHRFile(test,"");
 		 
 		String targetHeaderKeyword = "Gender";
 		int targetColumnIndex = 3;
@@ -3740,7 +3855,9 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_MAH_Gender( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		 
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadMAHFile(test,"");
+		
 		String targetHeaderKeyword = "Gender";
 		int targetColumnIndex = 3;
 		String targetSheetName = "PTChallan";
@@ -3796,6 +3913,9 @@ public class PT_Methods extends BasePage{
 	public static void Challan_PT_ORS_Gender( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		 
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadORSFile(test,"");
+		
 		String targetHeaderKeyword = "Gender";
 		int targetColumnIndex = 3;
 		String targetSheetName = "PTChallan";
@@ -3850,7 +3970,10 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_PND_Gender( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		 
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadPNDFile(test,"");
+		
+		
 		String targetHeaderKeyword = "Gender";
 		int targetColumnIndex = 3;
 		String targetSheetName = "PTChallan";
@@ -3905,7 +4028,9 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_PJB_Gender( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		 
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadPJBFile(test,"");
+		
 		String targetHeaderKeyword = "Gender";
 		int targetColumnIndex = 3;
 		String targetSheetName = "PTChallan";
@@ -3961,6 +4086,8 @@ public class PT_Methods extends BasePage{
 	public static void Challan_PT_TRP_Gender( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		 
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadTRPFile(test,"");
 		
 		final List<ExcelF> filterRules = new ArrayList<>(Arrays.asList(
 		    new ExcelF(38, Arrays.asList("Active")),
@@ -4004,7 +4131,9 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_WEB_Gender( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		 
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadWEBFile(test,"");
+		
 		
 		final List<ExcelF> filterRules = new ArrayList<>(Arrays.asList(
 		    new ExcelF(38, Arrays.asList("Active")),
@@ -4048,7 +4177,9 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_TMN_Gender( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		 
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadTMNFile(test,"");
+		
 		
 		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
@@ -4077,7 +4208,10 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_GUJ_Gender( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		 
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadGUJFile(test,""); 
+		
+		
 		
 		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
@@ -4106,7 +4240,10 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_KAR_Gender( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		 
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadKARFile(test,""); 
+		
+		
 		String targetHeaderKeyword = "Gender";
 		int targetColumnIndex = 3;
 		String targetSheetName = "PTChallan";
@@ -4161,6 +4298,9 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_KRL_Gender( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadKRLFile(test,"");
+		
 		 
 		String targetHeaderKeyword = "Gender";
 		int targetColumnIndex = 3;
@@ -4217,6 +4357,10 @@ public class PT_Methods extends BasePage{
 	public static void Challan_PT_MAP_Gender( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		 
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadMAPFile(test,"");
+		
+		
 		String targetHeaderKeyword = "Gender";
 		int targetColumnIndex = 3;
 		String targetSheetName = "PTChallan";
@@ -4271,6 +4415,9 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_JAK_Gender( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadJAKFile(test,"");
+		
 		 
 		String targetHeaderKeyword = "Gender";
 		int targetColumnIndex = 3;
@@ -4326,6 +4473,8 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_ANP_PTState( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadANPFile(test,"");
 		 
 		String targetHeaderKeyword = "PT State";
 		int targetColumnIndex = 4;
@@ -4387,6 +4536,10 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_BHR_PTState( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadBHRFile(test,"");
+		
+		
 		 
 		String targetHeaderKeyword = "PT State";
 		int targetColumnIndex = 4;
@@ -4448,6 +4601,9 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_GUJ_PTState( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadGUJFile(test,"");
+		
 		 
 		String targetHeaderKeyword = "PT State";
 		int targetColumnIndex = 4;
@@ -4509,7 +4665,10 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_MAH_PTState( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		 
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadMAHFile(test,""); 
+		
+		
 		String targetHeaderKeyword = "PT State";
 		int targetColumnIndex = 4;
 		String targetSheetName = "PTChallan";
@@ -4570,6 +4729,9 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_ORS_PTState( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadORSFile(test,"");
 		 
 		String targetHeaderKeyword = "PT State";
 		int targetColumnIndex = 4;
@@ -4632,6 +4794,9 @@ public class PT_Methods extends BasePage{
 	public static void Challan_PT_PND_PTState( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		 
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadPNDFile(test,"");
+		
 		String targetHeaderKeyword = "PT State";
 		int targetColumnIndex = 4;
 		String targetSheetName = "PTChallan";
@@ -4692,7 +4857,9 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_PJB_PTState( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		 
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadPJBFile(test,"");
+		
 		String targetHeaderKeyword = "PT State";
 		int targetColumnIndex = 4;
 		String targetSheetName = "PTChallan";
@@ -4754,6 +4921,8 @@ public class PT_Methods extends BasePage{
 	public static void Challan_PT_TRP_PTState( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		 
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadTRPFile(test,"");
 		
 		ExcelExtraConfig cfg = new ExcelExtraConfig("", 0, "");
 		cfg.setEnableSmartTextMatch("YES");
@@ -4806,7 +4975,8 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_WEB_PTState( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		 
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadWEBFile(test,"");
 		
 		ExcelExtraConfig cfg = new ExcelExtraConfig("", 0, "");
 		cfg.setEnableSmartTextMatch("YES");
@@ -4859,6 +5029,9 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_TMN_PTState( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadTMNFile(test,"");
+		
 		// --- Extra config prepared first (explicit flags set early) ---
 		ExcelExtraConfig cfg = new ExcelExtraConfig("", 0, "");
 		cfg.setEnableSmartTextMatch("YES");
@@ -4902,7 +5075,10 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_KAR_PTState( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		 
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadKARFile(test,""); 
+		
+		
 		String targetHeaderKeyword = "PT State";
 		int targetColumnIndex = 4;
 		String targetSheetName = "PTChallan";
@@ -4963,6 +5139,10 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_KRL_PTState( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadKRLFile(test,"");
+		
+		
 		 
 		String targetHeaderKeyword = "PT State";
 		int targetColumnIndex = 4;
@@ -5024,7 +5204,11 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_MAP_PTState( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		 
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadMAPFile(test,""); 
+		
+		
+		
 		String targetHeaderKeyword = "PT State";
 		int targetColumnIndex = 4;
 		String targetSheetName = "PTChallan";
@@ -5085,6 +5269,9 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_JAK_PTState( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadJAKFile(test,"");
+		
 		 
 		String targetHeaderKeyword = "PT State";
 		int targetColumnIndex = 4;
@@ -5147,6 +5334,8 @@ public class PT_Methods extends BasePage{
 	
 	public static void Challan_PT_ANP_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadANPFile(test,"");
 		 
 		List<ExcelF> af = new ArrayList<>();
 
@@ -5207,6 +5396,8 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_ANP_PTGrossWages( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadANPFile(test,"");
 		 
 		List<ExcelF> af = new ArrayList<>();
 
@@ -5268,6 +5459,10 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_BHR_PTGrossWages( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadBHRFile(test,"");
+		
+		
 		
 		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
@@ -5296,6 +5491,10 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_GUJ_PTGrossWages( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadGUJFile(test,"");
+		
+		
 		
 		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
@@ -5324,6 +5523,9 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_JAK_PTGrossWages( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadJAKFile(test,"");
+		
 		
 		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
@@ -5352,6 +5554,10 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_KRL_PTGrossWages( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadKRLFile(test,"");
+		
+		
 		
 		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
@@ -5380,6 +5586,9 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_MAP_PTGrossWages( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadMAPFile(test,"");
+		
 		
 		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
@@ -5409,6 +5618,9 @@ public class PT_Methods extends BasePage{
 	public static void Challan_PT_ORS_PTGrossWages( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadORSFile(test,"");
+		
 		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
@@ -5436,6 +5648,9 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_PND_PTGrossWages( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadPNDFile(test,"");
+		
 		
 		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
@@ -5465,6 +5680,10 @@ public class PT_Methods extends BasePage{
 	public static void Challan_PT_TMN_PTGrossWages( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadTMNFile(test,"");
+		
+		
 		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
@@ -5493,6 +5712,9 @@ public class PT_Methods extends BasePage{
 	public static void Challan_PT_TRP_PTGrossWages( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadTRPFile(test,"");
+		
 		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
 		    test,
@@ -5520,6 +5742,8 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_WEB_PTGrossWages( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadWEBFile(test,"");
 		
 		UtilisOne.validateExcelBusinessData(
 		    downloadedExcelFile,
@@ -5548,6 +5772,10 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_KAR_PTGrossWages( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadKARFile(test,"");
+		
+		
 		
 		final int colAA = ExcelUtils.columnLetterToIndex("AA");
 		final int colAC = ExcelUtils.columnLetterToIndex("AC");
@@ -5594,6 +5822,10 @@ public class PT_Methods extends BasePage{
 	public static void Challan_PT_MAH_PTGrossWages( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadMAHFile(test,"");
+		
+		
 		final int colAA = ExcelUtils.columnLetterToIndex("AA");
 		final int colAC = ExcelUtils.columnLetterToIndex("AC");
 
@@ -5638,6 +5870,9 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_PJB_PTGrossWages( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadPJBFile(test,"");
+		
 		
 		final int colAA = ExcelUtils.columnLetterToIndex("AA");
 		final int colAC = ExcelUtils.columnLetterToIndex("AC");
@@ -5683,6 +5918,8 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_BHR_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadBHRFile(test,"");
 		 
 		List<ExcelF> af = new ArrayList<>();
 
@@ -5743,6 +5980,11 @@ public class PT_Methods extends BasePage{
 	}	
 	public static void Challan_PT_GUJ_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadGUJFile(test,"");
+		
+		
+		
 		 
 		List<ExcelF> af = new ArrayList<>();
 
@@ -5803,6 +6045,9 @@ public class PT_Methods extends BasePage{
 	}	
 	public static void Challan_PT_MAH_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadMAHFile(test,"");
+		
 		 
 		List<ExcelF> af = new ArrayList<>();
 
@@ -5864,6 +6109,9 @@ public class PT_Methods extends BasePage{
 	public static void Challan_PT_ORS_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		 
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadORSFile(test,"");
+		
 		List<ExcelF> af = new ArrayList<>();
 
 		 
@@ -5923,14 +6171,17 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_PND_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		 
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadPNDFile(test,"");
+		
+		
 		List<ExcelF> af = new ArrayList<>();
 
 		 
 		af.add(new ExcelF(38, Arrays.asList("Active")));
 
 		 
-		af.add(new ExcelF(9, Arrays.asList("PND")));
+		af.add(new ExcelF(9, Arrays.asList("ORS")));
 
 		 
 		af.add(new ExcelF(58, Arrays.asList("Yes")));
@@ -5984,7 +6235,9 @@ public class PT_Methods extends BasePage{
 	
 	public static void Challan_PT_PJB_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		 
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadPJBFile(test,"");
+		
 		List<ExcelF> af = new ArrayList<>();
 
 		 
@@ -6044,6 +6297,8 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_TRP_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadTRPFile(test,"");
 		
 		final ExcelTargetValidation tgt = new ExcelTargetValidation(
 		    "PTChallan",   
@@ -6087,6 +6342,8 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_WEB_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadWEBFile(test,"");
 		
 		final ExcelTargetValidation tgt = new ExcelTargetValidation(
 		    "PTChallan",   
@@ -6130,7 +6387,9 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_TMN_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		 
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadTMNFile(test,"");
+		
 		
 		List<ExcelF> filtersList = Arrays.asList(
 		    new ExcelF(38, Arrays.asList("Active")),
@@ -6182,6 +6441,9 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_KAR_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadKARFile(test,"");
+		
 		 
 		List<ExcelF> af = new ArrayList<>();
 
@@ -6242,7 +6504,11 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_KRL_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		 
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadKRLFile(test,""); 
+		
+		
+		
 		List<ExcelF> af = new ArrayList<>();
 
 		 
@@ -6302,7 +6568,11 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_MAP_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		 
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadMAPFile(test,""); 
+		
+		
+		
 		List<ExcelF> af = new ArrayList<>();
 
 		 
@@ -6362,6 +6632,9 @@ public class PT_Methods extends BasePage{
 	}
 	public static void Challan_PT_JAK_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
+		Challan_PT_StaturyDocRedirection(test,user);
+		downloadJAKFile(test,"");
+		
 		 
 		List<ExcelF> af = new ArrayList<>();
 
@@ -6420,6 +6693,13 @@ public class PT_Methods extends BasePage{
 		);
 
 	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

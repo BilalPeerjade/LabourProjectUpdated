@@ -6,7 +6,7 @@ public class ExcelTargetValidation {
 	private String sheetName;
 	private int columnIndex;
 	
-	private String headerKeyword; //for Report HTML table (Enhancement added) this will capture header A B C D in html report
+	private String headerKeyword; //for Report table (Enhancement added) this will capture header A B C D in  report
 	
 	private String keyword;
 	private int rowOffset;

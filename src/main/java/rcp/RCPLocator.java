@@ -196,7 +196,7 @@ public class RCPLocator extends BasePage
 		labour = getDriver().findElement(By.xpath("//button[normalize-space()='Back']"));
 		return labour;
 	}
-	public static WebElement EditBtn()		//Method for searching Username input
+	public static WebElement editBtn()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("(//img[@title='Edit'])"));
 		return labour;
@@ -204,6 +204,11 @@ public class RCPLocator extends BasePage
 	public static WebElement documentSection()	
 	{
 		labour = getDriver().findElement(By.xpath("//a[normalize-space()='Document Section']"));
+		return labour;
+	}
+	public static WebElement plus1_OTActivity()	
+	{
+		labour = getDriver().findElement(By.xpath("(//img[@class='svg-icon-btn'])[1]"));
 		return labour;
 	}
 	public static WebElement plus2()	

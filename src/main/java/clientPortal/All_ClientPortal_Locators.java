@@ -1965,9 +1965,19 @@ public static WebElement clickLicense()		//Method for searching Username input
 		return labour;
 	}
 	
-	public static WebElement CriticalDocuments()		//Method for searching Username input
+	public static WebElement criticalDocuments()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//span[normalize-space(.)='Critical Documents']"));
+		return labour;
+	}
+	public static WebElement criticalDocumentDeleteBtn()
+	{
+		labour = getDriver().findElement(By.xpath("(//img[@title='Delete'])[1]"));
+		return labour;
+	}
+	public static WebElement criticalDocumentCancelBtn()
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='Cancel']"));
 		return labour;
 	}
 	public static WebElement CheckBox1()		//Method for searching Username input

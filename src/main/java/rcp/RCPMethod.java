@@ -846,10 +846,10 @@ public class RCPMethod extends BasePage
 			RCPLocator.clickRegistration().click();
 			
 			Thread.sleep(3000);
-			if(RCPLocator.EditBtn().isEnabled())
+			if(RCPLocator.editBtn().isEnabled())
 			{
 				Thread.sleep(3000);
-				RCPLocator.EditBtn().click();
+				RCPLocator.editBtn().click();
 				test.log(LogStatus.PASS, "Edit button is clickable.");
 				
 			}
@@ -871,7 +871,7 @@ public class RCPMethod extends BasePage
 			Thread.sleep(8000);
 			RCPLocator.clickRegistration().click();
 			Thread.sleep(5000);
-			RCPLocator.EditBtn().click();
+			RCPLocator.editBtn().click();
 			
 /*			RCPLocator.submittedToDeptBtn();
 			
@@ -964,7 +964,7 @@ public class RCPMethod extends BasePage
 			//If req we can enable below line
 //			getDriver().findElement(By.xpath("//span[normalize-space()='Applied and Awaiting Dept Approval']")).click();
 			Thread.sleep(5000);
-			RCPLocator.EditBtn().click();
+			RCPLocator.editBtn().click();
 			
 			
 /*			RCPLocator.closureButton();
@@ -1100,7 +1100,7 @@ public class RCPMethod extends BasePage
 			Thread.sleep(8000);
 			RCPLocator.clickRegistration().click();
 			Thread.sleep(5000);
-			RCPLocator.EditBtn().click();
+			RCPLocator.editBtn().click();
 			Thread.sleep(5000);
 			RCPLocator.documentSection().click();
 			Thread.sleep(5000);
@@ -1506,7 +1506,30 @@ public class RCPMethod extends BasePage
 		
 	 
 	 
-	 
+		 public static void editDocumentSectionDocReqOTActivity(ExtentTest test) throws Exception
+			{
+
+				getDriver().navigate().refresh();
+				JavascriptExecutor js = (JavascriptExecutor) getDriver();
+
+				Thread.sleep(8000);
+				RCPLocator.clickRegistration().click();
+				Thread.sleep(5000);
+				RCPLocator.editBtn().click();
+				
+				Thread.sleep(8000);
+				RCPLocator.documentSection().click();
+				Thread.sleep(5000);
+				RCPLocator.plus1_OTActivity().click();
+				
+				if(RCPLocator.clickSubmit().isDisplayed()) {
+					test.log(LogStatus.PASS,  "Document Requirements for the OT Activity is working fine"); 
+				}
+				else {
+					test.log(LogStatus.PASS,  "Document Requirements for the OT Activity - Submit button is not displayed");
+				}
+				
+			}
 	 
 	 
 	 
@@ -1523,7 +1546,7 @@ public class RCPMethod extends BasePage
 			Thread.sleep(8000);
 			RCPLocator.clickRegistration().click();
 			Thread.sleep(5000);
-			RCPLocator.EditBtn().click();
+			RCPLocator.editBtn().click();
 			
 			Thread.sleep(8000);
 			String BasicInfo = getDriver().findElement(By.xpath("//button[normalize-space()='Submitted to department']")).getText();

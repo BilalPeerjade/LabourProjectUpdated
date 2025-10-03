@@ -96,21 +96,52 @@ public class ESI extends BasePage{
 	
 	
 	
-/*	@Test(priority = 1)
-	void ESIC_AllEMPWorkings_EmployeeNo() throws InterruptedException, IOException, AWTException 
+	@Test(priority = 1)
+	void challan_ESI_400100_ALL_EmployeeID() throws InterruptedException, IOException, AWTException 
 	{
 		test = extent.startTest("ESI Code wise - 400100 - All Emp Workings - Validate Employee No are reflecting correctly");
-		ESI_Methods.Challan_ESI_400100_EmployeeID(test, "Performer");
+		ESI_Methods.challan_ESI_400100_ALL_EmployeeID(test, "Performer");
 
 		extent.endTest(test);
 		extent.flush();
-	} */
+	} 
+	@Test(priority = 1)
+	void challan_ESI_400100_EmployeeName() throws InterruptedException, IOException, AWTException 
+	{
+		test = extent.startTest("ESI Code wise - 400100 - All Emp Workings - Validate Employee Names are reflecting correctly");
+		ESI_Methods.challan_ESI_400100_EmployeeName(test, "Performer");
+		extent.endTest(test);
+		extent.flush();
+	}
+	@Test(priority = 1)
+	void challan_ESI_400100_Location() throws InterruptedException, IOException, AWTException 
+	{
+		test = extent.startTest("ESI Code wise - 400100 - All Emp Workings - Validate Locations are reflecting correctly");
+		ESI_Methods.challan_ESI_400100_Location(test, "Performer");
+		extent.endTest(test);
+		extent.flush();
+	}
 	
+//	@Test(priority = 1) //Not working
+//	void challan_ESI_400100_DOJ() throws InterruptedException, IOException, AWTException 
+//	{
+//		test = extent.startTest("ESI Code wise - 400100 - All Emp Workings - Validate DOJ are reflecting correctly");
+//		ESI_Methods.challan_ESI_400100_DOJ(test, "Performer");
+//		extent.endTest(test);
+//		extent.flush();
+//	}
 	
+
 	
-	
-	
-	
+//	@Test(priority = 1)
+//	void challan_ESI_400100_Remittence_EmployeeID() throws InterruptedException, IOException, AWTException 
+//	{
+//		test = extent.startTest("ESI Code wise - 400100 - Remittence - Validate Employee No are reflecting correctly");
+//		ESI_Methods.challan_ESI_400100_Remittence_EmployeeID(test, "Performer");
+//
+//		extent.endTest(test);
+//		extent.flush();
+//	} 
 	
 	
 	

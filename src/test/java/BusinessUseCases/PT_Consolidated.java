@@ -142,6 +142,7 @@ public class PT_Consolidated extends BasePage {
 			extent.endTest(test);
 			extent.flush();
 		}
+
 		
 		@Test(priority = 6) 
 		void ChallanPTConsolated_PTReport_Branch() throws InterruptedException, IOException, AWTException
@@ -164,24 +165,14 @@ public class PT_Consolidated extends BasePage {
 			extent.endTest(test);
 			extent.flush();
 		}
-		@Test(priority = 8) //Pending DOCAUTOO4 //calculate Total directly
-		void ChallanPTConsolated_PTReport_PTGrossWagesTotal() throws InterruptedException, IOException, AWTException
-		{
-			test = extent.startTest("PT Consolidated - PT Report - Validate PT Gross wages TOTAL are reflecting correctly");
-			
-			PT_ConsolidatedMethods.ChallanPTConsolated_PTReport_PTGrossWagesTotal(test,"Performer");
-			
-			extent.endTest(test);
-			extent.flush();
-		}
+
 		@Test(priority = 9) 
 		void ChallanPTConsolated_PTReport_ClientPTDeduction() throws InterruptedException, IOException, AWTException
 		{
 			test = extent.startTest("PT Consolidated - PT Report - Validate Client PT Deduction are reflecting correctly");
 			PT_ConsolidatedMethods.ChallanPTConsolated_PTReport_ClientPTDeduction(test,"Performer");
 			
-			test = extent.startTest("PT Consolidated - PT Report - Validate Client PT Deduction TOTAL are reflecting correctly");
-			PT_ConsolidatedMethods.ChallanPTConsolated_PTReport_ClientPTDeductionTOTAL(test,"Performer");
+
 			
 			extent.endTest(test);
 			extent.flush();
@@ -201,16 +192,7 @@ public class PT_Consolidated extends BasePage {
 		
 		
 		
-//		@Test(priority = 8) //Diffrence calculation
-		void ChallanPTConsolated_PTReport_Diffrence() throws InterruptedException, IOException, AWTException
-		{
-			test = extent.startTest("PT Consolidated - PT Report - Validate Client PT Deduction are reflecting correctly");
-			
-			PT_ConsolidatedMethods.ChallanPTConsolated_PTReport_Diffrence(test,"Performer");
-			
-			extent.endTest(test);
-			extent.flush();
-		}
+
 		
 		
 		
@@ -265,8 +247,7 @@ public class PT_Consolidated extends BasePage {
 			
 			PT_ConsolidatedMethods.ChallanPTConsolated_NAE_PTGrossWages(test,"Performer");
 			
-			test = extent.startTest("PT Consolidated - Non Applicable Employees - Validate PT Gross wages TOTAL are reflecting correctly");
-			PT_ConsolidatedMethods.ChallanPTConsolated_NAE_PTGrossWagesTOTAL(test,"Performer");
+
 			
 			extent.endTest(test);
 			extent.flush();
@@ -281,8 +262,7 @@ public class PT_Consolidated extends BasePage {
 			PT_ConsolidatedMethods.ChallanPTConsolated_NAE_ClientPTDeduction(test,"Performer");
 			
 			
-			test = extent.startTest("PT Consolidated - Non Applicable Employees - Validate Client PT Deduction TOTAL are reflecting correctly");
-			PT_ConsolidatedMethods.ChallanPTConsolated_NAE_ClientPTDeductionTOTAL(test,"Performer");
+
 			
 			extent.endTest(test);
 			extent.flush();

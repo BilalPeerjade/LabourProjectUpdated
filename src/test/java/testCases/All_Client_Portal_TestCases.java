@@ -2186,7 +2186,7 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 	
 	
 	
-	**/
+	
 	
 	
 	
@@ -2850,6 +2850,8 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
    		extent.flush();
 
    	}
+ 	
+ 	
  @Test(priority = 260)
    	void ExistingNoticesNo() throws InterruptedException, IOException, EncryptedDocumentException, AWTException
    	{
@@ -2869,6 +2871,21 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
    		All_ClientPortal_Methods.filterEntityAUTO2(test);
    		
    		All_ClientPortal_Methods.NoticeDocMandatory(test);
+   		
+   		extent.endTest(test);
+   		extent.flush();
+
+   	}
+	@Test(priority = 262)
+   	void noticePopUpChecking() throws InterruptedException, IOException, EncryptedDocumentException, AWTException
+   	{
+   		test = extent.startTest("Notices - Add New - Verify to check entity dropdown is disabled or not?");
+   		All_ClientPortal_Methods.filterEntityAUTO2(test);
+   		All_ClientPortal_Methods.noticePopUpChecking(test, "Entity dropdown disabled");
+   		
+   		
+   		test = extent.startTest("Notices - Add New - Verify to check back button and close button is working or not?");
+   		All_ClientPortal_Methods.noticePopUpChecking(test, "Add New Back Button and X button");
    		
    		extent.endTest(test);
    		extent.flush();
@@ -3256,10 +3273,22 @@ void ChallanDocBulkDownload() throws InterruptedException, IOException, AWTExcep
 				extent.flush();
 			}
 			
+			@Test(priority = 292) 
+			void criticalDocumentsCancelAndDelete() throws InterruptedException, IOException, AWTException {
+				test = extent.startTest("Critical Document - Verify to check cancel button is working correctly");
+				All_ClientPortal_Methods.filterEntityAUTO2(test);
+				All_ClientPortal_Methods.criticalDocumentsCancelAndDelete(test, "Cancel Button");
+				
+				//Need to write manaul TC
+		//		test = extent.startTest("Critical Document - Verify to check delete button is working correctly");
+
+				extent.endTest(test);
+				extent.flush();
+			}
 
 		
     
-	
+	**/
 		
 	
 	  

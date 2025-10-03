@@ -41,8 +41,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-import businessTestCases.CommonBusinessUtilis;
-import businessTestCases.CommonBusinessUtilis3;
+import businessTestCases.UtilisOne;
+import businessTestCases.Utilis3;
 import businessTestCases.FilePath;
 import login.BasePage;
 import login.LoginLocators;
@@ -768,7 +768,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 
 		try {
 			// Step 1: Initialize WebDriver (as per your existing utilities)
-			driver = CommonBusinessUtilis.getDriver();
+			driver = UtilisOne.getDriver();
 
 			// Step 2: Manually download file via selenium click
 //			PerformerLocator.EPF_ConsolatedWorkingDownload().click();
@@ -883,7 +883,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 		
 		
 		{
-			WebDriver driver = CommonBusinessUtilis.getDriver();
+			WebDriver driver = UtilisOne.getDriver();
 
 			// Step 1: Get Latest Downloaded File
 			File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
@@ -963,7 +963,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 		EPF_Consolated_Redirection(test, user);
 		
 		
-		WebDriver driver = CommonBusinessUtilis.getDriver();
+		WebDriver driver = UtilisOne.getDriver();
 		
 		
 /**		CommonBusinessUtilis.validateExcelBusinessData(
@@ -991,7 +991,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 
 		*/
 		
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 			    downloadedExcelFile,
 			    test,
 			    new ExcelFileDetails(
@@ -1014,7 +1014,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 			);
 		
 		
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 			    downloadedExcelFile,
 			    test,
 			    null,
@@ -1039,7 +1039,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 	public static void PfCO_Remittance_EmployeeCheck2( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 			    downloadedExcelFile,
 			    test,
 			    new ExcelFileDetails(
@@ -1062,7 +1062,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 			);
 		
 		
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 			    downloadedExcelFile,
 			    test,
 			    null,
@@ -1124,7 +1124,7 @@ public class EPF_ConsolatedMethods extends BasePage {
         headerMap.put("H", "Basic");             // Downloaded sheet header to locate "Basic" (utility will use +7 as per your rule)
 
         // FINAL call — simple, same style as your reference
-        CommonBusinessUtilis3.validateExcelCalculation(
+        Utilis3.validateExcelCalculation(
             downloadedExcelFile,
             FilePath.SALARY_FILE,
             test,
@@ -1190,7 +1190,7 @@ public class EPF_ConsolatedMethods extends BasePage {
         headerMap.put("H", "Basic");             // Downloaded sheet header to locate "Basic" (utility will use +7 as per your rule)
 
         // FINAL call — simple, same style as your reference
-        CommonBusinessUtilis3.validateExcelCalculation(
+        Utilis3.validateExcelCalculation(
             downloadedExcelFile,
             FilePath.SALARY_FILE,
             test,
@@ -1232,7 +1232,7 @@ public class EPF_ConsolatedMethods extends BasePage {
         headerMap.put("H", "Basic");             // Downloaded sheet header to locate "Basic" (utility will use +7 as per your rule)
 
         // FINAL call — simple, same style as your reference
-        CommonBusinessUtilis3.validateExcelCalculation(
+        Utilis3.validateExcelCalculation(
             downloadedExcelFile,
             FilePath.SALARY_FILE,
             test,
@@ -1272,7 +1272,7 @@ public class EPF_ConsolatedMethods extends BasePage {
         headerMap.put("V", "12% (EPF) A/C No 1");             // Downloaded sheet header to locate "Basic" (utility will use +7 as per your rule)
 
         // FINAL call — simple, same style as your reference
-        CommonBusinessUtilis3.validateExcelCalculation(
+        Utilis3.validateExcelCalculation(
             downloadedExcelFile,
             FilePath.SALARY_FILE,
             test,
@@ -1312,7 +1312,7 @@ public class EPF_ConsolatedMethods extends BasePage {
         headerMap.put("V", "12% (EPF) A/C No 1");             // Downloaded sheet header to locate "Basic" (utility will use +7 as per your rule)
 
         // FINAL call — simple, same style as your reference
-        CommonBusinessUtilis3.validateExcelCalculation(
+        Utilis3.validateExcelCalculation(
             downloadedExcelFile,
             FilePath.SALARY_FILE,
             test,
@@ -1370,7 +1370,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 			headerMap.put("C", "Basic"); // Master sheet MonthlyEmployeeChallanSalary
 			headerMap.put("H", "Basic Pay");        // Downloaded sheet All Emp Workings
 
-			CommonBusinessUtilis3.validateExcelCalculation(
+			Utilis3.validateExcelCalculation(
 			    downloadedExcelFile,
 			    salaryFileTESTAUTO,
 			    test,
@@ -1405,7 +1405,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 		
 		Registers_KAR_FORM_A_FOLDER_Redirection(test,user);
 		
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 			    downloadedExcelFile,
 			    test,
 			    new ExcelFileDetails(
@@ -1428,7 +1428,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 			);
 		
 		
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 			    downloadedExcelFile,
 			    test,
 			    null,
@@ -1450,7 +1450,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 		
 		
 		//2
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 			    downloadedExcelFile,
 			    test,
 			    new ExcelFileDetails(
@@ -1473,7 +1473,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 			);
 		
 		
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 			    downloadedExcelFile,
 			    test,
 			    null,
@@ -1502,7 +1502,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 		
 		Challan_PT_Redirection(test,user);
 		
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 			    downloadedExcelFile,
 			    test,
 			    new ExcelFileDetails(
@@ -1525,7 +1525,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 			);
 		
 		
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 			    downloadedExcelFile,
 			    test,
 			    null,
@@ -1833,7 +1833,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 		
 		Challan_PT_Redirection(test,user);
 		
-		CommonBusinessUtilis.validateExcelBusinessData(
+		UtilisOne.validateExcelBusinessData(
 			    downloadedExcelFile,
 			    test,
 			    new ExcelFileDetails(
@@ -1855,7 +1855,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 			    "🧪 Validating PT based on Master File"
 			);
 
-			CommonBusinessUtilis.validateExcelBusinessData(
+			UtilisOne.validateExcelBusinessData(
 			    downloadedExcelFile,
 			    test,
 			    null,

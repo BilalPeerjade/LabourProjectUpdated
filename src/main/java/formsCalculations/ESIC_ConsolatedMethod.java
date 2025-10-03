@@ -37,7 +37,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-import businessTestCases.CommonBusinessUtilis;
+import businessTestCases.UtilisOne;
 import login.BasePage;
 import login.LoginLocators;
 import performer.PerformerLocator;
@@ -180,7 +180,7 @@ public class ESIC_ConsolatedMethod extends BasePage {
         );
 
         // ✅ Step 7: Final call to reusable validator
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -239,7 +239,7 @@ public class ESIC_ConsolatedMethod extends BasePage {
         );
 
         // ✅ Step 7: Final call to reusable validator
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -298,7 +298,7 @@ public class ESIC_ConsolatedMethod extends BasePage {
         );
 
         // ✅ Step 7: Final call to reusable validator
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -358,7 +358,7 @@ public class ESIC_ConsolatedMethod extends BasePage {
         );
 
         // ✅ Step 7: Final call to reusable validator
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -417,7 +417,7 @@ public class ESIC_ConsolatedMethod extends BasePage {
         );
 
         // ✅ Step 7: Final call to reusable validator
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -477,7 +477,7 @@ public class ESIC_ConsolatedMethod extends BasePage {
         );
 
         // ✅ Step 7: Final call to reusable validator
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -537,7 +537,7 @@ public class ESIC_ConsolatedMethod extends BasePage {
         );
 
         // ✅ Step 7: Final call to reusable validator
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,

@@ -5,19 +5,7 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import java.util.List;
 
-/**
- * 📊 HTMLCalculationReport (v2-friendly, tolerance-aware)
- *
- * - ENABLE_HTML_REPORT_TABLE = true (default)
- * - Clean UI: neat headers, centered cells, PASS/FAIL pill badges
- * - Row-by-row: Row No. | MASTER VALUE (RHS) | DOWNLOADED VALUE (LHS) | RESULT
- * - Totals:     MASTER VALUE (RHS) | DOWNLOADED VALUE (LHS) | RESULT
- * - Master (RHS) header: compact like "Q: PT Gross"
- * - Downloaded (LHS) header: only the column letter (e.g., "I")
- * - Uses 3-arg ExtentReports v2 log to ensure HTML renders
- *
- * NOTE: Methods now accept `double tol` (fractional tolerance, e.g., 0.05 for 5%).
- */
+
 public class HTMLReport {
 
     
@@ -62,7 +50,7 @@ public class HTMLReport {
           .append(safe(title))
           .append("</div>");
 
-/**      // Meta info //This will show formula need to discuss with sir if allowed we can add 
+/**      // Meta info //This will show formula
         sb.append("<div style='margin:0 0 10px; font-size:12px; font-family:Arial, sans-serif; color:#374151; white-space:nowrap;'>")
           .append("<b>LHS (Downloaded):</b> ").append(safe(lhsSheetName)).append(".").append(safe(lhsColumnLetter))
           .append("&nbsp;&nbsp;")
@@ -132,7 +120,7 @@ public class HTMLReport {
           .append(safe(title))
           .append("</div>");
 
-/**        // Meta //This will show formula need to discuss with sir if allowed we can add 
+/**        // Meta //This will show formula
         sb.append("<div style='margin:0 0 10px; font-size:12px; font-family:Arial, sans-serif; color:#374151; white-space:nowrap;'>")
           .append("<b>LHS (Downloaded):</b> ").append(safe(lhsSheetName)).append(".").append(safe(lhsColumnLetter))
           .append("&nbsp;&nbsp;")
@@ -198,6 +186,8 @@ public class HTMLReport {
         if (Math.abs(d - Math.rint(d)) < 1e-9) return String.valueOf(d.longValue());
         return String.valueOf(d);
     }
+
+    public static boolean ENABLE_HTML_REPORT_TABLE = false;
 
     /** Convert Excel column letter (e.g., "A", "L", "AA") to 0-based index for display if needed */
     @SuppressWarnings("unused")
@@ -270,7 +260,7 @@ public class HTMLReport {
         return diff <= tol * scale;
     }
     
-    public static boolean ENABLE_HTML_REPORT_TABLE = false;
+    
 }
 
 

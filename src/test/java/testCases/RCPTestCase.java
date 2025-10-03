@@ -269,7 +269,17 @@ public class RCPTestCase extends  BasePage
 			extent.flush();
 
 		}
-		@Test(priority = 16)
+		@Test(priority = 17) //
+		void editDocumentSectionDocReqOTActivity() throws Exception {
+			test = extent.startTest("Registration - Edit - Document Section - Verify to check Document Requirements for the OT Activity working correctly ");
+
+			RCPMethod.editDocumentSectionDocReqOTActivity(test);
+
+			extent.endTest(test);
+			extent.flush();
+
+		}
+		@Test(priority = 18)
 		void documentRepositoryDownloads() throws Exception {
 			test = extent.startTest("Registration - Edit - Document Repository - Verify to check documents are downloading correctly");
 
@@ -305,7 +315,7 @@ public class RCPTestCase extends  BasePage
 		extent.flush();
 		
 		}
-		@Test(priority = 16)
+		@Test(priority = 19)
 		void ExistingLicenseCountMatch() throws InterruptedException, IOException
 		{
 		test = extent.startTest("Registration-Existing License- Pending Assignment(Online) count verification");
@@ -316,7 +326,7 @@ public class RCPTestCase extends  BasePage
 		extent.flush();
 		
 		}
-		@Test(priority = 17)
+		@Test(priority = 20)
 		void ExistingLicenseendingAction() throws InterruptedException, IOException
 		{
 		test = extent.startTest("Registration-Existing License- Applied and Awaiting Dept Approval count verification");
@@ -327,7 +337,7 @@ public class RCPTestCase extends  BasePage
 		extent.flush();
 		
 		}
-		@Test(priority = 18)
+		@Test(priority = 21)
 		void ExistingLicenseOverdue() throws InterruptedException, IOException
 		{ 
 		test = extent.startTest("Registration- Existing License-Overdue count verification");
@@ -338,7 +348,7 @@ public class RCPTestCase extends  BasePage
 		extent.flush();
 		
 		}
-		@Test(priority = 19)
+		@Test(priority = 22)
 		void ExistingLicenseClosed() throws InterruptedException, IOException
 		{
 		test = extent.startTest("Registration-Existing License- Closed count verification");
@@ -350,7 +360,7 @@ public class RCPTestCase extends  BasePage
 		
 		}
 		
-		@Test(priority = 20)
+		@Test(priority = 23)
 		void ExsitingLicenseExport() throws InterruptedException, IOException {
 			test = extent.startTest("Registration - Existing License-Export Butoon verification");
 
@@ -360,7 +370,7 @@ public class RCPTestCase extends  BasePage
 			extent.flush();
 		}
 		
-		@Test(priority = 21)
+		@Test(priority = 24)
 		void SearchBoxExistiongLicense() throws InterruptedException, IOException {
 			test = extent.startTest("Registration - Existing Licenses - Search Box verification");
 
@@ -370,7 +380,7 @@ public class RCPTestCase extends  BasePage
 			extent.flush();
 
 		}
-		@Test(priority = 22)
+		@Test(priority = 25)
 		void ExistingLicenseViewIcon() throws InterruptedException, IOException
 		{
 		test = extent.startTest("Registration - Existing Licenses -view icon verification");
@@ -381,7 +391,7 @@ public class RCPTestCase extends  BasePage
 		extent.flush();
 		}
 		
-		@Test(priority = 23)
+		@Test(priority = 26)
 		void ExistingLicenseDownload() throws InterruptedException, IOException
 		{
 		test = extent.startTest("Registration - Existing Licenses - Download Button verification");

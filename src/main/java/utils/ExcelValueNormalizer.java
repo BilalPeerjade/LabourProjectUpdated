@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class ExcelValueNormalizer {
 
-    // 🔹 State short code to full name mapping
+    // 🔹 State code
     private static final Map<String, String> STATE_MAP = new HashMap<>();
     static {
         STATE_MAP.put("guj", "gujarat");
@@ -21,8 +21,14 @@ public class ExcelValueNormalizer {
         STATE_MAP.put("ors", "orissa");
         STATE_MAP.put("pnd", "pondicherry");
         STATE_MAP.put("trp", "tripura");
+        STATE_MAP.put("web", "west bengal");
+        STATE_MAP.put("map", "madhya pradesh");
+        STATE_MAP.put("map", "madhya pradesh");
+        STATE_MAP.put("pjb", "punjab");
+        STATE_MAP.put("Tmn", "tamil Nadu");
+
         
-        // PT States value 
+         
     }
 
     /**
@@ -47,12 +53,26 @@ public class ExcelValueNormalizer {
     public static String normalizeDate(String value) {
         if (value == null) return "";
         String normalized = value.trim().toLowerCase();
-
+        
         try {
-            java.text.SimpleDateFormat inputFormat1 = new java.text.SimpleDateFormat("dd/MM/yyyy");
+            java.text.SimpleDateFormat inputFormat1 = new java.text.SimpleDateFormat("dd/MM/yyyy" );
             java.text.SimpleDateFormat inputFormat2 = new java.text.SimpleDateFormat("dd-MM-yyyy");
             java.text.SimpleDateFormat outputFormat = new java.text.SimpleDateFormat("yyyy-MM-dd");
-
+            
+    //        java.text.SimpleDateFormat outputFormat = new java.text.SimpleDateFormat("dd MMM yyy"); //Not working
+            
+//            java.text.SimpleDateFormat inputFormat3 = new java.text.SimpleDateFormat("dd-MMM-yyyy", java.util.Locale.ENGLISH); //New            
+//            if (value.contains("/")) {
+//                date = inputFormat1.parse(value);
+//            } else if (value.contains("-")) {
+//                date = inputFormat2.parse(value);
+//            } else if (value.matches("\\d{2}\\s+[A-Za-z]{3}\\s+\\d{4}")) {
+//                date = inputFormat3.parse(value);
+//            } else {
+//                return normalized;
+//            }
+            
+            
             java.util.Date date;
             if (value.contains("/")) {
                 date = inputFormat1.parse(value);
@@ -62,6 +82,7 @@ public class ExcelValueNormalizer {
                 return normalized; // Not a date format we handle
             }
             return outputFormat.format(date);
+            
         } catch (Exception e) {
             return normalized; // If parsing fails, return original normalized
         }

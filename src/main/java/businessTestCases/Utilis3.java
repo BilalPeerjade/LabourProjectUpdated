@@ -5,7 +5,7 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import utils.ExcelExpressionParser;
 import utils.ExcelExtraConfig;
-import utils.methodsb;
+import utils.ExcelF;
 import utils.ExcelUtils;
 import utils.HTMLReport;
 
@@ -16,45 +16,11 @@ import java.io.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/**
- * CommonBusinessUtilis3
- *
- * Patched/calculation-ready version of CommonBusinessUtilis2 with:
- *  - sheet alias/underscore→space normalization
- *  - full calculation validation flow (master vs downloaded, downloaded vs downloaded)
- *  - keyword header search + startRowOffset
- *  - stop-at-Total logic (ExcelExtraConfig)
- *  - filters for master & downloaded independently
- *  - row-by-row and totals-only compare
- *  - tolerance handling
- *  - HTMLCalculationReport hook
- *
- * NOTE: This file expects existing helper classes in your project:
- * - utils.ExcelUtils (with methods like columnLetterToIndex, findHeaderRowAnywhere, readNumericColumnTillTotal, etc.)
- * - utils.ExcelExpressionParser (parse() returning ParsedRule and Token)
- * - utils.HTMLCalculationReport (enableReport flag + logCalculationTable(...))
- * - ExcelFilter (model class used for filters)
- * - ExcelExtraConfig (model class with getTotalLogicEnabled(), getTotalColumnIndex(), getTotalKeyword())
- *
- * If any helper method names differ in your codebase, adjust the call sites accordingly.
- */
+
 public class Utilis3 {
 
-    // ----------------------- Sheet alias / normalization -----------------------
-    private static final Map<String, String> SHEET_ALIAS = new HashMap<>();
-    static {
-        // Automatic common normalization: underscores -> spaces (we still allow explicit alias)
-        // Add explicit aliases if needed:
-        SHEET_ALIAS.put("PT_Report", "PT Report");
-        SHEET_ALIAS.put("All_Emp_Workings", "All Emp Workings");
-        SHEET_ALIAS.put("Non_Applicable_Employees", "Non Applicable Employees");
-        SHEET_ALIAS.put("Master", "MonthlyEmployeeSalary");
-        SHEET_ALIAS.put("Master", "MonthlyEmployeeChallanSalary");
-        SHEET_ALIAS.put("All_Employees", "All Employees"); //PF
-        SHEET_ALIAS.put("Central_Form_B", "Central Form-B");
-        
-        // SHEET_ALIAS.put("Emp_Salary", "Employee Salary");
-    }
+
+	//PENDING this
 
     private static String normalizeSheetName(String raw) {
         if (raw == null) return null;
@@ -65,26 +31,9 @@ public class Utilis3 {
         return raw.replace('_', ' ').trim();
     }
 
-    // ----------------------- Public facade -----------------------
-    /**
-     * Main validation method.
-     *
-     * @param downloadedExcelFile  latest downloaded file (File)
-     * @param masterFilePath       local master file path (String) - may be null if not using master
-     * @param test                 ExtentTest for logging
-     * @param calculationRule      rule string e.g. "PT_Report.L = Master.H - PT_Report.K" or "L = H - K"
-     * @param rhsSource            "MASTER" or "DOWNLOADED" (which workbook to treat RHS as coming from by default)
-     * @param defaultSheetName     default sheet name for downloaded file when rule has no sheet prefix
-     * @param masterFilters        filters to apply on master workbook (List<ExcelFilter>) - can be empty
-     * @param downloadedFilters    filters to apply on downloaded workbook (List<ExcelFilter>) - can be empty
-     * @param extraConfig          ExcelExtraConfig (total logic config)
-     * @param tolerance            relative tolerance (e.g., 0.05 = 5%). Comparison uses RHS as scale.
-     * @param compareRowByRow      true => row-by-row, false => totals only
-     * @param startRowOffset       rows to skip after header (headerRow + startRowOffset => data start)
-     * @param headerKeywords       map columnLetter -> headerKeyword (optional; can be null)
-     * @param successMessage       message to log on full pass
-     * 
-     */
+
+    
+    
     public static void validateExcelCalculation(
             File downloadedExcelFile,
             String masterFilePath,
@@ -92,8 +41,8 @@ public class Utilis3 {
             String calculationRule,
             String rhsSource,
             String defaultSheetName,
-            List<methodsb> masterFilters,
-            List<methodsb> downloadedFilters,
+            List<ExcelF> masterFilters,
+            List<ExcelF> downloadedFilters,
             ExcelExtraConfig extraConfig,
             double tolerance,
             boolean compareRowByRow,
@@ -315,7 +264,7 @@ public class Utilis3 {
             int startRowOffset,
             ExcelExtraConfig extraConfig,
             String fileTag,
-            List<methodsb> filters,
+            List<ExcelF> filters,
             ExtentTest test
     ) {
         ColumnBinding b = new ColumnBinding();
@@ -476,7 +425,7 @@ public class Utilis3 {
             int startRowOffset,
             ExcelExtraConfig extraConfig,
             String rhsSource, // "MASTER" or "DOWNLOADED"
-            List<methodsb> rhsFilters,
+            List<ExcelF> rhsFilters,
             boolean rowByRow,
             ExtentTest test
     ) {
@@ -663,4 +612,38 @@ public class Utilis3 {
     }
 
     private static String safeStr(String s) { return (s == null ? "" : s); }
+    
+    
+    
+    
+    // ----------------------- alias / normalization -----------------------
+    private static final Map<String, String> SHEET_ALIAS = new HashMap<>();
+    static {
+
+    	
+        SHEET_ALIAS.put("PT_Report", "PT Report");
+        SHEET_ALIAS.put("All_Emp_Workings", "All Emp Workings");
+        SHEET_ALIAS.put("Non_Applicable_Employees", "Non Applicable Employees");
+        SHEET_ALIAS.put("Master", "MonthlyEmployeeSalary");
+        SHEET_ALIAS.put("Master", "MonthlyEmployeeChallanSalary");
+        SHEET_ALIAS.put("All_Employees", "All Employees"); 
+        SHEET_ALIAS.put("Central_Form_B", "Central Form-B");
+        
+        // SHEET_ALIAS.put("Emp_Salary", "Employee Salary");
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

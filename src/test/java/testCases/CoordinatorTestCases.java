@@ -56,7 +56,7 @@ public class CoordinatorTestCases extends BasePage
 	@BeforeMethod
 	void Login() throws InterruptedException, IOException
 	{
-		initialization2(link,5,"Labour");
+		Initialization(link,5,"Labour");
 	
 	}
 	
@@ -202,11 +202,11 @@ public class CoordinatorTestCases extends BasePage
 	
 	
 	@Test(priority = 13)
-   	void AddNewNotices() throws Exception
+   	void addNoticeVerification() throws Exception
    	{
-   		test = extent.startTest("Notices - Add New Notices verification");
+   		test = extent.startTest("Notices - Add New - Verify to check add new notices are working correctly");
    		
-   		CoordinatorMethod.AddNewNotices(test);
+   		CoordinatorMethod.addNoticeVerification(test);
    		
    		extent.endTest(test);
    		extent.flush();
@@ -238,7 +238,8 @@ public class CoordinatorTestCases extends BasePage
    	void NoticeDocumentsChecking() throws Exception
    	{
    		test = extent.startTest("Notices - Add New - Verify to check Receipt Acknowledgement Browse button is enabled or not ");
-   		CoordinatorMethod.NoticeAddNewRecepitAcknowledgement("Doc File",test);
+     	CoordinatorMethod.NoticeAddNewRecepitAcknowledgement("Doc File",test);
+   		
 		
    		test = extent.startTest("Notices - Add New - Receipt Acknowledgement - Verify to upload DOC file");
    		CoordinatorMethod.NoticeAddNewRecepitAcknowledgement_2("Doc File",test);
@@ -275,6 +276,50 @@ public class CoordinatorTestCases extends BasePage
    		extent.endTest(test);
    		extent.flush();
    	}
+
+	@Test(priority = 15) //New
+   	void noticeDocumentBrowse() throws Exception
+   	{
+   		test = extent.startTest("Notices - Add New - Verify to check Notice Document Browse button is enabled or not");
+   		CoordinatorMethod.noticeDocumentBrowse("Doc File",test);
+   		
+   		
+   		test = extent.startTest("Notices - Add New - Notice Document - Verify to upload DOC file");
+   		CoordinatorMethod.NoticeAddNewNoticeDocument_2("Doc File",test);
+   		
+   		test = extent.startTest("Notices - Add New - Notice Document - Verify to upload DOCX file");
+   		CoordinatorMethod.NoticeAddNewNoticeDocument_2("DOCX File",test);
+   		
+   		test = extent.startTest("Notices - Add New - Notice Document - Verify to upload PDF file");
+   		CoordinatorMethod.NoticeAddNewNoticeDocument_2("PDF File",test);
+   		
+   		
+   		
+   		test = extent.startTest("Notices - Add New - Notice Document - Verify to check error with upload XLS file");
+   		CoordinatorMethod.noticeAddNewNoticeDocumentValidation("Validation : XLS",test);
+   		
+   		test = extent.startTest("Notices - Add New - Notice Document - Verify to check error with upload {XLSX} file");
+   		CoordinatorMethod.noticeAddNewNoticeDocumentValidation("Validation : XLSX",test);
+   		
+   		test = extent.startTest("Notices - Add New - Notice Document - Verify to check error with upload ZIP file");
+   		CoordinatorMethod.noticeAddNewNoticeDocumentValidation("Validation : ZIP",test);
+   		
+   		test = extent.startTest("Notices - Add New - Notice Document - Verify to check error with upload TXT file");
+   		CoordinatorMethod.noticeAddNewNoticeDocumentValidation("Validation : TXT",test);
+   		
+   		test = extent.startTest("Notices - Add New - Notice Document - Verify to check error with upload PNG file");
+   		CoordinatorMethod.noticeAddNewNoticeDocumentValidation("Validation : PNG",test);
+   			
+   		test = extent.startTest("Notices - Add New - Notice Document - Verify to check error with upload JPEG file");
+   		CoordinatorMethod.noticeAddNewNoticeDocumentValidation("Validation : JPEG",test);
+   		
+   		test = extent.startTest("Notices - Add New - Notice Document - Verify to check error with upload HTML file");
+   		CoordinatorMethod.noticeAddNewNoticeDocumentValidation("Validation : HTML",test);
+   		
+   		
+   		
+   	}
+	
 	
 	
 	

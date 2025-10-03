@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -6003,6 +6004,70 @@ public class All_Distributor_Methods extends BasePage {
 		DistributerLocators.clickdashboard().click();
 
 	}
+	public static void manageCompliances_DrpChecking(ExtentTest test, XSSFWorkbook workbook)
+			throws InterruptedException, IOException {
+
+		Thread.sleep(5000);
+
+		OneCommonMethod.searchEntityAndSelect(driver.get(), test, LoginLocators.Search(), "TESTAUTO3");
+		Thread.sleep(1000);
+		DistributerLocators.clickPremiseMasterArrow().click();
+
+		Thread.sleep(1000);
+		Thread.sleep(3000);
+		DistributerLocators.clickOnboardCLRA().click();
+		Thread.sleep(5000);
+		DistributerLocators.managecompliance().click();
+		Thread.sleep(5000);
+		
+		Thread.sleep(3000);
+		DistributerLocators.clickActivityDropDown().click();
+		
+        try {
+            Thread.sleep(5000);
+
+            List<WebElement> actOptions = getDriver().findElements(LoginLocators.UniqueValues());
+            List<String> actualActs = new ArrayList<>();
+            Thread.sleep(5000);
+
+            for (WebElement option : actOptions) {
+                String actText = option.getText().trim();
+                test.log(LogStatus.PASS, "Found Act: " + actText);
+                actualActs.add(actText);
+            }
+
+            // Expected values
+            List<String> expectedActs = Arrays.asList(
+                "Activation Date Change",
+                "Assignment Removal",
+                "Compliance Reassignment",
+                "Schedules Creation",
+                "Schedules Removal"
+                
+            );
+
+            // Compare and log missing acts only
+            List<String> missingActs = new ArrayList<>();
+            for (String expected : expectedActs) {
+                if (!actualActs.contains(expected)) {
+                    missingActs.add(expected);
+                    test.log(LogStatus.FAIL, "Not Found Act: - " + expected);
+                }
+            }
+
+            // Final Result
+            if (missingActs.isEmpty()) {
+                test.log(LogStatus.PASS, "All expected values are present in the dropdown.");
+            }
+
+        } catch (Exception e) {
+            
+        }
+		
+		
+		
+	}
+	
 
 	public static void CLRA_CompReassignment(ExtentTest test, XSSFWorkbook workbook)
 			throws InterruptedException, IOException {

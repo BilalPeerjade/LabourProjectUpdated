@@ -1,6 +1,12 @@
 package utils;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.commons.collections4.bag.SynchronizedSortedBag;
+
+import businessTestCases.FilePath;
+import login.BasePage;
 
 
 
@@ -38,15 +44,14 @@ public class ExcelF {
 	
 	
 	
-	
 
-	//
+
+	
 	public List<String> getValues() {
-	    if (!ena) {
-	        
-	        return java.util.Collections.emptyList();
-	    }
-	    return values;
+		if (!ena) {
+			return java.util.Collections.emptyList();
+		}
+		return values;
 	}
 	
 //	public List<String> getValues() {
@@ -55,15 +60,6 @@ public class ExcelF {
 //	    }
 //	    return values;
 //	}
-	
-
-
-
-
-	
-	
-	
-	
 	
 	
 
@@ -79,10 +75,11 @@ public class ExcelF {
     
     
     
-    //flags below
+    
     public boolean isEnabled() {
         return ena;
     }
+    private boolean ena; 
 
     public void setEnabled(boolean enabled) {
         this.ena = enabled;
@@ -97,7 +94,7 @@ public class ExcelF {
         return !ena;
     }
     
-    private boolean ena = false; 
+    
 
 
 

@@ -68,7 +68,7 @@ import rcp.OneCommonMethod;
 		@BeforeMethod
 		void Login() throws InterruptedException, IOException
 		{
-			initialization(link,0,"Statutory");
+			Initialization(link,0,"Statutory");
 		
 		}
 		

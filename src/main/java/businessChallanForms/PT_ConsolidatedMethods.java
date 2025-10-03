@@ -42,9 +42,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-import businessTestCases.CommonBusinessUtilis;
+import businessTestCases.UtilisOne;
 
-import businessTestCases.CommonBusinessUtilis3;
+import businessTestCases.Utilis3;
 import businessTestCases.FilePath;
 import formsCalculations.PT_Methods;
 import formsCalculations.formLocators;
@@ -318,7 +318,7 @@ public class PT_ConsolidatedMethods extends BasePage {
         );
 
         // ✅ Step 5: Final call
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
                 downloadedExcelFile,
                 test,
                 masterFileDetails,
@@ -429,7 +429,7 @@ public class PT_ConsolidatedMethods extends BasePage {
         );
 
         // ✅ Step 5: Final call to reusable validator
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -600,7 +600,7 @@ public class PT_ConsolidatedMethods extends BasePage {
         extraConfig.setEnableDateMatch("NO");      // 01-01-2025 ↔ 01-Jan-2025
 
         // ✅ Step 7: Final call to reusable validator
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -734,7 +734,7 @@ public class PT_ConsolidatedMethods extends BasePage {
         extraConfig.setEnableDateMatch("NO");      // 01-01-2025 ↔ 01-Jan-2025
 
         // ✅ Step 7: Final call to reusable validator
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -860,7 +860,7 @@ public class PT_ConsolidatedMethods extends BasePage {
         extraConfig.setEnableDateMatch("NO");      // 01-01-2025 ↔ 01-Jan-2025
 
         // ✅ Step 7: Final call to reusable validator
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -985,7 +985,7 @@ public class PT_ConsolidatedMethods extends BasePage {
         extraConfig.setEnableDateMatch("YES");      // 01-01-2025 ↔ 01-Jan-2025
 
         // ✅ Step 7: Final call to reusable validator
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -1061,14 +1061,16 @@ public class PT_ConsolidatedMethods extends BasePage {
         List<ExcelF> allFilters = new ArrayList<>();
 
         // Filter-1: 20
-        allFilters.add(new ExcelF(21, Arrays.asList("Yes")));
+//        allFilters.add(new ExcelF(21, Arrays.asList("Yes")));
+        
+        allFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AC"),Arrays.asList("Yes")));
 
 
         // 📊 Step 4: Prepare ExcelFileDetails for Master
         String masterSheetName = "MonthlyEmployeeChallanSalary";
         int masterColumnIndex = 16;
         ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-            salaryFile,
+            FilePath.SALARY_FILE,
             masterSheetName,
             masterColumnIndex,
             allFilters,
@@ -1104,7 +1106,7 @@ public class PT_ConsolidatedMethods extends BasePage {
         // extraConfig.setEnableDateMatch("NO");
 
         // ✅ Step 7: Final call to reusable validator
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -1120,41 +1122,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 	{
 		
 		ChallanPTConsolated_Redirection(test,user);
-/*		
-		// 📝 Extra config: enable total logic
-		ExcelExtraConfig extraConfig = new ExcelExtraConfig(
-		        "YES",                               // enable total logic
-		        ExcelUtils.columnLetterToIndex("A"), // downloaded file me jis column me "Total" likha hai (I -> 8)
-		        "Total"                              // keyword to identify total row
-		);
 
-		// Filters agar chahiye (optional)
-		List<ExcelFilter> masterFilters = new ArrayList<>();
-		List<ExcelFilter> downloadedFilters = new ArrayList<>();
-
-		// Header map agar chahiye (optional)
-		Map<String, String> headerMap = new HashMap<>();
-		headerMap.put("Q", "PT Gross");    // Master column Q
-		headerMap.put("I", "PT Gross wages");   // Downloaded column I
-
-		// ✅ CALLING
-		CommonBusinessUtilis3.validateExcelCalculation(
-		        downloadedExcelFile,
-		        salaryFile,   // master file path
-		        test,
-		        "PT_Report.I = Master.Q",   // rule: downloaded I = master Q total
-		        "MASTER",                   // RHS source (taking from master file)
-		        "PT Report",                // default downloaded sheet name
-		        masterFilters,
-		        downloadedFilters,
-		        extraConfig,
-		        0.01,                       // tolerance (1%)
-		        false,                      // ⚡ false => only TOTALS check, not row by row
-		        0,                          // startRowOffset
-		        headerMap,
-		        "PT Gross wages total is reflecting correctly as per masters!"
-		);
-*/
 		
 		
 		// Extra config me total logic enable kar de
@@ -1164,54 +1132,23 @@ public class PT_ConsolidatedMethods extends BasePage {
 		    "Total"                              // keyword jo sheet me likha hai
 		);
 
-/*		// Filters agar chahiye to add kar, warna empty list
-		List<ExcelFilter> masterFilters = new ArrayList<>();
-		List<ExcelFilter> targetFilters = new ArrayList<>();
-		
-		
 
-		// Header map (optional, logs me accha dikhega)
-		Map<String, String> headerMap = new HashMap<>();
-		headerMap.put("Q", "PT Gross");
-		headerMap.put("I", "PT Gross wages");
-
-		// ✅ Calling: Master.Q ka sum == Downloaded.I ka Total
-		CommonBusinessUtilis3.validateExcelCalculation(
-		    downloadedExcelFile,              // File downloaded
-		    salaryFile,                       // Master file
-		    test,                             // ExtentTest
-		    "PT_Report.I = Master.Q",         // Expression
-		    "MASTER",                         // rhsSource
-		    "PT Report",                      // default sheet for downloaded
-		    masterFilters,                    // filters for master
-		    targetFilters,                    // filters for downloaded
-		    extraConfig,                      // <-- total logic on
-		    0.01,                             // tolerance
-		    true,                            // row by row compare off
-		    0,                                // start row offset
-		    headerMap,                        // header labels
-		    "PT Gross wages total is coming properly as per masters"
-		);
-		
-		*/
 		
 		List<ExcelF> masterFilters = new ArrayList<>();
 		List<ExcelF> targetFilters = new ArrayList<>();
 
-		// filter Column V for exact "YES"
-//		masterFilters.add(new ExcelFilter(21, Arrays.asList("YES")));
 		
 		//This is also work for direct column Name as V
 		masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("V"), Arrays.asList("YES")));
 		
-//		targetFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("G"), Arrays.asList("Andhra Pradesh")));
+
 
 		Map<String, String> headerMap = new HashMap<>();
 		headerMap.put("Q", "PT Gross");
 		headerMap.put("I", "PT Gross wages");
 
 		// call
-		CommonBusinessUtilis3.validateExcelCalculation(
+		Utilis3.validateExcelCalculation(
 		    downloadedExcelFile,
 		    salaryFile,
 		    test,
@@ -1230,7 +1167,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 
 		
 		
-	}
+	} 
 	
 	public static void ChallanPTConsolated_PTReport_ClientPTDeductionTOTAL( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
@@ -1257,7 +1194,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 		headerMap.put("J", "Client PT deduction");
 
 		// ✅ Calling: Master.Q ka sum == Downloaded.I ka Total
-		CommonBusinessUtilis3.validateExcelCalculation(
+		Utilis3.validateExcelCalculation(
 		    downloadedExcelFile,              // File downloaded
 		    salaryFile,                       // Master file
 		    test,                             // ExtentTest
@@ -1389,7 +1326,7 @@ public class PT_ConsolidatedMethods extends BasePage {
  //       extraConfig.setEnableDateMatch("NO");      // 01-01-2025 ↔ 01-Jan-2025
 
         // ✅ Step 7: Final call to reusable validator
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -1488,7 +1425,7 @@ public class PT_ConsolidatedMethods extends BasePage {
         headerMap.put("L", "Diffrence");
 
 
-        CommonBusinessUtilis3.validateExcelCalculation(
+        Utilis3.validateExcelCalculation(
         	    downloadedExcelFile,
         	    salaryFile,
         	    test,
@@ -1506,60 +1443,6 @@ public class PT_ConsolidatedMethods extends BasePage {
         	);
 
 
-
-
-
-
-
-
-        
-        
-        
-        
-/*     // 🧪 Step 1: Define calculation rule
-        String calculationRule = "L = H - K";   // H (master) - K (downloaded) = L (downloaded)
-
-        // 🗂️ Step 2: Master File Details
-        String masterSheetName = "Sheet1";
-        ExcelFileDetails masterFileDetails = new ExcelFileDetails(
-                new File(masterFilePath),   // local master file
-                masterSheetName,
-                ExcelUtils.columnLetterToIndex("H"),  // convert "H" → 7
-                null,   // filters, if any (null → no filter)
-                "YES"   // YES = use master file
-        );
-
-        // 🎯 Step 3: Target Validation (Downloaded file)
-        String targetSheetName = "Sheet1";
-        ExcelTargetValidation targetValidation = new ExcelTargetValidation(
-                targetSheetName,
-                ExcelUtils.columnLetterToIndex("L"), // target column = L
-                "Expected Result",   // optional header keyword, can keep empty
-                0                    // startRowIndex (0 → from header)
-        );
-
-        // ⚙️ Step 4: Extra Config (Total row logic if needed)
-        ExcelExtraConfig extraConfig = new ExcelExtraConfig(
-                "YES",    // enable total logic? YES/NO
-                ExcelUtils.columnLetterToIndex("L"),  // column index where total is present
-                "Total"   // keyword to stop at
-        );
-
-        // 📊 Step 5: Run validation
-        CommonBusinessUtilis2.validateExcelCalculation(
-                downloadedExcelFile,   // downloaded file path
-                test,                  // ExtentTest object
-                masterFileDetails,     // master details (H)
-                targetValidation,      // downloaded L
-                extraConfig,           // total logic
-                calculationRule,       // "L = H - K"
-                "RowByRow",            // compare mode ("RowByRow" or "TotalOnly")
-                0.01                   // tolerance
-        ); */
-
-
-        
-        
         
 		
 	}
@@ -1625,7 +1508,7 @@ public class PT_ConsolidatedMethods extends BasePage {
         extraConfig.setEnableDateMatch("YES");      // 01-01-2025 ↔ 01-Jan-2025
 
         // ✅ Step 7: Final call to reusable validator
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -1659,7 +1542,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 		headerMap.put("J", "Client PT deduction");
 
 		// ✅ Calling: Master.Q ka sum == Downloaded.I ka Total
-		CommonBusinessUtilis3.validateExcelCalculation(
+		Utilis3.validateExcelCalculation(
 		    downloadedExcelFile,              // File downloaded
 		    salaryFile_NAEmployee,                       // Master file
 		    test,                             // ExtentTest
@@ -1701,7 +1584,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 		headerMap.put("I", "Client PT deduction");
 
 		// ✅ Calling: Master.Q ka sum == Downloaded.I ka Total
-		CommonBusinessUtilis3.validateExcelCalculation(
+		Utilis3.validateExcelCalculation(
 		    downloadedExcelFile,              // File downloaded
 		    salaryFile_NAEmployee,                       // Master file
 		    test,                             // ExtentTest
@@ -3033,7 +2916,7 @@ public class PT_ConsolidatedMethods extends BasePage {
  //       extraConfig.setEnableDateMatch("NO");      // 01-01-2025 ↔ 01-Jan-2025
 
         // ✅ Step 7: Final call to reusable validator
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,
@@ -3151,7 +3034,7 @@ public class PT_ConsolidatedMethods extends BasePage {
         );
 
         // ✅ Step 5: Final call
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
                 downloadedExcelFile,
                 test,
                 masterFileDetails,
@@ -3316,7 +3199,7 @@ public class PT_ConsolidatedMethods extends BasePage {
         );
 
         // ✅ Step 5: Final call to reusable validator
-        CommonBusinessUtilis.validateExcelBusinessData(
+        UtilisOne.validateExcelBusinessData(
             downloadedExcelFile,
             test,
             masterFileDetails,

@@ -30,6 +30,7 @@ import login.LoginLocators;
 import performer.LocatorsP;
 import performer.MethodsP;
 import performer.PerformerMethod;
+import rcp.ChangePassMethod;
 import rcp.OneCommonMethod;
 import reviewer.ReviewerMethod;
 
@@ -73,6 +74,7 @@ public class All_Performer_TestCases extends BasePage{
 	{
 		Initialization(link,1,"Statutory");
 		
+		
 		XSSFSheet sheet = ReadExcel(count);
 		Row row0 = sheet.getRow(0);						//Selected 0th index row (First row)
 		Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
@@ -112,6 +114,19 @@ public class All_Performer_TestCases extends BasePage{
 		extent.endTest(test);
 		extent.flush();
 	}
+	
+			@Test(priority = 3) //Bilal
+		void ChangePassWithInvalidCurrentPass() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Change Password - Verify to change password with invalid scenarios");
+				
+			ChangePassMethod.ChangePassWithInvalidCurrentPass(test,"Reviewer");
+				
+			extent.endTest(test);
+			extent.flush();
+		}	
+	
+	
 	@Test(priority = 3) //Bilal
 	void ChangePass() throws InterruptedException, IOException
 	{

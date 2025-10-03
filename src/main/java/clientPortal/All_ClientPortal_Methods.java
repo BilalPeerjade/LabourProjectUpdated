@@ -13839,6 +13839,41 @@ public static void NoticeDocMandatory(ExtentTest test) throws InterruptedExcepti
 	
 }
 
+public static void noticePopUpChecking(ExtentTest test, String user) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
+{
+	
+	JavascriptExecutor js = (JavascriptExecutor) getDriver();
+	Thread.sleep(8000);
+
+	All_ClientPortal_Locators.clickNotices().click();
+	Thread.sleep(7000);
+	All_ClientPortal_Locators.clickaddnewNotices().click();
+	
+	
+	if(user.equalsIgnoreCase("Entity dropdown disabled"))
+	{
+		// 
+		OneCommonMethod.verifyFieldIsTrulyNonEditable(
+		CoordinatorDisabledField.clientNoticeEntityDropdown(), 
+		test, "Entity Dropdown",
+		"");
+	}
+	
+	if(user.equalsIgnoreCase("Add New Back Button and X button")){
+		All_ClientPortal_Locators.clickaddnewNoticesBack().click();
+		test.log(LogStatus.PASS,"Add New Back button is wroking fine");
+		
+		
+		All_ClientPortal_Locators.clickNotices().click();
+		Thread.sleep(5000);
+		All_ClientPortal_Locators.clickCloseBtn().click();
+		test.log(LogStatus.PASS,"Add New Close X button is working fine");
+		
+	}
+	
+	 
+}
+
 
 public static void NoticeExportBtn(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
 {
@@ -16183,7 +16218,7 @@ public static void MyDocumentAllTab( ExtentTest test) throws InterruptedExceptio
 	Thread.sleep(3000);
 	All_ClientPortal_Locators.MyDocument().click();
 	Thread.sleep(3000);
-if(All_ClientPortal_Locators.StaDocument().isDisplayed()&&All_ClientPortal_Locators.MISDocument().isDisplayed()&&All_ClientPortal_Locators.EmployeeESIC().isDisplayed()&&All_ClientPortal_Locators.CriticalDocuments().isDisplayed()) {
+if(All_ClientPortal_Locators.StaDocument().isDisplayed()&&All_ClientPortal_Locators.MISDocument().isDisplayed()&&All_ClientPortal_Locators.EmployeeESIC().isDisplayed()&&All_ClientPortal_Locators.criticalDocuments().isDisplayed()) {
 	
 	test.log(LogStatus.PASS, "The tab of Statutory Document, MIS Document, Employee ESIC and Critical Documents should be seen below the My document tab");
 }else {
@@ -16209,7 +16244,7 @@ public static void CriticalDocument( ExtentTest test) throws InterruptedExceptio
 	Thread.sleep(3000);
 	All_ClientPortal_Locators.MyDocument().click();
 	Thread.sleep(2000);
-	All_ClientPortal_Locators.CriticalDocuments().click();
+	All_ClientPortal_Locators.criticalDocuments().click();
 	Thread.sleep(2000);
 	All_ClientPortal_Locators.NewFolder().click();
 	Thread.sleep(2000);
@@ -16251,7 +16286,7 @@ public static void CriticalDocumentSubFolder( ExtentTest test) throws Interrupte
 	Thread.sleep(3000);
 	All_ClientPortal_Locators.MyDocument().click();
 	Thread.sleep(2000);
-	All_ClientPortal_Locators.CriticalDocuments().click();
+	All_ClientPortal_Locators.criticalDocuments().click();
 	Thread.sleep(2000);
 	Actions actions = new Actions(getDriver());
     WebElement element = getDriver().findElement(By.xpath("(//div[@title='Test Base MD'])[1]"));
@@ -16297,7 +16332,7 @@ public static void CriticalDocumentNewFile( ExtentTest test) throws InterruptedE
 	Thread.sleep(3000);
 	All_ClientPortal_Locators.MyDocument().click();
 	Thread.sleep(2000);
-	All_ClientPortal_Locators.CriticalDocuments().click();
+	All_ClientPortal_Locators.criticalDocuments().click();
 	Thread.sleep(5000);
 	Actions actions = new Actions(getDriver());
     WebElement element = getDriver().findElement(By.xpath("(//div[normalize-space()='Folder'])[1]"));
@@ -16356,17 +16391,11 @@ public static void CriticalDocumentshare( ExtentTest test) throws InterruptedExc
 	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(All_ClientPortal_Locators.MyDocument()));	
-/*	All_ClientPortal_Locators.Entity().click();
-	Thread.sleep(2000);
-	All_ClientPortal_Locators.EntityExpand1().click();
-	Thread.sleep(2000);
-	All_ClientPortal_Locators.checkbox1().click();
-	Thread.sleep(2000);		
-	All_ClientPortal_Locators.Applybtn().click(); */
+
 	Thread.sleep(3000);
 	All_ClientPortal_Locators.MyDocument().click();
 	Thread.sleep(2000);
-	All_ClientPortal_Locators.CriticalDocuments().click();
+	All_ClientPortal_Locators.criticalDocuments().click();
 	Thread.sleep(2000);
 	All_ClientPortal_Locators.Share().click();
 	Thread.sleep(2000);
@@ -16394,6 +16423,28 @@ public static void CriticalDocumentshare( ExtentTest test) throws InterruptedExc
 	   LoginLocators.OK().click();
 	   Thread.sleep(2000);
 	   
+}
+
+public static void criticalDocumentsCancelAndDelete(ExtentTest test, String user) throws InterruptedException, IOException, AWTException {
+
+	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	Thread.sleep(7000);
+	if(user.equalsIgnoreCase("Cancel Button"))
+	{
+		wait.until(ExpectedConditions.visibilityOf(All_ClientPortal_Locators.MyDocument()));
+		Thread.sleep(3000);
+		All_ClientPortal_Locators.MyDocument().click();
+		Thread.sleep(2000);
+		All_ClientPortal_Locators.criticalDocuments().click();
+		Thread.sleep(5000);
+		All_ClientPortal_Locators.criticalDocumentDeleteBtn().click();
+		Thread.sleep(5000);
+		All_ClientPortal_Locators.criticalDocumentCancelBtn().click();
+		Thread.sleep(5000);
+	
+	
+	}
+
 }
 
 

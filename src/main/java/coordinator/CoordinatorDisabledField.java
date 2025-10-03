@@ -97,6 +97,11 @@ public class CoordinatorDisabledField extends BasePage {
 		return labour;
 	}
 	
+	public static WebElement clientNoticeEntityDropdown()
+	{
+		labour = getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted']"));
+		return labour;
+	}
 	
 
 }

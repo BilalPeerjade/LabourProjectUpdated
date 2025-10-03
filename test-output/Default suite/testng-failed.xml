@@ -3,14 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testCases.CoordinatorTestCases">
+      <class name="BusinessUseCases.ESI">
         <methods>
-          <include name="ExistingLicenseDownload"/>
-          <include name="Login"/>
-          <include name="close"/>
+          <include name="Closing"/>
           <include name="setBrowser"/>
+          <include name="Login"/>
+          <include name="challan_ESI_400100_EmployeeName"/>
+          <include name="browserClosing"/>
         </methods>
-      </class> <!-- testCases.CoordinatorTestCases -->
+      </class> <!-- BusinessUseCases.ESI -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -34,11 +34,20 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.relevantcodes.extentreports.ExtentReports;
 	import com.relevantcodes.extentreports.ExtentTest;
 
+import businessTestCases.FilePath;
+
 
 	
 
 	public class BasePage {
 
+		
+		
+		
+//		public static  boolean ena; 
+		
+		
+		
 		public Properties prop;
 		protected static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 		String URL;
@@ -200,6 +209,43 @@ import com.relevantcodes.extentreports.ExtentReports;
 			
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	//n
+	public void Initialization(String link,int no,String text) throws InterruptedException, IOException {
+		try {
+		//loadProperties(no);
+		openBrower(no);
+		
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		read_Login_username(no);
+		read_Login_password(no);
+		
+		
+		LoginMethods.Userlogin(uname,password);		//Method of Login class to login user.
+			
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public void initialization2(String link,int no,String text) throws InterruptedException, IOException {
 		try {
 		//loadProperties(no);
@@ -230,23 +276,7 @@ import com.relevantcodes.extentreports.ExtentReports;
 	
 	
 	
-	//n
-	public void Initialization(String link,int no,String text) throws InterruptedException, IOException {
-		try {
-		//loadProperties(no);
-		openBrower(no);
-		
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
 
-		read_Login_username(no);
-		read_Login_password(no);
-		
-		
-		LoginMethods.Userlogin(uname,password);		//Method of Login class to login user.
-			
-	}
 	
 	
 	public void initializationSDExecutor(String link,int no,String text) throws InterruptedException, IOException {

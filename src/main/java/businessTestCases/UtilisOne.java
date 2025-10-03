@@ -51,7 +51,7 @@ import login.LoginLocators;
 import performer.PerformerLocator;
 import utils.ExcelExtraConfig;
 import utils.ExcelFileDetails;
-import utils.methodsb;
+import utils.ExcelF;
 import utils.ExcelTargetValidation;
 import utils.ExcelValueNormalizer;
 
@@ -74,7 +74,7 @@ import java.util.Set;
 public class UtilisOne {
 	
 	
-	
+	//UtilisOne CommonBusinessUtilis 
     private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     public static void setDriver(WebDriver driverInstance) {
@@ -201,7 +201,7 @@ public class UtilisOne {
         //	test.log(LogStatus.INFO, "📄 Data Fetch file name: " + downloadedFile.getName()); 
         	
             if (downloadedFile == null || !downloadedFile.exists()) {
-            	test.log(LogStatus.FAIL, "BILAL");
+            	
                 test.log(LogStatus.FAIL, "❌ Downloaded file is null or missing.");
                 return;
             }
@@ -310,7 +310,7 @@ public class UtilisOne {
 
                 boolean match = true;
                 if ("YES".equalsIgnoreCase(master.getApplyFilter()) && master.getFilters() != null) {
-                    for (methodsb filter : master.getFilters()) {
+                    for (ExcelF filter : master.getFilters()) {
                         Cell cell = row.getCell(filter.getColumnIndex());
                         String val = cell != null ? cell.toString().trim() : "";
                         if (!filter.getValues().contains(val)) {
@@ -387,7 +387,7 @@ public class UtilisOne {
                 if (extraConfig != null && "YES".equalsIgnoreCase(extraConfig.getEnableSmartTextMatch())) {
                     tempNormalized = tempNormalized.stream()
                             .map(utils.ExcelValueNormalizer::normalize)
-                            .collect(Collectors.toList()); //This will normalize values like: NA, N/A, N.A, -, _, null, nil, not available, NA
+                            .collect(Collectors.toList()); //This will normalize
                 }
 
                 final List<String> normalizedFoundNames = tempNormalized; // final = required for lambda capture
@@ -399,119 +399,16 @@ public class UtilisOne {
 
                 // HTML Report block (use normalizedFoundNames for presence checks)
                 if (ENABLE_HTML_REPORT_TABLE) {
-//                    StringBuilder htmlTable = new StringBuilder();
-//
-//                    String masterColLetter = getExcelColumnLetter2(master.getEmpNameColumnIndex());
-//                    String masterHeader = getHeaderValue(master.getFilePath(), master.getSheetName(), master.getEmpNameColumnIndex());
-//
-//                    String downloadedColLetter = getExcelColumnLetter2(target.getColumnIndex());
-//                    String downloadedHeader = target.getHeaderKeyword() != null ? target.getHeaderKeyword() : "";
-//
-//                    String masterColumnHeader = masterColLetter + ": " + masterHeader;
-//                    String downloadedColumnHeader = downloadedColLetter + ": " + downloadedHeader;
-//
-//                    htmlTable.append("<br><b>📊 Sample Comparison Table:</b><br>")
-//                            .append("<table border='1' cellpadding='4' style='border-collapse:collapse; text-align:center; font-family:Arial, sans-serif;'>")
-//                            .append("<tr style='background-color:#f2f2f2;'>")
-//                            .append("<th style='width:60px;'>Row No.<br><small>&nbsp;</small></th>")
-//                            .append("<th>Master Value<br><small>").append(masterColumnHeader).append("</small></th>")
-//                            .append("<th>Downloaded Value<br><small>").append(downloadedColumnHeader).append("</small></th>")
-//                            .append("<th>Result<br><small>&nbsp;</small></th>")
-//                            .append("</tr>");
-//
-//                    int rowNum = 1;
-//                    for (String masterValue : filteredNames) {
-//                        if (rowNum > 5) break; // Show only first 5 rows
-//
-//                        boolean isPresent = normalizedFoundNames.contains(masterValue);
-//                        String matchResult = isPresent
-//                                ? "<span style='color:green;font-weight:bold;'>PASS</span>"
-//                                : "<span style='color:red;font-weight:bold;'>FAIL</span>";
-//                        String downloadedMatch = isPresent ? masterValue : "❌ Not Found";
-//
-//                        htmlTable.append("<tr>")
-//                                .append("<td>").append(rowNum).append("</td>")
-//                                .append("<td>").append(masterValue).append("</td>")
-//                                .append("<td>").append(downloadedMatch).append("</td>")
-//                                .append("<td>").append(matchResult).append("</td>")
-//                                .append("</tr>");
-//
-//                        rowNum++;
-//                    }
-//
-//                    htmlTable.append("</table>");
-//                    test.log(LogStatus.INFO, htmlTable.toString());
-                	
-                	
-                	
-                	
-                	
-                	//New table:
-                	
-                	// ===== Clean UI HTML table (drop-in) =====
-                	
-                	    StringBuilder htmlTable = new StringBuilder();
 
-                	    String masterColLetter = getExcelColumnLetter2(master.getEmpNameColumnIndex());
-                	    String masterHeader = getHeaderValue(master.getFilePath(), master.getSheetName(), master.getEmpNameColumnIndex());
-
-                	    String downloadedColLetter = getExcelColumnLetter2(target.getColumnIndex());
-                	    String downloadedHeader = (target.getHeaderKeyword() != null ? target.getHeaderKeyword() : "");
-
-                	    String masterColumnHeader = masterColLetter + ": " + masterHeader;      // e.g., F: EmpName
-                	    String downloadedColumnHeader = downloadedColLetter + (downloadedHeader.isEmpty() ? "" : (": " + downloadedHeader)); // e.g., C: EmpName
-
-                	    // Title
-                	    htmlTable.append("<div style='margin:6px 0 10px; font-weight:700; font-family:Arial, sans-serif;'>")
-                	             .append("Sample Comparison Table")
-                	             .append("</div>");
-
-                	    // Table header (v2-friendly: keep border attribute + inline styles; avoid <thead>/<tbody> if renderer is picky)
-                	    htmlTable.append("<table border='1' style='border-collapse:collapse; width:100%; font-family:Arial, sans-serif; font-size:13px; text-align:center;'>")
-                	             .append("<tr style='background:#f7f7f9;'>")
-                	             .append("<th style='border:1px solid #e5e7eb; padding:8px 10px; text-transform:uppercase; letter-spacing:.4px; min-width:80px; white-space:nowrap;'>Row No.</th>")
-                	             .append("<th style='border:1px solid #e5e7eb; padding:8px 10px; text-transform:uppercase; letter-spacing:.4px; min-width:220px; white-space:nowrap;'>MASTER VALUE<br><span style='font-weight:400; font-size:12px;'>")
-                	             .append(masterColumnHeader)
-                	             .append("</span></th>")
-                	             .append("<th style='border:1px solid #e5e7eb; padding:8px 10px; text-transform:uppercase; letter-spacing:.4px; min-width:220px; white-space:nowrap;'>DOWNLOADED VALUE<br><span style='font-weight:400; font-size:12px;'>")
-                	             .append(downloadedColumnHeader)
-                	             .append("</span></th>")
-                	             .append("<th style='border:1px solid #e5e7eb; padding:8px 10px; text-transform:uppercase; letter-spacing:.4px; min-width:120px; white-space:nowrap;'>Result</th>")
-                	             .append("</tr>");
-
-                	    int rowNum = 1;
-                	    for (String masterValue : filteredNames) {
-                	        if (rowNum > 5) break; // Show only first 5 rows
-
-                	        boolean isPresent = normalizedFoundNames.contains(masterValue);
-                	        String downloadedMatch = isPresent ? masterValue : "Not Found";
-                	        String pill = isPresent
-                	                ? "<span style='display:inline-block; padding:2px 12px; border-radius:999px; background:#ecfdf5; color:#065f46; font-weight:700;'>PASS</span>"
-                	                : "<span style='display:inline-block; padding:2px 12px; border-radius:999px; background:#fef2f2; color:#991b1b; font-weight:700;'>FAIL</span>";
-
-                	        htmlTable.append("<tr>")
-                	                 .append("<td style='border:1px solid #e5e7eb; padding:10px; white-space:nowrap;'>").append(rowNum).append("</td>")
-                	                 .append("<td style='border:1px solid #e5e7eb; padding:10px; white-space:nowrap;'>").append(masterValue).append("</td>")
-                	                 .append("<td style='border:1px solid #e5e7eb; padding:10px; white-space:nowrap;'>").append(downloadedMatch).append("</td>")
-                	                 .append("<td style='border:1px solid #e5e7eb; padding:10px;'>").append(pill).append("</td>")
-                	                 .append("</tr>");
-
-                	        rowNum++;
-                	    }
-
-                	    htmlTable.append("</table>");
-
-                	    // ---- v2-safe logging (swap args so HTML goes in details area) ----
-                	    String htmlOut = htmlTable.toString();
-                	    test.log(LogStatus.INFO, "", htmlOut);
-                	
-                	// ===== End drop-in block =====
+                      //Enhancement 
+                
                 
                 } // end HTML report
 
                 if (missing.isEmpty()) {
                 	//-----Status-------
-            //    
+                	//
+                   
                     test.log(LogStatus.PASS, "✅ All " + filteredNames.size() + " expected values found in downloaded file.");
                 } else {
                     test.log(LogStatus.FAIL, "❌ Missing values: " + String.join(", ", missing));
@@ -1950,12 +1847,127 @@ public class UtilisOne {
 	
 	
 	
+	/**
+	
+	
+// HTML Report block (use normalizedFoundNames for presence checks)
+if (ENABLE_HTML_REPORT_TABLE) {
+
+//OLD Table---
+
+//    StringBuilder htmlTable = new StringBuilder();
+//
+//    String masterColLetter = getExcelColumnLetter2(master.getEmpNameColumnIndex());
+//    String masterHeader = getHeaderValue(master.getFilePath(), master.getSheetName(), master.getEmpNameColumnIndex());
+//
+//    String downloadedColLetter = getExcelColumnLetter2(target.getColumnIndex());
+//    String downloadedHeader = target.getHeaderKeyword() != null ? target.getHeaderKeyword() : "";
+//
+//    String masterColumnHeader = masterColLetter + ": " + masterHeader;
+//    String downloadedColumnHeader = downloadedColLetter + ": " + downloadedHeader;
+//
+//    htmlTable.append("<br><b>📊 Sample Comparison Table:</b><br>")
+//            .append("<table border='1' cellpadding='4' style='border-collapse:collapse; text-align:center; font-family:Arial, sans-serif;'>")
+//            .append("<tr style='background-color:#f2f2f2;'>")
+//            .append("<th style='width:60px;'>Row No.<br><small>&nbsp;</small></th>")
+//            .append("<th>Master Value<br><small>").append(masterColumnHeader).append("</small></th>")
+//            .append("<th>Downloaded Value<br><small>").append(downloadedColumnHeader).append("</small></th>")
+//            .append("<th>Result<br><small>&nbsp;</small></th>")
+//            .append("</tr>");
+//
+//    int rowNum = 1;
+//    for (String masterValue : filteredNames) {
+//        if (rowNum > 5) break; // Show only first 5 rows
+//
+//        boolean isPresent = normalizedFoundNames.contains(masterValue);
+//        String matchResult = isPresent
+//                ? "<span style='color:green;font-weight:bold;'>PASS</span>"
+//                : "<span style='color:red;font-weight:bold;'>FAIL</span>";
+//        String downloadedMatch = isPresent ? masterValue : "❌ Not Found";
+//
+//        htmlTable.append("<tr>")
+//                .append("<td>").append(rowNum).append("</td>")
+//                .append("<td>").append(masterValue).append("</td>")
+//                .append("<td>").append(downloadedMatch).append("</td>")
+//                .append("<td>").append(matchResult).append("</td>")
+//                .append("</tr>");
+//
+//        rowNum++;
+//    }
+//
+//    htmlTable.append("</table>");
+//    test.log(LogStatus.INFO, htmlTable.toString());
 	
 	
 	
 	
+	//Need to work
+	 //New table:
 	
+/**              	      //New table:
 	
+	     // ===== Clean UI HTML table (drop-in) =====
+	
+	    StringBuilder htmlTable = new StringBuilder();
+
+	    String masterColLetter = getExcelColumnLetter2(master.getEmpNameColumnIndex());
+	    String masterHeader = getHeaderValue(master.getFilePath(), master.getSheetName(), master.getEmpNameColumnIndex());
+
+	    String downloadedColLetter = getExcelColumnLetter2(target.getColumnIndex());
+	    String downloadedHeader = (target.getHeaderKeyword() != null ? target.getHeaderKeyword() : "");
+
+	    String masterColumnHeader = masterColLetter + ": " + masterHeader;      // e.g., F: EmpName
+	    String downloadedColumnHeader = downloadedColLetter + (downloadedHeader.isEmpty() ? "" : (": " + downloadedHeader)); // e.g., C: EmpName
+
+	    // Title
+	    htmlTable.append("<div style='margin:6px 0 10px; font-weight:700; font-family:Arial, sans-serif;'>")
+	             .append("Sample Comparison Table")
+	             .append("</div>");
+
+	    // Table header (v2-friendly: keep border attribute + inline styles; avoid <thead>/<tbody> if renderer is picky)
+	    htmlTable.append("<table border='1' style='border-collapse:collapse; width:100%; font-family:Arial, sans-serif; font-size:13px; text-align:center;'>")
+	             .append("<tr style='background:#f7f7f9;'>")
+	             .append("<th style='border:1px solid #e5e7eb; padding:8px 10px; text-transform:uppercase; letter-spacing:.4px; min-width:80px; white-space:nowrap;'>Row No.</th>")
+	             .append("<th style='border:1px solid #e5e7eb; padding:8px 10px; text-transform:uppercase; letter-spacing:.4px; min-width:220px; white-space:nowrap;'>MASTER VALUE<br><span style='font-weight:400; font-size:12px;'>")
+	             .append(masterColumnHeader)
+	             .append("</span></th>")
+	             .append("<th style='border:1px solid #e5e7eb; padding:8px 10px; text-transform:uppercase; letter-spacing:.4px; min-width:220px; white-space:nowrap;'>DOWNLOADED VALUE<br><span style='font-weight:400; font-size:12px;'>")
+	             .append(downloadedColumnHeader)
+	             .append("</span></th>")
+	             .append("<th style='border:1px solid #e5e7eb; padding:8px 10px; text-transform:uppercase; letter-spacing:.4px; min-width:120px; white-space:nowrap;'>Result</th>")
+	             .append("</tr>");
+
+	    int rowNum = 1;
+	    for (String masterValue : filteredNames) {
+	        if (rowNum > 5) break; // Show only first 5 rows
+
+	        boolean isPresent = normalizedFoundNames.contains(masterValue);
+	        String downloadedMatch = isPresent ? masterValue : "Not Found";
+	        String pill = isPresent
+	                ? "<span style='display:inline-block; padding:2px 12px; border-radius:999px; background:#ecfdf5; color:#065f46; font-weight:700;'>PASS</span>"
+	                : "<span style='display:inline-block; padding:2px 12px; border-radius:999px; background:#fef2f2; color:#991b1b; font-weight:700;'>FAIL</span>";
+
+	        htmlTable.append("<tr>")
+	                 .append("<td style='border:1px solid #e5e7eb; padding:10px; white-space:nowrap;'>").append(rowNum).append("</td>")
+	                 .append("<td style='border:1px solid #e5e7eb; padding:10px; white-space:nowrap;'>").append(masterValue).append("</td>")
+	                 .append("<td style='border:1px solid #e5e7eb; padding:10px; white-space:nowrap;'>").append(downloadedMatch).append("</td>")
+	                 .append("<td style='border:1px solid #e5e7eb; padding:10px;'>").append(pill).append("</td>")
+	                 .append("</tr>");
+
+	        rowNum++;
+	    }
+
+	    htmlTable.append("</table>");
+
+	    // ---- v2-safe logging (swap args so HTML goes in details area) ----
+	    String htmlOut = htmlTable.toString();
+	    test.log(LogStatus.INFO, "", htmlOut);
+	
+	// ===== End drop-in block =====
+
+ } // end HTML report
+	
+**/	
 	
 	
 	

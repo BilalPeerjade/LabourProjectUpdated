@@ -73,7 +73,7 @@ public class All_Distributor_TWO  extends BasePage {
 		Initialization(link,0,"Statutory");
 	
 	}
-	
+	/**
 	@Test(priority = 1) //Bilal
 	void CompanyLogo() throws InterruptedException, IOException
 	{
@@ -523,10 +523,10 @@ public class All_Distributor_TWO  extends BasePage {
 		
 		
 
-		
+		**/
 		//Part 2
 		
-		
+	
 		
 		//Manage Masters
 		@Test(priority = 100) //Bilal
@@ -944,7 +944,7 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 	   		All_Distributor_Methods.CLRA_EmployeeMap_bulkUpload(test, workbook);
 	   		
 	   		
-	   		test = extent.startTest("OnBoard CLRA - Employee Mapping - Verify to download sample files in bulk upload ");
+	   		test = extent.startTest("OnBoard CLRA - Employee Mapping - Verify to check errors while uploading files");
 	   		All_Distributor_Methods.CLRA_EmployeeMap_bulkUploadInvalid(test, workbook);
 	   		
 	   		extent.endTest(test);
@@ -989,6 +989,18 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 	   	}
 		
 		//CLRA: Manage Compliances 
+		@Test(priority = 344)
+	   	void manageCompliances_DrpChecking() throws InterruptedException, IOException
+	   	{
+	   		test = extent.startTest("OnBorad CLRA - Manage Compliances - Verify to check in activity dropdown all expected values reflecting correctly");
+	   		 
+	   		All_Distributor_Methods.manageCompliances_DrpChecking(test, workbook);
+	   		
+	   		extent.endTest(test);
+	   		extent.flush();
+
+	   	}
+		
 		@Test(priority = 345)
 	   	void CLRA_CompReassignment() throws InterruptedException, IOException
 	   	{
