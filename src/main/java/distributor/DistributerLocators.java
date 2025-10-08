@@ -120,7 +120,7 @@ public class DistributerLocators extends BasePage
 	}
 	public static WebElement TypetosearchCLRA()	
 	{
-		labour = getDriver().findElement(By.xpath("//input[@placeholder='Type to Search']"));
+		labour = getDriver().findElement(By.xpath("//input[@placeholder='Type To Search']"));
 		return labour;
 	}
 	
@@ -425,6 +425,11 @@ public class DistributerLocators extends BasePage
 		labour = getDriver().findElement(By.xpath("//*[@class='k-list-ul']/li[2]"));
 		return labour;
 	}
+	public static WebElement selectQAPerformer()	
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='QA Performer']"));
+		return labour;
+	}
 	public static WebElement clickreviewer()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//span[contains(text(),'Select Reviewer')]"));
@@ -433,6 +438,11 @@ public class DistributerLocators extends BasePage
 	public static WebElement selectreviewer()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//*[@class='k-list-ul']/li[2]"));
+		return labour;
+	}
+	public static WebElement selectQAReviewer()	
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='QA']"));
 		return labour;
 	}
 	public static WebElement clickApply()		//Method for searching Username input

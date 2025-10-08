@@ -2901,6 +2901,7 @@ public class All_Distributor_Methods extends BasePage {
 		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Distributor Admin\\CLRA\\SamplePrincipleEmployee.xlsx");
 
 		DistributerLocators.clickUpload().click();
+		Thread.sleep(5000);
 
 		String ErrorFile = DistributerLocators.clickMsg().getText();
 		if (ErrorFile.equalsIgnoreCase("File Contains Error")) {
@@ -5522,6 +5523,181 @@ public class All_Distributor_Methods extends BasePage {
 		
 		
 		String texttt = getDriver().findElement(By.xpath("//tbody/tr[1]/td[1]")).getText();
+		
+		if(texttt.equals("190484"))
+		{
+			test.log(LogStatus.PASS, "Type to search field is working fine");
+			test.log(LogStatus.PASS, "Searched text is displayed in grid" + texttt);
+		}
+		else
+		{
+			test.log(LogStatus.FAIL	, "Type to search field is not working properly");
+			test.log(LogStatus.FAIL, "Searched text is displayed in grid" + texttt);
+		}
+		
+		
+		
+		
+
+		Thread.sleep(1000);
+		if (DistributerLocators.clickClearBtn().isEnabled()) {
+			Thread.sleep(1000);
+			DistributerLocators.clickClearBtn().click();
+			test.log(LogStatus.PASS, "Clear button working successfully.");
+		} else {
+			test.log(LogStatus.FAIL, "Clear button not working successfully.");
+		}
+
+		Thread.sleep(1000);
+
+	}
+	
+	
+	
+	
+	public static void Entity_CompAssignment(ExtentTest test, XSSFWorkbook workbook)
+			throws InterruptedException, IOException {
+		WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+
+		Thread.sleep(1000);
+		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+		OneCommonMethod.searchEntityAndSelect(driver.get(), test, LoginLocators.Search(), "AVACORED5");
+		Thread.sleep(1000);
+		DistributerLocators.clickPremiseMasterArrow().click();
+
+		Thread.sleep(1000);
+
+		Thread.sleep(1000);
+
+		Thread.sleep(3000);
+		DistributerLocators.clickOnBoardEntity().click();
+
+		Thread.sleep(5000);
+		DistributerLocators.clickComplianceAssignment().click();
+		Thread.sleep(5000);
+
+		// Validation
+		DistributerLocators.clickApply().click();
+
+		String validationMSG = DistributerLocators.clickMsg().getText();
+		if (validationMSG.equalsIgnoreCase("Please Select the Branch and Date")) {
+			test.log(LogStatus.PASS, "Without selecting any dropdown validation message is displayed ");
+			Thread.sleep(1000);
+			test.log(LogStatus.PASS, "Message displayed:-" + validationMSG);
+			Thread.sleep(1000);
+			DistributerLocators.clickOkBtn().click();
+		}
+		Thread.sleep(5000);
+
+		DistributerLocators.clickComplianceType().click();
+		Thread.sleep(1000);
+		DistributerLocators.selectComplianceType().click();
+
+		Thread.sleep(1000);
+		DistributerLocators.clickBranch().click();
+		Thread.sleep(1000);
+		DistributerLocators.selectBranch().click();
+
+		Thread.sleep(5000);
+
+//		Thread.sleep(1000);
+//		Locator.selectmonth().click();
+//		Thread.sleep(1000);
+//		Locator.selectYear().click();
+//	
+//		
+//		Actions action = new Actions(getDriver());
+//		WebElement we = getDriver().findElement(By.xpath("//td[@title='2021 Jan']"));
+//		action.moveToElement(we).click().build().perform();
+
+		// Handling Calendar
+		/*
+		 * DistributerLocators.Calender().click(); Thread.sleep(2000);
+		 * DistributerLocators.Calendar_NavigateToParentView().click();
+		 * Thread.sleep(2000);
+		 * 
+		 * WebElement Year =
+		 * getDriver().findElement(By.xpath("//span[normalize-space()='2024']"));
+		 * Year.click();
+		 * 
+		 * Thread.sleep(2000); WebElement Month =
+		 * getDriver().findElement(By.xpath("//td[@title='2024 Jan']")); Month.click();
+		 * Thread.sleep(3000); WebElement Date =
+		 * getDriver().findElement(By.xpath("//td[@title='Monday, January 1, 2024']"));
+		 * Date.click(); Thread.sleep(2000);
+		 */
+
+		DistributerLocators.Calender().click();
+
+		OneCommonMethod.selectCalendarDateFromInput(driver.get(), test, DistributerLocators.Calender(), // calendar icon
+				DistributerLocators.Calendar_NavigateToParentView(), // parent view arrow
+				"15-06-2026" 
+		);
+
+		Thread.sleep(1000);
+		DistributerLocators.clickPerformer().click();
+
+		Thread.sleep(1000);
+		DistributerLocators.selectQAPerformer().click();
+		Thread.sleep(1000);
+		DistributerLocators.clickreviewer().click();
+
+		Thread.sleep(1000);
+		DistributerLocators.selectQAReviewer().click();
+
+		if (DistributerLocators.clickApply().isEnabled()) {
+			Thread.sleep(1000);
+			DistributerLocators.clickApply().click();
+			test.log(LogStatus.PASS, "All filters & dropdowns working fine ");
+			Thread.sleep(1000);
+			test.log(LogStatus.PASS, "Apply Button working successfully");
+		} else {
+			test.log(LogStatus.FAIL, "Apply Button does not working successfully");
+		}
+
+		Thread.sleep(1000);
+		DistributerLocators.clickCheckBox().click();
+
+		Thread.sleep(1000);
+//		DistributerLocators.clickCheckBox1().click();
+
+		Thread.sleep(1000);
+		DistributerLocators.clicksave().click();
+		Thread.sleep(4000);
+		DistributerLocators.clickCancelBtn().click();
+		Thread.sleep(4000);
+		DistributerLocators.clicksave().click();
+
+		Thread.sleep(1000);
+		String msg = DistributerLocators.CASuccessMsg().getText();
+		if (msg.equalsIgnoreCase(msg)) {
+			test.log(LogStatus.PASS, "Cancel button working successfully");
+			test.log(LogStatus.PASS, "Save button working successfully");
+			Thread.sleep(1000);
+			test.log(LogStatus.PASS, "Message displayed:-" + msg);
+		} else {
+			test.log(LogStatus.FAIL, "Message displayed:-" + msg);
+		}
+		Thread.sleep(1000);
+		DistributerLocators.clickOkBtn().click();
+
+		Thread.sleep(1000);
+		String msg1 = DistributerLocators.CASuccessMsg1().getText();
+		if (msg1.equalsIgnoreCase(msg1)) {
+			test.log(LogStatus.PASS, "Message displayed:-" + msg1);
+		} else {
+			test.log(LogStatus.FAIL, "Message displayed:-" + msg1);
+		}
+		Thread.sleep(1000);
+		DistributerLocators.clickOkBtn().click();
+		Thread.sleep(4000);
+		DistributerLocators.TypetosearchCLRA().click();
+		Thread.sleep(1000);
+		DistributerLocators.TypetosearchCLRA().sendKeys("8353");
+		
+		
+		
+		String texttt = getDriver().findElement(By.xpath("//tbody/tr[1]/td[2]")).getText();
 		
 		if(texttt.equals("190484"))
 		{

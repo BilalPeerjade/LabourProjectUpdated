@@ -1083,320 +1083,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 		
 	}
 	
-	public static void PF_AllEMPWorkings_Test( ExtentTest test, String user) throws Exception
-	{
-		ChallanPFRedirectin(test,user);
-		
-		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
-		d1.clickDownload("345678765456794", 1);
-		
-		Thread.sleep(5000);
-        // Step 1: Manually download file
-		formLocators.downloadDocument5().click();
-        Thread.sleep(10000); // wait for file to download
 
-        // Step 2: Get latest file
-        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
-        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
-        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
-        downloadedExcelFile = files[0];
-        
-        
-        
-        
-        
-     // ---------- Simple ready-to-drop calling (uses your globals downloadedExcelFile & salaryFile) ----------
-        ExcelExtraConfig extraConfig = new ExcelExtraConfig("NO", ExcelUtils.columnLetterToIndex("H"), "VPF");
-
-        List<ExcelF> masterFilters = new ArrayList<>();
-        List<ExcelF> downloadedFilters = new ArrayList<>();
-
-        // master filters you gave
-        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AD"), Arrays.asList("Chattishgad Branch")));
-        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AF"), Arrays.asList("Yes")));
-        
-        //Downloaded filters
-        downloadedFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("G"), Arrays.asList("VPF")));
-
-        // header map: Master.I is total (~63000) and downloaded header "Basic" is in H (we pass H, util will apply +7 internally)
-        Map<String, String> headerMap = new HashMap<>();
-        headerMap.put("I", "VPF");    // Master sheet column I (expected ~63000)
-        headerMap.put("H", "Basic");             // Downloaded sheet header to locate "Basic" (utility will use +7 as per your rule)
-
-        // FINAL call — simple, same style as your reference
-        Utilis3.validateExcelCalculation(
-            downloadedExcelFile,
-            FilePath.SALARY_FILE,
-            test,
-            "All_Employees.H = Master.I",   // keep H here (your util will use header H and startRowOffset to apply +7 logic)
-            "MASTER",
-            "All_Employees",                // or "All_Employees" if your util prefers alias — keep as your project expects All Employees
-            masterFilters,
-            downloadedFilters,
-            extraConfig,
-            1,       // tolerance %
-            false,   // compareRowByRow
-            7,       // startRowOffset (you wanted 7 — used here)
-            headerMap,
-            "🧪 Validating VPF/Basic+7: All Employees.(Basic+7) = MASTER.I (expected ~63000)"
-        );
-
-        
-        
-        
-        
-        
-		
-		
-	}
-	public static void PF_AllEMPWorkings_Test2( ExtentTest test, String user) throws Exception
-	{
-		ChallanPFRedirectin(test,user);
-		
-		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
-		d1.clickDownload("345678765456795", 1);
-		
-		Thread.sleep(5000);
-        // Step 1: Manually download file
-		formLocators.downloadDocument5().click();
-        Thread.sleep(10000); // wait for file to download
-
-        // Step 2: Get latest file
-        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
-        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
-        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
-        downloadedExcelFile = files[0];
-        
-        
-        
-        
-        
-     // ---------- Simple ready-to-drop calling (uses your globals downloadedExcelFile & salaryFile) ----------
-        ExcelExtraConfig extraConfig = new ExcelExtraConfig("NO", ExcelUtils.columnLetterToIndex("G"), "VPF");
-
-        List<ExcelF> masterFilters = new ArrayList<>();
-        List<ExcelF> downloadedFilters = new ArrayList<>();
-
-        // master filters you gave
-        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AD"), Arrays.asList("DaraNHaveli Branch")));
-        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AF"), Arrays.asList("Yes")));
-        
-        //Downloaded filters
-        downloadedFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("G"), Arrays.asList("VPF")));
-
-        // header map: Master.I is total (~63000) and downloaded header "Basic" is in H (we pass H, util will apply +7 internally)
-        Map<String, String> headerMap = new HashMap<>();
-        headerMap.put("I", "VPF");    // Master sheet column I (expected ~63000)
-        headerMap.put("H", "Basic");             // Downloaded sheet header to locate "Basic" (utility will use +7 as per your rule)
-
-        // FINAL call — simple, same style as your reference
-        Utilis3.validateExcelCalculation(
-            downloadedExcelFile,
-            FilePath.SALARY_FILE,
-            test,
-            "All_Employees.H = Master.I",   // keep H here (your util will use header H and startRowOffset to apply +7 logic)
-            "MASTER",
-            "All_Employees",                // or "All_Employees" if your util prefers alias — keep as your project expects All Employees
-            masterFilters,
-            downloadedFilters,
-            extraConfig,
-            1,       // tolerance %
-            false,   // compareRowByRow
-            7,       // startRowOffset (you wanted 7 — used here)
-            headerMap,
-            "🧪 Validating VPF as per masters"
-        );
-
-		
-	}
-	public static void PF_AllEMPWorkings_Test3( ExtentTest test, String user) throws Exception
-	{
-	     // ---------- Simple ready-to-drop calling (uses your globals downloadedExcelFile & salaryFile) ----------
-        ExcelExtraConfig extraConfig = new ExcelExtraConfig("NO", ExcelUtils.columnLetterToIndex("G"), "VPF");
-
-        List<ExcelF> masterFilters = new ArrayList<>();
-        List<ExcelF> downloadedFilters = new ArrayList<>();
-        
-        
-
-        // master filters you gave
-        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AD"), Arrays.asList("DaraNHaveli Branch")));
-        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AF"), Arrays.asList("Yes")));
-        
-        //Downloaded filters
-        downloadedFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("G"), Arrays.asList("EPS Wages")));
-
-        // header map: Master.I is total (~63000) and downloaded header "Basic" is in H (we pass H, util will apply +7 internally)
-        Map<String, String> headerMap = new HashMap<>();
-        headerMap.put("P", "PF Gross");    // Master sheet column I (expected ~63000)
-        headerMap.put("H", "Basic");             // Downloaded sheet header to locate "Basic" (utility will use +7 as per your rule)
-
-        // FINAL call — simple, same style as your reference
-        Utilis3.validateExcelCalculation(
-            downloadedExcelFile,
-            FilePath.SALARY_FILE,
-            test,
-            "All_Employees.H = Master.P",   // keep H here (your util will use header H and startRowOffset to apply +7 logic)
-            "MASTER",
-            "All_Employees",                // or "All_Employees" if your util prefers alias — keep as your project expects All Employees
-            masterFilters,
-            downloadedFilters,
-            extraConfig,
-            1,       // tolerance %
-            false,   // compareRowByRow
-            2,       // startRowOffset (you wanted 7 — used here)
-            headerMap,
-            "🧪 Validating VPF as per masters"
-        );
-
-		
-	}
-	public static void PF_AllEMPWorkings_Test4( ExtentTest test, String user) throws Exception
-	{
-	     // ---------- Simple ready-to-drop calling (uses your globals downloadedExcelFile & salaryFile) ----------
-        ExcelExtraConfig extraConfig = new ExcelExtraConfig("NO", ExcelUtils.columnLetterToIndex("G"), "VPF");
-
-        List<ExcelF> masterFilters = new ArrayList<>();
-        List<ExcelF> downloadedFilters = new ArrayList<>();
-
-        // master filters you gave
-        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AD"), Arrays.asList("DaraNHaveli Branch")));
-        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AF"), Arrays.asList("Yes")));
-        
-        //Downloaded filters
- //     downloadedFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("G"), Arrays.asList("EPS Wages")));
-
-        // header map: Master.I is total (~63000) and downloaded header "Basic" is in H (we pass H, util will apply +7 internally)
-        Map<String, String> headerMap = new HashMap<>();
-        headerMap.put("P", "PF Gross");    // Master sheet column I (expected ~63000)
-        headerMap.put("V", "12% (EPF) A/C No 1");             // Downloaded sheet header to locate "Basic" (utility will use +7 as per your rule)
-
-        // FINAL call — simple, same style as your reference
-        Utilis3.validateExcelCalculation(
-            downloadedExcelFile,
-            FilePath.SALARY_FILE,
-            test,
-            "All_Employees.V = Master.P * 0.12",   // keep H here (your util will use header H and startRowOffset to apply +7 logic)
-            "MASTER",
-            "All_Employees",                // or "All_Employees" if your util prefers alias — keep as your project expects All Employees
-            masterFilters,
-            downloadedFilters,
-            extraConfig,
-            1,       // tolerance %
-            true,   // compareRowByRow
-            2,       // startRowOffset (you wanted 2 — used here)
-            headerMap,
-            "🧪 Validating VPF as per masters"
-        );
-
-		
-	}
-	public static void PF_AllEMPWorkings_Test5( ExtentTest test, String user) throws Exception
-	{
-	     // ---------- Simple ready-to-drop calling (uses your globals downloadedExcelFile & salaryFile) ----------
-        ExcelExtraConfig extraConfig = new ExcelExtraConfig("NO", ExcelUtils.columnLetterToIndex("G"), "VPF");
-
-        List<ExcelF> masterFilters = new ArrayList<>();
-        List<ExcelF> downloadedFilters = new ArrayList<>();
-
-        // master filters you gave
-        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AD"), Arrays.asList("DaraNHaveli Branch")));
-        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AF"), Arrays.asList("Yes")));
-        
-        //Downloaded filters
- //     downloadedFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("G"), Arrays.asList("EPS Wages")));
-
-        // header map: Master.I is total (~63000) and downloaded header "Basic" is in H (we pass H, util will apply +7 internally)
-        Map<String, String> headerMap = new HashMap<>();
-        headerMap.put("P", "PF Gross");    // Master sheet column I (expected ~63000)
-        headerMap.put("V", "12% (EPF) A/C No 1");             // Downloaded sheet header to locate "Basic" (utility will use +7 as per your rule)
-
-        // FINAL call — simple, same style as your reference
-        Utilis3.validateExcelCalculation(
-            downloadedExcelFile,
-            FilePath.SALARY_FILE,
-            test,
-            "All_Employees.V = Master.P * 0.12",
-            "MASTER",
-            "All_Employees",
-            masterFilters,
-            downloadedFilters,
-            extraConfig,
-            1,       
-            false,   
-            1,
-            headerMap,
-            "🧪 Validating VPF as per masters"
-        );
-
-		
-	}
-	public static void RegisterFormB_Test( ExtentTest test, String user) throws Exception
-	{
-		
-		
-		Registers_KAR_FORM_A_FOLDER_Redirection(test,user);
-		
-/**		Registers_Redirection(test,user);
-		
-		formLocators.triangle().click();
-		Thread.sleep(5000);
-		
-		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
-		d1.clickDownload("Maintaining Register of Wages in Form B", 1);
-		
-		Thread.sleep(5000);
-        // Step 1: Manually download file
-		formLocators.downloadDocument().click();
-        Thread.sleep(10000); // wait for file to download
-
-        // Step 2: Get latest file
-        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
-        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
-        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
-        downloadedExcelFile = files[0];   **/
-		
-		
-		
-		
-		
-		ExcelExtraConfig extraConfig = new ExcelExtraConfig("YES",ExcelUtils.columnLetterToIndex("A"),"Total");
-
-			List<ExcelF> masterFilters = new ArrayList<>();
-			List<ExcelF> targetFilters = new ArrayList<>();
-			masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AL"),Arrays.asList("Karnataka Branch")));
-			
-			Map<String, String> headerMap = new HashMap<>();
-			headerMap.put("C", "Basic"); // Master sheet MonthlyEmployeeChallanSalary
-			headerMap.put("H", "Basic Pay");        // Downloaded sheet All Emp Workings
-
-			Utilis3.validateExcelCalculation(
-			    downloadedExcelFile,
-			    salaryFileTESTAUTO,
-			    test,
-			    "Central_Form_B.H = Master.C",
-			    "MASTER",
-			    "Central_Form_B",
-			    masterFilters,
-			    targetFilters,
-			    extraConfig,
-			    1,      // tolerance 1% (won't help here — differences ~10%)
-			    true,
-			    3, // Jump 
-			    headerMap,
-			    "🧪 Validating ESI: All Emp Workings.K ≈ Master.R * (0.0075 + 0.0375)"
-			);
-			
-			
-			
-			
-			
-			
-
-		
-		
-		
-	}
 	
 	public static void Registers_Form_A_check( ExtentTest test, String user) throws Exception
 	{
@@ -2059,6 +1746,311 @@ public class EPF_ConsolatedMethods extends BasePage {
 	*/	
 		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	//Pending: 
+	/**   //Pending utils not working
+	public static void PF_AllEMPWorkings_Test( ExtentTest test, String user) throws Exception
+	{
+		ChallanPFRedirectin(test,user);
+		
+		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
+		d1.clickDownload("345678765456794", 1);
+		
+		Thread.sleep(5000);
+        // Step 1: Manually download file
+		formLocators.downloadDocument5().click();
+        Thread.sleep(10000); // wait for file to download
+
+        // Step 2: Get latest file
+        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
+        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
+        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
+        downloadedExcelFile = files[0];
+        
+        
+        
+        
+        
+     // ---------- Simple ready-to-drop calling (uses your globals downloadedExcelFile & salaryFile) ----------
+        ExcelExtraConfig extraConfig = new ExcelExtraConfig("NO", ExcelUtils.columnLetterToIndex("H"), "VPF");
+
+        List<ExcelF> masterFilters = new ArrayList<>();
+        List<ExcelF> downloadedFilters = new ArrayList<>();
+
+        // master filters you gave
+        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AD"), Arrays.asList("Chattishgad Branch")));
+        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AF"), Arrays.asList("Yes")));
+        
+        //Downloaded filters
+        downloadedFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("G"), Arrays.asList("VPF")));
+
+        // header map: Master.I is total (~63000) and downloaded header "Basic" is in H (we pass H, util will apply +7 internally)
+        Map<String, String> headerMap = new HashMap<>();
+        headerMap.put("I", "VPF");    // Master sheet column I (expected ~63000)
+        headerMap.put("H", "Basic");             // Downloaded sheet header to locate "Basic" (utility will use +7 as per your rule)
+
+        // FINAL call — simple, same style as your reference
+        Utilis3.validateExcelCalculation(
+            downloadedExcelFile,
+            FilePath.SALARY_FILE,
+            test,
+            "All_Employees.H = Master.I",   // keep H here (your util will use header H and startRowOffset to apply +7 logic)
+            "MASTER",
+            "All_Employees",                // or "All_Employees" if your util prefers alias — keep as your project expects All Employees
+            masterFilters,
+            downloadedFilters,
+            extraConfig,
+            1,       // tolerance %
+            false,   // compareRowByRow
+            7,       // startRowOffset (you wanted 7 — used here)
+            headerMap,
+            "🧪 Validating VPF/Basic+7: All Employees.(Basic+7) = MASTER.I (expected ~63000)"
+        );
+
+        
+        
+        
+        
+        
+		
+		
+	}
+	public static void PF_AllEMPWorkings_Test2( ExtentTest test, String user) throws Exception
+	{
+		ChallanPFRedirectin(test,user);
+		
+		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
+		d1.clickDownload("345678765456795", 1);
+		
+		Thread.sleep(5000);
+        // Step 1: Manually download file
+		formLocators.downloadDocument5().click();
+        Thread.sleep(10000); // wait for file to download
+
+        // Step 2: Get latest file
+        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
+        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
+        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
+        downloadedExcelFile = files[0];
+        
+        
+        
+        
+        
+     // ---------- Simple ready-to-drop calling (uses your globals downloadedExcelFile & salaryFile) ----------
+        ExcelExtraConfig extraConfig = new ExcelExtraConfig("NO", ExcelUtils.columnLetterToIndex("G"), "VPF");
+
+        List<ExcelF> masterFilters = new ArrayList<>();
+        List<ExcelF> downloadedFilters = new ArrayList<>();
+
+        // master filters you gave
+        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AD"), Arrays.asList("DaraNHaveli Branch")));
+        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AF"), Arrays.asList("Yes")));
+        
+        //Downloaded filters
+        downloadedFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("G"), Arrays.asList("VPF")));
+
+        // header map: Master.I is total (~63000) and downloaded header "Basic" is in H (we pass H, util will apply +7 internally)
+        Map<String, String> headerMap = new HashMap<>();
+        headerMap.put("I", "VPF");    // Master sheet column I (expected ~63000)
+        headerMap.put("H", "Basic");             // Downloaded sheet header to locate "Basic" (utility will use +7 as per your rule)
+
+        // FINAL call — simple, same style as your reference
+        Utilis3.validateExcelCalculation(
+            downloadedExcelFile,
+            FilePath.SALARY_FILE,
+            test,
+            "All_Employees.H = Master.I",   // keep H here (your util will use header H and startRowOffset to apply +7 logic)
+            "MASTER",
+            "All_Employees",                // or "All_Employees" if your util prefers alias — keep as your project expects All Employees
+            masterFilters,
+            downloadedFilters,
+            extraConfig,
+            1,       // tolerance %
+            false,   // compareRowByRow
+            7,       // startRowOffset (you wanted 7 — used here)
+            headerMap,
+            "🧪 Validating VPF as per masters"
+        );
+
+		
+	}
+	public static void PF_AllEMPWorkings_Test3( ExtentTest test, String user) throws Exception
+	{
+	     // ---------- Simple ready-to-drop calling (uses your globals downloadedExcelFile & salaryFile) ----------
+        ExcelExtraConfig extraConfig = new ExcelExtraConfig("NO", ExcelUtils.columnLetterToIndex("G"), "VPF");
+
+        List<ExcelF> masterFilters = new ArrayList<>();
+        List<ExcelF> downloadedFilters = new ArrayList<>();
+        
+        
+
+        // master filters you gave
+        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AD"), Arrays.asList("DaraNHaveli Branch")));
+        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AF"), Arrays.asList("Yes")));
+        
+        //Downloaded filters
+        downloadedFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("G"), Arrays.asList("EPS Wages")));
+
+        // header map: Master.I is total (~63000) and downloaded header "Basic" is in H (we pass H, util will apply +7 internally)
+        Map<String, String> headerMap = new HashMap<>();
+        headerMap.put("P", "PF Gross");    // Master sheet column I (expected ~63000)
+        headerMap.put("H", "Basic");             // Downloaded sheet header to locate "Basic" (utility will use +7 as per your rule)
+
+        // FINAL call — simple, same style as your reference
+        Utilis3.validateExcelCalculation(
+            downloadedExcelFile,
+            FilePath.SALARY_FILE,
+            test,
+            "All_Employees.H = Master.P",   // keep H here (your util will use header H and startRowOffset to apply +7 logic)
+            "MASTER",
+            "All_Employees",                // or "All_Employees" if your util prefers alias — keep as your project expects All Employees
+            masterFilters,
+            downloadedFilters,
+            extraConfig,
+            1,       // tolerance %
+            false,   // compareRowByRow
+            2,       // startRowOffset (you wanted 7 — used here)
+            headerMap,
+            "🧪 Validating VPF as per masters"
+        );
+
+		
+	}
+	public static void PF_AllEMPWorkings_Test4( ExtentTest test, String user) throws Exception
+	{
+	     // ---------- Simple ready-to-drop calling (uses your globals downloadedExcelFile & salaryFile) ----------
+        ExcelExtraConfig extraConfig = new ExcelExtraConfig("NO", ExcelUtils.columnLetterToIndex("G"), "VPF");
+
+        List<ExcelF> masterFilters = new ArrayList<>();
+        List<ExcelF> downloadedFilters = new ArrayList<>();
+
+        // master filters you gave
+        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AD"), Arrays.asList("DaraNHaveli Branch")));
+        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AF"), Arrays.asList("Yes")));
+        
+        //Downloaded filters
+ //     downloadedFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("G"), Arrays.asList("EPS Wages")));
+
+        // header map: Master.I is total (~63000) and downloaded header "Basic" is in H (we pass H, util will apply +7 internally)
+        Map<String, String> headerMap = new HashMap<>();
+        headerMap.put("P", "PF Gross");    // Master sheet column I (expected ~63000)
+        headerMap.put("V", "12% (EPF) A/C No 1");             // Downloaded sheet header to locate "Basic" (utility will use +7 as per your rule)
+
+        // FINAL call — simple, same style as your reference
+        Utilis3.validateExcelCalculation(
+            downloadedExcelFile,
+            FilePath.SALARY_FILE,
+            test,
+            "All_Employees.V = Master.P * 0.12",   // keep H here (your util will use header H and startRowOffset to apply +7 logic)
+            "MASTER",
+            "All_Employees",                // or "All_Employees" if your util prefers alias — keep as your project expects All Employees
+            masterFilters,
+            downloadedFilters,
+            extraConfig,
+            1,       // tolerance %
+            true,   // compareRowByRow
+            2,       // startRowOffset (you wanted 2 — used here)
+            headerMap,
+            "🧪 Validating VPF as per masters"
+        );
+
+		
+	}
+	public static void PF_AllEMPWorkings_Test5( ExtentTest test, String user) throws Exception
+	{
+	     // ---------- Simple ready-to-drop calling (uses your globals downloadedExcelFile & salaryFile) ----------
+        ExcelExtraConfig extraConfig = new ExcelExtraConfig("NO", ExcelUtils.columnLetterToIndex("G"), "VPF");
+
+        List<ExcelF> masterFilters = new ArrayList<>();
+        List<ExcelF> downloadedFilters = new ArrayList<>();
+
+        // master filters you gave
+        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AD"), Arrays.asList("DaraNHaveli Branch")));
+        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AF"), Arrays.asList("Yes")));
+        
+        //Downloaded filters
+ //     downloadedFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("G"), Arrays.asList("EPS Wages")));
+
+        // header map: Master.I is total (~63000) and downloaded header "Basic" is in H (we pass H, util will apply +7 internally)
+        Map<String, String> headerMap = new HashMap<>();
+        headerMap.put("P", "PF Gross");    // Master sheet column I (expected ~63000)
+        headerMap.put("V", "12% (EPF) A/C No 1");             // Downloaded sheet header to locate "Basic" (utility will use +7 as per your rule)
+
+        // FINAL call — simple, same style as your reference
+        Utilis3.validateExcelCalculation(
+            downloadedExcelFile,
+            FilePath.SALARY_FILE,
+            test,
+            "All_Employees.V = Master.P * 0.12",
+            "MASTER",
+            "All_Employees",
+            masterFilters,
+            downloadedFilters,
+            extraConfig,
+            1,       
+            false,   
+            1,
+            headerMap,
+            "🧪 Validating VPF as per masters"
+        );
+
+		
+	}
+	public static void RegisterFormB_Test( ExtentTest test, String user) throws Exception
+	{
+		
+		
+		Registers_KAR_FORM_A_FOLDER_Redirection(test,user);
+		
+		
+		
+		
+		
+		
+		ExcelExtraConfig extraConfig = new ExcelExtraConfig("YES",ExcelUtils.columnLetterToIndex("A"),"Total");
+
+			List<ExcelF> masterFilters = new ArrayList<>();
+			List<ExcelF> targetFilters = new ArrayList<>();
+			masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AL"),Arrays.asList("Karnataka Branch")));
+			
+			Map<String, String> headerMap = new HashMap<>();
+			headerMap.put("C", "Basic"); // Master sheet MonthlyEmployeeChallanSalary
+			headerMap.put("H", "Basic Pay");        // Downloaded sheet All Emp Workings
+
+			Utilis3.validateExcelCalculation(
+			    downloadedExcelFile,
+			    salaryFileTESTAUTO,
+			    test,
+			    "Central_Form_B.H = Master.C",
+			    "MASTER",
+			    "Central_Form_B",
+			    masterFilters,
+			    targetFilters,
+			    extraConfig,
+			    1,      // tolerance 1% (won't help here — differences ~10%)
+			    true,
+			    3, // Jump 
+			    headerMap,
+			    "🧪 Validating ESI: All Emp Workings.K ≈ Master.R * (0.0075 + 0.0375)"
+			);
+			
+			
+		
+		
+	}
+	
+	**/
+	
+	
+	
 	
 	
 	

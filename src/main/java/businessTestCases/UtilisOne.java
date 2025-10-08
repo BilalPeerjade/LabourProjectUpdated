@@ -75,6 +75,7 @@ public class UtilisOne {
 	
 	
 	//UtilisOne CommonBusinessUtilis 
+	public static String check = "check";
     private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     public static void setDriver(WebDriver driverInstance) {
@@ -307,6 +308,8 @@ public class UtilisOne {
             for (Row row : masterSheet) {
 
                 if (row.getRowNum() == 0) continue; // skip header row
+                /** --- **/
+  //            if (check.equals("check")) continue;
 
                 boolean match = true;
                 if ("YES".equalsIgnoreCase(master.getApplyFilter()) && master.getFilters() != null) {

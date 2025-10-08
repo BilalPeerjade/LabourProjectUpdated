@@ -79,7 +79,7 @@ public class ExcelF {
     public boolean isEnabled() {
         return ena;
     }
-    private boolean ena; 
+    private boolean ena ;
 
     public void setEnabled(boolean enabled) {
         this.ena = enabled;

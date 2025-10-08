@@ -53,6 +53,39 @@ public class PerformerMethod extends BasePage
 	
 	 static String filePath ="D:\\Labour Angular\\LabourMergeProject\\LabourMergeProject\\TestData\\Labour2.xlsx";
 	
+	 
+		public static void AddEmployeeLocatorChaining(ExtentTest test)
+				throws InterruptedException, IOException, AWTException {
+			
+			 JavascriptExecutor js = (JavascriptExecutor) getDriver();
+				Thread.sleep(5000);
+				PerformerLocator.SerchCustomer().sendKeys("TESTAUTO3");
+				OneCommonMethod.searchEntityAndSelect(driver.get(), test, LoginLocators.Search(), "TESTAUTO3");
+				Thread.sleep(10000);
+				PerformerLocator.clickWorkspaceArrow().click();
+				Thread.sleep(7000);
+				PerformerLocator.clickOnboardEmployee().click();
+				Thread.sleep(1000);
+				PerformerLocator.clickOnboardEmployee().click();
+				
+				Thread.sleep(1000);
+				PerformerLocator.clickAddNewEmployee().click();
+				Thread.sleep(1000);
+				
+				OneCommonMethod.zoomOutScreen(3); 
+				
+				
+				PerformerLocator.enterEmplNameTestt("fatherHusbandName").sendKeys("BILAL");
+				Thread.sleep(5000);
+				
+				PerformerLocator.enterEmplNameTestt("employeeName").click();
+				PerformerLocator.enterEmplNameTestt("employeeName").sendKeys("Hello");
+				
+				Thread.sleep(5000);
+
+			
+		}
+	 
  public static void AddEmployee( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{
 	 
@@ -88,6 +121,10 @@ public class PerformerMethod extends BasePage
 		Cell c = row.getCell(1);						//Selected cell (0 row,1 column)
 		String empname = c.getStringCellValue();
 		PerformerLocator.enterEmplName().sendKeys(empname);
+		
+		
+		
+		
 		
 		Thread.sleep(2000);
 		Row row0 = sheet.getRow(5);						//Selected 0th index row (First row)

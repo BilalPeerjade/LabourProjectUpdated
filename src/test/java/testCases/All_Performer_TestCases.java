@@ -676,6 +676,17 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
  		extent.endTest(test);
  		extent.flush();
  	}
+    //For test checking
+//    @Test(priority = 101)
+//   	void AddEmployeeLocatorChaining() throws InterruptedException, IOException, AWTException
+//   	{
+//   		test = extent.startTest("Onboard Employee - Add Employee verification");
+//   		
+//   		PerformerMethod.AddEmployeeLocatorChaining(test);
+//   		
+//   		extent.endTest(test);
+//   		extent.flush();
+//   	}
     @Test(priority = 101)
    	void AddEmployee() throws InterruptedException, IOException, AWTException
    	{

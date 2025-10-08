@@ -65,6 +65,7 @@ public class CoordinatorMethod extends BasePage
 			Thread.sleep(10000);
 			CoordinatorLocator.pendingAssignmentCount().click();
 			Thread.sleep(5000);
+			test.log(LogStatus.PASS,  "Pending Assignment count is displayed");
 			OneCommonMethod.scroll(getDriver(), 1000);
 		}
 		else if(Notice.equalsIgnoreCase("Pending Action"))
@@ -76,6 +77,7 @@ public class CoordinatorMethod extends BasePage
 			Thread.sleep(10000);
 			CoordinatorLocator.pendingActionCount().click();
 			Thread.sleep(5000);
+			test.log(LogStatus.PASS,  "Pending Action count is displayed");
 			OneCommonMethod.scroll(getDriver(), 1000);
 		}
 		else if(Notice.equalsIgnoreCase("Overdue"))
@@ -87,6 +89,7 @@ public class CoordinatorMethod extends BasePage
 			Thread.sleep(10000);
 			CoordinatorLocator.OverdueCount().click();
 			Thread.sleep(5000);
+			test.log(LogStatus.PASS,  "Overdue count is displayed");
 			OneCommonMethod.scroll(getDriver(), 1000);
 			
 		}
@@ -99,6 +102,7 @@ public class CoordinatorMethod extends BasePage
 			Thread.sleep(10000);
 			CoordinatorLocator.ClosedCount().click();
 			Thread.sleep(5000);
+			test.log(LogStatus.PASS,  "Closed count is displayed");
 			OneCommonMethod.scroll(getDriver(), 1000);
 		}
 		
@@ -1168,7 +1172,17 @@ public class CoordinatorMethod extends BasePage
 			CoordinatorLocator.EditBtn().click();
 			Thread.sleep(5000);
 			
-			CoordinatorLocator.plus1().click();
+			
+			if(CoordinatorLocator.plus1().isDisplayed()) {
+				CoordinatorLocator.plus1().click();
+				Thread.sleep(5000);
+				test.log(LogStatus.PASS, "Basic Information label bar is working fine");
+			}
+			else {
+				test.log(LogStatus.FAIL, "Basic Information label bar is not displayed");
+			}
+			
+			
 			Thread.sleep(5000);
 			CoordinatorLocator.EditBasicInfoSave().click();
 			Thread.sleep(5000);
@@ -1202,8 +1216,23 @@ public class CoordinatorMethod extends BasePage
 			Thread.sleep(5000);
 			
 //			CoordinatorLocator.plus3().click();
-			All_ClientPortal_Methods.clickElementUsingJS(CoordinatorLocator.plus3());
-			Thread.sleep(5000);
+			if(CoordinatorLocator.plus3().isDisplayed()) {
+				All_ClientPortal_Methods.clickElementUsingJS(CoordinatorLocator.plus3());
+				Thread.sleep(5000);
+				test.log(LogStatus.PASS, "Additional Information to be updated by coordinator label bar working fine");
+			}
+			else {
+				test.log(LogStatus.FAIL, "Additional Information to be updated by coordinator label bar is not displayed");
+			}
+
+			
+			
+			OneCommonMethod.verifyFieldIsTrulyNonEditable(
+			CoordinatorDisabledField.noticeReferenceNumber(), 
+			test, "Notice Reference Number",
+			"");
+			
+			
 			
 			
 			CoordinatorLocator.yesRadioBtn().click();
