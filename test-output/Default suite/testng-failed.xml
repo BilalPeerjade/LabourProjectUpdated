@@ -3,15 +3,26 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
+<<<<<<< HEAD
       <class name="testCases.All_Distributor_TWO">
+=======
+      <class name="testCases.All_Client_Portal_TestCases">
+>>>>>>> 3ff9ac79504648183d23adf99930716fea76786c
         <methods>
-          <include name="Closing"/>
+          <include name="browserClosing"/>
+          <include name="Clientlogo"/>
           <include name="setBrowser"/>
           <include name="Login"/>
+<<<<<<< HEAD
           <include name="browserClosing"/>
           <include name="StatusReport"/>
         </methods>
       </class> <!-- testCases.All_Distributor_TWO -->
+=======
+          <include name="Closing"/>
+        </methods>
+      </class> <!-- testCases.All_Client_Portal_TestCases -->
+>>>>>>> 3ff9ac79504648183d23adf99930716fea76786c
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
