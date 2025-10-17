@@ -50,23 +50,20 @@ import rcp.OneCommonMethod;
 
 public class All_ClientPortal_Methods extends BasePage
 {
-
 	public static FileInputStream fis = null;	//File input stream variable
 	public static XSSFWorkbook workbook = null;	//Excel sheet workbook variable
 	public static XSSFSheet sheet = null;		//Sheet variable
 	
-	 static String filePath ="D:\\AutomationLabour\\LabourProjectUpdated\\TestData\\Labour.xlsx";
+	static String filePath ="D:\\AutomationLabour\\LabourProjectUpdated\\TestData\\Labour.xlsx";
 
-	
 	public static void filterEntity ( ExtentTest test) throws InterruptedException, IOException
-	{Thread.sleep(7000);		
+	{
+		Thread.sleep(7000);		
 		Actions action = new Actions(getDriver());
 		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
 		Thread.sleep(3000);
 	    
-		
 	  	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='k-input-inner k-readonly']")));	//Wait until records table get visible.
-
 	  	
 		All_ClientPortal_Locators.SelectEntity().click();
 		Thread.sleep(2000);
@@ -81,21 +78,19 @@ public class All_ClientPortal_Methods extends BasePage
 	  	All_ClientPortal_Locators.SelectYear22().click();
 		Thread.sleep(2000);
 	 	All_ClientPortal_Locators.Apply().click();
-			Thread.sleep(8000);
-		  
-			Thread.sleep(8000);
+		Thread.sleep(8000);
+
 	}
 	
 	public static void filterEntityAUTO2 ( ExtentTest test) throws InterruptedException, IOException
-	{Thread.sleep(7000);		
+	{
+		Thread.sleep(7000);		
 		Actions action = new Actions(getDriver());
 		WebDriverWait wait = new WebDriverWait( getDriver(), (120));
 		Thread.sleep(6000);
 	    
-		
 	  	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='k-input-inner k-readonly']")));	//Wait until records table get visible.
 
-	  	
 		All_ClientPortal_Locators.SelectEntity().click();
 		Thread.sleep(4000);
 	  	All_ClientPortal_Locators.EntityTri2().click();
@@ -113,32 +108,38 @@ public class All_ClientPortal_Methods extends BasePage
 	  	All_ClientPortal_Locators.SelectYear22().click();
 		Thread.sleep(3000);
 	 	All_ClientPortal_Locators.Apply().click();
-			Thread.sleep(8000);
+		Thread.sleep(8000);
 		  
 	}
 	
 	public static void Flaky_filterEntityAUTO2 ( ExtentTest test) throws InterruptedException, IOException
 	{
-		
 		int maxRetry = 3;
 	    int attempts = 0;
 	    boolean success = false;
 	    
-	    while (attempts < maxRetry) {
-	        try {
+	    while (attempts < maxRetry)
+	    {
+	        try 
+	        {
 	            // Your actual dropdown click + apply logic
 	            System.out.println("Applying filters... attempt " + (attempts + 1));
 
 	            // Simulating flaky action
-	            if (Math.random() > 0.7) {
+	            if (Math.random() > 0.7)
+	            {
 	                System.out.println("Filter applied successfully");
 	                success = true;
 	                break;
-	            } else {
+	            } 
+	            else 
+	            {
 	                throw new Exception("Dropdown failed");
 	            }
 
-	        } catch (Exception e) {
+	        } 
+	        catch (Exception e)
+	        {
 	            System.out.println("Attempt " + (attempts + 1) + " failed.");
 	        }
 	        attempts++;
@@ -151,8 +152,7 @@ public class All_ClientPortal_Methods extends BasePage
 	    
 	  	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='k-input-inner k-readonly']")));	//Wait until records table get visible.
 
-
-		All_ClientPortal_Locators.SelectEntity().click();
+	  	All_ClientPortal_Locators.SelectEntity().click();
 		Thread.sleep(4000);
 	  	All_ClientPortal_Locators.EntityTri2().click();
 		Thread.sleep(5000);
@@ -165,12 +165,12 @@ public class All_ClientPortal_Methods extends BasePage
 	  	All_ClientPortal_Locators.SelectYear22().click();
 		Thread.sleep(3000);
 	 	All_ClientPortal_Locators.Apply().click();
-			Thread.sleep(8000);
+		Thread.sleep(8000);
 		  
 	}
 	
-	
-	public static void FlakyTest_filterEntityAUTO2(ExtentTest test) throws InterruptedException, IOException {
+		public static void FlakyTest_filterEntityAUTO2(ExtentTest test) throws InterruptedException, IOException 
+		{
 	    Thread.sleep(7000);
 	    Actions action = new Actions(getDriver());
 	    WebDriverWait wait = new WebDriverWait(getDriver(), 120);
@@ -182,8 +182,10 @@ public class All_ClientPortal_Methods extends BasePage
 	    int attempts = 0;
 	    boolean success = false;
 
-	    while (attempts < maxRetry) {
-	        try {
+	    while (attempts < maxRetry) 
+	    {
+	        try 
+	        {
 	            System.out.println("Applying filters... attempt " + (attempts + 1));
 
 	            All_ClientPortal_Locators.SelectEntity().click();
@@ -209,29 +211,26 @@ public class All_ClientPortal_Methods extends BasePage
 	            System.out.println("Filter applied successfully");
 	            break;
 
-	        } catch (Exception e) {
+	        } 
+	        catch (Exception e) 
+	        {
 	            System.out.println("Attempt " + (attempts + 1) + " failed with error: " + e.getMessage());
 	        }
 
 	        attempts++;
 	    }
 
-	    if (!success) {
+	    if (!success)
+	    {
 	        throw new RuntimeException("filterEntityAUTO2 failed after " + maxRetry + " retries");
 	    }
 	}
 
 	
-	
-	
-
-	
-	
-	
 	public static void Entities(  ExtentTest test) throws InterruptedException, IOException
-	{Thread.sleep(5000);
+	{
+		Thread.sleep(5000);
 	
-		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		String string_Categories =All_ClientPortal_Locators.Entities().getText();		//Storing old value of Statutory overdue.
 	    int	CategoriesCountDas = Integer.parseInt(string_Categories);
@@ -247,73 +246,63 @@ public class All_ClientPortal_Methods extends BasePage
 		int CatcountGrid = Integer.parseInt(compliancesCount);
 		
 		if(CategoriesCountDas == CatcountGrid)
-		{Thread.sleep(5000);
-			
+		{
+			Thread.sleep(5000);
 			test.log(LogStatus.PASS, "No of Entities in the grid = "+CatcountGrid+" | Dashboard Entities  Count = "+CategoriesCountDas);
 		}
 		else
-		{Thread.sleep(5000);
-		
+		{
+			Thread.sleep(5000);
 			test.log(LogStatus.FAIL, "No of Entities in the grid = "+CatcountGrid+" | Dashboard Entities Count = "+CategoriesCountDas);
 		}
 		Thread.sleep(3000);		
-		
-		
-		
-		
 	}
 	
 	public static void Clientlogo(  ExtentTest test) throws InterruptedException, IOException
-	{Thread.sleep(5000);
-	
-		
-	
+	{
+		Thread.sleep(5000);
 //    WebElement ExpandIcon = getDriver().findElement(By.xpath("//i[@class='menu-btn']"));
 //    ExpandIcon.click();
     
-    Thread.sleep(5000);
-    String LogoTeamLease = getDriver().findElement(By.xpath("//img[@alt='TeamLease Logo']")).getText();
-    WebElement LogoTeamL = getDriver().findElement(By.xpath("//img[@alt='TeamLease Logo']"));
+		Thread.sleep(5000);
+		String LogoTeamLease = getDriver().findElement(By.xpath("//img[@alt='TeamLease Logo']")).getText();
+		WebElement LogoTeamL = getDriver().findElement(By.xpath("//img[@alt='TeamLease Logo']"));
     
-    System.out.println(LogoTeamLease);
+		System.out.println(LogoTeamLease);
     
-    if(LogoTeamL.isDisplayed())
-    {
-    	test.log(LogStatus.PASS,"'Team Lease RegTech Helping India Comply' Logo is displayed successfully");
-    }
-    else
-    {
-    	test.log(LogStatus.FAIL,"Logo is not displayed");
-    }
+		if(LogoTeamL.isDisplayed())
+		{
+			test.log(LogStatus.PASS,"'Team Lease RegTech Helping India Comply' Logo is displayed successfully");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL,"Logo is not displayed");
+		}
     
-    String base64Screenshot = OneCommonMethod.takeScreenshotBase64(driver.get());
-    test.log(LogStatus.INFO, "ScreenShot <br>" + test.addBase64ScreenShot(base64Screenshot));
+		String base64Screenshot = OneCommonMethod.takeScreenshotBase64(driver.get());
+		test.log(LogStatus.INFO, "ScreenShot <br>" + test.addBase64ScreenShot(base64Screenshot));
 		
 	}
 	
 	public static void columnExpandIcon(  ExtentTest test) throws InterruptedException, IOException
-	{Thread.sleep(5000);
-	
-		
-    Thread.sleep(5000);
+	{	
+		Thread.sleep(5000);
     
-    WebElement ExpandIcon = getDriver().findElement(By.xpath("//i[@class='menu-btn']"));
+		WebElement ExpandIcon = getDriver().findElement(By.xpath("//i[@class='menu-btn']"));
     
-    Thread.sleep(5000);
-    if(ExpandIcon.isEnabled())
-    {
-    	Thread.sleep(5000);
-    	ExpandIcon.click();
-    	test.log(LogStatus.PASS,"Column Expand Icon is working successfully");
-    }
-    else
-    {
-    	test.log(LogStatus.FAIL,"Column Expand Icon is not working properly");
-    }
+		Thread.sleep(5000);
+		if(ExpandIcon.isEnabled())
+		{
+			Thread.sleep(5000);
+			ExpandIcon.click();
+    		test.log(LogStatus.PASS,"Column Expand Icon is working successfully");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL,"Column Expand Icon is not working properly");
+		}
 		
-	}
-	
-	
+		}
 	
 	public static void filtersChecking(  ExtentTest test) throws InterruptedException, IOException
 	{
@@ -351,7 +340,8 @@ public class All_ClientPortal_Methods extends BasePage
 	
 	
 	public static void EntitiesSearch(  ExtentTest test) throws InterruptedException, IOException
-	{Thread.sleep(5000);
+	{
+		Thread.sleep(5000);
 	
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
@@ -368,13 +358,15 @@ public class All_ClientPortal_Methods extends BasePage
 		test.log(LogStatus.PASS, "Entity selected : "+text);
 		
 		Thread.sleep(3000);
-		}catch(Exception e) {Thread.sleep(5000);
+		}
+		catch(Exception e) {Thread.sleep(5000);
 			test.log(LogStatus.PASS, "no record available");
 		}
 		
 	}
 	public static void EntitiesTabPagination(  ExtentTest test) throws InterruptedException, IOException
-	{Thread.sleep(5000);
+	{
+		Thread.sleep(5000);
 	
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
@@ -387,13 +379,13 @@ public class All_ClientPortal_Methods extends BasePage
 		verifyPaginationGoToLastPage(test);
 		Thread.sleep(5000);
 		verifyItemsPerPageFunctionality(test);
-		
-	
+
 	}
 	
 	
 	public static void Locations(  ExtentTest test) throws InterruptedException, IOException
-	{Thread.sleep(5000);
+	{
+		Thread.sleep(5000);
 	
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
@@ -411,38 +403,36 @@ public class All_ClientPortal_Methods extends BasePage
 		int CatcountGrid = Integer.parseInt(compliancesCount);
 		
 		if(CategoriesCountDas == CatcountGrid)
-		{Thread.sleep(5000);
+		{
+			Thread.sleep(5000);
 			
 			test.log(LogStatus.PASS, "No of Locations in the grid = "+CatcountGrid+" | Dashboard Locations  Count = "+CategoriesCountDas);
 		}
 		else
-		{Thread.sleep(5000);
+		{
+			Thread.sleep(5000);
 		
 			test.log(LogStatus.FAIL, "No of Locations in the grid = "+CatcountGrid+" | Dashboard Locations Count = "+CategoriesCountDas);
 		}
 		Thread.sleep(3000);
 		
-			
 	}
 	
 	public static void LocationsPagination(  ExtentTest test) throws InterruptedException, IOException
-	{Thread.sleep(5000);
+	{
+		Thread.sleep(5000);
 	
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 //		String string_Categories =All_ClientPortal_Locators.Locations().getText();		//Storing old value of Statutory overdue.
 //    	int	CategoriesCountDas = Integer.parseInt(string_Categories);
 		
-		
-		
 	    All_ClientPortal_Locators.Locations().click();
 		
 //		All_ClientPortal_Locators.AssignedCompliances().click();
-		
-		
+
 	    waitForLoaderToDisappear(); //Wait until loader removed
 		Thread.sleep(5000);
-		
 		
 		verifyPaginationGoToNextPage(test);
 		Thread.sleep(5000);
@@ -450,17 +440,16 @@ public class All_ClientPortal_Methods extends BasePage
 		Thread.sleep(5000);
 		verifyItemsPerPageFunctionality(test);
 		
-		
 	}
 	
-	
 	public static void LocationsSearch(  ExtentTest test) throws InterruptedException, IOException
-	{Thread.sleep(5000);
+	{
+		Thread.sleep(5000);
 	
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	
-	All_ClientPortal_Locators.Locations().click();
+		All_ClientPortal_Locators.Locations().click();
 		Thread.sleep(5000);
 		try {Thread.sleep(5000);
 		All_ClientPortal_Locators.Search().sendKeys("TESTAUTO2",Keys.ENTER);
@@ -472,20 +461,22 @@ public class All_ClientPortal_Methods extends BasePage
 		test.log(LogStatus.PASS, "Entity selected : "+text);
 		
 		Thread.sleep(3000);
-		}catch(Exception e) {Thread.sleep(5000);
+		}
+		catch(Exception e) {Thread.sleep(5000);
 			test.log(LogStatus.PASS, "no record available");
 		}
 		
 	}
 	
 	public static void AssignedCompliances(  ExtentTest test) throws InterruptedException, IOException
-	{Thread.sleep(5000);
+	{
+		Thread.sleep(5000);
 	
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		String string_Categories =All_ClientPortal_Locators.AssignedCompliances().getText();		//Storing old value of Statutory overdue.
-	int	CategoriesCountDas = Integer.parseInt(string_Categories);
-	All_ClientPortal_Locators.AssignedCompliances().click();
+		int	CategoriesCountDas = Integer.parseInt(string_Categories);
+		All_ClientPortal_Locators.AssignedCompliances().click();
 		Thread.sleep(5000);
 		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//img[contains(@title,'Overview')])[1]")));
@@ -501,12 +492,14 @@ public class All_ClientPortal_Methods extends BasePage
 		int CatcountGrid = Integer.parseInt(compliancesCount);
 		
 		if(CategoriesCountDas == CatcountGrid)
-		{Thread.sleep(5000);
+		{
+			Thread.sleep(5000);
 			
 			test.log(LogStatus.PASS, "No of Assigned Compliances in the grid = "+CatcountGrid+" | Dashboard Assigned Compliances Count = "+CategoriesCountDas);
 		}
 		else
-		{Thread.sleep(5000);
+		{
+			Thread.sleep(5000);
 		
 			test.log(LogStatus.FAIL, "No of Assigned Compliances in the grid = "+CatcountGrid+" | Dashboard Assigned Compliances Count = "+CategoriesCountDas);
 		}
@@ -515,90 +508,92 @@ public class All_ClientPortal_Methods extends BasePage
 	}
 	
 	public static void AssignedCompliancesRgisterReturnChallanCount(  ExtentTest test) throws InterruptedException, IOException
-	{Thread.sleep(5000);
+	{
+		Thread.sleep(5000);
 	
-    Thread.sleep(5000);
-    JavascriptExecutor js = (JavascriptExecutor) getDriver();
-    Thread.sleep(3000);
+		Thread.sleep(5000);
+		JavascriptExecutor js = (JavascriptExecutor) getDriver();
+		Thread.sleep(3000);
 
-    // Click on Assigned Compliances tab
-    All_ClientPortal_Locators.AssignedCompliances().click();
-    CoordinatorMethod.zoomOutScreen(2); // ZoomOut
-    Thread.sleep(5000);
+		// Click on Assigned Compliances tab
+		All_ClientPortal_Locators.AssignedCompliances().click();
+		CoordinatorMethod.zoomOutScreen(2); // ZoomOut
+		Thread.sleep(5000);
+    
+		WebDriverWait wait = new WebDriverWait(getDriver(), 10);
+		wait.until(ExpectedConditions.visibilityOf(All_ClientPortal_Locators.readTotalItems()));
+		Thread.sleep(3000);
+    
+		// Get total compliance count (before filter)
+		All_ClientPortal_Locators.readTotalItems().click();
+		String item = All_ClientPortal_Locators.readTotalItems().getText();
+		String[] bits = item.split(" ");
+		String totalComplianceStr = bits[bits.length - 2];
+		int totalComplianceCount = Integer.parseInt(totalComplianceStr);
+		Thread.sleep(2000);
 
-    WebDriverWait wait = new WebDriverWait(getDriver(), 10);
-    wait.until(ExpectedConditions.visibilityOf(All_ClientPortal_Locators.readTotalItems()));
-    Thread.sleep(3000);
-
-    // Get total compliance count (before filter)
-    All_ClientPortal_Locators.readTotalItems().click();
-    String item = All_ClientPortal_Locators.readTotalItems().getText();
-    String[] bits = item.split(" ");
-    String totalComplianceStr = bits[bits.length - 2];
-    int totalComplianceCount = Integer.parseInt(totalComplianceStr);
-    Thread.sleep(2000);
-
-    int registerCount = 0;
-    int returnCount = 0;
-    int challanCount = 0;
+		int registerCount = 0;
+		int returnCount = 0;
+		int challanCount = 0;
 
     // ------ Step 1: Register ------
-    All_ClientPortal_Locators.complianceDropdwonClick().click();
-    Thread.sleep(1000);
-    All_ClientPortal_Locators.complianceSelectOnRegisters().click();
-    All_ClientPortal_Locators.ClickApplyBtn().click();
-    Thread.sleep(5000);
+		All_ClientPortal_Locators.complianceDropdwonClick().click();
+		Thread.sleep(1000);
+		All_ClientPortal_Locators.complianceSelectOnRegisters().click();
+		All_ClientPortal_Locators.ClickApplyBtn().click();
+		Thread.sleep(5000);
 
-    String registerItem = All_ClientPortal_Locators.readTotalItems().getText();
-    String[] regBits = registerItem.split(" ");
-    registerCount = Integer.parseInt(regBits[regBits.length - 2]);
-    test.log(LogStatus.INFO, "Register filter selected. Count found: " + registerCount);
+		String registerItem = All_ClientPortal_Locators.readTotalItems().getText();
+		String[] regBits = registerItem.split(" ");
+		registerCount = Integer.parseInt(regBits[regBits.length - 2]);
+		test.log(LogStatus.INFO, "Register filter selected. Count found: " + registerCount);
 
     // ------ Step 2: Return ------
-    All_ClientPortal_Locators.complianceSelectOnRegisters().click(); // Unselect previous
-    Thread.sleep(1000);
-    All_ClientPortal_Locators.complianceSelectOnReturn().click();
-    All_ClientPortal_Locators.ClickApplyBtn().click();
-    Thread.sleep(5000);
+		All_ClientPortal_Locators.complianceSelectOnRegisters().click(); // Unselect previous
+		Thread.sleep(1000);
+		All_ClientPortal_Locators.complianceSelectOnReturn().click();
+		All_ClientPortal_Locators.ClickApplyBtn().click();
+		Thread.sleep(5000);
 
-    String returnItem = All_ClientPortal_Locators.readTotalItems().getText();
-    String[] retBits = returnItem.split(" ");
-    returnCount = Integer.parseInt(retBits[retBits.length - 2]);
-    test.log(LogStatus.INFO, "Return filter selected. Count found: " + returnCount);
+		String returnItem = All_ClientPortal_Locators.readTotalItems().getText();
+		String[] retBits = returnItem.split(" ");
+		returnCount = Integer.parseInt(retBits[retBits.length - 2]);
+		test.log(LogStatus.INFO, "Return filter selected. Count found: " + returnCount);
 
     // ------ Step 3: Challan ------
-    All_ClientPortal_Locators.complianceSelectOnReturn().click(); // Unselect previous
-    Thread.sleep(1000);
-    All_ClientPortal_Locators.complianceSelectOnChallan().click();
-    All_ClientPortal_Locators.ClickApplyBtn().click();
-    Thread.sleep(5000);
+		All_ClientPortal_Locators.complianceSelectOnReturn().click(); // Unselect previous
+		Thread.sleep(1000);
+		All_ClientPortal_Locators.complianceSelectOnChallan().click();
+		All_ClientPortal_Locators.ClickApplyBtn().click();
+		Thread.sleep(5000);
 
-    String challanItem = All_ClientPortal_Locators.readTotalItems().getText();
-    String[] chaBits = challanItem.split(" ");
-    challanCount = Integer.parseInt(chaBits[chaBits.length - 2]);
-    test.log(LogStatus.INFO, "Challan filter selected. Count found: " + challanCount);
+		String challanItem = All_ClientPortal_Locators.readTotalItems().getText();
+		String[] chaBits = challanItem.split(" ");
+		challanCount = Integer.parseInt(chaBits[chaBits.length - 2]);
+		test.log(LogStatus.INFO, "Challan filter selected. Count found: " + challanCount);
 
     // ------ Step 4: Validation ------
-    int combinedCount = registerCount + returnCount + challanCount;
+		int combinedCount = registerCount + returnCount + challanCount;
 
-    test.log(LogStatus.INFO, "Total Assigned Compliances Count (from dashboard): " + totalComplianceCount);
-    test.log(LogStatus.INFO, "Combined Count (Register + Return + Challan): " + combinedCount);
+		test.log(LogStatus.INFO, "Total Assigned Compliances Count (from dashboard): " + totalComplianceCount);
+		test.log(LogStatus.INFO, "Combined Count (Register + Return + Challan): " + combinedCount);
 
-    if (combinedCount == totalComplianceCount) {
+		if (combinedCount == totalComplianceCount)
+		{
         test.log(LogStatus.PASS, "PASS: Combined count matches total compliance count.");
-    } else {
-        test.log(LogStatus.FAIL, "FAIL: Combined count does not match total compliance count.");
-    }
+		} 
+		else
+		{
+			test.log(LogStatus.FAIL, "FAIL: Combined count does not match total compliance count.");
+		}
 
-    Thread.sleep(2000);
-		
+		Thread.sleep(2000);	
 	}
 	
 	
-	
-	
 	public static void exportcount(  ExtentTest test) throws InterruptedException, IOException
-	{Thread.sleep(5000);
+	{
+		Thread.sleep(5000);
 	
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
@@ -629,7 +624,8 @@ public class All_ClientPortal_Methods extends BasePage
 		
 	}
 	
-	public static void assignedCompSearch(ExtentTest test) throws InterruptedException, IOException {
+	public static void assignedCompSearch(ExtentTest test) throws InterruptedException, IOException
+	{
 		Thread.sleep(5000);
 
 		Thread.sleep(2000);
@@ -656,30 +652,26 @@ public class All_ClientPortal_Methods extends BasePage
 
 		
 	*/	
-		
-		
-		
-		
-		
-		
-		
+
 		// Clear Function
 		All_ClientPortal_Locators.compliancePerformanceSearch().sendKeys("HelloHowAreYou", Keys.ENTER);
 		Thread.sleep(4000);
 
-		if (All_ClientPortal_Locators.Clear().isEnabled()) {
+		if (All_ClientPortal_Locators.Clear().isEnabled()) 
+		{
 			Thread.sleep(5000);
-
 			test.log(LogStatus.PASS, " Clear button working successfully.");
 			All_ClientPortal_Locators.Clear().click();
-		} else {
+		} 
+		else
+		{
 			Thread.sleep(5000);
 			test.log(LogStatus.FAIL, "Clear button does not working properly.");
 		}
 		Thread.sleep(3000);
-
 	}
-	public static void assignedCompRegisterExport(ExtentTest test) throws InterruptedException, IOException {
+	public static void assignedCompRegisterExport(ExtentTest test) throws InterruptedException, IOException
+	{
 		Thread.sleep(5000);
 
 		Thread.sleep(2000);
@@ -706,7 +698,8 @@ public class All_ClientPortal_Methods extends BasePage
 		String compliancesCount = bits[bits.length - 2]; // Getting the second last word (total number of users)
 		int count1 = Integer.parseInt(compliancesCount);
 
-		if (compliancesCount.equalsIgnoreCase("to")) {
+		if (compliancesCount.equalsIgnoreCase("to"))
+		{
 			Thread.sleep(5000);
 			item = All_ClientPortal_Locators.readTotalItems().getText();
 			bits = item.split(" ");
@@ -728,7 +721,8 @@ public class All_ClientPortal_Methods extends BasePage
 		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 
-		if (dirContents.length < allFilesNew.length) {
+		if (dirContents.length < allFilesNew.length) 
+		{
 
 			Thread.sleep(9000); // Clicking on 'Excel Report' image.
 			test.log(LogStatus.PASS, "File downloaded successfully.");
@@ -736,9 +730,7 @@ public class All_ClientPortal_Methods extends BasePage
 			for (int i = 1; i < allFilesNew.length; i++) // For loop till the number of files in directory.
 			{
 				if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) // If allFilesNew[i] file is having
-																						// large/latest time time of
-																						// update then latest modified
-																						// file be allFilesNew[i] file.
+				// file be allFilesNew[i] file.
 				{
 					lastModifiedFile = allFilesNew[i];
 				}
@@ -754,11 +746,12 @@ public class All_ClientPortal_Methods extends BasePage
 			int rowCount = 0;
 			int actualRow = 0;
 
-			for (Row row : sheet) {
+			for (Row row : sheet) 
+			{
 
 				Cell cell = row.getCell(columnNumber);
-				if (cell != null) {
-
+				if (cell != null) 
+				{
 					rowCount++;
 					actualRow = rowCount - 1;
 				}
@@ -766,24 +759,29 @@ public class All_ClientPortal_Methods extends BasePage
 			}
 			fis.close();
 
-			if (count1 == actualRow) {
+			if (count1 == actualRow)
+			{
 				// test.log(LogStatus.PASS, "No of records from grid matches to no of records in
 				// Excel Sheet.");
 				test.log(LogStatus.PASS,
 						"Total records from Grid = " + count1 + " | Total records from Report = " + actualRow);
-			} else {
+			} 
+			else 
+			{
 				// test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of
 				// records in Excel Sheet.");
-				test.log(LogStatus.FAIL,
-						"Total records from Grid = " + count1 + " | Total records from Excel Sheet = " + actualRow);
+				test.log(LogStatus.FAIL,"Total records from Grid = " + count1 + " | Total records from Excel Sheet = " + actualRow);
 			}
-		} else {
+		}
+		else
+		{
 			test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
 		}
 
 	}
 	
-	public static void assignedCompReturnExport(ExtentTest test) throws InterruptedException, IOException {
+	public static void assignedCompReturnExport(ExtentTest test) throws InterruptedException, IOException
+	{
 		Thread.sleep(5000);
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
@@ -813,7 +811,8 @@ public class All_ClientPortal_Methods extends BasePage
 		String compliancesCount = bits[bits.length - 2]; // Getting the second last word (total number of users)
 		int count1 = Integer.parseInt(compliancesCount);
 
-		if (compliancesCount.equalsIgnoreCase("to")) {
+		if (compliancesCount.equalsIgnoreCase("to"))
+		{
 			Thread.sleep(5000);
 			item = All_ClientPortal_Locators.readTotalItems().getText();
 			bits = item.split(" ");
@@ -835,8 +834,8 @@ public class All_ClientPortal_Methods extends BasePage
 		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 
-		if (dirContents.length < allFilesNew.length) {
-
+		if (dirContents.length < allFilesNew.length) 
+		{
 			Thread.sleep(9000); // Clicking on 'Excel Report' image.
 			test.log(LogStatus.PASS, "File downloaded successfully.");
 			File lastModifiedFile = allFilesNew[0]; // Storing any 0th index file in 'lastModifiedFile' file name.
@@ -861,11 +860,11 @@ public class All_ClientPortal_Methods extends BasePage
 			int rowCount = 0;
 			int actualRow = 0;
 
-			for (Row row : sheet) {
-
+			for (Row row : sheet)
+			{
 				Cell cell = row.getCell(columnNumber);
-				if (cell != null) {
-
+				if (cell != null)
+				{
 					rowCount++;
 					actualRow = rowCount - 1;
 				}
@@ -873,24 +872,28 @@ public class All_ClientPortal_Methods extends BasePage
 			}
 			fis.close();
 
-			if (count1 == actualRow) {
+			if (count1 == actualRow)
+			{
 				// test.log(LogStatus.PASS, "No of records from grid matches to no of records in
 				// Excel Sheet.");
-				test.log(LogStatus.PASS,
-						"Total records from Grid = " + count1 + " | Total records from Report = " + actualRow);
-			} else {
+				test.log(LogStatus.PASS,"Total records from Grid = " + count1 + " | Total records from Report = " + actualRow);
+			}
+			else
+			{
 				// test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of
 				// records in Excel Sheet.");
-				test.log(LogStatus.FAIL,
-						"Total records from Grid = " + count1 + " | Total records from Excel Sheet = " + actualRow);
+				test.log(LogStatus.FAIL,"Total records from Grid = " + count1 + " | Total records from Excel Sheet = " + actualRow);
 			}
-		} else {
+		} 
+		else 
+		{
 			test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
 		}
 
 	}
 	
-	public static void assignedCompChallanExport(ExtentTest test) throws InterruptedException, IOException {
+	public static void assignedCompChallanExport(ExtentTest test) throws InterruptedException, IOException 
+	{
 		Thread.sleep(5000);
 
 		Thread.sleep(2000);

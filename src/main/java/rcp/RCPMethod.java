@@ -46,12 +46,6 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
 
-
-
-
-
-
-
 public class RCPMethod extends BasePage
 {
 	
@@ -152,7 +146,7 @@ public class RCPMethod extends BasePage
 		        
 		        js1.executeScript("window.scrollBy(0,-500)");
 			Thread.sleep(1000);
-			File dir = new File("C:\\Users\\bilali\\Downloads");
+			File dir = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 			Thread.sleep(2000);
@@ -160,7 +154,7 @@ public class RCPMethod extends BasePage
 			
 		
 			Thread.sleep(5500);
-			File dir1 = new File("C:\\Users\\bilali\\Downloads");
+			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 		
 			if(dirContents.length < allFilesNew.length)
@@ -252,7 +246,7 @@ public class RCPMethod extends BasePage
 		        
 		        js1.executeScript("window.scrollBy(0,-500)");
 			Thread.sleep(1000);
-			File dir = new File("C:\\Users\\bilali\\Downloads");
+			File dir = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 			Thread.sleep(2000);
@@ -260,7 +254,7 @@ public class RCPMethod extends BasePage
 			
 		
 			Thread.sleep(5500);
-			File dir1 = new File("C:\\Users\\bilali\\Downloads");
+			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 		
 			if(dirContents.length < allFilesNew.length)
@@ -328,7 +322,7 @@ public class RCPMethod extends BasePage
 		
 			Thread.sleep(6000);
 			RCPLocator.clickRegistration().click();
-			CoordinatorMethod.zoomOutScreen(2);
+//			CoordinatorMethod.zoomOutScreen(2);
 			Thread.sleep(3000);
 			
 			RCPLocator.RegistartionOverdueCount().click();
@@ -353,7 +347,7 @@ public class RCPMethod extends BasePage
 		        
 		        js1.executeScript("window.scrollBy(0,-500)");
 			Thread.sleep(1000);
-			File dir = new File("C:\\Users\\bilali\\Downloads");
+			File dir = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 			Thread.sleep(5000);
@@ -361,7 +355,7 @@ public class RCPMethod extends BasePage
 			
 		
 			Thread.sleep(5500);
-			File dir1 = new File("C:\\Users\\bilali\\Downloads");
+			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 		
 			if(dirContents.length < allFilesNew.length)
@@ -425,10 +419,10 @@ public class RCPMethod extends BasePage
 //		 WebDriverWait wait = new WebDriverWait(getDriver(), 140);
 
 	 	 getDriver().navigate().refresh();
-	 	CoordinatorMethod.zoomOutScreen(2);
+//	 	CoordinatorMethod.zoomOutScreen(2);
 			Thread.sleep(6000);
 			RCPLocator.clickRegistration().click();
-			CoordinatorMethod.zoomOutScreen(2);
+//			CoordinatorMethod.zoomOutScreen(2);
 			Thread.sleep(3000);
 			
 			RCPLocator.RegistartionClosedCount().click();
@@ -453,7 +447,7 @@ public class RCPMethod extends BasePage
 		        
 		        js1.executeScript("window.scrollBy(0,-500)");
 			Thread.sleep(1000);
-			File dir = new File("C:\\Users\\bilali\\Downloads");
+			File dir = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 			Thread.sleep(2000);
@@ -461,7 +455,7 @@ public class RCPMethod extends BasePage
 			
 		
 			Thread.sleep(5500);
-			File dir1 = new File("C:\\Users\\bilali\\Downloads");
+			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 		
 			if(dirContents.length < allFilesNew.length)
@@ -620,7 +614,7 @@ public class RCPMethod extends BasePage
 			Thread.sleep(10000);
 			RCPLocator.clickRegistration().click();
 			
-			 Thread.sleep(2000); 		
+			 Thread.sleep(5000); 		
 //		        RCPLocator.readTotalItems().click();
 				String item = RCPLocator.readTotalItems().getText();
 				String[] bits = item.split(" ");								//Splitting the String
@@ -639,53 +633,54 @@ public class RCPMethod extends BasePage
 		        JavascriptExecutor js1 = (JavascriptExecutor) getDriver();
 		        
 		        js1.executeScript("window.scrollBy(0,-500)");
-			Thread.sleep(1000);
-			File dir = new File("C:\\Users\\bilali\\Downloads");
-			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
+		        Thread.sleep(1000);
+		        File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		        File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
-			Thread.sleep(1000);
-			RCPLocator.clickExport().click();
+		        Thread.sleep(5000);
+		        RCPLocator.clickExport().click();
 			
 		
-			Thread.sleep(5500);
-			File dir1 = new File("C:\\Users\\bilali\\Downloads");
-			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
+		        Thread.sleep(10000);
+		        File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		        File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 		
-			if(dirContents.length < allFilesNew.length)
-			{
-				Thread.sleep(9000);					//Clicking on 'Excel Report' image.
-				test.log(LogStatus.PASS, "File downloaded successfully.");
+		        if(dirContents.length < allFilesNew.length)
+		        {
+		        	Thread.sleep(10000);					//Clicking on 'Excel Report' image.
+		        	test.log(LogStatus.PASS, "File downloaded successfully.");
 		
-			File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
-		    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
-		    {
-		       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
-		       {
-		           lastModifiedFile = allFilesNew[i];
-		       }
-		    }
+		        	File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
+		        	for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
+		        	{
+		        		if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
+		        		{
+		        			lastModifiedFile = allFilesNew[i];
+		        		}
+		        	}
+		        	
+		        	Thread.sleep(1000);
+		        	fis = new FileInputStream(lastModifiedFile);
+		        	workbook = new XSSFWorkbook(fis);
+		        	sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
 			
-			Thread.sleep(1000);
-			fis = new FileInputStream(lastModifiedFile);
-			workbook = new XSSFWorkbook(fis);
-			sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
+		        	sheet = workbook.getSheetAt(0);
+		        	int columnNumber = 3;
+		        	int rowCount = 0;
+		        	int actualRow=0;
 			
-			sheet = workbook.getSheetAt(0);
-			int columnNumber = 3;
-			int rowCount = 0;
-			int actualRow=0;
-			
-			for(Row row : sheet)
-			{
+		        	for(Row row : sheet)
+		        	{
 				
-				Cell cell =row.getCell(columnNumber);
-				if(cell != null) {
+		        		Cell cell =row.getCell(columnNumber);
+		        		if(cell != null)
+		        		{
 					
-					rowCount++;
-					actualRow = rowCount-1;
-				}
+		        			rowCount++;
+		        			actualRow = rowCount-1;
+		        		}
 				
-			}
+		        	}
 			fis.close();
 			
 			if(count1 == actualRow)
@@ -917,7 +912,7 @@ public class RCPMethod extends BasePage
 
 			        RCPLocator.browse1().click();
 			        Thread.sleep(3000);
-			        OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\Test.pdf");
+			        OneCommonMethod.uploadUsingRobot("\"D:\\AutomationLabourFiles\\Test_123.pdf\"");
 			        Thread.sleep(3000);
 
 			        submitBtn.click();
@@ -945,10 +940,6 @@ public class RCPMethod extends BasePage
 			
 			
 			
-			
-			
-			
-				
 		}
 	 
 	 public static void EditClosureVerification(ExtentTest test) throws Exception
@@ -974,13 +965,13 @@ public class RCPMethod extends BasePage
 			Thread.sleep(5000);
 	        RCPLocator.browse2().click();
 	        Thread.sleep(3000);
-	        OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\Test.pdf");
+	        OneCommonMethod.uploadUsingRobot("D:\AutomationLabourFiles\Test_123.pdf");
 			
 			
 	        Thread.sleep(3000);
 	        RCPLocator.browse2().click();
 	        Thread.sleep(3000);
-	        OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\Test.pdf");
+	        OneCommonMethod.uploadUsingRobot("D:\AutomationLabourFiles\Test_123.pdf");
 	        Thread.sleep(3000);
 	        
 	        RCPLocator.registrationLicenseNo().sendKeys(OneCommonMethod.getRandomString());
@@ -1035,12 +1026,12 @@ public class RCPMethod extends BasePage
 
 			        RCPLocator.browse2().click();
 			        Thread.sleep(3000);
-			        OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\Test.pdf");
+			        OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\Test_123.pdf");
 
 			        Thread.sleep(3000);
 			        RCPLocator.browse3().click();
 			        Thread.sleep(3000);
-			        OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\Test.pdf");
+			        OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\Test_123.pdf");
 			        Thread.sleep(3000);
 
 			        RCPLocator.registrationLicenseNo().sendKeys(OneCommonMethod.getRandomString());
@@ -1112,14 +1103,14 @@ public class RCPMethod extends BasePage
 			
 	/*		
 			Thread.sleep(3000);
-			File dir = new File("C:\\Users\\bilali\\Downloads");
+			File dir = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] dirContents = dir.listFiles();
 			Thread.sleep(4400);
 			try {
 				if (Doc_download1.isDisplayed() && Doc_download1.isEnabled()) {
 					Doc_download1.click();
 					Thread.sleep(8000);
-					File dir1 = new File("C:\\Users\\bilali\\Downloads");
+					File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 					File[] allFilesNew = dir1.listFiles();
 					Thread.sleep(3000);
 					if (dirContents.length < allFilesNew.length) {
@@ -1147,7 +1138,7 @@ public class RCPMethod extends BasePage
 			By downloadIcon = By.xpath("(//img[@alt='Action Icon' or @title='No File Availabe'])[2]");
 
 			// ✅ Your download folder
-			File downloadDir = new File("C:\\Users\\bilali\\Downloads");
+			File downloadDir = new File("C:\\Users\\swapnilb\\Downloads");
 
 			// ✅ Optional: agar kisi specific filename ka hissa pata ho, pass karo; warna "" rehne do
 			String expectedNameContains = ""; // e.g., "Payment_Receipt" ya ".pdf"
@@ -1230,7 +1221,7 @@ public class RCPMethod extends BasePage
 			// ✅ Download #3: "Uploaded Final RC/License Document"
 			try {
 			    By downloadIcon3 = By.xpath("(//img[@alt='Action Icon' or @title='No File Availabe'])[3]");
-			    File downloadDir3 = new File("C:\\Users\\bilali\\Downloads");
+			    File downloadDir3 = new File("C:\\Users\\swapnilb\\Downloads");
 			    String expectedNameContains3 = ""; // optional hint: e.g., "RC" or ".pdf"
 
 			    java.util.List<WebElement> icons3 = getDriver().findElements(downloadIcon3);
@@ -1402,7 +1393,7 @@ public class RCPMethod extends BasePage
 		//Reusable: 
 		public static void attemptDocumentDownload(By icon, String label, String expectedNameContains, ExtentTest test) {
 		    try {
-		        File downloadDir = new File("C:\\Users\\bilali\\Downloads");
+		        File downloadDir = new File("C:\\Users\\swapnilb\\Downloads");
 		        java.util.List<WebElement> icons = getDriver().findElements(icon);
 
 		        if (icons == null || icons.isEmpty()) {
@@ -1488,23 +1479,6 @@ public class RCPMethod extends BasePage
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	 
 	 
 		 public static void editDocumentSectionDocReqOTActivity(ExtentTest test) throws Exception
 			{
@@ -1779,27 +1753,26 @@ public class RCPMethod extends BasePage
 		
 	}
 	 
-	 public static void ExistingLicsneExportBtn( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
-		{
-			
+	 	public static void ExistingLicsneExportBtn( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+		{		
 
-	 	getDriver().navigate().refresh();
+	 		getDriver().navigate().refresh();
 			Thread.sleep(10000);
 			RCPLocator.clickRegistration().click();
 			
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 			RCPLocator.ExistingLicesne().click();
 
-			Thread.sleep(3000);
-			File dir = new File("C:\\Users\\bilali\\Downloads");
+			Thread.sleep(5000);
+			File dir = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 			Thread.sleep(3000);
 			RCPLocator.clickExistingLicenseExport().click();
 			
 		
-			Thread.sleep(5500);
-			File dir1 = new File("C:\\Users\\bilali\\Downloads");
+			Thread.sleep(10000);
+			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 		
 			if(dirContents.length < allFilesNew.length)
@@ -1967,10 +1940,9 @@ public class RCPMethod extends BasePage
 				}
 			}
 	 
-	 public static void ExistingLicenseViewIcon(ExtentTest test) throws InterruptedException
+	 	public static void ExistingLicenseViewIcon(ExtentTest test) throws InterruptedException
 		{
-
-	  getDriver().navigate().refresh();
+		 	getDriver().navigate().refresh();
 			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 			
 			Thread.sleep(3000);
@@ -2004,7 +1976,6 @@ public class RCPMethod extends BasePage
 		
 		public static void ExistingLicenseDownload(ExtentTest test) throws InterruptedException, IOException
 		{
-
 		 	getDriver().navigate().refresh();
 			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 			WebDriverWait wait=new WebDriverWait(getDriver(), 20);
@@ -2014,7 +1985,7 @@ public class RCPMethod extends BasePage
 			RCPLocator.ExistingLicesne().click();
 			
 			Thread.sleep(3000);
-			File dir = new File("C:\\Users\\bilali\\Downloads");
+			File dir = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 			wait.until(ExpectedConditions.visibilityOf(RCPLocator.ExistingLicesneDownload()));
@@ -2027,7 +1998,7 @@ public class RCPMethod extends BasePage
 //			wait.until(ExpectedConditions.invisibilityOf(RCPLocator.gridLoad()));
 			
 			Thread.sleep(8000);
-			File dir1 = new File("C:\\Users\\bilali\\Downloads");
+			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 		
 			if(dirContents.length < allFilesNew.length)
@@ -2048,10 +2019,9 @@ public class RCPMethod extends BasePage
 		}
 
 	 
-	 public static void DeleteCancelButton(ExtentTest test) throws InterruptedException
+		public static void DeleteCancelButton(ExtentTest test) throws InterruptedException
 		{
-
-	 	 getDriver().navigate().refresh();
+			getDriver().navigate().refresh();
 			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		
 			Thread.sleep(3000);
@@ -2074,16 +2044,15 @@ public class RCPMethod extends BasePage
 		}
 	 
 	 
-	 
-	 
-	 
-	 
 /*	 
-	 public static String takeScreenshot(WebDriver driver, String screenshotName) {
-		    try {
+	 public static String takeScreenshot(WebDriver driver, String screenshotName) 
+	 {
+		    try 
+		    {
 		        String destDir = System.getProperty("user.dir") + "/test-output/Screenshot/";
 		        File dir = new File(destDir);
-		        if (!dir.exists()) {
+		        if (!dir.exists())
+		        {
 		            dir.mkdirs();
 		        }
 
@@ -2104,11 +2073,14 @@ public class RCPMethod extends BasePage
 	 */
 	 
 	 
-	 public static String takeScreenshot(WebDriver driver, String screenshotName) {
-		    try {
+	 public static String takeScreenshot(WebDriver driver, String screenshotName)
+	 {
+		    try 
+		    {
 		        String destDir = System.getProperty("user.dir") + "/test-output/screenshots/";
 		        File dir = new File(destDir);
-		        if (!dir.exists()) {
+		        if (!dir.exists()) 
+		        {
 		            dir.mkdirs(); // create folder if not exists
 		        }
 
@@ -2120,21 +2092,12 @@ public class RCPMethod extends BasePage
 		        FileUtils.copyFile(source, destination);
 		        return dest;
 
-		    } catch (IOException e) {
+		    } 
+		    catch (IOException e)
+		    {
 		        System.out.println("Screenshot capture failed: " + e.getMessage());
 		        return null;
 		    }
 		}
-	 
-	 
-	 
-	 
-
-	 
-	 
-	 
-	 
-	 
-	 
 
 }

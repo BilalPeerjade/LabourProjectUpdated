@@ -43,7 +43,7 @@ import rcp.OneCommonMethod;
 public class All_Distributor_Methods extends BasePage {
 	private static List<WebElement> elementsList = null;
 
-	static String filePath = "D:\\Labour Angular\\LabourMergeProject\\LabourMergeProject\\TestData\\Labour2.xlsx";
+	static String filePath = "D:\\AutomationLabour\\LabourProjectUpdated\\TestData\\Labour2.xlsx";
 
 	public static void StateMaster(ExtentTest test) throws InterruptedException, IOException {
 
@@ -260,7 +260,7 @@ public class All_Distributor_Methods extends BasePage {
 		Robot robot = new Robot();
 
 		StringSelection filepath = new StringSelection(
-				"D:\\Upload Automation Files\\Other Upload No need to change\\testJPEG.jpeg");
+				"D:\\AutomationLabourFiles\\Test_Jpg.jpg");
 		// copy above file to clipboard
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 
@@ -815,7 +815,7 @@ public class All_Distributor_Methods extends BasePage {
 		Robot robot = new Robot();
 		Thread.sleep(5000);
 		StringSelection filepath = new StringSelection(
-				"D:\\Upload Automation Files\\Other Upload No need to change\\DesignationSample.xlsx");
+				"D:\\AutomationLabourFiles\\DesignationSamplee.xlsx");
 		// copy above file to clipboard
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 
@@ -889,7 +889,7 @@ public class All_Distributor_Methods extends BasePage {
 		Robot robot = new Robot();
 		Thread.sleep(5000);
 		StringSelection filepath = new StringSelection(
-				"D:\\Upload Automation Files\\Other Upload No need to change\\DesignationSample.xlsx");
+				"D:\\AutomationLabourFiles\\DesignationSamplee.xlsx");
 		// copy above file to clipboard
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 
@@ -1290,9 +1290,8 @@ public class All_Distributor_Methods extends BasePage {
 		Thread.sleep(1000);
 		Robot robot = new Robot();
 		Thread.sleep(5000);
-		OneCommonMethod.uploadUsingRobot(
-				"D:\\Upload Automation Files\\Other Upload No need to change\\SampleHolidayMaster.xlsx");
-//		 StringSelection filepath= new  StringSelection("D:\\Upload Automation Files\\Other Upload No need to change\\SampleHolidayMaster.xlsx");
+		OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\SampleHolidayMaster.xlsx");
+//		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\SampleHolidayMaster.xlsx");
 		/*
 		 * Thread.sleep(1000); //copy above file to clipboard
 		 * Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
@@ -1363,10 +1362,10 @@ public class All_Distributor_Methods extends BasePage {
 		DistributerLocators.clickBrowse1().click();
 
 		Robot robot = new Robot();
-		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Other Upload No need to change\\SamplePE.xlsx");
+		OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\SamplePE.xlsx");
 		/*
 		 * StringSelection filepath= new
-		 * StringSelection("D:\\Upload Automation Files\\Other Upload No need to change\\SamplePE.xlsx"
+		 * StringSelection("D:\AutomationLabourFiles\SamplePE.xlsx"
 		 * ); //copy above file to clipboard
 		 * Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 		 * 
@@ -1560,9 +1559,8 @@ public class All_Distributor_Methods extends BasePage {
 		Thread.sleep(1000);
 		Robot robot = new Robot();
 		Thread.sleep(5000);
-		OneCommonMethod.uploadUsingRobot(
-				"D:\\Upload Automation Files\\Distributor Admin\\CLRA\\SampleHolidayMasterValid.xlsx");
-//		 StringSelection filepath= new  StringSelection("D:\\Upload Automation Files\\Other Upload No need to change\\SampleHolidayMaster.xlsx");
+		OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\SampleHolidayMasterValid.xlsx");
+//		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\SampleHolidayMasterValid.xlsx");
 		/*
 		 * Thread.sleep(1000); //copy above file to clipboard
 		 * Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
@@ -1639,7 +1637,7 @@ public class All_Distributor_Methods extends BasePage {
 		DistributerLocators.holidayMaster().click();
 		DistributerLocators.clickBrowse1().click();	
 		
-		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Distributor Admin\\CLRA\\SampleHolidayMasterValid.xlsx");
+		OneCommonMethod.uploadUsingRobot("D:\AutomationLabourFiles\SampleHolidayMasterValid.xlsx");
 		Thread.sleep(5000);
 		Thread.sleep(1000);
 		DistributerLocators.clickUploadbtnCTCBtn().click();
@@ -1666,7 +1664,7 @@ public class All_Distributor_Methods extends BasePage {
 		Thread.sleep(5000);
 		DistributerLocators.clickBrowse1().click();	
 		
-		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Distributor Admin\\CLRA\\TwoCellEmpty.xlsx");
+		OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\TwoCellEmpty.xlsx");
 		Thread.sleep(5000);
 		Thread.sleep(1000);
 		DistributerLocators.clickUploadbtnCTCBtn().click();
@@ -1694,7 +1692,7 @@ public class All_Distributor_Methods extends BasePage {
 		Thread.sleep(5000);
 		DistributerLocators.clickBrowse1().click();	
 		
-		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\WorkSpace\\AttendanceFile.xlsx");
+		OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\AttendanceFile_Upload.xlsx");
 		Thread.sleep(5000);
 		Thread.sleep(1000);
 		DistributerLocators.clickUploadbtnCTCBtn().click();
@@ -1722,7 +1720,7 @@ public class All_Distributor_Methods extends BasePage {
 		Thread.sleep(5000);
 		DistributerLocators.clickBrowse1().click();	
 		
-		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Other Upload No need to change\\sample.pdf");
+		OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\Test_123.pdf");
 		Thread.sleep(5000);
 		Thread.sleep(1000);
 //		DistributerLocators.clickUploadbtnCTCBtn().click();
@@ -2430,7 +2428,10 @@ public class All_Distributor_Methods extends BasePage {
 		}
 		Thread.sleep(1000);
 		PerformerLocator.clickOkBtn().click();
-
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0, -500)"); // scroll up 500 pixels
+        Thread.sleep(2000);
+		
 		Thread.sleep(1000);
 		DistributerLocators.clickcloseBtn().click();
 		Thread.sleep(1000);
@@ -2848,7 +2849,7 @@ public class All_Distributor_Methods extends BasePage {
 		//2. Empty File
 		DistributerLocators.clickBrowse1().click();
 		Thread.sleep(5000);
-		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Distributor Admin\\CLRA\\SamplePrincipleEmployeeEmpty.xlsx");
+		OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\SamplePrincipleEmployeeEmpty.xlsx");
 
 		DistributerLocators.clickUpload().click();
 
@@ -2870,7 +2871,7 @@ public class All_Distributor_Methods extends BasePage {
 		//3. Invalid Template
 		DistributerLocators.clickBrowse1().click();
 		Thread.sleep(5000);
-		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Other Upload No need to change\\PremisesInvalidDetails.xlsx");
+		OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\PremisesInvalidDetails.xlsx");
 
 		DistributerLocators.clickUpload().click();
 
@@ -2898,7 +2899,7 @@ public class All_Distributor_Methods extends BasePage {
 		
 		DistributerLocators.clickBrowse1().click();
 		Thread.sleep(5000);
-		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Distributor Admin\\CLRA\\SamplePrincipleEmployee.xlsx");
+		OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\SamplePrincipleEmployee_Upload.xlsx");
 
 		DistributerLocators.clickUpload().click();
 
@@ -2921,7 +2922,7 @@ public class All_Distributor_Methods extends BasePage {
 		
 		DistributerLocators.clickBrowse1().click();
 		Thread.sleep(5000);
-		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Distributor Admin\\CLRA\\SamplePrincipleEmployee 1.xlsx");
+		OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\SamplePrincipleEmployee 1.xlsx");
 
 		DistributerLocators.clickUpload().click();
 
@@ -3237,7 +3238,7 @@ public class All_Distributor_Methods extends BasePage {
 		DistributerLocators.clickBrowse1().click();
 
 		OneCommonMethod
-				.uploadUsingRobot("D:\\Upload Automation Files\\Distributor Admin\\Premises Upload\\Premises.xlsx");
+				.uploadUsingRobot("D:\\AutomationLabourFiles\\Premises.xlsx");
 
 		getDriver().findElement(By.xpath("//button[normalize-space()='Upload']")).click();
 
@@ -3261,7 +3262,7 @@ public class All_Distributor_Methods extends BasePage {
 		DistributerLocators.clickBrowse1().click();
 
 		OneCommonMethod.uploadUsingRobot(
-				"D:\\Upload Automation Files\\Distributor Admin\\CLRA\\SampleEmployeeLocation Error.xlsx");
+				"D:\\AutomationLabourFiles\\SampleEmployeeLocation Error.xlsx");
 
 		getDriver().findElement(By.xpath("//button[normalize-space()='Upload']")).click();
 
@@ -3292,7 +3293,7 @@ public class All_Distributor_Methods extends BasePage {
 		DistributerLocators.clickBrowse1().click();
 
 		OneCommonMethod
-				.uploadUsingRobot("D:\\Upload Automation Files\\Distributor Admin\\CLRA\\SampleEmployeeLocation.xlsx");
+				.uploadUsingRobot("D:\\AutomationLabourFiles\\SampleEmployeeLocationn.xlsx");
 
 		getDriver().findElement(By.xpath("//button[normalize-space()='Upload']")).click();
 
@@ -3456,8 +3457,7 @@ public class All_Distributor_Methods extends BasePage {
 
 		Robot robot = new Robot();
 		Thread.sleep(5000);
-		StringSelection filepath = new StringSelection(
-				"D:\\Upload Automation Files\\Other Upload No need to change\\SampleEmployeeLocation.xlsx");
+		StringSelection filepath = new StringSelection("D:\\AutomationLabourFiles\\SampleEmployeeLocationnn.xlsx");
 		// copy above file to clipboard
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 

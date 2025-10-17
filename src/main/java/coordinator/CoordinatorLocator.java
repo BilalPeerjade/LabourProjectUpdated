@@ -587,7 +587,7 @@ public class CoordinatorLocator extends BasePage
 	}
 	public static WebElement plus4()		
 	{
-		labour = getDriver().findElement(By.xpath("(//img[@class='svg-icon-btn'])[4]"));
+		labour = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/Closeminus.svg']"));
 		return labour;
 	}
 	

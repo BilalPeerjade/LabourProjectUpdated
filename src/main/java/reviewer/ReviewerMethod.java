@@ -340,9 +340,7 @@ public static void StateDocZipFile(ExtentTest test, String user) throws Interrup
 
 		Thread.sleep(9000);
 		
-		OneCommonMethod.validateFileDownloadDynamic(
-			    driver.get(),
-			    test,
+		OneCommonMethod.validateFileDownloadDynamic(driver.get(),test,
 			    ReviwerLocator.clickDownload(),   // WebElement
 			    "ZIP File is downloaded successfully !"   // Dynamic log message
 			);
@@ -480,9 +478,9 @@ public static void StateDownloadDoc(ExtentTest test, String user) throws Interru
 	Thread.sleep(4000);
 	ReviwerLocator.clickDownload1().click();
 
-	//String FilePath= "C:\\Users\\bilali\\Downloads\\AVAAEntity_2024_SEA_MAH_BranchNashik.zip";
+	//String FilePath= "C:\\Users\\swapnilb\\Downloads\\AVAAEntity_2024_SEA_MAH_BranchNashik.zip";
 	Thread.sleep(11000);
-	File dir = new File("C:\\Users\\bilali\\Downloads");
+	File dir = new File("C:\\Users\\swapnilb\\Downloads");
 	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 
 	Thread.sleep(4000);
@@ -496,7 +494,7 @@ public static void StateDownloadDoc(ExtentTest test, String user) throws Interru
 	
 
 	Thread.sleep(4000);
-	File dir1 = new File("C:\\Users\\bilali\\Downloads");
+	File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 	File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 
 	Thread.sleep(4000);
@@ -590,9 +588,9 @@ public static void StatutoryDocZipFile(ExtentTest test, String user) throws Inte
 		ReviwerLocator.clickApply().click();
 		
 	
-		//String FilePath= "C:\\Users\\bilali\\Downloads\\AVAAEntity_2024_SEA_MAH_BranchNashik.zip";
+		//String FilePath= "C:\\Users\\swapnilb\\Downloads\\AVAAEntity_2024_SEA_MAH_BranchNashik.zip";
 		Thread.sleep(9000);
-		File dir = new File("C:\\Users\\bilali\\Downloads");
+		File dir = new File("C:\\Users\\swapnilb\\Downloads");
 		File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 	
 		Thread.sleep(4000);
@@ -603,7 +601,7 @@ public static void StatutoryDocZipFile(ExtentTest test, String user) throws Inte
 		
 	
 		Thread.sleep(4000);
-		File dir1 = new File("C:\\Users\\bilali\\Downloads");
+		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 		File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 	
 		Thread.sleep(4000);
@@ -685,9 +683,9 @@ public static void StatutoryDocDownloadDoc(ExtentTest test) throws InterruptedEx
 	Thread.sleep(4000);
 	ReviwerLocator.clickDownload1().click();
 
-	//String FilePath= "C:\\Users\\bilali\\Downloads\\AVAAEntity_2024_SEA_MAH_BranchNashik.zip";
+	//String FilePath= "C:\\Users\\swapnilb\\Downloads\\AVAAEntity_2024_SEA_MAH_BranchNashik.zip";
 	Thread.sleep(11000);
-	File dir = new File("C:\\Users\\bilali\\Downloads");
+	File dir = new File("C:\\Users\\swapnilb\\Downloads");
 	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 
 	Thread.sleep(4000);
@@ -701,7 +699,7 @@ public static void StatutoryDocDownloadDoc(ExtentTest test) throws InterruptedEx
 	
 
 	Thread.sleep(4000);
-	File dir1 = new File("C:\\Users\\bilali\\Downloads");
+	File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 	File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 
 	Thread.sleep(4000);
@@ -772,9 +770,9 @@ public static void ChallanDocDownload(ExtentTest test) throws InterruptedExcepti
 	Thread.sleep(4000);
 	ReviwerLocator.clickDownload().click();
 
-	//String FilePath= "C:\\Users\\bilali\\Downloads\\AVAAEntity_2024_SEA_MAH_BranchNashik.zip";
+	//String FilePath= "C:\\Users\\swapnilb\\Downloads\\AVAAEntity_2024_SEA_MAH_BranchNashik.zip";
 	Thread.sleep(11000);
-	File dir = new File("C:\\Users\\bilali\\Downloads");
+	File dir = new File("C:\\Users\\swapnilb\\Downloads");
 	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 
 	Thread.sleep(4000);
@@ -788,7 +786,7 @@ public static void ChallanDocDownload(ExtentTest test) throws InterruptedExcepti
 	
 
 	Thread.sleep(4000);
-	File dir1 = new File("C:\\Users\\bilali\\Downloads");
+	File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 	File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 
 	Thread.sleep(4000);
@@ -1022,9 +1020,9 @@ public static void ChallanComplianceDocDownload(ExtentTest test) throws Interrup
 	Thread.sleep(4000);
 	ReviwerLocator.clickDownload().click();
 
-	//String FilePath= "C:\\Users\\bilali\\Downloads\\AVAAEntity_2024_SEA_MAH_BranchNashik.zip";
+	//String FilePath= "C:\\Users\\swapnilb\\Downloads\\AVAAEntity_2024_SEA_MAH_BranchNashik.zip";
 	Thread.sleep(11000);
-	File dir = new File("C:\\Users\\bilali\\Downloads");
+	File dir = new File("C:\\Users\\swapnilb\\Downloads");
 	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 
 	Thread.sleep(4000);
@@ -1038,7 +1036,7 @@ public static void ChallanComplianceDocDownload(ExtentTest test) throws Interrup
 	
 
 	Thread.sleep(4000);
-	File dir1 = new File("C:\\Users\\bilali\\Downloads");
+	File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 	File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 
 	Thread.sleep(4000);
@@ -1185,7 +1183,7 @@ public static void OnBoardEntityExport( ExtentTest test) throws InterruptedExcep
 	
 
 	Thread.sleep(2000);
-	File dir = new File("C:\\Users\\bilali\\Downloads");
+	File dir = new File("C:\\Users\\swapnilb\\Downloads");
 	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 
 	Thread.sleep(2000);
@@ -1193,7 +1191,7 @@ public static void OnBoardEntityExport( ExtentTest test) throws InterruptedExcep
 	
 
 	Thread.sleep(10000);
-	File dir1 = new File("C:\\Users\\bilali\\Downloads");
+	File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 	File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 
 	if(dirContents.length < allFilesNew.length)
@@ -1262,7 +1260,7 @@ public static void UploadSealandSignature( ExtentTest test,XSSFWorkbook workbook
 		
 		 Robot robot=new Robot();
 		 
-		 StringSelection filepath= new  StringSelection("C:\\Users\\snehalp\\Documents\\chart_11zon.jpeg");
+		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\SampleJpegFile.jpeg");
 		 //copy above file to clipboard
 		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 		 
@@ -1447,7 +1445,7 @@ public static void DesignationExportBtn( ExtentTest test,XSSFWorkbook workbook) 
     Thread.sleep(2000);
 
 	Thread.sleep(1000);
-	File dir = new File("C:\\Users\\bilali\\Downloads");
+	File dir = new File("C:\\Users\\swapnilb\\Downloads");
 	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 
 	Thread.sleep(1000);
@@ -1461,7 +1459,7 @@ public static void DesignationExportBtn( ExtentTest test,XSSFWorkbook workbook) 
 
 
 	Thread.sleep(5500);
-	File dir1 = new File("C:\\Users\\bilali\\Downloads");
+	File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 	File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 
 	if(dirContents.length < allFilesNew.length)
@@ -1618,7 +1616,7 @@ public static void BulkUploadDesignationDetailes( ExtentTest test,XSSFWorkbook w
 			
 			 Robot robot=new Robot();
 			 
-			 StringSelection filepath= new  StringSelection("D:\\Upload Automation Files\\OtherTwo\\DesignationSample.xlsx");
+			 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\DesignationSamplee.xlsx");
 			 //copy above file to clipboard
 			 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 			 

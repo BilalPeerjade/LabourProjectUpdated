@@ -47,7 +47,7 @@ import rcp.RCPMethod;
 public class CoordinatorMethod extends BasePage
 {
 
-	 static String filePath ="D:\\Labour Angular\\LabourMergeProject\\LabourMergeProject\\TestData\\Labour2.xlsx";
+	 static String filePath ="D:\\AutomationLabour\\LabourProjectUpdated\\TestData\\Labour2.xlsx";
 	 
 	 
 	 public static void CountMatch( ExtentTest test,String Notice) throws InterruptedException, IOException
@@ -325,6 +325,7 @@ public class CoordinatorMethod extends BasePage
 	 	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	 
 	 	
+	 	
 	 	Thread.sleep(6000);
 		String item = CoordinatorLocator.readTotalItems().getText();
 		String[] bits = item.split(" ");								//Splitting the String
@@ -394,7 +395,7 @@ public class CoordinatorMethod extends BasePage
 	 	
 	 	Thread.sleep(10000);
 	 	Actions action = new Actions(getDriver());
-	 	WebElement we = getDriver().findElement(By.xpath("//*[@role='gridcell']//span[@class='k-link'][normalize-space()='21']"));
+	 	WebElement we = getDriver().findElement(By.xpath("//*[@role='gridcell']//span[@class='k-link'][normalize-space()='1']"));
 	 	action.moveToElement(we).click().build().perform();
 //	 	Thread.sleep(1000);
 //	 	Locator.selectDate().click();
@@ -422,7 +423,7 @@ public class CoordinatorMethod extends BasePage
 	 	
 	 	 getDriver().findElement(By.xpath("//*[@class='figma-btn-gray']")).click();
 	 	Thread.sleep(3000);
-	 	 OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Other Upload No need to change\\sample.pdf");
+	 	 OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\Test_123.pdf");
 	 	 	 
 	 	 Thread.sleep(1000);
 	 	 System.out.println("File uploaded successfully");
@@ -618,7 +619,7 @@ public class CoordinatorMethod extends BasePage
 	 	 
 	 	 Robot robot=new Robot();
 	 	 
-	 	 StringSelection filepath= new  StringSelection("D:\\Upload Automation Files\\Other Upload No need to change\\sample.pdf");
+	 	 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\Test_123.pdf");
 	 	 //copy above file to clipboard
 	 	 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 	 	 
@@ -693,14 +694,14 @@ public class CoordinatorMethod extends BasePage
 
 		js1.executeScript("window.scrollBy(0,-500)");
 		Thread.sleep(3000);
-		File dir = new File("C:\\Users\\bilali\\Downloads");
+		File dir = new File("C:\\Users\\swapnilb\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(3000);
 		CoordinatorLocator.clickNoticeExport().click();
 
 		Thread.sleep(5500);
-		File dir1 = new File("C:\\Users\\bilali\\Downloads");
+		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 
 		if (dirContents.length < allFilesNew.length) {
@@ -1067,7 +1068,7 @@ public class CoordinatorMethod extends BasePage
 	 	
 	 	JavascriptExecutor js = (JavascriptExecutor) getDriver();	
 	 	Thread.sleep(2000);
-	 	File dir3 = new File("C:\\Users\\bilali\\Downloads");
+	 	File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
 	 	File[] dirContents1 = dir3.listFiles();							//Counting number of files in directory before download 
 
 	 	
@@ -1083,7 +1084,7 @@ public class CoordinatorMethod extends BasePage
 //		wait.until(ExpectedConditions.invisibilityOf(CoordinatorLocator.GridLoad()));
 	 	
 	 	Thread.sleep(5500);
-	 	File dir2= new File("C:\\Users\\bilali\\Downloads");
+	 	File dir2= new File("C:\\Users\\swapnilb\\Downloads");
 	 	File[] allFilesNew1 = dir2.listFiles();							//Counting number of files in directory after download
 
 	 	if(dirContents1.length < allFilesNew1.length)
@@ -1437,14 +1438,14 @@ public class CoordinatorMethod extends BasePage
 			
 			// 1 Logic for Notice Document
 			Thread.sleep(3000);
-			File dir = new File("C:\\Users\\bilali\\Downloads");
+			File dir = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 			Thread.sleep(500);
 			All_ClientPortal_Locators.NoticeDocumentDownload().click();
 
 			Thread.sleep(8000);
-			File dir1 = new File("C:\\Users\\bilali\\Downloads");
+			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 			Thread.sleep(3000);
 			if (dirContents.length < allFilesNew.length) {
@@ -1459,14 +1460,14 @@ public class CoordinatorMethod extends BasePage
 
 			// 2 - Logic for Translated Notice Document
 			Thread.sleep(5000);
-			File dir2 = new File("C:\\Users\\bilali\\Downloads");
+			File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] dirContents2 = dir2.listFiles(); // Counting number of files in directory before download
 
 			Thread.sleep(500);
 			All_ClientPortal_Locators.NoticeTranslatedDocument().click();
 
 			Thread.sleep(8000);
-			File dirr = new File("C:\\Users\\bilali\\Downloads");
+			File dirr = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] allFilesNew2 = dirr.listFiles(); // Counting number of files in directory after download
 			Thread.sleep(3000);
 			if (dirContents2.length < allFilesNew2.length) {
@@ -1479,14 +1480,14 @@ public class CoordinatorMethod extends BasePage
 
 			//3 Logic for Extention Application Acknowledgement
 			Thread.sleep(8000);
-			File dir3 = new File("C:\\Users\\bilali\\Downloads");
+			File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] dirContents3 = dir3.listFiles(); // Counting number of files in directory before download
 
 			Thread.sleep(2200);
 			All_ClientPortal_Locators.NoticeApplicationAcknowledgeDocument().click();
 
 			Thread.sleep(10000);
-			File dirrr = new File("C:\\Users\\bilali\\Downloads");
+			File dirrr = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] allFilesNew3 = dirrr.listFiles(); // Counting number of files in directory after download
 			Thread.sleep(3000);
 			if (dirContents3.length < allFilesNew3.length) {
@@ -1499,14 +1500,14 @@ public class CoordinatorMethod extends BasePage
 
 			//4 Logic for Draft Extension Application
 			Thread.sleep(10000);
-			File dir4 = new File("C:\\Users\\bilali\\Downloads");
+			File dir4 = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] dirContents4 = dir4.listFiles(); // Counting number of files in directory before download
 
 			Thread.sleep(4000);
 			All_ClientPortal_Locators.DraftExtensionApplicationDocument().click();
 
 			Thread.sleep(10000);
-			File dirrr4 = new File("C:\\Users\\bilali\\Downloads");
+			File dirrr4 = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] allFilesNew4 = dirrr4.listFiles(); // Counting number of files in directory after download
 			Thread.sleep(3000);
 			if (dirContents4.length < allFilesNew4.length) {
@@ -1519,14 +1520,14 @@ public class CoordinatorMethod extends BasePage
 
 			//5 Logic for Draft Response (Prepared by SME)
 			Thread.sleep(10000);
-			File dir5 = new File("C:\\Users\\bilali\\Downloads");
+			File dir5 = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] dirContents5 = dir5.listFiles(); // Counting number of files in directory before download
 
 			Thread.sleep(4000);
 			All_ClientPortal_Locators.DraftResponseSMEDocument().click();
 
 			Thread.sleep(10000);
-			File dirrr5 = new File("C:\\Users\\bilali\\Downloads");
+			File dirrr5 = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] allFilesNew5 = dirrr5.listFiles(); // Counting number of files in directory after download
 			Thread.sleep(3000);
 			if (dirContents5.length < allFilesNew5.length) {
@@ -1619,7 +1620,6 @@ public class CoordinatorMethod extends BasePage
 		);
 		
 		
-		
 	 	CoordinatorLocator.ResponseDueDateCalendar2().click();
 		OneCommonMethod.selectCalendarDateFromInput(driver.get(), test, 
 				CoordinatorLocator.ResponseDueDateCalendar2(), // calendar icon
@@ -1639,8 +1639,8 @@ public class CoordinatorMethod extends BasePage
 //		if(user.equalsIgnoreCase("Doc File"))
 //		{
 //		CoordinatorLocator.Browse1().click();
-//		Thread.sleep(2000);
-//		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\OtherTwo\\SampleDocFile.doc");
+//		Thread.sleep(2000);"
+//		OneCommonMethod.uploadUsingRobot("D:\AutomationLabourFiles\SampleDocFile.doc");
 //		
 //		try 
 //		{
@@ -1674,7 +1674,7 @@ public class CoordinatorMethod extends BasePage
 			{
 			CoordinatorLocator.Browse2().click();
 			Thread.sleep(2000);
-			OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\OtherTwo\\SampleDocFile.doc");
+			OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\SampleDocFile.doc");
 			
 		
 				String Doc_Txt = getDriver().findElement(By.xpath("//span[@title='SampleDocFile.doc']")).getText();
@@ -1700,7 +1700,7 @@ public class CoordinatorMethod extends BasePage
 			if(user.equalsIgnoreCase("DOCX File"))
 			{
 				CoordinatorLocator.Browse2().click();
-				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleDocxFile.docx");
+				OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\SampleDocxFile.docx");
 				
 				String docsFile = getDriver().findElement(By.xpath("//span[@title='SampleDocxFile.docx']")).getText();
 				
@@ -1724,7 +1724,7 @@ public class CoordinatorMethod extends BasePage
 		{
 		CoordinatorLocator.Browse2().click();
 		Thread.sleep(2000);
-		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Other Upload No need to change\\sample.pdf");
+		OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\Test_123.pdf");
 		
 		try 
 		{
@@ -1765,7 +1765,7 @@ public class CoordinatorMethod extends BasePage
 			{
 			CoordinatorLocator.Browse1().click();
 			Thread.sleep(2000);
-			OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\OtherTwo\\SampleDocFile.doc");
+			OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\SampleDocFile.doc");
 			
 			try 
 			{
@@ -1793,7 +1793,7 @@ public class CoordinatorMethod extends BasePage
 			if(user.equalsIgnoreCase("DOCX File"))
 			{
 				CoordinatorLocator.Browse1().click();
-				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleDocxFile.docx");
+				OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\SampleDocxFile.docx");
 				
 				String docsFile = getDriver().findElement(By.xpath("//span[@title='SampleDocxFile.docx']")).getText();
 				
@@ -1817,7 +1817,7 @@ public class CoordinatorMethod extends BasePage
 		{
 		CoordinatorLocator.Browse1().click();
 		Thread.sleep(2000);
-		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Other Upload No need to change\\sample.pdf");
+		OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\Test_123.pdf");
 		
 		try 
 		{
@@ -1838,12 +1838,10 @@ public class CoordinatorMethod extends BasePage
 			System.out.println("File is not uploaded");
 		}
 		
-
-		
 	 }
 		
 	 	
-	 }
+ }
 	 public static void NoticeAddNewRecepitAcknowledgementValidation(String user, ExtentTest test) throws Exception
 	 {
 		 
@@ -1851,7 +1849,7 @@ public class CoordinatorMethod extends BasePage
 			{
 				Thread.sleep(5000);
 				CoordinatorLocator.Browse1().click();
-				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleZipFile.zip");
+				OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\EmptyZip.zip");
 				
 				String zipFile = CoordinatorLocator.Message2().getText();
 				if(zipFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
@@ -1873,7 +1871,7 @@ public class CoordinatorMethod extends BasePage
 			{
 				Thread.sleep(5000);
 				CoordinatorLocator.Browse1().click();
-				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\ComplianceRecords.xlsx");
+				OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\EmptyFile.xlsx");
 				
 				String xlsxFile = CoordinatorLocator.Message2().getText();
 				if(xlsxFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
@@ -1894,7 +1892,7 @@ public class CoordinatorMethod extends BasePage
 			{
 				Thread.sleep(5000);
 				CoordinatorLocator.Browse1().click();
-				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleXlsFile.xls");
+				OneCommonMethod.uploadUsingRobot("\"D:\\AutomationLabourFiles\\SampleXlsFile.xls\"");
 				
 				String xlsFile = CoordinatorLocator.Message2().getText();
 				if(xlsFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
@@ -1915,7 +1913,7 @@ public class CoordinatorMethod extends BasePage
 			{
 				Thread.sleep(5000);
 				CoordinatorLocator.Browse1().click();
-				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleTxt.txt");
+				OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\unknown.txt");
 				
 				String xlsFile = CoordinatorLocator.Message2().getText();
 				if(xlsFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
@@ -1936,7 +1934,7 @@ public class CoordinatorMethod extends BasePage
 			{
 				Thread.sleep(5000);
 				CoordinatorLocator.Browse1().click();
-				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SamplePngFile.png");
+				OneCommonMethod.uploadUsingRobot("\"D:\\AutomationLabourFiles\\SamplePngFile.png\"");
 				
 				String xlsFile = CoordinatorLocator.Message2().getText();
 				if(xlsFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
@@ -1959,7 +1957,7 @@ public class CoordinatorMethod extends BasePage
 			{
 				Thread.sleep(5000);
 				CoordinatorLocator.Browse1().click();
-				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleJpegFile.jpeg");
+				OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\SampleJpegFile.jpeg");
 				
 				String jpgFile = CoordinatorLocator.Message2().getText();
 				if(jpgFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
@@ -1980,7 +1978,7 @@ public class CoordinatorMethod extends BasePage
 			{
 				Thread.sleep(5000);
 				CoordinatorLocator.Browse1().click();
-				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleHTMLReport.html");
+				OneCommonMethod.uploadUsingRobot("D:\\AutomationLabour\\LabourProjectUpdated\\Report\\ClientPortal.html");
 				
 				String jpgFile = CoordinatorLocator.Message2().getText();
 				if(jpgFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
@@ -2007,7 +2005,7 @@ public class CoordinatorMethod extends BasePage
 			{
 				Thread.sleep(5000);
 				CoordinatorLocator.Browse2().click();
-				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleZipFile.zip");
+				OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\EmptyZip.zip");
 				
 				String zipFile = CoordinatorLocator.Message2().getText();
 				if(zipFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
@@ -2029,7 +2027,7 @@ public class CoordinatorMethod extends BasePage
 			{
 				Thread.sleep(5000);
 				CoordinatorLocator.Browse2().click();
-				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\ComplianceRecords.xlsx");
+				OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\EmptyFile.xlsx");
 				
 				String xlsxFile = CoordinatorLocator.Message2().getText();
 				if(xlsxFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
@@ -2050,7 +2048,7 @@ public class CoordinatorMethod extends BasePage
 			{
 				Thread.sleep(5000);
 				CoordinatorLocator.Browse2().click();
-				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleXlsFile.xls");
+				OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\SampleXlsFile.xls");
 				
 				String xlsFile = CoordinatorLocator.Message2().getText();
 				if(xlsFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
@@ -2071,7 +2069,7 @@ public class CoordinatorMethod extends BasePage
 			{
 				Thread.sleep(5000);
 				CoordinatorLocator.Browse2().click();
-				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleTxt.txt");
+				OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\unknown.txt");
 				
 				String xlsFile = CoordinatorLocator.Message2().getText();
 				if(xlsFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
@@ -2092,7 +2090,7 @@ public class CoordinatorMethod extends BasePage
 			{
 				Thread.sleep(5000);
 				CoordinatorLocator.Browse2().click();
-				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SamplePngFile.png");
+				OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\SamplePngFile.png");
 				
 				String xlsFile = CoordinatorLocator.Message2().getText();
 				if(xlsFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
@@ -2115,7 +2113,7 @@ public class CoordinatorMethod extends BasePage
 			{
 				Thread.sleep(5000);
 				CoordinatorLocator.Browse2().click();
-				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleJpegFile.jpeg");
+				OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\SampleJpegFile.jpeg");
 				
 				String jpgFile = CoordinatorLocator.Message2().getText();
 				if(jpgFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
@@ -2136,7 +2134,7 @@ public class CoordinatorMethod extends BasePage
 			{
 				Thread.sleep(5000);
 				CoordinatorLocator.Browse2().click();
-				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleHTMLReport.html");
+				OneCommonMethod.uploadUsingRobot("D:\\AutomationLabour\\LabourProjectUpdated\\Report\\ClientPortal.html");
 				
 				String jpgFile = CoordinatorLocator.Message2().getText();
 				if(jpgFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
@@ -2634,7 +2632,7 @@ public class CoordinatorMethod extends BasePage
 		        
 		        js1.executeScript("window.scrollBy(0,-500)");
 			Thread.sleep(1000);
-			File dir = new File("C:\\Users\\bilali\\Downloads");
+			File dir = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 			Thread.sleep(5000);
@@ -2642,7 +2640,7 @@ public class CoordinatorMethod extends BasePage
 			
 		
 			Thread.sleep(10000);
-			File dir1 = new File("C:\\Users\\bilali\\Downloads");
+			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 		
 			if(dirContents.length < allFilesNew.length)
@@ -2957,14 +2955,6 @@ public class CoordinatorMethod extends BasePage
 			
 			
 			Thread.sleep(5000);
-
-//			WebElement plus1 = getDriver().findElement(By.xpath("(//img[@class='svg-icon-btn ng-star-inserted'])[1]"));
-//			WebElement plus2 = getDriver().findElement(By.xpath("(//img[@class='svg-icon-btn ng-star-inserted'])[2]"));
-//			WebElement plus3 = getDriver().findElement(By.xpath("(//img[@class='svg-icon-btn ng-star-inserted'])[3]"));
-//			WebElement plus4 = getDriver().findElement(By.xpath("(//img[@class='svg-icon-btn ng-star-inserted'])[4]"));
-			
-			
-//			WebElement ActivityClosure = getDriver().findElement(By.xpath("//img[@class='svg-icon-btn ng-star-inserted']"));
 			Thread.sleep(4000);
 			
 //			clickElementUsingJS(CoordinatorLocator.plus1());
@@ -2982,17 +2972,17 @@ public class CoordinatorMethod extends BasePage
 			
 
 			
-			Thread.sleep(4000);
-			if(CoordinatorLocator.plus2().isEnabled())
-			{
-				CoordinatorLocator.plus2().click();
-				test.log(LogStatus.PASS, "+ Finance Approval Status button is Opened and Closed.");
-			}
-			else
-			{
-				test.log(LogStatus.FAIL, "+ Finance Approval Status button is not clickable.");
-			}
-			
+//			Thread.sleep(4000);
+//			if(CoordinatorLocator.plus2().isEnabled())
+//			{
+//				CoordinatorLocator.plus2().click();
+//				test.log(LogStatus.PASS, "+ Finance Approval Status button is Opened and Closed.");
+//			}
+//			else
+//			{
+//				test.log(LogStatus.FAIL, "+ Finance Approval Status button is not clickable.");
+//			}
+//			
 			Thread.sleep(4000);
 			if(CoordinatorLocator.plus3().isEnabled())
 			{
@@ -3716,7 +3706,7 @@ public class CoordinatorMethod extends BasePage
 			*/
 			
 			Thread.sleep(3000);
-			File dir = new File("C:\\Users\\bilali\\Downloads");
+			File dir = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] dirContents = dir.listFiles();
 
 			Thread.sleep(500);
@@ -3724,7 +3714,7 @@ public class CoordinatorMethod extends BasePage
 				if (Doc_download.isDisplayed() && Doc_download.isEnabled()) {
 					Doc_download.click();
 					Thread.sleep(8000);
-					File dir1 = new File("C:\\Users\\bilali\\Downloads");
+					File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 					File[] allFilesNew = dir1.listFiles();
 					Thread.sleep(3000);
 					if (dirContents.length < allFilesNew.length) {
@@ -3991,7 +3981,7 @@ public class CoordinatorMethod extends BasePage
 			CoordinatorLocator.ExistingLicesne().click();
 
 			Thread.sleep(1000);
-			File dir = new File("C:\\Users\\bilali\\Downloads");
+			File dir = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 			Thread.sleep(5000);
@@ -4005,7 +3995,7 @@ public class CoordinatorMethod extends BasePage
 			
 		
 			Thread.sleep(5500);
-			File dir1 = new File("C:\\Users\\bilali\\Downloads");
+			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 		
 			if(dirContents.length < allFilesNew.length)
@@ -4286,7 +4276,7 @@ public class CoordinatorMethod extends BasePage
 			
 			
 			Thread.sleep(2000);
-			File dir = new File("C:\\Users\\bilali\\Downloads");
+			File dir = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 			
@@ -4300,7 +4290,7 @@ public class CoordinatorMethod extends BasePage
 //			wait.until(ExpectedConditions.invisibilityOf(CoordinatorLocator.gridLoad()));//me hide and give more load
 			
 			Thread.sleep(5500);
-			File dir1 = new File("C:\\Users\\bilali\\Downloads");
+			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			Thread.sleep(4000);
 			if(dirContents.length < allFilesNew.length)

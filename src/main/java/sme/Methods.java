@@ -37,7 +37,7 @@ import rcp.OneCommonMethod;
 
 public class Methods extends BasePage
 {
-	 static String filePath ="D:\\Labour Angular\\LabourMergeProject\\LabourMergeProject\\TestData\\Labour2.xlsx";
+	 static String filePath ="D:\\AutomationLabour\\LabourProjectUpdated\\TestData\\Labour2.xlsx";
 
 	 public static void CountMatch( ExtentTest test,String Notice) throws InterruptedException, IOException
 		{
@@ -45,9 +45,9 @@ public class Methods extends BasePage
 		 Thread.sleep(10000);
 		 getDriver().navigate().refresh();
 		 Thread.sleep(10000);
-		int pendingAssignment = 0;
-		if(Notice.equalsIgnoreCase("Extension"))
-		{
+		 int pendingAssignment = 0;
+		 if(Notice.equalsIgnoreCase("Extension"))
+		 {
 			Thread.sleep(10000);
 			String string_pendingAssignment = Locator.pendingAssignmentCount().getText();		//Storing old value of Statutory overdue.
 			Thread.sleep(10000);
@@ -91,9 +91,11 @@ public class Methods extends BasePage
 		
 		OneCommonMethod.zoomOutScreen(2); //Zoom
 		
-		Thread.sleep(10000);
+		JavascriptExecutor js = (JavascriptExecutor) getDriver();
+	    ((JavascriptExecutor) getDriver()).executeScript("arguments[0].scrollIntoView(true);", Locator.readTotalItems());
+		
 		Locator.readTotalItems().click();					//Clicking on total items count
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		String item = Locator.readTotalItems().getText();	//Reading total items String value
 		String[] bits = item.split(" ");								//Splitting the String
 		String pendingAssignmentcount = bits[bits.length - 2];				//Getting the second last word (total number of users)
@@ -118,8 +120,7 @@ public class Methods extends BasePage
 	 {
 		 getDriver().navigate().refresh();
 	 	JavascriptExecutor js = (JavascriptExecutor) getDriver();
-	 	
-		js.executeScript("window.scrollBy(0,5000)");	
+	 	js.executeScript("window.scrollBy(0,5000)");	
 	 	
 	 	 Thread.sleep(10000); 		
 //	      Locator.readTotalItems().click();
@@ -141,7 +142,7 @@ public class Methods extends BasePage
 	      
 	      js1.executeScript("window.scrollBy(0,-500)");
 	 	Thread.sleep(1000);
-	 	File dir = new File("C:\\Users\\bilali\\Downloads");
+	 	File dir = new File("C:\\Users\\swapnilb\\Downloads");
 	 	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 
 	 	Thread.sleep(1000);
@@ -149,7 +150,7 @@ public class Methods extends BasePage
 	 	
 
 	 	Thread.sleep(5500);
-	 	File dir1 = new File("C:\\Users\\bilali\\Downloads");
+	 	File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 	 	File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 
 	 	if(dirContents.length < allFilesNew.length)
@@ -290,7 +291,7 @@ public class Methods extends BasePage
 	 			test.log(LogStatus.PASS, filter.get(i)+" displayed : "+Pas);	
 	 			System.out.println(filter.get(i)+" : "+Pas);
 	 	 }
-	 	 text.clear();
+	 	text.clear();
 	 	pass.clear();
 	 	fail.clear();
 	 	raw.clear();
@@ -309,7 +310,8 @@ public class Methods extends BasePage
 	 	
 	 	}
 	 	}
-	 	catch (Exception e) {
+	 	catch (Exception e)
+	 	{
 	 		test.log(LogStatus.PASS,"No records available.");	
 		}
 	 	
@@ -318,10 +320,10 @@ public class Methods extends BasePage
 	 
 	 public static void NoticeEditDownload(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
 	 {
-		 getDriver().navigate().refresh();
+		getDriver().navigate().refresh();
 	 	JavascriptExecutor js = (JavascriptExecutor) getDriver();	
 	 	Thread.sleep(2000);
-	 	File dir3 = new File("C:\\Users\\bilali\\Downloads");
+	 	File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
 	 	File[] dirContents1 = dir3.listFiles();							//Counting number of files in directory before download 
 
 	 	
@@ -330,13 +332,13 @@ public class Methods extends BasePage
 	 	Locator.clickDownload().click();
 	 	
 	 	Thread.sleep(5500);
-	 	File dir2= new File("C:\\Users\\bilali\\Downloads");
+	 	File dir2= new File("C:\\Users\\swapnilb\\Downloads");
 	 	File[] allFilesNew1 = dir2.listFiles();							//Counting number of files in directory after download
 
 	 	if(dirContents1.length < allFilesNew1.length)
 	 	{
 	 	
-	 		Thread.sleep(1000);					//Clicking on 'Excel Report' image.
+	 		Thread.sleep(1000);			//Clicking on 'Excel Report' image.
 	 		test.log(LogStatus.PASS, "Notice Document downloaded successfully.");
 	 	}
 	 	else
@@ -344,8 +346,7 @@ public class Methods extends BasePage
 	 		Thread.sleep(2000);
 	 		test.log(LogStatus.FAIL, "Notice Document doesn't downloaded successfully.");
 	 	}
-	 	
-	 	
+	 	 	
 	 	
 	 	Thread.sleep(1000);
 	 	if(Locator.EditBtn().isEnabled())
@@ -362,11 +363,9 @@ public class Methods extends BasePage
 	 	}
 	 	
 	 	Thread.sleep(2000);
-	      JavascriptExecutor js1 = (JavascriptExecutor) getDriver();
+	    JavascriptExecutor js1 = (JavascriptExecutor) getDriver();
 	      
-	      js1.executeScript("window.scrollBy(900,0)");
-//	 	Thread.sleep(1000);
-//	 	Locator.clickBack().click();
+	    js1.executeScript("window.scrollBy(900,0)");
 	 	
 		Thread.sleep(1000);
 	 	Actions action = new Actions(getDriver());
@@ -376,7 +375,6 @@ public class Methods extends BasePage
 	 	
 
 	 }
-
 
 	 public static void Exp  (ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
 	 {
@@ -390,10 +388,6 @@ public class Methods extends BasePage
 		    	    "File Exported Successfully ! "     // Success log text (only if PASS)
 		    	);
 
-	 }
-	 
-	 
-	 
-	 
+	 }		 
 	 
 }

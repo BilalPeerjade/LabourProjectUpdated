@@ -46,7 +46,7 @@ public class SMETestCase extends BasePage
 	@BeforeTest
 	void setBrowser() throws InterruptedException, IOException
 	{
-		extent = new com.relevantcodes.extentreports.ExtentReports("D:\\Labour Angular\\LabourMergeProject\\LabourMergeProject\\Report\\SME Login.html",true);
+		extent = new com.relevantcodes.extentreports.ExtentReports("D:\\AutomationLabour\\LabourProjectUpdated\\Report\\SME Login.html",true);
 		test = extent.startTest("Loging In - SME-Executor");
 		test.log(LogStatus.PASS, "Logging into system");
 
@@ -59,31 +59,27 @@ public class SMETestCase extends BasePage
 	{
 
 		initialization(link,9,"Labour");
-
-	
 	
 	}
 	
 ////////Notices///////////////////////////////////
 	
-@Test(priority =1)
+	@Test(priority =1)
 	void CountMatch() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Notice- Extension count verification");
-		
 		Methods.CountMatch(test, "Extension");
 		
 		extent.endTest(test);
 		extent.flush();
 
 	}
-@Test(priority =2)
+
+	@Test(priority =2)
 	void PendingAction() throws InterruptedException, IOException, EncryptedDocumentException, AWTException
 	{
 		test = extent.startTest("Notice- Response Pending count verification");
-		
 		Methods.CountMatch(test, "Response Pending");
-		
 		
 //		test = extent.startTest("Notice- Response Pending count verification");
 //		Methods.Exp(test);
@@ -92,58 +88,55 @@ public class SMETestCase extends BasePage
 		extent.flush();
 
 	}
+
     @Test(priority = 3)
 	void Overdue() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Notice- Overdue count verification");
-		
 		Methods.CountMatch(test, "Overdue");
 		
 		extent.endTest(test);
 		extent.flush();
 
 	}
-@Test(priority =4)
+    
+    @Test(priority =4)
 	void Closed() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Notice- Response Submitted count verification");
-		
 		Methods.CountMatch(test, "Response Submitted");
 		
 		extent.endTest(test);
 		extent.flush();
 
 	}
-@Test(priority =5)
+
+	@Test(priority =5)
 	void NoticeExportBtn() throws InterruptedException, IOException, EncryptedDocumentException, AWTException
 	{
 		test = extent.startTest("Notices -Export Btn verification");
-		
-		
 		Methods.NoticeExportBtn(test);
 		
 		extent.endTest(test);
 		extent.flush();
 
 	}
-@Test(priority =6)
+
+	@Test(priority =6)
 	void NoticeSearchBox() throws InterruptedException, IOException, EncryptedDocumentException, AWTException
 	{
 		test = extent.startTest("Notices -Search Box and clear button verification");
-		
-		
 		Methods.NoticeSearchBox(test);
 		
 		extent.endTest(test);
 		extent.flush();
 
 	}
-@Test(priority =7)
+	
+	@Test(priority =7)
 	void NoticeEditDownload() throws InterruptedException, IOException, EncryptedDocumentException, AWTException
 	{
 		test = extent.startTest("Notices -Edit and download button verification");
-		
-		
 		Methods.NoticeEditDownload(test);
 		
 		extent.endTest(test);
@@ -151,9 +144,9 @@ public class SMETestCase extends BasePage
 
 	}
 
-@AfterMethod
-void close()
-{
-  getDriver().close();
-}
+	@AfterMethod
+	void close()
+	{
+		getDriver().close();
+	}
 }

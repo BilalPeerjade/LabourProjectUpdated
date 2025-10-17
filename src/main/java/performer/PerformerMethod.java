@@ -51,7 +51,7 @@ public class PerformerMethod extends BasePage
 {
 	private static List<WebElement> elementsList = null;
 	
-	 static String filePath ="D:\\Labour Angular\\LabourMergeProject\\LabourMergeProject\\TestData\\Labour2.xlsx";
+	 static String filePath ="D:\\AutomationLabour\\LabourProjectUpdated\\TestData\\Labour2.xlsx";
 	
  public static void AddEmployee( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{
@@ -623,7 +623,7 @@ public class PerformerMethod extends BasePage
 		
 		
 		Thread.sleep(1000);
-		File dir = new File("C:\\Users\\bilali\\Downloads");
+		File dir = new File("C:\\Users\\swapnilb\\Downloads");
 		File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 	
 		Thread.sleep(1000);
@@ -631,7 +631,7 @@ public class PerformerMethod extends BasePage
 		
 	
 		Thread.sleep(1000);
-		File dir1 = new File("C:\\Users\\bilali\\Downloads");
+		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 		File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 	
 		Thread.sleep(3000);
@@ -664,7 +664,7 @@ public class PerformerMethod extends BasePage
 		 
 		 Robot robot=new Robot();
 		 
-		 StringSelection filepath= new  StringSelection("C:\\Users\\snehalp\\Documents\\EmployeeMaster.xlsx");
+		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\EmployeeMaster_AVAREG_20251007T124422313Z.xlsx");
 		 //copy above file to clipboard
 		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 		 
@@ -717,7 +717,8 @@ public class PerformerMethod extends BasePage
 		Thread.sleep(1000);
 		PerformerLocator.clickdashboard().click();
 	}
- public static void InvalidDataUploadEmp( ExtentTest test) throws InterruptedException, IOException, AWTException
+ 
+ 	public static void InvalidDataUploadEmp( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{
 		Thread.sleep(1000);
 		PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
@@ -736,7 +737,7 @@ public class PerformerMethod extends BasePage
 		 
 		 Robot robot=new Robot();
 		 
-		 StringSelection filepath= new  StringSelection("C:\\Users\\snehalp\\Documents\\EmployeeMaster_Invalid.xlsx");
+		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\EmployeeMaster_AVAREG_20251007T124422313Z.xlsx");
 		 //copy above file to clipboard
 		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 		 
@@ -1196,7 +1197,7 @@ public class PerformerMethod extends BasePage
 			PerformerLocator.EmpCTC().click();
 			
 			Thread.sleep(7000);
-			File dir = new File("C:\\Users\\bilali\\Downloads");
+			File dir = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 			Thread.sleep(3000);
@@ -1206,7 +1207,7 @@ public class PerformerMethod extends BasePage
 			wait.until(ExpectedConditions.invisibilityOf(PerformerLocator.gridLoad2()));
 		
 			Thread.sleep(3000);
-			File dir1 = new File("C:\\Users\\bilali\\Downloads");
+			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 		
 			Thread.sleep(3000);
@@ -1258,7 +1259,7 @@ public class PerformerMethod extends BasePage
 			 
 			 Robot robot=new Robot();
 			 
-			 StringSelection filepath= new  StringSelection("C:\\Users\\snehalp\\Documents\\CTCTemplate_24.xlsx");
+			 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\CTC_Upload.xlsx");
 			 //copy above file to clipboard
 			 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 			 
@@ -1329,7 +1330,7 @@ public class PerformerMethod extends BasePage
 			 
 			 Robot robot=new Robot();
 			 
-			 StringSelection filepath= new  StringSelection("C:\\Users\\snehalp\\Documents\\CTCTemplateInvalidData.xlsx");
+			 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\TwoCellEmpty.xlsx");
 			 //copy above file to clipboard
 			 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 			 
@@ -1401,7 +1402,7 @@ public class PerformerMethod extends BasePage
 			
 		
 			Thread.sleep(1000);
-			File dir = new File("C:\\Users\\bilali\\Downloads");
+			File dir = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 			Thread.sleep(5000);
@@ -1412,7 +1413,7 @@ public class PerformerMethod extends BasePage
 			
 		
 			Thread.sleep(1000);
-			File dir1 = new File("C:\\Users\\bilali\\Downloads");
+			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 		
 			if(dirContents.length < allFilesNew.length)
@@ -1486,7 +1487,7 @@ public class PerformerMethod extends BasePage
 			
 			
 			Thread.sleep(2000);
-			File dir = new File("C:\\Users\\bilali\\Downloads");
+			File dir = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 			Thread.sleep(4000);
@@ -1497,7 +1498,7 @@ public class PerformerMethod extends BasePage
 			
 		
 			Thread.sleep(3000);
-			File dir1 = new File("C:\\Users\\bilali\\Downloads");
+			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			
@@ -1565,7 +1566,7 @@ public class PerformerMethod extends BasePage
 			
 			
 			Thread.sleep(1000);
-			File dir = new File("C:\\Users\\bilali\\Downloads");
+			File dir = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 			Thread.sleep(1000);
@@ -1575,7 +1576,7 @@ public class PerformerMethod extends BasePage
 			wait.until(ExpectedConditions.invisibilityOf(PerformerLocator.gridLoad()));
 		
 			Thread.sleep(10000);
-			File dir1 = new File("C:\\Users\\bilali\\Downloads");
+			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 		
 			Thread.sleep(30000);
@@ -1625,7 +1626,7 @@ public class PerformerMethod extends BasePage
 			 
 			 Robot robot=new Robot();
 			 
-			 StringSelection filepath= new  StringSelection("C:\\Users\\snehalp\\Documents\\EmployeeMaster_EmptyFile.xlsx");
+			 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\EmployeeMaster_AVAREG_20251007T124422313Z.xlsx");
 			 //copy above file to clipboard
 			 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 			 
@@ -1700,7 +1701,7 @@ public class PerformerMethod extends BasePage
 			 
 			 Robot robot=new Robot();
 			 
-			 StringSelection filepath= new  StringSelection("C:\\Users\\snehalp\\Documents\\EmployeeMaster_EmptyTwoField.xlsx");
+			 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\EmployeeMaster_AVAREG_20251007T124422313Z.xlsx");
 			 //copy above file to clipboard
 			 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 			 
@@ -1814,7 +1815,7 @@ public class PerformerMethod extends BasePage
 			 
 			 Robot robot=new Robot();
 			 
-			 StringSelection filepath= new  StringSelection("C:\\Users\\snehalp\\Documents\\DesignationSample.xlsx");
+			 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\DesignationSamplee.xlsx");
 			 //copy above file to clipboard
 			 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 			 
@@ -1891,7 +1892,7 @@ public class PerformerMethod extends BasePage
 			 
 			 Robot robot=new Robot();
 			 
-			 StringSelection filepath= new  StringSelection("C:\\Users\\snehalp\\Desktop\\sample.pdf");
+			 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\Test_123.pdf");
 			 //copy above file to clipboard
 			 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 			 
@@ -1972,7 +1973,7 @@ public class PerformerMethod extends BasePage
 			 Thread.sleep(1000);
 			 Robot robot=new Robot();
 			 
-			 StringSelection filepath= new  StringSelection("C:\\Users\\snehalp\\Documents\\EmployeeMaster_EmptyTwoField.xlsx");
+			 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\EmployeeMaster_AVAREG_20251007T124422313Z.xlsx");
 			 //copy above file to clipboard
 			 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 			 
@@ -2003,7 +2004,7 @@ public class PerformerMethod extends BasePage
 			PerformerLocator.clickRefresh().click();
 			
 			Thread.sleep(7000);
-			File dir = new File("C:\\Users\\bilali\\Downloads");
+			File dir = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 			Thread.sleep(7000);
@@ -2011,7 +2012,7 @@ public class PerformerMethod extends BasePage
 			
 		
 			Thread.sleep(7000);
-			File dir1 = new File("C:\\Users\\bilali\\Downloads");
+			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 		
 			Thread.sleep(7000);
@@ -2141,7 +2142,7 @@ public class PerformerMethod extends BasePage
 			 Thread.sleep(2000);
 			 Robot robot=new Robot();
 			 
-			 StringSelection filepath= new  StringSelection("C:\\Users\\snehalp\\Documents\\EmployeeMaster_SelectCheckBox.xlsx");
+			 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\Empty.xlsx");
 			 //copy above file to clipboard
 			 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 			 
@@ -2202,7 +2203,8 @@ public class PerformerMethod extends BasePage
 				Thread.sleep(2000);
 				PerformerLocator.clickdashboard().click();
 		}
-	 public static void UploadTwofieldEmp( ExtentTest test) throws InterruptedException, IOException, AWTException
+	 
+	 	public static void UploadTwofieldEmp( ExtentTest test) throws InterruptedException, IOException, AWTException
 		{
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
@@ -2310,7 +2312,7 @@ public class PerformerMethod extends BasePage
 			 
 			 Robot robot=new Robot();
 			 
-			 StringSelection filepath= new  StringSelection("C:\\Users\\snehalp\\Documents\\DesignationSample.xlsx");
+			 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\DesignationSamplee.xlsx");
 			 //copy above file to clipboard
 			 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 			 
@@ -2389,7 +2391,7 @@ public class PerformerMethod extends BasePage
 			 
 			 Robot robot=new Robot();
 			 
-			 StringSelection filepath= new  StringSelection("C:\\Users\\snehalp\\Desktop\\sample.pdf");
+			 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\Test_123.pdf");
 			 //copy above file to clipboard
 			 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 			 
@@ -2452,7 +2454,7 @@ public class PerformerMethod extends BasePage
 			
 		
 			Thread.sleep(5000);
-			File dir = new File("C:\\Users\\bilali\\Downloads");
+			File dir = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 			Thread.sleep(1000);
@@ -2460,7 +2462,7 @@ public class PerformerMethod extends BasePage
 			
 		
 			Thread.sleep(15000);
-			File dir1 = new File("C:\\Users\\bilali\\Downloads");
+			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 		
 			if(dirContents.length < allFilesNew.length)
@@ -2969,7 +2971,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			 
 			 Robot robot=new Robot();
 			 
-			 StringSelection filepath= new  StringSelection("C:\\Users\\snehalp\\Documents\\Sample-YearlyHoliday_Branchwise.xlsx");
+			 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\SampleHolidayMaster.xlsx");
 			 //copy above file to clipboard
 			 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 			 
@@ -3044,12 +3046,12 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			 
 			 Robot robot=new Robot();
 			 
-			 StringSelection filepath= new  StringSelection("C:\\Users\\snehalp\\Documents\\InvalidDataYearlyHoliday_Branchwise.xlsx");
+			 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\SampleHolidayMasterValid.xlsx");
 			 //copy above file to clipboard
 			 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 			 
 				Thread.sleep(3000);
-				File dir = new File("C:\\Users\\bilali\\Downloads");
+				File dir = new File("C:\\Users\\swapnilb\\Downloads");
 				File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			 
 			 //Now press CRTL
@@ -3106,7 +3108,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 				PerformerLocator.clickClosedBtn().click();
 		
 			Thread.sleep(3000);
-			File dir1 = new File("C:\\Users\\bilali\\Downloads");
+			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			
@@ -3183,7 +3185,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			 
 			 Robot robot=new Robot();
 			 
-			 StringSelection filepath= new  StringSelection("C:\\Users\\snehalp\\Documents\\CTCTemplateInvalidData.xlsx");
+			 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\CTC_Upload.xlsx");
 			 //copy above file to clipboard
 			 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 			 
@@ -3257,7 +3259,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			 
 			 Robot robot=new Robot();
 			 
-			 StringSelection filepath= new  StringSelection("C:\\Users\\snehalp\\Documents\\EmptyFile -YearlyHoliday_Branchwise.xlsx");
+			 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\SampleHolidayMaster.xlsx");
 			 //copy above file to clipboard
 			 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 			 
@@ -3714,9 +3716,9 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			PerformerLocator.clickApply().click();
 			
 		
-			//String FilePath= "C:\\Users\\bilali\\Downloads\\AVAAEntity_2024_SEA_MAH_BranchNashik.zip";
+			//String FilePath= "C:\\Users\\swapnilb\\Downloads\\AVAAEntity_2024_SEA_MAH_BranchNashik.zip";
 			Thread.sleep(9000);
-			File dir = new File("C:\\Users\\bilali\\Downloads");
+			File dir = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 			Thread.sleep(4000);
@@ -3727,7 +3729,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			
 		
 			Thread.sleep(4000);
-			File dir1 = new File("C:\\Users\\bilali\\Downloads");
+			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 		
 			Thread.sleep(4000);
@@ -3816,9 +3818,9 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			PerformerLocator.clickApply().click();
 			
 		
-			//String FilePath= "C:\\Users\\bilali\\Downloads\\AVAAEntity_2024_SEA_MAH_BranchNashik.zip";
+			//String FilePath= "C:\\Users\\swapnilb\\Downloads\\AVAAEntity_2024_SEA_MAH_BranchNashik.zip";
 			Thread.sleep(9000);
-			File dir = new File("C:\\Users\\bilali\\Downloads");
+			File dir = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 			Thread.sleep(4000);
@@ -3829,7 +3831,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			
 		
 			Thread.sleep(4000);
-			File dir1 = new File("C:\\Users\\bilali\\Downloads");
+			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 		
 			Thread.sleep(4000);
@@ -3902,9 +3904,9 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			Thread.sleep(4000);
 			PerformerLocator.clickDownload1().click();
 		
-			//String FilePath= "C:\\Users\\bilali\\Downloads\\AVAAEntity_2024_SEA_MAH_BranchNashik.zip";
+			//String FilePath= "C:\\Users\\swapnilb\\Downloads\\AVAAEntity_2024_SEA_MAH_BranchNashik.zip";
 			Thread.sleep(11000);
-			File dir = new File("C:\\Users\\bilali\\Downloads");
+			File dir = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 			Thread.sleep(4000);
@@ -3918,7 +3920,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			
 		
 			Thread.sleep(4000);
-			File dir1 = new File("C:\\Users\\bilali\\Downloads");
+			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 		
 			Thread.sleep(4000);
@@ -3997,9 +3999,9 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			Thread.sleep(4000);
 			PerformerLocator.clickDownload1().click();
 		
-			//String FilePath= "C:\\Users\\bilali\\Downloads\\AVAAEntity_2024_SEA_MAH_BranchNashik.zip";
+			//String FilePath= "C:\\Users\\swapnilb\\Downloads\\AVAAEntity_2024_SEA_MAH_BranchNashik.zip";
 			Thread.sleep(11000);
-			File dir = new File("C:\\Users\\bilali\\Downloads");
+			File dir = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 			Thread.sleep(4000);
@@ -4013,7 +4015,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			
 		
 			Thread.sleep(4000);
-			File dir1 = new File("C:\\Users\\bilali\\Downloads");
+			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 		
 			Thread.sleep(4000);
@@ -4236,9 +4238,9 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			Thread.sleep(4000);
 			PerformerLocator.clickDownload().click();
 		
-			//String FilePath= "C:\\Users\\bilali\\Downloads\\AVAAEntity_2024_SEA_MAH_BranchNashik.zip";
+			//String FilePath= "C:\\Users\\swapnilb\\Downloads\\AVAAEntity_2024_SEA_MAH_BranchNashik.zip";
 			Thread.sleep(11000);
-			File dir = new File("C:\\Users\\bilali\\Downloads");
+			File dir = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 			Thread.sleep(4000);
@@ -4252,7 +4254,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			
 		
 			Thread.sleep(4000);
-			File dir1 = new File("C:\\Users\\bilali\\Downloads");
+			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 		
 			Thread.sleep(4000);
@@ -4390,9 +4392,9 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			Thread.sleep(4000);
 			PerformerLocator.clickDownload().click();
 		
-			//String FilePath= "C:\\Users\\bilali\\Downloads\\AVAAEntity_2024_SEA_MAH_BranchNashik.zip";
+			//String FilePath= "C:\\Users\\swapnilb\\Downloads\\AVAAEntity_2024_SEA_MAH_BranchNashik.zip";
 			Thread.sleep(11000);
-			File dir = new File("C:\\Users\\bilali\\Downloads");
+			File dir = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 			Thread.sleep(4000);
@@ -4406,7 +4408,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			
 		
 			Thread.sleep(4000);
-			File dir1 = new File("C:\\Users\\bilali\\Downloads");
+			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 		
 			Thread.sleep(4000);
@@ -4699,7 +4701,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			 
 			 Robot robot=new Robot();
 			 
-			 StringSelection filepath= new  StringSelection("C:\\Users\\snehalp\\Documents\\Sample-MonthlyAttendance_19Feb2025043710.xlsx");
+			 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\AttendanceFile_Upload.xlsx");
 			 //copy above file to clipboard
 			 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 			 
@@ -4781,7 +4783,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			 
 			 Robot robot=new Robot();
 			 
-			 StringSelection filepath= new  StringSelection("C:\\Users\\snehalp\\Documents\\Sample-MonthlySalary_21Feb2025065259.xlsx");
+			 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\SalaryFile_Upload.xlsx");
 			 //copy above file to clipboard
 			 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 			 
@@ -4863,7 +4865,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			 
 			 Robot robot=new Robot();
 			 
-			 StringSelection filepath= new  StringSelection("C:\\Users\\snehalp\\Documents\\Sample-MonthlyAttendance_InvalidData.xlsx");
+			 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\AttendanceFile_Upload.xlsx");
 			 //copy above file to clipboard
 			 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 			 
@@ -5037,7 +5039,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			 
 			 Robot robot=new Robot();
 			 
-			 StringSelection filepath= new  StringSelection("C:\\Users\\snehalp\\Documents\\UploadAuthorityAddress.xlsx");
+			 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\UploadAuthorityAddress.xlsx");
 			 //copy above file to clipboard
 			 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 			 
@@ -5120,7 +5122,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			 
 			 Robot robot=new Robot();
 			 
-			 StringSelection filepath= new  StringSelection("C:\\Users\\snehalp\\Documents\\UploadAuthorityAddress.xlsx");
+			 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\UploadAuthorityAddress.xlsx");
 			 //copy above file to clipboard
 			 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 			 
@@ -5289,7 +5291,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			 Robot robot=new Robot();
 			 
 				Thread.sleep(1000);
-			 StringSelection filepath= new  StringSelection("C:\\Users\\snehalp\\Documents\\Sample-MonthlySalary_Invalid data.xlsx");
+			 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\Sample_salary_09Sep2025061823.xlsx");
 			 //copy above file to clipboard
 			 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 			 
@@ -5763,7 +5765,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			 
 			 Robot robot=new Robot();
 			 
-			 StringSelection filepath= new  StringSelection("C:\\Users\\snehalp\\Documents\\Sample-MonthlySalary_21Feb2025065259.xlsx");
+			 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\SalaryFile_Upload.xlsx");
 			 //copy above file to clipboard
 			 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 			 
@@ -5856,7 +5858,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 		
 	 		 Robot robot=new Robot();
 	 		 
-	 		 StringSelection filepath= new  StringSelection("C:\\Users\\snehalp\\Documents\\chart_11zon.jpeg");
+	 		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\Test_Jpg.jpg");
 	 		 //copy above file to clipboard
 	 		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 	 		 
@@ -6081,7 +6083,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 	getDriver().findElement(By.xpath("//div[@role='dialog']//label[normalize-space()='Browse']")).click();
 	// 	LoginLocators.Browes1_ESIC().click();
 	 	Thread.sleep(5000);
-	 	OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\OtherTwo\\SampleJpgFile.jpg");
+	 	OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\SampleJpgFile.jpg");
 	 	
 	 	PerformerLocator.Uplaodclick().click();
 	 	Thread.sleep(2000);
@@ -6486,7 +6488,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 	
 	 	
   		Robot robot=new Robot();
- 		 StringSelection filepath= new  StringSelection("D:\\Upload Automation Files\\Other Upload No need to change\\PaycodeUpload.xlsx");
+ 		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\PaycodeUpload.xlsx");
  		 //copy above file to clipboard
  		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
  		
@@ -6565,7 +6567,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 	
 	 	
   		Robot robot=new Robot();
- 		 StringSelection filepath= new  StringSelection("D:\\Upload Automation Files\\OtherTwo\\ManageMaster-InvalidPayCode.xlsx");
+ 		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\ManageMaster-InvalidPayCode.xlsx");
  		 //copy above file to clipboard
  		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
  		
@@ -6864,7 +6866,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	     Thread.sleep(2000);
 
 	 	Thread.sleep(1000);
-	 	File dir = new File("C:\\Users\\bilali\\Downloads");
+	 	File dir = new File("C:\\Users\\swapnilb\\Downloads");
 	 	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 
 	 	Thread.sleep(1000);
@@ -6877,7 +6879,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 
 
 	 	Thread.sleep(5500);
-	 	File dir1 = new File("C:\\Users\\bilali\\Downloads");
+	 	File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 	 	File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 
 	 	if(dirContents.length < allFilesNew.length)
@@ -6957,7 +6959,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 			
 	 			 Robot robot=new Robot();
 	 			 
-	 			 StringSelection filepath= new  StringSelection("C:\\Users\\snehalp\\Documents\\DesignationSample.xlsx");
+	 			 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\DesignationSamplee.xlsx");
 	 			 //copy above file to clipboard
 	 			 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 	 			 
@@ -7036,7 +7038,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			PerformerLocator.ReviewerStaturyDocumentArrow().click();
 			Thread.sleep(5000);
 		}
-	 	Thread.sleep(5000);
+	 	Thread.sleep(10000);
 	 	Thread.sleep(5000);
 	 	
 		PerformerLocator.clickManageMaster().click();
@@ -7061,9 +7063,9 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 			
 	 			 Robot robot=new Robot();
 	 			 
-	 			 OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\OtherTwo\\Designation.xlsx");
+	 			 OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\Designationn.xlsx");
 	 			 
-	 /*			 StringSelection filepath= new  StringSelection("C:\\Users\\snehalp\\Documents\\DesignationSample.xlsx");
+	 /*			 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\Designation.xlsx");
 	 			 //copy above file to clipboard
 	 			 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 	 			 
@@ -7165,7 +7167,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 			
 	 			 Robot robot=new Robot();
 	 			 
-	 			 OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\OtherTwo\\DesignationSampleAlreadyExist.xlsx");
+	 			 OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\DesignationSampleAlreadyExist.xlsx");
 	 			 		 
 	 		     Thread.sleep(1000);
 	 			PerformerLocator.clickUploadbtnCTCBtn().click();
@@ -7239,7 +7241,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 			
 	 			 Robot robot=new Robot();
 	 			 
-	 			 OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\OtherTwo\\DesignationSampleUploadError.xlsx");
+	 			 OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\DesignationSampleUploadError.xlsx");
 	 			 		 
 	 		     Thread.sleep(1000);
 	 			PerformerLocator.clickUploadbtnCTCBtn().click();
@@ -7263,8 +7265,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 //	 			ReviwerLocator.clickcloseBtn().click();
 	 			Thread.sleep(1000);
 	 		
-	 		
-	 	
+	 			 	
 	 	}
 	 
 	 public static void BulkUploadDesignationDetailes( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException, AWTException
@@ -7289,7 +7290,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 			
 	 			 Robot robot=new Robot();
 	 			 
-	 			 StringSelection filepath= new  StringSelection("C:\\Users\\snehalp\\Documents\\DesignationSample.xlsx");
+	 			 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\Designation.xlsx");
 	 			 //copy above file to clipboard
 	 			 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 	 			 

@@ -45,7 +45,7 @@ public class CoordinatorTestCases extends BasePage
 	@BeforeTest
 	void setBrowser() throws InterruptedException, IOException
 	{
-		extent = new com.relevantcodes.extentreports.ExtentReports("D:\\Labour Angular\\LabourMergeProject\\LabourMergeProject\\Report\\Co-ordinator Login.html",true);
+		extent = new com.relevantcodes.extentreports.ExtentReports("D:\\AutomationLabour\\LabourProjectUpdated\\Report\\Co-ordinator Login.html",true);
 		test = extent.startTest("Loging In - Co-ordinator");
 		test.log(LogStatus.PASS, "Logging into system");
 
@@ -69,30 +69,26 @@ public class CoordinatorTestCases extends BasePage
    	void CoordinatorLogo() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Verify the TeamLease RegTech logos are displayed after coordinator login");
-   		
    		CoordinatorMethod.CoordinatorLogo(test);
    		
    		extent.endTest(test);
    		extent.flush();
    	}
+	
 	@Test(priority = 2) //Bilal
    	void ColumnExpandIcon() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Verify if the column expand/collapse icon functions correctly");
-   		
    		CoordinatorMethod.ColumnExpandIcon(test);
    		
    		extent.endTest(test);
    		extent.flush();
    	}
 	
-
-	
 	@Test(priority = 3) //Bilal
    	void Noticelinkbuttonworking() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Check whether the Notice Module link works correctly or not?");
-   		
    		CoordinatorMethod.Noticelinkbuttonworking(test);
    		
    		extent.endTest(test);
@@ -103,7 +99,6 @@ public class CoordinatorTestCases extends BasePage
    	void NoticelinkbuttonDashboard() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Check whether after clicking on notice dashboard will be displayed or not?");
-   		
    		CoordinatorMethod.NoticelinkbuttonDashboard(test);
    		
    		extent.endTest(test);
@@ -114,7 +109,6 @@ public class CoordinatorTestCases extends BasePage
    	void CountMatch() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Notices - Pending Assignment count verification");
-   		
    		CoordinatorMethod.CountMatch(test, "Pending Assignment");
    		
    		extent.endTest(test);
@@ -124,7 +118,6 @@ public class CoordinatorTestCases extends BasePage
    	void PendingAssignmentExport() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Notices - Pending Assignment - Export button verification");
-   		
    		CoordinatorMethod.BoxClickExportVerification(test, "Pending Assignment");
    		
    		extent.endTest(test);
@@ -136,7 +129,6 @@ public class CoordinatorTestCases extends BasePage
    	void PendingAction() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Notices - Pending Action count verification");
-   		
    		CoordinatorMethod.CountMatch(test, "Pending Action");
    		
    		extent.endTest(test);
@@ -147,7 +139,6 @@ public class CoordinatorTestCases extends BasePage
    	void PendingActionExport() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Notices - Pending Action - Export button verification");
-   		
    		CoordinatorMethod.BoxClickExportVerification(test, "Pending Action");
    		
    		extent.endTest(test);
@@ -159,7 +150,6 @@ public class CoordinatorTestCases extends BasePage
    	void Overdue() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Notices - Overdue count verification");
-   		
    		CoordinatorMethod.CountMatch(test, "Overdue");
    		
    		extent.endTest(test);
@@ -170,7 +160,6 @@ public class CoordinatorTestCases extends BasePage
    	void OverdueExport() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Notices - Overdue - Export button verification");
-   		
    		CoordinatorMethod.BoxClickExportVerification(test, "Overdue");
    		
    		extent.endTest(test);
@@ -181,7 +170,6 @@ public class CoordinatorTestCases extends BasePage
    	void Closed() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Notices - Closed count verification");
-   		
    		CoordinatorMethod.CountMatch(test, "Closed");
    		
    		extent.endTest(test);
@@ -193,7 +181,6 @@ public class CoordinatorTestCases extends BasePage
    	void ClosedExport() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Notices - Closed - Export button verification");
-   		
    		CoordinatorMethod.BoxClickExportVerification(test, "Closed");
    		
    		extent.endTest(test);
@@ -205,7 +192,6 @@ public class CoordinatorTestCases extends BasePage
    	void addNoticeVerification() throws Exception
    	{
    		test = extent.startTest("Notices - Add New - Verify to check add new notices are working correctly");
-   		
    		CoordinatorMethod.addNoticeVerification(test);
    		
    		extent.endTest(test);
@@ -216,7 +202,6 @@ public class CoordinatorTestCases extends BasePage
    	void ExistingNotice() throws InterruptedException, IOException, EncryptedDocumentException, AWTException
    	{
    		test = extent.startTest("Notices - Existing Notices No verification");
-   		
    		CoordinatorMethod.ExistingNotice(test);
    		
    		extent.endTest(test);
@@ -227,7 +212,6 @@ public class CoordinatorTestCases extends BasePage
    	void NoticeDocMandatory() throws InterruptedException, IOException, EncryptedDocumentException, AWTException
    	{
    		test = extent.startTest("Notices - Verify to check notice document mandatory or not?");
-        
    		CoordinatorMethod.NoticeDocMandatory(test);
    		
    		extent.endTest(test);
@@ -277,12 +261,11 @@ public class CoordinatorTestCases extends BasePage
    		extent.flush();
    	}
 
-	@Test(priority = 15) //New
+	@Test(priority = 16) //New
    	void noticeDocumentBrowse() throws Exception
    	{
    		test = extent.startTest("Notices - Add New - Verify to check Notice Document Browse button is enabled or not");
    		CoordinatorMethod.noticeDocumentBrowse("Doc File",test);
-   		
    		
    		test = extent.startTest("Notices - Add New - Notice Document - Verify to upload DOC file");
    		CoordinatorMethod.NoticeAddNewNoticeDocument_2("Doc File",test);
@@ -292,7 +275,6 @@ public class CoordinatorTestCases extends BasePage
    		
    		test = extent.startTest("Notices - Add New - Notice Document - Verify to upload PDF file");
    		CoordinatorMethod.NoticeAddNewNoticeDocument_2("PDF File",test);
-   		
    		
    		
    		test = extent.startTest("Notices - Add New - Notice Document - Verify to check error with upload XLS file");
@@ -315,31 +297,24 @@ public class CoordinatorTestCases extends BasePage
    		
    		test = extent.startTest("Notices - Add New - Notice Document - Verify to check error with upload HTML file");
    		CoordinatorMethod.noticeAddNewNoticeDocumentValidation("Validation : HTML",test);
-   		
-   		
-   		
+   		   		
    	}
 	
 	
-	
-	
-  	@Test(priority = 16)
+  	@Test(priority = 17)
    	void NoticeExportBtn() throws InterruptedException, IOException, EncryptedDocumentException, AWTException
    	{
    		test = extent.startTest("Notices - Export button verification");
-   		
    		CoordinatorMethod.NoticeExportBtn(test);
    		
    		extent.endTest(test);
    		extent.flush();
 
    	}
-   	@Test(priority = 17)
+   	@Test(priority = 18)
    	void NoticeSearchBox() throws InterruptedException, IOException, EncryptedDocumentException, AWTException
    	{
    		test = extent.startTest("Notices - Search box and clear button verification");
-   		
-   		
    		CoordinatorMethod.NoticeSearchBox(test);
    		
    		extent.endTest(test);
@@ -347,12 +322,10 @@ public class CoordinatorTestCases extends BasePage
 
    	}
    	
-  	@Test(priority = 18)
+  	@Test(priority = 19)
    	void NoticeEditDownload() throws InterruptedException, IOException, EncryptedDocumentException, AWTException
    	{
    		test = extent.startTest("Notices -Edit and download button verification");
-   		
-   		
    		CoordinatorMethod.NoticeEditDownload(test);
    		
    		extent.endTest(test);
@@ -364,19 +337,17 @@ public class CoordinatorTestCases extends BasePage
    	void NoticeEditBasicSave() throws InterruptedException, IOException, EncryptedDocumentException, AWTException
    	{
    		test = extent.startTest("Notices - Edit - Basic Information Save button");
-   		
-   		
    		CoordinatorMethod.NoticeEditBasicSave(test);
    		
    		extent.endTest(test);
    		extent.flush();
    	}
    	
-	@Test(priority = 19) //these 2 TC depens on each other
-	void NoticeEditVerification() throws InterruptedException, IOException, EncryptedDocumentException, AWTException {
+	@Test(priority = 20) //these 2 TC depens on each other
+	void NoticeEditVerification() throws InterruptedException, IOException, EncryptedDocumentException, AWTException
+	{
 		test = extent.startTest("Notices - Edit - Verify to check Basic Information label bar works correctly");
 		CoordinatorMethod.NoticeEditVerification(test);
-		
 		
 		test = extent.startTest("Notices - Edit - Verify to check Additional Information to be updated by coordinator label bar works correctly");
 		CoordinatorMethod.NoticeEditAdditionalInfo(test);
@@ -391,7 +362,6 @@ public class CoordinatorTestCases extends BasePage
    	void NoticeEditSaveWithoutAssign() throws InterruptedException, IOException, EncryptedDocumentException, AWTException
    	{
    		test = extent.startTest("Notices - Edit - Verify error message without selecting users");
-   		
    		CoordinatorMethod.NoticeEditSaveWithoutAssign(test);
    		
    		extent.endTest(test);
@@ -403,7 +373,6 @@ public class CoordinatorTestCases extends BasePage
    	void NoticeEditSaveAssignUser() throws InterruptedException, IOException, EncryptedDocumentException, AWTException
    	{
    		test = extent.startTest("Notices - Edit - Verify error message without selecting users");
-   		
    		CoordinatorMethod.NoticeEditSaveAssignUser(test);
    		
    		extent.endTest(test);
@@ -414,7 +383,6 @@ public class CoordinatorTestCases extends BasePage
    	void NoticeEditAllTabsCheck() throws InterruptedException, IOException, EncryptedDocumentException, AWTException
    	{
    		test = extent.startTest("Notices - Edit - Verify to check all tabs is displayed or not?");
-   		
    		CoordinatorMethod.NoticeEditAllTabsCheck(test);
    		
    		extent.endTest(test);
@@ -425,15 +393,12 @@ public class CoordinatorTestCases extends BasePage
    	void NoticeEditDocumentRepositoryDownloadCheck() throws InterruptedException, IOException, EncryptedDocumentException, AWTException
    	{
    		test = extent.startTest("Notices - Edit - Verify to download documents from document section");
-   		
    		CoordinatorMethod.NoticeEditDocumentRepositoryDownloadCheck(test);
    		
    		extent.endTest(test);
    		extent.flush();
    	}
-  	
-
-	
+  		
 	
 ///-------------------------Registration Module-------------------
 	
@@ -441,17 +406,16 @@ public class CoordinatorTestCases extends BasePage
    	void RegistrationCountMatch() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Registration - Pending Assignment count verification");
-   		
    		CoordinatorMethod.RegistrationCountMatch(test, "Pending Assignment");
    		
    		extent.endTest(test);
    		extent.flush();
    	}
+	
 	@Test(priority = 25)
    	void RegistrationPendingAssignmentExport() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Registration - Pending Assignment tab - Export button count verification");
-   		
    		CoordinatorMethod.RegistrationTabsExport(test, "Pending Assignment");
    		
    		extent.endTest(test);
@@ -462,75 +426,72 @@ public class CoordinatorTestCases extends BasePage
    	void RegistrationPendingAction() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Registration- Pending Action count verification");
-   		
    		CoordinatorMethod.RegistrationCountMatch(test, "Pending Action");
    		
    		extent.endTest(test);
    		extent.flush();
 
    	}
+	
 	@Test(priority = 27)
    	void RegistrationPendingActionExport() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Registration - Pending Action tab - Export button count verification");
-   		
    		CoordinatorMethod.RegistrationTabsExport(test, "Pending Action");
    		
    		extent.endTest(test);
    		extent.flush();
 
    	}
+	
 	@Test(priority = 28)
    	void RegistrationOverdue() throws InterruptedException, IOException
    	{ 
    		test = extent.startTest("Registration- Overdue count verification");
-   		
    		CoordinatorMethod.RegistrationCountMatch(test, "Overdue");
    		
    		extent.endTest(test);
    		extent.flush();
 
    	}
+	
 	@Test(priority = 29)
    	void RegistrationOverdueExport() throws InterruptedException, IOException
    	{ 
    		test = extent.startTest("Registration - Overdue tab - Export button count verification");
-   		
    		CoordinatorMethod.RegistrationTabsExport(test, "Overdue");
    		
    		extent.endTest(test);
    		extent.flush();
 
    	}
-	
-	
+		
 	@Test(priority = 30)
    	void RegistrationClosed() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Registration- Closed count verification");
-   		
    		CoordinatorMethod.RegistrationCountMatch(test, "Closed");
    		
    		extent.endTest(test);
    		extent.flush();
 
    	}
+	
 	@Test(priority = 31)
    	void RegistrationClosedExport() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Registration - Closed tab - Export button count verification");
-   		
    		CoordinatorMethod.RegistrationTabsExport(test, "Closed");
    		
    		extent.endTest(test);
    		extent.flush();
 
    	}
+	
 	@Test(priority = 32)
    	void SearchBox() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Registration - Search box and Clear button verification");
-   		
    		CoordinatorMethod.SearchBox(test);
    		
    		extent.endTest(test);
@@ -542,7 +503,6 @@ public class CoordinatorTestCases extends BasePage
    	void AddNewLicense() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Registration - Add New License Request for Assigning RCP Team login");
-   		
    		CoordinatorMethod.AddNewLicense(test, workbook);
    		
    		extent.endTest(test);
@@ -553,17 +513,16 @@ public class CoordinatorTestCases extends BasePage
 	void AddNewLicenseForSDExecutor() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Registration - Add New License Request for Assigning SD Executor Team login");
-		
 		CoordinatorMethod.AddNewLicenseForSDExecutor(test, workbook);
 		
 		extent.endTest(test);
 		extent.flush();
 	}
+	
     @Test(priority = 35)
   	void RegistrationAddNewBackButton() throws InterruptedException, IOException
   	{
   		test = extent.startTest("Registration - Add New - Verify to check back button is working or not?");
-  		
   		CoordinatorMethod.RegistrationAddNewBackButton(test, workbook);
   		
   		extent.endTest(test);
@@ -575,7 +534,6 @@ public class CoordinatorTestCases extends BasePage
    	void ExportBtn() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Registration - Export Button verification");
-   		
    		CoordinatorMethod.ExportBtn(test, workbook);
    		
    		extent.endTest(test);
@@ -583,23 +541,21 @@ public class CoordinatorTestCases extends BasePage
 
    	}
 
-	
-	
+		
  	@Test(priority = 37)
    	void EditIcon() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Registration - Edit Icon verification");
-   		
    		CoordinatorMethod.EditIcon(test);
    		
    		extent.endTest(test);
    		extent.flush();
    	}
- 	@Test(priority = 38) //Bilal
+ 	
+ 	@Test(priority = 38) 
    	void EditIconMiniTabsLicense() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Registration - Edit - Verify to check License Request Mini Tabs will opened and closed");
-   		
    		CoordinatorMethod.EditIconMiniTabsLicense(test);
    		
    		extent.endTest(test);
@@ -676,7 +632,6 @@ public class CoordinatorTestCases extends BasePage
    	void EditIconActRelevantDatesLabelBar() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Registration - Edit - Verify to check Activity Relevant Dates label bar is working properly or not");
-   		
    		CoordinatorMethod.EditIconActRelevantDatesLabelBar(test);
    		
    		extent.endTest(test);
@@ -687,7 +642,6 @@ public class CoordinatorTestCases extends BasePage
    	void EditIconBackButton() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Registration - Edit - Verify to check License Request Details Back button is working or not?");
-   		
    		CoordinatorMethod.EditIconBackButton(test);
    		
    		extent.endTest(test);
@@ -700,7 +654,6 @@ public class CoordinatorTestCases extends BasePage
    	void EditIconFinanceApprovalSave() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Registration - Edit - Verify Finance Approval and OT Assignment on clicking on save button");
-   		
    		CoordinatorMethod.EditIconFinanceApprovalSave(test);
    		
    		extent.endTest(test);
@@ -711,21 +664,18 @@ public class CoordinatorTestCases extends BasePage
    	void EditIconOTAssignmentSave() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Registration - Edit - Verify Finance Approval on clicking on save");
-   		
    		CoordinatorMethod.EditIconOTAssignmentSave(test);
    		
    		extent.endTest(test);
    		extent.flush();
    	}
    	
- 	
- 	
+ 		
  	
  	@Test(priority = 43) //Bilal
    	void EditIconOtherTabsView() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Registration - Edit - Verify to View RCP Team , SD Executor and Document Section tabs");
-   		
    		CoordinatorMethod.EditIconOtherTabsView(test);
    		
    		extent.endTest(test);
@@ -737,22 +687,18 @@ public class CoordinatorTestCases extends BasePage
    	void EditIconDocumentRepoDownload() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Registration - Edit - Verify to download documents from document repository.");
-   		
    		CoordinatorMethod.EditIconDocumentRepoDownload(test);
    		
    		extent.endTest(test);
    		extent.flush();
    	}
  	
- 	
- 	
+ 	 	
  	
 //	@Test(priority = 45) Functionality is removed
    	void DeleteButton() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Registration - Delete Icon verification");
-   		
-   		
    		CoordinatorMethod.DeleteButton(test);
    		
    		extent.endTest(test);
@@ -763,7 +709,6 @@ public class CoordinatorTestCases extends BasePage
    	void DeleteCancelButton() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Registration - Delete Icon -Cancel button verification");
-   		
    		CoordinatorMethod.DeleteCancelButton(test);
    		
    		extent.endTest(test);
@@ -776,7 +721,6 @@ public class CoordinatorTestCases extends BasePage
 	void RegistrationPaginationNextAndPrevious() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Registration - Verify Pagination - Go To Next Page button");
-		
 		CoordinatorMethod.RegistrationPaginationNextAndPrevious(test);
 		
 		extent.endTest(test);
@@ -785,69 +729,65 @@ public class CoordinatorTestCases extends BasePage
 	}
 
 
-
-
-@Test(priority = 48)
+	@Test(priority = 48)
    	void ExistingLicenseCountMatch() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Registration-Existing License- Pending Assignment count verification");
-   		
    		CoordinatorMethod.ExistingLicenseCountMatch(test, "Pending Assignment");
    		
    		extent.endTest(test);
    		extent.flush();
 
    	}
+	
 	@Test(priority = 49)
    	void ExistingLicenseendingAction() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Registration-Existing License- Pending Action count verification");
-   		
    		CoordinatorMethod.ExistingLicenseCountMatch(test, "Pending Action");
    		
    		extent.endTest(test);
    		extent.flush();
 
    	}
-@Test(priority = 50)
+	
+	@Test(priority = 50)
    	void ExistingLicenseOverdue() throws InterruptedException, IOException
    	{ 
    		test = extent.startTest("Registration- Existing License-Overdue count verification");
-   		
    		CoordinatorMethod.ExistingLicenseCountMatch(test, "Overdue");
    		
    		extent.endTest(test);
    		extent.flush();
 
    	}
+	
 	@Test(priority = 51)
    	void ExistingLicenseClosed() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Registration-Existing License- Closed count verification");
-   		
    		CoordinatorMethod.ExistingLicenseCountMatch(test, "Closed");
    		
    		extent.endTest(test);
    		extent.flush();
 
    	}
+	
 	@Test(priority = 52)
    	void ExsitingLicenseExport() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Registration - Existing License-Export Butoon verification");
-   		
    		CoordinatorMethod.ExistingLicsneExportBtn(test,workbook);
    		
    		extent.endTest(test);
    		extent.flush();
 
    	}
-@Test(priority = 53) //Bilal Search and Clear 
+	
+	@Test(priority = 53) //Bilal Search and Clear 
    	void SearchBoxExistiongLicense() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Registration - Existing Licenses -Search Box verification");
-   		
-   		
    		CoordinatorMethod.SearchBoxExistiongLicense(test);
    		
    		extent.endTest(test);
@@ -856,9 +796,9 @@ public class CoordinatorTestCases extends BasePage
    	}
 
 	@Test(priority = 54) // Bilal
-	void ExistingLicenseViewIcon() throws InterruptedException, IOException {
+	void ExistingLicenseViewIcon() throws InterruptedException, IOException 
+	{
 		test = extent.startTest("Registration - Existing Licenses - view icon verification");
-
 		CoordinatorMethod.ExistingLicenseViewIcon(test);
 
 		extent.endTest(test);
@@ -867,9 +807,9 @@ public class CoordinatorTestCases extends BasePage
 	}
 
 	@Test(priority = 55)
-	void ExistingLicenseInitiateAction() throws InterruptedException, IOException, AWTException {
+	void ExistingLicenseInitiateAction() throws InterruptedException, IOException, AWTException
+	{
 		test = extent.startTest("Registration - Existing Licenses -Initiate Action- SubActivity verification");
-
 		CoordinatorMethod.ExistingLicenseInitiateAction(test);
 
 		extent.endTest(test);
@@ -878,20 +818,15 @@ public class CoordinatorTestCases extends BasePage
 	}
 
 	@Test(priority = 56)
-	void ExistingLicenseDownload() throws InterruptedException, IOException {
+	void ExistingLicenseDownload() throws InterruptedException, IOException 
+	{
 		test = extent.startTest("Registration - Existing Licenses -Download Button verification");
-
 		CoordinatorMethod.ExistingLicenseDownload(test);
 
 		extent.endTest(test);
 		extent.flush();
 
 	}
-
-
-
-
-
 
 
 

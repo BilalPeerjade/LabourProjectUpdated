@@ -19,7 +19,7 @@ private static WebElement labour = null;			//WebElement variable created for Use
 	}
 	public static WebElement readTotalItems()		//Method for searching Username input
 	{
-		labour = getDriver().findElement(By.xpath("//*[@class='k-pager-info k-label']"));
+		labour = getDriver().findElement(By.xpath("//kendo-pager-info[@class='k-pager-info k-label']"));
 		return labour;
 	}
 	public static WebElement pendingActionCount()		//Method for searching Username input
@@ -29,7 +29,7 @@ private static WebElement labour = null;			//WebElement variable created for Use
 	}
 	public static WebElement OverdueCount()		//Method for searching Username input
 	{
-		labour = getDriver().findElement(By.xpath("//body[1]/app-root[1]/div[1]/app-layout[1]/section[1]/div[1]/div[1]/app-notices[1]/div[1]/div[2]/div[3]/div[1]/p[1]"));
+		labour = getDriver().findElement(By.xpath("(//p[normalize-space()='23'])[1]"));
 		return labour;
 	}
 	public static WebElement ClosedCount()		//Method for searching Username input

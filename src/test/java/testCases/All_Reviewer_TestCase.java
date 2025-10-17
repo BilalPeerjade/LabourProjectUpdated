@@ -30,7 +30,8 @@ import rcp.ChangePassMethod;
 import reviewer.ReviewerMethod;
 
 
-public class All_Reviewer_TestCase extends BasePage {
+public class All_Reviewer_TestCase extends BasePage 
+{
 
 		public static WebElement upload = null;		//WebElement to get upload button
 		public static ExtentReports extent;			//Instance created for report file
@@ -55,7 +56,7 @@ public class All_Reviewer_TestCase extends BasePage {
 		@BeforeTest
 		void setBrowser() throws InterruptedException, IOException
 		{
-			extent = new com.relevantcodes.extentreports.ExtentReports("D:\\Labour Angular\\LabourMergeProject\\LabourMergeProject\\Report\\ReviewerAll.html",true);
+			extent = new com.relevantcodes.extentreports.ExtentReports("D:\\AutomationLabour\\LabourProjectUpdated\\Report\\ReviewerAll.html",true);
 			test = extent.startTest("Loging In - Reviewer");
 			test.log(LogStatus.PASS, "Logging into system");
 
@@ -75,7 +76,6 @@ public class All_Reviewer_TestCase extends BasePage {
 		void CompanyLogo() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Verify to check after performer login TeamLease RegTech Logo is displayed or not?");
-			
 			MethodsD.CompanyLogo(test,"Performer"); //Same for performer
 			
 			extent.endTest(test);
@@ -85,7 +85,6 @@ public class All_Reviewer_TestCase extends BasePage {
 		void Logout() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Verify Logout link is working or not");
-			
 			MethodsD.Logout(test,"Performer");
 			
 			extent.endTest(test);
@@ -95,7 +94,6 @@ public class All_Reviewer_TestCase extends BasePage {
 		void ChangePassWithInvalidCurrentPass() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Change Password - Verify to change password with invalid scenarios");
-				
 			ChangePassMethod.ChangePassWithInvalidCurrentPass(test,"Reviewer");
 				
 			extent.endTest(test);
@@ -105,7 +103,6 @@ public class All_Reviewer_TestCase extends BasePage {
 		void ChangePass() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Verify to check user is redirecting to Entity Page or not on clicking to 'Click here to go back' link");
-			
 			MethodsD.ChangePass(test,"Performer");
 			
 			extent.endTest(test);
@@ -117,7 +114,6 @@ public class All_Reviewer_TestCase extends BasePage {
 		void EntitiesSearch() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Entities - Verify to Entity Serach field is working fine");
-			
 			MethodsD.EntitiesSearch(test,"Performer");
 			
 			extent.endTest(test);
@@ -132,7 +128,6 @@ public class All_Reviewer_TestCase extends BasePage {
 		void EntityExcelDownload() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Verify to check Entity Locations & Entity Files are downloading or not?");
-			
 			MethodsD.EntityExcelDownload(test,"Performer");
 			
 			extent.endTest(test);
@@ -143,7 +138,6 @@ public class All_Reviewer_TestCase extends BasePage {
 		void PortalLogin() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Verify to check user is redirecting to client pottal or not through portal login");
-			
 			MethodsD.PortalLogin(test,"Performer");
 			
 			extent.endTest(test);
@@ -155,7 +149,6 @@ public class All_Reviewer_TestCase extends BasePage {
 		void ProceedToDashboard() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Verify to check proceed to dashboard button is working or not?");
-			
 			MethodsD.ProceedToDashboard(test,"Reviewer");
 			
 			extent.endTest(test);
@@ -168,21 +161,18 @@ public class All_Reviewer_TestCase extends BasePage {
 		@Test(priority = 20)
 		void ComplianceBox() throws InterruptedException, IOException
 		{
-			test = extent.startTest("Count by Clicking on 'Compliance'");
-				
+			test = extent.startTest("Count by Clicking on 'Compliance'");	
 			MethodsD.complianceBox(test,"Reviewer");
 				
 			extent.endTest(test);
 			extent.flush();
 		}
 
-	
 		
 		@Test(priority = 22)
 		void UpcomingBox() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Count by Clicking on 'Upcoming'");
-			
 			MethodsD.UpcomingBox(test,"Reviewer");
 			
 			extent.endTest(test);
@@ -194,7 +184,6 @@ public class All_Reviewer_TestCase extends BasePage {
 		void OverdueBox() throws InterruptedException, IOException
 		{
 			test = extent.startTest(" Count by Clicking on 'Overdue'");
-			
 			MethodsD.OverdueBox(test,"Reviewer");
 			
 			extent.endTest(test);
@@ -207,7 +196,6 @@ public class All_Reviewer_TestCase extends BasePage {
 		void PendingActionBox() throws InterruptedException, IOException
 		{
 			test = extent.startTest(" Count by Clicking on 'Pending Action'");
-			
 			MethodsD.PendingActionBox(test,"Reviewer");
 			
 			extent.endTest(test);
@@ -220,7 +208,6 @@ public class All_Reviewer_TestCase extends BasePage {
 		void PendingReviewBox() throws InterruptedException, IOException
 		{
 			test = extent.startTest(" Count by Clicking on 'Pending Review'");
-			
 			MethodsD.PendingReviewBox(test,"Reviewer");
 			
 			extent.endTest(test);
@@ -233,7 +220,6 @@ public class All_Reviewer_TestCase extends BasePage {
 		void RegisterUpcoming() throws InterruptedException, IOException
 		{
 			test = extent.startTest(" Count by Clicking on Register - 'Upcoming'");
-			
 			MethodsD.RegisterUpcoming(test,"Reviewer");
 			
 			extent.endTest(test);
@@ -245,7 +231,6 @@ public class All_Reviewer_TestCase extends BasePage {
 		void RegisterOverdue() throws InterruptedException, IOException
 		{
 			test = extent.startTest(" Count by Clicking on Register - 'Overdue'");
-			
 			MethodsD.RegisterOverdue(test,"Reviewer");
 			
 			extent.endTest(test);
@@ -256,7 +241,6 @@ public class All_Reviewer_TestCase extends BasePage {
 		void RegisterActionReview() throws InterruptedException, IOException
 		{
 			test = extent.startTest(" Count by Clicking on Register - 'Action/Review'");
-			
 			MethodsD.RegisterActionReview(test,"Performer");
 			
 			extent.endTest(test);
@@ -267,7 +251,6 @@ public class All_Reviewer_TestCase extends BasePage {
 		void ReturnUpcoming() throws InterruptedException, IOException
 		{
 			test = extent.startTest(" Count by Clicking on Returns - 'Upcoming'");
-			
 			MethodsD.ReturnUpcoming(test,"Reviewer");
 			
 			extent.endTest(test);
@@ -278,7 +261,6 @@ public class All_Reviewer_TestCase extends BasePage {
 		void ReturnOverdue() throws InterruptedException, IOException
 		{
 			test = extent.startTest(" Count by Clicking on Returns - 'Overdue'");
-			
 			MethodsD.ReturnOverdue(test,"Reviewer");
 			
 			extent.endTest(test);
@@ -290,7 +272,6 @@ public class All_Reviewer_TestCase extends BasePage {
 		void ReturnActionReview() throws InterruptedException, IOException
 		{
 			test = extent.startTest(" Count by Clicking on Returns - 'Action/Review'");
-			
 			MethodsD.ReturnActionReview(test,"Reviewer");
 			
 			extent.endTest(test);
@@ -302,7 +283,6 @@ public class All_Reviewer_TestCase extends BasePage {
 		void ChallanUpcoming() throws InterruptedException, IOException
 		{
 			test = extent.startTest(" Count by Clicking on Challans - 'Upcoming'");
-			
 			MethodsD.ChallanUpcoming(test,"Reviewer");
 			
 			extent.endTest(test);
@@ -313,7 +293,6 @@ public class All_Reviewer_TestCase extends BasePage {
 		void ChallanOverdue() throws InterruptedException, IOException
 		{
 			test = extent.startTest(" Count by Clicking on Challans - 'Overdue'");
-			
 			MethodsD.ChallanOverdue(test,"Reviewer");
 			
 			extent.endTest(test);
@@ -324,25 +303,19 @@ public class All_Reviewer_TestCase extends BasePage {
 		void ChallanActionReview() throws InterruptedException, IOException
 		{
 			test = extent.startTest(" Count by Clicking on Challans - 'Action/Review'");
-			
 			MethodsD.ChallanActionReview(test,"Reviewer");
 			
 			extent.endTest(test);
 			extent.flush();
 		}
 		
-		
-		
-		
-		
-		
+//	Part 2	
 		
 		//Manage Masters ----
 		@Test(priority = 70) //Bilal
 	   	void StateCitySearch() throws InterruptedException, IOException
 	   	{
 	   		test = extent.startTest("Manage Master - State City - Verify to check Search State/Location Code dropdown is working or not");
-	   		
 	   		PerformerMethod.StateCitySearch(test, workbook,"Reviewer");
 	   		
 	   		extent.endTest(test);
@@ -354,8 +327,7 @@ public class All_Reviewer_TestCase extends BasePage {
 		@Test(priority = 75) //Bilal
 	   	void DesignationSearch() throws InterruptedException, IOException
 	   	{
-	test = extent.startTest("Manage Master - Designation - Verify to check Search/Select Designation dropdown is working or not");
-	   		   		
+			test = extent.startTest("Manage Master - Designation - Verify to check Search/Select Designation dropdown is working or not");	
 	   		PerformerMethod.DesignationSearch(test, workbook, "Reviewer" );
 
 	   		extent.endTest(test);
@@ -363,13 +335,10 @@ public class All_Reviewer_TestCase extends BasePage {
 	   	}
 		
 		
-		
-		
 		@Test(priority = 80) //Fail
 	   	void DesignationExportBtn() throws InterruptedException, IOException
 	   	{
 	   		test = extent.startTest("Manage Masters - Designation - Verify to check export button works correctly ");
-	   		
 	   		PerformerMethod.DesignationExportBtn(test, workbook,"Reviewer");
 	   		
 	   		extent.endTest(test);
@@ -382,7 +351,6 @@ public class All_Reviewer_TestCase extends BasePage {
 		void MyDocumentSearch() throws InterruptedException, IOException, AWTException
 		{
 			test = extent.startTest("My document - Digital Signature - Verify Search field is working or not?");
-			
 			MethodsD.MyDocumentSearch(test,"Reviewer");
 			
 			extent.endTest(test);
@@ -395,12 +363,13 @@ public class All_Reviewer_TestCase extends BasePage {
 		void RegulatoryAbstractFilters() throws InterruptedException, IOException, AWTException
 		{
 			test = extent.startTest("Regulatory Abstracts - Verify dropdowns filters are working or not?");
-			
 			MethodsD.RegulatoryAbstractFilters(test,"Reviewer");
 			
 			extent.endTest(test);
 			extent.flush();
 		}
+		
+		
 		@Test(priority = 151)
 		void RegulatoryAbstractUpload() throws Exception
 		{
@@ -411,11 +380,12 @@ public class All_Reviewer_TestCase extends BasePage {
 			extent.endTest(test);
 			extent.flush();
 		}
+		
+		
 		@Test(priority = 152)
 		void RegulatoryAbstractUploadError() throws Exception
 		{
 			test = extent.startTest("Regulatory Abstracts - Verify Erros without uploading files and without selecting document type");
-			
 			MethodsD.RegulatoryAbstractUploadError(test,"Reviewer");
 			
 			extent.endTest(test);
@@ -426,27 +396,27 @@ public class All_Reviewer_TestCase extends BasePage {
 		void RegulatoryAbstractRegional() throws Exception
 		{
 			test = extent.startTest("Regulatory Abstracts - Verify to check Regional column Download and View buttons are working or not?");
-			
 			MethodsD.RegulatoryAbstractRegional(test,"Reviewer Regional");
 			
 			extent.endTest(test);
 			extent.flush();
 		}
+		
+		
 		@Test(priority = 154)
 		void RegulatoryAbstractEnglish() throws Exception
 		{
 			test = extent.startTest("Regulatory Abstracts - Verify to check English column Download and View buttons are working or not?");
-			
 			MethodsD.RegulatoryAbstractRegional(test,"Reviewer English");
 			
 			extent.endTest(test);
 			extent.flush();
 		}
+		
 		@Test(priority = 155)
 		void RegulatoryAbstractAcknowledgement() throws Exception
 		{
 			test = extent.startTest("Regulatory Abstracts - Verify to check Acknowledgement column Download and View buttons are working or not?");
-			
 			MethodsD.RegulatoryAbstractRegional(test,"Reviewer Acknowledgement");
 			
 			extent.endTest(test);
@@ -460,60 +430,63 @@ public class All_Reviewer_TestCase extends BasePage {
 		void StatutoryDocApplyClaerBtn() throws InterruptedException, IOException, AWTException
 		{
 			test = extent.startTest("Statutory Documents - Verify to check Apply and clear buttons works correctly");
-			
 			ReviewerMethod.StatutoryDocApplyClaerBtn(test, "Reviewer");
 			
 			extent.endTest(test);
 			extent.flush();
 		}
+	
 		
 		@Test(priority = 251) //This is not looking good (Need to write TCs like workspace filters verification)
 		void StatutoryDocFilter() throws InterruptedException, IOException, AWTException
 		{
 			test = extent.startTest("Statutory Documents - Filter Verification");
-			
 			ReviewerMethod.StatutoryDocFilter(test);
 			
 			extent.endTest(test);
 			extent.flush();
 		}
+		
+		
 		@Test(priority = 252)
 		void StateDocZipFile() throws InterruptedException, IOException, AWTException
 		{
 			test = extent.startTest("Statutory Documents - Registers - Verify to download ZIP folder");
-			
 			ReviewerMethod.StateDocZipFile(test , "Reviewer");
 			
 			extent.endTest(test);
 			extent.flush();
 
 		}
+		
+		
 		@Test(priority = 253)
 		void StateDownloadDoc() throws InterruptedException, IOException, AWTException
 		{
 			test = extent.startTest("Statutory Documents - Branch - Registor Compliance type-Action Column -Download Doc Verification");
-			
 			ReviewerMethod.StateDownloadDoc(test, "Reviewer");
 			
 			extent.endTest(test);
 			extent.flush();
 		}
+		
+		
 		@Test(priority = 254)
 		void StatutoryDocViewandOverview() throws InterruptedException, IOException, AWTException
 		{
 			test = extent.startTest("Statutory Documents - Branch - Registor Compliance type -Action Column -Overview and view button Verification");
-			
 			ReviewerMethod.StatutoryDocViewandOverview(test,"Reviewer");
 			
 			extent.endTest(test);
 			extent.flush();
 
 		}
+		
+		
 		@Test(priority = 255)
 		void StatutoryDocZipFile() throws InterruptedException, IOException, AWTException
 		{
 			test = extent.startTest("Statutory Documents - State - Registor Compliance Type -Action Column -Zip File Verification");
-			
 			ReviewerMethod.StatutoryDocZipFile(test, "Reviewer");
 			
 			extent.endTest(test);
@@ -521,14 +494,14 @@ public class All_Reviewer_TestCase extends BasePage {
 		}
 		
 		
+//		*/
+		
 		
 		@AfterMethod
 	  	void browserClosing() throws InterruptedException
 	  	{
 			Thread.sleep(2000);
 			closeBrowser();
-	  		//Thread.sleep(1000);
-	  		//getDriver().close();
 	  	}	       
 	  		       		
 	  	@AfterTest
@@ -537,8 +510,4 @@ public class All_Reviewer_TestCase extends BasePage {
 	  		
 	  	}	
 		
-		
-		
-		
-
 }
