@@ -503,7 +503,8 @@ public class All_Distributor_TWO  extends BasePage
 		}
 		
 		*/
-		
+
+
 		//Part 2
 		
 
@@ -703,6 +704,19 @@ public class All_Distributor_TWO  extends BasePage
 			extent.endTest(test);
 			extent.flush();
 		}
+		
+	
+		//PENDING -- Compliance asiisgnment
+//		@Test(priority = 225)
+//		void Entity_CompAssignment() throws InterruptedException, IOException, AWTException
+//		{
+//			test = extent.startTest("Onboard Entity - Compliance Assignment - Verify to check compliance assignment works correctly");
+//			
+//			All_Distributor_Methods.Entity_CompAssignment(test, workbook);
+//			  
+//			extent.endTest(test);
+//			extent.flush();
+//		}
 		
 		
 		

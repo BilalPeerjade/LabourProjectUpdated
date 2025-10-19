@@ -931,7 +931,7 @@ public class PT_ConsolidatedMethods extends BasePage {
         
 
         
-        
+       
         
         
         
@@ -1118,100 +1118,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 		
 	}
 	
-	public static void ChallanPTConsolated_PTReport_PTGrossWagesTotal( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
-	{
-		
-		ChallanPTConsolated_Redirection(test,user);
 
-		
-		
-		// Extra config me total logic enable kar de
-		ExcelExtraConfig extraConfig = new ExcelExtraConfig(
-		    "YES",                               // enable total logic
-		    ExcelUtils.columnLetterToIndex("A"), // jis column me "Total" likha hota hai uska index (example: I)
-		    "Total"                              // keyword jo sheet me likha hai
-		);
-
-
-		
-		List<ExcelF> masterFilters = new ArrayList<>();
-		List<ExcelF> targetFilters = new ArrayList<>();
-
-		
-		//This is also work for direct column Name as V
-		masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("V"), Arrays.asList("YES")));
-		
-
-
-		Map<String, String> headerMap = new HashMap<>();
-		headerMap.put("Q", "PT Gross");
-		headerMap.put("I", "PT Gross wages");
-
-		// call
-		Utilis3.validateExcelCalculation(
-		    downloadedExcelFile,
-		    salaryFile,
-		    test,
-		    "PT_Report.I = Master.Q",
-		    "MASTER",
-		    "PT Report",
-		    masterFilters,
-		    targetFilters,
-		    extraConfig,
-		    0.01,
-		    false,
-		    0,
-		    headerMap,
-		    "PT Gross wages total is coming properly as per masters"
-		);
-
-		
-		
-	} 
-	
-	public static void ChallanPTConsolated_PTReport_ClientPTDeductionTOTAL( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
-	{
-		
-//		ChallanPTConsolated_Redirection(test,user);
-		
-		
-		// Extra config me total logic enable kar de
-		ExcelExtraConfig extraConfig = new ExcelExtraConfig(
-		    "YES",                               // enable total logic
-		    ExcelUtils.columnLetterToIndex("A"), // jis column me "Total" likha hota hai uska index (example: I)
-		    "Total"                              // keyword jo sheet me likha hai
-		);
-
-		// Filters 
-		List<ExcelF> masterFilters = new ArrayList<>();
-		
-		
-		List<ExcelF> targetFilters = new ArrayList<>();
-
-		// Header map (optional, logs me accha dikhega)
-		Map<String, String> headerMap = new HashMap<>();
-		headerMap.put("H", "PT deduction");
-		headerMap.put("J", "Client PT deduction");
-
-		// ✅ Calling: Master.Q ka sum == Downloaded.I ka Total
-		Utilis3.validateExcelCalculation(
-		    downloadedExcelFile,              // File downloaded
-		    salaryFile,                       // Master file
-		    test,                             // ExtentTest
-		    "PT_Report.J = Master.H",         // Expression
-		    "MASTER",                         // rhsSource
-		    "PT Report",                      // default sheet for downloaded
-		    masterFilters,                    // filters for master
-		    targetFilters,                    // filters for downloaded
-		    extraConfig,                      // <-- total logic on
-		    0.01,                             // tolerance
-		    true,                            // row by row compare off
-		    0,                                // start row offset
-		    headerMap,                        // header labels
-		    "Client PT Deduction total is coming properly as per masters"
-		);
-
-	}
 	
 	
 	public static void ChallanPTConsolated_PTReport_ClientPTDeduction( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
@@ -1337,115 +1244,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 		
 	}
 	
-	public static void ChallanPTConsolated_PTReport_Diffrence( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
-	{
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
-		Thread.sleep(7000);
-		wait.until(ExpectedConditions.visibilityOf(formLocators.Search()));
-		
-		OneCommonMethod.searchEntityAndSelect(driver.get(),test,formLocators.Search(),"DOCAUTOO4");
-		
-		
-		Thread.sleep(2000);
-		wait.until(ExpectedConditions.visibilityOf(formLocators.WorkspaceArrow()));
-		Thread.sleep(2000);
-		formLocators.WorkspaceArrow().click();
-		Thread.sleep(2000);
-		
-		formLocators.clickStatutoryDoc().click();
-		Thread.sleep(2000);
-		formLocators.clickComplianceType().click();
-		Thread.sleep(2000);
-		formLocators.selectComplianceChallan().click();
-		Thread.sleep(2000);
-		formLocators.clickAct2().click();
-		Thread.sleep(2000);
-		formLocators.selectCompliancePT().click();
-		Thread.sleep(2000);
-		formLocators.clickYear().click();
-		Thread.sleep(2000);
-		formLocators.Year2025().click();
-		Thread.sleep(2000);
-		formLocators.clickPeriod().click();
-		Thread.sleep(2000);
-		formLocators.selectMonthAug().click();
-		
-		Thread.sleep(2000);
-		formLocators.clickBranch1().click();
-		Thread.sleep(2000);
-		getDriver().findElement(By.xpath("//span[contains(text(),'Gujarat')]")).click();
-		Thread.sleep(2000);
-		formLocators.Apply().click();
-		Thread.sleep(6000);
-		Thread.sleep(7000);
-		
-		
-		
-		
-        // Step 1: Manually download file
-		formLocators.PT_ConsolatedWorking().click();
-        Thread.sleep(8000); // wait for file to download
-
-        // Step 2: Get latest file
-        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
-        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
-        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
-        downloadedExcelFile = files[0];
-        
-        
-     // use ExcelUtils.columnLetterToIndex(...) method you've already added
-     // If ExcelExtraConfig constructor is (String totalLogicEnabled, int totalColumnIndex, String totalKeyword)
-
-
-        
-        
-        
-        
-     // filters (agar nahi hai to empty lists de)
- //       List<ExcelFilter> masterFilters = new ArrayList<>();
-  //      List<ExcelFilter> targetFilters = new ArrayList<>();
-
-        // header map (agar nahi hai to empty)
- //       Map<String,String> headerMap = new HashMap<>();
-        
-        ExcelExtraConfig extraConfig = new ExcelExtraConfig(
-                "YES",                               // enable total logic? "YES"/"NO"
-                ExcelUtils.columnLetterToIndex("L"), // column index where "Total" keyword might be present (L -> 11)
-                "Total"                              // total keyword (case-insensitive)
-            );
-        
-        List<ExcelF> masterFilters = new ArrayList<>();   // add filters if needed
-        List<ExcelF> targetFilters = new ArrayList<>();      
- //     masterFilters.add(new ExcelFilter(6, Arrays.asList("PUNE")));
-
-        Map<String, String> headerMap = new HashMap<>();
-        headerMap.put("H", "PT deduction");     // optional: header keywords per column letter
-        headerMap.put("K", "PT amount(As per slab)");
-        headerMap.put("L", "Diffrence");
-
-
-        Utilis3.validateExcelCalculation(
-        	    downloadedExcelFile,
-        	    salaryFile,
-        	    test,
-        	    "PT_Report.L = Master.H - PT_Report.K",
-        	    "MASTER",
-        	    "PT Report",
-        	    masterFilters,
-        	    targetFilters,
-        	    extraConfig,
-        	    0.01,
-        	    true,
-        	    0,
-        	    headerMap,
-        	    "Validating Master.H - Downloaded.K = Downloaded.L"
-        	);
-
-
-        
-		
-	}
 	
 	public static void ChallanPTConsolated_NAE_Branch( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
@@ -1519,89 +1318,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 		
 	}
 	
-	public static void ChallanPTConsolated_NAE_ClientPTDeductionTOTAL( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
-	{
-		
-		// Extra config me total logic enable kar de
-		ExcelExtraConfig extraConfig = new ExcelExtraConfig(
-		    "YES",                               // enable total logic
-		    ExcelUtils.columnLetterToIndex("A"), // jis column me "Total" likha hota hai uska index (example: I)
-		    "Total"                              // keyword jo sheet me likha hai
-		);
 
-		// Filters 
-		List<ExcelF> masterFilters = new ArrayList<>();
-		masterFilters.add(new ExcelF(6, Arrays.asList("")));
-		
-		
-		List<ExcelF> targetFilters = new ArrayList<>();
-
-		// Header map (optional, logs me accha dikhega)
-		Map<String, String> headerMap = new HashMap<>();
-		headerMap.put("H", "PT deduction");
-		headerMap.put("J", "Client PT deduction");
-
-		// ✅ Calling: Master.Q ka sum == Downloaded.I ka Total
-		Utilis3.validateExcelCalculation(
-		    downloadedExcelFile,              // File downloaded
-		    salaryFile_NAEmployee,                       // Master file
-		    test,                             // ExtentTest
-		    "Non_Applicable_Employees.J = Master.H",         // Expression
-		    "MASTER",                         // rhsSource
-		    "Non Applicable Employees",                      // default sheet for downloaded
-		    masterFilters,                    // filters for master
-		    targetFilters,                    // filters for downloaded
-		    extraConfig,                      // <-- total logic on
-		    0.01,                             // tolerance
-		    false,                            // row by row compare off
-		    0,                                // start row offset
-		    headerMap,                        // header labels
-		    "Client PT Deduction total is coming properly as per masters"
-		);
-		
-	}
-	
-	public static void ChallanPTConsolated_NAE_PTGrossWagesTOTAL( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
-	{
-		
-		// Extra config me total logic enable kar de
-		ExcelExtraConfig extraConfig = new ExcelExtraConfig(
-		    "YES",                               // enable total logic
-		    ExcelUtils.columnLetterToIndex("A"), // jis column me "Total" likha hota hai uska index (example: I)
-		    "Total"                              // keyword jo sheet me likha hai
-		);
-
-		// Filters 
-		List<ExcelF> masterFilters = new ArrayList<>();
-		masterFilters.add(new ExcelF(6, Arrays.asList("")));
-		
-		
-		List<ExcelF> targetFilters = new ArrayList<>();
-
-		// Header map (optional, logs me accha dikhega)
-		Map<String, String> headerMap = new HashMap<>();
-		headerMap.put("Q", "PT Gross");
-		headerMap.put("I", "Client PT deduction");
-
-		// ✅ Calling: Master.Q ka sum == Downloaded.I ka Total
-		Utilis3.validateExcelCalculation(
-		    downloadedExcelFile,              // File downloaded
-		    salaryFile_NAEmployee,                       // Master file
-		    test,                             // ExtentTest
-		    "Non_Applicable_Employees.I = Master.Q",         // Expression
-		    "MASTER",                         // rhsSource
-		    "Non Applicable Employees",                      // default sheet for downloaded
-		    masterFilters,                    // filters for master
-		    targetFilters,                    // filters for downloaded
-		    extraConfig,                      // <-- total logic on
-		    0.01,                             // tolerance
-		    false,                            // row by row compare off
-		    0,                                // start row offset
-		    headerMap,                        // header labels
-		    "PT Gross wages TOTAL is coming properly as per masters"
-		);
-		
-	}
 	
 	public static void ChallanPTConsolated_NAE_PTGrossWages( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
@@ -2215,21 +1932,22 @@ public class PT_ConsolidatedMethods extends BasePage {
 	                    bump(counters, "Maharashtra Female | Gross > 25000 | PT = 200");
 	                }
 	            }
-	            if (runCount >= 2 && expectedPT == 200) {
+	            //>= 2 changed
+	            if (runCount == 2 && expectedPT == 200) {
 	                finalPT = 300;
 	                bump(counters, "Maharashtra 2nd+ run override → PT = 300");
 	            }
 	            break;
 
 	        case "ODISHA":
-	            if (runCount >= 2 && expectedPT == 200) {
+	            if (runCount == 3 && expectedPT == 200) {
 	                finalPT = 300;
 	                bump(counters, "Odisha 2nd+ run override → PT = 300");
 	            }
 	            break;
 
 	        case "MADHYA PRADESH":
-	            if (runCount >= 2) {
+	            if (runCount == 3) {
 	                if (expectedPT == 166) {
 	                    finalPT = 174;
 	                    bump(counters, "Madhya Pradesh 2nd+ run override → 166 → 174");
@@ -2241,14 +1959,14 @@ public class PT_ConsolidatedMethods extends BasePage {
 	            break;
 
 	        case "JAMMU & KASHMIR":
-	            if (runCount >= 2 && expectedPT == 208) {
+	            if (runCount == 3 && expectedPT == 208) {
 	                finalPT = 212;
 	                bump(counters, "J&K 2nd+ run override → 208 → 212");
 	            }
 	            break;
 
 	        case "KARNATAKA":
-	            if (runCount >= 2 && expectedPT == 200) {
+	            if (runCount == 2 && expectedPT == 200) {
 	                finalPT = 300;
 	                bump(counters, "Karnataka 2nd+ run override → 200 → 300");
 	            }
@@ -3209,6 +2927,293 @@ public class PT_ConsolidatedMethods extends BasePage {
         );
 		
 	}
+	
+	
+	
+	
+	
+	//----
+	/** //Utils Not working can be removed
+	public static void ChallanPTConsolated_PTReport_PTGrossWagesTotal( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		
+		ChallanPTConsolated_Redirection(test,user);
+
+		
+		
+		// Extra config me total logic enable kar de
+		ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+		    "YES",                               // enable total logic
+		    ExcelUtils.columnLetterToIndex("A"), // jis column me "Total" likha hota hai uska index (example: I)
+		    "Total"                              // keyword jo sheet me likha hai
+		);
+
+
+		
+		List<ExcelF> masterFilters = new ArrayList<>();
+		List<ExcelF> targetFilters = new ArrayList<>();
+
+		
+		//This is also work for direct column Name as V
+		masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("V"), Arrays.asList("YES")));
+		
+
+
+		Map<String, String> headerMap = new HashMap<>();
+		headerMap.put("Q", "PT Gross");
+		headerMap.put("I", "PT Gross wages");
+
+		// call
+		Utilis3.validateExcelCalculation(
+		    downloadedExcelFile,
+		    salaryFile,
+		    test,
+		    "PT_Report.I = Master.Q",
+		    "MASTER",
+		    "PT Report",
+		    masterFilters,
+		    targetFilters,
+		    extraConfig,
+		    0.01,
+		    false,
+		    0,
+		    headerMap,
+		    "PT Gross wages total is coming properly as per masters"
+		);
+
+		
+		
+	} 
+	
+	public static void ChallanPTConsolated_PTReport_ClientPTDeductionTOTAL( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		
+//		ChallanPTConsolated_Redirection(test,user);
+		
+		
+		// Extra config me total logic enable kar de
+		ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+		    "YES",                               // enable total logic
+		    ExcelUtils.columnLetterToIndex("A"), // jis column me "Total" likha hota hai uska index (example: I)
+		    "Total"                              // keyword jo sheet me likha hai
+		);
+
+		// Filters 
+		List<ExcelF> masterFilters = new ArrayList<>();
+		
+		
+		List<ExcelF> targetFilters = new ArrayList<>();
+
+		// Header map (optional, logs me accha dikhega)
+		Map<String, String> headerMap = new HashMap<>();
+		headerMap.put("H", "PT deduction");
+		headerMap.put("J", "Client PT deduction");
+
+		// ✅ Calling: Master.Q ka sum == Downloaded.I ka Total
+		Utilis3.validateExcelCalculation(
+		    downloadedExcelFile,              // File downloaded
+		    salaryFile,                       // Master file
+		    test,                             // ExtentTest
+		    "PT_Report.J = Master.H",         // Expression
+		    "MASTER",                         // rhsSource
+		    "PT Report",                      // default sheet for downloaded
+		    masterFilters,                    // filters for master
+		    targetFilters,                    // filters for downloaded
+		    extraConfig,                      // <-- total logic on
+		    0.01,                             // tolerance
+		    true,                            // row by row compare off
+		    0,                                // start row offset
+		    headerMap,                        // header labels
+		    "Client PT Deduction total is coming properly as per masters"
+		);
+
+	}
+	
+	public static void ChallanPTConsolated_PTReport_Diffrence( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+
+		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		Thread.sleep(7000);
+		wait.until(ExpectedConditions.visibilityOf(formLocators.Search()));
+		
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,formLocators.Search(),"DOCAUTOO4");
+		
+		
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(formLocators.WorkspaceArrow()));
+		Thread.sleep(2000);
+		formLocators.WorkspaceArrow().click();
+		Thread.sleep(2000);
+		
+		formLocators.clickStatutoryDoc().click();
+		Thread.sleep(2000);
+		formLocators.clickComplianceType().click();
+		Thread.sleep(2000);
+		formLocators.selectComplianceChallan().click();
+		Thread.sleep(2000);
+		formLocators.clickAct2().click();
+		Thread.sleep(2000);
+		formLocators.selectCompliancePT().click();
+		Thread.sleep(2000);
+		formLocators.clickYear().click();
+		Thread.sleep(2000);
+		formLocators.Year2025().click();
+		Thread.sleep(2000);
+		formLocators.clickPeriod().click();
+		Thread.sleep(2000);
+		formLocators.selectMonthAug().click();
+		
+		Thread.sleep(2000);
+		formLocators.clickBranch1().click();
+		Thread.sleep(2000);
+		getDriver().findElement(By.xpath("//span[contains(text(),'Gujarat')]")).click();
+		Thread.sleep(2000);
+		formLocators.Apply().click();
+		Thread.sleep(6000);
+		Thread.sleep(7000);
+		
+		
+		
+		
+        // Step 1: Manually download file
+		formLocators.PT_ConsolatedWorking().click();
+        Thread.sleep(8000); // wait for file to download
+
+        // Step 2: Get latest file
+        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
+        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
+        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
+        downloadedExcelFile = files[0];
+        
+        
+        
+        ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+                "YES",                               // enable total logic? "YES"/"NO"
+                ExcelUtils.columnLetterToIndex("L"), // column index where "Total" keyword might be present (L -> 11)
+                "Total"                              // total keyword (case-insensitive)
+            );
+        
+        List<ExcelF> masterFilters = new ArrayList<>();   // add filters if needed
+        List<ExcelF> targetFilters = new ArrayList<>();      
+ //     masterFilters.add(new ExcelFilter(6, Arrays.asList("PUNE")));
+
+        Map<String, String> headerMap = new HashMap<>();
+        headerMap.put("H", "PT deduction");     // optional: header keywords per column letter
+        headerMap.put("K", "PT amount(As per slab)");
+        headerMap.put("L", "Diffrence");
+
+
+        Utilis3.validateExcelCalculation(
+        	    downloadedExcelFile,
+        	    salaryFile,
+        	    test,
+        	    "PT_Report.L = Master.H - PT_Report.K",
+        	    "MASTER",
+        	    "PT Report",
+        	    masterFilters,
+        	    targetFilters,
+        	    extraConfig,
+        	    0.01,
+        	    true,
+        	    0,
+        	    headerMap,
+        	    "Validating Master.H - Downloaded.K = Downloaded.L"
+        	);
+		
+	}
+	
+	
+	public static void ChallanPTConsolated_NAE_ClientPTDeductionTOTAL( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		
+		// Extra config me total logic enable kar de
+		ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+		    "YES",                               // enable total logic
+		    ExcelUtils.columnLetterToIndex("A"), // jis column me "Total" likha hota hai uska index (example: I)
+		    "Total"                              // keyword jo sheet me likha hai
+		);
+
+		// Filters 
+		List<ExcelF> masterFilters = new ArrayList<>();
+		masterFilters.add(new ExcelF(6, Arrays.asList("")));
+		
+		
+		List<ExcelF> targetFilters = new ArrayList<>();
+
+		// Header map (optional, logs me accha dikhega)
+		Map<String, String> headerMap = new HashMap<>();
+		headerMap.put("H", "PT deduction");
+		headerMap.put("J", "Client PT deduction");
+
+		// ✅ Calling: Master.Q ka sum == Downloaded.I ka Total
+		Utilis3.validateExcelCalculation(
+		    downloadedExcelFile,              // File downloaded
+		    salaryFile_NAEmployee,                       // Master file
+		    test,                             // ExtentTest
+		    "Non_Applicable_Employees.J = Master.H",         // Expression
+		    "MASTER",                         // rhsSource
+		    "Non Applicable Employees",                      // default sheet for downloaded
+		    masterFilters,                    // filters for master
+		    targetFilters,                    // filters for downloaded
+		    extraConfig,                      // <-- total logic on
+		    0.01,                             // tolerance
+		    false,                            // row by row compare off
+		    0,                                // start row offset
+		    headerMap,                        // header labels
+		    "Client PT Deduction total is coming properly as per masters"
+		);
+		
+	}
+	
+	public static void ChallanPTConsolated_NAE_PTGrossWagesTOTAL( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		
+		// Extra config me total logic enable kar de
+		ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+		    "YES",                               // enable total logic
+		    ExcelUtils.columnLetterToIndex("A"), // jis column me "Total" likha hota hai uska index (example: I)
+		    "Total"                              // keyword jo sheet me likha hai
+		);
+
+		// Filters 
+		List<ExcelF> masterFilters = new ArrayList<>();
+		masterFilters.add(new ExcelF(6, Arrays.asList("")));
+		
+		
+		List<ExcelF> targetFilters = new ArrayList<>();
+
+		// Header map (optional, logs me accha dikhega)
+		Map<String, String> headerMap = new HashMap<>();
+		headerMap.put("Q", "PT Gross");
+		headerMap.put("I", "Client PT deduction");
+
+		// ✅ Calling: Master.Q ka sum == Downloaded.I ka Total
+		Utilis3.validateExcelCalculation(
+		    downloadedExcelFile,              // File downloaded
+		    salaryFile_NAEmployee,                       // Master file
+		    test,                             // ExtentTest
+		    "Non_Applicable_Employees.I = Master.Q",         // Expression
+		    "MASTER",                         // rhsSource
+		    "Non Applicable Employees",                      // default sheet for downloaded
+		    masterFilters,                    // filters for master
+		    targetFilters,                    // filters for downloaded
+		    extraConfig,                      // <-- total logic on
+		    0.01,                             // tolerance
+		    false,                            // row by row compare off
+		    0,                                // start row offset
+		    headerMap,                        // header labels
+		    "PT Gross wages TOTAL is coming properly as per masters"
+		);
+		
+	}
+	**/
+
+	
+	
+	
+	
+	
+	
 	
 	
 	

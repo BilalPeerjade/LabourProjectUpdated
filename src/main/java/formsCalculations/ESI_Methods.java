@@ -214,6 +214,54 @@ public class ESI_Methods extends BasePage {
         
 		
 	}
+	public static void challan_ESI_400100_Pending_EmployeeID( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+
+		challan_ESI_Download400100(test,"");
+        
+        
+    
+     
+        final List<ExcelF> af = new ArrayList<>();
+        af.add(new ExcelF(38, Arrays.asList("Active")));
+        af.add(new ExcelF(85, Arrays.asList("400100")));
+  //      new ExcelF(50, Arrays.asList("Yes"))
+        af.add(new ExcelF(50, Arrays.asList("No")));
+
+       
+        final ExcelFileDetails masterFileDetails = new ExcelFileDetails(
+            masterFilePath,             
+            "EmployeeMaster",           
+            3,                          
+            af,                
+            "YES"                       
+        );
+
+        
+        final ExcelTargetValidation targetValidation = new ExcelTargetValidation(
+            "Pending",       
+            1,                          
+            "Employee No",             
+            0                           
+        );
+
+        
+        final ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+            "",                       
+            0,                         
+            ""                          
+        );
+
+        
+        UtilisOne.validateExcelBusinessData(
+            downloadedExcelFile,
+            test,
+            masterFileDetails,
+            targetValidation,
+            extraConfig,
+            "Employee IDs are reflecting properly as per masters !"
+        );
+	}
 	public static void challan_ESI_400100_Remittence_EmployeeID( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 
@@ -321,6 +369,66 @@ public class ESI_Methods extends BasePage {
 	
 	
 	}
+	public static void challan_ESI_400100_Remittence_EmployeeName( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		challan_ESI_Download400100(test,"");
+        
+     
+        List<ExcelF> FFF = new ArrayList<>();
+        
+        FFF.add(new ExcelF(38, Arrays.asList("Active")));
+        FFF.add(new ExcelF(85, Arrays.asList("400100")));
+        FFF.add(new ExcelF(50, Arrays.asList("Yes")));
+
+
+        
+        // 📊 Step 4: Prepare ExcelFileDetails for Master
+        String masterSheetName = "EmployeeMaster";
+        int masterColumnIndex = 5;
+        ExcelFileDetails masterFileDetails = new ExcelFileDetails(
+            FilePath.EMPLOYEE_MASTER,
+            masterSheetName,
+            masterColumnIndex,
+            FFF,
+            "YES"   // Yes
+        );
+
+        // 🎯 Step 5: Prepare Target validation for downloaded file
+        String targetSheetName = "Remittence";
+        int targetColumnIndex = 2;
+        String targetHeaderKeyword = "Employee Name";
+        int targett = 0;
+
+        ExcelTargetValidation targetValidation = new ExcelTargetValidation(
+            targetSheetName,
+            targetColumnIndex,
+            targetHeaderKeyword,
+            targett
+        );
+
+        // 🛠️ Step 6: Prepare Extra Config (No total row logic here)
+        String totalLogicEnabled = "";
+        int totalColumnIndex = 0;
+        String totalKeyword = "";
+
+        ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+            totalLogicEnabled,
+            totalColumnIndex,
+            totalKeyword
+        );
+
+        // ✅ Step 7: Final call to reusable validator
+        UtilisOne.validateExcelBusinessData(
+            downloadedExcelFile,
+            test,
+            masterFileDetails,
+            targetValidation,
+            extraConfig,
+            "Employee Names are reflecting properly as per masters !"
+        );
+	
+	
+	}
 	public static void challan_ESI_400100_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		challan_ESI_Download400100(test,"");
@@ -378,6 +486,252 @@ public class ESI_Methods extends BasePage {
             extraConfig,
             "Locations are reflecting properly as per masters !"
         );
+	
+	
+	}
+	public static void challan_ESI_400100_ESI_NO( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		challan_ESI_Download400100(test,"");
+        
+     
+        List<ExcelF> FFF = new ArrayList<>();
+        
+        FFF.add(new ExcelF(38, Arrays.asList("Active")));
+ 
+        FFF.add(new ExcelF(85, Arrays.asList("400100")));
+
+
+        
+        
+        String masterSheetName = "EmployeeMaster";
+        int masterColumnIndex = 18;
+        ExcelFileDetails masterFileDetails = new ExcelFileDetails(
+            FilePath.EMPLOYEE_MASTER,
+            masterSheetName,
+            masterColumnIndex,
+            FFF,
+            "YES"   // Yes
+        );
+
+        
+        String targetSheetName = "All Emp Workings";
+        int targetColumnIndex = 12;
+        String targetHeaderKeyword = "Location";
+        int targett = 0;
+
+        ExcelTargetValidation targetValidation = new ExcelTargetValidation(
+            targetSheetName,
+            targetColumnIndex,
+            targetHeaderKeyword,
+            targett
+        );
+
+        
+        String totalLogicEnabled = "";
+        int totalColumnIndex = 0;
+        String totalKeyword = "";
+
+        ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+            totalLogicEnabled,
+            totalColumnIndex,
+            totalKeyword
+        );
+
+        // Final 
+        UtilisOne.validateExcelBusinessData(
+            downloadedExcelFile,
+            test,
+            masterFileDetails,
+            targetValidation,
+            extraConfig,
+            "ESI NOs are reflecting properly as per masters !"
+        );
+	
+	
+	}
+	public static void challan_ESI_400100_Remittence_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		challan_ESI_Download400100(test,"");
+        
+     
+        List<ExcelF> FFF = new ArrayList<>();
+        
+        FFF.add(new ExcelF(38, Arrays.asList("Active")));
+ 
+        FFF.add(new ExcelF(85, Arrays.asList("400100")));
+        FFF.add(new ExcelF(50, Arrays.asList("Yes")));
+
+
+        
+        
+        String masterSheetName = "EmployeeMaster";
+        int masterColumnIndex = 8;
+        ExcelFileDetails masterFileDetails = new ExcelFileDetails(
+            FilePath.EMPLOYEE_MASTER,
+            masterSheetName,
+            masterColumnIndex,
+            FFF,
+            "YES"   // Yes
+        );
+
+        
+        String targetSheetName = "Remittence";
+        int targetColumnIndex = 3;
+        String targetHeaderKeyword = "Location";
+        int targett = 0;
+
+        ExcelTargetValidation targetValidation = new ExcelTargetValidation(
+            targetSheetName,
+            targetColumnIndex,
+            targetHeaderKeyword,
+            targett
+        );
+
+        
+        String totalLogicEnabled = "";
+        int totalColumnIndex = 0;
+        String totalKeyword = "";
+
+        ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+            totalLogicEnabled,
+            totalColumnIndex,
+            totalKeyword
+        );
+
+        // Final 
+        UtilisOne.validateExcelBusinessData(
+            downloadedExcelFile,
+            test,
+            masterFileDetails,
+            targetValidation,
+            extraConfig,
+            "Locations are reflecting properly as per masters !"
+        );
+	
+	
+	}
+	public static void challan_ESI_400100_Remittence_ESI_NO( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		challan_ESI_Download400100(test,"");
+        
+        
+        
+        List<ExcelF> filters = Arrays.asList(
+                new ExcelF(38, Arrays.asList("Active")),
+                new ExcelF(85,  Arrays.asList("400100")),
+                new ExcelF(50, Arrays.asList("Yes"))
+            );
+            
+            ExcelFileDetails masterDetails = new ExcelFileDetails(
+                FilePath.EMPLOYEE_MASTER,
+                "EmployeeMaster",
+                18,
+                filters,
+                "YES"
+            );
+            
+            ExcelTargetValidation targetVal = new ExcelTargetValidation(
+                "Remittence",
+                12,
+                "",
+                0
+            );
+            
+            ExcelExtraConfig cfg = new ExcelExtraConfig("", 0, "");
+            
+            UtilisOne.validateExcelBusinessData(
+                downloadedExcelFile,
+                test,
+                masterDetails,
+                targetVal,
+                cfg,
+                "ESI NOs are reflecting properly as per masters !"
+            );
+
+
+	
+	}
+	public static void challan_ESI_400100_Remittence_ClientESICode( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		challan_ESI_Download400100(test,"");
+        
+        
+        
+        List<ExcelF> filters = Arrays.asList(
+                new ExcelF(38, Arrays.asList("Active")),
+                new ExcelF(85,  Arrays.asList("400100")),
+                new ExcelF(50, Arrays.asList("Yes"))
+            );
+            
+            ExcelFileDetails masterDetails = new ExcelFileDetails(
+                FilePath.EMPLOYEE_MASTER,
+                "EmployeeMaster",
+                85,
+                filters,
+                "YES"
+            );
+            
+            ExcelTargetValidation targetVal = new ExcelTargetValidation(
+                "Remittence",
+                13,
+                "",
+                0
+            );
+            
+            ExcelExtraConfig cfg = new ExcelExtraConfig("", 0, "");
+            
+            UtilisOne.validateExcelBusinessData(
+                downloadedExcelFile,
+                test,
+                masterDetails,
+                targetVal,
+                cfg,
+                "Client ESI Code are reflecting properly as per masters !"
+            );
+
+        
+	
+	
+	}
+	public static void challan_ESI_400100_ClientESICode( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		challan_ESI_Download400100(test,"");
+        
+        
+        
+        List<ExcelF> filters = Arrays.asList(
+                new ExcelF(38, Arrays.asList("Active")),
+                new ExcelF(85,  Arrays.asList("400100")),
+                new ExcelF(50, Arrays.asList("Yes"))
+            );
+            
+            ExcelFileDetails masterDetails = new ExcelFileDetails(
+                FilePath.EMPLOYEE_MASTER,
+                "EmployeeMaster",
+                85,
+                filters,
+                "YES"
+            );
+            
+            ExcelTargetValidation targetVal = new ExcelTargetValidation(
+                "All Emp Workings",
+                13,
+                "",
+                0
+            );
+            
+            ExcelExtraConfig cfg = new ExcelExtraConfig("", 0, "");
+            
+            UtilisOne.validateExcelBusinessData(
+                downloadedExcelFile,
+                test,
+                masterDetails,
+                targetVal,
+                cfg,
+                "Client ESI Code are reflecting properly as per masters !"
+            );
+
+        
 	
 	
 	}
@@ -446,7 +800,16 @@ public class ESI_Methods extends BasePage {
 	
 	
 	}
+
 	
+	
+	
+	
+	
+	
+	//Pending: 
+	//utils Not working 
+	/*
 	public static void ESIC_AllEMPWorkings_Test( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		Challan_ESI_StaturyDocRedirection(test,user);
@@ -509,51 +872,6 @@ public class ESI_Methods extends BasePage {
 
 		
 		
-		
-		
-/**		// Extra config me total logic enable kar de
-		ExcelExtraConfig extraConfig = new ExcelExtraConfig(
-		    "YES",                               // enable total logic
-		    ExcelUtils.columnLetterToIndex("A"), // jis column me "Total" likha hota hai uska index (example: I)
-		    "Total"                              // keyword jo sheet me likha hai
-		);
-		
-		List<ExcelFilter> masterFilters = new ArrayList<>();
-		List<ExcelFilter> targetFilters = new ArrayList<>();
-
-		// filter Column V for exact "YES"
-//		masterFilters.add(new ExcelFilter(21, Arrays.asList("YES")));
-		
-		//This is also work for direct column Name as V
-		masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("X"), Arrays.asList("Yes")));
-		masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("Y"), Arrays.asList("400100")));
-
-		
-//		targetFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("G"), Arrays.asList("Andhra Pradesh")));
-
-		Map<String, String> headerMap = new HashMap<>();
-		headerMap.put("R", "ESI Gross");
-		headerMap.put("I", "EE");
-
-		// call
-		CommonBusinessUtilis3.validateExcelCalculation(
-		    downloadedExcelFile,
-		    salaryFile,
-		    test,
-		    "All_Emp_Workings.I = Master.R * 0.0075",
-		    "MASTER",
-		    "All Emp Workings",
-		    masterFilters,
-		    targetFilters,
-		    extraConfig,
-		    0.01,
-		    false,
-		    0,
-		    headerMap,
-		    "PT Gross wages total is coming properly as per masters"
-		); */
-		
-		
 	} 
 	public static void ESIC_AllEMPWorkings_Test1( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
@@ -598,38 +916,6 @@ public class ESI_Methods extends BasePage {
 	}
 	public static void ESIC_AllEMPWorkings_Test3( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-/**		ExcelExtraConfig extraConfig = new ExcelExtraConfig("YES",
-			    ExcelUtils.columnLetterToIndex("A"),"Total");
-
-			List<ExcelFilter> masterFilters = new ArrayList<>();
-			List<ExcelFilter> targetFilters = new ArrayList<>();
-			masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("Y"),Arrays.asList("400100")));
-			
-			targetFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("A"),Arrays.asList("Total")));
-			
-			
-			
-			Map<String, String> headerMap = new HashMap<>();
-			headerMap.put("R", "ESI Gross"); // Master sheet MonthlyEmployeeChallanSalary
-			headerMap.put("K", "Total");        // Downloaded sheet All Emp Workings
-
-			CommonBusinessUtilis3.validateExcelCalculation(
-			    downloadedExcelFile,
-			    salaryFile,
-			    test,
-			    "All Emp Workings.K = Master.R * 0.0075 + Master.R * 0.0375",
-			    "MASTER",
-			    "PT_Report",
-			    masterFilters,
-			    targetFilters,
-			    extraConfig,
-			    1,      // tolerance 1% (won't help here — differences ~10%)
-			    false,
-			    0,
-			    headerMap,
-			    "🧪 Validating ESI: All Emp Workings.K ≈ Master.R * (0.0075 + 0.0375)"
-			);
-**/
 		
 		
 		
@@ -709,56 +995,10 @@ public class ESI_Methods extends BasePage {
 			    "🧪 Validating ESI: All Emp Workings.K ≈ Master.R * (0.0075 + 0.0375)"
 			);
 			
-		/*  //This will applied directly Downloaded to downloaded  
-		// --- prepare extra config (same as your original)
-		ExcelExtraConfig extraConfig = new ExcelExtraConfig(
-		    "YES",
-		    ExcelUtils.columnLetterToIndex("A"),
-		    "Total"
-		);
-
-		// --- prepare filters (empty lists kept as you had them)
-		List<ExcelFilter> masterFilters = new ArrayList<>();
-		List<ExcelFilter> targetFilters = new ArrayList<>();
-		// masterFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("Y"), Arrays.asList("400100")));
-		// targetFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("A"), Arrays.asList("Total")));
-
-		// --- header map (same as you provided)
-		Map<String, String> headerMap = new HashMap<>();
-		headerMap.put("G", "ESI Wages"); // Master sheet MonthlyEmployeeChallanSalary
-		headerMap.put("I", "EE");        // Downloaded sheet All Emp Workings
-
-		// === IMPORTANT CHANGE: use column-only expression and set default sheet name to the downloaded sheet
-		String calculationRule = "I = G * 0.0075";     // column-only (no sheet prefix with spaces)
-		String defaultSheetName = "All Emp Workings";  // name of the downloaded sheet (exact, includes spaces)
-
-		// --- tolerance & other flags (same as your original)
-		int tolerancePercent = 1;   // 1% tolerance
-		boolean skipHeader = false;
-		int startRowIndex = 0;      // adjust if needed
-
-		// --- final call
-		CommonBusinessUtilis3.validateExcelCalculation(
-		    downloadedExcelFile,              // File or ExcelFileDetails for downloaded file
-		    salaryFile,                       // File or ExcelFileDetails for master file
-		    test,                             // ExtentTest or your test logger object
-		    calculationRule,                  // "I = G * 0.0075"
-		    "DOWNLOADED",                     // target type (same as your original)
-		    defaultSheetName,                 // "All Emp Workings" -> default sheet for column-only rule
-		    masterFilters,
-		    targetFilters,
-		    extraConfig,
-		    tolerancePercent,
-		    skipHeader,
-		    startRowIndex,
-		    headerMap,
-		    "🧪 Validating ESI: All Emp Workings.K ≈ Master.R * (0.0075 + 0.0375)" // descriptive log text
-		);
-*/
 
 		
 	}
-	
+	*/
 	
 	
 

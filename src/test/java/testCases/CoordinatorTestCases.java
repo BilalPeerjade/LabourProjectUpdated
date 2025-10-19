@@ -56,7 +56,7 @@ public class CoordinatorTestCases extends BasePage
 	@BeforeMethod
 	void Login() throws InterruptedException, IOException
 	{
-		Initialization(link,5,"Labour");
+		initialization2(link,5,"Labour");
 	
 	}
 	

@@ -121,6 +121,22 @@ public class ESI extends BasePage{
 		extent.endTest(test);
 		extent.flush();
 	}
+	@Test(priority = 1)
+	void challan_ESI_400100_ESI_NO() throws InterruptedException, IOException, AWTException 
+	{
+		test = extent.startTest("ESI Code wise - 400100 - All Emp Workings - Validate ESI NOs are reflecting correctly");
+		ESI_Methods.challan_ESI_400100_ESI_NO(test, "Performer");
+		extent.endTest(test);
+		extent.flush();
+	}
+	@Test(priority = 1)
+	void challan_ESI_400100_ClientESICode() throws InterruptedException, IOException, AWTException 
+	{
+		test = extent.startTest("ESI Code wise - 400100 - All Emp Workings - Validate Client ESI Code are reflecting correctly");
+		ESI_Methods.challan_ESI_400100_ClientESICode(test, "Performer");
+		extent.endTest(test);
+		extent.flush();
+	}
 	
 //	@Test(priority = 1) //Not working
 //	void challan_ESI_400100_DOJ() throws InterruptedException, IOException, AWTException 
@@ -133,20 +149,60 @@ public class ESI extends BasePage{
 	
 
 	
-//	@Test(priority = 1)
-//	void challan_ESI_400100_Remittence_EmployeeID() throws InterruptedException, IOException, AWTException 
-//	{
-//		test = extent.startTest("ESI Code wise - 400100 - Remittence - Validate Employee No are reflecting correctly");
-//		ESI_Methods.challan_ESI_400100_Remittence_EmployeeID(test, "Performer");
-//
-//		extent.endTest(test);
-//		extent.flush();
-//	} 
+	@Test(priority = 1)
+	void challan_ESI_400100_Remittence_EmployeeName() throws InterruptedException, IOException, AWTException 
+	{
+		test = extent.startTest("ESI Code wise - 400100 - Remittence - Validate Employee No are reflecting correctly");
+		ESI_Methods.challan_ESI_400100_Remittence_EmployeeID(test, "Performer");
+
+		extent.endTest(test);
+		extent.flush();
+	} 
+	@Test(priority = 1)
+	void challan_ESI_400100_Remittence_EmployeeID() throws InterruptedException, IOException, AWTException 
+	{
+		test = extent.startTest("ESI Code wise - 400100 - Remittence - Validate Employee Names are reflecting correctly");
+		ESI_Methods.challan_ESI_400100_Remittence_EmployeeName(test, "Performer");
+
+		extent.endTest(test);
+		extent.flush();
+	} 
+	@Test(priority = 1)
+	void challan_ESI_400100_Remittence_Location() throws InterruptedException, IOException, AWTException 
+	{
+		test = extent.startTest("ESI Code wise - 400100 - Remittence - Validate Locations are reflecting correctly");
+		ESI_Methods.challan_ESI_400100_Remittence_Location(test, "Performer");
+		extent.endTest(test);
+		extent.flush();
+	}
+	@Test(priority = 1)
+	void challan_ESI_400100_Remittence_ESI_NO() throws InterruptedException, IOException, AWTException 
+	{
+		test = extent.startTest("ESI Code wise - 400100 - Remittence - Validate ESI NOs are reflecting correctly");
+		ESI_Methods.challan_ESI_400100_Remittence_ESI_NO(test, "Performer");
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 1)
+	void challan_ESI_400100_Remittence_ClientESICode() throws InterruptedException, IOException, AWTException 
+	{
+		test = extent.startTest("ESI Code wise - 400100 - Remittence - Validate Client ESI Code are reflecting correctly");
+		ESI_Methods.challan_ESI_400100_Remittence_ClientESICode(test, "Performer");
+		extent.endTest(test);
+		extent.flush();
+	}
 	
 	
-	
-	
-	
+	@Test(priority = 1)
+	void challan_ESI_400100_Pending_EmployeeID() throws InterruptedException, IOException, AWTException 
+	{
+		test = extent.startTest("ESI Code wise - 400100 - All Emp Workings - Validate Employee No are reflecting correctly");
+		ESI_Methods.challan_ESI_400100_Pending_EmployeeID(test, "Performer");
+
+		extent.endTest(test);
+		extent.flush();
+	} 
 	
 	
 	

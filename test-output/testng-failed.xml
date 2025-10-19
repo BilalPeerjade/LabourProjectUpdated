@@ -6,9 +6,13 @@
       <class name="testCases.All_Reviewer_TestCase">
         <methods>
           <include name="Login"/>
+          <include name="RegulatoryAbstractFilters"/>
           <include name="browserClosing"/>
-          <include name="ChallanUpcoming"/>
+          <include name="ProceedToDashboard"/>
+          <include name="DesignationExportBtn"/>
+          <include name="RegisterUpcoming"/>
           <include name="PendingActionBox"/>
+          <include name="StatutoryDocViewandOverview"/>
           <include name="Closing"/>
           <include name="setBrowser"/>
         </methods>

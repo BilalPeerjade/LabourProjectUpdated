@@ -47,7 +47,7 @@ public class All_Client_Portal_TestCases extends BasePage {
 	@BeforeTest
 	void setBrowser() throws InterruptedException, IOException
 	{
-		extent = new com.relevantcodes.extentreports.ExtentReports("D:\\Labour Angular\\LabourMergeProject\\LabourMergeProject\\Report\\ClientPortal.html",true);
+		extent = new com.relevantcodes.extentreports.ExtentReports("D:\\AutomationLabour\\LabourProjectUpdated\\Report\\ClientPortal.html",true);
 		test = extent.startTest("Loging In - Client Portal");
 		test.log(LogStatus.PASS, "Logging into system");
 		test.log(LogStatus.PASS, "Selected Entity: Test Automation 2[TESTAUTO2] AND Selected Year: 2024");

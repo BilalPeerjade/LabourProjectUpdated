@@ -81,6 +81,12 @@ public class CoordinatorDisabledField extends BasePage {
 		return labour;
 	}
 	
+	public static WebElement noticeReferenceNumber()
+	{
+		labour = getDriver().findElement(By.xpath("//input[@type='text']"));
+		return labour;
+	}
+	
 	
 	
 	

@@ -63,6 +63,23 @@ private static WebElement labour = null;			//WebElement variable created for Use
 		labour = getDriver().findElement(By.xpath("//input[@formcontrolname='employeeName']"));
 		return labour;
 	}
+	public static WebElement enterEmplNameTest(String locatorName)
+	{
+		labour = getDriver().findElement(By.xpath("//form[@class='ng-untouched ng-pristine ng-invalid']//input[@formcontrolname="+locatorName+"]"));
+		return labour;
+	}
+	//Locator Chaining 
+	public static WebElement enterEmplNameTestt(String locatorName)
+	{
+		WebDriverWait wait = new WebDriverWait(getDriver(), (30));
+	    WebElement labour = wait.until(ExpectedConditions.visibilityOfElementLocated(
+	        By.xpath("//form//input[@formcontrolname='" + locatorName + "']")
+	    ));
+	    return labour;
+	}
+
+
+	
 	public static WebElement enterFatherName()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//input[@formcontrolname='fatherHusbandName']"));
