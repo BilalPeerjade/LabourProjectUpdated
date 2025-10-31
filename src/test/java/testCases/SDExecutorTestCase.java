@@ -73,7 +73,7 @@ public class SDExecutorTestCase extends BasePage
 	
                ////////Notices///////
 	
-	
+	/////
 	
 	@Test(priority = 1) 
    	void CoordinatorLogo() throws InterruptedException, IOException
