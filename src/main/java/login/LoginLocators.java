@@ -7,8 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class LoginLocators extends BasePage 
-{
+public class LoginLocators extends BasePage {
 	private static WebElement uname = null;			//WebElement variable created for Username input 
 	private static WebElement pass = null;			//WebElement variable created for Password input
 	private static WebElement submit = null;		//WebElement variable created for Submit button click
@@ -347,7 +346,7 @@ public class LoginLocators extends BasePage
 	}
 	public static WebElement ClosePopUp()	//Method for searching button for Save/Sign-in
 	{
-		submit = getDriver().findElement(By.xpath("/html/body/app-root/div/app-layout/section/div/div/app-compliance-dashboard/app-dashboard-compliance-popup/kendo-dialog/div[2]/kendo-dialog-titlebar/div/button/kendo-icon-wrapper/kendo-svgicon"));
+		submit = getDriver().findElement(By.cssSelector("body > app-root > div > app-layout > section > div > div > app-compliance-dashboard > app-dashboard-compliance-popup > kendo-dialog > div.k-window.k-dialog.ng-tns-c1063677181-1 > kendo-dialog-titlebar > div > button > kendo-icon-wrapper > kendo-svgicon"));
 		return submit;
 	}
 	public static WebElement ClosePopUp_2()	
@@ -529,7 +528,7 @@ public class LoginLocators extends BasePage
 	}
 	public static WebElement EntityLocation_ExcelFile()	//Method for searching button for Save/Sign-in
 	{
-		submit = getDriver().findElement(By.xpath("(//button[normalize-space()='Entity Location'])[1]"));
+		submit = getDriver().findElement(By.xpath("//button[normalize-space()='Entity Location']"));
 		return submit;
 	}
 	public static WebElement SelectPeriodValue()	//Method for searching button for Save/Sign-in
@@ -604,7 +603,7 @@ public class LoginLocators extends BasePage
 	}
 	public static WebElement type()	
 	{
-		submit = getDriver().findElement(By.xpath("//span[@class='k-input-value-text'][normalize-space()='Type']"));
+		submit = getDriver().findElement(By.xpath("(//span[@class='k-input-value-text'])[5]"));
 		return submit;
 	}
 	public static WebElement BranchCodetype()	

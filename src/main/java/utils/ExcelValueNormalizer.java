@@ -105,7 +105,7 @@ public class ExcelValueNormalizer {
 
     static {   
         // 🔹 Andhra Pradesh
-        List<SlabRule> andhraPradeshSlabs = new ArrayList<>();
+        List<SlabRule> andhraPradeshSlabs = new ArrayList<>(); //new ArrayList<>(); Object create karega yaha
         andhraPradeshSlabs.add(new SlabRule(1, 15000, 0));
         andhraPradeshSlabs.add(new SlabRule(15001, 20000, 150));
         andhraPradeshSlabs.add(new SlabRule(20001, 99999, 200));
@@ -262,7 +262,7 @@ public class ExcelValueNormalizer {
         sikkimSlabs.add(new SlabRule(166668, 416667, 83));
         sikkimSlabs.add(new SlabRule(416668, 833333, 125));
         sikkimSlabs.add(new SlabRule(833334, 1666667, 167));
-        sikkimSlabs.add(new SlabRule(1666668, 99999, 208));
+        sikkimSlabs.add(new SlabRule(1666668, 999999, 208));
         PT_SLAB_MAP.put("sikkim", sikkimSlabs);
 
         // 🔹 Tamil Nadu
@@ -332,7 +332,7 @@ public class ExcelValueNormalizer {
     }
 
 
-    // ✅ Rule holder class
+    //Rule class
     static class SlabRule {
         int min;
         int max;
@@ -349,6 +349,11 @@ public class ExcelValueNormalizer {
         }
     }
 
+    
+    
+    
+    
+    
     // ✅ Get PT amount for state and gross wage
     public static int getPTAmount(String state, int grossWage) {
         List<SlabRule> slabs = PT_SLAB_MAP.get(state.toLowerCase());

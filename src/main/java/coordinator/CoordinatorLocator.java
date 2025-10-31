@@ -271,6 +271,12 @@ public class CoordinatorLocator extends BasePage
 		labour = getDriver().findElement(By.xpath("//*[@title='Download']"));
 		return labour;
 	}
+	public static List<WebElement> fetch()  // Method for fetching multiple elements //k-table-td k-touch-action-auto
+	{
+	    List<WebElement> labourList = getDriver().findElements(By.xpath("//table/thead/tr/th"));
+	    return labourList;
+	}
+
 	public static WebElement GridLoad()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("/html/body/app-root/div/app-layout/section/div/div/app-notices/div/div[4]/kendo-loader/div/span[1]"));
@@ -587,7 +593,7 @@ public class CoordinatorLocator extends BasePage
 	}
 	public static WebElement plus4()		
 	{
-		labour = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/Closeminus.svg']"));
+		labour = getDriver().findElement(By.xpath("(//img[@class='svg-icon-btn'])[4]"));
 		return labour;
 	}
 	

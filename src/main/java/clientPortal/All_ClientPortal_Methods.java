@@ -8,6 +8,7 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -48,22 +49,26 @@ import login.BasePage;
 import login.LoginLocators;
 import rcp.OneCommonMethod;
 
-public class All_ClientPortal_Methods extends BasePage
-{
+public class All_ClientPortal_Methods extends BasePage {
+
+	
+	
 	public static FileInputStream fis = null;	//File input stream variable
 	public static XSSFWorkbook workbook = null;	//Excel sheet workbook variable
 	public static XSSFSheet sheet = null;		//Sheet variable
 	
-	static String filePath ="D:\\AutomationLabour\\LabourProjectUpdated\\TestData\\Labour.xlsx";
+	 static String filePath ="D:\\Labour Angular\\LabourMergeProject\\LabourMergeProject\\TestData\\Labour.xlsx";
 
+	
 	public static void filterEntity ( ExtentTest test) throws InterruptedException, IOException
-	{
-		Thread.sleep(7000);		
+	{Thread.sleep(7000);		
 		Actions action = new Actions(getDriver());
 		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
 		Thread.sleep(3000);
 	    
+		
 	  	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='k-input-inner k-readonly']")));	//Wait until records table get visible.
+
 	  	
 		All_ClientPortal_Locators.SelectEntity().click();
 		Thread.sleep(2000);
@@ -78,19 +83,21 @@ public class All_ClientPortal_Methods extends BasePage
 	  	All_ClientPortal_Locators.SelectYear22().click();
 		Thread.sleep(2000);
 	 	All_ClientPortal_Locators.Apply().click();
-		Thread.sleep(8000);
-
+			Thread.sleep(8000);
+		  
+			Thread.sleep(8000);
 	}
 	
 	public static void filterEntityAUTO2 ( ExtentTest test) throws InterruptedException, IOException
-	{
-		Thread.sleep(7000);		
+	{Thread.sleep(7000);		
 		Actions action = new Actions(getDriver());
 		WebDriverWait wait = new WebDriverWait( getDriver(), (120));
 		Thread.sleep(6000);
 	    
+		
 	  	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='k-input-inner k-readonly']")));	//Wait until records table get visible.
 
+	  	
 		All_ClientPortal_Locators.SelectEntity().click();
 		Thread.sleep(4000);
 	  	All_ClientPortal_Locators.EntityTri2().click();
@@ -108,51 +115,53 @@ public class All_ClientPortal_Methods extends BasePage
 	  	All_ClientPortal_Locators.SelectYear22().click();
 		Thread.sleep(3000);
 	 	All_ClientPortal_Locators.Apply().click();
-		Thread.sleep(8000);
+			Thread.sleep(8000);
 		  
 	}
 	
 	public static void Flaky_filterEntityAUTO2 ( ExtentTest test) throws InterruptedException, IOException
 	{
+		
 		int maxRetry = 3;
 	    int attempts = 0;
 	    boolean success = false;
 	    
-	    while (attempts < maxRetry)
-	    {
-	        try 
-	        {
+	    while (attempts < maxRetry) {
+	        try {
 	            // Your actual dropdown click + apply logic
 	            System.out.println("Applying filters... attempt " + (attempts + 1));
 
 	            // Simulating flaky action
-	            if (Math.random() > 0.7)
-	            {
+	            if (Math.random() > 0.7) {
 	                System.out.println("Filter applied successfully");
 	                success = true;
 	                break;
-	            } 
-	            else 
-	            {
+	            } else {
 	                throw new Exception("Dropdown failed");
 	            }
 
-	        } 
-	        catch (Exception e)
-	        {
+	        } catch (Exception e) {
 	            System.out.println("Attempt " + (attempts + 1) + " failed.");
 	        }
 	        attempts++;
 	    }
 
+		
+		
+		
+		
+		
+		
 		Thread.sleep(7000);		
 		Actions action = new Actions(getDriver());
 		WebDriverWait wait = new WebDriverWait( getDriver(), (120));
 		Thread.sleep(6000);
 	    
+		
 	  	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='k-input-inner k-readonly']")));	//Wait until records table get visible.
 
-	  	All_ClientPortal_Locators.SelectEntity().click();
+	  	
+		All_ClientPortal_Locators.SelectEntity().click();
 		Thread.sleep(4000);
 	  	All_ClientPortal_Locators.EntityTri2().click();
 		Thread.sleep(5000);
@@ -165,12 +174,12 @@ public class All_ClientPortal_Methods extends BasePage
 	  	All_ClientPortal_Locators.SelectYear22().click();
 		Thread.sleep(3000);
 	 	All_ClientPortal_Locators.Apply().click();
-		Thread.sleep(8000);
+			Thread.sleep(8000);
 		  
 	}
 	
-		public static void FlakyTest_filterEntityAUTO2(ExtentTest test) throws InterruptedException, IOException 
-		{
+	
+	public static void FlakyTest_filterEntityAUTO2(ExtentTest test) throws InterruptedException, IOException {
 	    Thread.sleep(7000);
 	    Actions action = new Actions(getDriver());
 	    WebDriverWait wait = new WebDriverWait(getDriver(), 120);
@@ -182,10 +191,8 @@ public class All_ClientPortal_Methods extends BasePage
 	    int attempts = 0;
 	    boolean success = false;
 
-	    while (attempts < maxRetry) 
-	    {
-	        try 
-	        {
+	    while (attempts < maxRetry) {
+	        try {
 	            System.out.println("Applying filters... attempt " + (attempts + 1));
 
 	            All_ClientPortal_Locators.SelectEntity().click();
@@ -211,26 +218,29 @@ public class All_ClientPortal_Methods extends BasePage
 	            System.out.println("Filter applied successfully");
 	            break;
 
-	        } 
-	        catch (Exception e) 
-	        {
+	        } catch (Exception e) {
 	            System.out.println("Attempt " + (attempts + 1) + " failed with error: " + e.getMessage());
 	        }
 
 	        attempts++;
 	    }
 
-	    if (!success)
-	    {
+	    if (!success) {
 	        throw new RuntimeException("filterEntityAUTO2 failed after " + maxRetry + " retries");
 	    }
 	}
 
 	
-	public static void Entities(  ExtentTest test) throws InterruptedException, IOException
-	{
-		Thread.sleep(5000);
 	
+	
+
+	
+	
+	
+	public static void Entities(  ExtentTest test) throws InterruptedException, IOException
+	{Thread.sleep(5000);
+	
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		String string_Categories =All_ClientPortal_Locators.Entities().getText();		//Storing old value of Statutory overdue.
 	    int	CategoriesCountDas = Integer.parseInt(string_Categories);
@@ -246,63 +256,73 @@ public class All_ClientPortal_Methods extends BasePage
 		int CatcountGrid = Integer.parseInt(compliancesCount);
 		
 		if(CategoriesCountDas == CatcountGrid)
-		{
-			Thread.sleep(5000);
+		{Thread.sleep(5000);
+			
 			test.log(LogStatus.PASS, "No of Entities in the grid = "+CatcountGrid+" | Dashboard Entities  Count = "+CategoriesCountDas);
 		}
 		else
-		{
-			Thread.sleep(5000);
+		{Thread.sleep(5000);
+		
 			test.log(LogStatus.FAIL, "No of Entities in the grid = "+CatcountGrid+" | Dashboard Entities Count = "+CategoriesCountDas);
 		}
 		Thread.sleep(3000);		
+		
+		
+		
+		
 	}
 	
 	public static void Clientlogo(  ExtentTest test) throws InterruptedException, IOException
-	{
-		Thread.sleep(5000);
+	{Thread.sleep(5000);
+	
+		
+	
 //    WebElement ExpandIcon = getDriver().findElement(By.xpath("//i[@class='menu-btn']"));
 //    ExpandIcon.click();
     
-		Thread.sleep(5000);
-		String LogoTeamLease = getDriver().findElement(By.xpath("//img[@alt='TeamLease Logo']")).getText();
-		WebElement LogoTeamL = getDriver().findElement(By.xpath("//img[@alt='TeamLease Logo']"));
+    Thread.sleep(5000);
+    String LogoTeamLease = getDriver().findElement(By.xpath("//img[@alt='TeamLease Logo']")).getText();
+    WebElement LogoTeamL = getDriver().findElement(By.xpath("//img[@alt='TeamLease Logo']"));
     
-		System.out.println(LogoTeamLease);
+    System.out.println(LogoTeamLease);
     
-		if(LogoTeamL.isDisplayed())
-		{
-			test.log(LogStatus.PASS,"'Team Lease RegTech Helping India Comply' Logo is displayed successfully");
-		}
-		else
-		{
-			test.log(LogStatus.FAIL,"Logo is not displayed");
-		}
+    if(LogoTeamL.isDisplayed())
+    {
+    	test.log(LogStatus.PASS,"'Team Lease RegTech Helping India Comply' Logo is displayed successfully");
+    }
+    else
+    {
+    	test.log(LogStatus.FAIL,"Logo is not displayed");
+    }
     
-		String base64Screenshot = OneCommonMethod.takeScreenshotBase64(driver.get());
-		test.log(LogStatus.INFO, "ScreenShot <br>" + test.addBase64ScreenShot(base64Screenshot));
+    String base64Screenshot = OneCommonMethod.takeScreenshotBase64(driver.get());
+    test.log(LogStatus.INFO, "ScreenShot <br>" + test.addBase64ScreenShot(base64Screenshot));
 		
 	}
 	
 	public static void columnExpandIcon(  ExtentTest test) throws InterruptedException, IOException
-	{	
-		Thread.sleep(5000);
-    
-		WebElement ExpandIcon = getDriver().findElement(By.xpath("//i[@class='menu-btn']"));
-    
-		Thread.sleep(5000);
-		if(ExpandIcon.isEnabled())
-		{
-			Thread.sleep(5000);
-			ExpandIcon.click();
-    		test.log(LogStatus.PASS,"Column Expand Icon is working successfully");
-		}
-		else
-		{
-			test.log(LogStatus.FAIL,"Column Expand Icon is not working properly");
-		}
+	{Thread.sleep(5000);
+	
 		
-		}
+    Thread.sleep(5000);
+    
+    WebElement ExpandIcon = getDriver().findElement(By.xpath("//i[@class='menu-btn']"));
+    
+    Thread.sleep(5000);
+    if(ExpandIcon.isEnabled())
+    {
+    	Thread.sleep(5000);
+    	ExpandIcon.click();
+    	test.log(LogStatus.PASS,"Column Expand Icon is working successfully");
+    }
+    else
+    {
+    	test.log(LogStatus.FAIL,"Column Expand Icon is not working properly");
+    }
+		
+	}
+	
+	
 	
 	public static void filtersChecking(  ExtentTest test) throws InterruptedException, IOException
 	{
@@ -340,8 +360,7 @@ public class All_ClientPortal_Methods extends BasePage
 	
 	
 	public static void EntitiesSearch(  ExtentTest test) throws InterruptedException, IOException
-	{
-		Thread.sleep(5000);
+	{Thread.sleep(5000);
 	
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
@@ -358,15 +377,13 @@ public class All_ClientPortal_Methods extends BasePage
 		test.log(LogStatus.PASS, "Entity selected : "+text);
 		
 		Thread.sleep(3000);
-		}
-		catch(Exception e) {Thread.sleep(5000);
+		}catch(Exception e) {Thread.sleep(5000);
 			test.log(LogStatus.PASS, "no record available");
 		}
 		
 	}
 	public static void EntitiesTabPagination(  ExtentTest test) throws InterruptedException, IOException
-	{
-		Thread.sleep(5000);
+	{Thread.sleep(5000);
 	
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
@@ -379,13 +396,13 @@ public class All_ClientPortal_Methods extends BasePage
 		verifyPaginationGoToLastPage(test);
 		Thread.sleep(5000);
 		verifyItemsPerPageFunctionality(test);
-
+		
+	
 	}
 	
 	
 	public static void Locations(  ExtentTest test) throws InterruptedException, IOException
-	{
-		Thread.sleep(5000);
+	{Thread.sleep(5000);
 	
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
@@ -403,36 +420,38 @@ public class All_ClientPortal_Methods extends BasePage
 		int CatcountGrid = Integer.parseInt(compliancesCount);
 		
 		if(CategoriesCountDas == CatcountGrid)
-		{
-			Thread.sleep(5000);
+		{Thread.sleep(5000);
 			
 			test.log(LogStatus.PASS, "No of Locations in the grid = "+CatcountGrid+" | Dashboard Locations  Count = "+CategoriesCountDas);
 		}
 		else
-		{
-			Thread.sleep(5000);
+		{Thread.sleep(5000);
 		
 			test.log(LogStatus.FAIL, "No of Locations in the grid = "+CatcountGrid+" | Dashboard Locations Count = "+CategoriesCountDas);
 		}
 		Thread.sleep(3000);
 		
+			
 	}
 	
 	public static void LocationsPagination(  ExtentTest test) throws InterruptedException, IOException
-	{
-		Thread.sleep(5000);
+	{Thread.sleep(5000);
 	
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 //		String string_Categories =All_ClientPortal_Locators.Locations().getText();		//Storing old value of Statutory overdue.
 //    	int	CategoriesCountDas = Integer.parseInt(string_Categories);
 		
+		
+		
 	    All_ClientPortal_Locators.Locations().click();
 		
 //		All_ClientPortal_Locators.AssignedCompliances().click();
-
+		
+		
 	    waitForLoaderToDisappear(); //Wait until loader removed
 		Thread.sleep(5000);
+		
 		
 		verifyPaginationGoToNextPage(test);
 		Thread.sleep(5000);
@@ -440,16 +459,17 @@ public class All_ClientPortal_Methods extends BasePage
 		Thread.sleep(5000);
 		verifyItemsPerPageFunctionality(test);
 		
+		
 	}
 	
+	
 	public static void LocationsSearch(  ExtentTest test) throws InterruptedException, IOException
-	{
-		Thread.sleep(5000);
+	{Thread.sleep(5000);
 	
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	
-		All_ClientPortal_Locators.Locations().click();
+	All_ClientPortal_Locators.Locations().click();
 		Thread.sleep(5000);
 		try {Thread.sleep(5000);
 		All_ClientPortal_Locators.Search().sendKeys("TESTAUTO2",Keys.ENTER);
@@ -461,22 +481,20 @@ public class All_ClientPortal_Methods extends BasePage
 		test.log(LogStatus.PASS, "Entity selected : "+text);
 		
 		Thread.sleep(3000);
-		}
-		catch(Exception e) {Thread.sleep(5000);
+		}catch(Exception e) {Thread.sleep(5000);
 			test.log(LogStatus.PASS, "no record available");
 		}
 		
 	}
 	
 	public static void AssignedCompliances(  ExtentTest test) throws InterruptedException, IOException
-	{
-		Thread.sleep(5000);
+	{Thread.sleep(5000);
 	
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		String string_Categories =All_ClientPortal_Locators.AssignedCompliances().getText();		//Storing old value of Statutory overdue.
-		int	CategoriesCountDas = Integer.parseInt(string_Categories);
-		All_ClientPortal_Locators.AssignedCompliances().click();
+	int	CategoriesCountDas = Integer.parseInt(string_Categories);
+	All_ClientPortal_Locators.AssignedCompliances().click();
 		Thread.sleep(5000);
 		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//img[contains(@title,'Overview')])[1]")));
@@ -492,14 +510,12 @@ public class All_ClientPortal_Methods extends BasePage
 		int CatcountGrid = Integer.parseInt(compliancesCount);
 		
 		if(CategoriesCountDas == CatcountGrid)
-		{
-			Thread.sleep(5000);
+		{Thread.sleep(5000);
 			
 			test.log(LogStatus.PASS, "No of Assigned Compliances in the grid = "+CatcountGrid+" | Dashboard Assigned Compliances Count = "+CategoriesCountDas);
 		}
 		else
-		{
-			Thread.sleep(5000);
+		{Thread.sleep(5000);
 		
 			test.log(LogStatus.FAIL, "No of Assigned Compliances in the grid = "+CatcountGrid+" | Dashboard Assigned Compliances Count = "+CategoriesCountDas);
 		}
@@ -508,92 +524,90 @@ public class All_ClientPortal_Methods extends BasePage
 	}
 	
 	public static void AssignedCompliancesRgisterReturnChallanCount(  ExtentTest test) throws InterruptedException, IOException
-	{
-		Thread.sleep(5000);
+	{Thread.sleep(5000);
 	
-		Thread.sleep(5000);
-		JavascriptExecutor js = (JavascriptExecutor) getDriver();
-		Thread.sleep(3000);
+    Thread.sleep(5000);
+    JavascriptExecutor js = (JavascriptExecutor) getDriver();
+    Thread.sleep(3000);
 
-		// Click on Assigned Compliances tab
-		All_ClientPortal_Locators.AssignedCompliances().click();
-		CoordinatorMethod.zoomOutScreen(2); // ZoomOut
-		Thread.sleep(5000);
-    
-		WebDriverWait wait = new WebDriverWait(getDriver(), 10);
-		wait.until(ExpectedConditions.visibilityOf(All_ClientPortal_Locators.readTotalItems()));
-		Thread.sleep(3000);
-    
-		// Get total compliance count (before filter)
-		All_ClientPortal_Locators.readTotalItems().click();
-		String item = All_ClientPortal_Locators.readTotalItems().getText();
-		String[] bits = item.split(" ");
-		String totalComplianceStr = bits[bits.length - 2];
-		int totalComplianceCount = Integer.parseInt(totalComplianceStr);
-		Thread.sleep(2000);
+    // Click on Assigned Compliances tab
+    All_ClientPortal_Locators.AssignedCompliances().click();
+    CoordinatorMethod.zoomOutScreen(2); // ZoomOut
+    Thread.sleep(5000);
 
-		int registerCount = 0;
-		int returnCount = 0;
-		int challanCount = 0;
+    WebDriverWait wait = new WebDriverWait(getDriver(), 10);
+    wait.until(ExpectedConditions.visibilityOf(All_ClientPortal_Locators.readTotalItems()));
+    Thread.sleep(3000);
+
+    // Get total compliance count (before filter)
+    All_ClientPortal_Locators.readTotalItems().click();
+    String item = All_ClientPortal_Locators.readTotalItems().getText();
+    String[] bits = item.split(" ");
+    String totalComplianceStr = bits[bits.length - 2];
+    int totalComplianceCount = Integer.parseInt(totalComplianceStr);
+    Thread.sleep(2000);
+
+    int registerCount = 0;
+    int returnCount = 0;
+    int challanCount = 0;
 
     // ------ Step 1: Register ------
-		All_ClientPortal_Locators.complianceDropdwonClick().click();
-		Thread.sleep(1000);
-		All_ClientPortal_Locators.complianceSelectOnRegisters().click();
-		All_ClientPortal_Locators.ClickApplyBtn().click();
-		Thread.sleep(5000);
+    All_ClientPortal_Locators.complianceDropdwonClick().click();
+    Thread.sleep(1000);
+    All_ClientPortal_Locators.complianceSelectOnRegisters().click();
+    All_ClientPortal_Locators.ClickApplyBtn().click();
+    Thread.sleep(5000);
 
-		String registerItem = All_ClientPortal_Locators.readTotalItems().getText();
-		String[] regBits = registerItem.split(" ");
-		registerCount = Integer.parseInt(regBits[regBits.length - 2]);
-		test.log(LogStatus.INFO, "Register filter selected. Count found: " + registerCount);
+    String registerItem = All_ClientPortal_Locators.readTotalItems().getText();
+    String[] regBits = registerItem.split(" ");
+    registerCount = Integer.parseInt(regBits[regBits.length - 2]);
+    test.log(LogStatus.INFO, "Register filter selected. Count found: " + registerCount);
 
     // ------ Step 2: Return ------
-		All_ClientPortal_Locators.complianceSelectOnRegisters().click(); // Unselect previous
-		Thread.sleep(1000);
-		All_ClientPortal_Locators.complianceSelectOnReturn().click();
-		All_ClientPortal_Locators.ClickApplyBtn().click();
-		Thread.sleep(5000);
+    All_ClientPortal_Locators.complianceSelectOnRegisters().click(); // Unselect previous
+    Thread.sleep(1000);
+    All_ClientPortal_Locators.complianceSelectOnReturn().click();
+    All_ClientPortal_Locators.ClickApplyBtn().click();
+    Thread.sleep(5000);
 
-		String returnItem = All_ClientPortal_Locators.readTotalItems().getText();
-		String[] retBits = returnItem.split(" ");
-		returnCount = Integer.parseInt(retBits[retBits.length - 2]);
-		test.log(LogStatus.INFO, "Return filter selected. Count found: " + returnCount);
+    String returnItem = All_ClientPortal_Locators.readTotalItems().getText();
+    String[] retBits = returnItem.split(" ");
+    returnCount = Integer.parseInt(retBits[retBits.length - 2]);
+    test.log(LogStatus.INFO, "Return filter selected. Count found: " + returnCount);
 
     // ------ Step 3: Challan ------
-		All_ClientPortal_Locators.complianceSelectOnReturn().click(); // Unselect previous
-		Thread.sleep(1000);
-		All_ClientPortal_Locators.complianceSelectOnChallan().click();
-		All_ClientPortal_Locators.ClickApplyBtn().click();
-		Thread.sleep(5000);
+    All_ClientPortal_Locators.complianceSelectOnReturn().click(); // Unselect previous
+    Thread.sleep(1000);
+    All_ClientPortal_Locators.complianceSelectOnChallan().click();
+    All_ClientPortal_Locators.ClickApplyBtn().click();
+    Thread.sleep(5000);
 
-		String challanItem = All_ClientPortal_Locators.readTotalItems().getText();
-		String[] chaBits = challanItem.split(" ");
-		challanCount = Integer.parseInt(chaBits[chaBits.length - 2]);
-		test.log(LogStatus.INFO, "Challan filter selected. Count found: " + challanCount);
+    String challanItem = All_ClientPortal_Locators.readTotalItems().getText();
+    String[] chaBits = challanItem.split(" ");
+    challanCount = Integer.parseInt(chaBits[chaBits.length - 2]);
+    test.log(LogStatus.INFO, "Challan filter selected. Count found: " + challanCount);
 
     // ------ Step 4: Validation ------
-		int combinedCount = registerCount + returnCount + challanCount;
+    int combinedCount = registerCount + returnCount + challanCount;
 
-		test.log(LogStatus.INFO, "Total Assigned Compliances Count (from dashboard): " + totalComplianceCount);
-		test.log(LogStatus.INFO, "Combined Count (Register + Return + Challan): " + combinedCount);
+    test.log(LogStatus.INFO, "Total Assigned Compliances Count (from dashboard): " + totalComplianceCount);
+    test.log(LogStatus.INFO, "Combined Count (Register + Return + Challan): " + combinedCount);
 
-		if (combinedCount == totalComplianceCount)
-		{
+    if (combinedCount == totalComplianceCount) {
         test.log(LogStatus.PASS, "PASS: Combined count matches total compliance count.");
-		} 
-		else
-		{
-			test.log(LogStatus.FAIL, "FAIL: Combined count does not match total compliance count.");
-		}
+    } else {
+        test.log(LogStatus.FAIL, "FAIL: Combined count does not match total compliance count.");
+    }
 
-		Thread.sleep(2000);	
+    Thread.sleep(2000);
+		
 	}
 	
 	
+	
+	
 	public static void exportcount(  ExtentTest test) throws InterruptedException, IOException
-	{
-		Thread.sleep(5000);
+	{Thread.sleep(5000);
 	
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
@@ -606,14 +620,14 @@ public class All_ClientPortal_Methods extends BasePage
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//img[contains(@title,'Overview')])[1]")));
 		Thread.sleep(8000);
 		Thread.sleep(3000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		Locators.Export().click();
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -624,8 +638,7 @@ public class All_ClientPortal_Methods extends BasePage
 		
 	}
 	
-	public static void assignedCompSearch(ExtentTest test) throws InterruptedException, IOException
-	{
+	public static void assignedCompSearch(ExtentTest test) throws InterruptedException, IOException {
 		Thread.sleep(5000);
 
 		Thread.sleep(2000);
@@ -652,26 +665,30 @@ public class All_ClientPortal_Methods extends BasePage
 
 		
 	*/	
-
+		
+		
+		
+		
+		
+		
+		
 		// Clear Function
 		All_ClientPortal_Locators.compliancePerformanceSearch().sendKeys("HelloHowAreYou", Keys.ENTER);
 		Thread.sleep(4000);
 
-		if (All_ClientPortal_Locators.Clear().isEnabled()) 
-		{
+		if (All_ClientPortal_Locators.Clear().isEnabled()) {
 			Thread.sleep(5000);
+
 			test.log(LogStatus.PASS, " Clear button working successfully.");
 			All_ClientPortal_Locators.Clear().click();
-		} 
-		else
-		{
+		} else {
 			Thread.sleep(5000);
 			test.log(LogStatus.FAIL, "Clear button does not working properly.");
 		}
 		Thread.sleep(3000);
+
 	}
-	public static void assignedCompRegisterExport(ExtentTest test) throws InterruptedException, IOException
-	{
+	public static void assignedCompRegisterExport(ExtentTest test) throws InterruptedException, IOException {
 		Thread.sleep(5000);
 
 		Thread.sleep(2000);
@@ -698,8 +715,7 @@ public class All_ClientPortal_Methods extends BasePage
 		String compliancesCount = bits[bits.length - 2]; // Getting the second last word (total number of users)
 		int count1 = Integer.parseInt(compliancesCount);
 
-		if (compliancesCount.equalsIgnoreCase("to"))
-		{
+		if (compliancesCount.equalsIgnoreCase("to")) {
 			Thread.sleep(5000);
 			item = All_ClientPortal_Locators.readTotalItems().getText();
 			bits = item.split(" ");
@@ -711,18 +727,17 @@ public class All_ClientPortal_Methods extends BasePage
 
 		js1.executeScript("window.scrollBy(0,-500)");
 		Thread.sleep(1000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(1000);
 		All_ClientPortal_Locators.Export().click();
 
 		Thread.sleep(5500);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 
-		if (dirContents.length < allFilesNew.length) 
-		{
+		if (dirContents.length < allFilesNew.length) {
 
 			Thread.sleep(9000); // Clicking on 'Excel Report' image.
 			test.log(LogStatus.PASS, "File downloaded successfully.");
@@ -730,7 +745,9 @@ public class All_ClientPortal_Methods extends BasePage
 			for (int i = 1; i < allFilesNew.length; i++) // For loop till the number of files in directory.
 			{
 				if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) // If allFilesNew[i] file is having
-				// file be allFilesNew[i] file.
+																						// large/latest time time of
+																						// update then latest modified
+																						// file be allFilesNew[i] file.
 				{
 					lastModifiedFile = allFilesNew[i];
 				}
@@ -746,12 +763,11 @@ public class All_ClientPortal_Methods extends BasePage
 			int rowCount = 0;
 			int actualRow = 0;
 
-			for (Row row : sheet) 
-			{
+			for (Row row : sheet) {
 
 				Cell cell = row.getCell(columnNumber);
-				if (cell != null) 
-				{
+				if (cell != null) {
+
 					rowCount++;
 					actualRow = rowCount - 1;
 				}
@@ -759,29 +775,24 @@ public class All_ClientPortal_Methods extends BasePage
 			}
 			fis.close();
 
-			if (count1 == actualRow)
-			{
+			if (count1 == actualRow) {
 				// test.log(LogStatus.PASS, "No of records from grid matches to no of records in
 				// Excel Sheet.");
 				test.log(LogStatus.PASS,
 						"Total records from Grid = " + count1 + " | Total records from Report = " + actualRow);
-			} 
-			else 
-			{
+			} else {
 				// test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of
 				// records in Excel Sheet.");
-				test.log(LogStatus.FAIL,"Total records from Grid = " + count1 + " | Total records from Excel Sheet = " + actualRow);
+				test.log(LogStatus.FAIL,
+						"Total records from Grid = " + count1 + " | Total records from Excel Sheet = " + actualRow);
 			}
-		}
-		else
-		{
+		} else {
 			test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
 		}
 
 	}
 	
-	public static void assignedCompReturnExport(ExtentTest test) throws InterruptedException, IOException
-	{
+	public static void assignedCompReturnExport(ExtentTest test) throws InterruptedException, IOException {
 		Thread.sleep(5000);
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
@@ -811,8 +822,7 @@ public class All_ClientPortal_Methods extends BasePage
 		String compliancesCount = bits[bits.length - 2]; // Getting the second last word (total number of users)
 		int count1 = Integer.parseInt(compliancesCount);
 
-		if (compliancesCount.equalsIgnoreCase("to"))
-		{
+		if (compliancesCount.equalsIgnoreCase("to")) {
 			Thread.sleep(5000);
 			item = All_ClientPortal_Locators.readTotalItems().getText();
 			bits = item.split(" ");
@@ -824,18 +834,18 @@ public class All_ClientPortal_Methods extends BasePage
 
 		js1.executeScript("window.scrollBy(0,-500)");
 		Thread.sleep(1000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(1000);
 		All_ClientPortal_Locators.Export().click();
 
 		Thread.sleep(5500);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 
-		if (dirContents.length < allFilesNew.length) 
-		{
+		if (dirContents.length < allFilesNew.length) {
+
 			Thread.sleep(9000); // Clicking on 'Excel Report' image.
 			test.log(LogStatus.PASS, "File downloaded successfully.");
 			File lastModifiedFile = allFilesNew[0]; // Storing any 0th index file in 'lastModifiedFile' file name.
@@ -860,11 +870,11 @@ public class All_ClientPortal_Methods extends BasePage
 			int rowCount = 0;
 			int actualRow = 0;
 
-			for (Row row : sheet)
-			{
+			for (Row row : sheet) {
+
 				Cell cell = row.getCell(columnNumber);
-				if (cell != null)
-				{
+				if (cell != null) {
+
 					rowCount++;
 					actualRow = rowCount - 1;
 				}
@@ -872,28 +882,24 @@ public class All_ClientPortal_Methods extends BasePage
 			}
 			fis.close();
 
-			if (count1 == actualRow)
-			{
+			if (count1 == actualRow) {
 				// test.log(LogStatus.PASS, "No of records from grid matches to no of records in
 				// Excel Sheet.");
-				test.log(LogStatus.PASS,"Total records from Grid = " + count1 + " | Total records from Report = " + actualRow);
-			}
-			else
-			{
+				test.log(LogStatus.PASS,
+						"Total records from Grid = " + count1 + " | Total records from Report = " + actualRow);
+			} else {
 				// test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of
 				// records in Excel Sheet.");
-				test.log(LogStatus.FAIL,"Total records from Grid = " + count1 + " | Total records from Excel Sheet = " + actualRow);
+				test.log(LogStatus.FAIL,
+						"Total records from Grid = " + count1 + " | Total records from Excel Sheet = " + actualRow);
 			}
-		} 
-		else 
-		{
+		} else {
 			test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
 		}
 
 	}
 	
-	public static void assignedCompChallanExport(ExtentTest test) throws InterruptedException, IOException 
-	{
+	public static void assignedCompChallanExport(ExtentTest test) throws InterruptedException, IOException {
 		Thread.sleep(5000);
 
 		Thread.sleep(2000);
@@ -932,14 +938,14 @@ public class All_ClientPortal_Methods extends BasePage
 
 		js1.executeScript("window.scrollBy(0,-500)");
 		Thread.sleep(1000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(1000);
 		All_ClientPortal_Locators.Export().click();
 
 		Thread.sleep(5500);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 
 		if (dirContents.length < allFilesNew.length) {
@@ -1148,14 +1154,14 @@ public class All_ClientPortal_Methods extends BasePage
 		Thread.sleep(5000);
 		
 		Thread.sleep(3000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		Locators.Export().click();
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -1312,23 +1318,35 @@ public class All_ClientPortal_Methods extends BasePage
 			All_ClientPortal_Locators.ExpiredRegistrations().click();
 			Thread.sleep(5000);
 			All_ClientPortal_Locators.EREdit().click();
+			
+			
+			WebDriverWait wait = new WebDriverWait(getDriver(), 10);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='k-loader-canvas']")));
+			
 			Thread.sleep(5000);
 			
 			Thread.sleep(3000);
-			File dir = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir = new File("C:\\Users\\bilali\\Downloads");
 			File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
+			Thread.sleep(8000);
+
+			All_ClientPortal_Locators.DownloadTwo().click();
 			Thread.sleep(5000);
-			
-     		All_ClientPortal_Locators.Download().click();
+			All_ClientPortal_Locators.DownloadTwo().click();
+     		
+  //  		All_ClientPortal_Methods.clickElementUsingJS(All_ClientPortal_Locators.DownloadTwo());
+     		
 	
 			Thread.sleep(8000);
-			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir1 = new File("C:\\Users\\bilali\\Downloads");
 			File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 			Thread.sleep(3000);
-			if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
+			if (dirContents.length < allFilesNew.length) 
+			{
+				Thread.sleep(5000);
 				test.log(LogStatus.PASS,  " File downloaded successfully.");
-			} else {Thread.sleep(5000);
+			} else {Thread.sleep(8000);
 				test.log(LogStatus.FAIL,  " File does not downloaded.");
 			}
 			
@@ -1494,7 +1512,7 @@ public class All_ClientPortal_Methods extends BasePage
 		Thread.sleep(5000);
 		
 		
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(5000);
@@ -1503,7 +1521,7 @@ public class All_ClientPortal_Methods extends BasePage
 //		All_ClientPortal_Locators.compliancePerformanceFileDownPopup().click();
 
 		Thread.sleep(10000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -2240,14 +2258,14 @@ public class All_ClientPortal_Methods extends BasePage
 		Thread.sleep(3000);
 		
 		
-/*		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+/*		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		Locators.Export().click();
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -2744,6 +2762,144 @@ public class All_ClientPortal_Methods extends BasePage
 		}
 		
 	}
+	public static void noticeDocuments(ExtentTest test) throws InterruptedException, IOException {
+		
+		
+		// 1 - Logic for Notice Document
+		Thread.sleep(3000);
+		File dir = new File("C:\\Users\\bilali\\Downloads");
+		File[] dirContents = dir.listFiles();
+
+		Thread.sleep(500);
+		try {
+			if (All_ClientPortal_Locators.NoticeDocumentDownload().isDisplayed() && All_ClientPortal_Locators.NoticeDocumentDownload().isEnabled()) {
+				All_ClientPortal_Locators.NoticeDocumentDownload().click();
+				Thread.sleep(8000);
+				File dir1 = new File("C:\\Users\\bilali\\Downloads");
+				File[] allFilesNew = dir1.listFiles();
+				Thread.sleep(3000);
+				if (dirContents.length < allFilesNew.length) {
+					Thread.sleep(5000);
+					test.log(LogStatus.PASS, " Notice Document File downloaded successfully.");
+				} else {
+					Thread.sleep(5000);
+					test.log(LogStatus.FAIL, " Notice Document File is not downloaded");
+				}
+			} else {
+				test.log(LogStatus.INFO, "Notice Document - There is no document (button not clickable).");
+			}
+		} catch (Exception e) {
+			test.log(LogStatus.INFO, "Notice Document - There is No File Available");
+		}
+
+		// 2 - Logic for Translated Notice Document
+		Thread.sleep(5000);
+		File dir2 = new File("C:\\Users\\bilali\\Downloads");
+		File[] dirContents2 = dir2.listFiles();
+
+		Thread.sleep(500);
+		try {
+			if (All_ClientPortal_Locators.NoticeTranslatedDocument().isDisplayed() && All_ClientPortal_Locators.NoticeTranslatedDocument().isEnabled()) {
+				All_ClientPortal_Locators.NoticeTranslatedDocument().click();
+				Thread.sleep(8000);
+				File dirr = new File("C:\\Users\\bilali\\Downloads");
+				File[] allFilesNew2 = dirr.listFiles();
+				Thread.sleep(3000);
+				if (dirContents2.length < allFilesNew2.length) {
+					Thread.sleep(5000);
+					test.log(LogStatus.PASS, " Notice Translated Document File downloaded successfully.");
+				} else {
+					Thread.sleep(5000);
+					test.log(LogStatus.FAIL, " Notice Translated Document File is not downloaded.");
+				}
+			} else {
+				test.log(LogStatus.INFO, "Notice Translated Document - There is no document (button not clickable).");
+			}
+		} catch (Exception e) {
+			test.log(LogStatus.INFO, "Notice Translated Document - There is No File Available");
+		}
+
+		// 3 - Logic for Extension Application Acknowledgement
+		Thread.sleep(8000);
+		File dir3 = new File("C:\\Users\\bilali\\Downloads");
+		File[] dirContents3 = dir3.listFiles();
+
+		Thread.sleep(2200);
+		try {
+			if (All_ClientPortal_Locators.NoticeApplicationAcknowledgeDocument().isDisplayed() && All_ClientPortal_Locators.NoticeApplicationAcknowledgeDocument().isEnabled()) {
+				All_ClientPortal_Locators.NoticeApplicationAcknowledgeDocument().click();
+				Thread.sleep(10000);
+				File dirrr = new File("C:\\Users\\bilali\\Downloads");
+				File[] allFilesNew3 = dirrr.listFiles();
+				Thread.sleep(3000);
+				if (dirContents3.length < allFilesNew3.length) {
+					Thread.sleep(5000);
+					test.log(LogStatus.PASS, " Notice Extension Application Acknowledgement File is downloaded successfully");
+				} else {
+					Thread.sleep(5000);
+					test.log(LogStatus.FAIL, " Notice Extension Application Acknowledgement File is not downloaded.");
+				}
+			} else {
+				test.log(LogStatus.INFO, "Notice Extension Application Acknowledgement - There is no document (button not clickable).");
+			}
+		} catch (Exception e) {
+			test.log(LogStatus.INFO, "Notice Extension Application Acknowledgement - There is No File Available");
+		}
+
+		// 4 - Logic for Draft Extension Application
+		Thread.sleep(10000);
+		File dir4 = new File("C:\\Users\\bilali\\Downloads");
+		File[] dirContents4 = dir4.listFiles();
+
+		Thread.sleep(4000);
+		try {
+			if (All_ClientPortal_Locators.DraftExtensionApplicationDocument().isDisplayed() && All_ClientPortal_Locators.DraftExtensionApplicationDocument().isEnabled()) {
+				All_ClientPortal_Locators.DraftExtensionApplicationDocument().click();
+				Thread.sleep(10000);
+				File dirrr4 = new File("C:\\Users\\bilali\\Downloads");
+				File[] allFilesNew4 = dirrr4.listFiles();
+				Thread.sleep(3000);
+				if (dirContents4.length < allFilesNew4.length) {
+					Thread.sleep(5000);
+					test.log(LogStatus.PASS, " Notice Draft Extension Application File downloaded successfully.");
+				} else {
+					Thread.sleep(5000);
+					test.log(LogStatus.FAIL, " Notice Draft Extension Application File is not downloaded.");
+				}
+			} else {
+				test.log(LogStatus.INFO, "Notice Draft Extension Application - There is no document (button not clickable).");
+			}
+		} catch (Exception e) {
+			test.log(LogStatus.INFO, "Notice Draft Extension Application - There is No File Available");
+		}
+
+		// 5 - Logic for Draft Response (Prepared by SME)
+		Thread.sleep(10000);
+		File dir5 = new File("C:\\Users\\bilali\\Downloads");
+		File[] dirContents5 = dir5.listFiles();
+
+		Thread.sleep(4000);
+		try {
+			if (All_ClientPortal_Locators.DraftResponseSMEDocument().isDisplayed() && All_ClientPortal_Locators.DraftResponseSMEDocument().isEnabled()) {
+				All_ClientPortal_Locators.DraftResponseSMEDocument().click();
+				Thread.sleep(10000);
+				File dirrr5 = new File("C:\\Users\\bilali\\Downloads");
+				File[] allFilesNew5 = dirrr5.listFiles();
+				Thread.sleep(3000);
+				if (dirContents5.length < allFilesNew5.length) {
+					Thread.sleep(5000);
+					test.log(LogStatus.PASS, " Notice Response Prepared by SME File is downloaded successfully.");
+				} else {
+					Thread.sleep(5000);
+					test.log(LogStatus.FAIL, " Notice Draft Extension Application File is not downloaded.");
+				}
+			} else {
+				test.log(LogStatus.INFO, "Notice Response Prepared by SME - There is no document (button not clickable).");
+			}
+		} catch (Exception e) {
+			test.log(LogStatus.INFO, "Notice Response Prepared by SME - There is No File Available.");
+		}
+	}
 	
 	public static void NoticeViewEditDocumentDownload(ExtentTest test) throws InterruptedException, IOException {
 		Thread.sleep(5000);
@@ -2768,14 +2924,14 @@ public class All_ClientPortal_Methods extends BasePage
 /*		
 		// 1 Logic for Notice Document
 		Thread.sleep(3000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		All_ClientPortal_Locators.NoticeDocumentDownload().click();
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {
@@ -2788,14 +2944,14 @@ public class All_ClientPortal_Methods extends BasePage
 
 		// 2 - Logic for Translated Notice Document
 		Thread.sleep(5000);
-		File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir2 = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents2 = dir2.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		All_ClientPortal_Locators.NoticeTranslatedDocument().click();
 
 		Thread.sleep(8000);
-		File dirr = new File("C:\\Users\\swapnilb\\Downloads");
+		File dirr = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew2 = dirr.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents2.length < allFilesNew2.length) {
@@ -2808,14 +2964,14 @@ public class All_ClientPortal_Methods extends BasePage
 
 		//3 Logic for Extention Application Acknowledgement
 		Thread.sleep(8000);
-		File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir3 = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents3 = dir3.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(2200);
 		All_ClientPortal_Locators.NoticeApplicationAcknowledgeDocument().click();
 
 		Thread.sleep(10000);
-		File dirrr = new File("C:\\Users\\swapnilb\\Downloads");
+		File dirrr = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew3 = dirrr.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents3.length < allFilesNew3.length) {
@@ -2828,14 +2984,14 @@ public class All_ClientPortal_Methods extends BasePage
 
 		//4 Logic for Draft Extension Application
 		Thread.sleep(10000);
-		File dir4 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir4 = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents4 = dir4.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(4000);
 		All_ClientPortal_Locators.DraftExtensionApplicationDocument().click();
 
 		Thread.sleep(10000);
-		File dirrr4 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dirrr4 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew4 = dirrr4.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents4.length < allFilesNew4.length) {
@@ -2848,14 +3004,14 @@ public class All_ClientPortal_Methods extends BasePage
 
 		//5 Logic for Draft Response (Prepared by SME)
 		Thread.sleep(10000);
-		File dir5 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir5 = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents5 = dir5.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(4000);
 		All_ClientPortal_Locators.DraftResponseSMEDocument().click();
 
 		Thread.sleep(10000);
-		File dirrr5 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dirrr5 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew5 = dirrr5.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents5.length < allFilesNew5.length) {
@@ -2870,7 +3026,7 @@ public class All_ClientPortal_Methods extends BasePage
 */
 		// 1 - Logic for Notice Document
 		Thread.sleep(3000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles();
 
 		Thread.sleep(500);
@@ -2878,7 +3034,7 @@ public class All_ClientPortal_Methods extends BasePage
 			if (All_ClientPortal_Locators.NoticeDocumentDownload().isDisplayed() && All_ClientPortal_Locators.NoticeDocumentDownload().isEnabled()) {
 				All_ClientPortal_Locators.NoticeDocumentDownload().click();
 				Thread.sleep(8000);
-				File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+				File dir1 = new File("C:\\Users\\bilali\\Downloads");
 				File[] allFilesNew = dir1.listFiles();
 				Thread.sleep(3000);
 				if (dirContents.length < allFilesNew.length) {
@@ -2897,7 +3053,7 @@ public class All_ClientPortal_Methods extends BasePage
 
 		// 2 - Logic for Translated Notice Document
 		Thread.sleep(5000);
-		File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir2 = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents2 = dir2.listFiles();
 
 		Thread.sleep(500);
@@ -2905,7 +3061,7 @@ public class All_ClientPortal_Methods extends BasePage
 			if (All_ClientPortal_Locators.NoticeTranslatedDocument().isDisplayed() && All_ClientPortal_Locators.NoticeTranslatedDocument().isEnabled()) {
 				All_ClientPortal_Locators.NoticeTranslatedDocument().click();
 				Thread.sleep(8000);
-				File dirr = new File("C:\\Users\\swapnilb\\Downloads");
+				File dirr = new File("C:\\Users\\bilali\\Downloads");
 				File[] allFilesNew2 = dirr.listFiles();
 				Thread.sleep(3000);
 				if (dirContents2.length < allFilesNew2.length) {
@@ -2924,7 +3080,7 @@ public class All_ClientPortal_Methods extends BasePage
 
 		// 3 - Logic for Extension Application Acknowledgement
 		Thread.sleep(8000);
-		File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir3 = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents3 = dir3.listFiles();
 
 		Thread.sleep(2200);
@@ -2932,7 +3088,7 @@ public class All_ClientPortal_Methods extends BasePage
 			if (All_ClientPortal_Locators.NoticeApplicationAcknowledgeDocument().isDisplayed() && All_ClientPortal_Locators.NoticeApplicationAcknowledgeDocument().isEnabled()) {
 				All_ClientPortal_Locators.NoticeApplicationAcknowledgeDocument().click();
 				Thread.sleep(10000);
-				File dirrr = new File("C:\\Users\\swapnilb\\Downloads");
+				File dirrr = new File("C:\\Users\\bilali\\Downloads");
 				File[] allFilesNew3 = dirrr.listFiles();
 				Thread.sleep(3000);
 				if (dirContents3.length < allFilesNew3.length) {
@@ -2951,7 +3107,7 @@ public class All_ClientPortal_Methods extends BasePage
 
 		// 4 - Logic for Draft Extension Application
 		Thread.sleep(10000);
-		File dir4 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir4 = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents4 = dir4.listFiles();
 
 		Thread.sleep(4000);
@@ -2959,7 +3115,7 @@ public class All_ClientPortal_Methods extends BasePage
 			if (All_ClientPortal_Locators.DraftExtensionApplicationDocument().isDisplayed() && All_ClientPortal_Locators.DraftExtensionApplicationDocument().isEnabled()) {
 				All_ClientPortal_Locators.DraftExtensionApplicationDocument().click();
 				Thread.sleep(10000);
-				File dirrr4 = new File("C:\\Users\\swapnilb\\Downloads");
+				File dirrr4 = new File("C:\\Users\\bilali\\Downloads");
 				File[] allFilesNew4 = dirrr4.listFiles();
 				Thread.sleep(3000);
 				if (dirContents4.length < allFilesNew4.length) {
@@ -2978,7 +3134,7 @@ public class All_ClientPortal_Methods extends BasePage
 
 		// 5 - Logic for Draft Response (Prepared by SME)
 		Thread.sleep(10000);
-		File dir5 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir5 = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents5 = dir5.listFiles();
 
 		Thread.sleep(4000);
@@ -2986,7 +3142,7 @@ public class All_ClientPortal_Methods extends BasePage
 			if (All_ClientPortal_Locators.DraftResponseSMEDocument().isDisplayed() && All_ClientPortal_Locators.DraftResponseSMEDocument().isEnabled()) {
 				All_ClientPortal_Locators.DraftResponseSMEDocument().click();
 				Thread.sleep(10000);
-				File dirrr5 = new File("C:\\Users\\swapnilb\\Downloads");
+				File dirrr5 = new File("C:\\Users\\bilali\\Downloads");
 				File[] allFilesNew5 = dirrr5.listFiles();
 				Thread.sleep(3000);
 				if (dirContents5.length < allFilesNew5.length) {
@@ -3378,7 +3534,7 @@ public class All_ClientPortal_Methods extends BasePage
 		
 		
 		Thread.sleep(1000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles();							
 
 		Thread.sleep(8000);
@@ -3393,7 +3549,7 @@ public class All_ClientPortal_Methods extends BasePage
 		test.log(LogStatus.PASS, "File downloaded successfully.");
 
 		Thread.sleep(5500);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles();							
 
 		if(dirContents.length < allFilesNew.length)
@@ -3483,7 +3639,7 @@ public class All_ClientPortal_Methods extends BasePage
 		
 		
 		Thread.sleep(1000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles();							
 
 		Thread.sleep(1000);
@@ -3498,7 +3654,7 @@ public class All_ClientPortal_Methods extends BasePage
 		test.log(LogStatus.PASS, "File downloaded successfully.");
 
 		Thread.sleep(5500);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles();							
 
 		if(dirContents.length < allFilesNew.length)
@@ -3654,14 +3810,14 @@ public class All_ClientPortal_Methods extends BasePage
 		
 
 		Thread.sleep(3000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		Locators.Export().click();
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -3764,7 +3920,7 @@ public class All_ClientPortal_Methods extends BasePage
 
 		
 		Thread.sleep(3000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 
@@ -3777,11 +3933,12 @@ public class All_ClientPortal_Methods extends BasePage
 	    JavascriptExecutor jse=(JavascriptExecutor) getDriver();
 	    Thread.sleep(2000);
 	    jse.executeScript("arguments[0].click();", ViewButton);
+	    jse.executeScript("arguments[0].click();", ViewButton);
 		Thread.sleep(4000);
 		
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -3912,14 +4069,14 @@ public class All_ClientPortal_Methods extends BasePage
 		Thread.sleep(8000);
 		
 		Thread.sleep(3000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		Locators.Export().click();
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -4104,12 +4261,14 @@ public class All_ClientPortal_Methods extends BasePage
 		Thread.sleep(3000);
 		
 		Thread.sleep(3000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 
 		WebDriverWait wait = new WebDriverWait(getDriver(), 140);
 		By locator = By.xpath("(//img[@title='Download'])[1]");
+		
+		By locatora = By.xpath("(//img[@title='Download'])[1]");
 		wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 		Thread.sleep(4000);
 		
@@ -4122,7 +4281,7 @@ public class All_ClientPortal_Methods extends BasePage
 		
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -4226,14 +4385,14 @@ public class All_ClientPortal_Methods extends BasePage
 		Thread.sleep(3000);
 		
 	
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(3000);
 		All_ClientPortal_Locators.DownloadBtn().click();
 
 		Thread.sleep(10000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -4255,14 +4414,20 @@ public class All_ClientPortal_Methods extends BasePage
 		Thread.sleep(3000);
 		
 	
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
-		All_ClientPortal_Locators.DownloadBtn().click();
+//		All_ClientPortal_Locators.DownloadBtn().click();
+		
+		Actions actions = new Actions(getDriver());
+		actions.doubleClick(All_ClientPortal_Locators.DownloadBtn()).perform();
+
+		
+		
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -4447,14 +4612,14 @@ public class All_ClientPortal_Methods extends BasePage
 		Thread.sleep(5000);
 		
 	
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		All_ClientPortal_Locators.Export().click();
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -4499,14 +4664,14 @@ public class All_ClientPortal_Methods extends BasePage
 		Thread.sleep(5000);
 		
 	
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		All_ClientPortal_Locators.Export().click();
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -4539,14 +4704,14 @@ public class All_ClientPortal_Methods extends BasePage
 		
 		//Downlaod Logic:--
 		Thread.sleep(3000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		All_ClientPortal_Locators.DownloadBtn().click();
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -4568,14 +4733,14 @@ public class All_ClientPortal_Methods extends BasePage
 	
 		
 	
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		All_ClientPortal_Locators.Export().click();
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -4850,14 +5015,14 @@ public class All_ClientPortal_Methods extends BasePage
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//img[contains(@title,'Overview')])[1]")));
 		Thread.sleep(8000);
 		Thread.sleep(3000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		Locators.Export().click();
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -4896,13 +5061,13 @@ public class All_ClientPortal_Methods extends BasePage
 		
 		
 		
-	File dir = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 
 	Locators.Export().click();
 
 	Thread.sleep(5500);
-	File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir1 = new File("C:\\Users\\bilali\\Downloads");
 	File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 
 	if(dirContents.length < allFilesNew.length)
@@ -4985,7 +5150,7 @@ public class All_ClientPortal_Methods extends BasePage
 	//	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//img[contains(@title,'Overview')])[1]")));
 		Thread.sleep(8000);
 		Thread.sleep(3000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
@@ -4993,7 +5158,7 @@ public class All_ClientPortal_Methods extends BasePage
 		Thread.sleep(5000);
 		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/app-root/div/app-layout/section/div/div/app-client-entity-dashboard-grid/div[3]/kendo-loader/div")));
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -5091,8 +5256,46 @@ public class All_ClientPortal_Methods extends BasePage
 		    test.log(LogStatus.FAIL, "FAIL: Mismatch. Dashboard = " + activeDashboardCount + ", Grid = " + activeGridCount);
 		}
 		
+	}
+	
+	public static void ECCompliedCountVerification(  ExtentTest test) throws InterruptedException, IOException
+	{Thread.sleep(5000);
+	
+		Thread.sleep(2000);
+		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		
+		All_ClientPortal_Locators.Complied().click();
+		Thread.sleep(8000);
+		
+//		All_ClientPortal_Locators.RCComplied().click();
+//		Thread.sleep(5000);
+				
+		test.log(LogStatus.INFO, "Compliance Performance Complied link is clickable");
+		
+		// Step 1: Get count from "Active" column hyperlink
+		WebElement activeLink = All_ClientPortal_Locators.ECComplied();
+		String activeCountText = activeLink.getText().trim(); // e.g., "22"
+		int activeDashboardCount = Integer.parseInt(activeCountText);
+		test.log(LogStatus.INFO, "Complied count from dashboard: " + activeDashboardCount);
 
+		// Step 2: Click on hyperlink to open grid
+		activeLink.click();
+		Thread.sleep(10000); // or use WebDriverWait if needed
+		test.log(LogStatus.INFO, "Complied hyper link is clickable");
+
+		// Step 3: Get grid count from top bar (e.g., "1 - 10 of 22 items")
+		WebElement gridLabel = All_ClientPortal_Locators.readTotalItemsNotice(); // use your method here
+		String gridText = gridLabel.getText().trim();
+		String[] parts = gridText.split(" ");
+		int activeGridCount = Integer.parseInt(parts[parts.length - 2]);
+		test.log(LogStatus.INFO, "Complied count found in grid: " + activeGridCount);
+
+		// Step 4: Match both counts
+		if (activeDashboardCount == activeGridCount) {
+		    test.log(LogStatus.PASS, "PASS: Complied count from dashboard matches grid count.");
+		} else {
+		    test.log(LogStatus.FAIL, "FAIL: Mismatch. Dashboard = " + activeDashboardCount + ", Grid = " + activeGridCount);
+		}
 		
 	}
 	
@@ -5253,7 +5456,7 @@ public class All_ClientPortal_Methods extends BasePage
 
 		js1.executeScript("window.scrollBy(0,-500)");
 		Thread.sleep(1000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(3000);
@@ -5261,7 +5464,7 @@ public class All_ClientPortal_Methods extends BasePage
 		Locators.Export().click();
 
 		Thread.sleep(5500);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 
 		if (dirContents.length < allFilesNew.length) {
@@ -5370,7 +5573,7 @@ public class All_ClientPortal_Methods extends BasePage
 		}
 		
 		//Download
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(5000);
@@ -5379,7 +5582,7 @@ public class All_ClientPortal_Methods extends BasePage
 		All_ClientPortal_Locators.compliancePerformanceFileDownPopup().click();
 
 		Thread.sleep(10000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -5494,7 +5697,7 @@ public class All_ClientPortal_Methods extends BasePage
 
 		js1.executeScript("window.scrollBy(0,-500)");
 		Thread.sleep(1000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(3000);
@@ -5502,7 +5705,7 @@ public class All_ClientPortal_Methods extends BasePage
 		Locators.Export().click();
 
 		Thread.sleep(5500);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 
 		if (dirContents.length < allFilesNew.length) {
@@ -6013,7 +6216,7 @@ public class All_ClientPortal_Methods extends BasePage
 		
 
 		
-//		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+//		File dir = new File("C:\\Users\\bilali\\Downloads");
 //		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 //
 //		Thread.sleep(5000);
@@ -6022,7 +6225,7 @@ public class All_ClientPortal_Methods extends BasePage
 //		All_ClientPortal_Locators.compliancePerformanceFileDownPopup().click();
 //
 //		Thread.sleep(10000);
-//		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+//		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 //		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 //		Thread.sleep(3000);
 //		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -6091,7 +6294,7 @@ public class All_ClientPortal_Methods extends BasePage
 	public static void exportECWithRegister(  ExtentTest test) throws InterruptedException, IOException
 	{
 		Thread.sleep(5000);
-		WebElement compliancedrp = getDriver().findElement(By.xpath("(//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon'])[1]"));
+		WebElement compliancedrp = getDriver().findElement(By.xpath("//kendo-dropdownlist[@role='combobox']"));
 		Thread.sleep(3000);
 		compliancedrp.click();
 		Thread.sleep(5000);
@@ -6118,7 +6321,7 @@ public class All_ClientPortal_Methods extends BasePage
 	public static void exportECWithReturn(  ExtentTest test) throws InterruptedException, IOException
 	{
 		Thread.sleep(5000);
-		WebElement compliancedrp = getDriver().findElement(By.xpath("(//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon'])[1]"));
+		WebElement compliancedrp = getDriver().findElement(By.xpath("//kendo-dropdownlist[@role='combobox']"));
 		Thread.sleep(3000);
 		compliancedrp.click();
 		Thread.sleep(5000);
@@ -6245,14 +6448,14 @@ public class All_ClientPortal_Methods extends BasePage
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//img[contains(@title,'Overview')])[1]")));
 		Thread.sleep(8000);
 		Thread.sleep(3000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		Locators.Export().click();
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -6291,13 +6494,13 @@ public class All_ClientPortal_Methods extends BasePage
 		
 		
 		
-	File dir = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 
 	Locators.Export().click();
 
 	Thread.sleep(5500);
-	File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir1 = new File("C:\\Users\\bilali\\Downloads");
 	File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 
 	if(dirContents.length < allFilesNew.length)
@@ -6462,14 +6665,14 @@ public class All_ClientPortal_Methods extends BasePage
 		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//img[contains(@title,'Overview')])[1]")));
 		Thread.sleep(8000);
 		Thread.sleep(3000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		Locators.Export().click();
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -6501,13 +6704,13 @@ public class All_ClientPortal_Methods extends BasePage
 		int count1 = Integer.parseInt(compliancesCount);
 		
 		
-	File dir = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 
 	Locators.Export().click();
 
 	Thread.sleep(5500);
-	File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir1 = new File("C:\\Users\\bilali\\Downloads");
 	File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 
 	if(dirContents.length < allFilesNew.length)
@@ -6592,14 +6795,14 @@ public class All_ClientPortal_Methods extends BasePage
 		String s = All_ClientPortal_Locators.readTotalItemsD().getText();
 		if(!s.equalsIgnoreCase("0 - 0 of 0 items")) {Thread.sleep(5000);
 		
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		Locators.Export().click();
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -6822,14 +7025,14 @@ public class All_ClientPortal_Methods extends BasePage
 		All_ClientPortal_Locators.OpenCol().click();
 		Thread.sleep(5000);
 
-/*		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+/*		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		Locators.Export().click();
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -6873,14 +7076,14 @@ public class All_ClientPortal_Methods extends BasePage
 
 		js1.executeScript("window.scrollBy(0,-500)");
 		Thread.sleep(1000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(1000);
 		All_ClientPortal_Locators.Export().click();
 
 		Thread.sleep(5500);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 
 		if (dirContents.length < allFilesNew.length) {
@@ -7204,14 +7407,14 @@ public class All_ClientPortal_Methods extends BasePage
 		All_ClientPortal_Locators.ClosedCol().click();
 		Thread.sleep(5000);
 
-/*		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+/*		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		Locators.Export().click();
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -7241,14 +7444,14 @@ public class All_ClientPortal_Methods extends BasePage
 		All_ClientPortal_Locators.Closed().click();
 		Thread.sleep(5000);
 
-/*		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+/*		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		Locators.Export().click();
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -7287,14 +7490,14 @@ public class All_ClientPortal_Methods extends BasePage
 
 		js1.executeScript("window.scrollBy(0,-500)");
 		Thread.sleep(1000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(1000);
 		All_ClientPortal_Locators.Export().click();
 
 		Thread.sleep(5500);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 
 		if (dirContents.length < allFilesNew.length) {
@@ -7436,14 +7639,14 @@ public class All_ClientPortal_Methods extends BasePage
 
 				js1.executeScript("window.scrollBy(0,-500)");
 				Thread.sleep(1000);
-				File dir = new File("C:\\Users\\swapnilb\\Downloads");
+				File dir = new File("C:\\Users\\bilali\\Downloads");
 				File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 				Thread.sleep(1000);
 				All_ClientPortal_Locators.Export().click();
 
 				Thread.sleep(5500);
-				File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+				File dir1 = new File("C:\\Users\\bilali\\Downloads");
 				File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 
 				if (dirContents.length < allFilesNew.length) {
@@ -7584,14 +7787,14 @@ public class All_ClientPortal_Methods extends BasePage
 
 		js1.executeScript("window.scrollBy(0,-500)");
 		Thread.sleep(1000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(1000);
 		All_ClientPortal_Locators.Export().click();
 
 		Thread.sleep(5500);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 
 		if (dirContents.length < allFilesNew.length) {
@@ -7694,7 +7897,7 @@ public class All_ClientPortal_Methods extends BasePage
 		
 		
 		Thread.sleep(10000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(5000);
@@ -7705,7 +7908,7 @@ public class All_ClientPortal_Methods extends BasePage
  		getDriver().findElement(By.xpath("//img[@alt='Download Document']")).click(); //After Open popup download document
  		
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -7769,7 +7972,7 @@ public class All_ClientPortal_Methods extends BasePage
 		
 		
 		Thread.sleep(10000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(5000);
@@ -7779,7 +7982,7 @@ public class All_ClientPortal_Methods extends BasePage
  		getDriver().findElement(By.xpath("//img[@alt='Download Document']")).click(); //After Open popup download document
  		
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -7854,7 +8057,7 @@ public class All_ClientPortal_Methods extends BasePage
 		
 		
 		
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles();							
 
 		Thread.sleep(1000);
@@ -7869,7 +8072,7 @@ public class All_ClientPortal_Methods extends BasePage
 		test.log(LogStatus.PASS, "File downloaded successfully.");
 
 		Thread.sleep(5500);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles();							
 
 		if(dirContents.length < allFilesNew.length)
@@ -7997,14 +8200,14 @@ public class All_ClientPortal_Methods extends BasePage
 		Thread.sleep(5000);
 		
 	
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		All_ClientPortal_Locators.DownloadBtn().click(); //Ye locator hai
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -8055,14 +8258,14 @@ public class All_ClientPortal_Methods extends BasePage
 		Thread.sleep(5000);
 		
 	
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		All_ClientPortal_Locators.Export().click();
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -8148,14 +8351,14 @@ public class All_ClientPortal_Methods extends BasePage
 		
 		All_ClientPortal_Locators.RSG_EditBtn().click();
 		
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		All_ClientPortal_Locators.Export().click();
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -8232,14 +8435,14 @@ public class All_ClientPortal_Methods extends BasePage
 		
 		All_ClientPortal_Locators.RSG_EditBtn().click();
 		
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		All_ClientPortal_Locators.DownloadBtn().click();
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -8333,14 +8536,14 @@ public class All_ClientPortal_Methods extends BasePage
 	    test.log(LogStatus.PASS,  "View successfully.");
 	    
 	    //Download:
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		All_ClientPortal_Locators.DownloadBtn().click();
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -8394,14 +8597,14 @@ public class All_ClientPortal_Methods extends BasePage
 		Thread.sleep(5000);
 		
 		//Export
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		All_ClientPortal_Locators.Export().click();
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -8440,14 +8643,14 @@ public class All_ClientPortal_Methods extends BasePage
 		
 		//Download
 		Thread.sleep(5000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		All_ClientPortal_Locators.DownloadBtn().click(); //Ye locator hai
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -8502,14 +8705,14 @@ public class All_ClientPortal_Methods extends BasePage
 	    	
 	    	
 	    	//Export
-			File dir = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir = new File("C:\\Users\\bilali\\Downloads");
 			File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 			Thread.sleep(500);
 			All_ClientPortal_Locators.Export().click();
 
 			Thread.sleep(8000);
-			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir1 = new File("C:\\Users\\bilali\\Downloads");
 			File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 			Thread.sleep(3000);
 			if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -8548,7 +8751,7 @@ public class All_ClientPortal_Methods extends BasePage
 	    
 	    
 	    //Download:
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(5000);
@@ -8557,7 +8760,7 @@ public class All_ClientPortal_Methods extends BasePage
 //		All_ClientPortal_Locators.compliancePerformanceFileDownPopup().click();
 
 		Thread.sleep(10000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -8672,7 +8875,7 @@ public class All_ClientPortal_Methods extends BasePage
 		
 		
 		Thread.sleep(6000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 	
 		Thread.sleep(6000);
@@ -8680,7 +8883,7 @@ public class All_ClientPortal_Methods extends BasePage
 		
 	
 		Thread.sleep(5500);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 	
 		if(dirContents.length < allFilesNew.length)
@@ -9045,14 +9248,14 @@ public class All_ClientPortal_Methods extends BasePage
    	 
    		Thread.sleep(3000);
 
-   		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+   		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		All_ClientPortal_Locators.Template().click();
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -9453,14 +9656,14 @@ public class All_ClientPortal_Methods extends BasePage
   		Thread.sleep(3000);
   		All_ClientPortal_Locators.HistoryIU1().click();
   		Thread.sleep(3000);
-  		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+  		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		All_ClientPortal_Locators.InputHistoryD().click();
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -9493,14 +9696,14 @@ public class All_ClientPortal_Methods extends BasePage
    	 
    		Thread.sleep(3000);
 
-   		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+   		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		All_ClientPortal_Locators.Template1().click();
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -9932,14 +10135,14 @@ public class All_ClientPortal_Methods extends BasePage
     		Thread.sleep(5000);
     		All_ClientPortal_Locators.HistoryIU1().click();
     		Thread.sleep(5000);
-    		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+    		File dir = new File("C:\\Users\\bilali\\Downloads");
   		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
   		Thread.sleep(4000);
   		All_ClientPortal_Locators.InputHistoryD().click();
 
   		Thread.sleep(8000);
-  		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+  		File dir1 = new File("C:\\Users\\bilali\\Downloads");
   		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
   		Thread.sleep(6000);
   		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -9983,14 +10186,14 @@ public class All_ClientPortal_Methods extends BasePage
 		// 1 Logic for Attendance File download
         //All_ClientPortal_Locators.inputFinalUploadDownload1();
 
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(3000);
 		All_ClientPortal_Locators.inputFinalUploadDownload1().click();
 
 		Thread.sleep(10000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {
@@ -10037,14 +10240,14 @@ public class All_ClientPortal_Methods extends BasePage
 		// Logic for Salary File download
 		// All_ClientPortal_Locators.inputFinalUploadDownload2();
 
-		File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir2 = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents2 = dir2.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(3000);
 		All_ClientPortal_Locators.inputFinalUploadDownload2().click();
 
 		Thread.sleep(10000);
-		File dir12 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir12 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew2 = dir12.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents2.length < allFilesNew2.length) {
@@ -10287,14 +10490,14 @@ public class All_ClientPortal_Methods extends BasePage
    		All_ClientPortal_Locators.Apply().click();
    		Thread.sleep(4000);
 
-   		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+   		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(4000);
 		All_ClientPortal_Locators.Template().click();
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(5000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -10768,14 +10971,14 @@ public class All_ClientPortal_Methods extends BasePage
        		Thread.sleep(4000);
     		All_ClientPortal_Locators.HistoryIU().click();
     		Thread.sleep(3000);
-    		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+    		File dir = new File("C:\\Users\\bilali\\Downloads");
   		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
   		Thread.sleep(500);
   		All_ClientPortal_Locators.InputHistoryD().click();
 
   		Thread.sleep(8000);
-  		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+  		File dir1 = new File("C:\\Users\\bilali\\Downloads");
   		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
   		Thread.sleep(3000);
   		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -10815,14 +11018,14 @@ public class All_ClientPortal_Methods extends BasePage
    		All_ClientPortal_Locators.Apply().click();
    		Thread.sleep(4000);
 
-   		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+   		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		All_ClientPortal_Locators.Template().click();
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -10937,14 +11140,14 @@ public class All_ClientPortal_Methods extends BasePage
 		jse.executeScript("arguments[0].click();", ViewButton);
 		Thread.sleep(4000);
 
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		All_ClientPortal_Locators.Template().click();
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {
@@ -11506,14 +11709,14 @@ public class All_ClientPortal_Methods extends BasePage
        		Thread.sleep(4000);
     		All_ClientPortal_Locators.HistoryIU().click();
     		Thread.sleep(3000);
-    		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+    		File dir = new File("C:\\Users\\bilali\\Downloads");
   		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
   		Thread.sleep(500);
   		All_ClientPortal_Locators.InputHistoryD().click();
 
   		Thread.sleep(8000);
-  		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+  		File dir1 = new File("C:\\Users\\bilali\\Downloads");
   		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
   		Thread.sleep(3000);
   		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -12010,7 +12213,7 @@ public class All_ClientPortal_Methods extends BasePage
 	        
 	        js1.executeScript("window.scrollBy(0,-500)");
 		Thread.sleep(1000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 	
 		Thread.sleep(1000);
@@ -12018,7 +12221,7 @@ public class All_ClientPortal_Methods extends BasePage
 		
 	
 		Thread.sleep(5500);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 	
 		if(dirContents.length < allFilesNew.length)
@@ -12639,7 +12842,7 @@ public class All_ClientPortal_Methods extends BasePage
 		All_ClientPortal_Locators.ExistingLicesne().click();
 
 		Thread.sleep(1000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 	
 		Thread.sleep(1000);
@@ -12647,7 +12850,7 @@ public class All_ClientPortal_Methods extends BasePage
 		
 	
 		Thread.sleep(5500);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 	
 		if(dirContents.length < allFilesNew.length)
@@ -12983,14 +13186,14 @@ public class All_ClientPortal_Methods extends BasePage
 		
 		
 		Thread.sleep(5000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(3000);
 		All_ClientPortal_Locators.DownloadBtn().click();
 
 		Thread.sleep(10000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -13033,7 +13236,7 @@ public static void ExistingLicenseSubActivityViewandDownload(ExtentTest test) th
 	
 	
 //	Thread.sleep(2000);
-//	File dir = new File("C:\\Users\\swapnilb\\Downloads");
+//	File dir = new File("C:\\Users\\bilali\\Downloads");
 //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 //
 //	
@@ -13049,7 +13252,7 @@ public static void ExistingLicenseSubActivityViewandDownload(ExtentTest test) th
 //
 //	
 //	Thread.sleep(5000);
-//	File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+//	File dir1 = new File("C:\\Users\\bilali\\Downloads");
 //	File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 //
 //	Thread.sleep(2000);
@@ -13086,7 +13289,7 @@ public static void ExistingLicenseSubActivityViewandDownload(ExtentTest test) th
 	
 	
 	Thread.sleep(2000);
-	File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir3 = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents1 = dir3.listFiles();							//Counting number of files in directory before download 
 
 	
@@ -13095,7 +13298,7 @@ public static void ExistingLicenseSubActivityViewandDownload(ExtentTest test) th
 	All_ClientPortal_Locators.downloadLicenseDoc().click();
 	
 	Thread.sleep(5500);
-	File dir2= new File("C:\\Users\\swapnilb\\Downloads");
+	File dir2= new File("C:\\Users\\bilali\\Downloads");
 	File[] allFilesNew1 = dir2.listFiles();							//Counting number of files in directory after download
 
 	if(dirContents1.length < allFilesNew1.length)
@@ -13410,7 +13613,7 @@ public static void RegistrationRepositoryExportBtn( ExtentTest test,XSSFWorkbook
         
         js1.executeScript("window.scrollBy(0,-500)");
 	Thread.sleep(1000);
-	File dir = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 
 	Thread.sleep(1000);
@@ -13418,7 +13621,7 @@ public static void RegistrationRepositoryExportBtn( ExtentTest test,XSSFWorkbook
 	
 
 	Thread.sleep(10000);
-	File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir1 = new File("C:\\Users\\bilali\\Downloads");
 	File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 
 	if(dirContents.length < allFilesNew.length)
@@ -13912,7 +14115,7 @@ public static void NoticeExportBtn(ExtentTest test) throws InterruptedException,
      
      js1.executeScript("window.scrollBy(0,-500)");
 	Thread.sleep(1000);
-	File dir = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 
 	Thread.sleep(1000);
@@ -13920,7 +14123,7 @@ public static void NoticeExportBtn(ExtentTest test) throws InterruptedException,
 	
 
 	Thread.sleep(5500);
-	File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir1 = new File("C:\\Users\\bilali\\Downloads");
 	File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 
 	if(dirContents.length < allFilesNew.length)
@@ -14004,7 +14207,7 @@ public static void NoticeEditDownloadView(ExtentTest test) throws InterruptedExc
 
 	
 	Thread.sleep(2000);
-	File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir3 = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents1 = dir3.listFiles();							//Counting number of files in directory before download 
 
 	
@@ -14013,7 +14216,7 @@ public static void NoticeEditDownloadView(ExtentTest test) throws InterruptedExc
 	All_ClientPortal_Locators.clickDownload().click();
 	
 	Thread.sleep(5500);
-	File dir2= new File("C:\\Users\\swapnilb\\Downloads");
+	File dir2= new File("C:\\Users\\bilali\\Downloads");
 	File[] allFilesNew1 = dir2.listFiles();							//Counting number of files in directory after download
 
 	if(dirContents1.length < allFilesNew1.length)
@@ -14276,14 +14479,14 @@ public static void NoticeEditDocumentRepositoryDownload(ExtentTest test) throws 
 	
 /*	// 1 Logic for Notice Document
 	Thread.sleep(3000);
-	File dir = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 	Thread.sleep(500);
 	All_ClientPortal_Locators.NoticeDocumentDownload().click();
 
 	Thread.sleep(8000);
-	File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir1 = new File("C:\\Users\\bilali\\Downloads");
 	File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 	Thread.sleep(3000);
 	if (dirContents.length < allFilesNew.length) {
@@ -14296,14 +14499,14 @@ public static void NoticeEditDocumentRepositoryDownload(ExtentTest test) throws 
 
 	// 2 - Logic for Translated Notice Document
 	Thread.sleep(5000);
-	File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir2 = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents2 = dir2.listFiles(); // Counting number of files in directory before download
 
 	Thread.sleep(500);
 	All_ClientPortal_Locators.NoticeTranslatedDocument().click();
 
 	Thread.sleep(8000);
-	File dirr = new File("C:\\Users\\swapnilb\\Downloads");
+	File dirr = new File("C:\\Users\\bilali\\Downloads");
 	File[] allFilesNew2 = dirr.listFiles(); // Counting number of files in directory after download
 	Thread.sleep(3000);
 	if (dirContents2.length < allFilesNew2.length) {
@@ -14316,14 +14519,14 @@ public static void NoticeEditDocumentRepositoryDownload(ExtentTest test) throws 
 
 	//3 Logic for Extention Application Acknowledgement
 	Thread.sleep(8000);
-	File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir3 = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents3 = dir3.listFiles(); // Counting number of files in directory before download
 
 	Thread.sleep(2200);
 	All_ClientPortal_Locators.NoticeApplicationAcknowledgeDocument().click();
 
 	Thread.sleep(10000);
-	File dirrr = new File("C:\\Users\\swapnilb\\Downloads");
+	File dirrr = new File("C:\\Users\\bilali\\Downloads");
 	File[] allFilesNew3 = dirrr.listFiles(); // Counting number of files in directory after download
 	Thread.sleep(3000);
 	if (dirContents3.length < allFilesNew3.length) {
@@ -14336,14 +14539,14 @@ public static void NoticeEditDocumentRepositoryDownload(ExtentTest test) throws 
 
 	//4 Logic for Draft Extension Application
 	Thread.sleep(10000);
-	File dir4 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir4 = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents4 = dir4.listFiles(); // Counting number of files in directory before download
 
 	Thread.sleep(4000);
 	All_ClientPortal_Locators.DraftExtensionApplicationDocument().click();
 
 	Thread.sleep(10000);
-	File dirrr4 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dirrr4 = new File("C:\\Users\\bilali\\Downloads");
 	File[] allFilesNew4 = dirrr4.listFiles(); // Counting number of files in directory after download
 	Thread.sleep(3000);
 	if (dirContents4.length < allFilesNew4.length) {
@@ -14356,14 +14559,14 @@ public static void NoticeEditDocumentRepositoryDownload(ExtentTest test) throws 
 
 	//5 Logic for Draft Response (Prepared by SME)
 	Thread.sleep(10000);
-	File dir5 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir5 = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents5 = dir5.listFiles(); // Counting number of files in directory before download
 
 	Thread.sleep(4000);
 	All_ClientPortal_Locators.DraftResponseSMEDocument().click();
 
 	Thread.sleep(10000);
-	File dirrr5 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dirrr5 = new File("C:\\Users\\bilali\\Downloads");
 	File[] allFilesNew5 = dirrr5.listFiles(); // Counting number of files in directory after download
 	Thread.sleep(3000);
 	if (dirContents5.length < allFilesNew5.length) {
@@ -14380,7 +14583,7 @@ public static void NoticeEditDocumentRepositoryDownload(ExtentTest test) throws 
 	
 	// 1 - Logic for Notice Document
 	Thread.sleep(3000);
-	File dir = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents = dir.listFiles();
 
 	Thread.sleep(500);
@@ -14388,7 +14591,7 @@ public static void NoticeEditDocumentRepositoryDownload(ExtentTest test) throws 
 		if (All_ClientPortal_Locators.NoticeDocumentDownload().isDisplayed() && All_ClientPortal_Locators.NoticeDocumentDownload().isEnabled()) {
 			All_ClientPortal_Locators.NoticeDocumentDownload().click();
 			Thread.sleep(8000);
-			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir1 = new File("C:\\Users\\bilali\\Downloads");
 			File[] allFilesNew = dir1.listFiles();
 			Thread.sleep(3000);
 			if (dirContents.length < allFilesNew.length) {
@@ -14407,7 +14610,7 @@ public static void NoticeEditDocumentRepositoryDownload(ExtentTest test) throws 
 
 	// 2 - Logic for Translated Notice Document
 	Thread.sleep(5000);
-	File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir2 = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents2 = dir2.listFiles();
 
 	Thread.sleep(500);
@@ -14415,7 +14618,7 @@ public static void NoticeEditDocumentRepositoryDownload(ExtentTest test) throws 
 		if (All_ClientPortal_Locators.NoticeTranslatedDocument().isDisplayed() && All_ClientPortal_Locators.NoticeTranslatedDocument().isEnabled()) {
 			All_ClientPortal_Locators.NoticeTranslatedDocument().click();
 			Thread.sleep(8000);
-			File dirr = new File("C:\\Users\\swapnilb\\Downloads");
+			File dirr = new File("C:\\Users\\bilali\\Downloads");
 			File[] allFilesNew2 = dirr.listFiles();
 			Thread.sleep(3000);
 			if (dirContents2.length < allFilesNew2.length) {
@@ -14434,7 +14637,7 @@ public static void NoticeEditDocumentRepositoryDownload(ExtentTest test) throws 
 
 	// 3 - Logic for Extension Application Acknowledgement
 	Thread.sleep(8000);
-	File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir3 = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents3 = dir3.listFiles();
 
 	Thread.sleep(2200);
@@ -14442,7 +14645,7 @@ public static void NoticeEditDocumentRepositoryDownload(ExtentTest test) throws 
 		if (All_ClientPortal_Locators.NoticeApplicationAcknowledgeDocument().isDisplayed() && All_ClientPortal_Locators.NoticeApplicationAcknowledgeDocument().isEnabled()) {
 			All_ClientPortal_Locators.NoticeApplicationAcknowledgeDocument().click();
 			Thread.sleep(10000);
-			File dirrr = new File("C:\\Users\\swapnilb\\Downloads");
+			File dirrr = new File("C:\\Users\\bilali\\Downloads");
 			File[] allFilesNew3 = dirrr.listFiles();
 			Thread.sleep(3000);
 			if (dirContents3.length < allFilesNew3.length) {
@@ -14461,7 +14664,7 @@ public static void NoticeEditDocumentRepositoryDownload(ExtentTest test) throws 
 
 	// 4 - Logic for Draft Extension Application
 	Thread.sleep(10000);
-	File dir4 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir4 = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents4 = dir4.listFiles();
 
 	Thread.sleep(4000);
@@ -14469,7 +14672,7 @@ public static void NoticeEditDocumentRepositoryDownload(ExtentTest test) throws 
 		if (All_ClientPortal_Locators.DraftExtensionApplicationDocument().isDisplayed() && All_ClientPortal_Locators.DraftExtensionApplicationDocument().isEnabled()) {
 			All_ClientPortal_Locators.DraftExtensionApplicationDocument().click();
 			Thread.sleep(10000);
-			File dirrr4 = new File("C:\\Users\\swapnilb\\Downloads");
+			File dirrr4 = new File("C:\\Users\\bilali\\Downloads");
 			File[] allFilesNew4 = dirrr4.listFiles();
 			Thread.sleep(3000);
 			if (dirContents4.length < allFilesNew4.length) {
@@ -14488,7 +14691,7 @@ public static void NoticeEditDocumentRepositoryDownload(ExtentTest test) throws 
 
 	// 5 - Logic for Draft Response (Prepared by SME)
 	Thread.sleep(10000);
-	File dir5 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir5 = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents5 = dir5.listFiles();
 
 	Thread.sleep(4000);
@@ -14496,7 +14699,7 @@ public static void NoticeEditDocumentRepositoryDownload(ExtentTest test) throws 
 		if (All_ClientPortal_Locators.DraftResponseSMEDocument().isDisplayed() && All_ClientPortal_Locators.DraftResponseSMEDocument().isEnabled()) {
 			All_ClientPortal_Locators.DraftResponseSMEDocument().click();
 			Thread.sleep(10000);
-			File dirrr5 = new File("C:\\Users\\swapnilb\\Downloads");
+			File dirrr5 = new File("C:\\Users\\bilali\\Downloads");
 			File[] allFilesNew5 = dirrr5.listFiles();
 			Thread.sleep(3000);
 			if (dirContents5.length < allFilesNew5.length) {
@@ -14733,9 +14936,9 @@ public static void StateDocZipFile(ExtentTest test) throws InterruptedException
 	All_ClientPortal_Locators.ClickApplyBtn().click();
 	
 
-	//String FilePath= "C:\\Users\\swapnilb\\Downloads\\AVAAEntity_2024_SEA_MAH_BranchNashik.zip";
+	//String FilePath= "C:\\Users\\bilali\\Downloads\\AVAAEntity_2024_SEA_MAH_BranchNashik.zip";
 	Thread.sleep(9000);
-	File dir = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 
 	Thread.sleep(4000);
@@ -14746,7 +14949,7 @@ public static void StateDocZipFile(ExtentTest test) throws InterruptedException
 	
 
 	Thread.sleep(4000);
-	File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir1 = new File("C:\\Users\\bilali\\Downloads");
 	File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 
 	Thread.sleep(4000);
@@ -14926,7 +15129,7 @@ public static void StatutoryDocBulkDownload(ExtentTest test) throws InterruptedE
 	
 	
 	Thread.sleep(9000);
-	File dir = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 
 	Thread.sleep(1000);
@@ -14935,7 +15138,7 @@ public static void StatutoryDocBulkDownload(ExtentTest test) throws InterruptedE
 		
 
 	Thread.sleep(4000);
-	File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir1 = new File("C:\\Users\\bilali\\Downloads");
 	File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 
 	Thread.sleep(4000);
@@ -14996,7 +15199,7 @@ public static void ChallanDoc(ExtentTest test) throws InterruptedException
 	Thread.sleep(1000);
 	All_ClientPortal_Locators.clickPeriod().click();
 	Thread.sleep(1000);
-	All_ClientPortal_Locators.selectComplianceType1().click();
+	All_ClientPortal_Locators.inputperiodDrpSelect1().click();
 	Thread.sleep(1000);
 	All_ClientPortal_Locators.clickYear().click();
 	Thread.sleep(1000);
@@ -15009,9 +15212,9 @@ public static void ChallanDoc(ExtentTest test) throws InterruptedException
 	
 	
 
-	//String FilePath= "C:\\Users\\swapnilb\\Downloads\\AVAAEntity_2024_SEA_MAH_BranchNashik.zip";
+	//String FilePath= "C:\\Users\\bilali\\Downloads\\AVAAEntity_2024_SEA_MAH_BranchNashik.zip";
 	Thread.sleep(9000);
-	File dir = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 
 	Thread.sleep(4000);
@@ -15022,7 +15225,7 @@ public static void ChallanDoc(ExtentTest test) throws InterruptedException
 	
 
 	Thread.sleep(4000);
-	File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir1 = new File("C:\\Users\\bilali\\Downloads");
 	File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 
 	Thread.sleep(4000);
@@ -15108,7 +15311,7 @@ public static void ChallanComplianceDoc(ExtentTest test) throws InterruptedExcep
 	Thread.sleep(1000);
 	All_ClientPortal_Locators.clickPeriod().click();
 	Thread.sleep(1000);
-	All_ClientPortal_Locators.selectComplianceType1().click();
+	All_ClientPortal_Locators.inputperiodDrpSelect1().click();
 	Thread.sleep(1000);
 	All_ClientPortal_Locators.clickYear().click();
 	Thread.sleep(1000);
@@ -15120,9 +15323,9 @@ public static void ChallanComplianceDoc(ExtentTest test) throws InterruptedExcep
 	All_ClientPortal_Locators.ClickApplyBtn().click();
 	
 	
-	//String FilePath= "C:\\Users\\swapnilb\\Downloads\\AVAAEntity_2024_SEA_MAH_BranchNashik.zip";
+	//String FilePath= "C:\\Users\\bilali\\Downloads\\AVAAEntity_2024_SEA_MAH_BranchNashik.zip";
 	Thread.sleep(9000);
-	File dir = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 
 	Thread.sleep(4000);
@@ -15133,7 +15336,7 @@ public static void ChallanComplianceDoc(ExtentTest test) throws InterruptedExcep
 	
 
 	Thread.sleep(4000);
-	File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir1 = new File("C:\\Users\\bilali\\Downloads");
 	File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 
 	Thread.sleep(4000);
@@ -15218,7 +15421,7 @@ public static void ChallanViewBranches(ExtentTest test) throws InterruptedExcept
 	Thread.sleep(1000);
 	All_ClientPortal_Locators.clickPeriod().click();
 	Thread.sleep(1000);
-	All_ClientPortal_Locators.selectComplianceType1().click();
+	All_ClientPortal_Locators.inputperiodDrpSelect1().click();
 	Thread.sleep(1000);
 	All_ClientPortal_Locators.clickYear().click();
 	Thread.sleep(1000);
@@ -15286,7 +15489,7 @@ public static void ChallanViewWorkingFile(ExtentTest test) throws InterruptedExc
 	Thread.sleep(1000);
 	All_ClientPortal_Locators.clickPeriod().click();
 	Thread.sleep(1000);
-	All_ClientPortal_Locators.selectComplianceType1().click();
+	All_ClientPortal_Locators.inputperiodDrpSelect1().click();
 	Thread.sleep(1000);
 	All_ClientPortal_Locators.clickYear().click();
 	Thread.sleep(1000);
@@ -15347,7 +15550,7 @@ public static void ChallanViewComplianceFile(ExtentTest test) throws Interrupted
 	Thread.sleep(1000);
 	All_ClientPortal_Locators.clickPeriod().click();
 	Thread.sleep(1000);
-	All_ClientPortal_Locators.selectComplianceType1().click();
+	All_ClientPortal_Locators.inputperiodDrpSelect1().click();
 	Thread.sleep(1000);
 	All_ClientPortal_Locators.clickYear().click();
 	Thread.sleep(1000);
@@ -15409,7 +15612,7 @@ public static void ChallanDocBulkDownload(ExtentTest test) throws InterruptedExc
 	Thread.sleep(1000);
 	All_ClientPortal_Locators.clickPeriod().click();
 	Thread.sleep(1000);
-	All_ClientPortal_Locators.selectComplianceType1().click();
+	All_ClientPortal_Locators.inputperiodDrpSelect1().click();
 	Thread.sleep(1000);
 	All_ClientPortal_Locators.clickYear().click();
 	Thread.sleep(1000);
@@ -15425,7 +15628,7 @@ public static void ChallanDocBulkDownload(ExtentTest test) throws InterruptedExc
 	
 	
 	Thread.sleep(9000);
-	File dir = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 
 	Thread.sleep(1000);
@@ -15434,7 +15637,7 @@ public static void ChallanDocBulkDownload(ExtentTest test) throws InterruptedExc
 		
 
 	Thread.sleep(4000);
-	File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir1 = new File("C:\\Users\\bilali\\Downloads");
 	File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 
 	Thread.sleep(4000);
@@ -15544,7 +15747,7 @@ public static void RegionalDocDownload(ExtentTest test) throws InterruptedExcept
 	All_ClientPortal_Locators.selectComplianceType1().click();
 
 	Thread.sleep(9000);
-	File dir = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 
 	Thread.sleep(1000);
@@ -15553,7 +15756,7 @@ public static void RegionalDocDownload(ExtentTest test) throws InterruptedExcept
 		
 
 	Thread.sleep(30000);
-	File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir1 = new File("C:\\Users\\bilali\\Downloads");
 	File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 
 	Thread.sleep(30000);
@@ -15664,7 +15867,7 @@ public static void EnglishDocDownload(ExtentTest test) throws InterruptedExcepti
 	All_ClientPortal_Locators.selectComplianceType1().click();
 
 	Thread.sleep(9000);
-	File dir = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 
 	Thread.sleep(10000);
@@ -15673,7 +15876,7 @@ public static void EnglishDocDownload(ExtentTest test) throws InterruptedExcepti
 		
 
 	Thread.sleep(10000);
-	File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir1 = new File("C:\\Users\\bilali\\Downloads");
 	File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 
 	Thread.sleep(4000);
@@ -15885,14 +16088,14 @@ public static void MultipleDocument( ExtentTest test) throws InterruptedExceptio
 	All_ClientPortal_Locators.CheckBox3().click();
 	Thread.sleep(500);
 	
-	File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir2 = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 	
 	Thread.sleep(9000);
 	All_ClientPortal_Locators.Download().click();
 	
  	Thread.sleep(18000);
-	File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir3 = new File("C:\\Users\\bilali\\Downloads");
 	File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 	
    
@@ -15951,14 +16154,14 @@ public static void MyDocument( ExtentTest test) throws InterruptedException, IOE
 	LoginLocators.ApplyButton().click();
 	Thread.sleep(3000);
 	
-	File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir2 = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 	
 	Thread.sleep(9000);
 	All_ClientPortal_Locators.Downloads().click();
 	
  	Thread.sleep(18000);
-	File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir3 = new File("C:\\Users\\bilali\\Downloads");
 	File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 	
    
@@ -16484,14 +16687,14 @@ public static void waitForLoaderToDisappear() {
 
 public static void verifyFileDownload(By downloadButtonLocator, ExtentTest test) {
     try {
-        File dirBefore = new File("C:\\Users\\swapnilb\\Downloads");
+        File dirBefore = new File("C:\\Users\\bilali\\Downloads");
         File[] filesBefore = dirBefore.listFiles();
 
         Thread.sleep(500);
         getDriver().findElement(downloadButtonLocator).click(); // Download button click
 
         Thread.sleep(8000); // Wait for download to complete
-        File dirAfter = new File("C:\\Users\\swapnilb\\Downloads");
+        File dirAfter = new File("C:\\Users\\bilali\\Downloads");
         File[] filesAfter = dirAfter.listFiles();
 
         Thread.sleep(3000);

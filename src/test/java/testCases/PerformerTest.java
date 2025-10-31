@@ -67,7 +67,7 @@ public class PerformerTest extends BasePage {
 	@BeforeMethod
 	void Login() throws InterruptedException, IOException
 	{
-		initialization(link,1,"Statutory");
+		Initialization(link,1,"Statutory");
 		
 		XSSFSheet sheet = ReadExcel(count);
 		Row row0 = sheet.getRow(0);						//Selected 0th index row (First row)

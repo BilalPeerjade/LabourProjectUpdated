@@ -93,6 +93,28 @@ public class ESI extends BasePage{
 
 	}
 	
+// 	int year = 0;
+// 	
+// 	if(year <= 2019) {
+// 	    
+// 	}
+// 	if(year > 2020) {
+// 		
+// 	}
+	
+	
+//	int year = 2019;
+//	int month = 12; // 1 = Jan, 2 = Feb, ... 12 = Dec
+//
+//	if (year < 2019 || (year == 2019 && month <= 12)) {
+//	    System.out.println("Before or in Dec 2019");
+//	}
+//
+//	if (year > 2020 || (year == 2020 && month >= 1)) {
+//	    System.out.println("After or in Jan 2020");
+//	}
+
+
 	
 	
 	
@@ -195,18 +217,50 @@ public class ESI extends BasePage{
 	
 	
 	@Test(priority = 1)
+	void challan_ESI_400100_Pending_EmployeeNo() throws InterruptedException, IOException, AWTException 
+	{
+		test = extent.startTest("ESI Code wise - 400100 - Pending - Validate Employee No are reflecting correctly");
+		ESI_Methods.challan_ESI_400100_Pending_EmployeeNO(test, "Performer");
+
+		extent.endTest(test);
+		extent.flush();
+	} 
+	@Test(priority = 1)
 	void challan_ESI_400100_Pending_EmployeeID() throws InterruptedException, IOException, AWTException 
 	{
-		test = extent.startTest("ESI Code wise - 400100 - All Emp Workings - Validate Employee No are reflecting correctly");
+		test = extent.startTest("ESI Code wise - 400100 - Pending - Validate Employee Names are reflecting correctly");
 		ESI_Methods.challan_ESI_400100_Pending_EmployeeID(test, "Performer");
 
 		extent.endTest(test);
 		extent.flush();
 	} 
 	
+	@Test(priority = 1)
+	void challan_ESI_400100_Pending_Location() throws InterruptedException, IOException, AWTException 
+	{
+		test = extent.startTest("ESI Code wise - 400100 - Pending - Validate Locations are reflecting correctly");
+		ESI_Methods.challan_ESI_400100_Pending_Location(test, "Performer");
+		extent.endTest(test);
+		extent.flush();
+	}
 	
+	@Test(priority = 1)
+	void challan_ESI_400100_Pending_ESI_NO() throws InterruptedException, IOException, AWTException 
+	{
+		test = extent.startTest("ESI Code wise - 400100 - Pending - Validate ESI NOs are reflecting correctly");
+		ESI_Methods.challan_ESI_400100_Pending_ESI_NO(test, "Performer");
+		extent.endTest(test);
+		extent.flush();
+	}
 	
-	
+	@Test(priority = 1)
+	void challan_ESI_400100_Pending_ClientESICode() throws InterruptedException, IOException, AWTException 
+	{
+		test = extent.startTest("ESI Code wise - 400100 - Pending - Validate Client ESI Code are reflecting correctly");
+		ESI_Methods.challan_ESI_400100_Pending_ClientESICode(test, "Performer");
+		extent.endTest(test);
+		extent.flush();
+	}
 	
 	
 	

@@ -620,7 +620,7 @@ public class OneCommonMethod {
             // Use WebElement directly
             downloadButton.click();
 
-            Thread.sleep(8000);
+            Thread.sleep(10000);
 
             File[] filesAfter = downloadDir.listFiles();
             Thread.sleep(3000);
@@ -661,13 +661,13 @@ public class OneCommonMethod {
             File downloadDir = new File(downloadPath);
             File[] filesBefore = downloadDir.listFiles();
 
-            Thread.sleep(5000);
-
-            downloadButton.click();
             Thread.sleep(8000);
 
+            downloadButton.click();
+            Thread.sleep(15000);
+
             File[] filesAfter = downloadDir.listFiles();
-            Thread.sleep(3000);
+            Thread.sleep(8000);
 
             File downloadedFile = null;
             if (filesAfter.length > filesBefore.length) {
@@ -685,7 +685,7 @@ public class OneCommonMethod {
                     }
                 }
             }
-            Thread.sleep(3000);
+            Thread.sleep(5000);
 
             if (downloadedFile != null) {
                 test.log(LogStatus.PASS, "" + logMessage);
@@ -948,7 +948,7 @@ public class OneCommonMethod {
 	                     " (Value changed from '" + originalValue + "' to '" + afterValue + "')");
 	        }
 	    } catch (Exception e) {
-	 //       test.log(LogStatus.FAIL, "Exception while checking non-editable status of " + fieldName + ": " + e.getMessage());
+	          System.out.println("");
 	    }
 	}
 	

@@ -34,6 +34,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import clientPortal.All_ClientPortal_Locators;
+import coordinator.CoordinatorMethod;
 import login.BasePage;
 import login.LoginLocators;
 import performer.LocatorsP;
@@ -43,7 +44,7 @@ import rcp.OneCommonMethod;
 public class All_Distributor_Methods extends BasePage {
 	private static List<WebElement> elementsList = null;
 
-	static String filePath = "D:\\AutomationLabour\\LabourProjectUpdated\\TestData\\Labour2.xlsx";
+	static String filePath = "D:\\Labour Angular\\LabourMergeProject\\LabourMergeProject\\TestData\\Labour2.xlsx";
 
 	public static void StateMaster(ExtentTest test) throws InterruptedException, IOException {
 
@@ -260,7 +261,7 @@ public class All_Distributor_Methods extends BasePage {
 		Robot robot = new Robot();
 
 		StringSelection filepath = new StringSelection(
-				"D:\\AutomationLabourFiles\\Test_Jpg.jpg");
+				"D:\\Upload Automation Files\\Other Upload No need to change\\testJPEG.jpeg");
 		// copy above file to clipboard
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 
@@ -815,7 +816,7 @@ public class All_Distributor_Methods extends BasePage {
 		Robot robot = new Robot();
 		Thread.sleep(5000);
 		StringSelection filepath = new StringSelection(
-				"D:\\AutomationLabourFiles\\DesignationSamplee.xlsx");
+				"D:\\Upload Automation Files\\Other Upload No need to change\\DesignationSample.xlsx");
 		// copy above file to clipboard
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 
@@ -889,7 +890,7 @@ public class All_Distributor_Methods extends BasePage {
 		Robot robot = new Robot();
 		Thread.sleep(5000);
 		StringSelection filepath = new StringSelection(
-				"D:\\AutomationLabourFiles\\DesignationSamplee.xlsx");
+				"D:\\Upload Automation Files\\Other Upload No need to change\\DesignationSample.xlsx");
 		// copy above file to clipboard
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 
@@ -1290,8 +1291,9 @@ public class All_Distributor_Methods extends BasePage {
 		Thread.sleep(1000);
 		Robot robot = new Robot();
 		Thread.sleep(5000);
-		OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\SampleHolidayMaster.xlsx");
-//		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\SampleHolidayMaster.xlsx");
+		OneCommonMethod.uploadUsingRobot(
+				"D:\\Upload Automation Files\\Other Upload No need to change\\SampleHolidayMaster.xlsx");
+//		 StringSelection filepath= new  StringSelection("D:\\Upload Automation Files\\Other Upload No need to change\\SampleHolidayMaster.xlsx");
 		/*
 		 * Thread.sleep(1000); //copy above file to clipboard
 		 * Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
@@ -1362,30 +1364,11 @@ public class All_Distributor_Methods extends BasePage {
 		DistributerLocators.clickBrowse1().click();
 
 		Robot robot = new Robot();
-		OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\SamplePE.xlsx");
-		/*
-		 * StringSelection filepath= new
-		 * StringSelection("D:\AutomationLabourFiles\SamplePE.xlsx"
-		 * ); //copy above file to clipboard
-		 * Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
-		 * 
-		 * //Now press CRTL
-		 * 
-		 * robot.keyPress(KeyEvent.VK_CONTROL); Thread.sleep(2000);
-		 * 
-		 * //PRESS V robot.keyPress(KeyEvent.VK_V); Thread.sleep(1000);
-		 * 
-		 * //Release V robot.keyRelease(KeyEvent.VK_V);
-		 * 
-		 * 
-		 * //Release CRTL robot.keyRelease(KeyEvent.VK_CONTROL);
-		 * 
-		 * //PRESS Enter robot.keyPress(KeyEvent.VK_ENTER);
-		 * 
-		 * //Release CRTL robot.keyRelease(KeyEvent.VK_ENTER);
-		 * 
-		 * Thread.sleep(1000); System.out.println("File uploaded successfully");
-		 */
+		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Other Upload No need to change\\SamplePE.xlsx");
+		
+//		CoordinatorMethod.uploadFileVerification(test);
+		
+		
 		Thread.sleep(1000);
 		DistributerLocators.clickUploadbtnCTCBtn().click();
 
@@ -1559,8 +1542,9 @@ public class All_Distributor_Methods extends BasePage {
 		Thread.sleep(1000);
 		Robot robot = new Robot();
 		Thread.sleep(5000);
-		OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\SampleHolidayMasterValid.xlsx");
-//		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\SampleHolidayMasterValid.xlsx");
+		OneCommonMethod.uploadUsingRobot(
+				"D:\\Upload Automation Files\\Distributor Admin\\CLRA\\SampleHolidayMasterValid.xlsx");
+//		 StringSelection filepath= new  StringSelection("D:\\Upload Automation Files\\Other Upload No need to change\\SampleHolidayMaster.xlsx");
 		/*
 		 * Thread.sleep(1000); //copy above file to clipboard
 		 * Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
@@ -1637,7 +1621,7 @@ public class All_Distributor_Methods extends BasePage {
 		DistributerLocators.holidayMaster().click();
 		DistributerLocators.clickBrowse1().click();	
 		
-		OneCommonMethod.uploadUsingRobot("D:\AutomationLabourFiles\SampleHolidayMasterValid.xlsx");
+		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Distributor Admin\\CLRA\\SampleHolidayMasterValid.xlsx");
 		Thread.sleep(5000);
 		Thread.sleep(1000);
 		DistributerLocators.clickUploadbtnCTCBtn().click();
@@ -1664,7 +1648,7 @@ public class All_Distributor_Methods extends BasePage {
 		Thread.sleep(5000);
 		DistributerLocators.clickBrowse1().click();	
 		
-		OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\TwoCellEmpty.xlsx");
+		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Distributor Admin\\CLRA\\TwoCellEmpty.xlsx");
 		Thread.sleep(5000);
 		Thread.sleep(1000);
 		DistributerLocators.clickUploadbtnCTCBtn().click();
@@ -1692,7 +1676,7 @@ public class All_Distributor_Methods extends BasePage {
 		Thread.sleep(5000);
 		DistributerLocators.clickBrowse1().click();	
 		
-		OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\AttendanceFile_Upload.xlsx");
+		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\WorkSpace\\AttendanceFile.xlsx");
 		Thread.sleep(5000);
 		Thread.sleep(1000);
 		DistributerLocators.clickUploadbtnCTCBtn().click();
@@ -1720,7 +1704,7 @@ public class All_Distributor_Methods extends BasePage {
 		Thread.sleep(5000);
 		DistributerLocators.clickBrowse1().click();	
 		
-		OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\Test_123.pdf");
+		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Other Upload No need to change\\sample.pdf");
 		Thread.sleep(5000);
 		Thread.sleep(1000);
 //		DistributerLocators.clickUploadbtnCTCBtn().click();
@@ -2428,10 +2412,7 @@ public class All_Distributor_Methods extends BasePage {
 		}
 		Thread.sleep(1000);
 		PerformerLocator.clickOkBtn().click();
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(0, -500)"); // scroll up 500 pixels
-        Thread.sleep(2000);
-		
+
 		Thread.sleep(1000);
 		DistributerLocators.clickcloseBtn().click();
 		Thread.sleep(1000);
@@ -2849,7 +2830,7 @@ public class All_Distributor_Methods extends BasePage {
 		//2. Empty File
 		DistributerLocators.clickBrowse1().click();
 		Thread.sleep(5000);
-		OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\SamplePrincipleEmployeeEmpty.xlsx");
+		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Distributor Admin\\CLRA\\SamplePrincipleEmployeeEmpty.xlsx");
 
 		DistributerLocators.clickUpload().click();
 
@@ -2871,7 +2852,7 @@ public class All_Distributor_Methods extends BasePage {
 		//3. Invalid Template
 		DistributerLocators.clickBrowse1().click();
 		Thread.sleep(5000);
-		OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\PremisesInvalidDetails.xlsx");
+		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Other Upload No need to change\\PremisesInvalidDetails.xlsx");
 
 		DistributerLocators.clickUpload().click();
 
@@ -2899,7 +2880,7 @@ public class All_Distributor_Methods extends BasePage {
 		
 		DistributerLocators.clickBrowse1().click();
 		Thread.sleep(5000);
-		OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\SamplePrincipleEmployee_Upload.xlsx");
+		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Distributor Admin\\CLRA\\SamplePrincipleEmployee.xlsx");
 
 		DistributerLocators.clickUpload().click();
 		Thread.sleep(5000);
@@ -2923,7 +2904,7 @@ public class All_Distributor_Methods extends BasePage {
 		
 		DistributerLocators.clickBrowse1().click();
 		Thread.sleep(5000);
-		OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\SamplePrincipleEmployee 1.xlsx");
+		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Distributor Admin\\CLRA\\SamplePrincipleEmployee 1.xlsx");
 
 		DistributerLocators.clickUpload().click();
 
@@ -3239,7 +3220,7 @@ public class All_Distributor_Methods extends BasePage {
 		DistributerLocators.clickBrowse1().click();
 
 		OneCommonMethod
-				.uploadUsingRobot("D:\\AutomationLabourFiles\\Premises.xlsx");
+				.uploadUsingRobot("D:\\Upload Automation Files\\Distributor Admin\\Premises Upload\\Premises.xlsx");
 
 		getDriver().findElement(By.xpath("//button[normalize-space()='Upload']")).click();
 
@@ -3263,7 +3244,7 @@ public class All_Distributor_Methods extends BasePage {
 		DistributerLocators.clickBrowse1().click();
 
 		OneCommonMethod.uploadUsingRobot(
-				"D:\\AutomationLabourFiles\\SampleEmployeeLocation Error.xlsx");
+				"D:\\Upload Automation Files\\Distributor Admin\\CLRA\\SampleEmployeeLocation Error.xlsx");
 
 		getDriver().findElement(By.xpath("//button[normalize-space()='Upload']")).click();
 
@@ -3294,7 +3275,7 @@ public class All_Distributor_Methods extends BasePage {
 		DistributerLocators.clickBrowse1().click();
 
 		OneCommonMethod
-				.uploadUsingRobot("D:\\AutomationLabourFiles\\SampleEmployeeLocationn.xlsx");
+				.uploadUsingRobot("D:\\Upload Automation Files\\Distributor Admin\\CLRA\\SampleEmployeeLocation.xlsx");
 
 		getDriver().findElement(By.xpath("//button[normalize-space()='Upload']")).click();
 
@@ -3458,7 +3439,8 @@ public class All_Distributor_Methods extends BasePage {
 
 		Robot robot = new Robot();
 		Thread.sleep(5000);
-		StringSelection filepath = new StringSelection("D:\\AutomationLabourFiles\\SampleEmployeeLocationnn.xlsx");
+		StringSelection filepath = new StringSelection(
+				"D:\\Upload Automation Files\\Other Upload No need to change\\SampleEmployeeLocation.xlsx");
 		// copy above file to clipboard
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 
@@ -4113,7 +4095,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	}
 
-	public static void ComplainceReassignment(ExtentTest test, XSSFWorkbook workbook)
+	public static void onboardEntityComplainceReassignment(ExtentTest test, XSSFWorkbook workbook)
 			throws InterruptedException, IOException {
 
 		Thread.sleep(5000);
@@ -4156,6 +4138,8 @@ public class All_Distributor_Methods extends BasePage {
 		if (DistributerLocators.applybtn().isEnabled()) {
 			Thread.sleep(1000);
 			DistributerLocators.applybtn().click();
+			test.log(LogStatus.PASS, "All filters are working fine ");
+			Thread.sleep(2000);
 			test.log(LogStatus.PASS, "Apply Button working successfully");
 		} else {
 			test.log(LogStatus.FAIL, "Apply Button does not working successfully");
@@ -4173,6 +4157,8 @@ public class All_Distributor_Methods extends BasePage {
 		Thread.sleep(1000);
 		String msg = DistributerLocators.CRValidDate().getText();
 		if (msg.equalsIgnoreCase("Compliance Reassigned Successfully")) {
+			test.log(LogStatus.PASS, "Save button working successfully");
+			Thread.sleep(1000);
 			test.log(LogStatus.PASS, "Message displayed:-" + msg);
 		} else {
 			test.log(LogStatus.FAIL, "Message displayed:-" + msg);
@@ -4180,19 +4166,427 @@ public class All_Distributor_Methods extends BasePage {
 		Thread.sleep(1000);
 		DistributerLocators.clickOkBtn().click();
 
+		
+		
+		
+//		DistributerLocators.TypetosearchCLRA().sendKeys("8353");
+		
+		getDriver().findElement(By.xpath("//input[@placeholder='Type to Search']")).sendKeys("11246");
+		Thread.sleep(5000);
+//		String texttt = getDriver().findElement(By.xpath("//tbody/tr[1]/td[2]")).getText();
+		
+		
+		if(DistributerLocators.gridBOX().isDisplayed())
+		{
+			String texttt = DistributerLocators.gridBOX().getText();
+			if (texttt.equals("11246")) {
+				test.log(LogStatus.PASS, "Type to search field is working fine");
+				test.log(LogStatus.PASS, "Searched text is displayed in grid" + texttt);
+			} else {
+				test.log(LogStatus.FAIL, "Type to search field is not working properly");
+				test.log(LogStatus.FAIL, "Searched text is displayed in grid" + texttt);
+			}
+		
+		}
+		else {
+			test.log(LogStatus.FAIL, "Type to search field is not working properly");
+			test.log(LogStatus.FAIL, "Data is not displayed in grid on search ");
+		}
+		
+		
+
+		
+		
+		
 		Thread.sleep(1000);
 		if (DistributerLocators.clickClearBtn().isEnabled()) {
 			Thread.sleep(1000);
 			DistributerLocators.clickClearBtn().click();
-			test.log(LogStatus.PASS, "Clear Button working successfully");
+			test.log(LogStatus.PASS, "Clear button working successfully");
 		} else {
-			test.log(LogStatus.FAIL, "Clear Button does not working successfully");
+			test.log(LogStatus.FAIL, "Clear button does not working successfully");
 		}
 
 		Thread.sleep(1000);
 
 	}
+	public static void manageCompActivationDateChange( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+	{
+		
 
+		Thread.sleep(4000);
+		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+		Thread.sleep(7000);
+		DistributerLocators.clickDashboard().click();
+		Thread.sleep(15000);
+		DistributerLocators.clickOnBoardEntity().click();
+		Thread.sleep(1000);
+		DistributerLocators.managecompliance().click();
+		
+		Thread.sleep(1000);
+		DistributerLocators.clickActivityDropDown().click();
+		
+		Thread.sleep(1000);
+		DistributerLocators.selectComplianceType().click();
+		
+		Thread.sleep(1000);
+		DistributerLocators.clickBranch1().click();
+		Thread.sleep(1000);
+		DistributerLocators.clickBranchTiangle().click();
+	     Thread.sleep(1000);
+		DistributerLocators.selectBranch1().click();
+		Thread.sleep(1000);
+		
+		if(DistributerLocators.applybtn().isDisplayed()) {
+			Thread.sleep(1000);
+			DistributerLocators.applybtn().click();
+			test.log(LogStatus.PASS, "All filters are working fine");
+			Thread.sleep(2000);
+			test.log(LogStatus.PASS, "Apply button is working fine");
+		}
+		
+		Thread.sleep(1000);
+		DistributerLocators.clickCheckBox().click();
+		
+		Thread.sleep(1000);
+		if(DistributerLocators.ActivationDateChangeCalender().isEnabled())
+		{
+			Thread.sleep(1000);
+			DistributerLocators.ActivationDateChangeCalender().click();
+			test.log(LogStatus.PASS, "Calender should get visible in the activation field.");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "Calender should not get visible in the activation field.");
+		}
+		
+	
+		Thread.sleep(1000);
+		PerformerLocator.selectDate1().click();
+		
+		Thread.sleep(1000);
+		if(DistributerLocators.clicksave().isEnabled())
+		{
+			Thread.sleep(1000);
+			DistributerLocators.clicksave().click();
+			test.log(LogStatus.PASS, " 'Save' button should get enabled.");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, " 'Save' button should not get enabled.");
+		}
+		
+		
+	
+		Thread.sleep(1000);
+		String msg=DistributerLocators.ActivationDateChangeMsg().getText();
+		if(msg.equalsIgnoreCase("Activation Date Updated"))
+		{
+			test.log(LogStatus.PASS, "On clicking to save button success message is displayed");
+			test.log(LogStatus.PASS,"Message displayed :- " +msg);
+		}
+		else
+		{
+			test.log(LogStatus.FAIL,"Message displayed :- " +msg);
+		}
+		Thread.sleep(1000);
+		DistributerLocators.clickOkBtn().click();
+		Thread.sleep(1000);
+		
+		
+		
+		
+		
+		
+		getDriver().findElement(By.xpath("//input[@placeholder='Type to Search']")).sendKeys("2753");
+		Thread.sleep(5000);
+		if(DistributerLocators.gridBOX().isDisplayed())
+		{
+			String texttt = DistributerLocators.gridBOX().getText();
+			if (texttt.equals("2753")) {
+				test.log(LogStatus.PASS, "Type to search field is working fine");
+				test.log(LogStatus.PASS, "Searched text is displayed in grid : " + texttt);
+			} else {
+				test.log(LogStatus.FAIL, "Type to search field is not working properly");
+				test.log(LogStatus.FAIL, "Searched text is displayed in grid : " + texttt);
+			}
+		
+		}
+		else {
+			test.log(LogStatus.FAIL, "Type to search field is not working properly");
+			test.log(LogStatus.FAIL, "Data is not displayed in grid on search ");
+		}
+		
+		
+		
+		
+		Thread.sleep(5000);
+		if (DistributerLocators.clickClearBtn().isEnabled()) {
+			Thread.sleep(1000);
+			DistributerLocators.clickClearBtn().click();
+			test.log(LogStatus.PASS, "Clear button working successfully");
+		} else {
+			test.log(LogStatus.FAIL, "Clear button does not working successfully");
+		}
+
+		Thread.sleep(1000);
+		
+		
+		
+		
+	}
+
+	
+	public static void manageCompAssignmentRemoval( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+	{
+		
+
+		Thread.sleep(1000);
+		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
+		Thread.sleep(1000);
+		DistributerLocators.clickDashboard().click();
+		Thread.sleep(7000);
+		DistributerLocators.clickOnBoardEntity().click();
+		Thread.sleep(1000);
+		DistributerLocators.managecompliance().click();
+		
+		Thread.sleep(1000);
+		DistributerLocators.clickActivityDropDown().click();
+		
+		Thread.sleep(1000);
+		DistributerLocators.selectComplianceType1().click();
+		
+		Thread.sleep(1000);
+		DistributerLocators.clickBranch1().click();
+		Thread.sleep(1000);
+		DistributerLocators.clickBranches().click();
+	     Thread.sleep(1000);
+//		DistributerLocators.selectBranch1().click();
+		Thread.sleep(1000);
+		
+		if(DistributerLocators.applybtn().isDisplayed()) {
+			Thread.sleep(1000);
+			DistributerLocators.applybtn().click();
+			Thread.sleep(3000);
+			test.log(LogStatus.PASS, "All filters are working fine ");
+			Thread.sleep(3000);
+			test.log(LogStatus.PASS, "Apply button are working fine ");
+		}
+		
+		
+		Thread.sleep(1000);
+		DistributerLocators.clickCheckBox().click();
+		
+		Thread.sleep(1000);
+		if(DistributerLocators.clickRemoveBtn().isEnabled())
+		{
+			Thread.sleep(1000);
+			DistributerLocators.clickRemoveBtn().click();
+			test.log(LogStatus.PASS, " 'Remove' button should get enabled.");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, " 'Remove' button should not get enabled.");
+		}
+		
+		Thread.sleep(1000);
+		
+		
+		String msg=DistributerLocators.assignmentRemovalPopup().getText();
+		
+//		//Received Date:
+//		All_ClientPortal_Locators.toggleCalendar1().click();
+//		OneCommonMethod.selectCalendarDateFromInput(driver.get(), test, 
+//				All_ClientPortal_Locators.toggleCalendar1(), // calendar icon
+//				DistributerLocators.Calendar_NavigateToParentView(), // parent view arrow
+//				"01-01-2025" // date in dd-MM-yyyy format
+//		);
+		
+		
+		if(msg.equalsIgnoreCase("Remarks"))
+		{
+			test.log(LogStatus.PASS,"On clickig to remove button, remove popup is displayed");
+			
+		}
+		else
+		{
+			test.log(LogStatus.FAIL,"Popup displayed:-" +msg);
+		}
+		Thread.sleep(1000);
+//		DistributerLocators.clickOkBtn().click();
+		Thread.sleep(1000);
+		
+		
+		DistributerLocators.clickcloseBtn().click();
+		Thread.sleep(1000);
+		
+		
+		
+		getDriver().findElement(By.xpath("//input[@placeholder='Type to Search']")).sendKeys("1224");
+		Thread.sleep(5000);
+		
+		if(DistributerLocators.gridBOX().isDisplayed())
+		{
+			String texttt = DistributerLocators.gridBOX().getText();
+			if (texttt.equals("1224")) {
+				test.log(LogStatus.PASS, "Type to search field is working fine");
+				test.log(LogStatus.PASS, "Searched text is displayed in grid : " + texttt);
+			} else {
+				test.log(LogStatus.FAIL, "Type to search field is not working properly");
+				test.log(LogStatus.FAIL, "Searched text is displayed in grid : " + texttt);
+			}
+		
+		}
+		else {
+			test.log(LogStatus.FAIL, "Type to search field is not working properly");
+			test.log(LogStatus.FAIL, "Data is not displayed in grid on search ");
+		}
+		
+		
+		
+		
+		Thread.sleep(1000);
+		if (DistributerLocators.clickClearBtn().isEnabled()) {
+			Thread.sleep(1000);
+			DistributerLocators.clickClearBtn().click();
+			test.log(LogStatus.PASS, "Clear button working successfully");
+		} else {
+			test.log(LogStatus.FAIL, "Clear button does not working successfully");
+		}
+
+		Thread.sleep(1000);
+		
+	}
+	public static void manageCompScheduleRemoval( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+	{
+		
+
+		Thread.sleep(1000);
+		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
+		
+		
+		Thread.sleep(1000);
+		DistributerLocators.clickDashboard().click();
+		Thread.sleep(7000);
+		DistributerLocators.clickOnBoardEntity().click();
+		Thread.sleep(1000);
+		DistributerLocators.managecompliance().click();
+		
+		Thread.sleep(1000);
+		DistributerLocators.clickActivityDropDown().click();
+		
+		Thread.sleep(1000);
+		DistributerLocators.selectComplianceType4().click();
+		
+		Thread.sleep(1000);
+		DistributerLocators.clickBranch1().click();
+		Thread.sleep(1000);
+//		DistributerLocators.clickBranchTiangle().click();
+		DistributerLocators.clickBranches().click();
+	     Thread.sleep(1000);
+//		DistributerLocators.selectBranch1().click();
+		
+		Thread.sleep(1000);
+		DistributerLocators.clickPeriod().click();
+		Thread.sleep(1000);
+		DistributerLocators.selectComplianceType1().click();
+		Thread.sleep(1000);
+		DistributerLocators.clickYear().click();
+		Thread.sleep(1000);
+		DistributerLocators.selectComplianceType1().click();
+		
+		Thread.sleep(1000);
+		if(DistributerLocators.applybtn().isDisplayed()) {
+			Thread.sleep(1000);
+			DistributerLocators.applybtn().click();
+			Thread.sleep(3000);
+			test.log(LogStatus.PASS, "All filters are working fine ");
+			Thread.sleep(3000);
+			test.log(LogStatus.PASS, "Apply button are working fine ");
+		}
+		
+		
+		
+		Thread.sleep(6000);
+		DistributerLocators.clickCheckBox().click();
+		Thread.sleep(1000);
+//		DistributerLocators.clickCheckBox1().click();
+
+		
+		Thread.sleep(8000);
+		if(DistributerLocators.clickRemoveBtn().isEnabled())
+		{
+			Thread.sleep(1000);
+			DistributerLocators.clickRemoveBtn().click();
+			test.log(LogStatus.PASS, " 'Remove' button should get enabled.");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, " 'Remove' button should not get enabled.");
+		}
+		
+		Thread.sleep(1000);
+		
+		String msg=DistributerLocators.assignmentRemovalPopup().getText();
+		if(msg.equalsIgnoreCase("Remarks"))
+		{
+			test.log(LogStatus.PASS,"On clickig to remove button, remove popup is displayed");
+			
+		}
+		else
+		{
+			test.log(LogStatus.FAIL,"Popup displayed:-" +msg);
+		}
+		
+		
+		
+		Thread.sleep(1000);
+		Thread.sleep(3000);
+		
+		
+		DistributerLocators.clickcloseBtn().click();
+		Thread.sleep(5000);
+		getDriver().findElement(By.xpath("//input[@placeholder='Type to Search']")).sendKeys("29246");
+		Thread.sleep(5000);
+		Thread.sleep(5000);
+		Thread.sleep(5000);
+		
+		if(DistributerLocators.gridBOX().isDisplayed())
+		{
+			String texttt = DistributerLocators.gridBOX().getText();
+			if (texttt.equals("29246")) {
+				test.log(LogStatus.PASS, "Type to search field is working fine");
+				test.log(LogStatus.PASS, "Searched text is displayed in grid : " + texttt);
+			} else {
+				test.log(LogStatus.FAIL, "Type to search field is not working properly");
+				test.log(LogStatus.FAIL, "Searched text is displayed in grid : " + texttt);
+			}
+		
+		}
+		else {
+			test.log(LogStatus.FAIL, "Type to search field is not working properly");
+			test.log(LogStatus.FAIL, "Data is not displayed in grid on search ");
+		}
+		
+		
+		
+		
+		Thread.sleep(1000);
+		if (DistributerLocators.clickClearBtn().isEnabled()) {
+			Thread.sleep(1000);
+			DistributerLocators.clickClearBtn().click();
+			test.log(LogStatus.PASS, "Clear button working successfully");
+		} else {
+			test.log(LogStatus.FAIL, "Clear button does not working successfully");
+		}
+
+		Thread.sleep(1000);
+		
+		
+		
+	}
 	public static void scheduleCreationValidation(ExtentTest test, XSSFWorkbook workbook)
 			throws InterruptedException, IOException {
 

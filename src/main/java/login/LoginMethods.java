@@ -67,7 +67,7 @@ public class LoginMethods extends BasePage {
 	private static final java.util.concurrent.atomic.AtomicLong GLOBAL_LOGIN_COUNTER = new java.util.concurrent.atomic.AtomicLong(0L);
 	private static final java.util.concurrent.ConcurrentHashMap<Long, Integer> SKIP_POSITION_BY_CYCLE = new java.util.concurrent.ConcurrentHashMap<>();
 	private static final java.util.Random RANDOM_GEN = new java.util.Random();
-	private static final int ALLOWED_BEFORE_BLOCK = 11; //                    
+	private static final int ALLOWED_BEFORE_BLOCK = 13;                
 	private static final ThreadLocal<Boolean> THREAD_DECISION = new ThreadLocal<>();
 	private static final ThreadLocal<Long> THREAD_COUNT = new ThreadLocal<>();
 	

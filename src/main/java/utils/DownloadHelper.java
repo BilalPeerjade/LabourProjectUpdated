@@ -168,8 +168,20 @@ public class DownloadHelper {
                 "//div[@class='cell-content ng-star-inserted']//div[@style='text-align:center']" +
                 "[ancestor::tr/@aria-rowindex = //div[@title=%s]/ancestor::tr/@aria-rowindex]" +
                 "//img[@title='Download']",
-                literal
+                literal    
+                
+                
+                // - //div[@class='cell-content ng-star-inserted'] Branch & Action column
+                // - //div[@style='text-align:center'] same
+                
+                // - [ancestor::tr/@aria-rowindex = //div[@title=%s]/ancestor::tr/@aria-rowindex] - div[@title='']
             );
+            
+//    System.out.println("Generated XPath: " + xp); debug
+//div[@class='cell-content ng-star-inserted']//div[@style='text-align:center'][ancestor::tr/@aria-rowindex = //div[@title='400100']/ancestor::tr/@aria-rowindex]//img[@title='Download']
+
+            //DownloadDocumentHelper Xpath:
+          //button[@class='icon-item ng-star-inserted'][ancestor::tr/@aria-rowindex = //div[@title='']/ancestor::tr/@aria-rowindex]
 
             List<WebElement> els = driver.findElements(By.xpath(xp));
             if (els == null || els.isEmpty()) {
@@ -244,7 +256,7 @@ public class DownloadHelper {
                     }
 
                     if (clicked) {
-                    	  // Status Hide
+                    	  // Status Hide 
          //               test.log(com.relevantcodes.extentreports.LogStatus.PASS,"✅ Scrolled & clicked Download for '" + stateText + "' (occurrence: " + (pickIdx + 1) + ", attempt: " + attempt + ")");
                         return true;
                     } else {

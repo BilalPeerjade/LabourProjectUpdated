@@ -23,17 +23,16 @@ public class ExcelF {
 
 	
 	//for single methods:
-	   // ✅ Default constructor
- public ExcelF() {
- }
+	//Default constructor
+    public ExcelF() {
+    	
+    }
 	
 	
 	
 	public ExcelF(int columnIndex, List<String> values) {
 		this.columnIndex = columnIndex;
-		
 		this.values = values;
-		
 	}
 
 	public int getColumnIndex() {
@@ -79,7 +78,7 @@ public class ExcelF {
     public boolean isEnabled() {
         return ena;
     }
-    private boolean ena ;
+    private boolean ena;
 
     public void setEnabled(boolean enabled) {
         this.ena = enabled;

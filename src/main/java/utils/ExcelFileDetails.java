@@ -16,6 +16,7 @@ public class ExcelFileDetails {
 	private List<ExcelF> filters;
 	private String applyFilter;
 
+	//Constructor - Directly velues lene ke liye 
 	public ExcelFileDetails(String filePath, String sheetName, int empNameColumnIndex, List<ExcelF> filters,
 			String applyFilter) {
 		this.filePath = filePath;
@@ -29,7 +30,7 @@ public class ExcelFileDetails {
     }
 	
 	
-	
+	//Getters values fetch karne ke liye : yaha setters required nahi hai
 	public String getFilePath() {
 		return filePath;
 	}

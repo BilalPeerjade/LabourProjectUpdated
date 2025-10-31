@@ -24,6 +24,8 @@ import clientPortal.All_ClientPortal_Methods;
 import clientPortal.All_ClientPortal_Methods;
 import login.BasePage;
 
+
+
 public class All_Client_Portal_TestCases extends BasePage {
 	public static WebElement upload = null;		//WebElement to get upload button
 	public static ExtentReports extent;			//Instance created for report file
@@ -47,7 +49,7 @@ public class All_Client_Portal_TestCases extends BasePage {
 	@BeforeTest
 	void setBrowser() throws InterruptedException, IOException
 	{
-		extent = new com.relevantcodes.extentreports.ExtentReports("D:\\AutomationLabour\\LabourProjectUpdated\\Report\\ClientPortal.html",true);
+		extent = new com.relevantcodes.extentreports.ExtentReports("D:\\Labour Angular\\LabourMergeProject\\LabourMergeProject\\Report\\ClientPortal.html",true);
 		test = extent.startTest("Loging In - Client Portal");
 		test.log(LogStatus.PASS, "Logging into system");
 		test.log(LogStatus.PASS, "Selected Entity: Test Automation 2[TESTAUTO2] AND Selected Year: 2024");
@@ -63,7 +65,14 @@ public class All_Client_Portal_TestCases extends BasePage {
 	
 	}
 	
+	
+	
+	
 
+	
+	/**
+	
+	
 	// Mayuri TCs - ClientTest.Java 1 to 112
 	@Test(priority = 1) //
 	void Clientlogo() throws InterruptedException, IOException
@@ -835,6 +844,20 @@ public class All_Client_Portal_TestCases extends BasePage {
 		extent.endTest(test);
 		extent.flush();
 	}
+	
+	
+	@Test(priority = 47) //Bilal Pass
+	void ECCompliedCountVerification() throws InterruptedException, IOException
+	{
+		test = extent.startTest("'Compliance Performance Graph – Establishment Compliances - Click on complied count and verify to check count is matching correctly?");
+		All_ClientPortal_Methods.filterEntityAUTO2(test);
+		All_ClientPortal_Methods.ECCompliedCountVerification(test);
+		
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
 	
 	//Compliance Performance -- Establishment Compliances
 	@Test(priority = 55) //Bilal Pass
@@ -2101,10 +2124,10 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 	
 	
 	
+	/**
 	
 	
-	
-	//
+//
 	
 	// ---Compliance Calendar---
 	@Test(priority = 137) //2 test case 
@@ -2177,7 +2200,7 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 	
 	
 	
-	
+	**/
 	
 	
 	
@@ -3279,7 +3302,7 @@ void ChallanDocBulkDownload() throws InterruptedException, IOException, AWTExcep
 
 		
     
-	
+
 		
 	
 	  

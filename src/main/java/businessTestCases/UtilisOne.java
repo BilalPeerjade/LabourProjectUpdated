@@ -186,8 +186,6 @@ public class UtilisOne {
      */
 	
 	private static final boolean ENABLE_HTML_REPORT_TABLE = false;
-
-	
     public static void validateExcelBusinessData(
             File downloadedFile,
             ExtentTest test,
@@ -403,7 +401,7 @@ public class UtilisOne {
                 // HTML Report block (use normalizedFoundNames for presence checks)
                 if (ENABLE_HTML_REPORT_TABLE) {
 
-                      //Enhancement 
+                      //Enhancement need to add 
                 
                 
                 } // end HTML report

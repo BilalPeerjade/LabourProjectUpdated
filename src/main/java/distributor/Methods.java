@@ -47,7 +47,7 @@ public class Methods extends BasePage {
 	public static XSSFWorkbook workbook = null;	//Excel sheet workbook variable
 	public static XSSFSheet sheet = null;		//Sheet variable
 	
-	 static String filePath ="D:\\AutomationLabour\\LabourProjectUpdated\\TestData\\Labour1.xlsx";
+	 static String filePath ="D:\\Labour Angular\\LabourMergeProject\\LabourMergeProject\\TestData\\Labour1.xlsx";
 
 	
 	public static void User ( ExtentTest test) throws InterruptedException, IOException
@@ -585,7 +585,7 @@ public class Methods extends BasePage {
 
 			Thread.sleep(1000);
 			
-			File dir = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir = new File("C:\\Users\\bilali\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 
 			Thread.sleep(1000);
@@ -594,7 +594,7 @@ public class Methods extends BasePage {
 			test.log(LogStatus.PASS, " :- File downloaded successfully.");
 
 			Thread.sleep(5500);
-			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir1 = new File("C:\\Users\\bilali\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 
 			if(dirContents.length < allFilesNew.length)
@@ -2003,7 +2003,7 @@ Locators.DownloadTemplate().click();
 		Locators.Browse().click();
 		Thread.sleep(3000);
 		Robot robot=new Robot();
-		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\EntityUpload__20251004T090105666Z.xlsx");
+		 StringSelection filepath= new  StringSelection("D:\\Automation File\\EntityUpload__20250123T073713110Z.xlsx");
 		 //copy above file to clipboard
 		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 		
@@ -2071,13 +2071,13 @@ Locators.DownloadTemplate().click();
 Locators.DownloadTemplate2().click();
 		Thread.sleep(3000);
 		
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 		
 		Locators.Browse().click();
 		Thread.sleep(3000);
 		Robot robot=new Robot();
-		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\EntityUpload__SelectedCBvalid.xlsx");
+		 StringSelection filepath= new  StringSelection("D:\\Upload Automation Files\\Corporate-Entity\\EntityUpload__Invalid.xlsx");
 		 //copy above file to clipboard
 		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 		
@@ -2110,7 +2110,7 @@ Locators.DownloadTemplate2().click();
 		 Thread.sleep(7000);
 		
 			Thread.sleep(3000);
-			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir1 = new File("C:\\Users\\bilali\\Downloads");
 			File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 			Thread.sleep(3000);
 			
@@ -2163,7 +2163,7 @@ Locators.CheckBox().click();
 		Locators.Browse().click();
 		Thread.sleep(3000);
 		Robot robot=new Robot();
-		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\EntityUpload__SelectedCBvalid.xlsx");
+		 StringSelection filepath= new  StringSelection("D:\\Upload Automation Files\\Other Upload No need to change\\EntityUpload__SelectedCBvalid.xlsx");
 		 //copy above file to clipboard
 		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 		
@@ -2236,7 +2236,7 @@ Locators.DownloadTemplate2().click();
 		Locators.Browse().click();
 		Thread.sleep(3000);
 		Robot robot=new Robot();
-		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\EntityUploadINVALID.xlsx");
+		 StringSelection filepath= new  StringSelection("D:\\Upload Automation Files\\Corporate-Entity\\EntitySelectCD Invalid.xlsx");
 		 //copy above file to clipboard
 		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 		
@@ -2311,7 +2311,7 @@ Locators.CheckBox().click();
 		Locators.Browse().click();
 		Thread.sleep(3000);
 		Robot robot=new Robot();
-		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\SampleTemplateInvalid.xlsx");
+		 StringSelection filepath= new  StringSelection("D:\\Upload Automation Files\\Corporate-Entity\\EntityUpload__SelectedCB EmptyFile.xlsx");
 		 //copy above file to clipboard
 		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 		
@@ -2488,14 +2488,14 @@ Locators.CheckBox().click();
 		
 	  	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='User']")));	//Wait until records table get visible.
 
-	  	File dir = new File("C:\\Users\\swapnilb\\Downloads");
+	  	File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		Locators.EntityLocation().click();
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {
@@ -2515,14 +2515,14 @@ Locators.CheckBox().click();
 		
 	  	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='User']")));	//Wait until records table get visible.
 
-	  	File dir = new File("C:\\Users\\swapnilb\\Downloads");
+	  	File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		Locators.EntityExcel().click();
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {
@@ -2825,14 +2825,14 @@ Locators.CheckBox().click();
 				Locators.OnboardEntity().click();
 				Thread.sleep(8000);
 	  	
-	  	File dir = new File("C:\\Users\\swapnilb\\Downloads");
+	  	File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		Locators.ExportPremises().click();
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {
@@ -2979,14 +2979,14 @@ Locators.CheckBox().click();
 		
 		
 		Thread.sleep(3000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		Locators.UpoadBranchSam().click();
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {
@@ -3002,7 +3002,7 @@ Locators.CheckBox().click();
 		Locators.Browse().click();
 		Thread.sleep(3000);
 		Robot robot=new Robot();
-		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\LocationSampleUpdate.xlsx");
+		 StringSelection filepath= new  StringSelection("D:\\Automation File\\Labour Auto\\LocationSampleUpdate_AVACORED5_20250221T051451141Z.xlsx");
 		 //copy above file to clipboard
 		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 		
@@ -3077,7 +3077,7 @@ Locators.CheckBox().click();
 //        Locators.UpoadBranchSam().click();
 		getDriver().findElement(By.xpath("//img[@title='Bulk Upload']")).click();
 		Thread.sleep(3000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 		
 		
@@ -3085,7 +3085,7 @@ Locators.CheckBox().click();
 		Locators.Browse().click();
 		Thread.sleep(3000);
 		Robot robot=new Robot();
-		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\PremisesInvalidDetails.xlsx");
+		 StringSelection filepath= new  StringSelection("D:\\Upload Automation Files\\Other Upload No need to change\\PremisesInvalidDetails.xlsx");
 		 //copy above file to clipboard
 		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 		
@@ -3118,7 +3118,7 @@ Locators.CheckBox().click();
 		 Thread.sleep(3000);
 		 Locators.ok().click();
 		 Thread.sleep(8000);
-			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir1 = new File("C:\\Users\\bilali\\Downloads");
 			File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 			Thread.sleep(3000);
 			
@@ -3176,7 +3176,7 @@ Locators.UpoadBranchSam().click();
 		Locators.Browse().click();
 		Thread.sleep(3000);
 		Robot robot=new Robot();
-		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\Premises.xlsx");
+		 StringSelection filepath= new  StringSelection("D:\\Upload Automation Files\\OtherTwo\\Distributor_Premises_SelectedCB.xlsx");
 		 //copy above file to clipboard
 		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 		
@@ -3267,7 +3267,7 @@ Locators.UpoadBranchSam().click();
 		Locators.Browse().click();
 		Thread.sleep(3000);
 		Robot robot=new Robot();
-		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\PremisesInvalidDetails.xlsx");
+		 StringSelection filepath= new  StringSelection("D:\\Upload Automation Files\\OtherTwo\\Distributor_Premises_SelectedCB Invalid.xlsx");
 		 //copy above file to clipboard
 		 Thread.sleep(2000);
 		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
@@ -3358,7 +3358,7 @@ Locators.UpoadBranchSam().click();
 		Locators.Browse().click();
 		Thread.sleep(3000);
 		Robot robot=new Robot();
-		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\PremisesSelectedCheckBoxEmpty.xlsx");
+		 StringSelection filepath= new  StringSelection("D:\\Upload Automation Files\\Other Upload No need to change\\PremisesSelectedCheckBoxEmpty.xlsx");
 		 //copy above file to clipboard
 		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 		
@@ -3433,7 +3433,7 @@ Locators.UpoadBranchSam().click();
 		Locators.Browse().click();
 		Thread.sleep(3000);
 		Robot robot=new Robot();
-		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\PremisesEmptyFile.xlsx");
+		 StringSelection filepath= new  StringSelection("D:\\Upload Automation Files\\Other Upload No need to change\\PremisesEmptyFile.xlsx");
 		 //copy above file to clipboard
 		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 		
@@ -3518,7 +3518,7 @@ Locators.UpoadBranchSam().click();
 		Locators.Browse().click();
 		Thread.sleep(3000);
 		Robot robot=new Robot();
-		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\PaycodeUpload.xlsx");
+		 StringSelection filepath= new  StringSelection("D:\\Upload Automation Files\\Other Upload No need to change\\PaycodeUpload.xlsx");
 		 //copy above file to clipboard
 		 Thread.sleep(2000);
 		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
@@ -3551,21 +3551,18 @@ Locators.UpoadBranchSam().click();
 					
 		
 		
-		Thread.sleep(3000);
+			Thread.sleep(3000);
 			
 			
 				
-		String text1 = getDriver().findElement(By.xpath("//h4[@class='f-label']")).getText();
+			String text1 = getDriver().findElement(By.xpath("//h4[@class='f-label']")).getText();
 			
-		if(text1.equalsIgnoreCase("Invalid Template.")) 
-		{
-			test.log(LogStatus.PASS,"Message Displayed : "+text1);
+			if(text1.equalsIgnoreCase("Invalid Template.")) {
+				test.log(LogStatus.PASS,"Message Displayed : "+text1);
 		
-		}
-		else 
-		{
+			}else {
 				test.log(LogStatus.FAIL,"Message Displayed : "+text1);
-		}
+			}
 				Locators.ok().click();
   	
 		  	
@@ -3577,15 +3574,18 @@ Locators.UpoadBranchSam().click();
 		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
 		Thread.sleep(3000);
 	    
+		
 	  	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='User']")));	//Wait until records table get visible.
 
 	  	Locators.Searchentities().sendKeys("AVACORED5"); // Writing Task title
-		Thread.sleep(5000);
-		
-        Locators.Dashboard().click();
 		Thread.sleep(3000);
-		Locators.OnboardEntity().click();
-		Thread.sleep(8000);
+		
+				
+				Thread.sleep(3000);
+                 Locators.Dashboard().click();
+				Thread.sleep(3000);
+				Locators.OnboardEntity().click();
+				Thread.sleep(8000);
 		
 		Locators.UpoadBranch().click();
 		Thread.sleep(3000);
@@ -3599,7 +3599,7 @@ Locators.UpoadBranchSam().click();
 		Locators.Browse().click();
 		Thread.sleep(3000);
 		Robot robot=new Robot();
-		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\EmptyFile.xlsx");
+		 StringSelection filepath= new  StringSelection("D:\\Automation File\\Charge.xlsx");
 		 //copy above file to clipboard
 		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 		
@@ -3678,7 +3678,7 @@ Locators.UpoadBranchSam().click();
 		Locators.Browse().click();
 		Thread.sleep(3000);
 		Robot robot=new Robot();
-		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\unknown.txt");
+		 StringSelection filepath= new  StringSelection("D:\\Automation File\\Labour Auto\\work.txt");
 		 //copy above file to clipboard
 		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 		
@@ -3758,7 +3758,7 @@ Locators.UpoadBranchSam().click();
 		Locators.Browse().click();
 		Thread.sleep(3000);
 		Robot robot=new Robot();
-		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\unknown.txt");
+		 StringSelection filepath= new  StringSelection("D:\\Automation File\\Labour Auto\\work.txt");
 		 //copy above file to clipboard
 		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 		
@@ -3916,14 +3916,14 @@ Locators.UpoadBranchSam().click();
 		
 		
 		Thread.sleep(3000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		Locators.SampleDoc().click();
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {
@@ -3963,14 +3963,14 @@ Locators.UpoadBranchSam().click();
 		
 		
 		Thread.sleep(3000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(500);
 		Locators.MasterDownload().click();
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {
@@ -4016,7 +4016,7 @@ Locators.UpoadBranchSam().click();
 		Locators.Browse().click();
 		Thread.sleep(3000);
 		Robot robot=new Robot();
-		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\SampleLocation.xlsx");
+		 StringSelection filepath= new  StringSelection("D:\\Automation File\\Labour Auto\\SampleLocation.xlsx");
 		 //copy above file to clipboard
 		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 		
@@ -4098,7 +4098,7 @@ Locators.UpoadBranchSam().click();
 		Locators.Browse().click();
 		Thread.sleep(3000);
 		Robot robot=new Robot();
-		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\SampleLocation.xlsx");
+		 StringSelection filepath= new  StringSelection("D:\\Automation File\\Labour Auto\\SampleLocation_empty.xlsx");
 		 //copy above file to clipboard
 		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 		
@@ -4174,7 +4174,7 @@ Locators.UpoadBranchSam().click();
 				Locators.SampleDoc().click();
 
 		Thread.sleep(3000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 		
 		
@@ -4182,7 +4182,7 @@ Locators.UpoadBranchSam().click();
 		Locators.Browse().click();
 		Thread.sleep(3000);
 		Robot robot=new Robot();
-		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\SamplePE.xlsx");
+		 StringSelection filepath= new  StringSelection("D:\\Automation File\\Labour Auto\\SampleLocation_Invalid.xlsx");
 		 //copy above file to clipboard
 		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 		
@@ -4224,7 +4224,7 @@ Locators.UpoadBranchSam().click();
 			}
 				Locators.ok().click();
 	
-			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir1 = new File("C:\\Users\\bilali\\Downloads");
 			File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 			Thread.sleep(3000);
 			
@@ -4275,7 +4275,7 @@ Locators.UploadAddressMapping().click();
 		Locators.Browse().click();
 		Thread.sleep(3000);
 		Robot robot=new Robot();
-		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\EmptyFile.xlsx");
+		 StringSelection filepath= new  StringSelection("D:\\Automation File\\Charge.xlsx");
 		 //copy above file to clipboard
 		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 		
@@ -4353,7 +4353,7 @@ Locators.UploadAddressMapping().click();
 		Locators.Browse().click();
 		Thread.sleep(3000);
 		Robot robot=new Robot();
-		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\unknown.txt");
+		 StringSelection filepath= new  StringSelection("D:\\Automation File\\Labour Auto\\work.txt");
 		 //copy above file to clipboard
 		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 		
@@ -4868,8 +4868,12 @@ Locators.UploadAddressMapping().click();
 			}
 					Locators.ok().click();
 					Thread.sleep(4000);
-		}
+				}
 				
+				
+				
+				
+		  	
 	}
 	
 	
@@ -5105,31 +5109,36 @@ Locators.UploadAddressMapping().click();
 		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
 		Thread.sleep(3000);
 	    
-	  	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='User']")));	//Wait until records table get visible.
-	  	Thread.sleep(3000);
-	  	Thread.sleep(10000);
-	   	Locators.Searchentities().sendKeys("AVACORED5"); // Writing Task title
-		Thread.sleep(10000);
 		
-        Locators.clickPremisesArrow().click();
+	  	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='User']")));	//Wait until records table get visible.
+	  	Thread.sleep(3000);Thread.sleep(5000);Thread.sleep(5000);
+	  	Locators.Searchentities().sendKeys("AVACORED5"); // Writing Task title
 		Thread.sleep(5000);
-		Locators.OnboardEntity().click();
-		Thread.sleep(5000);
+		
 				
-		Locators.PaycodeMapping().click();
-		Thread.sleep(3000);
+				Thread.sleep(3000);
+                 Locators.clickPremisesArrow().click();
+				Thread.sleep(5000);
+				Locators.OnboardEntity().click();
+				Thread.sleep(5000);
+				
+				Locators.PaycodeMapping().click();
+				Thread.sleep(3000);
 				
 				
-		Locators.uploadPaycod().click();
-		Thread.sleep(3000);
+				Locators.uploadPaycod().click();
+				Thread.sleep(3000);
 				
-		OneCommonMethod.validateFileDownloadDynamic(driver.get(),test,Locators.PaycodMasterSampleFileDownload(),   // WebElement
+				OneCommonMethod.validateFileDownloadDynamic(
+					    driver.get(),
+					    test,
+					    Locators.PaycodMasterSampleFileDownload(),   // WebElement
 					    "Master Paycode Sample File Downloaded"   // Dynamic log message
 					);
 				
-		Thread.sleep(3000);
+				Thread.sleep(3000);
 				
-		OneCommonMethod.validateFileDownloadDynamic(
+				OneCommonMethod.validateFileDownloadDynamic(
 					    driver.get(),
 					    test,
 					    Locators.PaycodUploadPaycodeDownload(),   // WebElement
@@ -5143,29 +5152,30 @@ Locators.UploadAddressMapping().click();
 		Actions action = new Actions(getDriver());
 		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
 		Thread.sleep(3000);
-	    		
+	    
+		
 	  	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='User']")));	//Wait until records table get visible.
 	  	Thread.sleep(3000);Thread.sleep(5000);Thread.sleep(5000);
 	  	Locators.Searchentities().sendKeys("AVACORED5"); // Writing Task title
 		Thread.sleep(5000);
 		
 				
-		Thread.sleep(3000);
-        Locators.clickPremisesArrow().click();
-		Thread.sleep(5000);
-		Locators.OnboardEntity().click();
-		Thread.sleep(5000);
-			
-		Locators.PaycodeMapping().click();
-		Thread.sleep(3000);
+				Thread.sleep(3000);
+                 Locators.clickPremisesArrow().click();
+				Thread.sleep(5000);
+				Locators.OnboardEntity().click();
+				Thread.sleep(5000);
+				
+				Locators.PaycodeMapping().click();
+				Thread.sleep(3000);
 				
 				
-		Locators.uploadPaycod().click();
-		Thread.sleep(3000);
-		Locators.Browse().click();
-		Thread.sleep(3000);
+				Locators.uploadPaycod().click();
+				Thread.sleep(3000);
+				Locators.Browse().click();
+				Thread.sleep(3000);
 				
-		OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\SamplePaycodeMappingUpload.xlsx");
+				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\OtherTwo\\SamplePaycodeMappingUpload.xlsx");
 				Locators.upload2().click();
 				
         		String txt = Locators.MessageTextF4().getText();
@@ -5211,14 +5221,14 @@ Locators.UploadAddressMapping().click();
 		
 		Locators.uploadPaycod().click();
 		Thread.sleep(3000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Locators.SamplePaycod().click();
 		Thread.sleep(3000);
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {
@@ -5234,7 +5244,7 @@ Locators.UploadAddressMapping().click();
 		Locators.Browse().click();
 		Thread.sleep(3000);
 		Robot robot=new Robot();
-		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\SamplePaycodeMappingUpload.xlsx");
+		 StringSelection filepath= new  StringSelection("D:\\Automation File\\Labour Auto\\SamplePaycodeMappingUpload.xlsx");
 		 //copy above file to clipboard
 		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 		
@@ -5312,13 +5322,13 @@ Locators.UploadAddressMapping().click();
 Locators.SamplePaycod().click();
 		Thread.sleep(3000);
 		
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 		
 		Locators.Browse().click();
 		Thread.sleep(3000);
 		Robot robot=new Robot();
-		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\SamplePaycodeMappingUpload.xlsx");
+		 StringSelection filepath= new  StringSelection("D:\\Automation File\\Labour Auto\\SamplePaycodeMappingUpload (1).xlsx");
 		 //copy above file to clipboard
 		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 		
@@ -5359,7 +5369,7 @@ Locators.SamplePaycod().click();
 				 Thread.sleep(2000);
 		
 		 Thread.sleep(3000);
-			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir1 = new File("C:\\Users\\bilali\\Downloads");
 			File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 			Thread.sleep(3000);
 			
@@ -5417,7 +5427,7 @@ Locators.SamplePaycod().click();
 		Locators.Browse().click();
 		Thread.sleep(3000);
 		Robot robot=new Robot();
-		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\SamplePaycodeMappingUpload.xlsx");
+		 StringSelection filepath= new  StringSelection("D:\\Automation File\\Labour Auto\\SamplePaycodeMappingUpload (3).xlsx");
 		 //copy above file to clipboard
 		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 		
@@ -6300,7 +6310,7 @@ Locators.SamplePaycod().click();
 
 			Thread.sleep(1000);
 			
-			File dir = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir = new File("C:\\Users\\bilali\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 
 			Thread.sleep(1000);
@@ -6309,7 +6319,7 @@ Locators.SamplePaycod().click();
 			test.log(LogStatus.PASS, " :- File downloaded successfully.");
 
 			Thread.sleep(5500);
-			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir1 = new File("C:\\Users\\bilali\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 
 			if(dirContents.length < allFilesNew.length)
@@ -6705,14 +6715,14 @@ Locators.SamplePaycod().click();
 		
 		Locators.uploadPaycod().click();
 		Thread.sleep(3000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Locators.SamplePaycod().click();
 		Thread.sleep(3000);
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {
@@ -6728,7 +6738,7 @@ Locators.SamplePaycod().click();
 		Locators.Browse().click();
 		Thread.sleep(3000);
 		Robot robot=new Robot();
-		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\SamplePaycodeMappingUpload.xlsx");
+		 StringSelection filepath= new  StringSelection("D:\\Automation File\\Labour Auto\\SamplePaycodeMappingUpload.xlsx");
 		 //copy above file to clipboard
 		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 		
@@ -6802,13 +6812,13 @@ Locators.SamplePaycod().click();
 Locators.SamplePaycod().click();
 		Thread.sleep(3000);
 		
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 		
 		Locators.Browse().click();
 		Thread.sleep(3000);
 		Robot robot=new Robot();
-		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\SamplePaycodeMappingUpload.xlsx");
+		 StringSelection filepath= new  StringSelection("D:\\Automation File\\Labour Auto\\SamplePaycodeMappingUpload (1).xlsx");
 		 //copy above file to clipboard
 		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 		
@@ -6849,7 +6859,7 @@ Locators.SamplePaycod().click();
 				 Thread.sleep(2000);
 		
 		 Thread.sleep(3000);
-			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir1 = new File("C:\\Users\\bilali\\Downloads");
 			File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 			Thread.sleep(3000);
 			
@@ -6886,19 +6896,20 @@ Locators.SamplePaycod().click();
 		Thread.sleep(3000);
 		
 				
-		Thread.sleep(3000);
-        Thread.sleep(3000);
-		Locators.ManageMasters().click();
-		Thread.sleep(5000);
+				Thread.sleep(3000);
+                 Locators.Dashboard().click();
+				Thread.sleep(3000);
+				Locators.ManageMasters().click();
+				Thread.sleep(5000);
 				
-		Locators.PaycodeMapping().click();
-		Thread.sleep(3000);
+				Locators.PaycodeMapping().click();
+				Thread.sleep(3000);
 		
 		Locators.uploadPaycod().click();
 		
 		
 		Thread.sleep(3000);
-		Locators.SamplePaycod().click();
+Locators.SamplePaycod().click();
 		Thread.sleep(3000);
 		
 	
@@ -6906,7 +6917,7 @@ Locators.SamplePaycod().click();
 		Locators.Browse().click();
 		Thread.sleep(3000);
 		Robot robot=new Robot();
-		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\SamplePaycodeMappingUpload.xlsx");
+		 StringSelection filepath= new  StringSelection("D:\\Automation File\\Labour Auto\\SamplePaycodeMappingUpload (3).xlsx");
 		 //copy above file to clipboard
 		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 		
@@ -6979,7 +6990,7 @@ Locators.SamplePaycod().click();
 		Locators.Browse().click();
 		Thread.sleep(3000);
 		Robot robot=new Robot();
-		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\unknown.txt");
+		 StringSelection filepath= new  StringSelection("D:\\Automation File\\Labour Auto\\work.txt");
 		 //copy above file to clipboard
 		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 		
@@ -7303,7 +7314,7 @@ Locators.SamplePaycod().click();
 
 			Thread.sleep(1000);
 			
-			File dir = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir = new File("C:\\Users\\bilali\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 
 			Thread.sleep(1000);
@@ -7312,7 +7323,7 @@ Locators.SamplePaycod().click();
 			test.log(LogStatus.PASS, " File downloaded successfully.");
 
 			Thread.sleep(5500);
-			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir1 = new File("C:\\Users\\bilali\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 
 			if(dirContents.length < allFilesNew.length)
@@ -7475,13 +7486,12 @@ Locators.SamplePaycod().click();
 		
 	}
 	
-	public static void selectOptionFromDropDown_bs(List<WebElement> options, String value)
-	{
+	
+	
+public static void selectOptionFromDropDown_bs(List<WebElement> options, String value) {
 		
-		for(WebElement option:options)
-		{
-			if(option.getText().equals(value))
-			{
+		for(WebElement option:options) {
+			if(option.getText().equals(value)) {
 				option.click();
 				break;
 			}

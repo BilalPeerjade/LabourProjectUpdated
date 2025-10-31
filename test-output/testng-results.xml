@@ -1,241 +1,342 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="38" passed="32" failed="6" skipped="0">
+<testng-results ignored="0" total="27" passed="26" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-10-17T13:11:11 IST" name="Default suite" finished-at="2025-10-17T14:14:23 IST" duration-ms="3791042">
+  <suite started-at="2025-10-30T19:49:21 IST" name="Default suite" finished-at="2025-10-30T20:13:10 IST" duration-ms="1428107">
     <groups>
     </groups>
-    <test started-at="2025-10-17T13:11:11 IST" name="Default test" finished-at="2025-10-17T14:14:23 IST" duration-ms="3791042">
-      <class name="testCases.All_Reviewer_TestCase">
-        <test-method is-config="true" signature="setBrowser()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:11:12 IST" name="setBrowser" finished-at="2025-10-17T13:11:12 IST" duration-ms="941" status="PASS">
+    <test started-at="2025-10-30T19:49:21 IST" name="Default test" finished-at="2025-10-30T20:13:10 IST" duration-ms="1428107">
+      <class name="testCases.RCPTestCase">
+        <test-method is-config="true" signature="setBrowser()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:49:21 IST" name="setBrowser" finished-at="2025-10-30T19:49:22 IST" duration-ms="866" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setBrowser -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:11:13 IST" name="Login" finished-at="2025-10-17T13:11:24 IST" duration-ms="11748" status="PASS">
+        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:49:22 IST" name="Login" finished-at="2025-10-30T19:49:36 IST" duration-ms="13878" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method signature="CompanyLogo()[pri:1, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:11:24 IST" name="CompanyLogo" finished-at="2025-10-17T13:11:30 IST" duration-ms="5421" status="PASS">
+        <test-method signature="RCPLogo()[pri:1, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:49:36 IST" name="RCPLogo" finished-at="2025-10-30T19:50:00 IST" duration-ms="23563" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- CompanyLogo -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:11:30 IST" name="browserClosing" finished-at="2025-10-17T13:11:32 IST" duration-ms="2334" status="PASS">
+        </test-method> <!-- RCPLogo -->
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:50:00 IST" name="close" finished-at="2025-10-30T19:50:06 IST" duration-ms="6184" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:11:32 IST" name="Login" finished-at="2025-10-17T13:11:41 IST" duration-ms="9476" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method signature="Logout()[pri:2, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:11:41 IST" name="Logout" finished-at="2025-10-17T13:12:08 IST" duration-ms="26462" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Logout -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:12:08 IST" name="browserClosing" finished-at="2025-10-17T13:12:10 IST" duration-ms="2216" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:12:10 IST" name="Login" finished-at="2025-10-17T13:12:18 IST" duration-ms="7626" status="PASS">
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:50:06 IST" name="Login" finished-at="2025-10-30T19:50:18 IST" duration-ms="11531" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method signature="ChangePassWithInvalidCurrentPass()[pri:3, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:12:18 IST" name="ChangePassWithInvalidCurrentPass" finished-at="2025-10-17T13:14:05 IST" duration-ms="107510" status="PASS">
+        <test-method signature="RCPcolumnExpandIcon()[pri:2, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:50:18 IST" name="RCPcolumnExpandIcon" finished-at="2025-10-30T19:51:02 IST" duration-ms="44287" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ChangePassWithInvalidCurrentPass -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:14:05 IST" name="browserClosing" finished-at="2025-10-17T13:14:08 IST" duration-ms="2406" status="PASS">
+        </test-method> <!-- RCPcolumnExpandIcon -->
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:51:02 IST" name="close" finished-at="2025-10-30T19:51:08 IST" duration-ms="6135" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:14:08 IST" name="Login" finished-at="2025-10-17T13:14:17 IST" duration-ms="9485" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method signature="ChangePass()[pri:4, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:14:17 IST" name="ChangePass" finished-at="2025-10-17T13:14:37 IST" duration-ms="19864" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ChangePass -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:14:37 IST" name="browserClosing" finished-at="2025-10-17T13:14:39 IST" duration-ms="2402" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:14:39 IST" name="Login" finished-at="2025-10-17T13:14:52 IST" duration-ms="12036" status="PASS">
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:51:08 IST" name="Login" finished-at="2025-10-30T19:51:20 IST" duration-ms="11980" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method signature="EntitiesSearch()[pri:5, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:14:52 IST" name="EntitiesSearch" finished-at="2025-10-17T13:15:02 IST" duration-ms="10325" status="PASS">
+        <test-method signature="RegistrationCountMatch()[pri:3, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:51:20 IST" name="RegistrationCountMatch" finished-at="2025-10-30T19:51:41 IST" duration-ms="20597" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- EntitiesSearch -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:15:02 IST" name="browserClosing" finished-at="2025-10-17T13:15:04 IST" duration-ms="2450" status="PASS">
+        </test-method> <!-- RegistrationCountMatch -->
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:51:41 IST" name="close" finished-at="2025-10-30T19:51:47 IST" duration-ms="6139" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:15:04 IST" name="Login" finished-at="2025-10-17T13:15:15 IST" duration-ms="10472" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method signature="EntityExcelDownload()[pri:10, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:15:15 IST" name="EntityExcelDownload" finished-at="2025-10-17T13:16:22 IST" duration-ms="67156" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- EntityExcelDownload -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:16:22 IST" name="browserClosing" finished-at="2025-10-17T13:16:24 IST" duration-ms="2546" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:16:24 IST" name="Login" finished-at="2025-10-17T13:16:36 IST" duration-ms="11511" status="PASS">
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:51:47 IST" name="Login" finished-at="2025-10-30T19:52:00 IST" duration-ms="13178" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method signature="PortalLogin()[pri:11, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:16:36 IST" name="PortalLogin" finished-at="2025-10-17T13:17:02 IST" duration-ms="25932" status="PASS">
+        <test-method signature="RegistrationPendingApplicationExport()[pri:4, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:52:00 IST" name="RegistrationPendingApplicationExport" finished-at="2025-10-30T19:52:32 IST" duration-ms="32460" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- PortalLogin -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:17:02 IST" name="browserClosing" finished-at="2025-10-17T13:17:04 IST" duration-ms="2460" status="PASS">
+        </test-method> <!-- RegistrationPendingApplicationExport -->
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:52:32 IST" name="close" finished-at="2025-10-30T19:52:38 IST" duration-ms="6120" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:17:04 IST" name="Login" finished-at="2025-10-17T13:17:11 IST" duration-ms="6788" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method signature="ProceedToDashboard()[pri:15, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:17:11 IST" name="ProceedToDashboard" finished-at="2025-10-17T13:17:58 IST" duration-ms="47059" status="FAIL">
-          <exception class="org.openqa.selenium.NoSuchElementException">
-            <message>
-              <![CDATA[no such element: Unable to locate element: {"method":"css selector","selector":".f\-textbox"}
-  (Session info: chrome=141.0.7390.77)
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.0', revision: '2ecb7d9a', time: '2018-10-31T20:09:30'
-System info: host: 'TRPL-PUN-0310', ip: '172.20.10.2', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.77, chrome: {chromedriverVersion: 140.0.7339.207 (17230b545fd..., userDataDir: C:\Users\swapnilb\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51410}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: c4b568bada53415b8815af86fc9ac03b
-*** Element info: {Using=class name, value=f-textbox}]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":".f\-textbox"}
-  (Session info: chrome=141.0.7390.77)
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.0', revision: '2ecb7d9a', time: '2018-10-31T20:09:30'
-System info: host: 'TRPL-PUN-0310', ip: '172.20.10.2', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.77, chrome: {chromedriverVersion: 140.0.7339.207 (17230b545fd..., userDataDir: C:\Users\swapnilb\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51410}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: c4b568bada53415b8815af86fc9ac03b
-*** Element info: {Using=class name, value=f-textbox}
-at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-at org.openqa.selenium.remote.RemoteWebDriver.findElementByClassName(RemoteWebDriver.java:412)
-at org.openqa.selenium.By$ByClassName.findElement(By.java:389)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-at login.LoginLocators.Search(LoginLocators.java:37)
-at distributor.MethodsD.ProceedToDashboard(MethodsD.java:728)
-at testCases.All_Reviewer_TestCase.ProceedToDashboard(All_Reviewer_TestCase.java:152)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-at org.testng.TestRunner.privateRun(TestRunner.java:829)
-at org.testng.TestRunner.run(TestRunner.java:602)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
-at org.testng.SuiteRunner.run(SuiteRunner.java:330)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
-at org.testng.TestNG.runSuites(TestNG.java:1099)
-at org.testng.TestNG.run(TestNG.java:1067)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ProceedToDashboard -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:17:58 IST" name="browserClosing" finished-at="2025-10-17T13:18:01 IST" duration-ms="2378" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:18:01 IST" name="Login" finished-at="2025-10-17T13:18:07 IST" duration-ms="6680" status="PASS">
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:52:38 IST" name="Login" finished-at="2025-10-30T19:52:50 IST" duration-ms="11397" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method signature="ComplianceBox()[pri:20, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:18:07 IST" name="ComplianceBox" finished-at="2025-10-17T13:22:26 IST" duration-ms="258709" status="PASS">
+        <test-method signature="RegistrationPendingAction()[pri:5, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:52:50 IST" name="RegistrationPendingAction" finished-at="2025-10-30T19:53:10 IST" duration-ms="19993" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ComplianceBox -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:22:26 IST" name="browserClosing" finished-at="2025-10-17T13:22:30 IST" duration-ms="3800" status="PASS">
+        </test-method> <!-- RegistrationPendingAction -->
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:53:10 IST" name="close" finished-at="2025-10-30T19:53:16 IST" duration-ms="6164" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:22:30 IST" name="Login" finished-at="2025-10-17T13:22:48 IST" duration-ms="18448" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method signature="UpcomingBox()[pri:22, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:22:48 IST" name="UpcomingBox" finished-at="2025-10-17T13:25:50 IST" duration-ms="181353" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- UpcomingBox -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:25:50 IST" name="browserClosing" finished-at="2025-10-17T13:25:52 IST" duration-ms="2476" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:25:52 IST" name="Login" finished-at="2025-10-17T13:26:07 IST" duration-ms="14567" status="PASS">
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:53:16 IST" name="Login" finished-at="2025-10-30T19:53:27 IST" duration-ms="11480" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method signature="OverdueBox()[pri:24, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:26:07 IST" name="OverdueBox" finished-at="2025-10-17T13:29:08 IST" duration-ms="181756" status="PASS">
+        <test-method signature="RegistrationAppliedAwatingDeptExport()[pri:6, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:53:27 IST" name="RegistrationAppliedAwatingDeptExport" finished-at="2025-10-30T19:54:01 IST" duration-ms="33134" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- OverdueBox -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:29:08 IST" name="browserClosing" finished-at="2025-10-17T13:29:11 IST" duration-ms="2867" status="PASS">
+        </test-method> <!-- RegistrationAppliedAwatingDeptExport -->
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:54:01 IST" name="close" finished-at="2025-10-30T19:54:07 IST" duration-ms="6144" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:29:11 IST" name="Login" finished-at="2025-10-17T13:29:25 IST" duration-ms="13596" status="PASS">
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:54:07 IST" name="Login" finished-at="2025-10-30T19:54:19 IST" duration-ms="11761" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method signature="PendingActionBox()[pri:26, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:29:25 IST" name="PendingActionBox" finished-at="2025-10-17T13:31:33 IST" duration-ms="128570" status="FAIL">
+        <test-method signature="RegistrationOverdue()[pri:7, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:54:19 IST" name="RegistrationOverdue" finished-at="2025-10-30T19:54:37 IST" duration-ms="18019" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- RegistrationOverdue -->
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:54:37 IST" name="close" finished-at="2025-10-30T19:54:43 IST" duration-ms="6168" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:54:43 IST" name="Login" finished-at="2025-10-30T19:54:55 IST" duration-ms="11854" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method signature="RegistrationOverdueExport()[pri:8, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:54:55 IST" name="RegistrationOverdueExport" finished-at="2025-10-30T19:55:38 IST" duration-ms="43849" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- RegistrationOverdueExport -->
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:55:38 IST" name="close" finished-at="2025-10-30T19:55:45 IST" duration-ms="6140" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:55:45 IST" name="Login" finished-at="2025-10-30T19:55:56 IST" duration-ms="11726" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method signature="RegistrationClosed()[pri:9, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:55:56 IST" name="RegistrationClosed" finished-at="2025-10-30T19:56:16 IST" duration-ms="19983" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- RegistrationClosed -->
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:56:16 IST" name="close" finished-at="2025-10-30T19:56:22 IST" duration-ms="6142" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:56:22 IST" name="Login" finished-at="2025-10-30T19:56:34 IST" duration-ms="11312" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method signature="RegistrationClosedExport()[pri:10, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:56:34 IST" name="RegistrationClosedExport" finished-at="2025-10-30T19:57:23 IST" duration-ms="48804" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- RegistrationClosedExport -->
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:57:23 IST" name="close" finished-at="2025-10-30T19:57:29 IST" duration-ms="6187" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:57:29 IST" name="Login" finished-at="2025-10-30T19:57:40 IST" duration-ms="11248" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method signature="ExportBtn()[pri:11, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:57:40 IST" name="ExportBtn" finished-at="2025-10-30T19:58:12 IST" duration-ms="32155" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ExportBtn -->
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:58:12 IST" name="close" finished-at="2025-10-30T19:58:18 IST" duration-ms="6159" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:58:18 IST" name="Login" finished-at="2025-10-30T19:58:30 IST" duration-ms="11315" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method signature="SearchBox()[pri:12, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:58:30 IST" name="SearchBox" finished-at="2025-10-30T19:59:26 IST" duration-ms="56384" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SearchBox -->
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:59:26 IST" name="close" finished-at="2025-10-30T19:59:32 IST" duration-ms="6150" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:59:32 IST" name="Login" finished-at="2025-10-30T19:59:45 IST" duration-ms="13334" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method signature="EditIcon()[pri:13, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:59:45 IST" name="EditIcon" finished-at="2025-10-30T19:59:56 IST" duration-ms="10531" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- EditIcon -->
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T19:59:56 IST" name="close" finished-at="2025-10-30T20:00:02 IST" duration-ms="6154" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:00:02 IST" name="Login" finished-at="2025-10-30T20:00:14 IST" duration-ms="11478" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method signature="OTAReport()[pri:13, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:00:14 IST" name="OTAReport" finished-at="2025-10-30T20:01:13 IST" duration-ms="59027" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- OTAReport -->
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:01:13 IST" name="close" finished-at="2025-10-30T20:01:19 IST" duration-ms="6177" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:01:19 IST" name="Login" finished-at="2025-10-30T20:01:30 IST" duration-ms="11334" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method signature="EditSubmittedToDept()[pri:14, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:01:30 IST" name="EditSubmittedToDept" finished-at="2025-10-30T20:02:26 IST" duration-ms="55927" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- EditSubmittedToDept -->
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:02:26 IST" name="close" finished-at="2025-10-30T20:02:32 IST" duration-ms="6166" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:02:32 IST" name="Login" finished-at="2025-10-30T20:02:44 IST" duration-ms="11311" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method signature="EditClosureVerification()[pri:15, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:02:44 IST" name="EditClosureVerification" finished-at="2025-10-30T20:04:33 IST" duration-ms="109680" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- EditClosureVerification -->
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:04:33 IST" name="close" finished-at="2025-10-30T20:04:39 IST" duration-ms="6182" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:04:39 IST" name="Login" finished-at="2025-10-30T20:05:03 IST" duration-ms="23668" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method signature="EditTabsVerification()[pri:16, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:05:03 IST" name="EditTabsVerification" finished-at="2025-10-30T20:05:40 IST" duration-ms="37239" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- EditTabsVerification -->
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:05:40 IST" name="close" finished-at="2025-10-30T20:05:47 IST" duration-ms="6198" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:05:47 IST" name="Login" finished-at="2025-10-30T20:05:59 IST" duration-ms="12069" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method signature="editDocumentSectionDocReqOTActivity()[pri:17, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:05:59 IST" name="editDocumentSectionDocReqOTActivity" finished-at="2025-10-30T20:06:26 IST" duration-ms="27294" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- editDocumentSectionDocReqOTActivity -->
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:06:26 IST" name="close" finished-at="2025-10-30T20:06:32 IST" duration-ms="6178" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:06:32 IST" name="Login" finished-at="2025-10-30T20:06:44 IST" duration-ms="11423" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method signature="documentRepositoryDownloads()[pri:18, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:06:44 IST" name="documentRepositoryDownloads" finished-at="2025-10-30T20:07:12 IST" duration-ms="28860" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- documentRepositoryDownloads -->
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:07:12 IST" name="close" finished-at="2025-10-30T20:07:19 IST" duration-ms="6155" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:07:19 IST" name="Login" finished-at="2025-10-30T20:07:30 IST" duration-ms="11566" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method signature="ExistingLicenseCountMatch()[pri:19, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:07:30 IST" name="ExistingLicenseCountMatch" finished-at="2025-10-30T20:08:05 IST" duration-ms="34477" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ExistingLicenseCountMatch -->
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:08:05 IST" name="close" finished-at="2025-10-30T20:08:11 IST" duration-ms="6145" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:08:11 IST" name="Login" finished-at="2025-10-30T20:08:23 IST" duration-ms="12595" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method signature="ExistingLicenseendingAction()[pri:20, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:08:23 IST" name="ExistingLicenseendingAction" finished-at="2025-10-30T20:08:45 IST" duration-ms="21547" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ExistingLicenseendingAction -->
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:08:45 IST" name="close" finished-at="2025-10-30T20:08:51 IST" duration-ms="6135" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:08:51 IST" name="Login" finished-at="2025-10-30T20:09:03 IST" duration-ms="11494" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method signature="ExistingLicenseOverdue()[pri:21, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:09:03 IST" name="ExistingLicenseOverdue" finished-at="2025-10-30T20:09:24 IST" duration-ms="21560" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ExistingLicenseOverdue -->
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:09:24 IST" name="close" finished-at="2025-10-30T20:09:30 IST" duration-ms="6141" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:09:30 IST" name="Login" finished-at="2025-10-30T20:09:45 IST" duration-ms="14727" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method signature="ExistingLicenseClosed()[pri:22, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:09:45 IST" name="ExistingLicenseClosed" finished-at="2025-10-30T20:10:07 IST" duration-ms="21933" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ExistingLicenseClosed -->
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:10:07 IST" name="close" finished-at="2025-10-30T20:10:13 IST" duration-ms="6151" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:10:13 IST" name="Login" finished-at="2025-10-30T20:10:24 IST" duration-ms="11317" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method signature="ExsitingLicenseExport()[pri:23, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:10:24 IST" name="ExsitingLicenseExport" finished-at="2025-10-30T20:11:00 IST" duration-ms="35246" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ExsitingLicenseExport -->
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:11:00 IST" name="close" finished-at="2025-10-30T20:11:06 IST" duration-ms="6172" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:11:06 IST" name="Login" finished-at="2025-10-30T20:11:17 IST" duration-ms="11559" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method signature="SearchBoxExistiongLicense()[pri:24, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:11:17 IST" name="SearchBoxExistiongLicense" finished-at="2025-10-30T20:11:38 IST" duration-ms="20326" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SearchBoxExistiongLicense -->
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:11:38 IST" name="close" finished-at="2025-10-30T20:11:44 IST" duration-ms="6179" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:11:44 IST" name="Login" finished-at="2025-10-30T20:11:55 IST" duration-ms="11315" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method signature="ExistingLicenseViewIcon()[pri:25, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:11:55 IST" name="ExistingLicenseViewIcon" finished-at="2025-10-30T20:12:06 IST" duration-ms="10710" status="FAIL">
           <exception class="org.openqa.selenium.ElementClickInterceptedException">
             <message>
-              <![CDATA[element click intercepted: Element <span unselectable="on" class="k-input-inner" id="k-d5f69d5b-dab6-402c-bfd6-e66dd3f9c10b">...</span> is not clickable at point (410, 386). Other element would receive the click: <kendo-pager-next-buttons _ngcontent-ng-c2432726710="" class="next ng-star-inserted">...</kendo-pager-next-buttons>
-  (Session info: chrome=141.0.7390.77)
+              <![CDATA[element click intercepted: Element is not clickable at point (757, 618)
+  (Session info: chrome=141.0.7390.123)
 Build info: version: '3.141.0', revision: '2ecb7d9a', time: '2018-10-31T20:09:30'
-System info: host: 'TRPL-PUN-0310', ip: '172.20.10.2', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
+System info: host: 'TRPL-PUN-0268', ip: '192.168.1.3', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.77, chrome: {chromedriverVersion: 140.0.7339.207 (17230b545fd..., userDataDir: C:\Users\swapnilb\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65184}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 68b02d3c1c08d55a9c3f74d4aa4be554]]>
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.123, chrome: {chromedriverVersion: 140.0.7339.207 (17230b545fd..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54450}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 724390a03615788ff62f24d2c86e956d]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <span unselectable="on" class="k-input-inner" id="k-d5f69d5b-dab6-402c-bfd6-e66dd3f9c10b">...</span> is not clickable at point (410, 386). Other element would receive the click: <kendo-pager-next-buttons _ngcontent-ng-c2432726710="" class="next ng-star-inserted">...</kendo-pager-next-buttons>
-  (Session info: chrome=141.0.7390.77)
+              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element is not clickable at point (757, 618)
+  (Session info: chrome=141.0.7390.123)
 Build info: version: '3.141.0', revision: '2ecb7d9a', time: '2018-10-31T20:09:30'
-System info: host: 'TRPL-PUN-0310', ip: '172.20.10.2', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
+System info: host: 'TRPL-PUN-0268', ip: '192.168.1.3', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.77, chrome: {chromedriverVersion: 140.0.7339.207 (17230b545fd..., userDataDir: C:\Users\swapnilb\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65184}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 68b02d3c1c08d55a9c3f74d4aa4be554
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.123, chrome: {chromedriverVersion: 140.0.7339.207 (17230b545fd..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54450}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 724390a03615788ff62f24d2c86e956d
 at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
 at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
 at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
 at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
@@ -244,8 +345,8 @@ at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverComman
 at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
 at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
 at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
-at distributor.MethodsD.PendingActionBox(MethodsD.java:1997)
-at testCases.All_Reviewer_TestCase.PendingActionBox(All_Reviewer_TestCase.java:199)
+at rcp.RCPMethod.ExistingLicenseViewIcon(RCPMethod.java:2000)
+at testCases.RCPTestCase.ExistingLicenseViewIcon(RCPTestCase.java:388)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
@@ -256,7 +357,7 @@ at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInv
 at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
 at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
 at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
 at org.testng.TestRunner.privateRun(TestRunner.java:829)
 at org.testng.TestRunner.run(TestRunner.java:602)
 at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
@@ -277,591 +378,24 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
           </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- PendingActionBox -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:31:33 IST" name="browserClosing" finished-at="2025-10-17T13:31:36 IST" duration-ms="2422" status="PASS">
+        </test-method> <!-- ExistingLicenseViewIcon -->
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:12:06 IST" name="close" finished-at="2025-10-30T20:12:12 IST" duration-ms="6165" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:31:36 IST" name="Login" finished-at="2025-10-17T13:31:46 IST" duration-ms="9749" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method signature="PendingReviewBox()[pri:28, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:31:46 IST" name="PendingReviewBox" finished-at="2025-10-17T13:34:18 IST" duration-ms="152649" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- PendingReviewBox -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:34:18 IST" name="browserClosing" finished-at="2025-10-17T13:34:21 IST" duration-ms="2624" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:34:21 IST" name="Login" finished-at="2025-10-17T13:34:29 IST" duration-ms="8408" status="PASS">
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:12:12 IST" name="Login" finished-at="2025-10-30T20:12:24 IST" duration-ms="11837" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method signature="RegisterUpcoming()[pri:31, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:34:29 IST" name="RegisterUpcoming" finished-at="2025-10-17T13:35:06 IST" duration-ms="37026" status="FAIL">
-          <exception class="org.openqa.selenium.NoSuchElementException">
-            <message>
-              <![CDATA[no such element: Unable to locate element: {"method":"css selector","selector":".f\-textbox"}
-  (Session info: chrome=141.0.7390.77)
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.0', revision: '2ecb7d9a', time: '2018-10-31T20:09:30'
-System info: host: 'TRPL-PUN-0310', ip: '172.20.10.2', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.77, chrome: {chromedriverVersion: 140.0.7339.207 (17230b545fd..., userDataDir: C:\Users\swapnilb\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63655}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 13f0a882ba1fef776aa78e222c87cf30
-*** Element info: {Using=class name, value=f-textbox}]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":".f\-textbox"}
-  (Session info: chrome=141.0.7390.77)
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.0', revision: '2ecb7d9a', time: '2018-10-31T20:09:30'
-System info: host: 'TRPL-PUN-0310', ip: '172.20.10.2', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.77, chrome: {chromedriverVersion: 140.0.7339.207 (17230b545fd..., userDataDir: C:\Users\swapnilb\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63655}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 13f0a882ba1fef776aa78e222c87cf30
-*** Element info: {Using=class name, value=f-textbox}
-at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-at org.openqa.selenium.remote.RemoteWebDriver.findElementByClassName(RemoteWebDriver.java:412)
-at org.openqa.selenium.By$ByClassName.findElement(By.java:389)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-at login.LoginLocators.Search(LoginLocators.java:37)
-at distributor.MethodsD.RegisterUpcoming(MethodsD.java:2162)
-at testCases.All_Reviewer_TestCase.RegisterUpcoming(All_Reviewer_TestCase.java:223)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-at org.testng.TestRunner.privateRun(TestRunner.java:829)
-at org.testng.TestRunner.run(TestRunner.java:602)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
-at org.testng.SuiteRunner.run(SuiteRunner.java:330)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
-at org.testng.TestNG.runSuites(TestNG.java:1099)
-at org.testng.TestNG.run(TestNG.java:1067)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+        <test-method signature="ExistingLicenseDownload()[pri:26, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:12:24 IST" name="ExistingLicenseDownload" finished-at="2025-10-30T20:13:03 IST" duration-ms="39555" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- RegisterUpcoming -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:35:06 IST" name="browserClosing" finished-at="2025-10-17T13:35:09 IST" duration-ms="2362" status="PASS">
+        </test-method> <!-- ExistingLicenseDownload -->
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.RCPTestCase@38afe297]" started-at="2025-10-30T20:13:03 IST" name="close" finished-at="2025-10-30T20:13:10 IST" duration-ms="6156" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:35:09 IST" name="Login" finished-at="2025-10-17T13:35:18 IST" duration-ms="9504" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method signature="RegisterOverdue()[pri:33, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:35:18 IST" name="RegisterOverdue" finished-at="2025-10-17T13:38:08 IST" duration-ms="170187" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- RegisterOverdue -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:38:08 IST" name="browserClosing" finished-at="2025-10-17T13:38:11 IST" duration-ms="2827" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:38:11 IST" name="Login" finished-at="2025-10-17T13:38:23 IST" duration-ms="11749" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method signature="RegisterActionReview()[pri:35, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:38:23 IST" name="RegisterActionReview" finished-at="2025-10-17T13:39:04 IST" duration-ms="41475" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- RegisterActionReview -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:39:04 IST" name="browserClosing" finished-at="2025-10-17T13:39:07 IST" duration-ms="2402" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:39:07 IST" name="Login" finished-at="2025-10-17T13:39:14 IST" duration-ms="7302" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method signature="ReturnUpcoming()[pri:37, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:39:14 IST" name="ReturnUpcoming" finished-at="2025-10-17T13:42:04 IST" duration-ms="169933" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ReturnUpcoming -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:42:04 IST" name="browserClosing" finished-at="2025-10-17T13:42:07 IST" duration-ms="2465" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:42:07 IST" name="Login" finished-at="2025-10-17T13:42:17 IST" duration-ms="10794" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method signature="ReturnOverdue()[pri:39, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:42:17 IST" name="ReturnOverdue" finished-at="2025-10-17T13:42:49 IST" duration-ms="31659" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ReturnOverdue -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:42:49 IST" name="browserClosing" finished-at="2025-10-17T13:42:51 IST" duration-ms="2461" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:42:51 IST" name="Login" finished-at="2025-10-17T13:43:02 IST" duration-ms="10126" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method signature="ReturnActionReview()[pri:41, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:43:02 IST" name="ReturnActionReview" finished-at="2025-10-17T13:43:36 IST" duration-ms="34473" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ReturnActionReview -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:43:36 IST" name="browserClosing" finished-at="2025-10-17T13:43:38 IST" duration-ms="2425" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:43:38 IST" name="Login" finished-at="2025-10-17T13:43:49 IST" duration-ms="10975" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method signature="ChallanUpcoming()[pri:43, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:43:49 IST" name="ChallanUpcoming" finished-at="2025-10-17T13:46:22 IST" duration-ms="152496" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ChallanUpcoming -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:46:22 IST" name="browserClosing" finished-at="2025-10-17T13:46:24 IST" duration-ms="2511" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:46:24 IST" name="Login" finished-at="2025-10-17T13:46:42 IST" duration-ms="17406" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method signature="ChallanOverdue()[pri:45, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:46:42 IST" name="ChallanOverdue" finished-at="2025-10-17T13:49:35 IST" duration-ms="173258" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ChallanOverdue -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:49:35 IST" name="browserClosing" finished-at="2025-10-17T13:49:37 IST" duration-ms="2366" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:49:37 IST" name="Login" finished-at="2025-10-17T13:49:49 IST" duration-ms="11447" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method signature="ChallanActionReview()[pri:47, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:49:49 IST" name="ChallanActionReview" finished-at="2025-10-17T13:52:40 IST" duration-ms="170685" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ChallanActionReview -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:52:40 IST" name="browserClosing" finished-at="2025-10-17T13:52:42 IST" duration-ms="2488" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:52:42 IST" name="Login" finished-at="2025-10-17T13:52:55 IST" duration-ms="12461" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method signature="StateCitySearch()[pri:70, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:52:55 IST" name="StateCitySearch" finished-at="2025-10-17T13:53:40 IST" duration-ms="45042" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- StateCitySearch -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:53:40 IST" name="browserClosing" finished-at="2025-10-17T13:53:42 IST" duration-ms="2376" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:53:42 IST" name="Login" finished-at="2025-10-17T13:53:52 IST" duration-ms="9846" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method signature="DesignationSearch()[pri:75, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:53:52 IST" name="DesignationSearch" finished-at="2025-10-17T13:54:57 IST" duration-ms="65212" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- DesignationSearch -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:54:57 IST" name="browserClosing" finished-at="2025-10-17T13:54:59 IST" duration-ms="2423" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:54:59 IST" name="Login" finished-at="2025-10-17T13:55:11 IST" duration-ms="11192" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method signature="DesignationExportBtn()[pri:80, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:55:11 IST" name="DesignationExportBtn" finished-at="2025-10-17T13:56:29 IST" duration-ms="78023" status="FAIL">
-          <exception class="org.openqa.selenium.NoSuchElementException">
-            <message>
-              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/app-root/div/app-layout/section/div/div/app-designation-master/div[2]/kendo-loader/div/span[1]"}
-  (Session info: chrome=141.0.7390.77)
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.0', revision: '2ecb7d9a', time: '2018-10-31T20:09:30'
-System info: host: 'TRPL-PUN-0310', ip: '172.20.10.2', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.77, chrome: {chromedriverVersion: 140.0.7339.207 (17230b545fd..., userDataDir: C:\Users\swapnilb\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55343}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 724dabdbd599f26b72686ada6e80cb78
-*** Element info: {Using=xpath, value=/html/body/app-root/div/app-layout/section/div/div/app-designation-master/div[2]/kendo-loader/div/span[1]}]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/app-root/div/app-layout/section/div/div/app-designation-master/div[2]/kendo-loader/div/span[1]"}
-  (Session info: chrome=141.0.7390.77)
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.0', revision: '2ecb7d9a', time: '2018-10-31T20:09:30'
-System info: host: 'TRPL-PUN-0310', ip: '172.20.10.2', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.77, chrome: {chromedriverVersion: 140.0.7339.207 (17230b545fd..., userDataDir: C:\Users\swapnilb\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55343}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 724dabdbd599f26b72686ada6e80cb78
-*** Element info: {Using=xpath, value=/html/body/app-root/div/app-layout/section/div/div/app-designation-master/div[2]/kendo-loader/div/span[1]}
-at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
-at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-at performer.PerformerLocator.GridLoad1(PerformerLocator.java:1366)
-at performer.PerformerMethod.DesignationExportBtn(PerformerMethod.java:6914)
-at testCases.All_Reviewer_TestCase.DesignationExportBtn(All_Reviewer_TestCase.java:342)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-at org.testng.TestRunner.privateRun(TestRunner.java:829)
-at org.testng.TestRunner.run(TestRunner.java:602)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
-at org.testng.SuiteRunner.run(SuiteRunner.java:330)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
-at org.testng.TestNG.runSuites(TestNG.java:1099)
-at org.testng.TestNG.run(TestNG.java:1067)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- DesignationExportBtn -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:56:29 IST" name="browserClosing" finished-at="2025-10-17T13:56:31 IST" duration-ms="2563" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:56:31 IST" name="Login" finished-at="2025-10-17T13:56:44 IST" duration-ms="13180" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method signature="MyDocumentSearch()[pri:100, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:56:44 IST" name="MyDocumentSearch" finished-at="2025-10-17T13:57:21 IST" duration-ms="36352" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- MyDocumentSearch -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:57:21 IST" name="browserClosing" finished-at="2025-10-17T13:57:23 IST" duration-ms="2488" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:57:23 IST" name="Login" finished-at="2025-10-17T13:57:29 IST" duration-ms="5562" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method signature="RegulatoryAbstractFilters()[pri:150, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:57:29 IST" name="RegulatoryAbstractFilters" finished-at="2025-10-17T13:58:06 IST" duration-ms="37025" status="FAIL">
-          <exception class="org.openqa.selenium.NoSuchElementException">
-            <message>
-              <![CDATA[no such element: Unable to locate element: {"method":"css selector","selector":".f\-textbox"}
-  (Session info: chrome=141.0.7390.77)
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.0', revision: '2ecb7d9a', time: '2018-10-31T20:09:30'
-System info: host: 'TRPL-PUN-0310', ip: '172.20.10.2', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.77, chrome: {chromedriverVersion: 140.0.7339.207 (17230b545fd..., userDataDir: C:\Users\swapnilb\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64528}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: a1496fc3e013b338912c7dca7a810048
-*** Element info: {Using=class name, value=f-textbox}]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":".f\-textbox"}
-  (Session info: chrome=141.0.7390.77)
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.0', revision: '2ecb7d9a', time: '2018-10-31T20:09:30'
-System info: host: 'TRPL-PUN-0310', ip: '172.20.10.2', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.77, chrome: {chromedriverVersion: 140.0.7339.207 (17230b545fd..., userDataDir: C:\Users\swapnilb\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64528}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: a1496fc3e013b338912c7dca7a810048
-*** Element info: {Using=class name, value=f-textbox}
-at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-at org.openqa.selenium.remote.RemoteWebDriver.findElementByClassName(RemoteWebDriver.java:412)
-at org.openqa.selenium.By$ByClassName.findElement(By.java:389)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-at login.LoginLocators.Search(LoginLocators.java:37)
-at distributor.MethodsD.RegulatoryAbstractFilters(MethodsD.java:16011)
-at testCases.All_Reviewer_TestCase.RegulatoryAbstractFilters(All_Reviewer_TestCase.java:366)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-at org.testng.TestRunner.privateRun(TestRunner.java:829)
-at org.testng.TestRunner.run(TestRunner.java:602)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
-at org.testng.SuiteRunner.run(SuiteRunner.java:330)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
-at org.testng.TestNG.runSuites(TestNG.java:1099)
-at org.testng.TestNG.run(TestNG.java:1067)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- RegulatoryAbstractFilters -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:58:06 IST" name="browserClosing" finished-at="2025-10-17T13:58:08 IST" duration-ms="2328" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:58:08 IST" name="Login" finished-at="2025-10-17T13:58:21 IST" duration-ms="12823" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method signature="RegulatoryAbstractUpload()[pri:151, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:58:21 IST" name="RegulatoryAbstractUpload" finished-at="2025-10-17T13:59:46 IST" duration-ms="84629" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- RegulatoryAbstractUpload -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:59:46 IST" name="browserClosing" finished-at="2025-10-17T13:59:48 IST" duration-ms="2509" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:59:48 IST" name="Login" finished-at="2025-10-17T13:59:59 IST" duration-ms="10719" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method signature="RegulatoryAbstractUploadError()[pri:152, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T13:59:59 IST" name="RegulatoryAbstractUploadError" finished-at="2025-10-17T14:00:48 IST" duration-ms="49488" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- RegulatoryAbstractUploadError -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T14:00:48 IST" name="browserClosing" finished-at="2025-10-17T14:00:51 IST" duration-ms="2534" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T14:00:51 IST" name="Login" finished-at="2025-10-17T14:01:01 IST" duration-ms="10283" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method signature="RegulatoryAbstractRegional()[pri:153, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T14:01:01 IST" name="RegulatoryAbstractRegional" finished-at="2025-10-17T14:02:04 IST" duration-ms="62978" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- RegulatoryAbstractRegional -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T14:02:04 IST" name="browserClosing" finished-at="2025-10-17T14:02:07 IST" duration-ms="2445" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T14:02:07 IST" name="Login" finished-at="2025-10-17T14:02:24 IST" duration-ms="17313" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method signature="RegulatoryAbstractEnglish()[pri:154, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T14:02:24 IST" name="RegulatoryAbstractEnglish" finished-at="2025-10-17T14:03:24 IST" duration-ms="60407" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- RegulatoryAbstractEnglish -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T14:03:24 IST" name="browserClosing" finished-at="2025-10-17T14:03:27 IST" duration-ms="2555" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T14:03:27 IST" name="Login" finished-at="2025-10-17T14:03:41 IST" duration-ms="13752" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method signature="RegulatoryAbstractAcknowledgement()[pri:155, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T14:03:41 IST" name="RegulatoryAbstractAcknowledgement" finished-at="2025-10-17T14:04:41 IST" duration-ms="60434" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- RegulatoryAbstractAcknowledgement -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T14:04:41 IST" name="browserClosing" finished-at="2025-10-17T14:04:44 IST" duration-ms="2421" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T14:04:44 IST" name="Login" finished-at="2025-10-17T14:05:14 IST" duration-ms="30275" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method signature="StatutoryDocApplyClaerBtn()[pri:250, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T14:05:14 IST" name="StatutoryDocApplyClaerBtn" finished-at="2025-10-17T14:06:20 IST" duration-ms="66269" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- StatutoryDocApplyClaerBtn -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T14:06:20 IST" name="browserClosing" finished-at="2025-10-17T14:06:23 IST" duration-ms="2507" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T14:06:23 IST" name="Login" finished-at="2025-10-17T14:06:32 IST" duration-ms="9529" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method signature="StatutoryDocFilter()[pri:251, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T14:06:32 IST" name="StatutoryDocFilter" finished-at="2025-10-17T14:07:13 IST" duration-ms="40873" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- StatutoryDocFilter -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T14:07:13 IST" name="browserClosing" finished-at="2025-10-17T14:07:15 IST" duration-ms="2455" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T14:07:15 IST" name="Login" finished-at="2025-10-17T14:07:24 IST" duration-ms="8595" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method signature="StateDocZipFile()[pri:252, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T14:07:24 IST" name="StateDocZipFile" finished-at="2025-10-17T14:08:53 IST" duration-ms="88594" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- StateDocZipFile -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T14:08:53 IST" name="browserClosing" finished-at="2025-10-17T14:08:55 IST" duration-ms="2471" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T14:08:55 IST" name="Login" finished-at="2025-10-17T14:09:04 IST" duration-ms="9147" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method signature="StateDownloadDoc()[pri:253, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T14:09:04 IST" name="StateDownloadDoc" finished-at="2025-10-17T14:10:47 IST" duration-ms="103103" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- StateDownloadDoc -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T14:10:47 IST" name="browserClosing" finished-at="2025-10-17T14:10:50 IST" duration-ms="2510" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T14:10:50 IST" name="Login" finished-at="2025-10-17T14:11:00 IST" duration-ms="10081" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method signature="StatutoryDocViewandOverview()[pri:254, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T14:11:00 IST" name="StatutoryDocViewandOverview" finished-at="2025-10-17T14:12:32 IST" duration-ms="92413" status="FAIL">
-          <exception class="org.openqa.selenium.StaleElementReferenceException">
-            <message>
-              <![CDATA[stale element reference: stale element not found in the current frame
-  (Session info: chrome=141.0.7390.77)
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: '3.141.0', revision: '2ecb7d9a', time: '2018-10-31T20:09:30'
-System info: host: 'TRPL-PUN-0310', ip: '172.20.10.2', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.77, chrome: {chromedriverVersion: 140.0.7339.207 (17230b545fd..., userDataDir: C:\Users\swapnilb\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55964}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: cf5dadcb7d11c9e5bb89123103e6bd9e]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
-  (Session info: chrome=141.0.7390.77)
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: '3.141.0', revision: '2ecb7d9a', time: '2018-10-31T20:09:30'
-System info: host: 'TRPL-PUN-0310', ip: '172.20.10.2', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.77, chrome: {chromedriverVersion: 140.0.7339.207 (17230b545fd..., userDataDir: C:\Users\swapnilb\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55964}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: cf5dadcb7d11c9e5bb89123103e6bd9e
-at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
-at reviewer.ReviewerMethod.StatutoryDocViewandOverview(ReviewerMethod.java:1153)
-at testCases.All_Reviewer_TestCase.StatutoryDocViewandOverview(All_Reviewer_TestCase.java:478)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-at org.testng.TestRunner.privateRun(TestRunner.java:829)
-at org.testng.TestRunner.run(TestRunner.java:602)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
-at org.testng.SuiteRunner.run(SuiteRunner.java:330)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
-at org.testng.TestNG.runSuites(TestNG.java:1099)
-at org.testng.TestNG.run(TestNG.java:1067)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.StaleElementReferenceException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- StatutoryDocViewandOverview -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T14:12:32 IST" name="browserClosing" finished-at="2025-10-17T14:12:35 IST" duration-ms="2980" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Login()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T14:12:35 IST" name="Login" finished-at="2025-10-17T14:12:45 IST" duration-ms="9982" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method signature="StatutoryDocZipFile()[pri:255, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T14:12:45 IST" name="StatutoryDocZipFile" finished-at="2025-10-17T14:14:20 IST" duration-ms="94734" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- StatutoryDocZipFile -->
-        <test-method is-config="true" signature="browserClosing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T14:14:20 IST" name="browserClosing" finished-at="2025-10-17T14:14:23 IST" duration-ms="2487" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserClosing -->
-        <test-method is-config="true" signature="Closing()[pri:0, instance:testCases.All_Reviewer_TestCase@4c12331b]" started-at="2025-10-17T14:14:23 IST" name="Closing" finished-at="2025-10-17T14:14:23 IST" duration-ms="0" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Closing -->
-      </class> <!-- testCases.All_Reviewer_TestCase -->
+        </test-method> <!-- close -->
+      </class> <!-- testCases.RCPTestCase -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

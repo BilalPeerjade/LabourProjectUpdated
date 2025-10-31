@@ -86,8 +86,43 @@ public class CoordinatorDisabledField extends BasePage {
 		labour = getDriver().findElement(By.xpath("//input[@type='text']"));
 		return labour;
 	}
+	public static WebElement translationReq()
+	{
+		labour = getDriver().findElement(By.xpath("//input[@formcontrolname='translationRequestDate']"));
+		return labour;
+	}
 	
 	
+	
+	public static WebElement translationReqDate()
+	{
+		labour = getDriver().findElement(By.xpath("//input[@class='form-control f-textbox ng-untouched ng-pristine']"));
+		return labour;
+	}
+	public static WebElement translationDocUpload()
+	{
+		labour = getDriver().findElement(By.xpath("(//input[@class='form-control f-textbox ng-untouched ng-pristine'])[2]"));
+		return labour;
+	}
+	
+	
+	public static WebElement submit()
+	{
+		labour = getDriver().findElement(By.xpath("//button[normalize-space()='Submit']"));
+		return labour;
+	}
+	
+	
+	public static WebElement dateOfDraftExtension()  //Date of Draft Extension Document Submitted to SD and SME
+	{
+		labour = getDriver().findElement(By.xpath("//div[@class='require-container']"));
+		return labour;
+	}
+	public static WebElement draftResponseSubmittedToSD()  //Draft Response Submitted To SD
+	{
+		labour = getDriver().findElement(By.xpath("//div[@class='require-container']"));
+		return labour;
+	}
 	
 	
 	

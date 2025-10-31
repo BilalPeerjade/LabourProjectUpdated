@@ -62,7 +62,7 @@ public class PerformerTestCase extends BasePage
 	@BeforeMethod
 	void Login() throws InterruptedException, IOException
 	{
-		initialization(link,1,"Statutory");
+		Initialization(link,1,"Statutory");
 	
 	}
 	

@@ -459,14 +459,6 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
 
 	
 	

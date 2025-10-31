@@ -1755,7 +1755,8 @@ public class EPF_ConsolatedMethods extends BasePage {
 	
 	
 	//Pending: 
-	/**   //Pending utils not working
+	/**
+	   //Pending utils not working
 	public static void PF_AllEMPWorkings_Test( ExtentTest test, String user) throws Exception
 	{
 		ChallanPFRedirectin(test,user);
@@ -1822,6 +1823,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 		
 		
 	}
+	
 	public static void PF_AllEMPWorkings_Test2( ExtentTest test, String user) throws Exception
 	{
 		ChallanPFRedirectin(test,user);
@@ -1851,8 +1853,8 @@ public class EPF_ConsolatedMethods extends BasePage {
         List<ExcelF> downloadedFilters = new ArrayList<>();
 
         // master filters you gave
-        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AD"), Arrays.asList("DaraNHaveli Branch")));
-        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AF"), Arrays.asList("Yes")));
+        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AK"), Arrays.asList("DaraNHaveli Branch")));
+        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AM"), Arrays.asList("Yes")));
         
         //Downloaded filters
         downloadedFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("G"), Arrays.asList("VPF")));
@@ -1893,8 +1895,8 @@ public class EPF_ConsolatedMethods extends BasePage {
         
 
         // master filters you gave
-        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AD"), Arrays.asList("DaraNHaveli Branch")));
-        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AF"), Arrays.asList("Yes")));
+        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AK"), Arrays.asList("DaraNHaveli Branch")));
+  //      masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AM"), Arrays.asList("Yes")));
         
         //Downloaded filters
         downloadedFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("G"), Arrays.asList("EPS Wages")));
@@ -1915,7 +1917,7 @@ public class EPF_ConsolatedMethods extends BasePage {
             masterFilters,
             downloadedFilters,
             extraConfig,
-            1,       // tolerance %
+            0,       // tolerance %
             false,   // compareRowByRow
             2,       // startRowOffset (you wanted 7 — used here)
             headerMap,
@@ -1924,6 +1926,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 
 		
 	}
+	
 	public static void PF_AllEMPWorkings_Test4( ExtentTest test, String user) throws Exception
 	{
 	     // ---------- Simple ready-to-drop calling (uses your globals downloadedExcelFile & salaryFile) ----------
@@ -1933,8 +1936,8 @@ public class EPF_ConsolatedMethods extends BasePage {
         List<ExcelF> downloadedFilters = new ArrayList<>();
 
         // master filters you gave
-        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AD"), Arrays.asList("DaraNHaveli Branch")));
-        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AF"), Arrays.asList("Yes")));
+        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AK"), Arrays.asList("DaraNHaveli Branch")));
+        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AM"), Arrays.asList("Yes")));
         
         //Downloaded filters
  //     downloadedFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("G"), Arrays.asList("EPS Wages")));
@@ -1973,8 +1976,8 @@ public class EPF_ConsolatedMethods extends BasePage {
         List<ExcelF> downloadedFilters = new ArrayList<>();
 
         // master filters you gave
-        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AD"), Arrays.asList("DaraNHaveli Branch")));
-        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AF"), Arrays.asList("Yes")));
+        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AK"), Arrays.asList("DaraNHaveli Branch")));
+        masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AM"), Arrays.asList("Yes")));
         
         //Downloaded filters
  //     downloadedFilters.add(new ExcelFilter(ExcelUtils.columnLetterToIndex("G"), Arrays.asList("EPS Wages")));
@@ -2047,8 +2050,8 @@ public class EPF_ConsolatedMethods extends BasePage {
 		
 	}
 	
+	//
 	**/
-	
 	
 	
 	

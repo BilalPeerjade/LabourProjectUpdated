@@ -23,56 +23,67 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ThreadGuard;
+	import org.openqa.selenium.chrome.ChromeOptions;
+	import org.openqa.selenium.edge.EdgeDriver;
+	import org.openqa.selenium.firefox.FirefoxDriver;
+	import org.openqa.selenium.support.ThreadGuard;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import com.relevantcodes.extentreports.ExtentReports;
-import com.relevantcodes.extentreports.ExtentTest;
+	import com.relevantcodes.extentreports.ExtentTest;
+
 import businessTestCases.FilePath;
 
-public class BasePage 
-{
-	public Properties prop;
-	protected static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
-	String URL;
-	public String browser= "chrome";	
-	public String website;
-	public static ExtentReports extent;			//Instance created for report file
-	public static ExtentTest test;
-	public static FileInputStream fis = null;	//File input stream variable
-	public static XSSFWorkbook workbook = null;	//Excel sheet workbook variable
-	public static XSSFSheet sheet = null;		//Sheet variable
-	private final ReadWriteLock lock;
-	protected String uname;
-	protected   String password;
-	protected String url;
-	    
-	String filePath ="D:\\AutomationLabour\\LabourProjectUpdated\\TestData\\Labour.xlsx";
-	    
-	public static WebDriver getDriver()
-	{
-		return driver.get();
-	}
+
+	
+
+	public class BasePage {
+
 		
-	public static XSSFSheet ReadExcel(int no) throws IOException
-	{
-		//String workingDir = System.getProperty("webdriver.chrome.driver","C:/March2022/PerformerPom/Driver/chromedriver.exe");
-		fis = new FileInputStream("D:\\AutomationLabour\\LabourProjectUpdated\\TestData\\Labour.xlsx");
-		workbook = new XSSFWorkbook(fis);
-		sheet = workbook.getSheetAt(no);					//Retrieving third sheet of Workbook
-		return sheet;
-	}
 		
-	private synchronized void loadProperties(int no) throws IOException
-	{		
+		
+//		public static  boolean ena; 
+		
+		
+		
+		public Properties prop;
+		protected static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+		String URL;
+		public String browser= "chrome";	
+		public String website;
+		public static ExtentReports extent;			//Instance created for report file
+		public static ExtentTest test;
+		public static FileInputStream fis = null;	//File input stream variable
+		public static XSSFWorkbook workbook = null;	//Excel sheet workbook variable
+		public static XSSFSheet sheet = null;		//Sheet variable
+		private final ReadWriteLock lock;
+	    protected String uname;
+	    protected   String password;
+	    protected String url;
+	    
+	    String filePath ="D:\\Labour Angular\\LabourMergeProject\\LabourMergeProject\\TestData\\Labour.xlsx";
+	    
+		public static WebDriver getDriver() {
+			return driver.get();
+		}
+
+		public static XSSFSheet ReadExcel(int no) throws IOException
+		{
+			//String workingDir = System.getProperty("webdriver.chrome.driver","C:/March2022/PerformerPom/Driver/chromedriver.exe");
+			fis = new FileInputStream("D:\\Labour Angular\\LabourMergeProject\\LabourMergeProject\\TestData\\Labour.xlsx");
+			workbook = new XSSFWorkbook(fis);
+			sheet = workbook.getSheetAt(no);					//Retrieving third sheet of Workbook
+			return sheet;
+		}
+		
+	private synchronized void loadProperties(int no) throws IOException {
+		
 		XSSFSheet sheet = ReadExcel(no);
 		Row row0 = sheet.getRow(0);						//Selected 0th index row (First row)
 		Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
-		URL = c1.getStringCellValue();
+		 URL = c1.getStringCellValue();
 			/*prop = new Properties();
 			try {
 				FileInputStream file = new FileInputStream("D:\\LabourCompliance_m\\LabourCompliance\\LabourCompliance\\env_data\\config.properties");
@@ -86,23 +97,24 @@ public class BasePage
 			}*/
 		}
 		
-	public  BasePage()
-	{		
-		// this.filePath = filePath;
-		   this.lock = new ReentrantReadWriteLock();
-	}
+
+		
 	
-	public String read_Login_url(int no) throws IOException 
-	{
-		lock.readLock().lock();
-	    try 
-	    {
+	
+	public  BasePage() {
+		   // this.filePath = filePath;
+		    this.lock = new ReentrantReadWriteLock();
+		}
+	
+	public String read_Login_url(int no) throws IOException {
+		  lock.readLock().lock();
+	    try {
 	        FileInputStream fis = new FileInputStream(filePath);
 	        Workbook workbook = WorkbookFactory.create(fis);
 	        Sheet sheet = workbook.getSheetAt(no);
 	        Row row1 = sheet.getRow(0);
 	        Cell c1 = row1.getCell(1);
-	        url = c1.getStringCellValue();
+	         url = c1.getStringCellValue();
 	         
 	        workbook.close();
 	        fis.close();
@@ -110,19 +122,16 @@ public class BasePage
 	        
 	    }
 	    
-	    finally
-	    {
+	    finally {
 	        lock.readLock().unlock();
 	    }
 
 	}
 
 	
-	public String read_Login_username(int no) throws IOException 
-	{
-		lock.readLock().lock();
-	    try 
-	    {
+	public String read_Login_username(int no) throws IOException {
+		  lock.readLock().lock();
+	    try {
 	        FileInputStream fis = new FileInputStream(filePath);
 	        Workbook workbook = WorkbookFactory.create(fis);
 	        Sheet sheet = workbook.getSheetAt(no);
@@ -134,51 +143,45 @@ public class BasePage
 	        return uname;
 	    }
 	    
-	    finally 
-	    {
+	    finally {
 	        lock.readLock().unlock();
 	    }
 
 	}
 
-	public String read_Login_password(int no) throws IOException
-	{
-	  lock.readLock().lock();
-	  try
-	  {
+	public String read_Login_password(int no) throws IOException {
+		  lock.readLock().lock();
+	  try {
 	      FileInputStream fis = new FileInputStream(filePath);
 	      Workbook workbook = WorkbookFactory.create(fis);
 	      Sheet sheet = workbook.getSheetAt(no);
 	      Row row2 = sheet.getRow(2);
 	      Cell c2 = row2.getCell(1);
-	      password = c2.getStringCellValue();
+	       password = c2.getStringCellValue();
 	      workbook.close();
 	      fis.close();
 	      return password;
 	  }
 	  
-	  finally 
-	  {
+	  finally {
 	      lock.readLock().unlock();
 	  }
 	}
 	
-	private void openBrower(int no) throws IOException
-	{
+	private void openBrower(int no) throws IOException {
 
-		if (browser.contains("chrome"))
-		{
-			System.setProperty("webdriver.chrome.driver", "D:\\AutomationLabour\\LabourProjectUpdated\\chromedriver.exe");
-			//WebDriverManager.chromedriver().setup();
-			ChromeOptions options = new ChromeOptions();
-			options.addArguments("--remote-allow-origins=*");
-			driver.set(new ChromeDriver(options));		
-		}	
-			else
-			{
-				System.out.println("please select valid browser");
-			}
-	
+		if (browser.contains("chrome")) {
+					System.setProperty("webdriver.chrome.driver", "D:\\Labour Angular\\LabourMergeProject\\LabourMergeProject\\chromedriver.exe");
+					//WebDriverManager.chromedriver().setup();
+					ChromeOptions options = new ChromeOptions();
+					options.addArguments("--remote-allow-origins=*");
+					driver.set(new ChromeDriver(options));		
+	}
+				
+				else {
+					System.out.println("please select valid browser");
+				}
+		
 			getDriver().manage().window().maximize();
 			getDriver().manage().deleteAllCookies();
 			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -207,6 +210,14 @@ public class BasePage
 	}
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
 	public void Initialization(String link,int no,String text) throws InterruptedException, IOException {
 		try {
 		//loadProperties(no);
@@ -218,16 +229,65 @@ public class BasePage
 
 		read_Login_username(no);
 		read_Login_password(no);
-				
+		
+		
 		LoginMethods.Userlogin(uname,password);		//Method of Login class to login user.
 			
 	}
 	
 	
-	public void initialization2(String link,int no,String text) throws InterruptedException, IOException
-	{
-		try
-		{
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	public void initializationSDExecutor(String link,int no,String text) throws InterruptedException, IOException {
+		try {
+		//loadProperties(no);
+		openBrower(no);
+		
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+
+		
+		read_Login_username(no);
+		read_Login_password(no);
+		
+		
+		LoginMethods.UserLoginSDExecutor(uname,password,"SD");		//Method of Login class to login user.
+		
+		
+		
+		
+
+	}
+	public void initialization2(String link,int no,String text) throws InterruptedException, IOException {
+		try {
 		//loadProperties(no);
 		openBrower(no);
 		
@@ -243,33 +303,13 @@ public class BasePage
 			
 	}
 	
-		
-	public void initializationSDExecutor(String link,int no,String text) throws InterruptedException, IOException
-	{
-		try
-		{
-		//loadProperties(no);
-		openBrower(no);
-	
-		}
-		catch(Exception e) 
-		{
-			e.printStackTrace();
-		}
-		
-		read_Login_username(no);
-		read_Login_password(no);
-	
-		LoginMethods.UserLoginSDExecutor(uname,password,"SD");		//Method of Login class to login user.
-		
-	}
 	
 	
-	public void closeBrowser() 
-	{
+
+	public void closeBrowser() {
 		getDriver().quit();
 		driver.remove();
 	}
-}
+	}
 
 

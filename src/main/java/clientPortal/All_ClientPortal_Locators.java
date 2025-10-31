@@ -536,7 +536,7 @@ public class All_ClientPortal_Locators extends BasePage {
 	
 	public static WebElement readTotalItemsD( )		
 	{
-		clients = getDriver().findElement(By.xpath("//kendo-pager-info[@class='k-pager-info k-label']")); ////kendo-pager-info[@class='k-pager-info k-label ng-star-inserted']
+		clients = getDriver().findElement(By.xpath("//kendo-pager-info[@class='k-pager-info k-label ng-star-inserted']")); ////kendo-pager-info[@class='k-pager-info k-label ng-star-inserted']
 		return clients;
 	}
 	
@@ -1521,7 +1521,7 @@ public static WebElement clickLicense()		//Method for searching Username input
 	}
 	public static WebElement Branch()		//Method for searching Username input
 	{
-		labour = getDriver().findElement(By.xpath("//*[@class='k-input-value-text']"));
+		labour = getDriver().findElement(By.xpath("//span[@class='k-input-value-text ng-star-inserted']"));
 		return labour;
 	}
 	public static WebElement NoticeBranch()		//Method for searching Username input
@@ -2000,6 +2000,16 @@ public static WebElement clickLicense()		//Method for searching Username input
 		labour = getDriver().findElement(By.xpath("(//img[@title='Download'])[1]"));
 		return labour;
 	}
+	public static WebElement DownloadTwo()		//Method for searching Username input
+	{   //P17
+		labour = getDriver().findElement(By.cssSelector("tbody tr:nth-child(1) td:nth-child(10) div:nth-child(1) div:nth-child(1) button:nth-child(3) img:nth-child(1)"));
+		return labour;
+	}
+	public static WebElement loaderPath()		
+	{  
+		labour = getDriver().findElement(By.xpath("//div[@class='k-loader-canvas']"));
+		return labour;
+	}
 	public static WebElement DownloadButton()		//Method for searching Username input
 	{   //P17
 		labour = getDriver().findElement(By.xpath("//kendo-treelist-list//table[@class='k-table k-grid-table k-table-md']//tbody//tr//td[10]//div//button[3]"));
@@ -2176,7 +2186,7 @@ public static WebElement clickLicense()		//Method for searching Username input
 	}
 	public static WebElement inputperiodDrp()	
 	{
-		labour = getDriver().findElement(By.xpath("//span[contains(text(),'September')]"));
+		labour = getDriver().findElement(By.xpath("//span[contains(text(),'October')]"));
 		return labour;
 	}
 	public static WebElement inputperiodDrpSelect1()	

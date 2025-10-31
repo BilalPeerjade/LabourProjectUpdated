@@ -26,6 +26,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.LocalFileDetector;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -47,7 +49,7 @@ import rcp.RCPMethod;
 public class CoordinatorMethod extends BasePage
 {
 
-	 static String filePath ="D:\\AutomationLabour\\LabourProjectUpdated\\TestData\\Labour2.xlsx";
+	 static String filePath ="D:\\Labour Angular\\LabourMergeProject\\LabourMergeProject\\TestData\\Labour2.xlsx";
 	 
 	 
 	 public static void CountMatch( ExtentTest test,String Notice) throws InterruptedException, IOException
@@ -232,7 +234,7 @@ public class CoordinatorMethod extends BasePage
 	 public static void CoordinatorLogo( ExtentTest test) throws InterruptedException, IOException
 		{
 		 
-        Thread.sleep(5000);
+        Thread.sleep(15000);
         String LogoTeamLease = getDriver().findElement(By.xpath("//img[@alt='TeamLease Logo']")).getText();
         WebElement LogoTeamL = getDriver().findElement(By.xpath("//img[@alt='TeamLease Logo']"));
         
@@ -323,12 +325,62 @@ public class CoordinatorMethod extends BasePage
         
 	}
 	 
+	 //No Robot 
+	 public static void uploadFileVerification(ExtentTest test) throws InterruptedException, IOException {
+		    // Wait for input elements to appear (max 10s)
+//		    WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+		    WebDriverWait wait = new WebDriverWait(getDriver(), (30));
+
+		    List<WebElement> inputs = getDriver().findElements(By.cssSelector("input[type='file']"));
+
+		    if (!inputs.isEmpty()) {
+		        WebElement fileInput = inputs.get(0);
+
+		        // If remote grid: transfer file from local machine
+		        if (getDriver() instanceof RemoteWebDriver) {
+		            ((RemoteWebDriver) getDriver()).setFileDetector(new LocalFileDetector());
+		        }
+
+		        // If hidden, make visible temporarily
+		        if (!fileInput.isDisplayed()) {
+		            ((JavascriptExecutor) getDriver()).executeScript(
+		                "arguments[0].style.display='block'; arguments[0].style.visibility='visible'; arguments[0].style.opacity=1;",
+		                fileInput);
+		        }
+
+		        // Wait until it becomes interactable
+		        wait.until(ExpectedConditions.elementToBeClickable(fileInput));
+
+		        // Send the file path
+		        fileInput.sendKeys("D:\\Upload Automation Files\\Other Upload No need to change\\SamplePE.xlsx");
+
+		        // Optionally hide it again (not mandatory)
+		        ((JavascriptExecutor) getDriver()).executeScript(
+		            "arguments[0].style.display='none';", fileInput);
+
+		        System.out.println("✅ File uploaded successfully!");
+		    } else {
+		        System.out.println("⚠️ No input[type='file'] found on this page!");
+		    }
+		}
+
+
+	public static void uploadTest(ExtentTest test) throws Exception {
+		
+		Thread.sleep(1000);
+	 	CoordinatorLocator.clickaddnewNotices().click();
+	 	Thread.sleep(1000);
+		getDriver().findElement(By.xpath("//*[@class='figma-btn-gray']")).click();
+		Thread.sleep(3000);
+		
+//		uploadFileVericiation(test);
+	}
+	 
 	 public static void addNoticeVerification(ExtentTest test) throws Exception
 	 {
 	 	
 	 	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	 
-	 	
 	 	
 	 	Thread.sleep(6000);
 		String item = CoordinatorLocator.readTotalItems().getText();
@@ -399,7 +451,7 @@ public class CoordinatorMethod extends BasePage
 	 	
 	 	Thread.sleep(10000);
 	 	Actions action = new Actions(getDriver());
-	 	WebElement we = getDriver().findElement(By.xpath("//*[@role='gridcell']//span[@class='k-link'][normalize-space()='1']"));
+	 	WebElement we = getDriver().findElement(By.xpath("//*[@role='gridcell']//span[@class='k-link'][normalize-space()='21']"));
 	 	action.moveToElement(we).click().build().perform();
 //	 	Thread.sleep(1000);
 //	 	Locator.selectDate().click();
@@ -427,7 +479,7 @@ public class CoordinatorMethod extends BasePage
 	 	
 	 	 getDriver().findElement(By.xpath("//*[@class='figma-btn-gray']")).click();
 	 	Thread.sleep(3000);
-	 	 OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\Test_123.pdf");
+	 	 OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Other Upload No need to change\\sample.pdf");
 	 	 	 
 	 	 Thread.sleep(1000);
 	 	 System.out.println("File uploaded successfully");
@@ -623,7 +675,7 @@ public class CoordinatorMethod extends BasePage
 	 	 
 	 	 Robot robot=new Robot();
 	 	 
-	 	 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\Test_123.pdf");
+	 	 StringSelection filepath= new  StringSelection("D:\\Upload Automation Files\\Other Upload No need to change\\sample.pdf");
 	 	 //copy above file to clipboard
 	 	 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
 	 	 
@@ -698,14 +750,14 @@ public class CoordinatorMethod extends BasePage
 
 		js1.executeScript("window.scrollBy(0,-500)");
 		Thread.sleep(3000);
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(3000);
 		CoordinatorLocator.clickNoticeExport().click();
 
 		Thread.sleep(5500);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 
 		if (dirContents.length < allFilesNew.length) {
@@ -1058,21 +1110,16 @@ public class CoordinatorMethod extends BasePage
 	 	
 	 	
 	 	
-	 	
-	 	
-	 	
-	 	
-	 	
-	 	
-	 	
 	 }
+	 
+
 	 public static void NoticeEditDownload(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
 	 {
 	 	
 	 	
 	 	JavascriptExecutor js = (JavascriptExecutor) getDriver();	
 	 	Thread.sleep(2000);
-	 	File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+	 	File dir3 = new File("C:\\Users\\bilali\\Downloads");
 	 	File[] dirContents1 = dir3.listFiles();							//Counting number of files in directory before download 
 
 	 	
@@ -1088,7 +1135,7 @@ public class CoordinatorMethod extends BasePage
 //		wait.until(ExpectedConditions.invisibilityOf(CoordinatorLocator.GridLoad()));
 	 	
 	 	Thread.sleep(5500);
-	 	File dir2= new File("C:\\Users\\swapnilb\\Downloads");
+	 	File dir2= new File("C:\\Users\\bilali\\Downloads");
 	 	File[] allFilesNew1 = dir2.listFiles();							//Counting number of files in directory after download
 
 	 	if(dirContents1.length < allFilesNew1.length)
@@ -1128,6 +1175,83 @@ public class CoordinatorMethod extends BasePage
 	 }
 	 
 
+	 public static void noticesTypeToSearchWithMultiple(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
+	 {
+Thread.sleep(8000);
+	 	try {
+	 	    Thread.sleep(5000);
+
+	 	    String[] sear = {
+	 	        "AVAAEntity", 
+	 	        "Angular Test", 
+	 	        "Test Automation 2", 
+	 	        "Gujarat",
+	 	        "Branch Punjab", 
+	 	        "Summon", 
+	 	        "RCP25-11620", 
+	 	        "NoticeNumber2", 
+	 	        "27-Apr-2025", 
+	 	        "26-Apr-2025",
+	 	        "Highly Critical", 
+	 	        "Pending Assignment", 
+	 	        "Closed",
+	 	        "26-Apr-2025",
+	 	        "ahddd"
+	 	    };
+
+
+	 	   List<WebElement>	fetchh =   CoordinatorLocator.fetch();
+	 	    List<String> headerNames = new ArrayList<>();
+	 	    for (WebElement header : fetchh) {
+	 	        headerNames.add(header.getText());
+	 	    }
+
+	 	    for (String keyword : sear) {
+	 	        
+	 	        CoordinatorLocator.SearchBox().clear(); CoordinatorLocator.SearchBox().sendKeys(keyword, Keys.ENTER);
+	 	        
+	 	        
+	 	        Thread.sleep(4000);
+
+	 	        try {
+	 	            WebElement cell = getDriver().findElement(By.xpath("//div[@title='" + keyword + "']"));
+	 	            WebElement row = cell.findElement(By.xpath("./ancestor::tr"));
+	 	            List<WebElement> allCells = row.findElements(By.xpath("./td"));
+
+	 	            int columnIndex = -1;
+	 	            for (int i = 0; i < allCells.size(); i++) {
+	 	                if (allCells.get(i).getText().trim().equals(keyword)) {
+	 	                    columnIndex = i + 1;
+	 	                    break;
+	 	                }
+	 	            }
+
+	 	            String columnName = "Unknown Column";
+	 	            if (columnIndex != -1 && columnIndex <= headerNames.size()) {
+	 	                columnName = headerNames.get(columnIndex - 1);
+	 	            }
+
+	 	            test.log(LogStatus.PASS, "Searched and found record under '" + columnName + "' column: " + keyword + "");
+
+	 	        } catch (Exception e) {
+	 	            String defaultColumn = headerNames.size() > 0 ? headerNames.get(0) : "Unknown Column";
+	 	            test.log(LogStatus.INFO, "No record available for search keyword: " + keyword + " under column: " + defaultColumn);
+	 	        }
+
+	 	        Thread.sleep(3000);
+	 	        All_ClientPortal_Locators.Clear().click();
+	 	        Thread.sleep(2000);
+	 	    }
+
+	 	} catch (Exception e) {
+	 	    e.printStackTrace();
+	 	    test.log(LogStatus.FAIL, "Exception occurred during multiple searches");
+	 	}
+	 	
+	 	
+
+	 	
+	 }
 	 
 	 public static void NoticeEditBasicSave(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
 	 {
@@ -1208,6 +1332,37 @@ public class CoordinatorMethod extends BasePage
 			getDriver().navigate().refresh();
 			Thread.sleep(8000);
 
+		}
+	 public static void relaventDate(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
+	 {
+			WebDriverWait wait = new WebDriverWait(getDriver(), 140);
+
+			Thread.sleep(5000);
+			CoordinatorLocator.SearchBox().sendKeys("Pending Assignment", Keys.ENTER);
+			Thread.sleep(5000);
+			CoordinatorLocator.EditBtn().click();
+			Thread.sleep(5000);
+			
+			
+			if(CoordinatorLocator.plus2().isDisplayed()) {
+				CoordinatorLocator.plus2().click();
+				Thread.sleep(5000);
+				test.log(LogStatus.PASS, "Relevant Dates lable bar is working fine");
+			}
+			else {
+				test.log(LogStatus.FAIL, "Relevant Dates lable bar is not working properly");
+			}
+			
+			
+			Thread.sleep(5000);
+
+			
+			OneCommonMethod.verifyFieldIsTrulyNonEditable(
+			CoordinatorDisabledField.translationReq(), 
+			test, "Translation Required Date field",
+			"");
+			
+			
 		}
 	 
 	 public static void NoticeEditAdditionalInfo(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
@@ -1380,6 +1535,344 @@ public class CoordinatorMethod extends BasePage
 			}
 
 		}
+	 public static void translationReq(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
+	 {
+			WebDriverWait wait = new WebDriverWait(getDriver(), 140);
+
+			Thread.sleep(5000);
+			CoordinatorLocator.SearchBox().sendKeys("Pending Assignment", Keys.ENTER);
+			Thread.sleep(5000);
+			CoordinatorLocator.EditBtn().click();
+			Thread.sleep(5000);
+			
+			
+			
+			Thread.sleep(5000);
+			getDriver().findElement(By.xpath("//a[normalize-space()='SME Response']")).click();
+			String TransReq = getDriver().findElement(By.xpath("//span[normalize-space()='Translation Required']")).getText();
+
+			
+			CoordinatorLocator.plus1().click();
+			
+			OneCommonMethod.verifyFieldIsTrulyNonEditable(
+			CoordinatorDisabledField.translationReqDate(), 
+			test, "Translation Request Date field",
+			"");
+			
+			
+			
+			OneCommonMethod.verifyFieldIsTrulyNonEditable(
+			CoordinatorDisabledField.translationDocUpload(), 
+			test, "Translation Document Upload date field",
+			"");
+			
+			OneCommonMethod.verifyFieldIsTrulyNonEditable(
+			CoordinatorDisabledField.submit(), 
+			test, "Submit button",
+			"");
+			
+			
+			
+	 }
+	 public static void sdExtTranslationReq(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
+	 {
+			WebDriverWait wait = new WebDriverWait(getDriver(), 140);
+
+			Thread.sleep(5000);
+			CoordinatorLocator.SearchBox().sendKeys("Pending Assignment", Keys.ENTER);
+			Thread.sleep(5000);
+			CoordinatorLocator.EditBtn().click();
+			Thread.sleep(5000);
+			
+			
+			
+			Thread.sleep(5000);
+			getDriver().findElement(By.xpath("//a[normalize-space()='SD Executer']")).click();
+			String TransReq = getDriver().findElement(By.xpath("//span[normalize-space()='Translation Required']")).getText();
+
+			Thread.sleep(5000);
+			CoordinatorLocator.plus1().click();
+			
+			Thread.sleep(5000);
+			WebElement browseBTN = getDriver().findElement(By.xpath("//button[normalize-space()='Browse']"));
+			if(browseBTN.isDisplayed()) {
+				test.log(LogStatus.PASS,  "Translation Required lable bar working fine"); 
+			}
+			else
+			{
+				test.log(LogStatus.PASS,  "Translation Required lable bar not clickable"); 
+			}
+			
+			
+			
+			OneCommonMethod.verifyFieldIsTrulyNonEditable(
+			CoordinatorDisabledField.translationReqDate(), 
+			test, "Translation Request Date field",
+			"");
+			
+			
+			
+			OneCommonMethod.verifyFieldIsTrulyNonEditable(
+			CoordinatorDisabledField.translationDocUpload(), 
+			test, "Translation Document Upload date field",
+			"");
+			
+			
+			
+			
+	 }
+	 public static void sdExtExtensionApplication(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
+	 {
+			WebDriverWait wait = new WebDriverWait(getDriver(), 140);
+
+			Thread.sleep(5000);
+			CoordinatorLocator.SearchBox().sendKeys("Pending Assignment", Keys.ENTER);
+			Thread.sleep(5000);
+			CoordinatorLocator.EditBtn().click();
+			Thread.sleep(5000);
+			
+			
+			
+			Thread.sleep(5000);
+			getDriver().findElement(By.xpath("//a[normalize-space()='SD Executer']")).click();
+			String TransReq = getDriver().findElement(By.xpath("//span[normalize-space()='Translation Required']")).getText();
+
+			Thread.sleep(5000);
+			CoordinatorLocator.plus2().click();
+			
+			Thread.sleep(5000);
+			WebElement browseBTN = getDriver().findElement(By.xpath("//button[normalize-space()='Browse']"));
+			if(browseBTN.isDisplayed()) {
+				test.log(LogStatus.PASS,  "Extension Application lable bar working fine"); 
+			}
+			else
+			{
+				test.log(LogStatus.PASS,  "Extension Application lable bar not clickable"); 
+			}
+			
+			
+			
+			OneCommonMethod.verifyFieldIsTrulyNonEditable(
+			CoordinatorDisabledField.dateOfDraftExtension(), 
+			test, "Date of Draft Extention Document Received From SME",
+			"");
+			
+			
+			
+			
+	 }
+	 public static void sdExtNoticeResponse(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
+	 {
+			WebDriverWait wait = new WebDriverWait(getDriver(), 140);
+
+			Thread.sleep(5000);
+			CoordinatorLocator.SearchBox().sendKeys("Pending Assignment", Keys.ENTER);
+			Thread.sleep(5000);
+			CoordinatorLocator.EditBtn().click();
+			Thread.sleep(5000);
+			
+			
+			
+			Thread.sleep(5000);
+			getDriver().findElement(By.xpath("//a[normalize-space()='SD Executer']")).click();
+			String TransReq = getDriver().findElement(By.xpath("//span[normalize-space()='Translation Required']")).getText();
+
+			Thread.sleep(5000);
+			CoordinatorLocator.plus3().click();
+			
+			Thread.sleep(5000);
+			WebElement browseBTN = getDriver().findElement(By.xpath("//button[normalize-space()='Browse']"));
+			if(browseBTN.isDisplayed()) {
+				test.log(LogStatus.PASS,  "Notice Response lable bar working fine"); 
+			}
+			else
+			{
+				test.log(LogStatus.PASS,  "Notice Response lable bar not clickable"); 
+			}
+			
+			
+			
+			OneCommonMethod.verifyFieldIsTrulyNonEditable(
+			CoordinatorDisabledField.dateOfDraftExtension(), 
+			test, "Draft Response Received From SME",
+			"");
+			
+			
+			
+			
+	 }
+	 public static void extensionApplication(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
+	 {
+			WebDriverWait wait = new WebDriverWait(getDriver(), 140);
+
+			Thread.sleep(5000);
+			CoordinatorLocator.SearchBox().sendKeys("Pending Assignment", Keys.ENTER);
+			Thread.sleep(5000);
+			CoordinatorLocator.EditBtn().click();
+			Thread.sleep(5000);
+			
+			
+			
+			Thread.sleep(5000);
+			getDriver().findElement(By.xpath("//a[normalize-space()='SME Response']")).click();
+			String TransReq = getDriver().findElement(By.xpath("//span[normalize-space()='Translation Required']")).getText();
+
+			
+			CoordinatorLocator.plus2().click();
+			Thread.sleep(5000);
+			WebElement browseBTN = getDriver().findElement(By.xpath("//button[normalize-space()='Browse']"));
+			if(browseBTN.isDisplayed()) {
+				test.log(LogStatus.PASS,  "Extension Application lable bar working fine"); 
+			}
+			else
+			{
+				test.log(LogStatus.PASS,  "Extension Application lable bar not clickable"); 
+			}
+			OneCommonMethod.verifyFieldIsTrulyNonEditable(
+			CoordinatorDisabledField.dateOfDraftExtension(), 
+			test, "Date of Draft Extension Document Submitted to SD",
+			"");
+			
+			
+			
+//			OneCommonMethod.verifyFieldIsTrulyNonEditable(
+//			CoordinatorDisabledField.translationDocUpload(), 
+//			test, "Translation Document Upload date field",
+//			"");
+//			
+//			OneCommonMethod.verifyFieldIsTrulyNonEditable(
+//			CoordinatorDisabledField.submit(), 
+//			test, "Submit button",
+//			"");
+			
+			
+			
+	 }
+	 public static void noticeResponselabel(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
+	 {
+			WebDriverWait wait = new WebDriverWait(getDriver(), 140);
+
+			Thread.sleep(5000);
+			CoordinatorLocator.SearchBox().sendKeys("Pending Assignment", Keys.ENTER);
+			Thread.sleep(5000);
+			CoordinatorLocator.EditBtn().click();
+			Thread.sleep(5000);
+			
+			
+			
+			Thread.sleep(5000);
+			getDriver().findElement(By.xpath("//a[normalize-space()='SME Response']")).click();
+			String TransReq = getDriver().findElement(By.xpath("//span[normalize-space()='Translation Required']")).getText();
+
+			
+			CoordinatorLocator.plus3().click();
+			Thread.sleep(5000);
+			WebElement browseBTN = getDriver().findElement(By.xpath("//button[normalize-space()='Browse']"));
+			if(browseBTN.isDisplayed()) {
+				test.log(LogStatus.PASS,  "Notice Response lable bar working fine"); 
+			}
+			else
+			{
+				test.log(LogStatus.PASS,  "Notice Response lable bar not clickable"); 
+			}
+			OneCommonMethod.verifyFieldIsTrulyNonEditable(
+			CoordinatorDisabledField.draftResponseSubmittedToSD(), 
+			test, "Draft Response Submitted To SD",
+			"");
+			
+			
+		
+			
+			
+			
+	 }
+	 public static void sdExecutorBackButton(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
+	 {
+			WebDriverWait wait = new WebDriverWait(getDriver(), 140);
+
+			Thread.sleep(5000);
+			CoordinatorLocator.SearchBox().sendKeys("Pending Assignment", Keys.ENTER);
+			Thread.sleep(5000);
+			CoordinatorLocator.EditBtn().click();
+			Thread.sleep(5000);
+			
+			
+			
+			Thread.sleep(5000);
+			getDriver().findElement(By.xpath("//a[normalize-space()='SD Executer']")).click();
+			Thread.sleep(5000);
+			getDriver().findElement(By.xpath("//button[normalize-space()='Back']")).click();
+			Thread.sleep(10000);
+			
+			String dashboardtxt = getDriver().findElement(By.xpath("//h4[normalize-space()='Co-ordinator Dashboard']")).getText();
+			
+			if(dashboardtxt.equals("Co-ordinator Dashboard")) {
+				test.log(LogStatus.PASS,  "SD Executor back button is working fine"); 
+				test.log(LogStatus.PASS,  "After clicking to back button dashboard displayed : " + dashboardtxt); 
+			}
+			else {
+				test.log(LogStatus.PASS,  "SD Executor back button is not working properly"); 
+			}
+			
+	 }
+	 public static void docSectionBackButton(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
+	 {
+			WebDriverWait wait = new WebDriverWait(getDriver(), 140);
+
+			Thread.sleep(5000);
+			CoordinatorLocator.SearchBox().sendKeys("Pending Assignment", Keys.ENTER);
+			Thread.sleep(5000);
+			CoordinatorLocator.EditBtn().click();
+			Thread.sleep(5000);
+			
+			
+			
+			Thread.sleep(5000);
+			getDriver().findElement(By.xpath("//a[normalize-space()='Document Section']")).click();
+			Thread.sleep(5000);
+			getDriver().findElement(By.xpath("//button[normalize-space()='Back']")).click();
+			Thread.sleep(10000);
+			
+			String dashboardtxt = getDriver().findElement(By.xpath("//h4[normalize-space()='Co-ordinator Dashboard']")).getText();
+			
+			if(dashboardtxt.equals("Co-ordinator Dashboard")) {
+				test.log(LogStatus.PASS,  "Document Section back button is working fine"); 
+				test.log(LogStatus.PASS,  "After clicking to back button dashboard displayed : " + dashboardtxt); 
+			}
+			else {
+				test.log(LogStatus.PASS,  "Document Section back button is not working properly"); 
+			}
+			
+	 }
+	 public static void smeResposeBackButton(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
+	 {
+			WebDriverWait wait = new WebDriverWait(getDriver(), 140);
+
+			Thread.sleep(5000);
+			CoordinatorLocator.SearchBox().sendKeys("Pending Assignment", Keys.ENTER);
+			Thread.sleep(5000);
+			CoordinatorLocator.EditBtn().click();
+			Thread.sleep(5000);
+			
+			
+			
+			Thread.sleep(5000);
+			getDriver().findElement(By.xpath("//a[normalize-space()='SME Response']")).click();
+			Thread.sleep(5000);
+			getDriver().findElement(By.xpath("//button[normalize-space()='Back']")).click();
+			Thread.sleep(10000);
+			
+			String dashboardtxt = getDriver().findElement(By.xpath("//h4[normalize-space()='Co-ordinator Dashboard']")).getText();
+			
+			if(dashboardtxt.equals("Co-ordinator Dashboard")) {
+				test.log(LogStatus.PASS,  "SME Respnose back button is working fine"); 
+				test.log(LogStatus.PASS,  "After clicking to back button dashboard displayed : " + dashboardtxt); 
+			}
+			else {
+				test.log(LogStatus.PASS,  "SME Respnose back button is not working properly"); 
+			}
+			
+	 }
 	 
 	 public static void NoticeEditAllTabsCheck(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
 	 {
@@ -1449,125 +1942,55 @@ public class CoordinatorMethod extends BasePage
 	 
 	 public static void NoticeEditDocumentRepositoryDownloadCheck(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
 	 {
-			WebDriverWait wait = new WebDriverWait(getDriver(), 140);
-
 			Thread.sleep(5000);
-			
-			
-			CoordinatorLocator.SearchBox().sendKeys("NoticeNumber2", Keys.ENTER);
+
+//			CoordinatorLocator.SearchBox().sendKeys("NoticeNumber2", Keys.ENTER);
 			Thread.sleep(5000);
 			CoordinatorLocator.EditBtn().click();
 			Thread.sleep(5000);
 			getDriver().findElement(By.xpath("//a[normalize-space()='Document Section']")).click();
 
-
 			// + Document Repository label bar
 			Thread.sleep(5000);
 			getDriver().findElement(By.xpath("(//img[@class='svg-icon-btn'])[1]")).click();
+
+			All_ClientPortal_Methods.noticeDocuments(test);
 			
-			// 1 Logic for Notice Document
-			Thread.sleep(3000);
-			File dir = new File("C:\\Users\\swapnilb\\Downloads");
-			File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
-			Thread.sleep(500);
-			All_ClientPortal_Locators.NoticeDocumentDownload().click();
-
-			Thread.sleep(8000);
-			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
-			File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
-			Thread.sleep(3000);
-			if (dirContents.length < allFilesNew.length) {
-				Thread.sleep(5000);
-				test.log(LogStatus.PASS, " Notice Number Search : NoticeNumber2");
-				test.log(LogStatus.PASS, " Notice Edit button work successfully");
-				test.log(LogStatus.PASS, " Notice Document File downloaded successfully.");
-			} else {
-				Thread.sleep(5000);
-				test.log(LogStatus.FAIL, " Notice Document File is not downloaded");
-			}
-
-			// 2 - Logic for Translated Notice Document
+		}
+	 
+	 public static void docReqNoticeLabel(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
+	 {
 			Thread.sleep(5000);
-			File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
-			File[] dirContents2 = dir2.listFiles(); // Counting number of files in directory before download
+			Thread.sleep(5000);
+			CoordinatorLocator.EditBtn().click();
+			Thread.sleep(5000);
+			getDriver().findElement(By.xpath("//a[normalize-space()='Document Section']")).click();
 
-			Thread.sleep(500);
-			All_ClientPortal_Locators.NoticeTranslatedDocument().click();
-
-			Thread.sleep(8000);
-			File dirr = new File("C:\\Users\\swapnilb\\Downloads");
-			File[] allFilesNew2 = dirr.listFiles(); // Counting number of files in directory after download
-			Thread.sleep(3000);
-			if (dirContents2.length < allFilesNew2.length) {
+			// + Document Repository label bar
+			Thread.sleep(5000);
+			getDriver().findElement(By.xpath("(//img[@class='svg-icon-btn'])[2]")).click();
+			
+			
+			Thread.sleep(5000);
+			getDriver().findElement(By.xpath("//button[normalize-space()='Add More Documents']")).click();
+			Thread.sleep(5000);
+			
+			CoordinatorLocator.EditBasicInfoSave().click();
+			Thread.sleep(5000);
+			
+			String txt = CoordinatorLocator.Message().getText();
+			if(txt.equalsIgnoreCase("Notice not saved successfully")) {
+				test.log(LogStatus.PASS,"Document Req for the Notice label bar working fine");
 				Thread.sleep(5000);
-				test.log(LogStatus.PASS, " Notice Translated Document File downloaded successfully.");
-			} else {
-				Thread.sleep(5000);
-				test.log(LogStatus.FAIL, " Notice Translated Document File is not downloaded.");
+				test.log(LogStatus.PASS,"Save button working fine");
+				test.log(LogStatus.PASS,"Error Message displayed :-" + txt);
 			}
-
-			//3 Logic for Extention Application Acknowledgement
-			Thread.sleep(8000);
-			File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
-			File[] dirContents3 = dir3.listFiles(); // Counting number of files in directory before download
-
-			Thread.sleep(2200);
-			All_ClientPortal_Locators.NoticeApplicationAcknowledgeDocument().click();
-
-			Thread.sleep(10000);
-			File dirrr = new File("C:\\Users\\swapnilb\\Downloads");
-			File[] allFilesNew3 = dirrr.listFiles(); // Counting number of files in directory after download
-			Thread.sleep(3000);
-			if (dirContents3.length < allFilesNew3.length) {
-				Thread.sleep(5000);
-				test.log(LogStatus.PASS, " Notice Extension Application Acknowledgement File is downloaded successfully");
-			} else {
-				Thread.sleep(5000);
-				test.log(LogStatus.FAIL, " Notice Extension Application Acknowledgement File is not downloaded.");
+			else {
+				test.log(LogStatus.FAIL,"Document Req for the Notice label bar not working properly");
 			}
-
-			//4 Logic for Draft Extension Application
-			Thread.sleep(10000);
-			File dir4 = new File("C:\\Users\\swapnilb\\Downloads");
-			File[] dirContents4 = dir4.listFiles(); // Counting number of files in directory before download
-
-			Thread.sleep(4000);
-			All_ClientPortal_Locators.DraftExtensionApplicationDocument().click();
-
-			Thread.sleep(10000);
-			File dirrr4 = new File("C:\\Users\\swapnilb\\Downloads");
-			File[] allFilesNew4 = dirrr4.listFiles(); // Counting number of files in directory after download
-			Thread.sleep(3000);
-			if (dirContents4.length < allFilesNew4.length) {
-				Thread.sleep(5000);
-				test.log(LogStatus.PASS, " Notice Draft Extension Application File downloaded successfully.");
-			} else {
-				Thread.sleep(5000);
-				test.log(LogStatus.FAIL, " Notice Draft Extension Application File is not downloaded.");
-			}
-
-			//5 Logic for Draft Response (Prepared by SME)
-			Thread.sleep(10000);
-			File dir5 = new File("C:\\Users\\swapnilb\\Downloads");
-			File[] dirContents5 = dir5.listFiles(); // Counting number of files in directory before download
-
-			Thread.sleep(4000);
-			All_ClientPortal_Locators.DraftResponseSMEDocument().click();
-
-			Thread.sleep(10000);
-			File dirrr5 = new File("C:\\Users\\swapnilb\\Downloads");
-			File[] allFilesNew5 = dirrr5.listFiles(); // Counting number of files in directory after download
-			Thread.sleep(3000);
-			if (dirContents5.length < allFilesNew5.length) {
-				Thread.sleep(5000);
-				test.log(LogStatus.PASS, " Notice Response Prepared by SME File is downloaded successfully.");
-			} else {
-				Thread.sleep(5000);
-				test.log(LogStatus.FAIL, " Notice Draft Extension Application File is not downloaded.");
-			}
-
-
+			
+			
 
 		}
 	 public static void NoticeDocMandatory(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
@@ -1649,6 +2072,7 @@ public class CoordinatorMethod extends BasePage
 		);
 		
 		
+		
 	 	CoordinatorLocator.ResponseDueDateCalendar2().click();
 		OneCommonMethod.selectCalendarDateFromInput(driver.get(), test, 
 				CoordinatorLocator.ResponseDueDateCalendar2(), // calendar icon
@@ -1668,8 +2092,8 @@ public class CoordinatorMethod extends BasePage
 //		if(user.equalsIgnoreCase("Doc File"))
 //		{
 //		CoordinatorLocator.Browse1().click();
-//		Thread.sleep(2000);"
-//		OneCommonMethod.uploadUsingRobot("D:\AutomationLabourFiles\SampleDocFile.doc");
+//		Thread.sleep(2000);
+//		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\OtherTwo\\SampleDocFile.doc");
 //		
 //		try 
 //		{
@@ -1703,7 +2127,7 @@ public class CoordinatorMethod extends BasePage
 			{
 			CoordinatorLocator.Browse2().click();
 			Thread.sleep(2000);
-			OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\SampleDocFile.doc");
+			OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\OtherTwo\\SampleDocFile.doc");
 			
 		
 				String Doc_Txt = getDriver().findElement(By.xpath("//span[@title='SampleDocFile.doc']")).getText();
@@ -1729,7 +2153,7 @@ public class CoordinatorMethod extends BasePage
 			if(user.equalsIgnoreCase("DOCX File"))
 			{
 				CoordinatorLocator.Browse2().click();
-				OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\SampleDocxFile.docx");
+				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleDocxFile.docx");
 				
 				String docsFile = getDriver().findElement(By.xpath("//span[@title='SampleDocxFile.docx']")).getText();
 				
@@ -1753,7 +2177,7 @@ public class CoordinatorMethod extends BasePage
 		{
 		CoordinatorLocator.Browse2().click();
 		Thread.sleep(2000);
-		OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\Test_123.pdf");
+		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Other Upload No need to change\\sample.pdf");
 		
 		try 
 		{
@@ -1794,7 +2218,7 @@ public class CoordinatorMethod extends BasePage
 			{
 			CoordinatorLocator.Browse1().click();
 			Thread.sleep(2000);
-			OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\SampleDocFile.doc");
+			OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\OtherTwo\\SampleDocFile.doc");
 			
 			try 
 			{
@@ -1822,7 +2246,7 @@ public class CoordinatorMethod extends BasePage
 			if(user.equalsIgnoreCase("DOCX File"))
 			{
 				CoordinatorLocator.Browse1().click();
-				OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\SampleDocxFile.docx");
+				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleDocxFile.docx");
 				
 				String docsFile = getDriver().findElement(By.xpath("//span[@title='SampleDocxFile.docx']")).getText();
 				
@@ -1846,7 +2270,7 @@ public class CoordinatorMethod extends BasePage
 		{
 		CoordinatorLocator.Browse1().click();
 		Thread.sleep(2000);
-		OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\Test_123.pdf");
+		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Other Upload No need to change\\sample.pdf");
 		
 		try 
 		{
@@ -1867,10 +2291,12 @@ public class CoordinatorMethod extends BasePage
 			System.out.println("File is not uploaded");
 		}
 		
+
+		
 	 }
 		
 	 	
- }
+	 }
 	 public static void NoticeAddNewRecepitAcknowledgementValidation(String user, ExtentTest test) throws Exception
 	 {
 		 
@@ -1878,7 +2304,7 @@ public class CoordinatorMethod extends BasePage
 			{
 				Thread.sleep(5000);
 				CoordinatorLocator.Browse1().click();
-				OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\EmptyZip.zip");
+				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleZipFile.zip");
 				
 				String zipFile = CoordinatorLocator.Message2().getText();
 				if(zipFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
@@ -1900,7 +2326,7 @@ public class CoordinatorMethod extends BasePage
 			{
 				Thread.sleep(5000);
 				CoordinatorLocator.Browse1().click();
-				OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\EmptyFile.xlsx");
+				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\ComplianceRecords.xlsx");
 				
 				String xlsxFile = CoordinatorLocator.Message2().getText();
 				if(xlsxFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
@@ -1921,7 +2347,7 @@ public class CoordinatorMethod extends BasePage
 			{
 				Thread.sleep(5000);
 				CoordinatorLocator.Browse1().click();
-				OneCommonMethod.uploadUsingRobot("\"D:\\AutomationLabourFiles\\SampleXlsFile.xls\"");
+				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleXlsFile.xls");
 				
 				String xlsFile = CoordinatorLocator.Message2().getText();
 				if(xlsFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
@@ -1942,7 +2368,7 @@ public class CoordinatorMethod extends BasePage
 			{
 				Thread.sleep(5000);
 				CoordinatorLocator.Browse1().click();
-				OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\unknown.txt");
+				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleTxt.txt");
 				
 				String xlsFile = CoordinatorLocator.Message2().getText();
 				if(xlsFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
@@ -1963,7 +2389,7 @@ public class CoordinatorMethod extends BasePage
 			{
 				Thread.sleep(5000);
 				CoordinatorLocator.Browse1().click();
-				OneCommonMethod.uploadUsingRobot("\"D:\\AutomationLabourFiles\\SamplePngFile.png\"");
+				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SamplePngFile.png");
 				
 				String xlsFile = CoordinatorLocator.Message2().getText();
 				if(xlsFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
@@ -1986,7 +2412,7 @@ public class CoordinatorMethod extends BasePage
 			{
 				Thread.sleep(5000);
 				CoordinatorLocator.Browse1().click();
-				OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\SampleJpegFile.jpeg");
+				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleJpegFile.jpeg");
 				
 				String jpgFile = CoordinatorLocator.Message2().getText();
 				if(jpgFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
@@ -2007,7 +2433,7 @@ public class CoordinatorMethod extends BasePage
 			{
 				Thread.sleep(5000);
 				CoordinatorLocator.Browse1().click();
-				OneCommonMethod.uploadUsingRobot("D:\\AutomationLabour\\LabourProjectUpdated\\Report\\ClientPortal.html");
+				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleHTMLReport.html");
 				
 				String jpgFile = CoordinatorLocator.Message2().getText();
 				if(jpgFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
@@ -2034,7 +2460,7 @@ public class CoordinatorMethod extends BasePage
 			{
 				Thread.sleep(5000);
 				CoordinatorLocator.Browse2().click();
-				OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\EmptyZip.zip");
+				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleZipFile.zip");
 				
 				String zipFile = CoordinatorLocator.Message2().getText();
 				if(zipFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
@@ -2056,7 +2482,7 @@ public class CoordinatorMethod extends BasePage
 			{
 				Thread.sleep(5000);
 				CoordinatorLocator.Browse2().click();
-				OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\EmptyFile.xlsx");
+				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\ComplianceRecords.xlsx");
 				
 				String xlsxFile = CoordinatorLocator.Message2().getText();
 				if(xlsxFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
@@ -2077,7 +2503,7 @@ public class CoordinatorMethod extends BasePage
 			{
 				Thread.sleep(5000);
 				CoordinatorLocator.Browse2().click();
-				OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\SampleXlsFile.xls");
+				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleXlsFile.xls");
 				
 				String xlsFile = CoordinatorLocator.Message2().getText();
 				if(xlsFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
@@ -2098,7 +2524,7 @@ public class CoordinatorMethod extends BasePage
 			{
 				Thread.sleep(5000);
 				CoordinatorLocator.Browse2().click();
-				OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\unknown.txt");
+				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleTxt.txt");
 				
 				String xlsFile = CoordinatorLocator.Message2().getText();
 				if(xlsFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
@@ -2119,7 +2545,7 @@ public class CoordinatorMethod extends BasePage
 			{
 				Thread.sleep(5000);
 				CoordinatorLocator.Browse2().click();
-				OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\SamplePngFile.png");
+				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SamplePngFile.png");
 				
 				String xlsFile = CoordinatorLocator.Message2().getText();
 				if(xlsFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
@@ -2142,7 +2568,7 @@ public class CoordinatorMethod extends BasePage
 			{
 				Thread.sleep(5000);
 				CoordinatorLocator.Browse2().click();
-				OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\SampleJpegFile.jpeg");
+				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleJpegFile.jpeg");
 				
 				String jpgFile = CoordinatorLocator.Message2().getText();
 				if(jpgFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
@@ -2163,7 +2589,7 @@ public class CoordinatorMethod extends BasePage
 			{
 				Thread.sleep(5000);
 				CoordinatorLocator.Browse2().click();
-				OneCommonMethod.uploadUsingRobot("D:\\AutomationLabour\\LabourProjectUpdated\\Report\\ClientPortal.html");
+				OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\SampleHTMLReport.html");
 				
 				String jpgFile = CoordinatorLocator.Message2().getText();
 				if(jpgFile.equalsIgnoreCase("Please select a .doc, .docx, or .pdf file"))
@@ -2661,7 +3087,7 @@ public class CoordinatorMethod extends BasePage
 		        
 		        js1.executeScript("window.scrollBy(0,-500)");
 			Thread.sleep(1000);
-			File dir = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir = new File("C:\\Users\\bilali\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 			Thread.sleep(5000);
@@ -2669,7 +3095,7 @@ public class CoordinatorMethod extends BasePage
 			
 		
 			Thread.sleep(10000);
-			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir1 = new File("C:\\Users\\bilali\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 		
 			if(dirContents.length < allFilesNew.length)
@@ -2984,6 +3410,14 @@ public class CoordinatorMethod extends BasePage
 			
 			
 			Thread.sleep(5000);
+
+//			WebElement plus1 = getDriver().findElement(By.xpath("(//img[@class='svg-icon-btn ng-star-inserted'])[1]"));
+//			WebElement plus2 = getDriver().findElement(By.xpath("(//img[@class='svg-icon-btn ng-star-inserted'])[2]"));
+//			WebElement plus3 = getDriver().findElement(By.xpath("(//img[@class='svg-icon-btn ng-star-inserted'])[3]"));
+//			WebElement plus4 = getDriver().findElement(By.xpath("(//img[@class='svg-icon-btn ng-star-inserted'])[4]"));
+			
+			
+//			WebElement ActivityClosure = getDriver().findElement(By.xpath("//img[@class='svg-icon-btn ng-star-inserted']"));
 			Thread.sleep(4000);
 			
 //			clickElementUsingJS(CoordinatorLocator.plus1());
@@ -3011,11 +3445,11 @@ public class CoordinatorMethod extends BasePage
 //			{
 //				test.log(LogStatus.FAIL, "+ Finance Approval Status button is not clickable.");
 //			}
-//			
+			
 			Thread.sleep(4000);
-			if(CoordinatorLocator.plus3().isEnabled())
+			if(CoordinatorLocator.plus2().isEnabled())
 			{
-				CoordinatorLocator.plus3().click();
+				CoordinatorLocator.plus2().click();
 				test.log(LogStatus.PASS, "+ OT Assignment button is Opened and Closed.");
 			}
 			else
@@ -3024,9 +3458,9 @@ public class CoordinatorMethod extends BasePage
 			}
 			
 			Thread.sleep(4000);
-			if(CoordinatorLocator.plus4().isEnabled())
+			if(CoordinatorLocator.plus3().isEnabled())
 			{
-				CoordinatorLocator.plus4().click();
+				CoordinatorLocator.plus3().click();
 				test.log(LogStatus.PASS, "+ Activity Relevant Dates button is Opened and Closed.");
 				Thread.sleep(4000);
 			}
@@ -3118,6 +3552,28 @@ public class CoordinatorMethod extends BasePage
 			Thread.sleep(5000);
 			CoordinatorLocator.plus1().click();
 			Thread.sleep(5000);
+			
+			
+			WebElement male = getDriver().findElement(By.xpath("(//input[@type='text'])[7]"));		
+			male.clear();
+			Thread.sleep(5000);
+			male.sendKeys("1");
+			Thread.sleep(5000);
+			WebElement Female = getDriver().findElement(By.xpath("(//input[@type='text'])[8]"));	
+			Thread.sleep(5000);
+			Female.clear();
+			Thread.sleep(5000);
+			Female.sendKeys("2");
+			Thread.sleep(5000);
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			getDriver().findElement(By.xpath("(//button[normalize-space()='Save'])[1]")).click();
 			
 			
@@ -3131,7 +3587,7 @@ public class CoordinatorMethod extends BasePage
 
 			if (text.equalsIgnoreCase("Info updated successfully")) {
 				Thread.sleep(5000);
-				
+				test.log(LogStatus.PASS, "Male & Female count changed successfully");
 				test.log(LogStatus.PASS, "Basic Information Save button working fine");
 				test.log(LogStatus.PASS, "Message Displayed : " + text);
 			} else {
@@ -3735,7 +4191,7 @@ public class CoordinatorMethod extends BasePage
 			*/
 			
 			Thread.sleep(3000);
-			File dir = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir = new File("C:\\Users\\bilali\\Downloads");
 			File[] dirContents = dir.listFiles();
 
 			Thread.sleep(500);
@@ -3743,7 +4199,7 @@ public class CoordinatorMethod extends BasePage
 				if (Doc_download.isDisplayed() && Doc_download.isEnabled()) {
 					Doc_download.click();
 					Thread.sleep(8000);
-					File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+					File dir1 = new File("C:\\Users\\bilali\\Downloads");
 					File[] allFilesNew = dir1.listFiles();
 					Thread.sleep(3000);
 					if (dirContents.length < allFilesNew.length) {
@@ -4010,7 +4466,7 @@ public class CoordinatorMethod extends BasePage
 			CoordinatorLocator.ExistingLicesne().click();
 
 			Thread.sleep(1000);
-			File dir = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir = new File("C:\\Users\\bilali\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 			Thread.sleep(5000);
@@ -4024,7 +4480,7 @@ public class CoordinatorMethod extends BasePage
 			
 		
 			Thread.sleep(5500);
-			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir1 = new File("C:\\Users\\bilali\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 		
 			if(dirContents.length < allFilesNew.length)
@@ -4305,7 +4761,7 @@ public class CoordinatorMethod extends BasePage
 			
 			
 			Thread.sleep(2000);
-			File dir = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir = new File("C:\\Users\\bilali\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 			
@@ -4319,7 +4775,7 @@ public class CoordinatorMethod extends BasePage
 //			wait.until(ExpectedConditions.invisibilityOf(CoordinatorLocator.gridLoad()));//me hide and give more load
 			
 			Thread.sleep(5500);
-			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir1 = new File("C:\\Users\\bilali\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			Thread.sleep(4000);
 			if(dirContents.length < allFilesNew.length)

@@ -38,9 +38,10 @@ package performer;
 	import login.LoginLocators;
 
 
-	public class MethodsP extends BasePage 
-	{		
-	    static String filePath ="D:\\AutomationLabour\\LabourProjectUpdated\\TestData\\Labour.xlsx";
+	public class MethodsP extends BasePage {
+		
+	    static String filePath ="D:\\Labour Angular\\LabourMergeProject\\LabourMergeProject\\TestData\\Labour.xlsx";
+		
 		public static void complianceBox( ExtentTest test, String user) throws InterruptedException, IOException
 		{
 		
@@ -91,13 +92,16 @@ package performer;
 		int count1 = Integer.parseInt(compliancesCount);
 		String s = LoginLocators.TotalNumberOfItems().getText();
 		Thread.sleep(1000);
-		if(!s.equalsIgnoreCase("0 - 0 of 0 items"))
-		{
+		if(!s.equalsIgnoreCase("0 - 0 of 0 items")) {
 		Thread.sleep(4000);
-		if(open == count1)	
-		{				
-		//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");		
-		test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);		
+		if(open == count1)
+					
+		{
+						
+		//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
+						
+		test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+					
 		}
 					
 		else
@@ -111,7 +115,9 @@ package performer;
 		}
 		
 		Thread.sleep(2000);
+		
 	    JavascriptExecutor jss = (JavascriptExecutor) getDriver();
+	    
 	    jss.executeScript("window.scrollBy(0,-1000)");
 	    Thread.sleep(2000);
 	    MethodsP.GridAndExcelCountMatch(test,workbook);
@@ -122,8 +128,8 @@ package performer;
 		Thread.sleep(4000);
 		WebElement ViewButton = getDriver().findElement(locator);	
 		Thread.sleep(3000);
-		JavascriptExecutor jse=(JavascriptExecutor) getDriver();
-		jse.executeScript("arguments[0].click();", ViewButton);
+	JavascriptExecutor jse=(JavascriptExecutor) getDriver();
+	jse.executeScript("arguments[0].click();", ViewButton);
 		Thread.sleep(4000);
 		test.log(LogStatus.PASS, "overView Successfully");
 		Thread.sleep(2000);
@@ -131,19 +137,22 @@ package performer;
 		Thread.sleep(3000);
 		LoginLocators.ClosePopUp().click();
 		Thread.sleep(3000);
-			
+		
+		
 		}
-		else
-		{
+	else {
+			
 			test.log(LogStatus.PASS, "Compliance Count from grid is 0");
 
-		}
+			}
+		
 		
 	}
 		
 		public static void GridAndExcelCountMatch(ExtentTest test,XSSFWorkbook workbook  ) throws InterruptedException, IOException
 		{
 			JavascriptExecutor js = (JavascriptExecutor) getDriver();
+	        
 	        js.executeScript("window.scrollBy(0,700)");
 	        Thread.sleep(2000); 		
 	        LoginLocators.TotalNumberOfItems().click();					
@@ -157,44 +166,44 @@ package performer;
 			if(compliancesCount.equalsIgnoreCase("to"))
 			{
 				Thread.sleep(5000);
-				s = LoginLocators.TotalNumberOfItems().getText();
+			   s = LoginLocators.TotalNumberOfItems().getText();
 				bits = s.split(" ");
 	        
 			}
 			
 			Thread.sleep(2000);
 	        JavascriptExecutor js1 = (JavascriptExecutor) getDriver();
+	        
 	        js1.executeScript("window.scrollBy(0,-1000)");
 	        Thread.sleep(2000);
 
-	        Thread.sleep(1000);
-	        File dir = new File("C:\\Users\\swapnilb\\Downloads");
-		File[] dirContents = dir.listFiles();							
+	Thread.sleep(1000);
+	File dir = new File("C:\\Users\\bilali\\Downloads");
+	File[] dirContents = dir.listFiles();							
 
-		Thread.sleep(1000);
-		try
-		{
-			LoginLocators.Export().click();
-		}
-		catch(Exception e)
-		{
-			LoginLocators.Exportbtn().click();
+	Thread.sleep(1000);
+	try {
+	LoginLocators.Export().click();
+	}
+	catch(Exception e)
+	{
+		LoginLocators.Exportbtn().click();
 		
-		}
-		Thread.sleep(7000);
-		test.log(LogStatus.PASS, "File downloaded successfully.");
+	}
+	Thread.sleep(7000);
+	test.log(LogStatus.PASS, "File downloaded successfully.");
 
-		Thread.sleep(5500);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
-		File[] allFilesNew = dir1.listFiles();							
+	Thread.sleep(5500);
+	File dir1 = new File("C:\\Users\\bilali\\Downloads");
+	File[] allFilesNew = dir1.listFiles();							
 
-		if(dirContents.length < allFilesNew.length)
-		{
+	if(dirContents.length < allFilesNew.length)
+	{
 			
-			File lastModifiedFile = allFilesNew[0];			
-			for (int i = 1; i < allFilesNew.length; i++) 	
-			{
-				if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	
+		File lastModifiedFile = allFilesNew[0];			
+	    for (int i = 1; i < allFilesNew.length; i++) 	
+	    {
+	       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	
 	       {
 	           lastModifiedFile = allFilesNew[i];
 	       }
@@ -278,7 +287,7 @@ package performer;
 	        Thread.sleep(2000);
 
 	Thread.sleep(1000);
-	File dir = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 
 	Thread.sleep(1000);
@@ -293,7 +302,7 @@ package performer;
 	test.log(LogStatus.PASS, "Compliance Assignment Report : File downloaded successfully.");
 
 	Thread.sleep(9000);
-	File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir1 = new File("C:\\Users\\bilali\\Downloads");
 	File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 
 	if(dirContents.length < allFilesNew.length)
@@ -387,7 +396,7 @@ package performer;
 	        Thread.sleep(2000);
 
 	Thread.sleep(1000);
-	File dir = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 
 	Thread.sleep(1000);
@@ -402,7 +411,7 @@ package performer;
 	test.log(LogStatus.PASS, " File downloaded successfully.");
 
 	Thread.sleep(9000);
-	File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir1 = new File("C:\\Users\\bilali\\Downloads");
 	File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 
 	if(dirContents.length < allFilesNew.length)
@@ -496,7 +505,7 @@ package performer;
 	        Thread.sleep(2000);
 
 	Thread.sleep(1000);
-	File dir = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 
 	Thread.sleep(1000);
@@ -511,7 +520,7 @@ package performer;
 	test.log(LogStatus.PASS, " File downloaded successfully.");
 
 	Thread.sleep(9000);
-	File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir1 = new File("C:\\Users\\bilali\\Downloads");
 	File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 
 	if(dirContents.length < allFilesNew.length)
@@ -604,7 +613,7 @@ package performer;
 	        Thread.sleep(2000);
 
 	Thread.sleep(1000);
-	File dir = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 
 	Thread.sleep(1000);
@@ -621,7 +630,7 @@ package performer;
 	test.log(LogStatus.PASS, "Various Report : downloaded successfully.");
 
 	Thread.sleep(1000);
-	File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir1 = new File("C:\\Users\\bilali\\Downloads");
 	File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 
 	if(dirContents.length < allFilesNew.length)
@@ -717,7 +726,7 @@ package performer;
 	        Thread.sleep(2000);
 
 	Thread.sleep(1000);
-	File dir = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 
 	Thread.sleep(1000);
@@ -734,7 +743,7 @@ package performer;
 	test.log(LogStatus.PASS, "CLRA Compliance Assignment Report : downloaded successfully.");
 
 	Thread.sleep(1000);
-	File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir1 = new File("C:\\Users\\bilali\\Downloads");
 	File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 
 	if(dirContents.length < allFilesNew.length)
@@ -2817,12 +2826,12 @@ package performer;
 			}
 			catch(Exception e) {
 				Thread.sleep(3000);
-				File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+				File dir2 = new File("C:\\Users\\bilali\\Downloads");
 				File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download			
 				Thread.sleep(9000);			
 				LoginLocators.Download().click();			
 			 	Thread.sleep(18000);
-				File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+				File dir3 = new File("C:\\Users\\bilali\\Downloads");
 				File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download		   
 		        Thread.sleep(9000);
 			   if (dirContents1.length < allFilesNew1.length) {
@@ -3002,12 +3011,12 @@ package performer;
 			}
 			catch(Exception e) {
 				Thread.sleep(3000);
-				File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+				File dir2 = new File("C:\\Users\\bilali\\Downloads");
 				File[] dirContents1 = dir2.listFiles();						
 				Thread.sleep(9000);			
 				LoginLocators.Download().click();			
 			 	Thread.sleep(18000);
-				File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+				File dir3 = new File("C:\\Users\\bilali\\Downloads");
 				File[] allFilesNew1 = dir3.listFiles();						   
 		        Thread.sleep(9000);
 			   if (dirContents1.length < allFilesNew1.length) {
@@ -5621,7 +5630,7 @@ package performer;
 			Thread.sleep(2000);
 			LoginLocators.ApplyBtn1().click();
 		    Thread.sleep(9000);
-		    File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		    File dir = new File("C:\\Users\\bilali\\Downloads");
 			File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
 			
 			Thread.sleep(3000);
@@ -5636,7 +5645,7 @@ package performer;
 			    	
 			    	}		
 		 	Thread.sleep(9000);
-			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir1 = new File("C:\\Users\\bilali\\Downloads");
 			File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
 			
 			Thread.sleep(3000);
@@ -6040,7 +6049,7 @@ package performer;
 			
 	            
 	            	Thread.sleep(2000);	
-	    			File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+	    			File dir2 = new File("C:\\Users\\bilali\\Downloads");
 	    			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 	    			
 	    			Thread.sleep(9000);
@@ -6048,7 +6057,7 @@ package performer;
 	    	//	LoginLocators.AttendanceTemplate().click();
 	    			AttendanceTemplate.click();
 	    		 	Thread.sleep(18000);
-	    			File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+	    			File dir3 = new File("C:\\Users\\bilali\\Downloads");
 	    			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 	    			
 	    		   
@@ -6218,7 +6227,7 @@ package performer;
 			
 	            
 	            	Thread.sleep(2000);	
-	    			File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+	    			File dir2 = new File("C:\\Users\\bilali\\Downloads");
 	    			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 	    			
 	    			Thread.sleep(9000);
@@ -6226,7 +6235,7 @@ package performer;
 	    	//	LoginLocators.AttendanceTemplate().click();
 	    			AttendanceTemplate.click();
 	    		 	Thread.sleep(18000);
-	    			File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+	    			File dir3 = new File("C:\\Users\\bilali\\Downloads");
 	    			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 	    			
 	    		   
@@ -6375,7 +6384,7 @@ package performer;
 			
 	            
 	            	Thread.sleep(2000);	
-	    			File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+	    			File dir2 = new File("C:\\Users\\bilali\\Downloads");
 	    			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 	    			
 	    			Thread.sleep(9000);
@@ -6383,7 +6392,7 @@ package performer;
 	    	//	LoginLocators.AttendanceTemplate().click();
 	    			AttendanceTemplate.click();
 	    		 	Thread.sleep(18000);
-	    			File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+	    			File dir3 = new File("C:\\Users\\bilali\\Downloads");
 	    			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 	    			
 	    		   
@@ -6552,13 +6561,13 @@ package performer;
 				Thread.sleep(5000);
 				
 				Thread.sleep(2000);	
-				File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+				File dir2 = new File("C:\\Users\\bilali\\Downloads");
 				File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 				
 				Thread.sleep(9000);
 				LoginLocators.successfilehistory().click();			
 			 	Thread.sleep(18000);
-				File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+				File dir3 = new File("C:\\Users\\bilali\\Downloads");
 				File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 				
 			   
@@ -6690,7 +6699,7 @@ package performer;
 			
 	            
 	            	Thread.sleep(2000);	
-	    			File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+	    			File dir2 = new File("C:\\Users\\bilali\\Downloads");
 	    			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 	    			
 	    			Thread.sleep(9000);
@@ -6698,7 +6707,7 @@ package performer;
 	    	//	LoginLocators.AttendanceTemplate().click();
 	    			AttendanceTemplate.click();
 	    		 	Thread.sleep(18000);
-	    			File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+	    			File dir3 = new File("C:\\Users\\bilali\\Downloads");
 	    			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 	    			
 	    		   
@@ -6925,7 +6934,7 @@ package performer;
 			
 	            
 	            	Thread.sleep(2000);	
-	    			File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+	    			File dir2 = new File("C:\\Users\\bilali\\Downloads");
 	    			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 	    			
 	    			Thread.sleep(9000);
@@ -6933,7 +6942,7 @@ package performer;
 	    	//	LoginLocators.AttendanceTemplate().click();
 	    			AttendanceTemplate.click();
 	    		 	Thread.sleep(18000);
-	    			File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+	    			File dir3 = new File("C:\\Users\\bilali\\Downloads");
 	    			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 	    			
 	    		   
@@ -7082,7 +7091,7 @@ package performer;
 			
 	            
 	            	Thread.sleep(2000);	
-	    			File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+	    			File dir2 = new File("C:\\Users\\bilali\\Downloads");
 	    			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 	    			
 	    			Thread.sleep(9000);
@@ -7090,7 +7099,7 @@ package performer;
 	    	//	LoginLocators.AttendanceTemplate().click();
 	    			AttendanceTemplate.click();
 	    		 	Thread.sleep(18000);
-	    			File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+	    			File dir3 = new File("C:\\Users\\bilali\\Downloads");
 	    			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 	    			
 	    		   
@@ -7300,7 +7309,7 @@ package performer;
 			
 	            
 	            	Thread.sleep(2000);	
-	    			File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+	    			File dir2 = new File("C:\\Users\\bilali\\Downloads");
 	    			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 	    			
 	    			Thread.sleep(9000);
@@ -7308,7 +7317,7 @@ package performer;
 	    	//	LoginLocators.AttendanceTemplate().click();
 	    			AttendanceTemplate.click();
 	    		 	Thread.sleep(18000);
-	    			File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+	    			File dir3 = new File("C:\\Users\\bilali\\Downloads");
 	    			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 	    			
 	    		   
@@ -7471,7 +7480,7 @@ package performer;
 			
 	            
 	            	Thread.sleep(2000);	
-	    			File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+	    			File dir2 = new File("C:\\Users\\bilali\\Downloads");
 	    			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 	    			
 	    			Thread.sleep(9000);
@@ -7479,7 +7488,7 @@ package performer;
 	    	//	LoginLocators.AttendanceTemplate().click();
 	    			AttendanceTemplate.click();
 	    		 	Thread.sleep(18000);
-	    			File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+	    			File dir3 = new File("C:\\Users\\bilali\\Downloads");
 	    			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 	    			
 	    		   
@@ -7626,7 +7635,7 @@ package performer;
 			
 	            
 	            	Thread.sleep(2000);	
-	    			File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+	    			File dir2 = new File("C:\\Users\\bilali\\Downloads");
 	    			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 	    			
 	    			Thread.sleep(9000);
@@ -7634,7 +7643,7 @@ package performer;
 	    	//	LoginLocators.AttendanceTemplate().click();
 	    			AttendanceTemplate.click();
 	    		 	Thread.sleep(18000);
-	    			File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+	    			File dir3 = new File("C:\\Users\\bilali\\Downloads");
 	    			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 	    			
 	    		   
@@ -7958,7 +7967,7 @@ package performer;
 			
 	            
 	            	Thread.sleep(2000);	
-	    			File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+	    			File dir2 = new File("C:\\Users\\bilali\\Downloads");
 	    			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 	    			
 	    			Thread.sleep(9000);
@@ -7966,7 +7975,7 @@ package performer;
 	    	//	LoginLocators.AttendanceTemplate().click();
 	    			AttendanceTemplate.click();
 	    		 	Thread.sleep(18000);
-	    			File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+	    			File dir3 = new File("C:\\Users\\bilali\\Downloads");
 	    			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 	    			
 	    		   
@@ -8108,7 +8117,7 @@ package performer;
 			
 	            
 	            	Thread.sleep(2000);	
-	    			File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+	    			File dir2 = new File("C:\\Users\\bilali\\Downloads");
 	    			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 	    			
 	    			Thread.sleep(9000);
@@ -8116,7 +8125,7 @@ package performer;
 	    	//	LoginLocators.AttendanceTemplate().click();
 	    			AttendanceTemplate.click();
 	    		 	Thread.sleep(18000);
-	    			File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+	    			File dir3 = new File("C:\\Users\\bilali\\Downloads");
 	    			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 	    			
 	    		   
@@ -8235,7 +8244,7 @@ package performer;
 			
 	            
 	            	Thread.sleep(2000);	
-	    			File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+	    			File dir2 = new File("C:\\Users\\bilali\\Downloads");
 	    			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 	    			
 	    			Thread.sleep(9000);
@@ -8243,7 +8252,7 @@ package performer;
 	    	//	LoginLocators.AttendanceTemplate().click();
 	    			AttendanceTemplate.click();
 	    		 	Thread.sleep(18000);
-	    			File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+	    			File dir3 = new File("C:\\Users\\bilali\\Downloads");
 	    			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 	    			
 	    		   
@@ -8504,7 +8513,7 @@ package performer;
 			
 	            
 //	            	Thread.sleep(2000);	
-//	    			File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+//	    			File dir2 = new File("C:\\Users\\bilali\\Downloads");
 //	    			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 //	    			
 //	    			Thread.sleep(9000);
@@ -8512,7 +8521,7 @@ package performer;
 //	    	//	LoginLocators.AttendanceTemplate().click();
 //	    			AttendanceTemplate.click();
 //	    		 	Thread.sleep(18000);
-//	    			File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+//	    			File dir3 = new File("C:\\Users\\bilali\\Downloads");
 //	    			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 //	    			
 //	    		   
@@ -8688,7 +8697,7 @@ package performer;
 	        
 	        
 	        	Thread.sleep(2000);	
-				File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+				File dir2 = new File("C:\\Users\\bilali\\Downloads");
 				File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 				
 				Thread.sleep(9000);
@@ -8696,7 +8705,7 @@ package performer;
 		//	LoginLocators.AttendanceTemplate().click();
 				AttendanceTemplate.click();
 			 	Thread.sleep(18000);
-				File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+				File dir3 = new File("C:\\Users\\bilali\\Downloads");
 				File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 				
 			   
@@ -8756,7 +8765,7 @@ package performer;
 			   }
 			   
 			   Thread.sleep(2000);	
-				File dir = new File("C:\\Users\\swapnilb\\Downloads");
+				File dir = new File("C:\\Users\\bilali\\Downloads");
 				File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
 				
 				Thread.sleep(9000);
@@ -8764,7 +8773,7 @@ package performer;
 		//	LoginLocators.AttendanceTemplate().click();
 				DownloadErrorFile.click();
 			 	Thread.sleep(18000);
-				File dirs = new File("C:\\Users\\swapnilb\\Downloads");
+				File dirs = new File("C:\\Users\\bilali\\Downloads");
 				File[] allFilesNew = dirs.listFiles();						//Counting number of files in directory after download
 				
 			   
@@ -8925,13 +8934,13 @@ package performer;
 		LoginLocators.BulkUpload().click();
 		Thread.sleep(500);
 		Thread.sleep(2000);	
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
 		
 		Thread.sleep(9000);
 		LoginLocators.SampleDocument().click();
 	 	Thread.sleep(18000);
-		File dirs = new File("C:\\Users\\swapnilb\\Downloads");
+		File dirs = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dirs.listFiles();						//Counting number of files in directory after download
 		
 	   
@@ -9712,14 +9721,14 @@ package performer;
 		Thread.sleep(2000);
 		LoginLocators.SelectEntityvalue().click();
 		Thread.sleep(2000);
-		File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir2 = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 		
 		Thread.sleep(9000);
 		LoginLocators.Consolidated().click();
 		
 	 	Thread.sleep(18000);
-		File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir3 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 		
 	   
@@ -9732,14 +9741,14 @@ package performer;
 			test.log(LogStatus.FAIL, "Consolidated Report Does Not Downloaded.");
 		}		
 	   Thread.sleep(2000);
-	   File dir = new File("C:\\Users\\swapnilb\\Downloads");
+	   File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
 		
 		Thread.sleep(9000);
 		LoginLocators.Expired().click();
 		
 		Thread.sleep(18000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew2 = dir1.listFiles();						//Counting number of files in directory after download
 		
 	  
@@ -9752,14 +9761,14 @@ package performer;
 			test.log(LogStatus.FAIL, "Expired Report Does Not Downloaded.");
 		}		
 	  Thread.sleep(3000);
-	  File dir4 = new File("C:\\Users\\swapnilb\\Downloads");
+	  File dir4 = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents4 = dir4.listFiles();						//Counting number of files in directory before download
 		
 		Thread.sleep(9000);
 		LoginLocators.CloseToExpired().click();
 		
 		Thread.sleep(18000);
-		File dir5 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir5 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew5 = dir5.listFiles();						//Counting number of files in directory after download
 		
 

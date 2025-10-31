@@ -50,17 +50,16 @@ import performer.PerformerLocator;
 import rcp.OneCommonMethod;
 
 
-public class MethodsD extends BasePage
-{
+public class MethodsD extends BasePage {
 	
-    static String filePath ="D:\\AutomationLabour\\LabourProjectUpdated\\TestData\\Labour.xlsx";
+    static String filePath ="D:\\Labour Angular\\LabourMergeProject\\LabourMergeProject\\TestData\\Labour.xlsx";
 	
 	public static void complianceBox( ExtentTest test, String user) throws InterruptedException, IOException
 	{
 	
-		//WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
 		Thread.sleep(7000);
-		//wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
 		{
 			LoginLocators.Search().sendKeys("TESTAUTO2");
@@ -77,11 +76,11 @@ public class MethodsD extends BasePage
 	//	LoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
 		Thread.sleep(5000);
 	//	LoginLocators.Search().sendKeys("WWKRG");		
-	//	wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
 		LoginLocators.DashboardArrow().click();
 		Thread.sleep(9000);
 		Thread.sleep(5000);
-	//	wait.until(ExpectedConditions.visibilityOf(LoginLocators.SelectPeriodDashboard()));
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.SelectPeriodDashboard()));
 		LoginLocators.SelectPeriodDashboard().click();
 		Thread.sleep(2000);
 		LoginLocators.SelectPeriodValue1().click();
@@ -91,7 +90,7 @@ public class MethodsD extends BasePage
 	LoginLocators.ComplianceBox().click();					                
     Thread.sleep(5000);
 //	wait.until(ExpectedConditions.visibilityOf(LoginLocators.TotalNumberOfItems()));   
- //    wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("svg-icon")));
+     wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("svg-icon")));
 
 	Thread.sleep(2000);
    			
@@ -157,7 +156,7 @@ public class MethodsD extends BasePage
 	Thread.sleep(3000);
 	By locator = By.className("svg-icon");
 
-//	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 	Thread.sleep(4000);
 	WebElement ViewButton = getDriver().findElement(locator);	
 	Thread.sleep(3000);
@@ -233,7 +232,7 @@ else {
 	{
 	
 		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
-		Thread.sleep(10000);
+		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
 		{
@@ -241,25 +240,48 @@ else {
 			test.log(LogStatus.PASS, "Entity Search is working fine");
 			
 		}
-				
+		
+		
+		
+		
 		else if(user.equalsIgnoreCase("Distributor"))
 		{
 			LoginLocators.Search().sendKeys("AVACORED5");	
 		}
-		
 		else if(user.equalsIgnoreCase("Reviewer"))
 		{
 			LoginLocators.Search().sendKeys("AVACORED5");	
-		}	
+		}
+			
+		
+		
+		
+		
+		
 }
 	
 	public static void CompanyLogo( ExtentTest test, String user) throws InterruptedException, IOException
 	{
 	
-//		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
-//		Thread.sleep(7000);
-	//	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
-	
+		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		Thread.sleep(7000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+/*		if(user.equalsIgnoreCase("Performer"))
+		{
+			LoginLocators.Search().sendKeys("AVACORED5");
+			test.log(LogStatus.PASS, "Entity Search is working fine");
+			
+		}
+		
+		else if(user.equalsIgnoreCase("Distributor"))
+		{
+			LoginLocators.Search().sendKeys("AVACORED5");	
+		}
+		else if(user.equalsIgnoreCase("Reviewer"))
+		{
+			LoginLocators.Search().sendKeys("AVACORED5");	
+		}
+		*/
         WebElement ExpandIcon = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/SidebarToggleoff.svg']"));
         ExpandIcon.click();
         
@@ -280,17 +302,29 @@ else {
         
         String base64Screenshot = OneCommonMethod.takeScreenshotBase64(driver.get());
         test.log(LogStatus.INFO, "ScreenShot <br>" + test.addBase64ScreenShot(base64Screenshot));
+		
+	
 }
 	public static void testchecking( ExtentTest test, String user) throws InterruptedException, IOException
 	{
 		
 		LoginLocators.WorkspaceArrow().click();
+		
 		test.log(LogStatus.PASS,"Login working ");
-				
+		
+		
+		
 	}
 	
+	
+	
+	
+	
+	
+	
 	public static void Logout( ExtentTest test, String user) throws InterruptedException, IOException
-	{	
+	{
+	
 		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
 		Thread.sleep(7000);Thread.sleep(5000);Thread.sleep(5000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
@@ -302,7 +336,7 @@ else {
 		Thread.sleep(3000);
 		WebElement Singin = getDriver().findElement(By.xpath("//input[@id='Submit']"));
 		Thread.sleep(3000);
-		if (Singin.isDisplayed())
+		if (Singin.isDisplayed() )
 		{
 			test.log(LogStatus.PASS,"Logout link is working fine");
 			
@@ -316,18 +350,21 @@ else {
 		
 }
 	
+	
 	public static void UserMasterVerification( ExtentTest test, String user) throws InterruptedException, IOException
 	{
 	
-//		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
-		Thread.sleep(7000);
-		Thread.sleep(5000);
+		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		Thread.sleep(7000);Thread.sleep(5000);Thread.sleep(5000);
 		
-//		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+		
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		
 		LoginLocators.User().click();
 		Thread.sleep(5000);
-				
+		
+		
+		
 		Locators.SearchUser().sendKeys("mahesh.darandale@tlregtech.in");
 		Thread.sleep(8000);
 //		Locators.SearchUser1().click();
@@ -412,12 +449,18 @@ else {
 	
 	
 	public static void Corporate_Verification( ExtentTest test, String user) throws InterruptedException, IOException
-	{	
-		Thread.sleep(5000);
-		Thread.sleep(10000);		
+	{
+	
+		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		Thread.sleep(7000);Thread.sleep(5000);Thread.sleep(5000);
+		
+		
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		
 		LoginLocators.Corporate().click();
 		Thread.sleep(5000);
+		
+		
 		
 		Locators.SearchUser().sendKeys("AVAAVATCG5");
 		Thread.sleep(8000);
@@ -447,11 +490,12 @@ else {
 			Thread.sleep(3000);
 			
 		}
-		Thread.sleep(10000);
-	
+		Thread.sleep(7000);
+		
+		
+		
 		LoginLocators.Back().click();
-		Thread.sleep(10000);
-		Thread.sleep(5000);
+		Thread.sleep(9000);Thread.sleep(3000);
 		String entityPage = getDriver().findElement(By.xpath("//h4[normalize-space()='Entities']")).getText();
 		
 		if(entityPage.equalsIgnoreCase("Entities"))
@@ -459,23 +503,37 @@ else {
 	    	test.log(LogStatus.PASS,"Back button is working fine");
 	    	test.log(LogStatus.PASS,"On clicking to Back button user is redirected to Entities/Home Page");
 	    	LoginLocators.Corporate().click();
-			Thread.sleep(10000);
+			Thread.sleep(6000);
 	    }
 		
-		Thread.sleep(10000);
-	}
+		Thread.sleep(7000);
 		
+
+		
+		
+		
+		
+	    
+	    
+	    Thread.sleep(2000);
+		
+}
+	
+	
 	public static void CorporateEntity_Verification( ExtentTest test, String user) throws InterruptedException, IOException
-	{	
-		//WebDriverWait wait = new WebDriverWait(getDriver(), (120));
-		Thread.sleep(10000);
-		Thread.sleep(10000);
-			
-	//	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+	{
+	
+		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		Thread.sleep(7000);Thread.sleep(5000);Thread.sleep(5000);
+		
+		
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		
 		LoginLocators.Corporate().click();
 		Thread.sleep(5000);
-				
+		
+		
+		
 		Locators.SearchUser().sendKeys("AVAAVATCG5");
 		Thread.sleep(8000);
 	//	Locators.SearchUser1().click();
@@ -485,7 +543,9 @@ else {
 		Locators.Apply().click();
 		Thread.sleep(3000);
 		String txt = getDriver().findElement(By.xpath("(//td[@role='gridcell'])[2]")).getText();
-						
+		
+		
+		
 		LoginLocators.CorporateProceed().click();
 		Thread.sleep(9000);
 		
@@ -496,6 +556,7 @@ else {
 			test.log(LogStatus.PASS,"On clicking to Proceed button user is redirected to Entity page successfully");
 			
 		}
+		
 		
 		Locators.SearchUser().sendKeys("AVA");
 		Thread.sleep(3000);
@@ -520,6 +581,8 @@ else {
 			
 		}
 		
+		
+		
 		if(LoginLocators.Clear().isEnabled())
 		{
 			LoginLocators.Clear().click();
@@ -540,6 +603,8 @@ else {
 			Thread.sleep(6000);
 	    }
 		
+		
+	    
 	    Thread.sleep(2000);
 		
 }
@@ -547,14 +612,16 @@ else {
 	public static void CorporateEntity_BulkUploadVerification( ExtentTest test, String user) throws Exception
 	{
 	
-		//WebDriverWait wait = new WebDriverWait(getDriver(), (120));
-		Thread.sleep(7000);
-		Thread.sleep(10000);
+		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		Thread.sleep(7000);Thread.sleep(5000);Thread.sleep(5000);
 		
-		//wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+		
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		
 		LoginLocators.Corporate().click();
 		Thread.sleep(5000);
+		
+		
 		
 		Locators.SearchUser().sendKeys("AVAAVATCG5");
 		Thread.sleep(8000);
@@ -566,8 +633,11 @@ else {
 		Thread.sleep(3000);
 		String txt = getDriver().findElement(By.xpath("(//td[@role='gridcell'])[2]")).getText();
 		
+		
+		
 		LoginLocators.CorporateProceed().click();
 		Thread.sleep(9000);
+		
 		
 		LoginLocators.entityBulkUpload().click();
 		Thread.sleep(5000);
@@ -579,9 +649,11 @@ else {
 	    }
 	    
 		//Sample File download 
-		OneCommonMethod.validateFileDownloadDynamic( driver.get(),test, LoginLocators.SampleTemplate(),   // WebElement
+		OneCommonMethod.validateFileDownloadDynamic(
+			    driver.get(),test,
+			    LoginLocators.SampleTemplate(),   // WebElement
 			    "Sample Template is downloaded successfully"   // Dynamic log message
-				);
+		);
 	    
 	    Thread.sleep(2000);
 	    
@@ -605,11 +677,13 @@ else {
 	    Thread.sleep(5000);
 	    
 	    
+	    
+	    
 	    //2. Empty sheet
 	    LoginLocators. Browes().click();
 	    Thread.sleep(2000);
 	    
-		OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\EntityUpload__20251004T090105666Z.xlsx");
+		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Distributor Admin\\Entity Upload\\EntityUpload__E.xlsx");
 		Thread.sleep(3000);
 	    LoginLocators. UploadBtn().click();
 	    Thread.sleep(5000);
@@ -634,7 +708,7 @@ else {
 	    LoginLocators. Browes().click();
 	    Thread.sleep(2000);
 	    
-		OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\EntityUploadINVALID.xlsx");
+		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Corporate-Entity\\EntityUploadINVALID.xlsx");
 		Thread.sleep(3000);
 	    LoginLocators. UploadBtn().click();
 	    Thread.sleep(5000);
@@ -652,13 +726,15 @@ else {
     	    test.log(LogStatus.FAIL,"Message Displayed = " + invalidTemplate);
 	    }
 	    
+	    
+	    
 	    PerformerLocator.clickOkBtn().click();
 	    Thread.sleep(5000);
 	    //File with diffrent format
 	    LoginLocators. Browes().click();
 	    Thread.sleep(2000);
 	    
-		OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\Test_123.pdf");
+		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Corporate-Entity\\Test.pdf");
 		Thread.sleep(3000);
 //	    LoginLocators. UploadBtn().click();
 	    Thread.sleep(5000);
@@ -684,7 +760,7 @@ else {
 	    LoginLocators. Browes().click();
 	    Thread.sleep(2000);
 	    
-		OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\EntityUploadWithError.xlsx");
+		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Corporate-Entity\\EntityUploadWithError.xlsx");
 		Thread.sleep(3000);
 	    LoginLocators. UploadBtn().click();
 	    Thread.sleep(5000);
@@ -702,16 +778,18 @@ else {
     	    test.log(LogStatus.FAIL,"Message Displayed = " + errorWhileUploading);
 	    }
 	    
+	    
+	    
+	    
 }
+	
 	
 	public static void ProceedToDashboard( ExtentTest test, String user) throws InterruptedException, IOException
 	{
 	
-		//WebDriverWait wait = new WebDriverWait(getDriver(), (120));
-		Thread.sleep(7000);
-		Thread.sleep(10000);
-		
-	//	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		Thread.sleep(7000);Thread.sleep(5000);Thread.sleep(5000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		
 		if(user.equalsIgnoreCase("Performer"))
 		{
@@ -729,7 +807,7 @@ else {
 		}
 		
 		Thread.sleep(10000);
-		//wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
 		LoginLocators.DashboardArrow().click();
 		Thread.sleep(10000);
 		
@@ -746,10 +824,13 @@ else {
 			test.log(LogStatus.PASS,"Entity displayed : " + txt);	
 		}
 		
+		
+		
 }
 	
 	public static void ChangePass( ExtentTest test, String user) throws InterruptedException, IOException
-	{	
+	{
+	
 		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
 		Thread.sleep(10000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
@@ -775,18 +856,23 @@ else {
 			test.log(LogStatus.FAIL,"'Click here to go back' link is not working");
 		}
 	
-	}
+}
 	public static void EntityExcelDownload( ExtentTest test, String user) throws InterruptedException, IOException
 	{
 	
 		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+
 		
 		OneCommonMethod.zoomOutScreen(2); //Zoom Out
+		
 		test.log(LogStatus.INFO,"Checking Entity Location download");
 		
-		OneCommonMethod.validateFileDownload(driver.get(),test,LoginLocators.EntityLocation_ExcelFile()  // ✅ WebElement passed
+		OneCommonMethod.validateFileDownload(
+			    driver.get(),
+			    test,
+			    LoginLocators.EntityLocation_ExcelFile()  // ✅ WebElement passed
 			);
 		
 		Thread.sleep(5000);
@@ -800,6 +886,9 @@ else {
 			    "CLIENTNAME"                                  //Header Name
 			);
 	
+		
+
+
 		
 }
 	public static void PortalLogin( ExtentTest test, String user) throws InterruptedException, IOException
@@ -858,7 +947,7 @@ else {
 		if(compliancesCount.equalsIgnoreCase("to"))
 		{
 			Thread.sleep(5000);
-			s = LoginLocators.TotalNumberOfItems().getText();
+		   s = LoginLocators.TotalNumberOfItems().getText();
 			bits = s.split(" ");
         
 		}
@@ -869,86 +958,89 @@ else {
         js1.executeScript("window.scrollBy(0,-1000)");
         Thread.sleep(2000);
 
-        Thread.sleep(4000);
-        File dir = new File("C:\\Users\\swapnilb\\Downloads");
-        File[] dirContents = dir.listFiles();							
+Thread.sleep(4000);
+File dir = new File("C:\\Users\\bilali\\Downloads");
+File[] dirContents = dir.listFiles();							
 
-        Thread.sleep(5000);
-        try {
-        	LoginLocators.Export().click();
-        }
-        catch(Exception e)
-        {
-        	LoginLocators.Exportbtn().click();
+Thread.sleep(5000);
+try {
+LoginLocators.Export().click();
+}
+catch(Exception e)
+{
+	LoginLocators.Exportbtn().click();
 	
-        }
+}
 
-        test.log(LogStatus.PASS, "File downloaded successfully.");
+test.log(LogStatus.PASS, "File downloaded successfully.");
 
-        Thread.sleep(8000);
-        File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
-        File[] allFilesNew = dir1.listFiles();							
+Thread.sleep(8000);
+File dir1 = new File("C:\\Users\\bilali\\Downloads");
+File[] allFilesNew = dir1.listFiles();							
 
-        if(dirContents.length < allFilesNew.length)
-        {
+if(dirContents.length < allFilesNew.length)
+{
 		
-        	File lastModifiedFile = allFilesNew[0];			
-        	for (int i = 1; i < allFilesNew.length; i++) 	
-        	{
-        		if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	
-        		{
-        			lastModifiedFile = allFilesNew[i];
-        		}
-        	}
-        	
-        	Thread.sleep(6000);
-        	fis = new FileInputStream(lastModifiedFile);
-        	workbook = new XSSFWorkbook(fis);
-        	sheet = workbook.getSheetAt(0);					
-        	/*
-		int no = sheet.getFirstRowNum();
-		Row row = sheet.getRow(no);
-		Cell c1 = row.getCell(0);
-		int records =(int) c1.getNumericCellValue();
-        	 */
-        	sheet = workbook.getSheetAt(0);
-        	int columnNumber = 3;
-        	int rowCount = 0;
-        	int actualRow=0;
+	File lastModifiedFile = allFilesNew[0];			
+    for (int i = 1; i < allFilesNew.length; i++) 	
+    {
+       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	
+       {
+           lastModifiedFile = allFilesNew[i];
+       }
+    }
 	
-        	for(Row row : sheet)
-        	{
-		
-        		Cell cell =row.getCell(columnNumber);
-        		if(cell != null) 
-        		{
-        			rowCount++;
-        			actualRow = rowCount-1;
-        		}
-		
-        	}
-        	fis.close();
+	Thread.sleep(6000);
+	fis = new FileInputStream(lastModifiedFile);
+	workbook = new XSSFWorkbook(fis);
+	sheet = workbook.getSheetAt(0);					
+	/*
+	int no = sheet.getFirstRowNum();
+	Row row = sheet.getRow(no);
+	Cell c1 = row.getCell(0);
+	int records =(int) c1.getNumericCellValue();
+	*/
+	sheet = workbook.getSheetAt(0);
+	int columnNumber = 3;
+	int rowCount = 0;
+	int actualRow=0;
 	
-        	if(count1 == actualRow)
-        	{
-        		//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
-        		test.log(LogStatus.PASS, "Total records from Grid = "+count1+" | Total records from Report = "+actualRow);
-        	}
-        	else
-        	{
-        		//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
-        		test.log(LogStatus.FAIL, "Total records from Grid = "+count1+" | Total records from Excel Sheet = "+actualRow);
-        	}
-        }
-        	else
-        	{
-        		test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
-        	}
+	for(Row row : sheet)
+	{
+		
+		Cell cell =row.getCell(columnNumber);
+		if(cell != null) {
+			
+			rowCount++;
+			actualRow = rowCount-1;
+		}
+		
+	}
+	fis.close();
+	
+	if(count1 == actualRow)
+	{
+		//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
+		test.log(LogStatus.PASS, "Total records from Grid = "+count1+" | Total records from Report = "+actualRow);
+	}
+	else
+	{
+		//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
+		test.log(LogStatus.FAIL, "Total records from Grid = "+count1+" | Total records from Excel Sheet = "+actualRow);
+	}
+}
+else
+{
+	test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
+}
 
+		
 	}
 	
-	public static void GridAndExcelCountMatchTWO(ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
-	{	    
+	
+
+	public static void GridAndExcelCountMatchTWO(ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException {
+	    
 	    JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	    js.executeScript("window.scrollBy(0,700)");
 	    Thread.sleep(5000); 		
@@ -961,8 +1053,7 @@ else {
 	    String compliancesCount = bits[bits.length - 2];				
 	    int count1 = Integer.parseInt(compliancesCount);
 
-	    if (compliancesCount.equalsIgnoreCase("to"))
-	    {
+	    if (compliancesCount.equalsIgnoreCase("to")) {
 	        Thread.sleep(5000);
 	        s = LoginLocators.TotalNumberOfItems().getText();
 	        bits = s.split(" ");
@@ -975,17 +1066,14 @@ else {
 	    Thread.sleep(4000);
 
 	    // Get old files before download
-	    File dir = new File("C:\\Users\\swapnilb\\Downloads");
+	    File dir = new File("C:\\Users\\bilali\\Downloads");
 	    File[] dirContents = dir.listFiles();							
 	    Thread.sleep(5000);
 
 	    // Try clicking export
-	    try
-	    {
+	    try {
 	        LoginLocators.Export().click();
-	    }
-	    catch (Exception e) 
-	    {
+	    } catch (Exception e) {
 	        LoginLocators.Exportbtn().click();
 	    }
 
@@ -995,14 +1083,11 @@ else {
 	    // Get new file list after download
 	    File[] allFilesNew = dir.listFiles();							
 
-	    if (dirContents.length < allFilesNew.length) 
-	    {
+	    if (dirContents.length < allFilesNew.length) {
 	        
 	        File lastModifiedFile = allFilesNew[0];			
-	        for (int i = 1; i < allFilesNew.length; i++)
-	        {
-	            if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified())
-	            {
+	        for (int i = 1; i < allFilesNew.length; i++) {
+	            if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) {
 	                lastModifiedFile = allFilesNew[i];
 	            }
 	        }
@@ -1027,31 +1112,34 @@ else {
 	        int rowCount = 0;
 	        int actualRow = 0;
 
-	        for (Row row : sheet)
-	        {
+	        for (Row row : sheet) {
 	            Cell cell = row.getCell(columnNumber);
-	            if (cell != null)
-	            {
+	            if (cell != null) {
 	                rowCount++;
 	                actualRow = rowCount - 1;
 	            }
 	        }
 	        fis.close();
 
-	        if (count1 == actualRow)
-	        {
+	        if (count1 == actualRow) {
 	            test.log(LogStatus.PASS, "Total records from Grid = " + count1 + " | Total records from Report = " + actualRow);
-	        } else
-	        {
+	        } else {
 	            test.log(LogStatus.FAIL, "Total records from Grid = " + count1 + " | Total records from Excel Sheet = " + actualRow);
 	        }
-	    } 
-	    else 
-	    {
+	    } else {
 	        test.log(LogStatus.FAIL, "File wasn't downloaded successfully.");
 	    }
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public static void GridAndExcelCountMatch1(ExtentTest test,XSSFWorkbook workbook  ) throws InterruptedException, IOException
 	{
@@ -1084,78 +1172,80 @@ else {
         js1.executeScript("window.scrollBy(0,-1000)");
         Thread.sleep(2000);
 
-        Thread.sleep(1000);
-        File dir = new File("C:\\Users\\swapnilb\\Downloads");
-        File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
+Thread.sleep(1000);
+File dir = new File("C:\\Users\\bilali\\Downloads");
+File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 
-        Thread.sleep(1000);
-        try {
-        	LoginLocators.Export().click();
-        }
-        catch(Exception e)
-        {
-        	LoginLocators.Exportbtn().click();
+Thread.sleep(1000);
+try {
+LoginLocators.Export().click();
+}
+catch(Exception e)
+{
+	LoginLocators.Exportbtn().click();
 	
-        }
-        test.log(LogStatus.PASS, "Compliance Assignment Report : File downloaded successfully.");
+	}
+test.log(LogStatus.PASS, "Compliance Assignment Report : File downloaded successfully.");
 
-        Thread.sleep(9000);
-        File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
-        File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
+Thread.sleep(9000);
+File dir1 = new File("C:\\Users\\bilali\\Downloads");
+File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 
-        if(dirContents.length < allFilesNew.length)
-        {
-		   	File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
-		   	for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
-		   	{
-		   		if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
-		   		{
-		   			lastModifiedFile = allFilesNew[i];
-		   		}
-		   	}
-	
-		   	Thread.sleep(1000);
-		   	fis = new FileInputStream(lastModifiedFile);
-		   	workbook = new XSSFWorkbook(fis);
-		   	sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
-		/*
-		int no = sheet.getFirstRowNum();
-		Row row = sheet.getRow(no);
-		Cell c1 = row.getCell(0);
-		int records =(int) c1.getNumericCellValue();
-		 */
-		   	sheet = workbook.getSheetAt(0);
-		   	int columnNumber = 3;
-		   	int rowCount = 0;
-		   	int actualRow=0;
-	
-		   	for(Row row : sheet)
-		   	{		
-		   		Cell cell =row.getCell(columnNumber);
-		   		if(cell != null)
-		   		{
-		   			rowCount++;
-		   			actualRow = rowCount-1;
-		   		}
+if(dirContents.length < allFilesNew.length)
+{
 		
-		   	}
-		   	fis.close();
+	File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
+    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
+    {
+       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
+       {
+           lastModifiedFile = allFilesNew[i];
+       }
+    }
 	
-		   	if(count1 == actualRow)
-		   	{
-		   		//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
-		   		test.log(LogStatus.PASS, "Total records from Grid = "+count1+" | Total records from Report = "+actualRow);
-		   	}
-		   	else
-		   	{
-		   		//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
-		   		test.log(LogStatus.FAIL, "Total records from Grid = "+count1+" | Total records from Excel Sheet = "+actualRow);
-		   	}
-        }
-        else
-        {
-        	test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
-        }
+	Thread.sleep(1000);
+	fis = new FileInputStream(lastModifiedFile);
+	workbook = new XSSFWorkbook(fis);
+	sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
+	/*
+	int no = sheet.getFirstRowNum();
+	Row row = sheet.getRow(no);
+	Cell c1 = row.getCell(0);
+	int records =(int) c1.getNumericCellValue();
+	*/
+	sheet = workbook.getSheetAt(0);
+	int columnNumber = 3;
+	int rowCount = 0;
+	int actualRow=0;
+	
+	for(Row row : sheet)
+	{
+		
+		Cell cell =row.getCell(columnNumber);
+		if(cell != null) {
+			
+			rowCount++;
+			actualRow = rowCount-1;
+		}
+		
+	}
+	fis.close();
+	
+	if(count1 == actualRow)
+	{
+		//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
+		test.log(LogStatus.PASS, "Total records from Grid = "+count1+" | Total records from Report = "+actualRow);
+	}
+	else
+	{
+		//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
+		test.log(LogStatus.FAIL, "Total records from Grid = "+count1+" | Total records from Excel Sheet = "+actualRow);
+	}
+}
+else
+{
+	test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
+}
 
 		
 	}
@@ -1191,81 +1281,82 @@ else {
         js1.executeScript("window.scrollBy(0,-1000)");
         Thread.sleep(2000);
 
-        Thread.sleep(1000);
-        File dir = new File("C:\\Users\\swapnilb\\Downloads");
-        File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
+Thread.sleep(1000);
+File dir = new File("C:\\Users\\bilali\\Downloads");
+File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 
-        Thread.sleep(1000);
-        try {
-        	LoginLocators.Export().click();
-        }
-        catch(Exception e)
-        {
-        	LoginLocators.Exportbtn().click();
+Thread.sleep(1000);
+try {
+LoginLocators.Export().click();
+}
+catch(Exception e)
+{
+	LoginLocators.Exportbtn().click();
 	
-        }
-        test.log(LogStatus.PASS, " File downloaded successfully.");
+	}
+test.log(LogStatus.PASS, " File downloaded successfully.");
 
-        Thread.sleep(9000);
-        File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
-        File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
+Thread.sleep(9000);
+File dir1 = new File("C:\\Users\\bilali\\Downloads");
+File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 
-        if(dirContents.length < allFilesNew.length)
-        {
+if(dirContents.length < allFilesNew.length)
+{
 		
-        	File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
-        	for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
-        	{
-        		if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
-        		{
-        			lastModifiedFile = allFilesNew[i];
-        		}
-        	}
+	File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
+    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
+    {
+       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
+       {
+           lastModifiedFile = allFilesNew[i];
+       }
+    }
 	
-        	Thread.sleep(1000);
-        	fis = new FileInputStream(lastModifiedFile);
-        	workbook = new XSSFWorkbook(fis);
-        	sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
-        	/*
-		int no = sheet.getFirstRowNum();
-		Row row = sheet.getRow(no);
-		Cell c1 = row.getCell(0);
-		int records =(int) c1.getNumericCellValue();
-        	 */
-        	sheet = workbook.getSheetAt(0);
-        	int columnNumber = 3;
-        	int rowCount = 0;
-        	int actualRow=0;
-        	
-        	for(Row row : sheet)
-        	{
+	Thread.sleep(1000);
+	fis = new FileInputStream(lastModifiedFile);
+	workbook = new XSSFWorkbook(fis);
+	sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
+	/*
+	int no = sheet.getFirstRowNum();
+	Row row = sheet.getRow(no);
+	Cell c1 = row.getCell(0);
+	int records =(int) c1.getNumericCellValue();
+	*/
+	sheet = workbook.getSheetAt(0);
+	int columnNumber = 3;
+	int rowCount = 0;
+	int actualRow=0;
+	
+	for(Row row : sheet)
+	{
 		
-        		Cell cell =row.getCell(columnNumber);
-        		if(cell != null) {
+		Cell cell =row.getCell(columnNumber);
+		if(cell != null) {
 			
-        			rowCount++;
-        			actualRow = rowCount-1;
-        		}
+			rowCount++;
+			actualRow = rowCount-1;
+		}
 		
-        	}
-        	fis.close();
+	}
+	fis.close();
 	
-        	if(count1 == actualRow)
-        	{
-        		//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
-        		test.log(LogStatus.PASS, "Total records from Grid = "+count1+" | Total records from Report = "+actualRow);
-        	}
-        	else
-	        	{
-        		//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
-        		test.log(LogStatus.FAIL, "Total records from Grid = "+count1+" | Total records from Excel Sheet = "+actualRow);
-	        	}
-        }
-        else
-        {
-        	test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
-        }
-	
+	if(count1 == actualRow)
+	{
+		//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
+		test.log(LogStatus.PASS, "Total records from Grid = "+count1+" | Total records from Report = "+actualRow);
+	}
+	else
+	{
+		//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
+		test.log(LogStatus.FAIL, "Total records from Grid = "+count1+" | Total records from Excel Sheet = "+actualRow);
+	}
+}
+else
+{
+	test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
+}
+
+		
 	}
 
 	public static void GridAndExcelCounts(ExtentTest test,XSSFWorkbook workbook  ) throws InterruptedException, IOException
@@ -1300,7 +1391,7 @@ else {
         Thread.sleep(2000);
 
 Thread.sleep(1000);
-File dir = new File("C:\\Users\\swapnilb\\Downloads");
+File dir = new File("C:\\Users\\bilali\\Downloads");
 File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 
 Thread.sleep(1000);
@@ -1315,7 +1406,7 @@ catch(Exception e)
 test.log(LogStatus.PASS, " File downloaded successfully.");
 
 Thread.sleep(9000);
-File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+File dir1 = new File("C:\\Users\\bilali\\Downloads");
 File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 
 if(dirContents.length < allFilesNew.length)
@@ -1408,7 +1499,7 @@ else
         Thread.sleep(2000);
 
 Thread.sleep(1000);
-File dir = new File("C:\\Users\\swapnilb\\Downloads");
+File dir = new File("C:\\Users\\bilali\\Downloads");
 File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 
 Thread.sleep(1000);
@@ -1425,7 +1516,7 @@ catch(Exception e)
 test.log(LogStatus.PASS, " downloaded successfully.");
 
 Thread.sleep(1000);
-File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+File dir1 = new File("C:\\Users\\bilali\\Downloads");
 File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 
 if(dirContents.length < allFilesNew.length)
@@ -1521,7 +1612,7 @@ else
         Thread.sleep(2000);
 
 Thread.sleep(1000);
-File dir = new File("C:\\Users\\swapnilb\\Downloads");
+File dir = new File("C:\\Users\\bilali\\Downloads");
 File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 
 Thread.sleep(1000);
@@ -1538,7 +1629,7 @@ catch(Exception e)
 test.log(LogStatus.PASS, " downloaded successfully.");
 
 Thread.sleep(1000);
-File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+File dir1 = new File("C:\\Users\\bilali\\Downloads");
 File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 
 if(dirContents.length < allFilesNew.length)
@@ -1608,8 +1699,7 @@ else
 	{
 	
 		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
-		Thread.sleep(7000);
-		Thread.sleep(10000);
+		Thread.sleep(7000);Thread.sleep(5000);Thread.sleep(5000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
 		{
@@ -1751,9 +1841,7 @@ else {
 	{
 	
 		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
-		Thread.sleep(7000);
-		Thread.sleep(10000);
-		
+		Thread.sleep(7000);Thread.sleep(5000);	Thread.sleep(5000);	
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
 		{
@@ -1781,117 +1869,130 @@ else {
 		Thread.sleep(2000);
 		LoginLocators.SelectPeriodValue1().click();
 		Thread.sleep(9000);
-		int open = Integer.parseInt(LoginLocators.OverdueBox().getText());	//Reading Dashboard count.
-		LoginLocators.OverdueBox().click();					                //Clicking on Dashboard count
-		Thread.sleep(2000);
-//		wait.until(ExpectedConditions.visibilityOf(LoginLocators.TotalNumberOfItems()));   
+	int open = Integer.parseInt(LoginLocators.OverdueBox().getText());	//Reading Dashboard count.
+	LoginLocators.OverdueBox().click();					                //Clicking on Dashboard count
+    Thread.sleep(2000);
+//	wait.until(ExpectedConditions.visibilityOf(LoginLocators.TotalNumberOfItems()));   
     
-		Thread.sleep(2000);
+	Thread.sleep(2000);
    			
-		JavascriptExecutor js = (JavascriptExecutor) getDriver();
+    JavascriptExecutor js = (JavascriptExecutor) getDriver();
     
-		js.executeScript("window.scrollBy(0,1000)");
-		Thread.sleep(2000);
+    js.executeScript("window.scrollBy(0,1000)");
+    Thread.sleep(2000);
    
 
-		String item = LoginLocators.TotalNumberOfItems().getText();
-		String[] bits = item.split(" ");								//Splitting the String
-		String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
-		int count1 = Integer.parseInt(compliancesCount);
-		String s = LoginLocators.TotalNumberOfItems().getText();
-		Thread.sleep(1000);
-		if(!s.equalsIgnoreCase("0 - 0 of 0 items")) {
-			Thread.sleep(4000);
-			if(open == count1)
-			{
+	String item = LoginLocators.TotalNumberOfItems().getText();
+	String[] bits = item.split(" ");								//Splitting the String
+	String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
+	int count1 = Integer.parseInt(compliancesCount);
+	String s = LoginLocators.TotalNumberOfItems().getText();
+	Thread.sleep(1000);
+	if(!s.equalsIgnoreCase("0 - 0 of 0 items")) {
+	Thread.sleep(4000);
+	if(open == count1)
+				
+	{
 					
-				//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
+	//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
 					
-//		test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+//	test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
 		
-				test.log(LogStatus.PASS, "Dashboard Count = "+ open);
-				test.log(LogStatus.PASS, "Displayed records from grid = "+count1);
+		test.log(LogStatus.PASS, "Dashboard Count = "+ open);
+		test.log(LogStatus.PASS, "Displayed records from grid = "+count1);
 				
-			}
+	}
 				
-			else
-			{
+	else
+				
+	{
 					
-	//	test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
+	//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
 					
-				test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+	test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
 				
-			}
-				Thread.sleep(2000);
-				JavascriptExecutor jss = (JavascriptExecutor) getDriver();
-				jss.executeScript("window.scrollBy(0,-1000)");
-				Thread.sleep(2000);
+	}
+	
+	Thread.sleep(2000);
+	
+    JavascriptExecutor jss = (JavascriptExecutor) getDriver();
     
-//  		  MethodsD.GridAndExcelCountMatch(test,workbook);
+    jss.executeScript("window.scrollBy(0,-1000)");
+    Thread.sleep(2000);
     
-				OneCommonMethod.validateExportedExcelDYNAMIC(driver.get(),test,LoginLocators.Exportbtn(),        // WebElement for export button
+    
+//    MethodsD.GridAndExcelCountMatch(test,workbook);
+    
+    OneCommonMethod.validateExportedExcelDYNAMIC(
+    	    driver.get(),test,
+    	    LoginLocators.Exportbtn(),        // WebElement for export button
     	    LoginLocators.DashboardBox_TotalNoOfItems(),     // WebElement for grid count text
     	    "Branch",                               // Column header to verify
     	    "File Exported Successfully ! "     // Success log text (only if PASS)
     	);
     
-				Thread.sleep(3000);
-				By locator = By.className("svg-icon");
+    
+    
+    
+	Thread.sleep(3000);
+	By locator = By.className("svg-icon");
 
-				wait.until(ExpectedConditions.presenceOfElementLocated(locator));
-				Thread.sleep(4000);
-				WebElement ViewButton = getDriver().findElement(locator);	
-				Thread.sleep(3000);
-				JavascriptExecutor jse=(JavascriptExecutor) getDriver();
-				jse.executeScript("arguments[0].click();", ViewButton);
-				Thread.sleep(4000);
-				test.log(LogStatus.PASS, "overView Successfully");
-				Thread.sleep(10000);
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	WebElement ViewButton = getDriver().findElement(locator);	
+	Thread.sleep(3000);
+JavascriptExecutor jse=(JavascriptExecutor) getDriver();
+jse.executeScript("arguments[0].click();", ViewButton);
+	Thread.sleep(4000);
+	test.log(LogStatus.PASS, "overView Successfully");
+	Thread.sleep(10000);
 	
-				wait.until(ExpectedConditions.visibilityOf(LoginLocators.CloseDocument()));
-				LoginLocators.CloseDocument().click();
-				Thread.sleep(3000);
-				LoginLocators.BrachCode().click();
-				Thread.sleep(3000);
-				LoginLocators.type().click();
-				Thread.sleep(3000);
-				LoginLocators.typeValue().click();
-				Thread.sleep(3000);
-				LoginLocators.SelectValue().click();
-				Thread.sleep(3000);
-				try
-				{
-					LoginLocators.SelectValueDropdown().click();
-				}
-				catch(Exception e)
-				{
+	wait.until(ExpectedConditions.visibilityOf(LoginLocators.CloseDocument()));
+	LoginLocators.CloseDocument().click();
+	Thread.sleep(3000);
+	LoginLocators.BrachCode().click();
+	Thread.sleep(3000);
+	LoginLocators.type().click();
+	Thread.sleep(3000);
+	LoginLocators.typeValue().click();
+	Thread.sleep(3000);
+	LoginLocators.SelectValue().click();
+	Thread.sleep(3000);
+	try {
+	LoginLocators.SelectValueDropdown().click();
+	}
+	catch(Exception e) {
 		
-				}
-				Thread.sleep(3000);
-				LoginLocators.ApplyBtn().click();
-				Thread.sleep(3000);
-				//LoginLocators.displayedrecord().getText();
-				Thread.sleep(3000);	
-				LoginLocators.ClearBtn().click();
-				Thread.sleep(3000);	
-				test.log(LogStatus.PASS, "Branch Code Filters working Properly");
-				LoginLocators.CloseBranchCode().click();
-				Thread.sleep(6000);
-				LoginLocators.ClosePopUp().click();
-				Thread.sleep(3000);
-		}
-		else
-		{
-			test.log(LogStatus.PASS, "Compliance Count from grid is 0");
+	}
+	Thread.sleep(3000);
+	LoginLocators.ApplyBtn().click();
+	Thread.sleep(3000);
+	//LoginLocators.displayedrecord().getText();
+	Thread.sleep(3000);	
+	LoginLocators.ClearBtn().click();
+	Thread.sleep(3000);	
+	test.log(LogStatus.PASS, "Branch Code Filters working Properly");
+	LoginLocators.CloseBranchCode().click();
+	Thread.sleep(6000);
+	LoginLocators.ClosePopUp().click();
+	Thread.sleep(3000);
+	}
+	else {
+		
+		test.log(LogStatus.PASS, "Compliance Count from grid is 0");
+
 		}
 
-	}
+	
+	
+}
 	
 	public static void PendingActionBox( ExtentTest test,String user) throws InterruptedException, IOException
-	{	
-//		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	{
+	
+		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
 		Thread.sleep(7000);
-//		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
 		{
 			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
@@ -1907,62 +2008,68 @@ else {
 	//	LoginLocatorsLoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
 	//	LoginLocators.Search().sendKeys("WWKRG");
 		Thread.sleep(2000);
-//		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
 		LoginLocators.DashboardArrow().click();
 		Thread.sleep(9000);
-//		wait.until(ExpectedConditions.visibilityOf(LoginLocators.SelectPeriodDashboard()));
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.SelectPeriodDashboard()));
 		LoginLocators.SelectPeriodDashboard().click();
 		Thread.sleep(2000);
 		LoginLocators.SelectPeriodValue2024().click();
 		Thread.sleep(9000);
-		int open = Integer.parseInt(LoginLocators.PendingActionBox().getText());	//Reading Dashboard count.
-		LoginLocators.PendingActionBox().click();					                //Clicking on Dashboard count
-		Thread.sleep(2000);
-//		wait.until(ExpectedConditions.visibilityOf(LoginLocators.TotalNumberOfItems()));   
+	int open = Integer.parseInt(LoginLocators.PendingActionBox().getText());	//Reading Dashboard count.
+	LoginLocators.PendingActionBox().click();					                //Clicking on Dashboard count
+    Thread.sleep(2000);
+//	wait.until(ExpectedConditions.visibilityOf(LoginLocators.TotalNumberOfItems()));   
     
-		Thread.sleep(2000);
+	Thread.sleep(2000);
    			
-		JavascriptExecutor js = (JavascriptExecutor) getDriver();
-    	js.executeScript("window.scrollBy(0,1000)");
-		Thread.sleep(2000);
+    JavascriptExecutor js = (JavascriptExecutor) getDriver();
+    
+    js.executeScript("window.scrollBy(0,1000)");
+    Thread.sleep(2000);
    
-		String item = LoginLocators.TotalNumberOfItems().getText();
-		String[] bits = item.split(" ");								//Splitting the String
-		String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
-		int count1 = Integer.parseInt(compliancesCount);
-		String s = LoginLocators.TotalNumberOfItems().getText();
-		Thread.sleep(1000);
-		if(!s.equalsIgnoreCase("0 - 0 of 0 items"))
-		{
-			Thread.sleep(4000);
-			if(open == count1)
-			{
-					
-				//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
-					
-//			test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
-	
-				test.log(LogStatus.PASS, "Dashboard Count = "+ open);
-				test.log(LogStatus.PASS, "Displayed records from grid = "+count1);
+
+	String item = LoginLocators.TotalNumberOfItems().getText();
+	String[] bits = item.split(" ");								//Splitting the String
+	String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
+	int count1 = Integer.parseInt(compliancesCount);
+	String s = LoginLocators.TotalNumberOfItems().getText();
+	Thread.sleep(1000);
+	if(!s.equalsIgnoreCase("0 - 0 of 0 items")) {
+	Thread.sleep(4000);
+	if(open == count1)
 				
-			}
-				
-			else		
-			{
+	{
 					
-				//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");	
-				test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
-			}
+	//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
+					
+//	test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
 	
-			Thread.sleep(2000);
+	test.log(LogStatus.PASS, "Dashboard Count = "+ open);
+	test.log(LogStatus.PASS, "Displayed records from grid = "+count1);
+				
+	}
+				
+	else
+				
+	{
+					
+	//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
+					
+	test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+				
+	}
 	
-			JavascriptExecutor jss = (JavascriptExecutor) getDriver();
-			jss.executeScript("window.scrollBy(0,-1000)");
-			Thread.sleep(2000);
+	Thread.sleep(2000);
+	
+    JavascriptExecutor jss = (JavascriptExecutor) getDriver();
     
-//  	MethodsD.GridAndExcelCountMatch(test,workbook);
+    jss.executeScript("window.scrollBy(0,-1000)");
+    Thread.sleep(2000);
     
-			OneCommonMethod.validateExportedExcelDYNAMIC(
+//  MethodsD.GridAndExcelCountMatch(test,workbook);
+    
+    OneCommonMethod.validateExportedExcelDYNAMIC(
     	    driver.get(),test,
     	    LoginLocators.Exportbtn(),        // WebElement for export button
     	    LoginLocators.DashboardBox_TotalNoOfItems(),     // WebElement for grid count text
@@ -1974,12 +2081,12 @@ else {
 	Thread.sleep(3000);
 	By locator = By.className("svg-icon");
 
-//	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 	Thread.sleep(4000);
 	WebElement ViewButton = getDriver().findElement(locator);	
 	Thread.sleep(3000);
-	JavascriptExecutor jse=(JavascriptExecutor) getDriver();
-	jse.executeScript("arguments[0].click();", ViewButton);
+JavascriptExecutor jse=(JavascriptExecutor) getDriver();
+jse.executeScript("arguments[0].click();", ViewButton);
 	Thread.sleep(4000);
 	test.log(LogStatus.PASS, "overView Successfully");
 	Thread.sleep(2000);
@@ -1988,7 +2095,7 @@ else {
 	LoginLocators.BrachCode().click();
 	Thread.sleep(6000);
 	
-//	wait.until(ExpectedConditions.visibilityOf(LoginLocators.type()));
+	wait.until(ExpectedConditions.visibilityOf(LoginLocators.type()));
 
 	LoginLocators.type().click();
 	Thread.sleep(3000);
@@ -2003,10 +2110,10 @@ else {
 	//LoginLocators.displayedrecord().getText();
 	Thread.sleep(3000);	
 	LoginLocators.ClearBtn().click();
-	Thread.sleep(5000);	
+	Thread.sleep(3000);	
 	test.log(LogStatus.PASS, "Branch Code Filters working Properly");
 	LoginLocators.CloseBranchCode().click();
-	Thread.sleep(7000);
+	Thread.sleep(3000);
 	LoginLocators.ClosePopUp().click();
 	Thread.sleep(3000);
 	}
@@ -2021,9 +2128,9 @@ else {
 	public static void PendingReviewBox( ExtentTest test,String user) throws InterruptedException, IOException
 	{
 	
-//		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
 		Thread.sleep(7000);
-//		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
 		{
 			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
@@ -2039,10 +2146,10 @@ else {
 	//	LoginLocators.Search().sendKeys("WWKRG");
 		//LoginLocatorsLoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
 		Thread.sleep(4000);
-//		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
 		LoginLocators.DashboardArrow().click();
 		Thread.sleep(9000);
-//		wait.until(ExpectedConditions.visibilityOf(LoginLocators.SelectPeriodDashboard()));
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.SelectPeriodDashboard()));
 		LoginLocators.SelectPeriodDashboard().click();
 		Thread.sleep(2000);
 		LoginLocators.SelectPeriodValue2024().click();
@@ -2113,12 +2220,12 @@ else {
 	Thread.sleep(3000);
 	By locator = By.className("svg-icon");
 
-//	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 	Thread.sleep(4000);
 	WebElement ViewButton = getDriver().findElement(locator);	
 	Thread.sleep(3000);
-	JavascriptExecutor jse=(JavascriptExecutor) getDriver();
-	jse.executeScript("arguments[0].click();", ViewButton);
+JavascriptExecutor jse=(JavascriptExecutor) getDriver();
+jse.executeScript("arguments[0].click();", ViewButton);
 	Thread.sleep(4000);
 	test.log(LogStatus.PASS, "overView Successfully");
 	Thread.sleep(2000);
@@ -2139,10 +2246,10 @@ else {
 	//LoginLocators.displayedrecord().getText();
 	Thread.sleep(3000);	
 	LoginLocators.ClearBtn().click();
-	Thread.sleep(5000);	
+	Thread.sleep(3000);	
 	test.log(LogStatus.PASS, "Branch Code Filters working Properly");
 	LoginLocators.CloseBranchCode().click();
-	Thread.sleep(5000);
+	Thread.sleep(3000);
 	LoginLocators.ClosePopUp().click();
 	Thread.sleep(3000);
 	}
@@ -2444,9 +2551,9 @@ else {
 	public static void RegisterActionReview( ExtentTest test,String user) throws InterruptedException, IOException
 	{
 	
-//		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
 		Thread.sleep(7000);
-//		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
 		{
 			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
@@ -2462,7 +2569,7 @@ else {
 	//	LoginLocatorsLoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
 	//	LoginLocators.Search().sendKeys("WWKRG");
 		Thread.sleep(2000);
-//		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
 		LoginLocators.DashboardArrow().click();
 		Thread.sleep(9000);
 		LoginLocators.SelectPeriodDashboard().click();
@@ -2535,12 +2642,12 @@ else {
 	Thread.sleep(3000);
 	By locator = By.className("svg-icon");
 
-//	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 	Thread.sleep(4000);
 	WebElement ViewButton = getDriver().findElement(locator);	
 	Thread.sleep(3000);
-	JavascriptExecutor jse=(JavascriptExecutor) getDriver();
-	jse.executeScript("arguments[0].click();", ViewButton);
+JavascriptExecutor jse=(JavascriptExecutor) getDriver();
+jse.executeScript("arguments[0].click();", ViewButton);
 	Thread.sleep(4000);
 	test.log(LogStatus.PASS, "overView Successfully");
 	Thread.sleep(2000);
@@ -2728,9 +2835,9 @@ else {
 	public static void ReturnOverdue( ExtentTest test,String user) throws InterruptedException, IOException
 	{
 	
-//		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
 		Thread.sleep(7000);
-//		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
 		{
 			LoginLocators.Search().sendKeys("AVACORED5");
@@ -2746,11 +2853,11 @@ else {
 	//	LoginLocatorsLoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
 	//	LoginLocators.Search().sendKeys("WWKRG");
 		Thread.sleep(2000);
-//		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
 		LoginLocators.DashboardArrow().click();
 		Thread.sleep(10000);
 		
-//		wait.until(ExpectedConditions.visibilityOf(LoginLocators.SelectPeriodDashboard()));
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.SelectPeriodDashboard()));
 		LoginLocators.SelectPeriodDashboard().click();
 		Thread.sleep(2000);
 		LoginLocators.SelectPeriodValue1().click();
@@ -2821,12 +2928,12 @@ else {
 	Thread.sleep(3000);
 	By locator = By.className("svg-icon");
 
-//	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 	Thread.sleep(4000);
 	WebElement ViewButton = getDriver().findElement(locator);	
 	Thread.sleep(3000);
-	JavascriptExecutor jse=(JavascriptExecutor) getDriver();
-	jse.executeScript("arguments[0].click();", ViewButton);
+JavascriptExecutor jse=(JavascriptExecutor) getDriver();
+jse.executeScript("arguments[0].click();", ViewButton);
 	Thread.sleep(4000);
 	test.log(LogStatus.PASS, "overView Successfully");
 	Thread.sleep(2000);
@@ -3156,9 +3263,9 @@ else {
 	public static void ChallanOverdue( ExtentTest test,String user) throws InterruptedException, IOException
 	{
 	
-//		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
 		Thread.sleep(7000);
-//		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
 		{
 			LoginLocators.Search().sendKeys("AVACORED5");
@@ -3174,10 +3281,10 @@ else {
 	//	LoginLocatorsLoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
 	//	LoginLocators.Search().sendKeys("WWKRG");
 		Thread.sleep(2000);
-//		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
 		LoginLocators.DashboardArrow().click();
 		Thread.sleep(10000);
-//		wait.until(ExpectedConditions.visibilityOf(LoginLocators.SelectPeriodDashboard()));
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.SelectPeriodDashboard()));
 		LoginLocators.SelectPeriodDashboard().click();
 		Thread.sleep(5000);
 		LoginLocators.SelectPeriodValue1().click();
@@ -3227,7 +3334,9 @@ else {
 	}
 	
 	Thread.sleep(2000);
-	JavascriptExecutor jss = (JavascriptExecutor) getDriver();
+	
+    JavascriptExecutor jss = (JavascriptExecutor) getDriver();
+    
     jss.executeScript("window.scrollBy(0,-1000)");
     Thread.sleep(2000);
     
@@ -3240,16 +3349,18 @@ else {
     	    "Branch",                               // Column header to verify
     	    "File Exported Successfully ! "     // Success log text (only if PASS)
     	);
-        
+    
+    
+    
 	Thread.sleep(3000);
 	By locator = By.className("svg-icon");
 
-//	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 	Thread.sleep(4000);
 	WebElement ViewButton = getDriver().findElement(locator);	
 	Thread.sleep(3000);
-	JavascriptExecutor jse=(JavascriptExecutor) getDriver();
-	jse.executeScript("arguments[0].click();", ViewButton);
+JavascriptExecutor jse=(JavascriptExecutor) getDriver();
+jse.executeScript("arguments[0].click();", ViewButton);
 	Thread.sleep(4000);
 	test.log(LogStatus.PASS, "overView Successfully");
 	Thread.sleep(2000);
@@ -3320,57 +3431,68 @@ else {
 		Thread.sleep(2000);
 		LoginLocators.SelectPeriodValue1().click();
 		Thread.sleep(9000);
-		int open = Integer.parseInt(LoginLocators.ChallanActionReview().getText());	//Reading Dashboard count.
-		LoginLocators.ChallanActionReview().click();					                //Clicking on Dashboard count
-		Thread.sleep(2000);
-//		wait.until(ExpectedConditions.visibilityOf(LoginLocators.TotalNumberOfItems()));   
+	int open = Integer.parseInt(LoginLocators.ChallanActionReview().getText());	//Reading Dashboard count.
+	LoginLocators.ChallanActionReview().click();					                //Clicking on Dashboard count
+    Thread.sleep(2000);
+//	wait.until(ExpectedConditions.visibilityOf(LoginLocators.TotalNumberOfItems()));   
     
-		Thread.sleep(2000);
+	Thread.sleep(2000);
    			
-		JavascriptExecutor js = (JavascriptExecutor) getDriver(); 	
-		js.executeScript("window.scrollBy(0,1000)");
-		Thread.sleep(2000);
+    JavascriptExecutor js = (JavascriptExecutor) getDriver();
+    
+    js.executeScript("window.scrollBy(0,1000)");
+    Thread.sleep(2000);
    
 
-		String item = LoginLocators.TotalNumberOfItems().getText();
-		String[] bits = item.split(" ");								//Splitting the String
-		String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
-		int count1 = Integer.parseInt(compliancesCount);
-		String s = LoginLocators.TotalNumberOfItems().getText();
-		Thread.sleep(1000);
-		if(!s.equalsIgnoreCase("0 - 0 of 0 items")) {
-			Thread.sleep(4000);
-			if(open == count1)
-			{
-					
-				//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
-				//	test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
-	
-				test.log(LogStatus.PASS, "Dashboard Count = "+ open);
-				test.log(LogStatus.PASS, "Displayed records from grid = "+count1);		
-			}
-			else	
-			{
-					
-				//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");			
-				test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+	String item = LoginLocators.TotalNumberOfItems().getText();
+	String[] bits = item.split(" ");								//Splitting the String
+	String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
+	int count1 = Integer.parseInt(compliancesCount);
+	String s = LoginLocators.TotalNumberOfItems().getText();
+	Thread.sleep(1000);
+	if(!s.equalsIgnoreCase("0 - 0 of 0 items")) {
+	Thread.sleep(4000);
+	if(open == count1)
 				
-			}
-
-			Thread.sleep(2000);	
-			JavascriptExecutor jss = (JavascriptExecutor) getDriver();    
-			jss.executeScript("window.scrollBy(0,-1000)");
-			Thread.sleep(2000);
+	{
+					
+	//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
+					
+//	test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+	
+	test.log(LogStatus.PASS, "Dashboard Count = "+ open);
+	test.log(LogStatus.PASS, "Displayed records from grid = "+count1);
+				
+	}
+				
+	else
+				
+	{
+					
+	//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
+					
+	test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+				
+	}
+	
+	Thread.sleep(2000);
+	
+    JavascriptExecutor jss = (JavascriptExecutor) getDriver();
+    
+    jss.executeScript("window.scrollBy(0,-1000)");
+    Thread.sleep(2000);
     
 //    MethodsD.GridAndExcelCountMatch(test,workbook);
     
-			OneCommonMethod.validateExportedExcelDYNAMIC(
+    OneCommonMethod.validateExportedExcelDYNAMIC(
     	    driver.get(),test,
     	    LoginLocators.Exportbtn(),        // WebElement for export button
     	    LoginLocators.DashboardBox_TotalNoOfItems(),     // WebElement for grid count text
     	    "Branch",                               // Column header to verify
     	    "File Exported Successfully ! "     // Success log text (only if PASS)
     	);
+    
+    
     
 	Thread.sleep(3000);
 	By locator = By.className("svg-icon");
@@ -3379,8 +3501,8 @@ else {
 	Thread.sleep(4000);
 	WebElement ViewButton = getDriver().findElement(locator);	
 	Thread.sleep(3000);
-	JavascriptExecutor jse=(JavascriptExecutor) getDriver();
-	jse.executeScript("arguments[0].click();", ViewButton);
+JavascriptExecutor jse=(JavascriptExecutor) getDriver();
+jse.executeScript("arguments[0].click();", ViewButton);
 	Thread.sleep(4000);
 	test.log(LogStatus.PASS, "overView Successfully");
 	Thread.sleep(2000);
@@ -3405,8 +3527,7 @@ else {
 	test.log(LogStatus.PASS, "Branch Code Filters working Properly");
 	LoginLocators.CloseBranchCode().click();
 	Thread.sleep(3000);
-	try
-	{
+	try {
 		LoginLocators.ClosePopUp().click();
 		Thread.sleep(3000);
 		}
@@ -3831,12 +3952,12 @@ jse.executeScript("arguments[0].click();", ViewButton);
 		}
 		catch(Exception e) {
 			Thread.sleep(3000);
-			File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir2 = new File("C:\\Users\\bilali\\Downloads");
 			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download			
 			Thread.sleep(9000);			
 			LoginLocators.Download().click();			
 		 	Thread.sleep(18000);
-			File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir3 = new File("C:\\Users\\bilali\\Downloads");
 			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download		   
 	        Thread.sleep(9000);
 		   if (dirContents1.length < allFilesNew1.length) {
@@ -4034,12 +4155,12 @@ jse.executeScript("arguments[0].click();", ViewButton);
 		}
 		catch(Exception e) {
 			Thread.sleep(3000);
-			File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir2 = new File("C:\\Users\\bilali\\Downloads");
 			File[] dirContents1 = dir2.listFiles();						
 			Thread.sleep(9000);			
 			LoginLocators.Download().click();			
 		 	Thread.sleep(18000);
-			File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir3 = new File("C:\\Users\\bilali\\Downloads");
 			File[] allFilesNew1 = dir3.listFiles();						   
 	        Thread.sleep(9000);
 		   if (dirContents1.length < allFilesNew1.length) {
@@ -4251,9 +4372,10 @@ else {
 	
 	public static void ComplianceFilter1( ExtentTest test,String user) throws InterruptedException
 	{
-	
+		
+		
 		WebDriverWait wait = new WebDriverWait( getDriver(),(60));
-		Thread.sleep(5000);	
+		Thread.sleep(3000);	
 		if(user.equalsIgnoreCase("Performer"))
 		{
 			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
@@ -4412,9 +4534,10 @@ else {
 	}
 	public static void UpcomingFilter( ExtentTest test,String user) throws InterruptedException
 	{
+		
+		
 		WebDriverWait wait = new WebDriverWait( getDriver(),(60));
-		Thread.sleep(10000);	
-			
+		Thread.sleep(5000);	Thread.sleep(5000);	Thread.sleep(5000);	
 		if(user.equalsIgnoreCase("Performer"))
 		{
 			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO");
@@ -4711,7 +4834,9 @@ else {
 
 	public static void PendingActionFilter( ExtentTest test,String user) throws InterruptedException
 	{
-//		WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+		
+		
+		WebDriverWait wait = new WebDriverWait( getDriver(),(60));
 		Thread.sleep(5000);	Thread.sleep(5000);	Thread.sleep(3000);	
 		if(user.equalsIgnoreCase("Performer"))
 		{
@@ -4728,10 +4853,10 @@ else {
 	//	LoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
 		//LoginLocators.Search().sendKeys("WWKRG");
 		Thread.sleep(9000);
-//		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
 		LoginLocators.DashboardArrow().click();
 		Thread.sleep(10000);
-//		wait.until(ExpectedConditions.visibilityOf(LoginLocators.SelectPeriodDashboard()));
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.SelectPeriodDashboard()));
 		LoginLocators.SelectPeriodDashboard().click();
 		Thread.sleep(5000);
 		LoginLocators.SelectPeriodValue2024().click();
@@ -4739,7 +4864,7 @@ else {
 		LoginLocators.PendingActionBox().click();				                
         Thread.sleep(10000);
 	   
-//        wait.until(ExpectedConditions.visibilityOf(LoginLocators.SelectBranch()));
+        wait.until(ExpectedConditions.visibilityOf(LoginLocators.SelectBranch()));
         
         LoginLocators.SelectBranch().click();
        Thread.sleep(3000);
@@ -4767,7 +4892,7 @@ else {
 		js.executeScript("window.scrollBy(0,1000)");	
 		Thread.sleep(6000);
 		
-//		wait.until(ExpectedConditions.visibilityOf(LoginLocators.TotalNumberOfItems()));
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.TotalNumberOfItems()));
 
 		LoginLocators.TotalNumberOfItems().click();					
 		String s = LoginLocators.TotalNumberOfItems().getText();
@@ -5014,12 +5139,12 @@ jse.executeScript("arguments[0].click();", ViewButton);
 		}
 		catch(Exception e) {
 			Thread.sleep(3000);
-			File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir2 = new File("C:\\Users\\bilali\\Downloads");
 			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download			
 			Thread.sleep(9000);			
 			LoginLocators.Download().click();			
 		 	Thread.sleep(18000);
-			File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir3 = new File("C:\\Users\\bilali\\Downloads");
 			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download		   
 	        Thread.sleep(9000);
 		   if (dirContents1.length < allFilesNew1.length) {
@@ -7720,7 +7845,7 @@ else {
 		    
 			Thread.sleep(3000);
 		    
-//		    File dir = new File("C:\\Users\\swapnilb\\Downloads");
+//		    File dir = new File("C:\\Users\\bilali\\Downloads");
 //			File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
 //			
 //			Thread.sleep(3000);
@@ -7735,7 +7860,7 @@ else {
 //			    	
 //			    	}		
 //		 	Thread.sleep(9000);
-//			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+//			File dir1 = new File("C:\\Users\\bilali\\Downloads");
 //			File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
 //			
 //			Thread.sleep(3000);
@@ -8109,7 +8234,7 @@ else {
 		
             
             	Thread.sleep(2000);	
-    			File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+    			File dir2 = new File("C:\\Users\\bilali\\Downloads");
     			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
     			
     			Thread.sleep(9000);
@@ -8117,7 +8242,7 @@ else {
     	//	LoginLocators.AttendanceTemplate().click();
     			AttendanceTemplate.click();
     		 	Thread.sleep(18000);
-    			File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+    			File dir3 = new File("C:\\Users\\bilali\\Downloads");
     			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
     			
     		   
@@ -8136,7 +8261,7 @@ else {
     	       Thread.sleep(4000);  // Wait for dialog to appear
 
     	        // Specify the file path
-    	        String filePath = "D:\\AutomationLabourFiles\\Sample-MonthlyAttendance_03Oct2025073944.xlsx";
+    	        String filePath = "D:\\Upload Automation Files\\WorkSpace\\AttendanceFile.xlsx";
     	        StringSelection selection = new StringSelection(filePath);
 
     	        // Copy file path to clipboard
@@ -9493,7 +9618,36 @@ else {
 		
 //		LoginLocators.ComplianceDropdown().click();
 		Thread.sleep(2000);
+		
+		
+		
+		LoginLocators.ComplianceDropdown().click();
+		Thread.sleep(2000);
+        LoginLocators.SelectReturnn().click();
+        Thread.sleep(2000);
+        LoginLocators.FrequencyDropdown().click();
+        Thread.sleep(2000);
+        LoginLocators.FrequencyBiAnnual().click();
+        Thread.sleep(3000);
+        LoginLocators.Act().click();
+        
+        getDriver().findElement(By.xpath("//span[@class='k-list-item-text']")).click();
+        Thread.sleep(2000);
+        getDriver().findElement(By.xpath("//span[contains(text(),'Select Year')]")).click();
+        
+        getDriver().findElement(By.xpath("//span[normalize-space()='2025']")).click();
+        
+        
+        
+		
+		
 
+		
+		
+		
+		
+		
+        Thread.sleep(2000);
 		LoginLocators.PeriodDrp().click();
         Thread.sleep(9000);
             
@@ -9524,9 +9678,9 @@ else {
             		"July",
             		"August",
             		"September",
-            		"October",
-            		"November",
-            		"December"
+            		"October"
+//            		"November",
+//            		"December"
                 
             );
 
@@ -10004,7 +10158,7 @@ else {
 	//This code is for validate PT Gross Total	
 		try {
 	        // Step 1: Pre-download file count
-	        File downloadDir = new File("C:\\Users\\swapnilb\\Downloads");
+	        File downloadDir = new File("C:\\Users\\bilali\\Downloads");
 	        File[] beforeDownload = downloadDir.listFiles();
 
 	        // Step 2: Click Download Button
@@ -10088,7 +10242,7 @@ else {
 //This code is for validte Genders Male and Female only but it is not working properly		
 		
 /*		// Step 1: Pre-download file count
-		File downloadDir = new File("C:\\Users\\swapnilb\\Downloads");
+		File downloadDir = new File("C:\\Users\\bilali\\Downloads");
 		File[] beforeDownload = downloadDir.listFiles();
 
 		// Step 2: Click to Download
@@ -10290,7 +10444,7 @@ else {
 		
             
             	Thread.sleep(2000);	
-    			File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+    			File dir2 = new File("C:\\Users\\bilali\\Downloads");
     			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
     			
     			Thread.sleep(9000);
@@ -10298,7 +10452,7 @@ else {
     	//	LoginLocators.AttendanceTemplate().click();
     			AttendanceTemplate.click();
     		 	Thread.sleep(18000);
-    			File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+    			File dir3 = new File("C:\\Users\\bilali\\Downloads");
     			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
     			
     		   
@@ -10317,7 +10471,7 @@ else {
     	       Thread.sleep(4000);  // Wait for dialog to appear
 
     	        // Specify the file path
-    	        String filePath = "D:\\AutomationLabourFiles\\SalaryFile.xlsx";
+    	        String filePath = "D:\\Upload Automation Files\\WorkSpace\\SalaryFile.xlsx";
     	        StringSelection selection = new StringSelection(filePath);
 
     	        // Copy file path to clipboard
@@ -10455,7 +10609,7 @@ else {
 		
             
             	Thread.sleep(2000);	
-    			File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+    			File dir2 = new File("C:\\Users\\bilali\\Downloads");
     			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
     			
     			Thread.sleep(9000);
@@ -10463,7 +10617,7 @@ else {
     	//	LoginLocators.AttendanceTemplate().click();
     			AttendanceTemplate.click();
     		 	Thread.sleep(18000);
-    			File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+    			File dir3 = new File("C:\\Users\\bilali\\Downloads");
     			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
     			
     		   
@@ -10640,13 +10794,13 @@ else {
 			Thread.sleep(5000);
 			
 			Thread.sleep(2000);	
-			File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir2 = new File("C:\\Users\\bilali\\Downloads");
 			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 			
 			Thread.sleep(9000);
 			LoginLocators.successfilehistory().click();			
 		 	Thread.sleep(18000);
-			File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir3 = new File("C:\\Users\\bilali\\Downloads");
 			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 			
 		   
@@ -10731,7 +10885,7 @@ else {
 		
 		Thread.sleep(2000);	
 		
-		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(5000);
@@ -10739,7 +10893,7 @@ else {
 		getDriver().findElement(By.xpath("//img[@title='Download']")).click(); //sample download
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -10811,7 +10965,7 @@ else {
 		
 		Thread.sleep(2000);	
 		
-/*		File dir = new File("C:\\Users\\swapnilb\\Downloads");
+/*		File dir = new File("C:\\Users\\bilali\\Downloads");
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 		Thread.sleep(5000);
@@ -10819,7 +10973,7 @@ else {
 		getDriver().findElement(By.xpath("//img[@title='Download']")).click(); //sample download
 
 		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
 		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 		Thread.sleep(3000);
 		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -10854,7 +11008,7 @@ else {
 		LoginLocators.BrowseFile().click();
   		Thread.sleep(3000);
   		Robot robot=new Robot();
-  		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\EmptyFile.xlsx");
+  		 StringSelection filepath= new  StringSelection("D:\\Upload Automation Files\\WorkSpace\\Empty.xlsx");
   		 //copy above file to clipboard
   		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
   		
@@ -10964,7 +11118,7 @@ else {
 		LoginLocators.BrowseFile().click();
   		Thread.sleep(3000);
   		Robot robot=new Robot();
-  		 StringSelection filepath= new  StringSelection("D:\\AutomationLabourFiles\\2 Column Data Invalid File.xlsx");
+  		 StringSelection filepath= new  StringSelection("D:\\Upload Automation Files\\WorkSpace\\2 Column Data Invalid File.xlsx");
   		 //copy above file to clipboard
   		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
   		
@@ -11020,7 +11174,7 @@ else {
 			LoginLocators.BrowseFile().click();
 	  		Thread.sleep(3000);
 	  		Robot robot2=new Robot();
-	  		 StringSelection filepath2= new  StringSelection("D:\\AutomationLabourFiles\\InvalidTemplate.xlsx");
+	  		 StringSelection filepath2= new  StringSelection("D:\\Upload Automation Files\\WorkSpace\\InvalidTemplate.xlsx");
 	  		 //copy above file to clipboard
 	  		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath2, null);
 	  		
@@ -11133,7 +11287,7 @@ else {
 			LoginLocators.BrowseFile().click();
 	  		Thread.sleep(3000);
 	  		Robot robot2=new Robot();
-	  		 StringSelection filepath2= new  StringSelection("D:\\AutomationLabourFiles\\SampleTemplateInvalid.xlsx");
+	  		 StringSelection filepath2= new  StringSelection("D:\\Upload Automation Files\\WorkSpace\\SampleTemplateInvalid.xlsx");
 	  		 //copy above file to clipboard
 	  		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath2, null);
 	  		
@@ -11194,7 +11348,7 @@ else {
 				
 				//Downloading Error File:
 				Thread.sleep(3000);
-				File dir = new File("C:\\Users\\swapnilb\\Downloads");
+				File dir = new File("C:\\Users\\bilali\\Downloads");
 				File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 				Thread.sleep(5000);
@@ -11202,7 +11356,7 @@ else {
 				LoginLocators.ErrorFileDownload().click();
 		
 				Thread.sleep(8000);
-				File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+				File dir1 = new File("C:\\Users\\bilali\\Downloads");
 				File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 				Thread.sleep(3000);
 				if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
@@ -11381,7 +11535,7 @@ else {
 		
             
             	Thread.sleep(2000);	
-    			File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+    			File dir2 = new File("C:\\Users\\bilali\\Downloads");
     			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
     			
     			Thread.sleep(9000);
@@ -11389,7 +11543,7 @@ else {
     	//	LoginLocators.AttendanceTemplate().click();
     			AttendanceTemplate.click();
     		 	Thread.sleep(18000);
-    			File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+    			File dir3 = new File("C:\\Users\\bilali\\Downloads");
     			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
     			
     		   
@@ -11616,7 +11770,7 @@ else {
 		
             
             	Thread.sleep(2000);	
-    			File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+    			File dir2 = new File("C:\\Users\\bilali\\Downloads");
     			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
     			
     			Thread.sleep(9000);
@@ -11624,7 +11778,7 @@ else {
     	//	LoginLocators.AttendanceTemplate().click();
     			AttendanceTemplate.click();
     		 	Thread.sleep(18000);
-    			File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+    			File dir3 = new File("C:\\Users\\bilali\\Downloads");
     			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
     			
     		   
@@ -11773,7 +11927,7 @@ else {
 		
             
             	Thread.sleep(2000);	
-    			File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+    			File dir2 = new File("C:\\Users\\bilali\\Downloads");
     			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
     			
     			Thread.sleep(9000);
@@ -11781,7 +11935,7 @@ else {
     	//	LoginLocators.AttendanceTemplate().click();
     			AttendanceTemplate.click();
     		 	Thread.sleep(18000);
-    			File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+    			File dir3 = new File("C:\\Users\\bilali\\Downloads");
     			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
     			
     		   
@@ -11991,7 +12145,7 @@ else {
 		
             
             	Thread.sleep(2000);	
-    			File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+    			File dir2 = new File("C:\\Users\\bilali\\Downloads");
     			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
     			
     			Thread.sleep(9000);
@@ -11999,7 +12153,7 @@ else {
     	//	LoginLocators.AttendanceTemplate().click();
     			AttendanceTemplate.click();
     		 	Thread.sleep(18000);
-    			File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+    			File dir3 = new File("C:\\Users\\bilali\\Downloads");
     			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
     			
     		   
@@ -12018,7 +12172,7 @@ else {
     	       Thread.sleep(4000);  // Wait for dialog to appear
 
     	        // Specify the file path
-    	        String filePath = "";
+    	        String filePath = "D:\\Upload Automation Files\\Other Upload No need to change\\AUTOTEST Challan.xlsx";
     	        StringSelection selection = new StringSelection(filePath);
 
     	        // Copy file path to clipboard
@@ -12178,7 +12332,7 @@ else {
 		
             
             	Thread.sleep(2000);	
-    			File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+    			File dir2 = new File("C:\\Users\\bilali\\Downloads");
     			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
     			
     			Thread.sleep(9000);
@@ -12186,7 +12340,7 @@ else {
     	//	LoginLocators.AttendanceTemplate().click();
     			AttendanceTemplate.click();
     		 	Thread.sleep(18000);
-    			File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+    			File dir3 = new File("C:\\Users\\bilali\\Downloads");
     			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
     			
     		   
@@ -12342,7 +12496,7 @@ else {
 		
             
             	Thread.sleep(2000);	
-    			File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+    			File dir2 = new File("C:\\Users\\bilali\\Downloads");
     			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
     			
     			Thread.sleep(9000);
@@ -12350,7 +12504,7 @@ else {
     	//	LoginLocators.AttendanceTemplate().click();
     			AttendanceTemplate.click();
     		 	Thread.sleep(18000);
-    			File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+    			File dir3 = new File("C:\\Users\\bilali\\Downloads");
     			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
     			
     		   
@@ -12683,7 +12837,7 @@ else {
 		
             
             	Thread.sleep(2000);	
-    			File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+    			File dir2 = new File("C:\\Users\\bilali\\Downloads");
     			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
     			
     			Thread.sleep(9000);
@@ -12691,7 +12845,7 @@ else {
     	//	LoginLocators.AttendanceTemplate().click();
     			AttendanceTemplate.click();
     		 	Thread.sleep(18000);
-    			File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+    			File dir3 = new File("C:\\Users\\bilali\\Downloads");
     			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
     			
     		   
@@ -12833,7 +12987,7 @@ else {
 		
             
             	Thread.sleep(2000);	
-    			File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+    			File dir2 = new File("C:\\Users\\bilali\\Downloads");
     			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
     			
     			Thread.sleep(9000);
@@ -12841,7 +12995,7 @@ else {
     	//	LoginLocators.AttendanceTemplate().click();
     			AttendanceTemplate.click();
     		 	Thread.sleep(18000);
-    			File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+    			File dir3 = new File("C:\\Users\\bilali\\Downloads");
     			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
     			
     		   
@@ -12960,7 +13114,7 @@ else {
 		
             
             	Thread.sleep(2000);	
-    			File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+    			File dir2 = new File("C:\\Users\\bilali\\Downloads");
     			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
     			
     			Thread.sleep(9000);
@@ -12968,7 +13122,7 @@ else {
     	//	LoginLocators.AttendanceTemplate().click();
     			AttendanceTemplate.click();
     		 	Thread.sleep(18000);
-    			File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+    			File dir3 = new File("C:\\Users\\bilali\\Downloads");
     			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
     			
     		   
@@ -13229,7 +13383,7 @@ else {
 		
             
 //            	Thread.sleep(2000);	
-//    			File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+//    			File dir2 = new File("C:\\Users\\bilali\\Downloads");
 //    			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 //    			
 //    			Thread.sleep(9000);
@@ -13237,7 +13391,7 @@ else {
 //    	//	LoginLocators.AttendanceTemplate().click();
 //    			AttendanceTemplate.click();
 //    		 	Thread.sleep(18000);
-//    			File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+//    			File dir3 = new File("C:\\Users\\bilali\\Downloads");
 //    			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 //    			
 //    		   
@@ -13413,7 +13567,7 @@ public static void WorkspaceErroorFileDownload( ExtentTest test, String user) th
         
         
         	Thread.sleep(2000);	
-			File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir2 = new File("C:\\Users\\bilali\\Downloads");
 			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 			
 			Thread.sleep(9000);
@@ -13421,7 +13575,7 @@ public static void WorkspaceErroorFileDownload( ExtentTest test, String user) th
 	//	LoginLocators.AttendanceTemplate().click();
 			AttendanceTemplate.click();
 		 	Thread.sleep(18000);
-			File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir3 = new File("C:\\Users\\bilali\\Downloads");
 			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 			
 		   
@@ -13481,7 +13635,7 @@ public static void WorkspaceErroorFileDownload( ExtentTest test, String user) th
 		   }
 		   
 		   Thread.sleep(2000);	
-			File dir = new File("C:\\Users\\swapnilb\\Downloads");
+			File dir = new File("C:\\Users\\bilali\\Downloads");
 			File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
 			
 			Thread.sleep(9000);
@@ -13489,7 +13643,7 @@ public static void WorkspaceErroorFileDownload( ExtentTest test, String user) th
 	//	LoginLocators.AttendanceTemplate().click();
 			DownloadErrorFile.click();
 		 	Thread.sleep(18000);
-			File dirs = new File("C:\\Users\\swapnilb\\Downloads");
+			File dirs = new File("C:\\Users\\bilali\\Downloads");
 			File[] allFilesNew = dirs.listFiles();						//Counting number of files in directory after download
 			
 		   
@@ -13650,13 +13804,13 @@ public static void ECRMasterBulkUpload( ExtentTest test, String user) throws Int
 	LoginLocators.BulkUpload().click();
 	Thread.sleep(500);
 	Thread.sleep(2000);	
-	File dir = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
 	
 	Thread.sleep(9000);
 	LoginLocators.SampleDocument().click();
  	Thread.sleep(18000);
-	File dirs = new File("C:\\Users\\swapnilb\\Downloads");
+	File dirs = new File("C:\\Users\\bilali\\Downloads");
 	File[] allFilesNew = dirs.listFiles();						//Counting number of files in directory after download
 	
    
@@ -14481,8 +14635,7 @@ public static void ESICInputs_NewGeneration_UploadValidation( ExtentTest test, S
 	
 	
 }
-public static void uploadUsingRobot(String filePath) throws Exception 
-{
+public static void uploadUsingRobot(String filePath) throws Exception {
     StringSelection selection = new StringSelection(filePath);
     Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, null);
     Thread.sleep(2000);
@@ -14531,7 +14684,11 @@ public static void ESICInputs_NewGeneration_BrowseDelete( ExtentTest test, Strin
 	Thread.sleep(2000);
 	
 	//Correct Entity Verification
-    OneCommonMethod.verifyTestEntity(driver.get(), test,By.xpath("//span[normalize-space()='AVATCGEN CORE DEMO[AVACORED5]']"), "AVATCGEN CORE DEMO[AVACORED5]"  );
+    OneCommonMethod.verifyTestEntity(
+    driver.get(), test,
+    By.xpath("//span[normalize-space()='AVATCGEN CORE DEMO[AVACORED5]']"),
+    "AVATCGEN CORE DEMO[AVACORED5]"
+     );
 	
 	Thread.sleep(5000);
 	LoginLocators.ESICCards().click();
@@ -14544,7 +14701,7 @@ public static void ESICInputs_NewGeneration_BrowseDelete( ExtentTest test, Strin
 	
 	
 	LoginLocators.Browes1_ESIC().click();
-	OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\Empty.xlsx");
+	OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\OtherTwo\\EmptySheet.xlsx");
 	test.log(LogStatus.PASS,  "Emplpoyee Browse button is working fine");
 	
 	LoginLocators.Delete1().click();
@@ -14564,7 +14721,7 @@ public static void ESICInputs_NewGeneration_BrowseDelete( ExtentTest test, Strin
 	
 	Thread.sleep(5000);
 	LoginLocators.Browes2_ESIC().click();
-	OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\Empty.xlsx");
+	OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\OtherTwo\\EmptySheet.xlsx");
 	test.log(LogStatus.PASS,  "Family Details Browse button is working fine");
 	
 	Thread.sleep(3000);
@@ -14586,7 +14743,7 @@ public static void ESICInputs_NewGeneration_BrowseDelete( ExtentTest test, Strin
 	
 	Thread.sleep(5000);
 	LoginLocators.Browes3_ESIC().click();
-	OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\EmptyZip.zip");
+	OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\OtherTwo\\Empty.zip");
 	test.log(LogStatus.PASS,  "Self Photo Upload Browse button is working fine");
 	
 	Thread.sleep(3000);
@@ -14777,7 +14934,7 @@ public static void ESICInputs_Updation_BrowseDelete( ExtentTest test, String use
 	
 	
 	LoginLocators.Browes1_ESIC().click();
-	OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\EmptyFile.xlsx");
+	OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\OtherTwo\\EmptySheet.xlsx");
 	test.log(LogStatus.PASS,  "Emplpoyee Browse button is working fine");
 	
 	LoginLocators.Delete1().click();
@@ -14797,7 +14954,7 @@ public static void ESICInputs_Updation_BrowseDelete( ExtentTest test, String use
 	
 	Thread.sleep(5000);
 	LoginLocators.Browes2_ESIC().click();
-	OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\EmptyFile.xlsx");
+	OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\OtherTwo\\EmptySheet.xlsx");
 	test.log(LogStatus.PASS,  "Family Details Browse button is working fine");
 	
 	Thread.sleep(3000);
@@ -14981,7 +15138,7 @@ public static void ESICInputs_Downloads_BrowseDelete( ExtentTest test, String us
 	
 	
 	LoginLocators.Browes1_ESIC().click();
-	OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\EmptyFile.xlsx");
+	OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\OtherTwo\\EmptySheet.xlsx");
 	test.log(LogStatus.PASS,  "Downloads Browse button is working fine");
 	
 	LoginLocators.Delete1().click();
@@ -15163,7 +15320,7 @@ public static void ESICInputs_Failed_BrowseDelete( ExtentTest test, String user)
 	
 	
 	LoginLocators.Browes1_ESIC().click();
-	OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\EmptyFile.xlsx");
+	OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\OtherTwo\\EmptySheet.xlsx");
 	test.log(LogStatus.PASS,  "Failed Browse button is working fine");
 	
 	LoginLocators.Delete1().click();
@@ -15677,14 +15834,14 @@ public static void MyDocumnentExport(ExtentTest test,String user) throws Interru
 	Thread.sleep(2000);
 	LoginLocators.SelectEntityvalue().click();
 	Thread.sleep(2000);
-	File dir2 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir2 = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 	
 	Thread.sleep(9000);
 	LoginLocators.Consolidated().click();
 	
  	Thread.sleep(18000);
-	File dir3 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir3 = new File("C:\\Users\\bilali\\Downloads");
 	File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 	
    
@@ -15697,14 +15854,14 @@ public static void MyDocumnentExport(ExtentTest test,String user) throws Interru
 		test.log(LogStatus.FAIL, "Consolidated Report Does Not Downloaded.");
 	}		
    Thread.sleep(2000);
-   File dir = new File("C:\\Users\\swapnilb\\Downloads");
+   File dir = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
 	
 	Thread.sleep(9000);
 	LoginLocators.Expired().click();
 	
 	Thread.sleep(18000);
-	File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir1 = new File("C:\\Users\\bilali\\Downloads");
 	File[] allFilesNew2 = dir1.listFiles();						//Counting number of files in directory after download
 	
   
@@ -15717,14 +15874,14 @@ public static void MyDocumnentExport(ExtentTest test,String user) throws Interru
 		test.log(LogStatus.FAIL, "Expired Report Does Not Downloaded.");
 	}		
   Thread.sleep(3000);
-  File dir4 = new File("C:\\Users\\swapnilb\\Downloads");
+  File dir4 = new File("C:\\Users\\bilali\\Downloads");
 	File[] dirContents4 = dir4.listFiles();						//Counting number of files in directory before download
 	
 	Thread.sleep(9000);
 	LoginLocators.CloseToExpired().click();
 	
 	Thread.sleep(18000);
-	File dir5 = new File("C:\\Users\\swapnilb\\Downloads");
+	File dir5 = new File("C:\\Users\\bilali\\Downloads");
 	File[] allFilesNew5 = dir5.listFiles();						//Counting number of files in directory after download
 	
 
@@ -16135,7 +16292,7 @@ public static void RegulatoryAbstractUpload( ExtentTest test, String user) throw
 	
 	LoginLocators.BrowseFile().click();
 	Thread.sleep(2000);
-	OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\Test_123.pdf");
+	OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Other Upload No need to change\\sample.pdf");
 	Thread.sleep(2000);
 	
 	LoginLocators.Save_RegulatoryAbstracts().click();
@@ -16397,7 +16554,22 @@ public static void verifyPaginationGoToNextPage (ExtentTest test) {
     } catch (Exception e) {
         test.log(LogStatus.ERROR, "Pagination check failed due to: " + e.getMessage());
     }
- }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
 

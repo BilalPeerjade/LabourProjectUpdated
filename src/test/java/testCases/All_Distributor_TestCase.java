@@ -1013,7 +1013,7 @@ import rcp.OneCommonMethod;
 	   	{
 	   		test = extent.startTest("Onborad Entity - Manage Compliance-Compliance Reassignment");
 	   		 
-	   		All_Distributor_Methods.ComplainceReassignment(test, workbook);
+	   		All_Distributor_Methods.onboardEntityComplainceReassignment(test, workbook);
 	   		
 	   		extent.endTest(test);
 	   		extent.flush();

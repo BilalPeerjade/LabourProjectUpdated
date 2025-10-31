@@ -146,6 +146,25 @@ public class ESI_Methods extends BasePage {
         Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
         downloadedExcelFile = files[0];
 	}
+	
+	public static void challan_ESI_Download400200( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		Challan_ESI_StaturyDocRedirection(test,user);
+		
+		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
+		d1.clickDownload("400200", 1);
+		
+		Thread.sleep(5000);
+        // Step 1: Manually download file
+		formLocators.downloadDocument().click();
+        Thread.sleep(10000); 
+
+        // Step 2: Get latest file
+        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
+        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
+        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
+        downloadedExcelFile = files[0];
+	}
 
 
 
@@ -214,7 +233,7 @@ public class ESI_Methods extends BasePage {
         
 		
 	}
-	public static void challan_ESI_400100_Pending_EmployeeID( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	public static void challan_ESI_400100_Pending_EmployeeNO( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 
 		challan_ESI_Download400100(test,"");
@@ -378,7 +397,7 @@ public class ESI_Methods extends BasePage {
         
         FFF.add(new ExcelF(38, Arrays.asList("Active")));
         FFF.add(new ExcelF(85, Arrays.asList("400100")));
-        FFF.add(new ExcelF(50, Arrays.asList("Yes")));
+        FFF.add(new ExcelF(50, Arrays.asList("No")));
 
 
         
@@ -426,6 +445,58 @@ public class ESI_Methods extends BasePage {
             extraConfig,
             "Employee Names are reflecting properly as per masters !"
         );
+	
+	
+	}
+	public static void challan_ESI_400100_Pending_EmployeeID( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		challan_ESI_Download400100(test,"");
+        
+     
+		
+		List<ExcelF> employeeFilters = new ArrayList<>();
+		employeeFilters.addAll(List.of(
+		    new ExcelF(38, List.of("Active")),
+		    new ExcelF(85, List.of("400100")),
+		    new ExcelF(50, List.of("Yes"))
+		));
+
+		
+		ExcelFileDetails masterConfig = new ExcelFileDetails(
+		    FilePath.EMPLOYEE_MASTER,
+		    "EmployeeMaster",
+		    5,
+		    employeeFilters,
+		    "YES" 
+		);
+
+		
+		ExcelTargetValidation targetConfig = new ExcelTargetValidation(
+		    "Remittence",     
+		    2,                
+		    "Employee Name",  
+		    0                 
+		);
+
+		
+		ExcelExtraConfig optionalConfig = new ExcelExtraConfig(
+		    "",  
+		    0,    
+		    ""    
+		);
+
+		
+		UtilisOne.validateExcelBusinessData(
+		    downloadedExcelFile,   
+		    test,                  
+		    masterConfig,          
+		    targetConfig,          
+		    optionalConfig,        
+		    "Employee Names are reflecting properly as per masters !"
+		);
+
+        
+
 	
 	
 	}
@@ -610,6 +681,7 @@ public class ESI_Methods extends BasePage {
 	
 	
 	}
+	
 	public static void challan_ESI_400100_Remittence_ESI_NO( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		challan_ESI_Download400100(test,"");
@@ -651,6 +723,109 @@ public class ESI_Methods extends BasePage {
 
 	
 	}
+	public static void challan_ESI_400100_Pending_Location( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		challan_ESI_Download400100(test,"");
+        
+     
+        List<ExcelF> FFF = new ArrayList<>();
+        
+        FFF.add(new ExcelF(38, Arrays.asList("Active")));
+ 
+        FFF.add(new ExcelF(85, Arrays.asList("400100")));
+        FFF.add(new ExcelF(50, Arrays.asList("No")));
+
+
+        
+        
+        String masterSheetName = "EmployeeMaster";
+        int masterColumnIndex = 8;
+        ExcelFileDetails masterFileDetails = new ExcelFileDetails(
+            FilePath.EMPLOYEE_MASTER,
+            masterSheetName,
+            masterColumnIndex,
+            FFF,
+            "YES"   // Yes
+        );
+
+        
+        String targetSheetName = "Remittence";
+        int targetColumnIndex = 3;
+        String targetHeaderKeyword = "Location";
+        int targett = 0;
+
+        ExcelTargetValidation targetValidation = new ExcelTargetValidation(
+            targetSheetName,
+            targetColumnIndex,
+            targetHeaderKeyword,
+            targett
+        );
+
+        
+        String totalLogicEnabled = "";
+        int totalColumnIndex = 0;
+        String totalKeyword = "";
+
+        ExcelExtraConfig extraConfig = new ExcelExtraConfig(
+            totalLogicEnabled,
+            totalColumnIndex,
+            totalKeyword
+        );
+
+        // Final 
+        UtilisOne.validateExcelBusinessData(
+            downloadedExcelFile,
+            test,
+            masterFileDetails,
+            targetValidation,
+            extraConfig,
+            "Locations are reflecting properly as per masters !"
+        );
+	
+	
+	}
+	public static void challan_ESI_400100_Pending_ESI_NO( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		challan_ESI_Download400100(test,"");
+        
+        
+        
+        List<ExcelF> filters = Arrays.asList(
+                new ExcelF(38, Arrays.asList("Active")),
+                new ExcelF(85,  Arrays.asList("400100")),
+                new ExcelF(50, Arrays.asList("No"))
+            );
+            
+            ExcelFileDetails masterDetails = new ExcelFileDetails(
+                FilePath.EMPLOYEE_MASTER,
+                "EmployeeMaster",
+                18,
+                filters,
+                "YES"
+            );
+            
+            ExcelTargetValidation targetVal = new ExcelTargetValidation(
+                "Remittence",
+                12,
+                "",
+                0
+            );
+            
+            ExcelExtraConfig cfg = new ExcelExtraConfig("", 0, "");
+            
+            UtilisOne.validateExcelBusinessData(
+                downloadedExcelFile,
+                test,
+                masterDetails,
+                targetVal,
+                cfg,
+                "ESI NOs are reflecting properly as per masters !"
+            );
+
+
+	
+	}
+	
 	public static void challan_ESI_400100_Remittence_ClientESICode( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		challan_ESI_Download400100(test,"");
@@ -688,6 +863,63 @@ public class ESI_Methods extends BasePage {
                 cfg,
                 "Client ESI Code are reflecting properly as per masters !"
             );
+
+        
+	
+	
+	}
+	public static void challan_ESI_400100_Pending_ClientESICode( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		challan_ESI_Download400100(test,"");
+        
+        
+        
+		
+		List<ExcelF> ttt = new ArrayList<>();
+		{
+		    ttt.add(new ExcelF(38, List.of("Active")));
+		    ttt.add(new ExcelF(85, List.of("400100")));
+		    ttt.add(new ExcelF(50, List.of("No")));
+		}
+
+		
+		ExcelFileDetails masterDetails =
+		        new ExcelFileDetails(
+		                FilePath.EMPLOYEE_MASTER,
+		                "EmployeeMaster",
+		                85,
+		                ttt,
+		                "YES"
+		        );
+
+		
+		ExcelTargetValidation targetVal =
+		        new ExcelTargetValidation(
+		                "Remittence",
+		                13,
+		                "",
+		                0
+		        );
+
+		
+		ExcelExtraConfig cfg =
+		        new ExcelExtraConfig(
+		                "",
+		                0,
+		                ""
+		        );
+
+		
+		UtilisOne
+		        .validateExcelBusinessData(
+		                downloadedExcelFile,
+		                test,
+		                masterDetails,
+		                targetVal,
+		                cfg,
+		                "Client ESI Code are reflecting properly as per masters !"
+		        );
+
 
         
 	

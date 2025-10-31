@@ -124,6 +124,12 @@ public class DistributerLocators extends BasePage
 		return labour;
 	}
 	
+	public static WebElement gridBOX()	
+	{
+		labour = getDriver().findElement(By.xpath("//tbody/tr[1]/td[2]"));
+		return labour;
+	}
+	
 	public static WebElement clickCancelBtn()
 	{
 		labour = getDriver().findElement(By.xpath("//button[@title='Cancel']"));
@@ -577,6 +583,11 @@ public class DistributerLocators extends BasePage
 		//*[@class='k-svg-i-caret-alt-right k-svg-icon k-icon ng-star-inserted']
 		return labour;
 	}
+	public static WebElement clickBranches()
+	{
+		labour = getDriver().findElement(By.xpath("(//span[contains(normalize-space(), 'AVATCGEN CORE DEMO')])[2]"));
+		return labour;
+	}
 	public static WebElement clickBranchTiangle1()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("(//*[@class='k-svg-i-caret-alt-right k-svg-icon k-icon ng-star-inserted'])"));
@@ -690,6 +701,11 @@ public class DistributerLocators extends BasePage
 	public static WebElement AssignmentRemovalMsg()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//h4[normalize-space()='Assignment Removed Successfully']"));
+		return labour;
+	}
+	public static WebElement assignmentRemovalPopup()
+	{
+		labour = getDriver().findElement(By.xpath("//span[@class='k-window-title k-dialog-title']"));
 		return labour;
 	}
 	public static WebElement clickPeriod()		//Method for searching Username input

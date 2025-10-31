@@ -3004,9 +3004,9 @@ for(String Fal : fail)
 
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
-		Thread.sleep(1000);
-		DistributerLocators.clickDashboard().click();
 		Thread.sleep(7000);
+		DistributerLocators.clickDashboard().click();
+		Thread.sleep(15000);
 		DistributerLocators.clickOnBoardEntity().click();
 		Thread.sleep(1000);
 		DistributerLocators.managecompliance().click();
@@ -3257,6 +3257,8 @@ for(String Fal : fail)
 
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+		
+		
 		Thread.sleep(1000);
 		DistributerLocators.clickDashboard().click();
 		Thread.sleep(7000);

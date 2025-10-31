@@ -101,6 +101,11 @@ public class Locator extends BasePage
 		labour = getDriver().findElement(By.xpath("//*[@title='Export']"));
 		return labour;
 	}
+	public static WebElement clickOTAReport()
+	{
+		labour = getDriver().findElement(By.xpath("//button[normalize-space()='OTA Report']"));
+		return labour;
+	}
 	public static WebElement clickDelete()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("(//img[@title='Delete'])[1]"));
@@ -198,11 +203,135 @@ public class Locator extends BasePage
 		labour = getDriver().findElement(By.xpath("//button[normalize-space()='Submit']"));
 		return labour;
 	}
+	public static WebElement submittedToDept()
+	{
+		labour = getDriver().findElement(By.xpath("//button[normalize-space()='Submitted to department']"));
+		return labour;
+	}
+	public static WebElement closureBtn()
+	{
+		labour = getDriver().findElement(By.xpath("//button[normalize-space()='Closure']"));
+		return labour;
+	}
 	public static WebElement gridLoad()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("/html/body/app-root/div/app-layout/section/div/div/app-existing-registration-license/div[4]/kendo-loader/div/span[1]"));
 		return labour;
 	}
-	
+	public static WebElement plus1()
+	{
+		labour = getDriver().findElement(By.xpath("(//img[@class='svg-icon-btn'])[1]"));
+		return labour;
+	}
+	public static WebElement plus2()
+	{
+		labour = getDriver().findElement(By.xpath("(//img[@class='svg-icon-btn'])[2]"));
+		return labour;
+	}
+	public static WebElement plus3()
+	{
+		labour = getDriver().findElement(By.xpath("(//img[@class='svg-icon-btn'])[3]"));
+		return labour;
+	}
+	public static WebElement yesRadio()
+	{
+		labour = getDriver().findElement(By.xpath("//h4[normalize-space()='Yes']//input[@type='radio']"));
+		return labour;
+	}
+	public static WebElement noRadio()
+	{
+		labour = getDriver().findElement(By.xpath("//h4[normalize-space()='No']//input[@type='radio']"));
+		return labour;
+	}
+	public static WebElement browse()
+	{
+		labour = getDriver().findElement(By.xpath("//button[normalize-space()='Browse']"));
+		return labour;
+	}
+	public static WebElement brows2()
+	{
+		labour = getDriver().findElement(By.xpath("(//button[normalize-space()='Browse'])[2]"));
+		return labour;
+	}
+	public static WebElement brows3()
+	{
+		labour = getDriver().findElement(By.xpath("(//button[normalize-space()='Browse'])[3]"));
+		return labour;
+	}
+	public static WebElement errorText()
+	{
+		labour = getDriver().findElement(By.xpath("//div[@class='text-danger']"));
+		return labour;
+	}
+	public static WebElement errorText2()
+	{
+		labour = getDriver().findElement(By.xpath("(//div[@class='text-danger'])[2]"));
+		return labour;
+	}
+	public static WebElement errorText3()
+	{
+		labour = getDriver().findElement(By.xpath("(//div[@class='text-danger'])[3]"));
+		return labour;
+	}
+	public static WebElement registrationLicenseNO()
+	{
+		labour = getDriver().findElement(By.xpath("//div[@class='require-container']//input[@type='text']"));
+		return labour;
+	}
+	public static WebElement message1()
+	{
+		labour = getDriver().findElement(By.xpath("(//h4[@class='f-label'])[1]"));
+		return labour;
+	}
+	public static WebElement message3()
+	{
+		labour = getDriver().findElement(By.xpath("(//h4[@class='f-label'])[3]"));
+		return labour;
+	}
+	public static WebElement calendar1()
+	{
+		labour = getDriver().findElement(By.xpath("(//button[@aria-label='Toggle calendar'])[1]"));
+		return labour;
+	}
+	public static WebElement calendar2()
+	{
+		labour = getDriver().findElement(By.xpath("(//button[@aria-label='Toggle calendar'])[2]"));
+		return labour;
+	}
+	public static WebElement calendar3()
+	{
+		labour = getDriver().findElement(By.xpath("(//button[@aria-label='Toggle calendar'])[3]"));
+		return labour;
+	}
+	public static WebElement calendar4()
+	{
+		labour = getDriver().findElement(By.xpath("(//button[@aria-label='Toggle calendar'])[4]"));
+		return labour;
+	}
+	public static WebElement isLifeTime()
+	{
+		labour = getDriver().findElement(By.xpath("//input[@id='rdGen']"));
+		return labour;
+	}
+	public static WebElement draftExtFromSMEDownload()
+	{
+		labour = getDriver().findElement(By.xpath("//img[@alt='Action Icon']"));
+		return labour;
+	}
+	public static WebElement AcknowledgementCopy()
+	{
+		labour = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/NoAccessDownload.svg']"));
+		return labour;
+	}
+	public static WebElement PaymentReceipt()
+	{
+		labour = getDriver().findElement(By.xpath("(//img[@src='../assets/vectors/NoAccessDownload.svg'])[2]"));
+		return labour;
+	}
+	public static WebElement UploadedFinalRCLicense()
+	{
+		labour = getDriver().findElement(By.xpath("(//img[@src='../assets/vectors/NoAccessDownload.svg'])[3]"));
+		return labour;
+	}
 
 }
