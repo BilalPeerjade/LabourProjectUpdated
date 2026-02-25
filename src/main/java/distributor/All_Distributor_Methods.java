@@ -8,11 +8,13 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.poi.ss.usermodel.Cell;
@@ -432,7 +434,7 @@ public class All_Distributor_Methods extends BasePage {
 		Thread.sleep(1000);
 		DistributerLocators.clickExport().click();
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 
 		Thread.sleep(5000);
 		wait.until(ExpectedConditions.invisibilityOf(DistributerLocators.GridLoad()));
@@ -497,7 +499,7 @@ public class All_Distributor_Methods extends BasePage {
 	}
 
 	public static void CountExcel1(ExtentTest test) throws InterruptedException, IOException {
-		getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		Thread.sleep(500);
 
 		String item = DistributerLocators.readTotalItem1().getText();
@@ -525,7 +527,7 @@ public class All_Distributor_Methods extends BasePage {
 		Thread.sleep(1000);
 		DistributerLocators.clickExport().click();
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), 20); // Bilal
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120)); // Bilal
 		wait.until(ExpectedConditions.invisibilityOf(DistributerLocators.clickExportCLRALocationLoader()));
 
 //		WebDriverWait wait=new WebDriverWait(getDriver(), 20);
@@ -620,7 +622,7 @@ public class All_Distributor_Methods extends BasePage {
 		Thread.sleep(1000);
 		DistributerLocators.clickLocationExportBtn().click();
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		wait.until(ExpectedConditions.invisibilityOf(DistributerLocators.clickLocationExportBtnLoader()));
 
 //		WebDriverWait wait=new WebDriverWait(getDriver(), 20);
@@ -732,7 +734,7 @@ public class All_Distributor_Methods extends BasePage {
 		Thread.sleep(1000);
 		DistributerLocators.clickExportBtn().click();
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(1000);
 		wait.until(ExpectedConditions.invisibilityOf(DistributerLocators.GridLoad1()));
 
@@ -868,7 +870,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void BulkUploadDesignationDetailes(ExtentTest test, XSSFWorkbook workbook)
 			throws InterruptedException, IOException, AWTException {
-		getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		// getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 
 		Thread.sleep(1000);
@@ -1273,8 +1275,8 @@ public class All_Distributor_Methods extends BasePage {
 		Thread.sleep(7000);
 
 		// Correct Entity Verification
-		OneCommonMethod.verifyTestEntity(driver.get(), test,
-				By.xpath("//span[normalize-space()='AVATCGEN CORE DEMO[AVACORED5]']"), "AVATCGEN CORE DEMO[AVACORED5]");
+//		OneCommonMethod.verifyTestEntity(driver.get(), test,
+//				By.xpath("//span[normalize-space()='AVATCGEN CORE DEMO[AVACORED5]']"), "AVATCGEN CORE DEMO[AVACORED5]");
 
 		DistributerLocators.clickOnboardCLRA().click();
 
@@ -1337,7 +1339,7 @@ public class All_Distributor_Methods extends BasePage {
 	}
 
 	public static void bulkUpload(ExtentTest test, XSSFWorkbook workbook) throws Exception {
-		getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		Thread.sleep(5000);
 		Thread.sleep(5000);
 		Thread.sleep(5000);
@@ -1391,7 +1393,7 @@ public class All_Distributor_Methods extends BasePage {
 	public static void EmployeerExportBtn(ExtentTest test, XSSFWorkbook workbook)
 			throws InterruptedException, IOException {
 
-		getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		Thread.sleep(5000);
 		Thread.sleep(5000);
 		Thread.sleep(5000);
@@ -1416,7 +1418,7 @@ public class All_Distributor_Methods extends BasePage {
 	}
 
 	public static void SearchBoxEmp(ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 
 		Thread.sleep(5000);
 		Thread.sleep(5000);
@@ -1729,7 +1731,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void Entity_UMapuser(ExtentTest test) throws InterruptedException, IOException {
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait(getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='User']"))); // Wait
@@ -1805,10 +1807,267 @@ public class All_Distributor_Methods extends BasePage {
 		Thread.sleep(4000);
 
 	}
+	
+	
+	public static void ubExport(ExtentTest test, String user) throws InterruptedException, IOException {
+
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='Corporate']"))); 
+		
+		Thread.sleep(3000);
+		Thread.sleep(5000);
+		Thread.sleep(5000);
+		if(user.equalsIgnoreCase("Performer"))
+		{
+			Locators.Searchentities().sendKeys("AVACORED5"); 
+			Thread.sleep(5000);
+			PerformerLocator.clickWorkspaceArrow().click();
+		}
+		else if(user.equalsIgnoreCase("Distributor"))
+		{
+			LoginLocators.Search().sendKeys("AVACORED5");	
+			Locators.clickPremisesArrow().click();
+		}
+		else if(user.equalsIgnoreCase("Reviewer"))
+		{
+			LoginLocators.Search().sendKeys("AVACORED5");	
+		}
+
+		Thread.sleep(8000);
+		
+		Thread.sleep(5000);
+		Locators.OnboardEntity().click();
+		Thread.sleep(5000);
+		Locators.UserBranchMapping().click();
+		Thread.sleep(3000);
+		
+	    OneCommonMethod.validateExportedExcelDYNAMIC( driver.get(), test,
+	    	    LoginLocators.Exportbtn(),       
+	    	    All_ClientPortal_Locators.readTotalItemsNotice(),    
+	    	    "User Name",                           
+	    	    "File Exported Successfully ! "    
+	    	);
+		
+		
+		Thread.sleep(4000);
+
+	}
+	
+	
+	public static void ubExportsFilters(ExtentTest test, String user) throws InterruptedException, IOException {
+
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='Corporate']"))); 
+		
+		Thread.sleep(3000);
+		Thread.sleep(3000);
+		if(user.equalsIgnoreCase("Performer"))
+		{
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVANEW");
+			Thread.sleep(5000);
+			PerformerLocator.clickWorkspaceArrow().click();
+		}
+		else if(user.equalsIgnoreCase("Distributor"))
+		{
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVANEW");
+			Locators.clickPremisesArrow().click();
+		}
+		else if(user.equalsIgnoreCase("Reviewer"))
+		{
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVANEW");
+		}
+
+		Thread.sleep(5000);
+		Locators.OnboardEntity().click();
+		Thread.sleep(5000);
+		Locators.UserBranchMapping().click();
+		Thread.sleep(3000);
+		Locators.ubselectAct().click();
+		Thread.sleep(3000);
+		Locators.Shops().click();
+		Thread.sleep(3000);
+		Locators.ubselectBranches().click();
+		Thread.sleep(3000);
+		WebElement state = getDriver().findElement(By.xpath("//span[normalize-space()='Gujarat']"));
+		state.click();
+		Thread.sleep(3000);
+		
+		if(Locators.apply().isDisplayed()) {
+//			Locators.apply().click();
+//			Thread.sleep(6000);
+//			test.log(LogStatus.PASS, "Apply button is working fine");
+			
+			OneCommonMethod.verifyApplyButton(getDriver(), test, DistributerLocators.clickApply(),DistributerLocators.readTotalItem(), "APPLY_GRID_APPEARS");
+		}else {
+			test.log(LogStatus.FAIL, "Apply button is not displayed");
+		}
+		
+		
+		test.log(LogStatus.PASS, "Shops and Establishment Allied and branch filters is selected");
+
+	    OneCommonMethod.validateExportedExcelDYNAMIC( driver.get(), test,LoginLocators.Exportbtn(),       
+	    	    All_ClientPortal_Locators.readTotalItemsNotice(),    
+	    	    "User Name",                           
+	    	    "On selecting 'Shops and Establishment Allied and branch filters' - File Exported Successfully !");
+		Thread.sleep(6000);
+		
+		try {
+		    if(Locators.clear().isDisplayed()) {
+			    Locators.clear().click();
+			    Thread.sleep(6000);
+			    test.log(LogStatus.PASS, "Clear button is working fine");
+		    	
+			    //This is not working throwing stale reference element exception (need to modify generic method , it might not possible)
+//		    	OneCommonMethod.verifyClearButton(getDriver(), test, DistributerLocators.clickClearBtn(), DistributerLocators.readTotalItem(), "COUNT_CHANGE");
+		         }
+		   } catch(NoSuchElementException e) {
+			  System.out.println(e);
+			  test.log(LogStatus.FAIL, "Clear button is not displayed");
+		  }
+		
+		
+		Thread.sleep(3000);
+//		Locators.ubselectAct().click(); // Change 
+		getDriver().findElement(By.xpath("//span[contains(normalize-space(),'Select')]")).click();
+		
+		
+		Thread.sleep(3000);
+		Locators.clra().click();
+		Thread.sleep(5000);
+//		Locators.ubselectBranches().click(); // Change
+		getDriver().findElement(By.xpath("//span[contains(normalize-space(),'Select Branch')]")).click();
+		Thread.sleep(3000);
+		WebElement clraBranch = getDriver().findElement(By.xpath("//span[contains(text(),'Ambuj')]"));
+		Thread.sleep(3000);
+		clraBranch.click();
+		Thread.sleep(3000);
+		Locators.apply().click();
+		Thread.sleep(6000);
+		
+		
+		test.log(LogStatus.PASS, "Contract Labour Regulation and Abolition Act and branch filters is selected");
+	    OneCommonMethod.validateExportedExcelDYNAMIC( driver.get(), test,LoginLocators.Exportbtn(),       
+	    	    All_ClientPortal_Locators.readTotalItemsNotice(),    
+	    	    "User Name",                           
+	    	    "On selecting 'Contract Labour Regulation and Abolition Act and branch filters' - File Exported Successfully !");
+		Thread.sleep(6000);
+		
+		
+		
+		 Locators.clear().click();
+		 Thread.sleep(3000);
+		 Locators.ubselectUser().click();
+		 Thread.sleep(3000);
+		 
+		 OneCommonMethod.typeLikeUser(Locators.ubselectUser(), "QA (mahesh.darandale@tlregtech.in)",1,100);
+		 Thread.sleep(3000);
+		 getDriver().findElement(By.xpath("//span[normalize-space()='QA (mahesh.darandale@tlregtech.in)']")).click();
+		 Thread.sleep(3000);
+		 Locators.apply().click();
+		 Thread.sleep(6000);
+		 
+			
+			test.log(LogStatus.PASS, "User filter is selected");
+		    OneCommonMethod.validateExportedExcelDYNAMIC( driver.get(), test,LoginLocators.Exportbtn(),       
+		    	    All_ClientPortal_Locators.readTotalItemsNotice(),    
+		    	    "User Name",                           
+		    	    "On selecting 'User filter' - File Exported Successfully !");
+			Thread.sleep(6000);
+
+	}
+	public static void ubDelete(ExtentTest test, String user) throws InterruptedException, IOException {
+
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='Corporate']"))); 
+		
+		Thread.sleep(3000);
+		
+		if(user.equalsIgnoreCase("Performer"))
+		{
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
+			LoginLocators.WorkspaceArrow().click();
+		}
+		else if(user.equalsIgnoreCase("Distributor"))
+		{	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
+			Locators.clickPremisesArrow().click();
+		}
+		else if(user.equalsIgnoreCase("Reviewer"))
+		{
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
+		}
+		
+
+		Thread.sleep(8000);
+		Thread.sleep(5000);
+		Locators.OnboardEntity().click();
+		Thread.sleep(5000);
+		Locators.UserBranchMapping().click();
+		Thread.sleep(3000);
+		
+		
+		
+		//---------
+  		WebElement deleteBtn = getDriver().findElement(By.xpath("(//img[@title='Delete'])[1]"));
+        if(deleteBtn.isDisplayed()) {
+        	deleteBtn.click();
+//        	test.log(LogStatus.PASS, "Delete button is working fine");
+        	Thread.sleep(3000);
+			String deleteTxt = DistributerLocators.MessageText().getText();
+
+			if (deleteTxt.equalsIgnoreCase("Are you certain you want to delete this Mapping??")) {
+				test.log(LogStatus.PASS, "On clicking to delete button message conformation message displayed");
+				Thread.sleep(3000);
+				test.log(LogStatus.PASS, "Message Displayed : " + deleteTxt); 
+				Locators.DeleteCan().click();
+				Thread.sleep(3000);
+				test.log(LogStatus.PASS, "On clicking to Cancel button message popup is removed");
+				Thread.sleep(3000);
+			}else {
+				test.log(LogStatus.FAIL, "On clicking to delete button message conformation message displayed wrong");
+				Thread.sleep(3000);
+				test.log(LogStatus.FAIL, "Message Displayed : " + deleteTxt); 
+			}
+			
+        	
+        }else {
+        	test.log(LogStatus.FAIL, "Delete button is not working properly");
+        }
+        
+        
+        
+        
+        Thread.sleep(5000);
+//        deleteBtn.click();
+        WebElement deleteBtn2 = getDriver().findElement(By.xpath("(//img[@title='Delete'])[1]"));
+        deleteBtn2.click();
+        Thread.sleep(5000);
+        PerformerLocator.clickOkBtn().click();
+        Thread.sleep(5000);
+        String successMess = DistributerLocators.MessageText().getText();
+        if (successMess.equalsIgnoreCase("Record deleted succesfully")) {
+			test.log(LogStatus.PASS, "Delete Confirmation OK button is working fine");
+			Thread.sleep(3000);
+			test.log(LogStatus.PASS, "On clicking to OK button success message displayed");
+			test.log(LogStatus.PASS, "Message Displayed : " + successMess); 
+        }else {
+        	test.log(LogStatus.FAIL, "On clicking to OK button success message displayed wrong");
+        	test.log(LogStatus.FAIL, "Message Displayed : " + successMess); 
+        }
+		
+		
+
+	}
 
 	public static void CLRASearchEmployee(ExtentTest test, XSSFWorkbook workbook)
 			throws InterruptedException, IOException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 
 		Thread.sleep(5000);
 		Thread.sleep(5000);
@@ -1898,7 +2157,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void SearchBoxLocation(ExtentTest test, XSSFWorkbook workbook)
 			throws InterruptedException, IOException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
@@ -2491,6 +2750,42 @@ public class All_Distributor_Methods extends BasePage {
 		}
 
 	}
+	public static void CLRA_LocationExport(ExtentTest test, XSSFWorkbook workbook)
+			throws InterruptedException, IOException, AWTException {
+
+		Thread.sleep(5000);
+		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+		OneCommonMethod.searchEntityAndSelect(driver.get(), test, LoginLocators.Search(), "AVACORED5");
+		Thread.sleep(5000);
+		DistributerLocators.clickPremiseMasterArrow().click();
+		Thread.sleep(7000);
+		DistributerLocators.clickOnboardCLRA().click();
+
+		Thread.sleep(5000);
+		DistributerLocators.clickLocation().click();
+
+		FileInputStream fis = new FileInputStream(filePath);
+		Workbook workbook1 = WorkbookFactory.create(fis);
+		Sheet sheet = workbook1.getSheetAt(0);
+
+		Thread.sleep(1000);
+		Row row = sheet.getRow(13); // Selected 0th index row (First row)
+		Cell c = row.getCell(1); // Selected cell (0 row,1 column)
+		Thread.sleep(1000);
+		String emp = c.getStringCellValue();
+		DistributerLocators.clickemp().sendKeys(emp, Keys.ENTER);
+
+		Thread.sleep(5000);
+		
+	    OneCommonMethod.validateExportedExcelDYNAMIC(
+	    	    driver.get(),test,
+	    	    LoginLocators.Exportbtn(),    
+	    	    LoginLocators.TotalNumberOfItems(),  
+	    	    "State",                             
+	    	    "File Exported Successfully ! " );
+		
+
+	}
 
 	public static void CLRA_EmployeeMap_Filters(ExtentTest test, XSSFWorkbook workbook)
 			throws InterruptedException, IOException, AWTException {
@@ -2926,7 +3221,7 @@ public class All_Distributor_Methods extends BasePage {
 	{		
 		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		
@@ -3250,7 +3545,7 @@ public class All_Distributor_Methods extends BasePage {
 
 		String FileContainsSomeError = DistributerLocators.clickMsg().getText();
 
-		if (FileContainsSomeError.equalsIgnoreCase("Error while uploading")
+		if (FileContainsSomeError.equalsIgnoreCase("Error uploading file.")//
 				|| FileContainsSomeError.equalsIgnoreCase("Principle Employer Location Exists Already")) {
 			test.log(LogStatus.PASS, "While uploading file with some error it is not uploaded");
 			Thread.sleep(1000);
@@ -3347,7 +3642,7 @@ public class All_Distributor_Methods extends BasePage {
 	public static void editLOcation(ExtentTest test, XSSFWorkbook workbook)
 			throws InterruptedException, IOException, AWTException {
 
-		getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
@@ -3489,7 +3784,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void ComplianceAssignmentRegister(ExtentTest test, XSSFWorkbook workbook)
 			throws InterruptedException, IOException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 
 		Thread.sleep(5000);
 		Thread.sleep(5000);
@@ -3593,7 +3888,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void ComplianceAssignmentReturn(ExtentTest test, XSSFWorkbook workbook)
 			throws InterruptedException, IOException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
@@ -3685,7 +3980,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void ComplianceAssignmentChallan(ExtentTest test, XSSFWorkbook workbook)
 			throws InterruptedException, IOException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
@@ -3770,7 +4065,7 @@ public class All_Distributor_Methods extends BasePage {
 	}
 
 	public static void SearchBox(ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
@@ -3889,7 +4184,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void ValidationMesssage(ExtentTest test, XSSFWorkbook workbook)
 			throws InterruptedException, IOException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
@@ -3923,7 +4218,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void WithoutselectingPerformerReviewer(ExtentTest test, XSSFWorkbook workbook)
 			throws InterruptedException, IOException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
@@ -4660,6 +4955,71 @@ public class All_Distributor_Methods extends BasePage {
 		}
 
 	}
+	
+	public static void bulkCompReassignment(ExtentTest test, XSSFWorkbook workbook,String moduleName)
+			throws InterruptedException, IOException {
+
+		Thread.sleep(5000);
+		Thread.sleep(5000);
+		Thread.sleep(5000);
+		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+		Thread.sleep(8000);
+		DistributerLocators.clickPremiseMasterArrow().click();
+		Thread.sleep(8000);
+		if(moduleName.equals("Entity")) {
+			DistributerLocators.clickOnBoardEntity().click();
+			Thread.sleep(2000);
+		}
+		if (moduleName.equals("CLRA")) {
+			DistributerLocators.clickOnboardCLRA().click();
+			Thread.sleep(2000);
+		}
+		Thread.sleep(2000);
+		DistributerLocators.managecompliance().click();
+		Thread.sleep(2000);
+		DistributerLocators.FirstTriangle().click();
+		Thread.sleep(2000);
+		DistributerLocators.bulkCompReassign().click();
+		Thread.sleep(2000);
+		DistributerLocators.Triangle2().click();
+		Thread.sleep(2000);
+//		LoginLocators.SelectChallan().click();
+		LoginLocators.ClickRegisterDrp().click();
+		Thread.sleep(2000);
+		DistributerLocators.Triangle3().click();
+		Thread.sleep(2000);
+		getDriver().findElement(By.xpath("//span[normalize-space()='Reviewer']")).click();
+		Thread.sleep(2000);
+		DistributerLocators.Triangle4().click();
+		Thread.sleep(5000);
+		getDriver().findElement(By.xpath("//span[normalize-space()='QA Reviewer']")).click();
+		Thread.sleep(5000);
+		DistributerLocators.Triangle5().click();
+		Thread.sleep(4000);
+		getDriver().findElement(By.xpath("(//span[normalize-space()='QA Reviewer'])[3]")).click(); //given 3 index due to it is clicking to another dropdown
+		Thread.sleep(2000);
+		
+		WebElement tarsnfer = getDriver().findElement(By.xpath("//button[normalize-space()='Transfer']"));
+		if(tarsnfer.isDisplayed()) {
+			test.log(LogStatus.PASS, "All filters are working fine");
+			test.log(LogStatus.PASS, "Transfer button is wroking fine");
+			Thread.sleep(2000);
+			tarsnfer.click();
+			Thread.sleep(6000);
+			String txt = DistributerLocators.MessageText().getText();
+			if(txt.equalsIgnoreCase("Compliances Reassign Successfully")) {
+				test.log(LogStatus.PASS, "On clicking to Transfer button success message is displayed");
+				test.log(LogStatus.PASS, "Message Displayed = " + txt);
+			}else {
+				test.log(LogStatus.FAIL, "On clicking to Transfer button success message is displayed wrong");
+				test.log(LogStatus.FAIL, "Message Displayed = " + txt);
+			}
+		}else {
+			test.log(LogStatus.FAIL, "Bulk Compliance Reassgingemnt - Filters are not working properly");
+		}
+		
+	}
 
 	public static void CLRAscheduleCreationValidation(ExtentTest test, XSSFWorkbook workbook)
 			throws InterruptedException, IOException {
@@ -4737,7 +5097,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void ManageComplianceFilter(ExtentTest test, XSSFWorkbook workbook)
 			throws InterruptedException, IOException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
@@ -5159,7 +5519,7 @@ public class All_Distributor_Methods extends BasePage {
 	}
 
 	public static void Contractor(ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
@@ -5197,7 +5557,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void CLRA_Contractor(ExtentTest test, XSSFWorkbook workbook)
 			throws InterruptedException, IOException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
@@ -5290,7 +5650,7 @@ public class All_Distributor_Methods extends BasePage {
 	}
 
 	public static void EmpMapping(ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
@@ -5417,7 +5777,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void UpdateEmpMapping(ExtentTest test, XSSFWorkbook workbook)
 			throws InterruptedException, IOException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
@@ -5496,7 +5856,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void ExportEmpMapping(ExtentTest test, XSSFWorkbook workbook)
 			throws InterruptedException, IOException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
@@ -5669,7 +6029,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void ComplianceAssignmentRegisterCLRA(ExtentTest test, XSSFWorkbook workbook)
 			throws InterruptedException, IOException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
@@ -5776,7 +6136,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void CLRA_CompAssignment(ExtentTest test, XSSFWorkbook workbook)
 			throws InterruptedException, IOException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
@@ -5912,13 +6272,13 @@ public class All_Distributor_Methods extends BasePage {
 		Thread.sleep(4000);
 		DistributerLocators.TypetosearchCLRA().click();
 		Thread.sleep(1000);
-		DistributerLocators.TypetosearchCLRA().sendKeys("190484");
+		DistributerLocators.TypetosearchCLRA().sendKeys("20675");
 		
 		
 		
 		String texttt = getDriver().findElement(By.xpath("//tbody/tr[1]/td[1]")).getText();
 		
-		if(texttt.equals("190484"))
+		if(texttt.equals("20675"))
 		{
 			test.log(LogStatus.PASS, "Type to search field is working fine");
 			test.log(LogStatus.PASS, "Searched text is displayed in grid" + texttt);
@@ -5951,7 +6311,7 @@ public class All_Distributor_Methods extends BasePage {
 	
 	public static void Entity_CompAssignment(ExtentTest test, XSSFWorkbook workbook)
 			throws InterruptedException, IOException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
@@ -5994,39 +6354,10 @@ public class All_Distributor_Methods extends BasePage {
 
 		Thread.sleep(5000);
 
-//		Thread.sleep(1000);
-//		Locator.selectmonth().click();
-//		Thread.sleep(1000);
-//		Locator.selectYear().click();
-//	
-//		
-//		Actions action = new Actions(getDriver());
-//		WebElement we = getDriver().findElement(By.xpath("//td[@title='2021 Jan']"));
-//		action.moveToElement(we).click().build().perform();
-
-		// Handling Calendar
-		/*
-		 * DistributerLocators.Calender().click(); Thread.sleep(2000);
-		 * DistributerLocators.Calendar_NavigateToParentView().click();
-		 * Thread.sleep(2000);
-		 * 
-		 * WebElement Year =
-		 * getDriver().findElement(By.xpath("//span[normalize-space()='2024']"));
-		 * Year.click();
-		 * 
-		 * Thread.sleep(2000); WebElement Month =
-		 * getDriver().findElement(By.xpath("//td[@title='2024 Jan']")); Month.click();
-		 * Thread.sleep(3000); WebElement Date =
-		 * getDriver().findElement(By.xpath("//td[@title='Monday, January 1, 2024']"));
-		 * Date.click(); Thread.sleep(2000);
-		 */
-
 		DistributerLocators.Calender().click();
-
 		OneCommonMethod.selectCalendarDateFromInput(driver.get(), test, DistributerLocators.Calender(), // calendar icon
 				DistributerLocators.Calendar_NavigateToParentView(), // parent view arrow
-				"15-06-2026" 
-		);
+				"15-06-2026" );
 
 		Thread.sleep(1000);
 		DistributerLocators.clickPerformer().click();
@@ -6041,10 +6372,12 @@ public class All_Distributor_Methods extends BasePage {
 
 		if (DistributerLocators.clickApply().isEnabled()) {
 			Thread.sleep(1000);
-			DistributerLocators.clickApply().click();
+//			DistributerLocators.clickApply().click();
 			test.log(LogStatus.PASS, "All filters & dropdowns working fine ");
 			Thread.sleep(1000);
-			test.log(LogStatus.PASS, "Apply Button working successfully");
+//			test.log(LogStatus.PASS, "Apply Button working successfully");
+			OneCommonMethod.verifyApplyButton(getDriver(), test, DistributerLocators.clickApply(),DistributerLocators.readTotalItem(), "APPLY_GRID_APPEARS");
+			
 		} else {
 			test.log(LogStatus.FAIL, "Apply Button does not working successfully");
 		}
@@ -6075,7 +6408,7 @@ public class All_Distributor_Methods extends BasePage {
 		Thread.sleep(1000);
 		DistributerLocators.clickOkBtn().click();
 
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 		String msg1 = DistributerLocators.CASuccessMsg1().getText();
 		if (msg1.equalsIgnoreCase(msg1)) {
 			test.log(LogStatus.PASS, "Message displayed:-" + msg1);
@@ -6093,7 +6426,7 @@ public class All_Distributor_Methods extends BasePage {
 		
 		String texttt = getDriver().findElement(By.xpath("//tbody/tr[1]/td[2]")).getText();
 		
-		if(texttt.equals("190484"))
+		if(texttt.equals("8353"))
 		{
 			test.log(LogStatus.PASS, "Type to search field is working fine");
 			test.log(LogStatus.PASS, "Searched text is displayed in grid" + texttt);
@@ -6108,14 +6441,16 @@ public class All_Distributor_Methods extends BasePage {
 		
 		
 
-		Thread.sleep(1000);
-		if (DistributerLocators.clickClearBtn().isEnabled()) {
-			Thread.sleep(1000);
-			DistributerLocators.clickClearBtn().click();
-			test.log(LogStatus.PASS, "Clear button working successfully.");
-		} else {
-			test.log(LogStatus.FAIL, "Clear button not working successfully.");
-		}
+//		Thread.sleep(1000);
+//		if (DistributerLocators.clickClearBtn().isEnabled()) {
+//			Thread.sleep(1000);
+//			DistributerLocators.clickClearBtn().click();
+//			test.log(LogStatus.PASS, "Clear button working successfully.");
+//		} else {
+//			test.log(LogStatus.FAIL, "Clear button not working successfully.");
+//		}
+		
+		OneCommonMethod.verifyClearButton(getDriver(), test, DistributerLocators.clickClearBtn(), DistributerLocators.readTotalItem(), "COUNT_CHANGE");
 
 		Thread.sleep(1000);
 
@@ -6123,7 +6458,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void CLRA_CompAssignment_Validations(ExtentTest test, XSSFWorkbook workbook)
 			throws InterruptedException, IOException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
@@ -6245,7 +6580,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void ComplianceAssignmentRetrunCLRA(ExtentTest test, XSSFWorkbook workbook)
 			throws InterruptedException, IOException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
@@ -6329,7 +6664,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void SearchBoxComplianceAssignment(ExtentTest test, XSSFWorkbook workbook)
 			throws InterruptedException, IOException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
@@ -6827,7 +7162,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void ManageComplianceFilterCLRA(ExtentTest test, XSSFWorkbook workbook)
 			throws InterruptedException, IOException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
@@ -7541,7 +7876,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void complianceBox(ExtentTest test, String user) throws InterruptedException, IOException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -7840,7 +8175,7 @@ public class All_Distributor_Methods extends BasePage {
 
 		js.executeScript("window.scrollBy(0,700)");
 		Thread.sleep(2000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.TotalNoOfItem()));
 
 		LoginLocators.TotalNoOfItem().click(); // Clicking on Text of total items just to scroll down.
@@ -7943,7 +8278,7 @@ public class All_Distributor_Methods extends BasePage {
 
 		js.executeScript("window.scrollBy(0,700)");
 		Thread.sleep(2000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.TotalNoOfItem()));
 
 		LoginLocators.TotalNoOfItem().click(); // Clicking on Text of total items just to scroll down.
@@ -8046,7 +8381,7 @@ public class All_Distributor_Methods extends BasePage {
 
 		js.executeScript("window.scrollBy(0,700)");
 		Thread.sleep(2000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.TotalNoOfItem()));
 
 		LoginLocators.TotalNoOfItem().click(); // Clicking on Text of total items just to scroll down.
@@ -8149,7 +8484,7 @@ public class All_Distributor_Methods extends BasePage {
 
 		js.executeScript("window.scrollBy(0,700)");
 		Thread.sleep(2000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.TotalNumberOfItems()));
 
 		LoginLocators.TotalNumberOfItems().click(); // Clicking on Text of total items just to scroll down.
@@ -8254,7 +8589,7 @@ public class All_Distributor_Methods extends BasePage {
 
 		js.executeScript("window.scrollBy(0,700)");
 		Thread.sleep(2000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.TotalNumberOfItem()));
 
 		LoginLocators.TotalNumberOfItem().click(); // Clicking on Text of total items just to scroll down.
@@ -8355,7 +8690,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void UpcomingBox(ExtentTest test, String user) throws InterruptedException, IOException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -8471,7 +8806,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void OverdueBox(ExtentTest test, String user) throws InterruptedException, IOException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -8590,7 +8925,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void PendingActionBox(ExtentTest test, String user) throws InterruptedException, IOException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -8705,7 +9040,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void PendingReviewBox(ExtentTest test, String user) throws InterruptedException, IOException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -8820,7 +9155,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void RegisterUpcoming(ExtentTest test, String user) throws InterruptedException, IOException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -8939,7 +9274,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void RegisterOverdue(ExtentTest test, String user) throws InterruptedException, IOException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -9058,7 +9393,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void RegisterActionReview(ExtentTest test, String user) throws InterruptedException, IOException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -9177,7 +9512,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void ReturnUpcoming(ExtentTest test, String user) throws InterruptedException, IOException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -9296,7 +9631,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void ReturnOverdue(ExtentTest test, String user) throws InterruptedException, IOException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -9415,7 +9750,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void ReturnActionReview(ExtentTest test, String user) throws InterruptedException, IOException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -9534,7 +9869,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void ChallanUpcoming(ExtentTest test, String user) throws InterruptedException, IOException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -9653,7 +9988,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void ChallanOverdue(ExtentTest test, String user) throws InterruptedException, IOException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -9772,7 +10107,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void ChallanActionReview(ExtentTest test, String user) throws InterruptedException, IOException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -9892,7 +10227,7 @@ public class All_Distributor_Methods extends BasePage {
 	public static void RiskGraph(ExtentTest test, String risk, int complianceCount)
 			throws InterruptedException, IOException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 
 		if (risk.equalsIgnoreCase("High")) {
@@ -10001,7 +10336,7 @@ public class All_Distributor_Methods extends BasePage {
 	public static void CompRiskGraph(ExtentTest test, String risk, int complianceCount)
 			throws InterruptedException, IOException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 
 		if (risk.equalsIgnoreCase("High")) {
@@ -10110,7 +10445,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void Complied(ExtentTest test, String user) throws InterruptedException, IOException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -10300,7 +10635,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void NotComplied(ExtentTest test, String user) throws InterruptedException, IOException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -10486,7 +10821,7 @@ public class All_Distributor_Methods extends BasePage {
 	}
 
 	public static void View(ExtentTest test) throws InterruptedException, IOException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 
 		By locate = By.xpath("//div//img[@class='svg-icon ng-star-inserted']");
 
@@ -10522,7 +10857,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void ApplicableStatues(ExtentTest test, String user) throws InterruptedException, IOException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -10560,7 +10895,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void DailyUpdate(ExtentTest test, String user) throws InterruptedException, IOException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -10598,7 +10933,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void Brows(ExtentTest test) throws InterruptedException, IOException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 
@@ -10619,7 +10954,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void ComplianceFilter1(ExtentTest test, String user) throws InterruptedException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 		if (user.equalsIgnoreCase("Performer")) {
 			LoginLocators.Search().sendKeys("AVACORED5");
@@ -10749,7 +11084,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void UpcomingFilter(ExtentTest test, String user) throws InterruptedException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(5000);
 		if (user.equalsIgnoreCase("Performer")) {
 			LoginLocators.Search().sendKeys("AVACORED5");
@@ -10866,7 +11201,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void OverdueFilter(ExtentTest test, String user) throws InterruptedException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 		if (user.equalsIgnoreCase("Performer")) {
 			LoginLocators.Search().sendKeys("AVACORED5");
@@ -10983,7 +11318,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void PendingActionFilter(ExtentTest test, String user) throws InterruptedException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 		if (user.equalsIgnoreCase("Performer")) {
 			LoginLocators.Search().sendKeys("AVACORED5");
@@ -11099,7 +11434,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void PendingReviewFilter(ExtentTest test, String user) throws InterruptedException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 		if (user.equalsIgnoreCase("Performer")) {
 			LoginLocators.Search().sendKeys("AVACORED5");
@@ -11214,7 +11549,7 @@ public class All_Distributor_Methods extends BasePage {
 	}
 
 	public static void RegisterUpcomingFilter(ExtentTest test, String user) throws InterruptedException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), (60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 		if (user.equalsIgnoreCase("Performer")) {
 			LoginLocators.Search().sendKeys("AVACORED5");
@@ -11329,7 +11664,7 @@ public class All_Distributor_Methods extends BasePage {
 	}
 
 	public static void RegisterOverdueFilter(ExtentTest test, String user) throws InterruptedException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), (60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 		if (user.equalsIgnoreCase("Performer")) {
 			LoginLocators.Search().sendKeys("AVACORED5");
@@ -11444,7 +11779,7 @@ public class All_Distributor_Methods extends BasePage {
 	}
 
 	public static void RegisterActionreviewFilter(ExtentTest test, String user) throws InterruptedException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), (60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 		if (user.equalsIgnoreCase("Performer")) {
 			LoginLocators.Search().sendKeys("AVACORED5");
@@ -11559,7 +11894,7 @@ public class All_Distributor_Methods extends BasePage {
 	}
 
 	public static void ReturnUpcomingFilter(ExtentTest test, String user) throws InterruptedException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), (60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 		if (user.equalsIgnoreCase("Performer")) {
 			LoginLocators.Search().sendKeys("AVACORED5");
@@ -11674,7 +12009,7 @@ public class All_Distributor_Methods extends BasePage {
 	}
 
 	public static void ReturnOverdueFilter(ExtentTest test, String user) throws InterruptedException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), (60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 		if (user.equalsIgnoreCase("Performer")) {
 			LoginLocators.Search().sendKeys("AVACORED5");
@@ -11789,7 +12124,7 @@ public class All_Distributor_Methods extends BasePage {
 	}
 
 	public static void ReturnActionReviewFilter(ExtentTest test, String user) throws InterruptedException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), (60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 		if (user.equalsIgnoreCase("Performer")) {
 			LoginLocators.Search().sendKeys("AVACORED5");
@@ -11904,7 +12239,7 @@ public class All_Distributor_Methods extends BasePage {
 	}
 
 	public static void challanUpcomingFilter(ExtentTest test, String user) throws InterruptedException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), (60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 		if (user.equalsIgnoreCase("Performer")) {
 			LoginLocators.Search().sendKeys("AVACORED5");
@@ -12019,7 +12354,7 @@ public class All_Distributor_Methods extends BasePage {
 	}
 
 	public static void challanOverdueFilter(ExtentTest test, String user) throws InterruptedException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), (60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 		if (user.equalsIgnoreCase("Performer")) {
 			LoginLocators.Search().sendKeys("AVACORED5");
@@ -12134,7 +12469,7 @@ public class All_Distributor_Methods extends BasePage {
 	}
 
 	public static void challanActionReviewFilter(ExtentTest test, String user) throws InterruptedException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), (60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 		if (user.equalsIgnoreCase("Performer")) {
 			LoginLocators.Search().sendKeys("AVACORED5");
@@ -12249,7 +12584,7 @@ public class All_Distributor_Methods extends BasePage {
 	}
 
 	public static void CompliedFilter(ExtentTest test, String user) throws InterruptedException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), (60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 		if (user.equalsIgnoreCase("Performer")) {
 			LoginLocators.Search().sendKeys("AVACORED5");
@@ -12398,7 +12733,7 @@ public class All_Distributor_Methods extends BasePage {
 	}
 
 	public static void CompliedRiskSummaryGraphFilter(ExtentTest test, String user) throws InterruptedException {
-		WebDriverWait wait = new WebDriverWait(getDriver(), (60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 		if (user.equalsIgnoreCase("Performer")) {
 			LoginLocators.Search().sendKeys("AVACORED5");
@@ -12539,7 +12874,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void Report(ExtentTest test, String user) throws InterruptedException, IOException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -12577,7 +12912,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void CLRAAssignmentReport(ExtentTest test, String user) throws InterruptedException, IOException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -12617,7 +12952,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void VariousReport(ExtentTest test, String user) throws InterruptedException, IOException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -12658,7 +12993,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void StatusReport(ExtentTest test, String user) throws InterruptedException, IOException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -12741,7 +13076,7 @@ public class All_Distributor_Methods extends BasePage {
 	public static void PendingActionPerform(ExtentTest test, String user)
 			throws InterruptedException, IOException, AWTException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -12874,7 +13209,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void PendingReviewAction(ExtentTest test, String user) throws InterruptedException, IOException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -12969,7 +13304,7 @@ public class All_Distributor_Methods extends BasePage {
 	public static void Viewworspace(ExtentTest test, String user)
 			throws InterruptedException, IOException, AWTException {
 		if (LoginLocators.View().isDisplayed()) {
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.View()));
 			LoginLocators.View().click();
 			Thread.sleep(500);
@@ -12985,7 +13320,7 @@ public class All_Distributor_Methods extends BasePage {
 
 		// WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2));
 		// // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -13197,7 +13532,7 @@ public class All_Distributor_Methods extends BasePage {
 		Thread.sleep(20000);
 		MethodsD.LeaveSummaryDetails(test, user);
 		Thread.sleep(2000);
-		getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		LoginLocators.Refresh().click();
 		Thread.sleep(2000);
 		LoginLocators.Check().click();
@@ -13218,7 +13553,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void Salary(ExtentTest test, String user) throws InterruptedException, IOException, AWTException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		try {
 			if (LoginLocators.SalaryText().isDisplayed()) {
@@ -13379,7 +13714,7 @@ public class All_Distributor_Methods extends BasePage {
 	public static void LeaveSummaryDetails(ExtentTest test, String user)
 			throws InterruptedException, IOException, AWTException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		try {
 			if (LoginLocators.LeaveSummaryText().isDisplayed()) {
@@ -13537,7 +13872,7 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void History(ExtentTest test, String user) throws InterruptedException, IOException, AWTException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -13625,7 +13960,7 @@ public class All_Distributor_Methods extends BasePage {
 
 		// WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2));
 		// // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -13844,7 +14179,7 @@ public class All_Distributor_Methods extends BasePage {
 		// WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofMinutes(2));
 		// // 2 minutes
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -13903,7 +14238,7 @@ public class All_Distributor_Methods extends BasePage {
 	public static void SalaryReturn(ExtentTest test, String user)
 			throws InterruptedException, IOException, AWTException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		try {
 			if (LoginLocators.SalaryText().isDisplayed()) {
@@ -14058,7 +14393,7 @@ public class All_Distributor_Methods extends BasePage {
 	public static void LeaveSummaryDetailsReturn(ExtentTest test, String user)
 			throws InterruptedException, IOException, AWTException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		try {
 			if (LoginLocators.LeaveSummaryText().isDisplayed()) {
@@ -14213,7 +14548,7 @@ public class All_Distributor_Methods extends BasePage {
 
 		// WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2));
 		// // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -14374,7 +14709,7 @@ public class All_Distributor_Methods extends BasePage {
 						}
 						LoginLocators.OK().click();
 						Thread.sleep(2000);
-						getDriver().manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
+						getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 						LoginLocators.Refresh().click();
 						Thread.sleep(2000);
 						// test.log(LogStatus.PASS, "Attendance "+ attendance);
@@ -14421,7 +14756,7 @@ public class All_Distributor_Methods extends BasePage {
 		Thread.sleep(20000);
 		MethodsD.LeaveSummaryDetailsChallan(test, user);
 		Thread.sleep(20000);
-		getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		LoginLocators.Refresh().click();
 		Thread.sleep(4000);
 		LoginLocators.Check().click();
@@ -14450,7 +14785,7 @@ public class All_Distributor_Methods extends BasePage {
 	public static void SalaryChallan(ExtentTest test, String user)
 			throws InterruptedException, IOException, AWTException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		try {
 			if (LoginLocators.SalaryText().isDisplayed()) {
@@ -14612,7 +14947,7 @@ public class All_Distributor_Methods extends BasePage {
 	public static void LeaveSummaryDetailsChallan(ExtentTest test, String user)
 			throws InterruptedException, IOException, AWTException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		try {
 			if (LoginLocators.LeaveSummaryText().isDisplayed()) {
@@ -14773,7 +15108,7 @@ public class All_Distributor_Methods extends BasePage {
 
 		// WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2));
 		// // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -14877,7 +15212,7 @@ public class All_Distributor_Methods extends BasePage {
 
 		// WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2));
 		// // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -15082,7 +15417,7 @@ public class All_Distributor_Methods extends BasePage {
 	public static void SalaryEmptysheet(ExtentTest test, String user)
 			throws InterruptedException, IOException, AWTException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		try {
 			if (LoginLocators.SalaryText().isDisplayed()) {
@@ -15208,7 +15543,7 @@ public class All_Distributor_Methods extends BasePage {
 	public static void LeaveSummaryDetailsEmptySheet(ExtentTest test, String user)
 			throws InterruptedException, IOException, AWTException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		try {
 			if (LoginLocators.LeaveSummaryText().isDisplayed()) {
@@ -15335,7 +15670,7 @@ public class All_Distributor_Methods extends BasePage {
 
 		// WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2));
 		// // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -15405,7 +15740,7 @@ public class All_Distributor_Methods extends BasePage {
 
 		// WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2));
 		// // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -15596,7 +15931,7 @@ public class All_Distributor_Methods extends BasePage {
 			throws InterruptedException, IOException, AWTException {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -15786,7 +16121,7 @@ public class All_Distributor_Methods extends BasePage {
 			throws InterruptedException, IOException, AWTException {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -15812,7 +16147,7 @@ public class All_Distributor_Methods extends BasePage {
 			throws InterruptedException, IOException, AWTException {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -15864,7 +16199,7 @@ public class All_Distributor_Methods extends BasePage {
 			throws InterruptedException, IOException, AWTException {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -15942,7 +16277,7 @@ public class All_Distributor_Methods extends BasePage {
 			throws InterruptedException, IOException, AWTException {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -15985,7 +16320,7 @@ public class All_Distributor_Methods extends BasePage {
 			throws InterruptedException, IOException, AWTException {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -16035,7 +16370,7 @@ public class All_Distributor_Methods extends BasePage {
 			throws InterruptedException, IOException, AWTException {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -16083,7 +16418,7 @@ public class All_Distributor_Methods extends BasePage {
 			throws InterruptedException, IOException, AWTException {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -16135,7 +16470,7 @@ public class All_Distributor_Methods extends BasePage {
 	public static void AddUser(ExtentTest test, String user) throws InterruptedException, IOException, AWTException {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -16202,7 +16537,7 @@ public class All_Distributor_Methods extends BasePage {
 			throws InterruptedException, IOException, AWTException {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -16302,7 +16637,7 @@ public class All_Distributor_Methods extends BasePage {
 			throws InterruptedException, IOException, AWTException {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -16406,7 +16741,7 @@ public class All_Distributor_Methods extends BasePage {
 			throws InterruptedException, IOException, AWTException {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -16456,7 +16791,7 @@ public class All_Distributor_Methods extends BasePage {
 	public static void MyDocumnent(ExtentTest test, String user)
 			throws InterruptedException, IOException, AWTException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -16547,7 +16882,7 @@ public class All_Distributor_Methods extends BasePage {
 	public static void MyDocumnentExport(ExtentTest test, String user)
 			throws InterruptedException, IOException, AWTException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -16628,7 +16963,7 @@ public class All_Distributor_Methods extends BasePage {
 	public static void MyDocumnentDigitalSignature(ExtentTest test, String user)
 			throws InterruptedException, IOException, AWTException {
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {
@@ -16718,7 +17053,7 @@ public class All_Distributor_Methods extends BasePage {
 	public static void DigitalSignatureEdit(ExtentTest test, String user)
 			throws InterruptedException, IOException, AWTException {
 
-//	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+//	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 //	Thread.sleep(7000);
 //	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 //	if(user.equalsIgnoreCase("Performer"))
@@ -16820,7 +17155,7 @@ public class All_Distributor_Methods extends BasePage {
 			throws InterruptedException, IOException, AWTException {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if (user.equalsIgnoreCase("Performer")) {

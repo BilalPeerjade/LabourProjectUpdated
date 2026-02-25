@@ -155,9 +155,9 @@ public class DownloadHelper {
     private boolean clickDownloadForStateInternal(String stateText, int occurrence, boolean useContains, boolean caseInsensitive) {
         // defaultTimeoutSeconds and defaultRetries are fields in the class
     //    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(defaultTimeoutSeconds));
-        WebDriverWait wait = new WebDriverWait(getDriver(), (30));
+    	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
         // attempts = defaultRetries + 1 so defaultRetries=1 => 2 attempts
-        int maxAttempts = Math.max(1, defaultRetries + 1);
+        int maxAttempts = Math.max(3, defaultRetries + 1);
 
         try {
             // Build the dynamic XPath that joins via aria-rowindex (works for your grid)

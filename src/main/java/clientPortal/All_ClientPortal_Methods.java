@@ -48,6 +48,7 @@ import distributor.Locators;
 import login.BasePage;
 import login.LoginLocators;
 import rcp.OneCommonMethod;
+import rcp.UploadHelper;
 
 public class All_ClientPortal_Methods extends BasePage {
 
@@ -63,11 +64,11 @@ public class All_ClientPortal_Methods extends BasePage {
 	public static void filterEntity ( ExtentTest test) throws InterruptedException, IOException
 	{Thread.sleep(7000);		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
-	  	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='k-input-inner k-readonly']")));	//Wait until records table get visible.
+	  	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'Active')]")));	//Wait until records table get visible.
 
 	  	
 		All_ClientPortal_Locators.SelectEntity().click();
@@ -90,13 +91,10 @@ public class All_ClientPortal_Methods extends BasePage {
 	
 	public static void filterEntityAUTO2 ( ExtentTest test) throws InterruptedException, IOException
 	{Thread.sleep(7000);		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(6000);
-	    
 		
-	  	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='k-input-inner k-readonly']")));	//Wait until records table get visible.
-
+	  	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'Active')]")));	//Wait until records table get visible.
 	  	
 		All_ClientPortal_Locators.SelectEntity().click();
 		Thread.sleep(4000);
@@ -108,8 +106,9 @@ public class All_ClientPortal_Methods extends BasePage {
 		All_ClientPortal_Locators.EntityTESTAUTO2().click();
 		Thread.sleep(10000);
 		
-		wait.until(ExpectedConditions.visibilityOf(All_ClientPortal_Locators.SelectYear()));
-		
+//		wait.until(ExpectedConditions.visibilityOf(All_ClientPortal_Locators.SelectYear()));
+		OneCommonMethod.explicitWaitForElementClickable(getDriver(), All_ClientPortal_Locators.SelectYear(), 20);
+		Thread.sleep(5000);
 		All_ClientPortal_Locators.SelectYear().click();
 		Thread.sleep(6000);
 	  	All_ClientPortal_Locators.SelectYear22().click();
@@ -154,7 +153,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		
 		Thread.sleep(7000);		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(6000);
 	    
 		
@@ -182,7 +181,7 @@ public class All_ClientPortal_Methods extends BasePage {
 	public static void FlakyTest_filterEntityAUTO2(ExtentTest test) throws InterruptedException, IOException {
 	    Thread.sleep(7000);
 	    Actions action = new Actions(getDriver());
-	    WebDriverWait wait = new WebDriverWait(getDriver(), 120);
+	    WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	    Thread.sleep(6000);
 
 	    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='k-input-inner k-readonly']"))); // Wait until records table get visible.
@@ -464,12 +463,10 @@ public class All_ClientPortal_Methods extends BasePage {
 	
 	
 	public static void LocationsSearch(  ExtentTest test) throws InterruptedException, IOException
-	{Thread.sleep(5000);
+	{
+		Thread.sleep(6000);
 	
-		Thread.sleep(2000);
-		JavascriptExecutor js = (JavascriptExecutor) getDriver();
-	
-	All_ClientPortal_Locators.Locations().click();
+		All_ClientPortal_Locators.Locations().click();
 		Thread.sleep(5000);
 		try {Thread.sleep(5000);
 		All_ClientPortal_Locators.Search().sendKeys("TESTAUTO2",Keys.ENTER);
@@ -496,7 +493,7 @@ public class All_ClientPortal_Methods extends BasePage {
 	int	CategoriesCountDas = Integer.parseInt(string_Categories);
 	All_ClientPortal_Locators.AssignedCompliances().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//img[contains(@title,'Overview')])[1]")));
 		Thread.sleep(8000);
 		js.executeScript("window.scrollBy(0,500)");
@@ -535,7 +532,7 @@ public class All_ClientPortal_Methods extends BasePage {
     CoordinatorMethod.zoomOutScreen(2); // ZoomOut
     Thread.sleep(5000);
 
-    WebDriverWait wait = new WebDriverWait(getDriver(), 10);
+    WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
     wait.until(ExpectedConditions.visibilityOf(All_ClientPortal_Locators.readTotalItems()));
     Thread.sleep(3000);
 
@@ -616,7 +613,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		
 	    All_ClientPortal_Locators.AssignedCompliances().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//img[contains(@title,'Overview')])[1]")));
 		Thread.sleep(8000);
 		Thread.sleep(3000);
@@ -798,7 +795,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 
 		//Explicit wait
-		WebDriverWait wait2 = new WebDriverWait(getDriver(), (30));
+		WebDriverWait wait2 =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		wait2.until(ExpectedConditions.visibilityOf(All_ClientPortal_Locators.AssignedCompliances()));
 		
 		All_ClientPortal_Locators.AssignedCompliances().click();
@@ -1047,7 +1044,7 @@ public class All_ClientPortal_Methods extends BasePage {
 	
 	All_ClientPortal_Locators.AssignedCompliances().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//img[contains(@title,'Overview')])[1]")));
 		Thread.sleep(8000);
 		
@@ -1094,7 +1091,7 @@ public class All_ClientPortal_Methods extends BasePage {
 	    int	CategoriesCountDas = Integer.parseInt(string_Categories);
 	    All_ClientPortal_Locators.ExpiredRegistrations().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		All_ClientPortal_Locators.readTotalItems().click();					//Clicking on total items count
 		Thread.sleep(500);
@@ -1272,7 +1269,7 @@ public class All_ClientPortal_Methods extends BasePage {
 	  	{Thread.sleep(5000);
 	  	
 	      	JavascriptExecutor js = (JavascriptExecutor) getDriver();
-	      	WebDriverWait wait = new WebDriverWait( getDriver(), (120));
+	      	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	      	WebElement element = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/ExportButton.svg']"));
 	      	All_ClientPortal_Locators.ExpiredRegistrations().click();
 			Thread.sleep(5000);
@@ -1313,15 +1310,11 @@ public class All_ClientPortal_Methods extends BasePage {
 		{Thread.sleep(5000);
 		
 			Thread.sleep(2000);
-			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		
 			All_ClientPortal_Locators.ExpiredRegistrations().click();
 			Thread.sleep(5000);
 			All_ClientPortal_Locators.EREdit().click();
 			
-			
-			WebDriverWait wait = new WebDriverWait(getDriver(), 10);
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='k-loader-canvas']")));
 			
 			Thread.sleep(5000);
 			
@@ -1375,7 +1368,6 @@ public class All_ClientPortal_Methods extends BasePage {
 	 public static void InitiateAction( ExtentTest test) throws InterruptedException, IOException
 	  	{Thread.sleep(5000);
 	  	
-	      	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	      	WebElement element = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/ExportButton.svg']"));
 	      	All_ClientPortal_Locators.ExpiredRegistrations().click();
 			Thread.sleep(5000);
@@ -1393,7 +1385,7 @@ public class All_ClientPortal_Methods extends BasePage {
 	  		Thread.sleep(2000);
 	  		All_ClientPortal_Locators.selectActivityTypeApproval().click();
 	  		Thread.sleep(2000);
-	  		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+	  		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	  		All_ClientPortal_Locators.Sumit().click();
 	  		Thread.sleep(2000);
 	  		 By locator = By.xpath("(//h4[@class='f-label'])");
@@ -1431,7 +1423,7 @@ public class All_ClientPortal_Methods extends BasePage {
 	  		All_ClientPortal_Locators.InitiateAction().click();
 	  		Thread.sleep(5000);
 	  		if(All_ClientPortal_Locators.Back().isEnabled()) {Thread.sleep(5000);
-			 
+			 OneCommonMethod.scroll(getDriver(), 500);
 			test.log(LogStatus.PASS,  " Back button working successfully."); 
 			All_ClientPortal_Locators.Back().click();
 	 }
@@ -1455,7 +1447,7 @@ public class All_ClientPortal_Methods extends BasePage {
 	int	CategoriesCountDas = Integer.parseInt(string_Categories);
 	All_ClientPortal_Locators.OpenNotices().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		All_ClientPortal_Locators.readTotalItems().click();					//Clicking on total items count
 		Thread.sleep(500);
@@ -1587,7 +1579,7 @@ public class All_ClientPortal_Methods extends BasePage {
 	public static void ViewAddNew ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{Thread.sleep(5000);		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 			  	All_ClientPortal_Locators.OpenNotices().click();
@@ -1747,7 +1739,7 @@ public class All_ClientPortal_Methods extends BasePage {
 	public static void ViewAddNewNotices (String user, ExtentTest test) throws InterruptedException, IOException, AWTException
 	{Thread.sleep(5000);		
 //		Actions action = new Actions(getDriver());
-//		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+//		WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 			  	All_ClientPortal_Locators.OpenNotices().click();
@@ -1870,9 +1862,11 @@ public class All_ClientPortal_Methods extends BasePage {
 //		Locator.selectDate2().click();
 		
 		All_ClientPortal_Locators.clickNoticeType().click();
+		Thread.sleep(3000);
 		All_ClientPortal_Locators.selectLocation1().click();   //Select Notice type
 		
 		All_ClientPortal_Locators.clickRisk().click();
+		Thread.sleep(3000);
 		All_ClientPortal_Locators.selectLocation1().click();   //Select Risk type
 		
 		
@@ -1978,7 +1972,7 @@ public class All_ClientPortal_Methods extends BasePage {
 	public static void ViewAddNewNoticesNumberError (String user, ExtentTest test) throws InterruptedException, IOException, AWTException
 	{Thread.sleep(5000);		
 //		Actions action = new Actions(getDriver());
-//		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+//		WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 			  	All_ClientPortal_Locators.OpenNotices().click();
@@ -2098,9 +2092,11 @@ public class All_ClientPortal_Methods extends BasePage {
 //		Locator.selectDate2().click();
 		
 		All_ClientPortal_Locators.clickNoticeType().click();
+		Thread.sleep(3000);
 		All_ClientPortal_Locators.selectLocation1().click();   //Select Notice type
 		
 		All_ClientPortal_Locators.clickRisk().click();
+		Thread.sleep(3000);
 		All_ClientPortal_Locators.selectLocation1().click();   //Select Risk type
 		
 		
@@ -2145,7 +2141,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		 
 		 Thread.sleep(1000);
 		 All_ClientPortal_Locators.clickSaveNotice().click();
-		 Thread.sleep(1000);
+		 Thread.sleep(5000);
 		 
 		 
 		 
@@ -2252,7 +2248,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		
 		All_ClientPortal_Locators.View().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//img[contains(@title,'Overview')])[1]")));
 		Thread.sleep(8000);
 		Thread.sleep(3000);
@@ -2299,9 +2295,9 @@ public class All_ClientPortal_Methods extends BasePage {
 		Thread.sleep(5000);
 		
 		All_ClientPortal_Locators.View().click();
-		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//img[contains(@title,'Overview')])[1]")));
+		Thread.sleep(8000);
+//		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+//		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//img[contains(@title,'Overview')])[1]")));
 		Thread.sleep(8000);
 		Thread.sleep(3000);
 		
@@ -2511,6 +2507,7 @@ public class All_ClientPortal_Methods extends BasePage {
 			Thread.sleep(5000);
 			All_ClientPortal_Locators.browse1().click();
 			OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\99mb.pdf");
+			Thread.sleep(5000);Thread.sleep(5000);
 			Thread.sleep(5000);Thread.sleep(5000);
 			String jpgFile = All_ClientPortal_Locators.clickMsg().getText();
 			if(jpgFile.equalsIgnoreCase("File size should not exceed 30Mb limit"))
@@ -3313,7 +3310,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		All_ClientPortal_Locators.View().click();
 		Thread.sleep(5000);
 		
-		All_ClientPortal_Locators.OverviewOpenNotice().click();
+		All_ClientPortal_Locators.ViewAllClient().click();
 		Thread.sleep(5000);
 		All_ClientPortal_Locators.OverviewClose().click();
 		
@@ -3386,7 +3383,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		int CategoriesCountDas = Integer.parseInt(compliancesCount1);
      	All_ClientPortal_Locators.Active().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		All_ClientPortal_Locators.ActiveCol().click();
 		Thread.sleep(3000);
@@ -3436,7 +3433,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		}
 		
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 /*		All_ClientPortal_Locators.ExpiredCol().click();
 		Thread.sleep(3000);
@@ -3517,7 +3514,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		int CategoriesCountDas = Integer.parseInt(compliancesCount1);
      	All_ClientPortal_Locators.Active().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(5000);
 		All_ClientPortal_Locators.ActiveCol().click();
 		Thread.sleep(3000);
@@ -3621,7 +3618,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		int CategoriesCountDas = Integer.parseInt(compliancesCount1);
      	All_ClientPortal_Locators.Expired().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		All_ClientPortal_Locators.ExpiredCol().click();
 		Thread.sleep(3000);
@@ -3727,7 +3724,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		int CategoriesCountDas = Integer.parseInt(compliancesCount1);
      	All_ClientPortal_Locators.Expired().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		All_ClientPortal_Locators.ExpiredCol().click();
 		Thread.sleep(3000);
@@ -3761,7 +3758,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		int CategoriesCountDas = Integer.parseInt(compliancesCount1);
      	All_ClientPortal_Locators.Expired().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		All_ClientPortal_Locators.ExpiredCol().click();
 		Thread.sleep(3000);
@@ -3799,7 +3796,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		int CategoriesCountDas = Integer.parseInt(compliancesCount1);
      	All_ClientPortal_Locators.Expired().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		All_ClientPortal_Locators.ExpiredCol().click();
 		Thread.sleep(3000);
@@ -3837,7 +3834,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		int CategoriesCountDas = Integer.parseInt(compliancesCount1);
      	All_ClientPortal_Locators.Expired().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		All_ClientPortal_Locators.ExpiredCol().click();
 		Thread.sleep(3000);
@@ -3868,7 +3865,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		int CategoriesCountDas = Integer.parseInt(compliancesCount1);
      	All_ClientPortal_Locators.Expired().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		All_ClientPortal_Locators.ExpiredCol().click();
 		Thread.sleep(3000);
@@ -3909,7 +3906,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		int CategoriesCountDas = Integer.parseInt(compliancesCount1);
      	All_ClientPortal_Locators.Expired().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		All_ClientPortal_Locators.ExpiredCol().click();
 		Thread.sleep(3000);
@@ -3965,7 +3962,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		int CategoriesCountDas = Integer.parseInt(compliancesCount1);
      	All_ClientPortal_Locators.Expired().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		All_ClientPortal_Locators.ExpiredCol().click();
 		Thread.sleep(3000);
@@ -4217,7 +4214,7 @@ public class All_ClientPortal_Methods extends BasePage {
   		Thread.sleep(2000);
   		js.executeScript("window.scrollBy(0,5000)");
   		Thread.sleep(2000);
-  		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+  		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
   		All_ClientPortal_Locators.Sumit().click();
   		Thread.sleep(2000);
   		 By locator = By.xpath("(//h4[@class='f-label'])");
@@ -4265,7 +4262,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), 140);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		By locator = By.xpath("(//img[@title='Download'])[1]");
 		
 		By locatora = By.xpath("(//img[@title='Download'])[1]");
@@ -4315,7 +4312,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		
      	All_ClientPortal_Locators.Active().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		All_ClientPortal_Locators.ActiveCol().click();
 		Thread.sleep(3000);
@@ -4340,7 +4337,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		
      	All_ClientPortal_Locators.Expired().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		All_ClientPortal_Locators.ExpiredCol().click();
 		Thread.sleep(3000);
@@ -4379,7 +4376,7 @@ public class All_ClientPortal_Methods extends BasePage {
 	
 		All_ClientPortal_Locators.Active().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		All_ClientPortal_Locators.ActiveCol().click();
 		Thread.sleep(3000);
@@ -4408,7 +4405,7 @@ public class All_ClientPortal_Methods extends BasePage {
 	
 		All_ClientPortal_Locators.Expired().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		All_ClientPortal_Locators.ExpiredCol().click();
 		Thread.sleep(3000);
@@ -4446,7 +4443,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		
      	All_ClientPortal_Locators.Active().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		All_ClientPortal_Locators.ActiveCol().click();
 		Thread.sleep(3000);
@@ -4489,7 +4486,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		
      	All_ClientPortal_Locators.Expired().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		All_ClientPortal_Locators.ExpiredCol().click();
 		Thread.sleep(3000);
@@ -4523,7 +4520,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		
      	All_ClientPortal_Locators.Expired().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		All_ClientPortal_Locators.ExpiredCol().click();
 		Thread.sleep(5000);
@@ -4546,7 +4543,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		
      	All_ClientPortal_Locators.Expired().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		Thread.sleep(5000);
 		
@@ -4569,7 +4566,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		
      	All_ClientPortal_Locators.Expired().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		All_ClientPortal_Locators.ExpiredCol().click();
 		Thread.sleep(3000);
@@ -4604,7 +4601,7 @@ public class All_ClientPortal_Methods extends BasePage {
 	
 		All_ClientPortal_Locators.Active().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		All_ClientPortal_Locators.ActiveCol().click();
 		Thread.sleep(3000);
@@ -4634,7 +4631,7 @@ public class All_ClientPortal_Methods extends BasePage {
 	
 		All_ClientPortal_Locators.Active().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		All_ClientPortal_Locators.ActiveCol().click();
 		
@@ -4656,7 +4653,7 @@ public class All_ClientPortal_Methods extends BasePage {
 	
 		All_ClientPortal_Locators.Expired().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		All_ClientPortal_Locators.ExpiredCol().click();
 		Thread.sleep(3000);
@@ -4687,7 +4684,7 @@ public class All_ClientPortal_Methods extends BasePage {
 	
 		All_ClientPortal_Locators.Expired().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		All_ClientPortal_Locators.ExpiredCol().click();
 		Thread.sleep(3000);
@@ -4729,7 +4726,7 @@ public class All_ClientPortal_Methods extends BasePage {
 	
 		All_ClientPortal_Locators.Active().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	
 		
 	
@@ -4889,7 +4886,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		int CategoriesCountDas = Integer.parseInt(compliancesCount1);
      	All_ClientPortal_Locators.Overdue().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		
 		js.executeScript("window.scrollBy(0,300)");	
@@ -5011,7 +5008,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		All_ClientPortal_Locators.readTotalItemsD().click();					//Clicking on Text of total items just to scroll down.
 		String s = All_ClientPortal_Locators.readTotalItemsD().getText();
 		if(!s.equalsIgnoreCase("0 - 0 of 0 items")) {Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//img[contains(@title,'Overview')])[1]")));
 		Thread.sleep(8000);
 		Thread.sleep(3000);
@@ -5146,7 +5143,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		
 		
 		
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	//	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//img[contains(@title,'Overview')])[1]")));
 		Thread.sleep(8000);
 		Thread.sleep(3000);
@@ -5384,7 +5381,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		
 	}
 	
-	public static void CP_Complied_ExportBtn(  ExtentTest test) throws InterruptedException, IOException
+	public static void CP_Complied_ExportBtn(ExtentTest test) throws InterruptedException, IOException
 	{
 		
 		Thread.sleep(7000);
@@ -5392,11 +5389,17 @@ public class All_ClientPortal_Methods extends BasePage {
 	    OneCommonMethod.validateExportedExcelDYNAMIC(
 	    	    driver.get(),
 	    	    test,
-	    	    LoginLocators.Exportbtn(),        // WebElement for export button
-	    	    All_ClientPortal_Locators.readTotalItemsNotice(),     // WebElement for grid count text
-	    	    "Act",                               // Column header to verify
-	    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+	    	    LoginLocators.Exportbtn(),        
+	    	    All_ClientPortal_Locators.readTotalItemsNotice(),     
+	    	    "Act",                               
+	    	    "File Exported Successfully ! "     
 	    	);
+	    
+	    
+	    
+	    OneCommonMethod.validateExportedExcelDYNAMIC(driver.get(),test,
+	    		LoginLocators.Exportbtn(), All_ClientPortal_Locators.readTotalItemsNotice(),
+				"Employee ID", "File Exported Successfully ! ");
 		
 		Thread.sleep(5000);
 		
@@ -6174,7 +6177,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		All_ClientPortal_Locators.compliancePerformanceOverView().click();
 		Thread.sleep(10000);
 		//Explicit wait
-		WebDriverWait wait2 = new WebDriverWait(getDriver(), (30));
+		WebDriverWait wait2 =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		wait2.until(ExpectedConditions.visibilityOf(All_ClientPortal_Locators.OverviewClose()));
 		Thread.sleep(5000);
 		All_ClientPortal_Locators.OverviewClose().click();
@@ -6444,7 +6447,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		String s = All_ClientPortal_Locators.readTotalItemsD().getText();
 		if(!s.equalsIgnoreCase("0 - 0 of 0 items")) {Thread.sleep(5000);
 		
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//img[contains(@title,'Overview')])[1]")));
 		Thread.sleep(8000);
 		Thread.sleep(3000);
@@ -6484,7 +6487,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		All_ClientPortal_Locators.FCCompied().click();
 		Thread.sleep(5000);
 		
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		All_ClientPortal_Locators.readTotalItems().click();					//Clicking on total items count
 		Thread.sleep(500);
 		String item = All_ClientPortal_Locators.readTotalItems().getText();	//Reading total items String value
@@ -6661,7 +6664,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		All_ClientPortal_Locators.ClraOverdue().click();
 		Thread.sleep(5000);
 		
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//img[contains(@title,'Overview')])[1]")));
 		Thread.sleep(8000);
 		Thread.sleep(3000);
@@ -6695,7 +6698,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		All_ClientPortal_Locators.ClraComplied().click();
 		Thread.sleep(5000);
 		
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		All_ClientPortal_Locators.readTotalItems().click();					//Clicking on total items count
 		Thread.sleep(500);
 		String item = All_ClientPortal_Locators.readTotalItems().getText();	//Reading total items String value
@@ -6843,7 +6846,7 @@ public class All_ClientPortal_Methods extends BasePage {
      	}
      	
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		All_ClientPortal_Locators.OpenCol().click();
 		Thread.sleep(3000);
@@ -7148,16 +7151,16 @@ public class All_ClientPortal_Methods extends BasePage {
 		
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
-		WebElement element = getDriver().findElement(By.xpath("(//*[name()='g'])[31]"));
+		WebElement element = getDriver().findElement(By.xpath("(//*[name()='g'])[33]"));
 		js.executeScript("arguments[0].scrollIntoView(true);", element);
-		Thread.sleep(4000);
+		Thread.sleep(5000);
 		String string_Categories =All_ClientPortal_Locators.Closed().getText();		//Storing old value of Statutory overdue.
 		String[] bits1 = string_Categories.split(" ");								//Splitting the String
 		String compliancesCount1 = bits1[bits1.length - 1];
 		int CategoriesCountDas = Integer.parseInt(compliancesCount1);
      	All_ClientPortal_Locators.Closed().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		All_ClientPortal_Locators.ClosedCol().click();
 		Thread.sleep(3000);
@@ -7189,7 +7192,7 @@ public class All_ClientPortal_Methods extends BasePage {
 	
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
-		WebElement element = getDriver().findElement(By.xpath("(//*[name()='g'])[31]"));
+		WebElement element = (All_ClientPortal_Locators.Closed());
 		js.executeScript("arguments[0].scrollIntoView(true);", element);
 		Thread.sleep(4000);
 		All_ClientPortal_Locators.Closed().click();
@@ -7214,8 +7217,8 @@ public class All_ClientPortal_Methods extends BasePage {
 	OneCommonMethod.validateFileDownloadDynamic(
 		    driver.get(),
 		    test,
-		    All_ClientPortal_Locators.compliancePerformanceFileDownPopup(),   // WebElement
-		    "Document File Downloaded"   // Dynamic log message
+		    All_ClientPortal_Locators.Download1test(),   
+		    "Document File Downloaded"   
 		);
 	
 	}
@@ -7224,7 +7227,7 @@ public class All_ClientPortal_Methods extends BasePage {
 	
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
-		WebElement element = getDriver().findElement(By.xpath("(//*[name()='g'])[31]"));
+		WebElement element = (All_ClientPortal_Locators.ClosedCol());
 		js.executeScript("arguments[0].scrollIntoView(true);", element);
 		Thread.sleep(4000);
 		All_ClientPortal_Locators.Closed().click();
@@ -7248,7 +7251,7 @@ public class All_ClientPortal_Methods extends BasePage {
 	
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
-		WebElement element = getDriver().findElement(By.xpath("(//*[name()='g'])[31]"));
+		WebElement element = (All_ClientPortal_Locators.ClosedCol());
 		js.executeScript("arguments[0].scrollIntoView(true);", element);
 		Thread.sleep(4000);
 		All_ClientPortal_Locators.Closed().click();
@@ -7295,15 +7298,13 @@ public class All_ClientPortal_Methods extends BasePage {
 	
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
-		WebElement element = getDriver().findElement(By.xpath("(//*[name()='g'])[31]"));
+		WebElement element = (All_ClientPortal_Locators.ClosedCol());
 		js.executeScript("arguments[0].scrollIntoView(true);", element);
 		Thread.sleep(4000);
 		All_ClientPortal_Locators.Closed().click();
 		Thread.sleep(5000);
 		
-		
-		
-		OneCommonMethod.zoomOutScreen(2); //Zoom Out
+		OneCommonMethod.setZoom(getDriver(), 80);
 		
 		verifyPaginationGoToNextPage(test);
 		Thread.sleep(5000);
@@ -7354,7 +7355,7 @@ public class All_ClientPortal_Methods extends BasePage {
 	
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
-		WebElement element = getDriver().findElement(By.xpath("(//*[name()='g'])[31]"));
+		WebElement element = (All_ClientPortal_Locators.Closed());
 		js.executeScript("arguments[0].scrollIntoView(true);", element);
 		Thread.sleep(4000);
 		All_ClientPortal_Locators.Closed().click();
@@ -7362,7 +7363,8 @@ public class All_ClientPortal_Methods extends BasePage {
 		
 //		All_ClientPortal_Locators.ClosedCol().click();
 		
-		OneCommonMethod.zoomOutScreen(2); //Zoom Out
+//		OneCommonMethod.zoomOutScreen(2); //Zoom Out
+		OneCommonMethod.setZoom(getDriver(), 80);
 		Thread.sleep(5000);
 		
 		// Step 1: Get count from "Active" column hyperlink
@@ -7398,7 +7400,7 @@ public class All_ClientPortal_Methods extends BasePage {
 	
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
-		WebElement element = getDriver().findElement(By.xpath("(//*[name()='g'])[31]"));
+		WebElement element = (All_ClientPortal_Locators.Closed());
 		js.executeScript("arguments[0].scrollIntoView(true);", element);
 		Thread.sleep(4000);
 		All_ClientPortal_Locators.Closed().click();
@@ -7407,21 +7409,6 @@ public class All_ClientPortal_Methods extends BasePage {
 		All_ClientPortal_Locators.ClosedCol().click();
 		Thread.sleep(5000);
 
-/*		File dir = new File("C:\\Users\\bilali\\Downloads");
-		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
-
-		Thread.sleep(500);
-		Locators.Export().click();
-
-		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\bilali\\Downloads");
-		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
-		Thread.sleep(3000);
-		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
-			test.log(LogStatus.PASS,  " File downloaded successfully.");
-		} else {Thread.sleep(5000);
-			test.log(LogStatus.FAIL,  " File does not downloaded.");
-		} */
 		
 		OneCommonMethod.validateExportedExcel(
 			    driver.get(),
@@ -8011,7 +7998,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		Thread.sleep(5000);
      	All_ClientPortal_Locators.Registration().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		
 		All_ClientPortal_Locators.readTotalItems().click();					//Clicking on total items count
@@ -8461,7 +8448,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		WebElement element = getDriver().findElement(By.xpath("(//*[name()='g'])[62]"));
 		js.executeScript("arguments[0].scrollIntoView(true);", element);
 		Thread.sleep(4000);
-		WebDriverWait wait = new WebDriverWait( getDriver(), (30));
+		WebDriverWait wait2 =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(4000);
      	All_ClientPortal_Locators.ExpRegistration().click();
      	waitForLoaderToDisappear();
@@ -8802,7 +8789,7 @@ public class All_ClientPortal_Methods extends BasePage {
   		Thread.sleep(2000);
   		All_ClientPortal_Locators.selectActivityTypeApproval().click();
   		Thread.sleep(2000);
-  		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+  		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
   		All_ClientPortal_Locators.Sumit().click();
   		Thread.sleep(2000);
   		 By locator = By.xpath("(//h4[@class='f-label'])");
@@ -8839,7 +8826,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		WebElement element = getDriver().findElement(By.xpath("//h4[normalize-space()='My Compliance Calendar']"));
 		js.executeScript("arguments[0].scrollIntoView(true);", element);
 		Thread.sleep(4000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (100)) ;
+		WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		
 		
@@ -8948,7 +8935,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		WebElement element = getDriver().findElement(By.xpath("//h4[normalize-space()='My Compliance Calendar']"));
 		js.executeScript("arguments[0].scrollIntoView(true);", element);
 		Thread.sleep(4000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (100)) ;
+		WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		
 		
@@ -9003,7 +8990,7 @@ public class All_ClientPortal_Methods extends BasePage {
     	WebElement element = getDriver().findElement(By.xpath("//h4[normalize-space()='My Compliance Calendar']"));
 		js.executeScript("arguments[0].scrollIntoView(true);", element);
 		Thread.sleep(4000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (100)) ;
+		WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
      	All_ClientPortal_Locators.ClickTriangle().click();
 		Thread.sleep(2000);
 		All_ClientPortal_Locators.nextmonth().click();
@@ -9051,7 +9038,7 @@ public class All_ClientPortal_Methods extends BasePage {
       	WebElement element = getDriver().findElement(By.xpath("//h4[normalize-space()='My Compliance Calendar']"));
 		js.executeScript("arguments[0].scrollIntoView(true);", element);
 		Thread.sleep(4000);
-  		WebDriverWait wait = new WebDriverWait(getDriver(), (100)) ;
+  		WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
        	All_ClientPortal_Locators.ClickTriangle().click();
   		Thread.sleep(2000);
   		All_ClientPortal_Locators.nextmonth().click();
@@ -9090,7 +9077,7 @@ public class All_ClientPortal_Methods extends BasePage {
       	WebElement element = getDriver().findElement(By.xpath("//div[@class='updates']//div[1]//a[1]"));
 		js.executeScript("arguments[0].scrollIntoView(true);", element);
 		Thread.sleep(4000);
-  		WebDriverWait wait = new WebDriverWait(getDriver(), (100)) ;
+  		WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
   		
   		
   		WebElement left = getDriver().findElement(By.xpath("//button[@class='carousel-btn left-btn']"));
@@ -9163,7 +9150,7 @@ public class All_ClientPortal_Methods extends BasePage {
     public static void InputUpload ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{Thread.sleep(5000);		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	/*	All_ClientPortal_Locators.SelectEntity().click();
 		Thread.sleep(2000);
@@ -9232,7 +9219,7 @@ public class All_ClientPortal_Methods extends BasePage {
     public static void InputUploadTem ( ExtentTest test) throws InterruptedException, IOException, AWTException
    	{Thread.sleep(5000);		
    		Actions action = new Actions(getDriver());
-   		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+   		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
    		Thread.sleep(3000);
    		//All_ClientPortal_Locators.SelectEntity().click();
    		Thread.sleep(2000);
@@ -9268,7 +9255,7 @@ public class All_ClientPortal_Methods extends BasePage {
     public static void InputUploadFilters ( ExtentTest test) throws InterruptedException, IOException, AWTException
    	{Thread.sleep(5000);		
    		Actions action = new Actions(getDriver());
-   		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+   		WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
    		Thread.sleep(3000);
 
 
@@ -9679,7 +9666,7 @@ public class All_ClientPortal_Methods extends BasePage {
     public static void InputUploadTemSa ( ExtentTest test) throws InterruptedException, IOException, AWTException
    	{Thread.sleep(5000);		
    		Actions action = new Actions(getDriver());
-   		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+   		WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
    		Thread.sleep(3000);
    		/*	All_ClientPortal_Locators.SelectEntity().click();
 		Thread.sleep(2000);
@@ -9717,7 +9704,7 @@ public class All_ClientPortal_Methods extends BasePage {
     public static void InputUploadSA ( ExtentTest test) throws InterruptedException, IOException, AWTException
    	{Thread.sleep(5000);		
    		Actions action = new Actions(getDriver());
-   		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+   		WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
    		Thread.sleep(3000);
    		/*	All_ClientPortal_Locators.SelectEntity().click();
 		Thread.sleep(2000);
@@ -10157,7 +10144,7 @@ public class All_ClientPortal_Methods extends BasePage {
 	public static void IUFianlUploadDownload(ExtentTest test) throws InterruptedException, IOException {
 		Thread.sleep(5000);
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 		All_ClientPortal_Locators.InputUpload().click();
 
@@ -10210,7 +10197,7 @@ public class All_ClientPortal_Methods extends BasePage {
 	public static void IUFianlUploadDownloadSalary(ExtentTest test) throws InterruptedException, IOException {
 		Thread.sleep(5000);
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 		All_ClientPortal_Locators.InputUpload().click();
 
@@ -10314,6 +10301,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		All_ClientPortal_Locators.browse2().click();
 		Thread.sleep(3000);
 		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\OtherTwo\\Empty.zip");
+		
 		Thread.sleep(3000);
 		All_ClientPortal_Locators.upload2().click();
 
@@ -10466,7 +10454,7 @@ public class All_ClientPortal_Methods extends BasePage {
     public static void InputUploadTemChha ( ExtentTest test) throws InterruptedException, IOException, AWTException
    	{Thread.sleep(5000);		
    		Actions action = new Actions(getDriver());
-   		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+   		WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
    		Thread.sleep(3000);
    		/*	All_ClientPortal_Locators.SelectEntity().click();
 		Thread.sleep(2000);
@@ -10512,7 +10500,7 @@ public class All_ClientPortal_Methods extends BasePage {
     public static void InputUploadCh ( ExtentTest test) throws InterruptedException, IOException, AWTException
    	{Thread.sleep(5000);		
    		Actions action = new Actions(getDriver());
-   		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+   		WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
    		Thread.sleep(3000);
    		/*	All_ClientPortal_Locators.SelectEntity().click();
 		Thread.sleep(2000);
@@ -10994,7 +10982,7 @@ public class All_ClientPortal_Methods extends BasePage {
     public static void InputUploadTemRe ( ExtentTest test) throws InterruptedException, IOException, AWTException
    	{Thread.sleep(5000);		
    		Actions action = new Actions(getDriver());
-   		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+   		WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
    		Thread.sleep(3000);
    		/*	All_ClientPortal_Locators.SelectEntity().click();
 		Thread.sleep(2000);
@@ -11039,7 +11027,7 @@ public class All_ClientPortal_Methods extends BasePage {
     public static void InputUploadRe ( ExtentTest test) throws InterruptedException, IOException, AWTException
    	{Thread.sleep(5000);		
    		Actions action = new Actions(getDriver());
-   		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+   		WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
    		Thread.sleep(3000);
    		/*	All_ClientPortal_Locators.SelectEntity().click();
 		Thread.sleep(2000);
@@ -11112,7 +11100,7 @@ public class All_ClientPortal_Methods extends BasePage {
 	public static void InputUploadReturn(ExtentTest test) throws InterruptedException, IOException, AWTException {
 		Thread.sleep(5000);
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait(getDriver(), (40));
+		WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 
 		All_ClientPortal_Locators.InputUpload().click();
@@ -11230,7 +11218,7 @@ public class All_ClientPortal_Methods extends BasePage {
 	public static void InputUploadReturnOtherUp(ExtentTest test) throws InterruptedException, IOException, AWTException {
 		Thread.sleep(5000);
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait(getDriver(), (40));
+		WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 
 		All_ClientPortal_Locators.InputUpload().click();
@@ -12059,7 +12047,7 @@ public class All_ClientPortal_Methods extends BasePage {
 	{
 	
 		
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		All_ClientPortal_Locators.clickLicense().click();
 		Thread.sleep(1000);
 		All_ClientPortal_Locators.clickRegistration().click();
@@ -12541,7 +12529,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		Thread.sleep(1000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), 140);
+		WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 
 		
 		Thread.sleep(1000);
@@ -12687,7 +12675,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		Thread.sleep(1000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), 140);
+		WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 
 		
 		Thread.sleep(1000);
@@ -12796,7 +12784,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		Thread.sleep(1000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), 140);
+		WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 
 		
 		Thread.sleep(1000);
@@ -13346,7 +13334,7 @@ public static void RegisrationRespository(ExtentTest test) throws InterruptedExc
 	
 	Thread.sleep(8000);
 	//Explicit wait
-	WebDriverWait wait2 = new WebDriverWait(getDriver(), (30));
+	WebDriverWait wait2 =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	wait2.until(ExpectedConditions.visibilityOf(All_ClientPortal_Locators.Branch()));
 	
 	All_ClientPortal_Locators.Branch().click();
@@ -13412,7 +13400,7 @@ public static void RegisrationRespository(ExtentTest test) throws InterruptedExc
 
 public static void RegistrationRepositoryFilter(ExtentTest test) throws InterruptedException
 {
-	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 	Thread.sleep(1000);
 /*	All_ClientPortal_Locators.clickEntity().click();
@@ -13434,7 +13422,7 @@ public static void RegistrationRepositoryFilter(ExtentTest test) throws Interrup
      
  	Thread.sleep(6000);
  	//Explicit wait
- 	WebDriverWait wait2 = new WebDriverWait(getDriver(), (30));
+ 	WebDriverWait wait2 =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
  	wait2.until(ExpectedConditions.visibilityOf(All_ClientPortal_Locators.Branch()));
  	
  	All_ClientPortal_Locators.Branch().click();
@@ -14884,7 +14872,7 @@ public static void StatutoryDocFilter(ExtentTest test) throws InterruptedExcepti
 }
 public static void StateDocZipFile(ExtentTest test) throws InterruptedException
 {
-	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+	WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	Thread.sleep(3000);
 /*	All_ClientPortal_Locators.clickEntity().click();
@@ -14921,7 +14909,7 @@ public static void StateDocZipFile(ExtentTest test) throws InterruptedException
 	Thread.sleep(1000);
 	All_ClientPortal_Locators.clickYear().click();
 	Thread.sleep(1000);
-	All_ClientPortal_Locators.selectYear2024().click();
+	All_ClientPortal_Locators.selectYear_2024().click();
 	
 
 	/*
@@ -15002,20 +14990,9 @@ public static void StateDocZipFile(ExtentTest test) throws InterruptedException
 
 public static void StatutoryDocViewandOverview(ExtentTest test) throws InterruptedException
 {
-	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+	WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	Thread.sleep(3000);
-/*	All_ClientPortal_Locators.clickEntity().click();
-	Thread.sleep(3000);
-	All_ClientPortal_Locators.clickTringle1().click();
-	Thread.sleep(3000);
-	All_ClientPortal_Locators.selectEnity().click();
-	Thread.sleep(3000);
-	All_ClientPortal_Locators.clickYear().click();
-	Thread.sleep(1000);
-	All_ClientPortal_Locators.selectYear().click();
-	Thread.sleep(1000);
-	All_ClientPortal_Locators.ClickApplyBtn().click(); */
 	
 	Thread.sleep(1000);
 	All_ClientPortal_Locators.clickMyDoc().click();
@@ -15039,7 +15016,7 @@ public static void StatutoryDocViewandOverview(ExtentTest test) throws Interrupt
 	Thread.sleep(1000);
 	All_ClientPortal_Locators.clickYear().click();
 	Thread.sleep(1000);
-	All_ClientPortal_Locators.selectYear2024().click();
+	All_ClientPortal_Locators.selectYear_2024().click();
 	
 
 	Thread.sleep(1000);
@@ -15074,20 +15051,9 @@ public static void StatutoryDocViewandOverview(ExtentTest test) throws Interrupt
 }
 public static void StatutoryDocBulkDownload(ExtentTest test) throws InterruptedException
 {
-	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+	WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	Thread.sleep(1000);
-/*	All_ClientPortal_Locators.clickEntity().click();
-	Thread.sleep(1000);
-	All_ClientPortal_Locators.clickTringle1().click();
-	Thread.sleep(1000);
-	All_ClientPortal_Locators.selectEnity().click();
-	Thread.sleep(1000);
-	All_ClientPortal_Locators.clickYear().click();
-	Thread.sleep(1000);
-	All_ClientPortal_Locators.selectYear().click();
-	Thread.sleep(1000);
-	All_ClientPortal_Locators.ClickApplyBtn().click(); */
 	
 	Thread.sleep(1000);
 	All_ClientPortal_Locators.clickMyDoc().click();
@@ -15111,7 +15077,7 @@ public static void StatutoryDocBulkDownload(ExtentTest test) throws InterruptedE
 	Thread.sleep(1000);
 	All_ClientPortal_Locators.clickYear().click();
 	Thread.sleep(1000);
-	All_ClientPortal_Locators.selectYear2024().click();
+	All_ClientPortal_Locators.selectYear_2024().click();
 	
 
 	Thread.sleep(1000);
@@ -15166,7 +15132,7 @@ public static void StatutoryDocBulkDownload(ExtentTest test) throws InterruptedE
 
 public static void ChallanDoc(ExtentTest test) throws InterruptedException
 {
-	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+	WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	Thread.sleep(3000);
 /*	All_ClientPortal_Locators.clickEntity().click();
@@ -15203,7 +15169,7 @@ public static void ChallanDoc(ExtentTest test) throws InterruptedException
 	Thread.sleep(1000);
 	All_ClientPortal_Locators.clickYear().click();
 	Thread.sleep(1000);
-	All_ClientPortal_Locators.selectYear2024().click();
+	All_ClientPortal_Locators.selectYear_2024().click();
 	
 
 
@@ -15278,20 +15244,9 @@ public static void ChallanDoc(ExtentTest test) throws InterruptedException
 
 public static void ChallanComplianceDoc(ExtentTest test) throws InterruptedException
 {
-	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+	WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	Thread.sleep(3000);
-/*	All_ClientPortal_Locators.clickEntity().click();
-	Thread.sleep(3000);
-	All_ClientPortal_Locators.clickTringle1().click();
-	Thread.sleep(3000);
-	All_ClientPortal_Locators.selectEnity().click();
-	Thread.sleep(1000);
-	All_ClientPortal_Locators.clickYear().click();
-	Thread.sleep(1000);
-	All_ClientPortal_Locators.selectYear().click();
-	Thread.sleep(1000);
-	All_ClientPortal_Locators.ClickApplyBtn().click(); */
 	
 	Thread.sleep(1000);
 	All_ClientPortal_Locators.clickMyDoc().click();
@@ -15315,7 +15270,7 @@ public static void ChallanComplianceDoc(ExtentTest test) throws InterruptedExcep
 	Thread.sleep(1000);
 	All_ClientPortal_Locators.clickYear().click();
 	Thread.sleep(1000);
-	All_ClientPortal_Locators.selectYear2024().click();
+	All_ClientPortal_Locators.selectYear_2024().click();
 	
 
 
@@ -15388,20 +15343,9 @@ public static void ChallanComplianceDoc(ExtentTest test) throws InterruptedExcep
 }
 public static void ChallanViewBranches(ExtentTest test) throws InterruptedException
 {
-	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+	WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	Thread.sleep(3000);
-/*	All_ClientPortal_Locators.clickEntity().click();
-	Thread.sleep(3000);
-	All_ClientPortal_Locators.clickTringle1().click();
-	Thread.sleep(3000);
-	All_ClientPortal_Locators.selectEnity().click();
-	Thread.sleep(1000);
-	All_ClientPortal_Locators.clickYear().click();
-	Thread.sleep(1000);
-	All_ClientPortal_Locators.selectYear().click();
-	Thread.sleep(1000);
-	All_ClientPortal_Locators.ClickApplyBtn().click(); */
 	
 	Thread.sleep(1000);
 	All_ClientPortal_Locators.clickMyDoc().click();
@@ -15425,7 +15369,7 @@ public static void ChallanViewBranches(ExtentTest test) throws InterruptedExcept
 	Thread.sleep(1000);
 	All_ClientPortal_Locators.clickYear().click();
 	Thread.sleep(1000);
-	All_ClientPortal_Locators.selectYear2024().click();
+	All_ClientPortal_Locators.selectYear_2024().click();
 	
 
 
@@ -15456,20 +15400,9 @@ public static void ChallanViewBranches(ExtentTest test) throws InterruptedExcept
 }
 public static void ChallanViewWorkingFile(ExtentTest test) throws InterruptedException
 {
-	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+	WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	Thread.sleep(3000);
-/*	All_ClientPortal_Locators.clickEntity().click();
-	Thread.sleep(3000);
-	All_ClientPortal_Locators.clickTringle1().click();
-	Thread.sleep(3000);
-	All_ClientPortal_Locators.selectEnity().click();
-	Thread.sleep(4000);
-	All_ClientPortal_Locators.clickYear().click();
-	Thread.sleep(5000);
-	All_ClientPortal_Locators.selectYear().click();
-	Thread.sleep(5000);
-	All_ClientPortal_Locators.ClickApplyBtn().click(); */
 	
 	Thread.sleep(6000);
 	All_ClientPortal_Locators.clickMyDoc().click();
@@ -15493,7 +15426,7 @@ public static void ChallanViewWorkingFile(ExtentTest test) throws InterruptedExc
 	Thread.sleep(1000);
 	All_ClientPortal_Locators.clickYear().click();
 	Thread.sleep(1000);
-	All_ClientPortal_Locators.selectYear2024().click();
+	All_ClientPortal_Locators.selectYear_2024().click();
 	
 
 
@@ -15517,20 +15450,9 @@ public static void ChallanViewWorkingFile(ExtentTest test) throws InterruptedExc
 }
 public static void ChallanViewComplianceFile(ExtentTest test) throws InterruptedException
 {
-	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+	WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	Thread.sleep(3000);
-/*	All_ClientPortal_Locators.clickEntity().click();
-	Thread.sleep(3000);
-	All_ClientPortal_Locators.clickTringle1().click();
-	Thread.sleep(3000);
-	All_ClientPortal_Locators.selectEnity().click();
-	Thread.sleep(1000);
-	All_ClientPortal_Locators.clickYear().click();
-	Thread.sleep(1000);
-	All_ClientPortal_Locators.selectYear().click();
-	Thread.sleep(1000);
-	All_ClientPortal_Locators.ClickApplyBtn().click(); */
 	
 	Thread.sleep(1000);
 	All_ClientPortal_Locators.clickMyDoc().click();
@@ -15554,7 +15476,7 @@ public static void ChallanViewComplianceFile(ExtentTest test) throws Interrupted
 	Thread.sleep(1000);
 	All_ClientPortal_Locators.clickYear().click();
 	Thread.sleep(1000);
-	All_ClientPortal_Locators.selectYear2024().click();
+	All_ClientPortal_Locators.selectYear_2024().click();
 	
 
 
@@ -15582,17 +15504,6 @@ public static void ChallanDocBulkDownload(ExtentTest test) throws InterruptedExc
 
 	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	Thread.sleep(3000);
-/*	All_ClientPortal_Locators.clickEntity().click();
-	Thread.sleep(3000);
-	All_ClientPortal_Locators.clickTringle1().click();
-	Thread.sleep(3000);
-	All_ClientPortal_Locators.selectEnity().click();
-	Thread.sleep(1000);
-	All_ClientPortal_Locators.clickYear().click();
-	Thread.sleep(1000);
-	All_ClientPortal_Locators.selectYear().click();
-	Thread.sleep(1000);
-	All_ClientPortal_Locators.ClickApplyBtn().click(); */
 	
 	Thread.sleep(1000);
 	All_ClientPortal_Locators.clickMyDoc().click();
@@ -15616,7 +15527,7 @@ public static void ChallanDocBulkDownload(ExtentTest test) throws InterruptedExc
 	Thread.sleep(1000);
 	All_ClientPortal_Locators.clickYear().click();
 	Thread.sleep(1000);
-	All_ClientPortal_Locators.selectYear2024().click();
+	All_ClientPortal_Locators.selectYear_2024().click();
 	
 
 
@@ -16044,7 +15955,7 @@ public static void SearchBoxMasterAbstarct(ExtentTest test) throws InterruptedEx
 public static void MultipleDocument( ExtentTest test) throws InterruptedException, IOException, AWTException
 {
 
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(All_ClientPortal_Locators.MyDocument()));	
 /*	All_ClientPortal_Locators.Entity().click();
@@ -16113,10 +16024,28 @@ public static void MultipleDocument( ExtentTest test) throws InterruptedExceptio
 	
 }
 
+public static void corpExport(  ExtentTest test) throws InterruptedException, IOException
+{
+	
+	Thread.sleep(5000);
+	All_ClientPortal_Locators.selectMonthDrp().click();
+	Thread.sleep(2000);
+	All_ClientPortal_Locators.selectTriangleFirst().click();
+	Thread.sleep(2000);
+	All_ClientPortal_Locators.selectCBFirst().click();
+	Thread.sleep(2000);
+	All_ClientPortal_Locators.Applybtn().click();
+	Thread.sleep(5000);
+	OneCommonMethod.validateFileDownloadDynamicMASTER(driver.get(),
+			test,All_ClientPortal_Locators.CorpExport()," Corporates Exported Successfully.",2000);
+	
+	
+}
+
 public static void MyDocument( ExtentTest test) throws InterruptedException, IOException, AWTException
 {
 
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(All_ClientPortal_Locators.MyDocument()));	
 	All_ClientPortal_Locators.Entity().click();
@@ -16182,7 +16111,7 @@ public static void MyDocument( ExtentTest test) throws InterruptedException, IOE
 public static void MyDocumentView( ExtentTest test) throws InterruptedException, IOException, AWTException
 {
 
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(All_ClientPortal_Locators.MyDocument()));	
 	All_ClientPortal_Locators.Entity().click();
@@ -16235,7 +16164,7 @@ public static void MyDocumentView( ExtentTest test) throws InterruptedException,
 public static void MyDocumentFilter( ExtentTest test) throws InterruptedException, IOException, AWTException
 {
 
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(All_ClientPortal_Locators.MyDocument()));	
 	All_ClientPortal_Locators.Entity().click();
@@ -16403,7 +16332,7 @@ for(String Fal : fail)
 public static void MyDocumentAllTab( ExtentTest test) throws InterruptedException, IOException, AWTException
 {
 
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(All_ClientPortal_Locators.MyDocument()));
 	All_ClientPortal_Locators.Entity().click();
@@ -16429,7 +16358,7 @@ if(All_ClientPortal_Locators.StaDocument().isDisplayed()&&All_ClientPortal_Locat
 public static void CriticalDocument( ExtentTest test) throws InterruptedException, IOException, AWTException
 {
 
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(All_ClientPortal_Locators.MyDocument()));	
 /*	All_ClientPortal_Locators.Entity().click();
@@ -16471,7 +16400,7 @@ public static void CriticalDocument( ExtentTest test) throws InterruptedExceptio
 public static void CriticalDocumentSubFolder( ExtentTest test) throws InterruptedException, IOException, AWTException
 {
 
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(All_ClientPortal_Locators.MyDocument()));	
 /*	All_ClientPortal_Locators.Entity().click();
@@ -16517,7 +16446,7 @@ public static void CriticalDocumentSubFolder( ExtentTest test) throws Interrupte
 public static void CriticalDocumentNewFile( ExtentTest test) throws InterruptedException, IOException, AWTException
 {
 
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(All_ClientPortal_Locators.MyDocument()));	
 /*	All_ClientPortal_Locators.Entity().click();
@@ -16586,7 +16515,7 @@ public static void CriticalDocumentNewFile( ExtentTest test) throws InterruptedE
 public static void CriticalDocumentshare( ExtentTest test) throws InterruptedException, IOException, AWTException
 {
 
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(All_ClientPortal_Locators.MyDocument()));	
 
@@ -16625,7 +16554,7 @@ public static void CriticalDocumentshare( ExtentTest test) throws InterruptedExc
 
 public static void criticalDocumentsCancelAndDelete(ExtentTest test, String user) throws InterruptedException, IOException, AWTException {
 
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	if(user.equalsIgnoreCase("Cancel Button"))
 	{
@@ -16675,7 +16604,7 @@ public static void clickElementUsingJS(WebElement element) {
 
 public static void waitForLoaderToDisappear() {
     try {
-        WebDriverWait wait = new WebDriverWait(getDriver(), 140);
+        WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
         // Wait until loader disappears from the screen
         wait.until(ExpectedConditions.invisibilityOf(All_ClientPortal_Locators.loaderTime()));
     } catch (org.openqa.selenium.TimeoutException e) {
@@ -16779,7 +16708,7 @@ public static void verifyPaginationGoToLastPage(ExtentTest test) {
             test.log(LogStatus.INFO, "Pagination: Last Page button is not clickable, possibly due to no data available to paginate.");
         }
     } catch (Exception e) {
-        test.log(LogStatus.ERROR, "Pagination to last page check failed due to: " + e.getMessage());
+//        test.log(LogStatus.ERROR, "Pagination to last page check failed due to: " + e.getMessage());
     }
 }
 

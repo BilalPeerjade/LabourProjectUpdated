@@ -69,8 +69,6 @@ import java.util.Set;
 
 
 
-
-
 public class UtilisOne {
 	
 	
@@ -185,7 +183,7 @@ public class UtilisOne {
      * 2. Validating a downloaded column till a row containing a "Total" keyword
      */
 	
-	private static final boolean ENABLE_HTML_REPORT_TABLE = false;
+	private static final boolean ENABLE_HTML_REPORT_TABLE = true;
     public static void validateExcelBusinessData(
             File downloadedFile,
             ExtentTest test,
@@ -197,7 +195,7 @@ public class UtilisOne {
         try {
         	
         	//If no need we can remove below log file fetch data:
-        //	test.log(LogStatus.INFO, "📄 Data Fetch file name: " + downloadedFile.getName()); 
+        	//	test.log(LogStatus.INFO, "📄 Data Fetch file name: " + downloadedFile.getName()); 
         	
             if (downloadedFile == null || !downloadedFile.exists()) {
             	
@@ -402,7 +400,59 @@ public class UtilisOne {
                 if (ENABLE_HTML_REPORT_TABLE) {
 
                       //Enhancement need to add 
+                	
+                	
+                	//OLD Table---
+
+//				    StringBuilder htmlTable = new StringBuilder(); //Not Safe
+                	StringBuffer htmlTable = new StringBuffer(); //Thread Safe
+
+					String masterColLetter = getExcelColumnLetter2(master.getEmpNameColumnIndex());
+					String masterHeader = getHeaderValue(master.getFilePath(), master.getSheetName(),
+							master.getEmpNameColumnIndex());
+
+					String downloadedColLetter = getExcelColumnLetter2(target.getColumnIndex());
+					String downloadedHeader = target.getHeaderKeyword() != null ? target.getHeaderKeyword() : "";
+
+					String masterColumnHeader = masterColLetter + ": " + masterHeader;
+					String downloadedColumnHeader = downloadedColLetter + ": " + downloadedHeader;
+
+					htmlTable.append("<br><b>📊 Sample Comparison Table:</b><br>")
+					         .append("<table border='1' cellpadding='4' style='border-collapse:collapse; text-align:center; font-family:Arial, sans-serif;'>")
+							 .append("<tr style='background-color:#f2f2f2;'>")
+							 .append("<th style='width:60px;'>Row No.<br><small>&nbsp;</small></th>")
+							 .append("<th>Master Value<br><small>").append(masterColumnHeader).append("</small></th>")
+							 .append("<th>Downloaded Value<br><small>").append(downloadedColumnHeader)
+							 .append("</small></th>").append("<th>Result<br><small>&nbsp;</small></th>").append("</tr>");
+
+					int rowNum = 1;
+					for (String masterValue : filteredNames) {
+						if (rowNum > 5)
+							break; // Show only first 5 rows
+
+						boolean isPresent = normalizedFoundNames.contains(masterValue);
+						String matchResult = isPresent ? "<span style='color:green;font-weight:bold;'>PASS</span>"
+								: "<span style='color:red;font-weight:bold;'>FAIL</span>";
+						String downloadedMatch = isPresent ? masterValue : "❌ Not Found";
+
+						htmlTable.append("<tr>").append("<td>").append(rowNum).append("</td>").append("<td>")
+								.append(masterValue).append("</td>").append("<td>").append(downloadedMatch)
+								.append("</td>").append("<td>").append(matchResult).append("</td>").append("</tr>");
+
+						rowNum++;
+					}
+
+					htmlTable.append("</table>");
+					test.log(LogStatus.INFO, htmlTable.toString());
+                	
+					System.out.println(LogStatus.INFO + " Hiii");
+                	
                 
+                	
+                	
+                	
+                	
+                	
                 
                 } // end HTML report
 
@@ -695,7 +745,6 @@ public class UtilisOne {
     
     
     //This method is for Excel Value Normalizer
-    
     
     
     

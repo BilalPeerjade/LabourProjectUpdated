@@ -4,6 +4,7 @@ import java.awt.AWTException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -226,9 +227,9 @@ public class Method extends BasePage
 	 {
 	 	
 	 	JavascriptExecutor js = (JavascriptExecutor) getDriver();
-	 	
+	 	Thread.sleep(2000); 
 	 	getDriver().navigate().refresh();
-	 	 Thread.sleep(2000); 		
+	 	 Thread.sleep(10000); 		
 //	      Locator.readTotalItems().click();
 	 		String item = Locator.readTotalItems().getText();
 	 		
@@ -331,12 +332,12 @@ public class Method extends BasePage
 	 public static void NoticeSearchBox(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
 	 {
 	 	
-
+		 Thread.sleep(3000);
 	 	 getDriver().navigate().refresh();
 	 	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	 	
 	 	
-	 	Thread.sleep(3000);
+	 	Thread.sleep(10000);
 	 	Locator.SearchBox().sendKeys("Test Automation 2",Keys.ENTER);
 
 	 	List<String> li=new ArrayList<String>();
@@ -452,10 +453,10 @@ public class Method extends BasePage
 	 
 	 public static void NoticeEditDownload(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
 	 {
-
-	 	 getDriver().navigate().refresh();
+		Thread.sleep(2000);
+	 	getDriver().navigate().refresh();
 	 	JavascriptExecutor js = (JavascriptExecutor) getDriver();	
-	 	Thread.sleep(2000);
+	 	Thread.sleep(10000);
 	 	File dir3 = new File("C:\\Users\\bilali\\Downloads");
 	 	File[] dirContents1 = dir3.listFiles();							//Counting number of files in directory before download 
 
@@ -515,7 +516,7 @@ public class Method extends BasePage
 
 	 	
 	 	JavascriptExecutor js = (JavascriptExecutor) getDriver();	
-	 	Thread.sleep(4000);
+	 	Thread.sleep(7000);
 	 	getDriver().findElement(By.xpath("//span[normalize-space()='Translation Pending']")).click();
 	 	Thread.sleep(4000);
 	 	Locator.EditBtn().click();
@@ -581,7 +582,7 @@ public class Method extends BasePage
 
 	 	
 	 	JavascriptExecutor js = (JavascriptExecutor) getDriver();	
-	 	Thread.sleep(4000);
+	 	Thread.sleep(7000);
 	 	getDriver().findElement(By.xpath("//span[normalize-space()='Ext.Submission Pending']")).click();
 	 	Thread.sleep(4000);
 	 	Locator.EditBtn().click();
@@ -708,7 +709,7 @@ public class Method extends BasePage
 
 	 	
 	 	JavascriptExecutor js = (JavascriptExecutor) getDriver();	
-	 	Thread.sleep(4000);
+	 	Thread.sleep(7000);
 	 	getDriver().findElement(By.xpath("//span[normalize-space()='Submission Pending']")).click();
 	 	Thread.sleep(4000);
 	 	Locator.EditBtn().click();
@@ -908,8 +909,8 @@ public class Method extends BasePage
 	 public static void RegistrationCountMatch( ExtentTest test,String Notice) throws InterruptedException, IOException
 		{
 
-	 	 getDriver().navigate().refresh();
-		 
+		Thread.sleep(3000);
+	 	getDriver().navigate().refresh();
 		Thread.sleep(10000);
 		Locator.clickRegistration().click();
 		int pendingAssignment = 0;
@@ -977,7 +978,7 @@ public class Method extends BasePage
 	 
 	 public static void registrationExportTabs( ExtentTest test,String Notice) throws InterruptedException, IOException
 		{
-
+		 Thread.sleep(3000);
 	 	 getDriver().navigate().refresh();
 		 
 		Thread.sleep(10000);
@@ -1040,9 +1041,10 @@ public class Method extends BasePage
 	 public static void ExportBtn( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 		{
 
+		 Thread.sleep(2000);
 	 	 getDriver().navigate().refresh();
 		
-			Thread.sleep(3000);
+			Thread.sleep(10000);
 			Locator.clickRegistration().click();
 			
 			 Thread.sleep(2000); 		
@@ -1133,11 +1135,11 @@ public class Method extends BasePage
 			}
 	 public static void SearchBox(ExtentTest test) throws InterruptedException
 		{
-
+		 Thread.sleep(2000);
 	 	 getDriver().navigate().refresh();
 			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		
-			Thread.sleep(3000);
+			Thread.sleep(10000);
 			Locator.clickRegistration().click();
 			
 				Thread.sleep(5000);
@@ -1244,11 +1246,11 @@ public class Method extends BasePage
 	 
 	 public static void EditIcon(ExtentTest test) throws InterruptedException
 		{
-
-	 getDriver().navigate().refresh();
+		 Thread.sleep(5000);
+		 getDriver().navigate().refresh();
 			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 			
-			Thread.sleep(3000);
+			Thread.sleep(10000);
 			Locator.clickRegistration().click();
 			
 			Thread.sleep(5000);
@@ -1271,10 +1273,11 @@ public class Method extends BasePage
 	 public static void editSubmittedToDept(ExtentTest test) throws Exception
 		{
 
+		 	Thread.sleep(3000);
 			getDriver().navigate().refresh();
 			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 
-			Thread.sleep(3000);
+			Thread.sleep(10000);
 			Locator.clickRegistration().click();
 
 			Thread.sleep(6000);
@@ -1338,11 +1341,11 @@ public class Method extends BasePage
 	 
 	 public static void activityColsureLable(ExtentTest test) throws Exception
 		{
-
+			Thread.sleep(2000);
 			getDriver().navigate().refresh();
 			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 
-			Thread.sleep(3000);
+			Thread.sleep(10000);
 			Locator.clickRegistration().click();
 
 			Thread.sleep(6000);
@@ -1442,7 +1445,7 @@ public class Method extends BasePage
 	 
 	 public static void registrationEditTabs(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
 	 {
-			WebDriverWait wait = new WebDriverWait(getDriver(), 140);
+		 WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 
 			Thread.sleep(5000);
 			Locator.clickRegistration().click();
@@ -1510,7 +1513,7 @@ public class Method extends BasePage
 		}
 	 public static void registrationEditDocumentRepositiory(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
 	 {
-			WebDriverWait wait = new WebDriverWait(getDriver(), 140);
+		 WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 
 			Thread.sleep(5000);
 			Locator.clickRegistration().click();
@@ -1710,10 +1713,10 @@ public class Method extends BasePage
 	 
 	 public static void ExistingLicenseCountMatch( ExtentTest test,String Notice) throws InterruptedException, IOException
 		{
-
-	  getDriver().navigate().refresh();
+		 Thread.sleep(2000);
+		 getDriver().navigate().refresh();
 		 
-		 Thread.sleep(3000);
+		 Thread.sleep(10000);
 		Locator.clickRegistration().click();
 			
 		Thread.sleep(6000);
@@ -1859,11 +1862,11 @@ public class Method extends BasePage
 	 public static void SearchBoxExistiongLicense(ExtentTest test) throws InterruptedException
 		{
 			
-
+		 Thread.sleep(3000);
 	  getDriver().navigate().refresh();
 			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 			
-			Thread.sleep(3000);
+			Thread.sleep(10000);
 			Locator.clickRegistration().click();
 			Thread.sleep(6000);
 			Locator.ExistingLicesne().click();
@@ -1975,11 +1978,11 @@ public class Method extends BasePage
 	 
 	 public static void ExistingLicenseViewIcon(ExtentTest test) throws InterruptedException
 		{
-
+		 Thread.sleep(3000);
 	  getDriver().navigate().refresh();
 			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 			
-			Thread.sleep(3000);
+			Thread.sleep(10000);
 			Locator.clickRegistration().click();
 			Thread.sleep(6000);
 			Locator.ExistingLicesne().click();
@@ -1987,7 +1990,7 @@ public class Method extends BasePage
 //			Locator.pendingActionLicenseCount().click();
 
 			
-			Thread.sleep(1000);
+			Thread.sleep(6000);
 			Locator.ExistingLicesneViewIcon().click();
 			
 			Thread.sleep(3000);
@@ -2002,7 +2005,8 @@ public class Method extends BasePage
 			{
 				test.log(LogStatus.FAIL, "Existing License Details not open successfully:-" +msg);
 			}
-			Thread.sleep(1000);
+			Thread.sleep(3000);
+			OneCommonMethod.scroll(getDriver(), 500);
 			Locator.clickBack().click();
 			
 			
@@ -2010,11 +2014,11 @@ public class Method extends BasePage
 		
 		public static void ExistingLicenseDownload(ExtentTest test) throws InterruptedException, IOException
 		{
-
+			Thread.sleep(3000);
 		 	getDriver().navigate().refresh();
 			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 			
-			Thread.sleep(3000);
+			Thread.sleep(10000);
 			Locator.clickRegistration().click();
 			Thread.sleep(6000);
 			Locator.ExistingLicesne().click();
@@ -2033,10 +2037,10 @@ public class Method extends BasePage
 			Locator.ExistingLicesneDownload().click();
 			
 			
-			WebDriverWait wait=new WebDriverWait(getDriver(), 20);
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			
-			Thread.sleep(1000);
-			wait.until(ExpectedConditions.invisibilityOf(Locator.gridLoad()));
+			Thread.sleep(5000);
+//			wait.until(ExpectedConditions.invisibilityOf(Locator.gridLoad()));
 			
 			Thread.sleep(5500);
 			File dir1 = new File("C:\\Users\\bilali\\Downloads");
@@ -2081,6 +2085,111 @@ public class Method extends BasePage
 			}
 			
 		}
+	 
+	 
+	 public static void StatutoryDocument(ExtentTest test) throws InterruptedException
+	 {
+		 getDriver().navigate().refresh();
+		 Thread.sleep(10000);
+		 JavascriptExecutor js = (JavascriptExecutor) getDriver();
+		 
+		 Locator.StatutoryDocumentButton().click();
+		 Thread.sleep(3000);
+		 		 
+		 Locator.ClientDropdown().click();
+		 Thread.sleep(3000);
+		 test.log(LogStatus.PASS, "Client Dropdown: Client dropdown is clickable.");
+
+		 
+		 Locator.SelectedClient().click();
+		 Thread.sleep(3000);
+		 test.log(LogStatus.PASS, "Client Dropdown Selection: User is able to select Client from the dropdown.");
+
+		 
+		 Locator.ComplianceDropdown().click();
+		 Thread.sleep(3000);
+		 test.log(LogStatus.PASS, "Compliance type Dropdown: Compliance type dropdown is clickable.");
+
+		 
+		 Locator.SelectedComplianceType().click();
+		 Thread.sleep(3000);
+		 test.log(LogStatus.PASS, "Compliance type Dropdown Selection: User is able to select Compliance type from the dropdown");
+	    	
+		 
+		 Locator.ActDropdown().click();
+		 Thread.sleep(3000);
+		 test.log(LogStatus.PASS, "Act Dropdown: Act dropdown is clickable.");
+
+		 
+		 Locator.SelectedAct().click();
+		 Thread.sleep(3000);
+		 test.log(LogStatus.PASS, "Act Dropdown Selection : User is able to select the Act from the dropdown");
+	    	
+		 
+		 Locator.YearDropdown().click();
+		 Thread.sleep(3000);
+		 test.log(LogStatus.PASS, "Year Dropdown: Year dropdown is clickable.");
+
+		 
+		 Locator.SelectedYear().click();
+		 Thread.sleep(3000);
+		 test.log(LogStatus.PASS, "Year Dropdown Selection : User is able to select the Year from the dropdown.");
+	 
+		 
+		 Locator.PeriodDropdown().click();
+		 Thread.sleep(3000);
+		 test.log(LogStatus.PASS, "Period Dropdown: Period dropdown is clickable.");
+
+		 
+		 Locator.SelectedPeriod().click();
+		 Thread.sleep(3000);
+		 test.log(LogStatus.PASS, "Period Dropdown Selection : User is able to select the Period from the dropdown.");
+
+		 
+		 Locator.ApplyButon().click();
+		 Thread.sleep(3000);
+		 test.log(LogStatus.PASS, "Apply Button : Apply Button is working fine.");
+
+		 
+		 Locator.CheckBoxAll().click();
+		 Thread.sleep(3000);
+		 
+		 Thread.sleep(5000);
+		 OneCommonMethod.validateFileDownloadDynamic(
+	    		    driver.get(),
+	    		    test,
+	    		    Locator.BulkDownload(),   
+	    		    "All Statutory Zip Document File Downloaded"   
+	    		);
+	    	
+	    	Thread.sleep(5000);
+	    	OneCommonMethod.validateFileDownloadDynamic(
+	    		    driver.get(),
+	    		    test,
+	    		    Locator.SingleDownload(),   
+	    		    "Statutory Document File Downloaded"   
+	    		);
+		 
+		 	    	
+	    	Locator.ViewFirst().click();
+	    	Thread.sleep(5000);
+	    	
+	    	Locator.ViewSecond().click();
+	    	Thread.sleep(5000);
+	    	
+	    	Locator.ViewSecondPopUpClose().click();
+	    	Thread.sleep(5000);
+	    	
+	    	Locator.ViewMainPopUpClose().click();
+	    	Thread.sleep(5000);
+	    	test.log(LogStatus.PASS, "File View : File Viewed Successfully.");
+	    		    	
+	    	Locator.ClearButon().click();
+	    	Thread.sleep(5000);
+	    	test.log(LogStatus.PASS, "Clear Button : Clear Button is working fine.");
+	    	
+	 }
+	 
 	 
 
 	 

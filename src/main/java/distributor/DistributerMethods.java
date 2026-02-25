@@ -452,7 +452,7 @@ public class DistributerMethods extends BasePage
 		Thread.sleep(1000);
 		DistributerLocators.clickExport().click();
 		
-		WebDriverWait wait=new WebDriverWait(getDriver(), 20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		Thread.sleep(1000);
 		wait.until(ExpectedConditions.invisibilityOf(DistributerLocators.GridLoad()));
@@ -521,7 +521,7 @@ public class DistributerMethods extends BasePage
 
 	public static void CountExcel1(ExtentTest test) throws InterruptedException, IOException
 	{
-		getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		Thread.sleep(500);
 	
 		String item = DistributerLocators.readTotalItem1().getText();
@@ -550,12 +550,12 @@ public class DistributerMethods extends BasePage
 		Thread.sleep(1000);
 		DistributerLocators.clickExport().click();
 		
-		WebDriverWait wait = new WebDriverWait(getDriver(),20); // Bilal
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		wait.until(ExpectedConditions.invisibilityOf(DistributerLocators.clickExportCLRALocationLoader()));
 
 		
 		
-//		WebDriverWait wait=new WebDriverWait(getDriver(), 20);
+//		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 //		Thread.sleep(1000);
 //		wait.until(ExpectedConditions.invisibilityOf(Locators.GridLoad()));
@@ -651,10 +651,10 @@ public class DistributerMethods extends BasePage
 		Thread.sleep(1000);
 		DistributerLocators.clickLocationExportBtn().click();
 		
-		WebDriverWait wait = new WebDriverWait(getDriver(),20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		wait.until(ExpectedConditions.invisibilityOf(DistributerLocators.clickLocationExportBtnLoader()));
 		
-//		WebDriverWait wait=new WebDriverWait(getDriver(), 20);
+//		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 //		Thread.sleep(1000);
 //		wait.until(ExpectedConditions.invisibilityOf(Locators.GridLoad()));
@@ -770,7 +770,7 @@ public class DistributerMethods extends BasePage
 		Thread.sleep(1000);
 		DistributerLocators.clickExportBtn().click();
 		
-		WebDriverWait wait=new WebDriverWait(getDriver(), 20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(1000);
 		wait.until(ExpectedConditions.invisibilityOf(DistributerLocators.GridLoad1()));
 		
@@ -915,7 +915,7 @@ public class DistributerMethods extends BasePage
 		}
 	public static void BulkUploadDesignationDetailes( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException, AWTException
 	{
-		getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 	//	getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		
 		Thread.sleep(1000);
@@ -1337,7 +1337,7 @@ public class DistributerMethods extends BasePage
 	}
 	public static void bulkUpload( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException, AWTException
 	{
-		getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
 		Thread.sleep(1000);
@@ -1412,7 +1412,7 @@ public class DistributerMethods extends BasePage
 	public static void EmployeerExportBtn( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 	{
 		
-		getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
 		Thread.sleep(1000);
@@ -1426,7 +1426,7 @@ public class DistributerMethods extends BasePage
 	
 	public static void SearchBoxEmp( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 	{
-		WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	
 		
 
@@ -1528,7 +1528,7 @@ public class DistributerMethods extends BasePage
 	
 	public static void SearchBoxLocation( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 	{
-		WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
@@ -1918,7 +1918,7 @@ public class DistributerMethods extends BasePage
 	public static void editLOcation( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException, AWTException
 	{
 		
-		getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
@@ -2070,7 +2070,7 @@ public class DistributerMethods extends BasePage
 	
 	public static void ComplianceAssignmentRegister( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 	{
-		WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	
 		
 		Thread.sleep(1000);
@@ -2188,7 +2188,7 @@ public class DistributerMethods extends BasePage
 	}
 	public static void ComplianceAssignmentReturn( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 	{
-		WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	
 		
 		Thread.sleep(1000);
@@ -2292,7 +2292,7 @@ public class DistributerMethods extends BasePage
 	}
 	public static void ComplianceAssignmentChallan( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 	{
-		WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	
 		
 		Thread.sleep(1000);
@@ -2391,7 +2391,7 @@ public class DistributerMethods extends BasePage
 	}
 	public static void SearchBox( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 	{
-		WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	
 		
 		Thread.sleep(1000);
@@ -2524,7 +2524,7 @@ public class DistributerMethods extends BasePage
 	
 	public static void ValidationMesssage( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 	{
-		WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	
 		
 		Thread.sleep(1000);
@@ -2562,7 +2562,7 @@ public class DistributerMethods extends BasePage
 	
 	public static void WithoutselectingPerformerReviewer( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 	{
-		WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	
 		
 		Thread.sleep(1000);
@@ -2846,7 +2846,7 @@ public class DistributerMethods extends BasePage
 	
 	public static void ManageComplianceFilter( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 	{
-		WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	
 		
 		Thread.sleep(1000);
@@ -3328,7 +3328,7 @@ for(String Fal : fail)
 	
 	public static void Contractor( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 	{
-		WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
@@ -3370,7 +3370,7 @@ for(String Fal : fail)
 	
 	public static void EmpMapping( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 	{
-		WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	
 		
 		Thread.sleep(1000);
@@ -3507,7 +3507,7 @@ for(String Fal : fail)
 	
 	public static void UpdateEmpMapping( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 	{
-		WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	
 		
 		Thread.sleep(1000);
@@ -3592,7 +3592,7 @@ for(String Fal : fail)
 	}
 	public static void ExportEmpMapping( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 	{
-		WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	
 		
 		Thread.sleep(1000);
@@ -3779,7 +3779,7 @@ for(String Fal : fail)
 	
 	public static void ComplianceAssignmentRegisterCLRA( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 	{
-		WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	
 		
 		Thread.sleep(1000);
@@ -3902,7 +3902,7 @@ for(String Fal : fail)
 	}
 	public static void ComplianceAssignmentRetrunCLRA( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 	{
-		WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	
 		
 		Thread.sleep(1000);
@@ -3999,7 +3999,7 @@ for(String Fal : fail)
 	
 	public static void SearchBoxComplianceAssignment( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 	{
-		WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	
 		
 		Thread.sleep(1000);
@@ -4273,7 +4273,7 @@ for(String Fal : fail)
 	
 	public static void ManageComplianceFilterCLRA( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 	{
-		WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	
 		
 

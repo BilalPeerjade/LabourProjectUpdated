@@ -123,10 +123,25 @@ public class Locators extends BasePage {
 		user = getDriver().findElement(By.xpath("//*[@class='k-list-item-text']"));
 		return user;
 	}
+	public static WebElement searchCorporateEntity( )	
+	{
+		user = getDriver().findElement(By.cssSelector("input.k-input-inner[role='combobox']"));
+		return user;
+	}
 	
 	public static WebElement Apply( )		//Method for closing Message Popup
 	{
 		user = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/ApplyFilter.svg']"));
+		return user;
+	}
+	public static WebElement apply( )
+	{
+		user = getDriver().findElement(By.xpath("//button[@title='Apply']"));
+		return user;
+	}
+	public static WebElement clear( )
+	{
+		user = getDriver().findElement(By.xpath("//button[@title='Clear']"));
 		return user;
 	}
 	
@@ -832,6 +847,16 @@ public class Locators extends BasePage {
 		user = getDriver().findElement(By.xpath("(//img[@title='Save'])[1]"));
 		return user;
 	}
+	public static WebElement  uploadShiftMaster ( )		
+	{
+		user = getDriver().findElement(By.xpath("//button[normalize-space()='Upload Shift Master']"));
+		return user;
+	}
+	public static WebElement  sampleDocument ( )		
+	{
+		user = getDriver().findElement(By.xpath("//a[normalize-space()='Sample Document']"));
+		return user;
+	}
 
 
 	
@@ -1111,7 +1136,21 @@ public class Locators extends BasePage {
 		user = getDriver().findElement(By.xpath("//a[normalize-space()='User-Branch Mapping']"));
 		return user;
 	}
-	
+	public static WebElement  ubselectAct( )		
+	{
+		user = getDriver().findElement(By.xpath("//span[contains(normalize-space(),'Select Act')]"));
+		return user;
+	}
+	public static WebElement  ubselectUser( )		
+	{
+		user = getDriver().findElement(By.xpath("//input[@placeholder='Select User']"));
+		return user;
+	}
+	public static WebElement  ubselectBranches( )		
+	{
+		user = getDriver().findElement(By.xpath("//span[normalize-space()='Select Branches']"));
+		return user;
+	}
 	public static WebElement  PaycodeAdd( )		
 	{
 		user = getDriver().findElement(By.xpath("//button[@title='Add New']"));
@@ -1241,6 +1280,11 @@ public class Locators extends BasePage {
 		user = getDriver().findElement(By.xpath("//span[normalize-space()='Shops and Establishment Allied']"));
 		return user;
 	}
+	public static WebElement   clra ( )		
+	{
+		user = getDriver().findElement(By.xpath("//span[normalize-space()='Contract Labour Regulation and Abolition Act']"));
+		return user;
+	}
 	
 	public static WebElement   Branch ( )		
 	{
@@ -1326,9 +1370,19 @@ public class Locators extends BasePage {
 		return user;
 	}
 	
-	public static WebElement    UploadAddressMapping  ( )		
+	public static WebElement UploadAddressMapping  ( )		
 	{
 		user = getDriver().findElement(By.xpath("//button[normalize-space()='Upload Address Mapping']"));
+		return user;
+	}
+	public static WebElement uploadAddMap_MasterDownload  ( )		
+	{
+		user = getDriver().findElement(By.xpath("(//a[normalize-space()='Master Download'])[1]"));
+		return user;
+	}
+	public static WebElement uploadAddMap_AvailableAddressType ( )		
+	{
+		user = getDriver().findElement(By.xpath("(//a[normalize-space()='Available Address Type'])[1]"));
 		return user;
 	}
 	

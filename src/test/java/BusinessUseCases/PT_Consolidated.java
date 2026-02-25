@@ -268,6 +268,19 @@ public class PT_Consolidated extends BasePage {
 			extent.flush();
 		}
 	
+		
+		
+		
+//		@Test(priority = 25) 
+//		void PTSummaryAmountTest() throws InterruptedException, IOException, AWTException
+//		{
+//			test = extent.startTest("PT Consolidated - Summary - validate PT amount(As per slab) total is reflecting properly or not");
+//			
+//			PT_ConsolidatedMethods.PTSummaryAmountTest(test,"Performer");
+//
+//			extent.endTest(test);
+//			extent.flush();
+//		}
 	
 	
 		

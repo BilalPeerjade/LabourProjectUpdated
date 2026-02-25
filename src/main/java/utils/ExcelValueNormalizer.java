@@ -106,9 +106,9 @@ public class ExcelValueNormalizer {
     static {   
         // 🔹 Andhra Pradesh
         List<SlabRule> andhraPradeshSlabs = new ArrayList<>(); //new ArrayList<>(); Object create karega yaha
-        andhraPradeshSlabs.add(new SlabRule(1, 15000, 0));
-        andhraPradeshSlabs.add(new SlabRule(15001, 20000, 150));
-        andhraPradeshSlabs.add(new SlabRule(20001, 99999, 200));
+        andhraPradeshSlabs.add(new SlabRule(1, 15000, 0)); //0
+        andhraPradeshSlabs.add(new SlabRule(15001, 20000, 150)); //150
+        andhraPradeshSlabs.add(new SlabRule(20001, 99999, 200)); //200
         PT_SLAB_MAP.put("andhra pradesh", andhraPradeshSlabs);
 
         // 🔹 Assam

@@ -2,6 +2,7 @@ package login;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReadWriteLock;
@@ -44,7 +45,7 @@ public class LoginMethods extends BasePage {
 	private static WebElement validate = null;		//WebElement variable created for Answer Submit/Validate button
 	private static WebElement comp_img = null;		//WebElement variable created for Compliance Image click
 	
-	public static WebElement setUname(WebDriver driver)		//Method for searching Username input
+	public static WebElement setUname(WebDriver driver)		//Method for searching  Username
 	{
 		uname = driver.findElement(By.xpath("//*[@id='txtemail']"));
 		return uname;
@@ -67,7 +68,7 @@ public class LoginMethods extends BasePage {
 	private static final java.util.concurrent.atomic.AtomicLong GLOBAL_LOGIN_COUNTER = new java.util.concurrent.atomic.AtomicLong(0L);
 	private static final java.util.concurrent.ConcurrentHashMap<Long, Integer> SKIP_POSITION_BY_CYCLE = new java.util.concurrent.ConcurrentHashMap<>();
 	private static final java.util.Random RANDOM_GEN = new java.util.Random();
-	private static final int ALLOWED_BEFORE_BLOCK = 13;                
+	private static final int ALLOWED_BEFORE_BLOCK = 99999999;
 	private static final ThreadLocal<Boolean> THREAD_DECISION = new ThreadLocal<>();
 	private static final ThreadLocal<Long> THREAD_COUNT = new ThreadLocal<>();
 	
@@ -82,21 +83,21 @@ public class LoginMethods extends BasePage {
 	
 	public static void UserLogin(String username, String password) throws InterruptedException {
 		// WebDriverWait wait = new WebDriverWait(getDriver(), 40);
-		WebDriverWait wait1 = new WebDriverWait(getDriver(), 60);
-
+		WebDriverWait wait1=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(20000);
 		LoginLocators.setUname().sendKeys(username); // Sent username to input box
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		LoginLocators.setPassword().sendKeys(password); // Sent password to input box
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		LoginLocators.clickSubmit().click(); // Clicked on Sign-in button
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 
 	}
 	
 	
 	public static void UserLogin2(String username, String password) throws InterruptedException {
 	    WebDriver driver = getDriver();
-	    WebDriverWait wait1 = new WebDriverWait(driver, 60);
+	    WebDriverWait wait1=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	    final int MAX_RETRIES = 3;
 
 	    boolean unameOk = false;
@@ -204,7 +205,7 @@ public class LoginMethods extends BasePage {
 	public static WebDriver UserLoginSDExecutor(String username, String password, String method) throws InterruptedException
 	{		
 		
-		WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(1000);
 		LoginLocators.setUname().sendKeys(username);		//Sent username to input box 
 		Thread.sleep(500);
@@ -382,7 +383,8 @@ public class LoginMethods extends BasePage {
 	    final boolean skipClick = preCheckRandomSkip();
 
 	    org.openqa.selenium.WebDriver driver = getDriver();
-	    org.openqa.selenium.support.ui.WebDriverWait wait1 = new org.openqa.selenium.support.ui.WebDriverWait(driver, 60);
+//	    org.openqa.selenium.support.ui.WebDriverWait wait1 = new org.openqa.selenium.support.ui.WebDriverWait(driver, 60);
+	    WebDriverWait wait1=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	    final int MAX_RETRIES = 3; //tries
 
 	    boolean unameOk = false;

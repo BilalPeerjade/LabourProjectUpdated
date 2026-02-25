@@ -388,7 +388,7 @@ public class DistributerLocators extends BasePage
 	}
 	public static WebElement selectComplianceType4()		//Method for searching Username input
 	{
-		labour = getDriver().findElement(By.xpath("//*[@class='k-list-ul']/li[5]"));
+		labour = getDriver().findElement(By.xpath("//*[@class='k-list-ul']/li[6]"));
 		return labour;
 	}
 	public static WebElement clickType()		//Method for searching Username input
@@ -541,9 +541,35 @@ public class DistributerLocators extends BasePage
 		labour = getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon']"));
 		return labour;
 	}
+	//---------Triangle 2 to 5 for Bulk Comp Reassignment---------
+	public static WebElement Triangle2()
+	{
+		labour = getDriver().findElement(By.xpath("(//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon'])[2]"));
+		return labour;
+	}
+	public static WebElement Triangle3()
+	{
+		labour = getDriver().findElement(By.xpath("(//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon'])[3]"));
+		return labour;
+	}
+	public static WebElement Triangle4()
+	{
+		labour = getDriver().findElement(By.xpath("(//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon'])[4]"));
+		return labour;
+	}
+	public static WebElement Triangle5()
+	{
+		labour = getDriver().findElement(By.xpath("(//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon'])[5]"));
+		return labour;
+	}
 	public static WebElement scheduleCreation()
 	{
 		labour = getDriver().findElement(By.xpath("//span[normalize-space()='Schedules Creation']"));
+		return labour;
+	}
+	public static WebElement bulkCompReassign()
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='Bulk Compliance Reassignment']"));
 		return labour;
 	}
 	public static WebElement ValidationMsg()

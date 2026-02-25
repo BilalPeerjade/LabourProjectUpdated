@@ -3,6 +3,7 @@ package rcp;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -42,7 +43,7 @@ public class ChangePassMethod extends BasePage
 	
 	 public static void ChangePassWithInvalidCurrentPass( ExtentTest test,String Notice) throws InterruptedException, IOException
 		{
-		    WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		 WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		    
 		    Thread.sleep(3000);
 		    Thread.sleep(5000);
@@ -79,6 +80,7 @@ public class ChangePassMethod extends BasePage
 
 			} else {
 				Thread.sleep(5000);
+				test.log(LogStatus.FAIL, "Entering invalid password in current password, password is changed !");
 				test.log(LogStatus.FAIL, "Message displayed : " + txt);
 			}
 			
@@ -152,7 +154,7 @@ public class ChangePassMethod extends BasePage
 			
 			String txt3 = ChangePassLocator.messageAfterSubmit().getText();
 			System.out.println("Error:------- " + txt3);
-			if (txt3.equalsIgnoreCase("New Password can not be same as Old Password. Please enter different password.")) {
+			if (txt3.equalsIgnoreCase("Current password you entered is incorrect. Please check.")) {
 				Thread.sleep(2000);
 				test.log(LogStatus.PASS, "Entering Current , New , Confirm Passwords same in all fields Error displayed !");
 				Thread.sleep(1200);
@@ -173,7 +175,7 @@ public class ChangePassMethod extends BasePage
 	 
 	 public static void ChangePassEyeButton( ExtentTest test,String Notice) throws InterruptedException, IOException
 		{
-		    WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		 WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		    
 		    Thread.sleep(3000);
 		    Thread.sleep(5000);

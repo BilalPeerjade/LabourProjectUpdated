@@ -61,7 +61,7 @@ public class All_Client_Portal_TestCases extends BasePage {
 	@BeforeMethod
 	void Login() throws InterruptedException, IOException
 	{
-		initialization(link,6,"Statutory");
+		Initialization(link,6,"Statutory");
 	
 	}
 	
@@ -70,7 +70,7 @@ public class All_Client_Portal_TestCases extends BasePage {
 	
 
 	
-	/**
+/**
 	
 	
 	// Mayuri TCs - ClientTest.Java 1 to 112
@@ -99,6 +99,15 @@ public class All_Client_Portal_TestCases extends BasePage {
 		extent.flush();
 	}
 	
+	@Test(priority = 2) //Swapnil
+	void CorporateExport() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Verify to check Corporate Export is working or not?");
+		All_ClientPortal_Methods.corpExport(test);
+
+		extent.endTest(test);
+		extent.flush();
+	}
 	
 	
 	@Test(priority = 3)
@@ -2124,7 +2133,7 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 	
 	
 	
-	/**
+	
 	
 	
 //
@@ -2197,13 +2206,13 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 	
 	
 	
+
 	
 	
+
+
 	
-	**/
-	
-	
-	
+
 	
 	//---------Part 2-------For Daily Execution------
 
@@ -2273,7 +2282,7 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 	@Test(priority = 209)  //12/02/2025
 	void IUHistory() throws InterruptedException, IOException, AWTException
 	{
-		test = extent.startTest("'Input Upload  - Register - Attendance - History button working or not");
+		test = extent.startTest("'Input Upload - Register - Attendance - History button working or not");
 		All_ClientPortal_Methods.filterEntityAUTO2(test);
 		All_ClientPortal_Methods.IUHistory(test);
 		
@@ -3303,9 +3312,8 @@ void ChallanDocBulkDownload() throws InterruptedException, IOException, AWTExcep
 		
     
 
-		
-	
-	  
+
+	 
 	   
 		
 		@AfterMethod

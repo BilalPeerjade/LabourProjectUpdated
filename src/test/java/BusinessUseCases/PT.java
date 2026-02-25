@@ -69,6 +69,15 @@ public class PT extends BasePage {
 			test.log(LogStatus.PASS, "📆 Report Generated: <b>" + runTime + "</b>");
 			
 			test.log(LogStatus.PASS, "Logging into system");
+			
+			test.log(LogStatus.PASS,
+			        "<b>******Form Details******</b><br>" +
+			        "------------------------------------------------<br>" +
+			        "Form Type: Challan<br>" +
+			        "Act Type: PT<br>" +
+			        "Form Name: Consolated Report<br>" +
+			        "------------------------------------------------");
+
 
 			extent.endTest(test);
 			extent.flush();
@@ -216,6 +225,13 @@ public class PT extends BasePage {
 		
 		
 		
+		
+
+		
+		
+		
+		
+	
 		
 		
 		

@@ -100,7 +100,7 @@ public class CoordinatorLocator extends BasePage
 	}
 	public static WebElement selectState1()		//Method for searching Username input
 	{
-		labour = getDriver().findElement(By.xpath("//ul[@class='k-list-ul']/li[3]"));
+		labour = getDriver().findElement(By.xpath("//ul[@class='k-list-ul']/li[4]"));
 		return labour;
 	}
 	public static WebElement selectStateAndraPardesh()		//Method for searching Username input
@@ -123,6 +123,11 @@ public class CoordinatorLocator extends BasePage
 		labour = getDriver().findElement(By.xpath("//ul[@class='k-list-ul']/li[2]"));
 		return labour;
 	}
+	public static WebElement RiskHighlyCritical()
+	{
+		labour = getDriver().findElement(By.xpath("//span[text()='Highly Critical']"));
+		return labour;
+	}
 	public static WebElement clickBranch()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("(//input[@type='text'])[2]"));
@@ -135,7 +140,7 @@ public class CoordinatorLocator extends BasePage
 	}
 	public static WebElement clickModeOfReceipt()		//Method for searching Username input
 	{
-		labour = getDriver().findElement(By.xpath("(//*[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted'])[5]"));
+		labour = getDriver().findElement(By.xpath("(//*[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted'])[6]"));
 		return labour;
 	}
 	public static WebElement clickNoticeNumber()		//Method for searching Username input
@@ -175,12 +180,12 @@ public class CoordinatorLocator extends BasePage
 	}
 	public static WebElement clickNoticeType()		//Method for searching Username input
 	{
-		labour = getDriver().findElement(By.xpath("(//*[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted'])[6]"));
+		labour = getDriver().findElement(By.xpath("(//*[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted'])[7]"));
 		return labour;
 	}
 	public static WebElement clickRisk()		//Method for searching Username input
 	{
-		labour = getDriver().findElement(By.xpath("(//*[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted'])[7]"));
+		labour = getDriver().findElement(By.xpath("(//*[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted'])[8]"));
 		return labour;
 	}
 	public static WebElement clickRemark()		//Method for searching Username input
@@ -297,6 +302,21 @@ public class CoordinatorLocator extends BasePage
 		labour = getDriver().findElement(By.xpath("//div[normalize-space()='File is required.']"));
 		return labour;
 	}
+	public static WebElement addMoreDocsBtn()
+	{
+		labour = getDriver().findElement(By.cssSelector("button[title='Add More Documents']"));
+		return labour;
+	}
+
+	public static WebElement checkBox1() {
+		labour = getDriver().findElement(By.xpath("(//input[@type='checkbox'])[2]"));
+		return labour;
+	}
+	public static WebElement availableColumn()
+	{
+		labour = getDriver().findElement(By.xpath("//span[@class='k-input-value-text']"));
+		return labour;
+	}
 	public static WebElement clickRegistration()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//span[normalize-space()='Registration']"));
@@ -392,9 +412,9 @@ public class CoordinatorLocator extends BasePage
 		labour = getDriver().findElement(By.xpath("//button[normalize-space()='Submit']"));
 		return labour;
 	}
-	public static WebElement clickSuccessMsg()		//Method for searching Username input
+	public static WebElement clickSuccessMsg()	
 	{
-		labour = getDriver().findElement(By.xpath("//h4[normalize-space()='Registration saved successfully']"));
+		labour = getDriver().findElement(By.xpath("//h4[@class='f-label']"));
 		return labour;
 	}
 	public static WebElement clickExport()		//Method for searching Username input
@@ -424,23 +444,23 @@ public class CoordinatorLocator extends BasePage
 	}
 	public static WebElement pendingAssignmentLicenseCount()		//Method for searching Username input
 	{
-		labour = getDriver().findElement(By.xpath("/html/body/app-root/div/app-layout/section/div/div/app-existing-registration-license/div[1]/div[1]/div/div[1]/div/p"));
+		labour = getDriver().findElement(By.xpath("/html/body/app-root/div/app-layout/section/div/div/app-existing-registration-license/div[1]/div[1]/div/div[2]/div/p"));
 		return labour;
 	}
 	public static WebElement pendingActionLicenseCount()		//Method for searching Username input
 	{
-		labour = getDriver().findElement(By.xpath("/html/body/app-root/div/app-layout/section/div/div/app-existing-registration-license/div[1]/div[1]/div/div[2]/div/p"));
+		labour = getDriver().findElement(By.xpath("/html/body/app-root/div/app-layout/section/div/div/app-existing-registration-license/div[1]/div[1]/div/div[3]/div/p"));
 		return labour;
 	}
 	public static WebElement OverdueLicenseCount()		//Method for searching Username input
 	{
-		labour = getDriver().findElement(By.xpath("/html/body/app-root/div/app-layout/section/div/div/app-existing-registration-license/div[1]/div[1]/div/div[3]/div/p"));
+		labour = getDriver().findElement(By.xpath("/html/body/app-root/div/app-layout/section/div/div/app-existing-registration-license/div[1]/div[1]/div/div[4]/div/p"));
 		return labour;
 	}
 
 	public static WebElement ClosedLicenseCount()		//Method for searching Username input
 	{
-		labour = getDriver().findElement(By.xpath("/html/body/app-root/div/app-layout/section/div/div/app-existing-registration-license/div[1]/div[1]/div/div[4]/div/p"));
+		labour = getDriver().findElement(By.xpath("/html/body/app-root/div/app-layout/section/div/div/app-existing-registration-license/div[1]/div[1]/div/div[5]/div/p"));
 		return labour;
 	}
 	public static WebElement clickExistingLicenseExport()		//Method for searching Username input
@@ -624,9 +644,179 @@ public class CoordinatorLocator extends BasePage
 		return labour;
 	}
 	
+//	------------Swapnil---------------
+	public static WebElement statutorydocclick()		
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='Statutory Documents']"));
+		return labour;
+	}
+	public static WebElement statutorydocSelectClient()		
+	{
+		labour = getDriver().findElement(By.xpath("//span[contains(text(),'Select Client')]"));
+		return labour;
+	}
+	public static WebElement statutorydocSelectedClient()		
+	{
+		labour = getDriver().findElement(By.xpath("(//span[normalize-space()='TL Regtech Pvt Ltd [AVAHRTEC]'])[1]"));
+		return labour;
+	}
+	public static WebElement compliancedropdown()		
+	{
+		labour = getDriver().findElement(By.xpath("//span[contains(text(),'Compliance')]"));
+		return labour;
+	}
+	public static WebElement complianceRegister()		
+	{
+		labour = getDriver().findElement(By.xpath("(//span[normalize-space()='Register'])[1]"));
+		return labour;
+	}
+	public static WebElement selectActdropdown()		
+	{
+		labour = getDriver().findElement(By.xpath("//span[contains(text(),'Select Act')]"));
+		return labour;
+	}
+	public static WebElement selectActSAE()		
+	{
+		labour = getDriver().findElement(By.xpath("(//span[normalize-space()='Shops and Establishment and Allied Acts'])[1]"));
+		return labour;
+	}
+	public static WebElement selectYeardropdown()		
+	{
+		labour = getDriver().findElement(By.xpath("//span[@class='k-input-value-text'][normalize-space()='Year']"));
+		return labour;
+	}
+	public static WebElement selectYear()		
+	{
+		labour = getDriver().findElement(By.xpath("(//span[normalize-space()='2025'])[1]"));
+		return labour;
+	}
+	public static WebElement selectPerioddropdown()		
+	{
+		labour = getDriver().findElement(By.xpath("//span[contains(text(),'Period')]"));
+		return labour;
+	}
+	
+	public static WebElement selectPeriod()		
+	{
+		labour = getDriver().findElement(By.xpath("//span[contains(text(),'January')]"));
+		return labour;
+	}
+	
+	public static WebElement selectBranchdropdown()		
+	{
+		labour = getDriver().findElement(By.xpath("(//span[normalize-space()='Select Branches'])[1]"));
+		return labour;
+	}
+	
+	public static WebElement selectBranchAll()		
+	{
+		labour = getDriver().findElement(By.xpath("//*[@id=\"0\"]/span/text()"));
+		return labour;
+	}
+	
+	public static WebElement applyButton()		
+	{
+		labour = getDriver().findElement(By.xpath("//button[@title='Apply']"));
+		return labour;
+	}
+	public static WebElement checkBoxAll()		
+	{
+		labour = getDriver().findElement(By.xpath("//input[@class='ng-untouched ng-pristine ng-valid']"));
+		return labour;
+	}
+	public static WebElement downloadAll()		
+	{
+		labour = getDriver().findElement(By.xpath("//button[normalize-space()='Download']"));
+		return labour;
+	}
+	
+	public static WebElement singleDownload()		
+	{
+		labour = getDriver().findElement(By.xpath("(//img[@title='Download'])[1]"));
+		return labour;
+	}
+	public static WebElement firstViewButton()		
+	{
+		labour = getDriver().findElement(By.xpath("(//img[@title='View'])[1]"));
+		return labour;
+	}
+	
+	public static WebElement secondtViewButton()		
+	{
+		labour = getDriver().findElement(By.xpath("(//img[@title='View'])[7]"));
+		return labour;
+	}
+	public static WebElement docClose()		
+	{
+		labour = getDriver().findElement(By.xpath("/html/body/app-root/div/app-layout/section/div/div/app-client-statutory-document/app-adobe-viewer/kendo-dialog/div[2]/kendo-dialog-titlebar/div/button/kendo-icon-wrapper/kendo-svgicon"));
+		return labour;
+	}
+	
+	public static WebElement fileClose()		
+	{
+		labour = getDriver().findElement(By.xpath("/html/body/app-root/div/app-layout/section/div/div/app-client-statutory-document/app-doc-viewer-grid-popup/kendo-dialog/div[2]/kendo-dialog-titlebar/div/button/kendo-icon-wrapper/kendo-svgicon"));
+		return labour;
+	}
+	
+	public static WebElement clearButton()		
+	{
+		labour = getDriver().findElement(By.xpath("//button[@title='Clear']"));
+		return labour;
+	}
+	
+	public static WebElement draftRCPBoxCount()		
+	{
+		labour = getDriver().findElement(By.xpath("(//p[contains (@class,'count-text')])[1]"));
+		return labour;
+	}
 	
 	
+//	----swapnil draft RCP---------
+	public static WebElement draftRCPBox()		
+	{
+		labour = getDriver().findElement(By.xpath("//span[@title='Draft RCP']"));
+		return labour;
+	}
+	public static WebElement draftRCPExport()		
+	{
+		labour = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/ExportButton.svg']"));
+		return labour;
+	}
+	public static WebElement draftRCPView()		
+	{
+		labour = getDriver().findElement(By.xpath("//tr[@class='k-master-row k-table-row']//img[@title='View']"));
+		return labour;
+	}
 	
+	public static WebElement draftRCPViewPopupclose()		
+	{
+		labour = getDriver().findElement(By.xpath("/html/body/app-root/div/app-layout/section/div/div/app-existing-registration-license/app-adobe-viewer/kendo-dialog/div[2]/kendo-dialog-titlebar/div/button/kendo-icon-wrapper/kendo-svgicon"));
+		return labour;
+	}
+	
+	public static WebElement draftRCPgridDownload()		
+	{
+		labour = getDriver().findElement(By.xpath("//tr[@class='k-master-row k-table-row']//img[@title='Download']"));
+		return labour;
+	}
+	
+	public static WebElement draftRCPSearch()		
+	{
+		labour = getDriver().findElement(By.xpath("//input[@placeholder='Type to Search']"));
+		return labour;
+	}
+	
+	public static WebElement draftRCPClear()		
+	{
+		labour = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/ClearFilter.svg']"));
+		return labour;
+	}
+	
+	public static WebElement draftRCPCount()		
+	{
+		labour = getDriver().findElement(By.xpath("//div[@class='dashboard-container colpadding0']//div[1]//div[1]"));
+		return labour;
+	}
 	
 	
 	

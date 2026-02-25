@@ -7,6 +7,7 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -33,7 +34,7 @@ public class CPMethod extends BasePage{
 	public static void MultipleDocument( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(CPLocator.MyDocument()));	
 		CPLocator.Entity().click();
@@ -105,7 +106,7 @@ public class CPMethod extends BasePage{
 	public static void MyDocument( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(CPLocator.MyDocument()));	
 		CPLocator.Entity().click();
@@ -171,7 +172,7 @@ public class CPMethod extends BasePage{
 	public static void MyDocumentView( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(CPLocator.MyDocument()));	
 		CPLocator.Entity().click();
@@ -224,7 +225,7 @@ public class CPMethod extends BasePage{
 	public static void MyDocumentFilter( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(CPLocator.MyDocument()));	
 		CPLocator.Entity().click();
@@ -392,7 +393,7 @@ public class CPMethod extends BasePage{
 	public static void MyDocumentAllTab( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(CPLocator.MyDocument()));
 		CPLocator.Entity().click();
@@ -418,7 +419,7 @@ if(CPLocator.StaDocument().isDisplayed()&&CPLocator.MISDocument().isDisplayed()&
 	public static void CriticalDocument( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(CPLocator.MyDocument()));	
 		CPLocator.Entity().click();
@@ -460,7 +461,7 @@ if(CPLocator.StaDocument().isDisplayed()&&CPLocator.MISDocument().isDisplayed()&
 	public static void CriticalDocumentSubFolder( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(CPLocator.MyDocument()));	
 		CPLocator.Entity().click();
@@ -506,7 +507,7 @@ if(CPLocator.StaDocument().isDisplayed()&&CPLocator.MISDocument().isDisplayed()&
 	public static void CriticalDocumentNewFile( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(CPLocator.MyDocument()));	
 		CPLocator.Entity().click();
@@ -575,7 +576,7 @@ if(CPLocator.StaDocument().isDisplayed()&&CPLocator.MISDocument().isDisplayed()&
 	public static void CriticalDocumentshare( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(CPLocator.MyDocument()));	
 		CPLocator.Entity().click();

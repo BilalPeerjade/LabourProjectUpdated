@@ -41,9 +41,9 @@ public class Methods extends BasePage
 
 	 public static void CountMatch( ExtentTest test,String Notice) throws InterruptedException, IOException
 		{
-		 
 		 Thread.sleep(10000);
 		 getDriver().navigate().refresh();
+		 OneCommonMethod.zoomOutScreen(2); //Zoom
 		 Thread.sleep(10000);
 		int pendingAssignment = 0;
 		if(Notice.equalsIgnoreCase("Extension"))
@@ -89,7 +89,7 @@ public class Methods extends BasePage
 		}
 		
 		
-		OneCommonMethod.zoomOutScreen(2); //Zoom
+//		OneCommonMethod.zoomOutScreen(2); //Zoom
 		
 		Thread.sleep(10000);
 		Locator.readTotalItems().click();					//Clicking on total items count
@@ -115,13 +115,13 @@ public class Methods extends BasePage
 	 
 	 
 	 public static void NoticeExportBtn(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
-	 {
+	 {Thread.sleep(5000);
 		 getDriver().navigate().refresh();
 	 	JavascriptExecutor js = (JavascriptExecutor) getDriver();
-	 	
+	 	Thread.sleep(10000); 
 		js.executeScript("window.scrollBy(0,5000)");	
 	 	
-	 	 Thread.sleep(10000); 		
+	 	 		
 //	      Locator.readTotalItems().click();
 	 		String item = Locator.readTotalItems().getText();
 	 		String[] bits = item.split(" ");								//Splitting the String
@@ -209,11 +209,12 @@ public class Methods extends BasePage
 	 }
 	 public static void NoticeSearchBox(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
 	 {
+		 Thread.sleep(3000);
 		 getDriver().navigate().refresh();
 	 	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	 	
 	 	
-	 	Thread.sleep(3000);
+	 	Thread.sleep(9000);
 	 	Locator.SearchBox().sendKeys("Summon",Keys.ENTER);
 
 	 	List<String> li=new ArrayList<String>();

@@ -10,6 +10,7 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -1043,7 +1044,7 @@ public static void RegisrationRespository(ExtentTest test) throws InterruptedExc
 
 public static void RegistrationRepositoryFilter(ExtentTest test) throws InterruptedException
 {
-	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 	Thread.sleep(1000);
 	ClientPortalLocator.clickEntity().click();
@@ -2153,7 +2154,7 @@ public static void StatutoryDocFilter(ExtentTest test) throws InterruptedExcepti
 }
 public static void StateDocZipFile(ExtentTest test) throws InterruptedException
 {
-	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	Thread.sleep(3000);
 	ClientPortalLocator.clickEntity().click();
@@ -2271,7 +2272,7 @@ public static void StateDocZipFile(ExtentTest test) throws InterruptedException
 
 public static void StatutoryDocViewandOverview(ExtentTest test) throws InterruptedException
 {
-	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	Thread.sleep(3000);
 	ClientPortalLocator.clickEntity().click();
@@ -2343,7 +2344,7 @@ public static void StatutoryDocViewandOverview(ExtentTest test) throws Interrupt
 }
 public static void StatutoryDocBulkDownload(ExtentTest test) throws InterruptedException
 {
-	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	Thread.sleep(1000);
 	ClientPortalLocator.clickEntity().click();
@@ -2435,7 +2436,7 @@ public static void StatutoryDocBulkDownload(ExtentTest test) throws InterruptedE
 
 public static void ChallanDoc(ExtentTest test) throws InterruptedException
 {
-	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	Thread.sleep(3000);
 	ClientPortalLocator.clickEntity().click();
@@ -2547,7 +2548,7 @@ public static void ChallanDoc(ExtentTest test) throws InterruptedException
 
 public static void ChallanComplianceDoc(ExtentTest test) throws InterruptedException
 {
-	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	Thread.sleep(3000);
 	ClientPortalLocator.clickEntity().click();
@@ -2657,7 +2658,7 @@ public static void ChallanComplianceDoc(ExtentTest test) throws InterruptedExcep
 }
 public static void ChallanViewBranches(ExtentTest test) throws InterruptedException
 {
-	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	Thread.sleep(3000);
 	ClientPortalLocator.clickEntity().click();
@@ -2725,7 +2726,7 @@ public static void ChallanViewBranches(ExtentTest test) throws InterruptedExcept
 }
 public static void ChallanViewWorkingFile(ExtentTest test) throws InterruptedException
 {
-	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	Thread.sleep(3000);
 	ClientPortalLocator.clickEntity().click();
@@ -2786,7 +2787,7 @@ public static void ChallanViewWorkingFile(ExtentTest test) throws InterruptedExc
 }
 public static void ChallanViewComplianceFile(ExtentTest test) throws InterruptedException
 {
-	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	Thread.sleep(3000);
 	ClientPortalLocator.clickEntity().click();

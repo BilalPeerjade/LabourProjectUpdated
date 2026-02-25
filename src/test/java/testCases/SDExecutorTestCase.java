@@ -63,7 +63,7 @@ public class SDExecutorTestCase extends BasePage
 	//	initializationSDExecutor(link,7,"Labour");
 		
 		//Hide if ask security questions!
-		initialization(link,7,"Labour");
+		Initialization(link,7,"Labour");
 		
 		
 //		String username = null;
@@ -567,6 +567,21 @@ void NoticeEditDownload() throws InterruptedException, IOException, EncryptedDoc
 		extent.flush();
 
 	}
+	
+	
+	//Swapnil's New TestCases for Statutory Document
+	@Test(priority = 100)
+	void StatutoryDocument() throws InterruptedException, IOException 
+	{
+		test = extent.startTest("Statutory Document - Statutory Documents verification");
+		Method.StatutoryDocument(test);
+
+		extent.endTest(test);
+		extent.flush();
+
+	}
+	
+	
 
 	@AfterMethod
 	void close()

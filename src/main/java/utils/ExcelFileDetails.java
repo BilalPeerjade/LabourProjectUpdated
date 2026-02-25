@@ -1,5 +1,6 @@
 package utils;
 
+import java.io.File;
 import java.util.List;
 
 //import businessTestCases.ExcelFilter;
@@ -18,7 +19,7 @@ public class ExcelFileDetails {
 
 	//Constructor - Directly velues lene ke liye 
 	public ExcelFileDetails(String filePath, String sheetName, int empNameColumnIndex, List<ExcelF> filters,
-			String applyFilter) {
+		String applyFilter) {
 		this.filePath = filePath;
 		this.sheetName = sheetName;
 		this.empNameColumnIndex = empNameColumnIndex;
@@ -26,9 +27,17 @@ public class ExcelFileDetails {
 		this.applyFilter = applyFilter;
 	}
 
-    public ExcelFileDetails() {
-    }
 	
+//	private ExcelFileDetails() { }
+	
+	
+	
+	
+	
+	//Constructor for testing purpose
+//  public ExcelFileDetails() {
+//  	
+//  }
 	
 	//Getters values fetch karne ke liye : yaha setters required nahi hai
 	public String getFilePath() {

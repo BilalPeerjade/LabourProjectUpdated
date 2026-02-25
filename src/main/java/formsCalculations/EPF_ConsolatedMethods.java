@@ -93,7 +93,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 	{
 
 	//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 //		if(user.equalsIgnoreCase("Performer"))
@@ -190,7 +190,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 	{
 
 	//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 //		if(user.equalsIgnoreCase("Performer"))
@@ -273,7 +273,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 	{
 
 	//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 //		if(user.equalsIgnoreCase("Performer"))
@@ -358,7 +358,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 	public static void ChallanPFRedirectin( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		
@@ -403,7 +403,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 	
 	public static void Registers_KAR_FORM_A_FOLDER_Redirection( ExtentTest test, String user) throws Exception
 	{
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		
@@ -493,7 +493,7 @@ public class EPF_ConsolatedMethods extends BasePage {
 	
 	public static void Registers_Redirection( ExtentTest test, String user) throws Exception
 	{
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		
@@ -1427,92 +1427,92 @@ public class EPF_ConsolatedMethods extends BasePage {
 	
 	
 	
-	public static void Challan_PT_GUJAII(ExtentTest test, String user) throws InterruptedException, IOException, AWTException 
-	{
-	    
-		
-		try {
-	        // --- Setup Helper Class Instances ---
-	        ExcelF stateFilter = new ExcelF();
-	        stateFilter.setColumnName("State");
-	        stateFilter.setValues(Arrays.asList("MH"));
-
-	        List<ExcelF> filters = new ArrayList<>();
-	        filters.add(stateFilter);
-
-	        ExcelFileDetails masterDetails = new ExcelFileDetails();
-	        masterDetails.setFilePath(masterFilePath);
-	        masterDetails.setSheetName("Master");
-	        masterDetails.setEmpNameColumnIndex(2); // Assuming 'UAN' is in 3rd column
-	        masterDetails.setApplyFilter("YES");
-	        masterDetails.setFilters(filters);
-
-	        ExcelTargetValidation targetDetails = new ExcelTargetValidation();
-	        targetDetails.setSheetName("Remittance");
-	        targetDetails.setColumnIndex(5); // Assuming UAN is in 6th column in exported file
-	        targetDetails.setHeaderKeyword("UAN No");
-
-	        ExcelExtraConfig extraConfig = new ExcelExtraConfig();
-	        extraConfig.setEnable("NO");
-
-	        if (downloadedExcelFile == null || !downloadedExcelFile.exists()) {
-	            test.log(LogStatus.FAIL, "❌ Downloaded file is missing.");
-	            return;
-	        }
-
-	        test.log(LogStatus.INFO, "📄 Data Fetch file name: " + downloadedExcelFile.getName());
-
-	        // --- Read master values ---
-	        Set<String> filteredUANs = ExcelUtils.readFilteredColumnValues(
-	            masterDetails.getFilePath(),
-	            masterDetails.getSheetName(),
-	            masterDetails.getEmpNameColumnIndex(),
-	            masterDetails.getFilters()
-	        );
-
-	        if (filteredUANs.isEmpty()) {
-	            test.log(LogStatus.PASS, "✅ No UANs matched in master file for given filter.");
-	            return;
-	        }
-
-	        // --- Read downloaded column values ---
-	        Set<String> downloadedUANs = ExcelUtils.readColumnValues(
-	            downloadedExcelFile,
-	            targetDetails.getSheetName(),
-	            targetDetails.getColumnIndex()
-	        );
-
-	        List<String> missing = filteredUANs.stream()
-	            .filter(u -> !downloadedUANs.contains(u))
-	            .collect(Collectors.toList());
-
-	        if (missing.isEmpty()) {
-	            test.log(LogStatus.PASS, "✅ All expected UANs found in downloaded file.");
-	        } else {
-	            test.log(LogStatus.FAIL, "❌ Missing UANs: " + String.join(", ", missing));
-
-	            if (ENABLE_HTML_REPORT_TABLE) {
-	                String htmlTable = HTMLBuilder.createDetailedComparisonTable(
-	                    filteredUANs,
-	                    downloadedUANs,
-	                    masterDetails.getFilePath(),
-	                    masterDetails.getSheetName(),
-	                    masterDetails.getEmpNameColumnIndex(),
-	                    targetDetails.getColumnIndex(),
-	                    targetDetails.getHeaderKeyword()
-	                );
-	                test.log(LogStatus.INFO, htmlTable);
-	            }
-
-
-
-	        }
-	    } catch (Exception e) {
-	        test.log(LogStatus.ERROR, "❌ Exception: " + e.getMessage());
-	        e.printStackTrace();
-	    }
-	
-	}
+//	public static void Challan_PT_GUJAII(ExtentTest test, String user) throws InterruptedException, IOException, AWTException 
+//	{
+//	    
+//		
+//		try {
+//	        // --- Setup Helper Class Instances ---
+//	        ExcelF stateFilter = new ExcelF();
+//	        stateFilter.setColumnName("State");
+//	        stateFilter.setValues(Arrays.asList("MH"));
+//
+//	        List<ExcelF> filters = new ArrayList<>();
+//	        filters.add(stateFilter);
+//
+//	        ExcelFileDetails masterDetails = new ExcelFileDetails();
+//	        masterDetails.setFilePath(masterFilePath);
+//	        masterDetails.setSheetName("Master");
+//	        masterDetails.setEmpNameColumnIndex(2); // Assuming 'UAN' is in 3rd column
+//	        masterDetails.setApplyFilter("YES");
+//	        masterDetails.setFilters(filters);
+//
+//	        ExcelTargetValidation targetDetails = new ExcelTargetValidation();
+//	        targetDetails.setSheetName("Remittance");
+//	        targetDetails.setColumnIndex(5); // Assuming UAN is in 6th column in exported file
+//	        targetDetails.setHeaderKeyword("UAN No");
+//
+//	        ExcelExtraConfig extraConfig = new ExcelExtraConfig();
+//	        extraConfig.setEnable("NO");
+//
+//	        if (downloadedExcelFile == null || !downloadedExcelFile.exists()) {
+//	            test.log(LogStatus.FAIL, "❌ Downloaded file is missing.");
+//	            return;
+//	        }
+//
+//	        test.log(LogStatus.INFO, "📄 Data Fetch file name: " + downloadedExcelFile.getName());
+//
+//	        // --- Read master values ---
+//	        Set<String> filteredUANs = ExcelUtils.readFilteredColumnValues(
+//	            masterDetails.getFilePath(),
+//	            masterDetails.getSheetName(),
+//	            masterDetails.getEmpNameColumnIndex(),
+//	            masterDetails.getFilters()
+//	        );
+//
+//	        if (filteredUANs.isEmpty()) {
+//	            test.log(LogStatus.PASS, "✅ No UANs matched in master file for given filter.");
+//	            return;
+//	        }
+//
+//	        // --- Read downloaded column values ---
+//	        Set<String> downloadedUANs = ExcelUtils.readColumnValues(
+//	            downloadedExcelFile,
+//	            targetDetails.getSheetName(),
+//	            targetDetails.getColumnIndex()
+//	        );
+//
+//	        List<String> missing = filteredUANs.stream()
+//	            .filter(u -> !downloadedUANs.contains(u))
+//	            .collect(Collectors.toList());
+//
+//	        if (missing.isEmpty()) {
+//	            test.log(LogStatus.PASS, "✅ All expected UANs found in downloaded file.");
+//	        } else {
+//	            test.log(LogStatus.FAIL, "❌ Missing UANs: " + String.join(", ", missing));
+//
+//	            if (ENABLE_HTML_REPORT_TABLE) {
+//	                String htmlTable = HTMLBuilder.createDetailedComparisonTable(
+//	                    filteredUANs,
+//	                    downloadedUANs,
+//	                    masterDetails.getFilePath(),
+//	                    masterDetails.getSheetName(),
+//	                    masterDetails.getEmpNameColumnIndex(),
+//	                    targetDetails.getColumnIndex(),
+//	                    targetDetails.getHeaderKeyword()
+//	                );
+//	                test.log(LogStatus.INFO, htmlTable);
+//	            }
+//
+//
+//
+//	        }
+//	    } catch (Exception e) {
+//	        test.log(LogStatus.ERROR, "❌ Exception: " + e.getMessage());
+//	        e.printStackTrace();
+//	    }
+//	
+//	}
 	
 	
 	public static void Challan_PT_GUJFormATest(ExtentTest test, String user) throws InterruptedException, IOException, AWTException 

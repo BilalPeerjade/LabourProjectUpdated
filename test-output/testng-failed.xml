@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testCases.RCPTestCase">
+      <class name="testCases.CoordinatorTestCases">
         <methods>
-          <include name="setBrowser"/>
-          <include name="close"/>
           <include name="Login"/>
-          <include name="ExistingLicenseViewIcon"/>
+          <include name="EditDocReqOTActivity"/>
+          <include name="close"/>
+          <include name="setBrowser"/>
         </methods>
-      </class> <!-- testCases.RCPTestCase -->
+      </class> <!-- testCases.CoordinatorTestCases -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

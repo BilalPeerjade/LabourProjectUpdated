@@ -13,6 +13,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
@@ -470,7 +471,20 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 	
 	
 	
-	
+    @AfterMethod
+    void afterMethod(ITestResult result) throws InterruptedException {
+        int priority = result.getMethod().getPriority();
+        String testName = result.getMethod().getMethodName();
+        String status = (result.getStatus() == ITestResult.SUCCESS) ? "PASSED"
+                        : (result.getStatus() == ITestResult.FAILURE) ? "FAILED" : "SKIPPED";
+
+        System.out.println("-------------------------------------------------");
+        System.out.println("✅ Test: " + testName + " | 🕐 Priority: " + priority + " | 📊 Status: " + status);
+        System.out.println("-------------------------------------------------\n");
+
+        Thread.sleep(1000);
+        closeBrowser();
+    }
 	
 	
 	

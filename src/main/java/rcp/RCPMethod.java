@@ -38,6 +38,7 @@ import login.LoginLocators;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
@@ -2007,7 +2008,7 @@ public class RCPMethod extends BasePage
 
 		 	getDriver().navigate().refresh();
 			JavascriptExecutor js = (JavascriptExecutor) getDriver();
-			WebDriverWait wait=new WebDriverWait(getDriver(), 20);
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(20));
 			Thread.sleep(5000);
 			RCPLocator.clickRegistration().click();
 			Thread.sleep(5000);

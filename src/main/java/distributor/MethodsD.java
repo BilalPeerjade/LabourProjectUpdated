@@ -43,6 +43,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import clientPortal.All_ClientPortal_Locators;
+import coordinator.CoordinatorLocator;
 import login.BasePage;
 import login.LoginLocators;
 import performer.LocatorsP;
@@ -57,7 +58,7 @@ public class MethodsD extends BasePage {
 	public static void complianceBox( ExtentTest test, String user) throws InterruptedException, IOException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -171,7 +172,7 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	Thread.sleep(9000);
 	LoginLocators.CloseDocument().click();
 	Thread.sleep(9000);
-	LoginLocators.ClosePopUp().click();
+	LoginLocators.closePopup1().click();
 	Thread.sleep(3000);
 	
 	
@@ -188,7 +189,7 @@ else {
 	public static void NotCompliedCheck( ExtentTest test, String user) throws InterruptedException, IOException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -231,12 +232,12 @@ else {
 	public static void EntitiesSearch( ExtentTest test, String user) throws InterruptedException, IOException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");
+			LoginLocators.Search().sendKeys("TESTAUTO2");
 			test.log(LogStatus.PASS, "Entity Search is working fine");
 			
 		}
@@ -263,25 +264,10 @@ else {
 	public static void CompanyLogo( ExtentTest test, String user) throws InterruptedException, IOException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
-/*		if(user.equalsIgnoreCase("Performer"))
-		{
-			LoginLocators.Search().sendKeys("AVACORED5");
-			test.log(LogStatus.PASS, "Entity Search is working fine");
-			
-		}
-		
-		else if(user.equalsIgnoreCase("Distributor"))
-		{
-			LoginLocators.Search().sendKeys("AVACORED5");	
-		}
-		else if(user.equalsIgnoreCase("Reviewer"))
-		{
-			LoginLocators.Search().sendKeys("AVACORED5");	
-		}
-		*/
+
         WebElement ExpandIcon = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/SidebarToggleoff.svg']"));
         ExpandIcon.click();
         
@@ -325,7 +311,7 @@ else {
 	public static void Logout( ExtentTest test, String user) throws InterruptedException, IOException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);Thread.sleep(5000);Thread.sleep(5000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 
@@ -354,7 +340,7 @@ else {
 	public static void UserMasterVerification( ExtentTest test, String user) throws InterruptedException, IOException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);Thread.sleep(5000);Thread.sleep(5000);
 		
 		
@@ -448,10 +434,131 @@ else {
 }
 	
 	
+	
+	public static void customerUserMapping( ExtentTest test, String user) throws InterruptedException, IOException
+	{
+	
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(7000);Thread.sleep(5000);Thread.sleep(5000);
+		
+		
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+		
+		LoginLocators.corporateUserMappingBtn().click();
+		Thread.sleep(5000);
+		if(LoginLocators.corporateUserMappingTxt().isDisplayed()) {
+			test.log(LogStatus.PASS,"Customer User Mapping button is working fine");
+			test.log(LogStatus.PASS,"Page displayed : Customer User Mapping");
+		}
+		else {
+			test.log(LogStatus.PASS,"Customer User Mapping button is not working");
+		}
+		
+		Locators.Searchentities().sendKeys("South");
+		Thread.sleep(5000);
+		String txt = getDriver().findElement(By.xpath("(//td[@role='gridcell'])[3]")).getText();
+		
+		if(txt.equalsIgnoreCase("South"))
+		{
+			Thread.sleep(3000);
+			test.log(LogStatus.PASS,"Search filter is working fine");
+			test.log(LogStatus.PASS,"Searched value displayed in the grid : " + txt);
+			
+		}
+		else
+		{
+			test.log(LogStatus.FAIL,"Search filter is not working");
+			test.log(LogStatus.FAIL,"Search value displayed in grid : " + txt);
+		}
+		
+		Locators.Searchentities().clear();
+		getDriver().navigate().refresh();
+		Thread.sleep(9000);
+		
+	    OneCommonMethod.validateExportedExcelDYNAMIC(
+	    	    driver.get(),
+	    	    test,
+	    	    LoginLocators.Export(),        
+	    	    LoginLocators.TotalNumberOfItems(), 
+	    	    "CorpId",                            
+	    	    "File Exported Successfully ! "   
+	    	);
+		
+	    
+	    
+		LoginLocators.Back().click();
+		Thread.sleep(9000);
+		String entityPage = getDriver().findElement(By.xpath("//h4[normalize-space()='Entities']")).getText();
+		
+		if(entityPage.equalsIgnoreCase("Entities"))
+	    {
+	    	test.log(LogStatus.PASS,"Back button is working fine");
+	    	test.log(LogStatus.PASS,"On clicking to Back button user is redirected to Entities/Home Page");
+	    	LoginLocators.corporateUserMappingBtn().click();
+			Thread.sleep(6000);
+	    }
+		else {
+			
+		}
+		
+		Thread.sleep(8000);
+		hyperLinkandGridCount(test, user);
+		Thread.sleep(4000);
+		
+		Locators.Searchentities().sendKeys("GreyO8RG");
+		Thread.sleep(5000);
+		String txt2 = getDriver().findElement(By.xpath("(//td[@role='gridcell'])[2]")).getText();
+		
+		if(txt2.equalsIgnoreCase("GreyO8RG"))
+		{
+			Thread.sleep(3000);
+			test.log(LogStatus.PASS,"Search filter is working fine");
+			test.log(LogStatus.PASS,"Searched value displayed in the grid : " + txt2);
+		}
+		else
+		{
+			test.log(LogStatus.FAIL,"Search filter is not working");
+			test.log(LogStatus.FAIL,"Search value displayed in grid : " + txt2);
+		}
+		
+}
+	
+	public static void hyperLinkandGridCount( ExtentTest test, String user) throws InterruptedException, IOException
+	{
+		
+		// Step 1: Get count from "Active" column hyperlink
+		WebElement activeLink = LoginLocators.corporateUserMappingHyperLink();
+		String activeCountText = activeLink.getText().trim(); // e.g., "22"
+		int activeDashboardCount = Integer.parseInt(activeCountText);
+		test.log(LogStatus.INFO, "List of Entities - count from dashboard: " + activeDashboardCount);
+
+		// Step 2: Click on hyperlink to open grid
+		activeLink.click();
+		Thread.sleep(3000); // or use WebDriverWait if needed
+		test.log(LogStatus.INFO, "List of Entities - hyper link is clickable");
+
+		// Step 3: Get grid count from top bar (e.g., "1 - 10 of 22 items")
+		WebElement gridLabel = LoginLocators.TotalNumberOfItems(); // use your method here
+		String gridText = gridLabel.getText().trim();
+		String[] parts = gridText.split(" ");
+		int activeGridCount = Integer.parseInt(parts[parts.length - 2]);
+		test.log(LogStatus.INFO, "List of Entities -  count found in grid: " + activeGridCount);
+
+		// Step 4: Match both counts
+		if (activeDashboardCount == activeGridCount) {
+		    test.log(LogStatus.PASS, "PASS: List of Entities - count from dashboard matches grid count.");
+		} else {
+		    test.log(LogStatus.FAIL, "FAIL: Mismatch. Dashboard = " + activeDashboardCount + ", Grid = " + activeGridCount);
+		}
+		
+		
+	}
+	
+	
 	public static void Corporate_Verification( ExtentTest test, String user) throws InterruptedException, IOException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);Thread.sleep(5000);Thread.sleep(5000);
 		
 		
@@ -519,11 +626,51 @@ else {
 		
 }
 	
+	public static void corporate_UserMapping( ExtentTest test, String user) throws InterruptedException, IOException
+	{
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(7000);Thread.sleep(5000);Thread.sleep(5000);
+		
+		
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+		
+		LoginLocators.Corporate().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.corporateUserMapping().click();
+		
+		OneCommonMethod.validateFileDownloadDynamic(
+			    driver.get(),
+			    test,
+			    LoginLocators.SampleDocument2(),   
+			    "Sample Document downloaded successfully !"   
+			);
+		
+		Thread.sleep(5000);
+		LoginLocators.UploadBtn().click();
+		Thread.sleep(5000);
+		
+	    String NoFileChoosen = LoginLocators.UploadSuccessfully().getText();
+	    Thread.sleep(2000);
+	    if(NoFileChoosen.equalsIgnoreCase("No file selected!"))
+	    {
+	    	test.log(LogStatus.PASS,"Without selecting file on clicking to upload button error message is displayed");
+	    	test.log(LogStatus.PASS,"Message Displayed = " + NoFileChoosen);
+	    }
+	    else
+	    {
+	    	test.log(LogStatus.FAIL	,"Without selecting file on clicking to upload button message is displayed");
+    	    test.log(LogStatus.FAIL,"Message Displayed = " + NoFileChoosen);
+	    }
+		
+		Thread.sleep(7000);
+}
+	
 	
 	public static void CorporateEntity_Verification( ExtentTest test, String user) throws InterruptedException, IOException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);Thread.sleep(5000);Thread.sleep(5000);
 		
 		
@@ -534,7 +681,8 @@ else {
 		
 		
 		
-		Locators.SearchUser().sendKeys("AVAAVATCG5");
+//		Locators.SearchUser().sendKeys("AVAAVATCG5");
+		OneCommonMethod.typeLikeUser(Locators.SearchUser(), "AVAAVATCG5", 1, 100);
 		Thread.sleep(8000);
 	//	Locators.SearchUser1().click();
 		getDriver().findElement(By.xpath("//span[normalize-space()='AVAAVATCG5 (Gopi)']")).click();
@@ -558,11 +706,12 @@ else {
 		}
 		
 		
-		Locators.SearchUser().sendKeys("AVA");
-		Thread.sleep(3000);
-		Locators.SearchUser().sendKeys("CORED");
-		Thread.sleep(3000);
-		Locators.SearchUser().sendKeys("5");
+//		Locators.SearchUser().sendKeys("AVA");
+//		Thread.sleep(3000);
+//		Locators.SearchUser().sendKeys("CORED");
+//		Thread.sleep(3000);
+//		Locators.SearchUser().sendKeys("5");
+		OneCommonMethod.typeLikeUser(Locators.SearchUser(), "AVACORED5", 1, 100);
 		Thread.sleep(3000);
 		Locators.SearchUser1().click();
 		Thread.sleep(3000);
@@ -612,7 +761,7 @@ else {
 	public static void CorporateEntity_BulkUploadVerification( ExtentTest test, String user) throws Exception
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);Thread.sleep(5000);Thread.sleep(5000);
 		
 		
@@ -767,7 +916,7 @@ else {
 	    
 	    String errorWhileUploading = LoginLocators.UploadSuccessfully().getText();
 	    Thread.sleep(2000);
-	    if(errorWhileUploading.equalsIgnoreCase("Error while uploading file.Error file downloaded"))
+	    if(errorWhileUploading.equalsIgnoreCase("Invalid Template"))
 	    {
 	    	test.log(LogStatus.PASS,"While uploading file with some error message is displayed ");
 	    	test.log(LogStatus.PASS,"Message Displayed = " + errorWhileUploading);
@@ -787,7 +936,7 @@ else {
 	public static void ProceedToDashboard( ExtentTest test, String user) throws InterruptedException, IOException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);Thread.sleep(5000);Thread.sleep(5000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		
@@ -831,7 +980,7 @@ else {
 	public static void ChangePass( ExtentTest test, String user) throws InterruptedException, IOException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(10000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		Thread.sleep(3000);
@@ -857,10 +1006,17 @@ else {
 		}
 	
 }
+	public static void anchorDashboardSummary( ExtentTest test, String user) throws InterruptedException, IOException
+	{
+	    OneCommonMethod.validateExportedExcelDYNAMIC(driver.get(),test,
+	    		PerformerLocator.anchorDashboardSummary(), All_ClientPortal_Locators.readTotalItemsNotice(),
+				"CustomerName", "Anchor Dashboard Summary File is downloaded successfully !");
+		Thread.sleep(5000);
+	}
 	public static void EntityExcelDownload( ExtentTest test, String user) throws InterruptedException, IOException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 
@@ -894,7 +1050,7 @@ else {
 	public static void PortalLogin( ExtentTest test, String user) throws InterruptedException, IOException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -915,7 +1071,7 @@ else {
 		Thread.sleep(4000);
 		getDriver().findElement(By.xpath("//img[@title='Sign In']")).click();
 		
-		Thread.sleep(4000);
+		Thread.sleep(8000);
 		WebElement clientPortalElement = getDriver().findElement(By.xpath("//h4[normalize-space()='Compliance Performance']"));
 		Thread.sleep(8000);
 		if(clientPortalElement.isDisplayed())
@@ -1147,7 +1303,7 @@ else
         
         js.executeScript("window.scrollBy(0,700)");
         Thread.sleep(2000); 
-        WebDriverWait wait = new WebDriverWait(getDriver(),(120));
+        WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.TotalNoOfItem()));
 
         LoginLocators.TotalNoOfItem().click();					//Clicking on Text of total items just to scroll down.
@@ -1256,7 +1412,7 @@ else
         
         js.executeScript("window.scrollBy(0,700)");
         Thread.sleep(2000); 
-        WebDriverWait wait = new WebDriverWait(getDriver(),(120));
+        WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.TotalNoOfItem()));
 
         LoginLocators.TotalNoOfItem().click();					//Clicking on Text of total items just to scroll down.
@@ -1365,7 +1521,7 @@ else
         
         js.executeScript("window.scrollBy(0,700)");
         Thread.sleep(2000); 
-        WebDriverWait wait = new WebDriverWait(getDriver(),(120));
+        WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.TotalNoOfItem()));
 
         LoginLocators.TotalNoOfItem().click();					//Clicking on Text of total items just to scroll down.
@@ -1473,7 +1629,7 @@ else
         
         js.executeScript("window.scrollBy(0,700)");
         Thread.sleep(2000); 
-        WebDriverWait wait = new WebDriverWait(getDriver(),(120));
+        WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.TotalNumberOfItems()));
 
         LoginLocators.TotalNumberOfItems().click();					//Clicking on Text of total items just to scroll down.
@@ -1586,7 +1742,7 @@ else
         
         js.executeScript("window.scrollBy(0,700)");
         Thread.sleep(2000); 
-        WebDriverWait wait = new WebDriverWait(getDriver(),(120));
+        WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.TotalNumberOfItem()));
 
         LoginLocators.TotalNumberOfItem().click();					//Clicking on Text of total items just to scroll down.
@@ -1698,7 +1854,7 @@ else
 	public static void UpcomingBox( ExtentTest test,String user) throws InterruptedException, IOException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);Thread.sleep(5000);Thread.sleep(5000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -1840,7 +1996,7 @@ else {
 	public static void OverdueBox( ExtentTest test,String user) throws InterruptedException, IOException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);Thread.sleep(5000);	Thread.sleep(5000);	
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -1990,7 +2146,7 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	public static void PendingActionBox( ExtentTest test,String user) throws InterruptedException, IOException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -2014,7 +2170,7 @@ jse.executeScript("arguments[0].click();", ViewButton);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.SelectPeriodDashboard()));
 		LoginLocators.SelectPeriodDashboard().click();
 		Thread.sleep(2000);
-		LoginLocators.SelectPeriodValue2024().click();
+		LoginLocators.SelectPeriodValue1().click();
 		Thread.sleep(9000);
 	int open = Integer.parseInt(LoginLocators.PendingActionBox().getText());	//Reading Dashboard count.
 	LoginLocators.PendingActionBox().click();					                //Clicking on Dashboard count
@@ -2128,7 +2284,7 @@ else {
 	public static void PendingReviewBox( ExtentTest test,String user) throws InterruptedException, IOException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -2250,7 +2406,7 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	test.log(LogStatus.PASS, "Branch Code Filters working Properly");
 	LoginLocators.CloseBranchCode().click();
 	Thread.sleep(3000);
-	LoginLocators.ClosePopUp().click();
+	LoginLocators.closePopup1().click();
 	Thread.sleep(3000);
 	}
 else {
@@ -2264,7 +2420,7 @@ else {
 	public static void RegisterUpcoming( ExtentTest test,String user) throws InterruptedException, IOException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -2411,7 +2567,7 @@ else {
 	public static void RegisterOverdue( ExtentTest test,String user) throws InterruptedException, IOException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -2433,7 +2589,7 @@ else {
 		LoginLocators.DashboardArrow().click();
 		Thread.sleep(9000);
 		LoginLocators.SelectPeriodDashboard().click();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		LoginLocators.SelectPeriodValue1().click();
 		Thread.sleep(9000);
 	int open = Integer.parseInt(LoginLocators.RegisterOverdue().getText());	//Reading Dashboard count.
@@ -2508,7 +2664,7 @@ else {
 JavascriptExecutor jse=(JavascriptExecutor) getDriver();
 jse.executeScript("arguments[0].click();", ViewButton);
 	Thread.sleep(4000);
-	test.log(LogStatus.PASS, "overView Successfully");
+	test.log(LogStatus.PASS, "Overview Successfully");
 	Thread.sleep(2000);
 	LoginLocators.CloseDocument().click();
 	Thread.sleep(3000);
@@ -2532,7 +2688,7 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	LoginLocators.CloseBranchCode().click();
 	Thread.sleep(3000);
 	try {
-		LoginLocators.ClosePopUp().click();
+		LoginLocators.closePopup1().click();
 		Thread.sleep(3000);
 		}
 		catch(Exception e) {
@@ -2551,7 +2707,7 @@ else {
 	public static void RegisterActionReview( ExtentTest test,String user) throws InterruptedException, IOException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -2692,7 +2848,7 @@ else {
 	public static void ReturnUpcoming( ExtentTest test,String user) throws InterruptedException, IOException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -2790,7 +2946,7 @@ else {
 JavascriptExecutor jse=(JavascriptExecutor) getDriver();
 jse.executeScript("arguments[0].click();", ViewButton);
 	Thread.sleep(4000);
-	test.log(LogStatus.PASS, "overView Successfully");
+	test.log(LogStatus.PASS, "Overview Successfully");
 	Thread.sleep(8000);
 	
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.CloseDocument()));
@@ -2835,20 +2991,20 @@ else {
 	public static void ReturnOverdue( ExtentTest test,String user) throws InterruptedException, IOException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");
+			LoginLocators.Search().sendKeys("TESTAUTO2");
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");	
+			LoginLocators.Search().sendKeys("TESTAUTO2");	
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");	
+			LoginLocators.Search().sendKeys("TESTAUTO2");	
 		}
 	//	LoginLocatorsLoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
 	//	LoginLocators.Search().sendKeys("WWKRG");
@@ -2974,24 +3130,165 @@ else {
 		}
 	
 }
-	
-	public static void ReturnActionReview( ExtentTest test,String user) throws InterruptedException, IOException
+	public static void ReturnAction( ExtentTest test,String user) throws InterruptedException, IOException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");
+			LoginLocators.Search().sendKeys("TESTAUTO2");
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");	
+			LoginLocators.Search().sendKeys("TESTAUTO2");	
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");	
+			LoginLocators.Search().sendKeys("TESTAUTO2");	
+		}
+	//	LoginLocatorsLoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
+	//	LoginLocators.Search().sendKeys("WWKRG");
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+		LoginLocators.DashboardArrow().click();
+		Thread.sleep(10000);
+		
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.SelectPeriodDashboard()));
+		LoginLocators.SelectPeriodDashboard().click();
+		Thread.sleep(2000);
+		LoginLocators.SelectPeriodValue1().click();
+		Thread.sleep(2000);
+	int open = Integer.parseInt(LoginLocators.returnAction().getText());	//Reading Dashboard count.
+	LoginLocators.returnAction().click();					                //Clicking on Dashboard count
+    Thread.sleep(2000);
+//	wait.until(ExpectedConditions.visibilityOf(LoginLocators.TotalNumberOfItems()));   
+    
+	Thread.sleep(2000);
+   			
+    JavascriptExecutor js = (JavascriptExecutor) getDriver();
+    
+    js.executeScript("window.scrollBy(0,1000)");
+    Thread.sleep(2000);
+   
+
+	String item = LoginLocators.TotalNumberOfItems().getText();
+	String[] bits = item.split(" ");								//Splitting the String
+	String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
+	int count1 = Integer.parseInt(compliancesCount);
+	String s = LoginLocators.TotalNumberOfItems().getText();
+	Thread.sleep(1000);
+	if(!s.equalsIgnoreCase("0 - 0 of 0 items")) {
+	Thread.sleep(4000);
+	if(open == count1)
+				
+	{
+					
+	//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
+					
+//	test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+	
+	test.log(LogStatus.PASS, "Dashboard Count = "+ open);
+	test.log(LogStatus.PASS, "Displayed records from grid = "+count1);
+				
+	}
+				
+	else
+				
+	{
+					
+	//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
+					
+	test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+				
+	}
+	
+	Thread.sleep(2000);
+	
+    JavascriptExecutor jss = (JavascriptExecutor) getDriver();
+    
+    jss.executeScript("window.scrollBy(0,-1000)");
+    Thread.sleep(2000);
+    
+//    MethodsD.GridAndExcelCountMatch(test,workbook);
+    
+    OneCommonMethod.validateExportedExcelDYNAMIC(
+    	    driver.get(),test,
+    	    LoginLocators.Exportbtn(),        // WebElement for export button
+    	    LoginLocators.DashboardBox_TotalNoOfItems(),     // WebElement for grid count text
+    	    "Branch",                               // Column header to verify
+    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+    	);
+    
+    
+    
+	Thread.sleep(3000);
+	By locator = By.className("svg-icon");
+
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	WebElement ViewButton = getDriver().findElement(locator);	
+	Thread.sleep(3000);
+JavascriptExecutor jse=(JavascriptExecutor) getDriver();
+jse.executeScript("arguments[0].click();", ViewButton);
+	Thread.sleep(4000);
+	test.log(LogStatus.PASS, "overView Successfully");
+	Thread.sleep(2000);
+	LoginLocators.CloseDocument().click();
+	Thread.sleep(3000);
+	LoginLocators.BrachCode().click();
+	Thread.sleep(3000);
+	LoginLocators.type().click();
+	Thread.sleep(3000);
+	LoginLocators.typeValue().click();
+	Thread.sleep(3000);
+	LoginLocators.SelectValue().click();
+	Thread.sleep(3000);
+	LoginLocators.SelectValueDropdown().click();
+	Thread.sleep(3000);
+	LoginLocators.ApplyBtn().click();
+	Thread.sleep(3000);
+	//LoginLocators.displayedrecord().getText();
+	Thread.sleep(3000);	
+	LoginLocators.ClearBtn().click();
+	Thread.sleep(3000);	
+	test.log(LogStatus.PASS, "Branch Code Filters working Properly");
+	LoginLocators.CloseBranchCode().click();
+	Thread.sleep(3000);
+	try {
+		LoginLocators.ClosePopUp().click();
+		Thread.sleep(3000);
+		}
+		catch(Exception e) {
+			
+			LoginLocators.Close().click();		
+		}
+	}
+else {
+		
+		test.log(LogStatus.PASS, "Compliance Count from grid is 0");
+
+		}
+	
+}
+	public static void ReturnActionReview( ExtentTest test,String user) throws InterruptedException, IOException
+	{
+	
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(7000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+		if(user.equalsIgnoreCase("Performer"))
+		{
+			LoginLocators.Search().sendKeys("TESTAUTO");
+		}
+		else if(user.equalsIgnoreCase("Distributor"))
+		{
+			LoginLocators.Search().sendKeys("TESTAUTO");	
+		}
+		else if(user.equalsIgnoreCase("Reviewer"))
+		{
+			LoginLocators.Search().sendKeys("TESTAUTO");	
 		}
 	//	LoginLocatorsLoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
 	//	LoginLocators.Search().sendKeys("WWKRG");
@@ -3119,20 +3416,20 @@ else {
 	public static void ChallanUpcoming( ExtentTest test,String user) throws InterruptedException, IOException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");
+			LoginLocators.Search().sendKeys("TESTAUTO2");
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");	
+			LoginLocators.Search().sendKeys("TESTAUTO2");	
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");	
+			LoginLocators.Search().sendKeys("TESTAUTO2");	
 		}
 	//	LoginLocatorsLoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
 	//	LoginLocators.Search().sendKeys("WWKRG");
@@ -3210,16 +3507,16 @@ else {
 	Thread.sleep(3000);
 	By locator = By.className("svg-icon");
 
-	getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 	
 	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 	Thread.sleep(4000);
 	WebElement ViewButton = getDriver().findElement(locator);	
 	Thread.sleep(3000);
-JavascriptExecutor jse=(JavascriptExecutor) getDriver();
-jse.executeScript("arguments[0].click();", ViewButton);
+	JavascriptExecutor jse=(JavascriptExecutor) getDriver();
+	jse.executeScript("arguments[0].click();", ViewButton);
 	Thread.sleep(4000);
-	test.log(LogStatus.PASS, "overView Successfully");
+	test.log(LogStatus.PASS, "Overview Successfully");
 	Thread.sleep(8000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.CloseDocument()));
 	LoginLocators.CloseDocument().click();
@@ -3246,37 +3543,33 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	try {
 		LoginLocators.ClosePopUp().click();
 		Thread.sleep(3000);
+	} catch (Exception e) {
+		LoginLocators.Close().click();
 		}
-		catch(Exception e) {
-			
-			LoginLocators.Close().click();		
-		}
+	} 
+	else{
+	test.log(LogStatus.PASS, "Compliance Count from grid is 0");
 	}
-else {
-		
-		test.log(LogStatus.PASS, "Compliance Count from grid is 0");
-
-		}
 	
 }
 	
 	public static void ChallanOverdue( ExtentTest test,String user) throws InterruptedException, IOException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");
+			LoginLocators.Search().sendKeys("TESTAUTO2");
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");	
+			LoginLocators.Search().sendKeys("TESTAUTO2");	
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");	
+			LoginLocators.Search().sendKeys("TESTAUTO2");	
 		}
 	//	LoginLocatorsLoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
 	//	LoginLocators.Search().sendKeys("WWKRG");
@@ -3368,7 +3661,149 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	Thread.sleep(3000);
 	LoginLocators.BrachCode().click();
 	Thread.sleep(3000);
-	LoginLocators.type().click();
+	LoginLocators.type2().click();
+	Thread.sleep(3000);
+	LoginLocators.typeValue().click();
+	Thread.sleep(3000);
+	LoginLocators.SelectValue().click();
+	Thread.sleep(3000);
+	LoginLocators.SelectValueDropdown().click();
+	Thread.sleep(3000);
+	LoginLocators.ApplyBtn().click();
+	Thread.sleep(3000);
+	//LoginLocators.displayedrecord().getText();
+	Thread.sleep(3000);	
+	LoginLocators.ClearBtn().click();
+	Thread.sleep(3000);	
+	test.log(LogStatus.PASS, "Branch Code Filters working Properly");
+	LoginLocators.CloseBranchCode().click();
+	Thread.sleep(3000);
+	try {
+		LoginLocators.closePopup1().click();
+		Thread.sleep(3000);
+		}
+		catch(Exception e) {
+			
+			LoginLocators.Close().click();		
+		}
+	}
+else {
+		
+		test.log(LogStatus.PASS, " Count from grid is 0");
+
+		}
+	
+}
+	
+	public static void ChallanAction( ExtentTest test,String user) throws InterruptedException, IOException
+	{
+	
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(7000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+		if(user.equalsIgnoreCase("Performer"))
+		{
+			LoginLocators.Search().sendKeys("TESTAUTO2");
+		}
+		else if(user.equalsIgnoreCase("Distributor"))
+		{
+			LoginLocators.Search().sendKeys("TESTAUTO2");	
+		}
+		else if(user.equalsIgnoreCase("Reviewer"))
+		{
+			LoginLocators.Search().sendKeys("TESTAUTO2");	
+		}
+	//	LoginLocatorsLoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
+	//	LoginLocators.Search().sendKeys("WWKRG");
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+		LoginLocators.DashboardArrow().click();
+		Thread.sleep(10000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.SelectPeriodDashboard()));
+		LoginLocators.SelectPeriodDashboard().click();
+		Thread.sleep(5000);
+		LoginLocators.SelectPeriodValue1().click();
+		Thread.sleep(9000);
+	int open = Integer.parseInt(LoginLocators.challanAction().getText());	//Reading Dashboard count.
+	LoginLocators.challanAction().click();					                //Clicking on Dashboard count
+    Thread.sleep(2000);
+//	wait.until(ExpectedConditions.visibilityOf(LoginLocators.TotalNumberOfItems()));   
+    
+	Thread.sleep(2000);
+   			
+    JavascriptExecutor js = (JavascriptExecutor) getDriver();
+    
+    js.executeScript("window.scrollBy(0,1000)");
+    Thread.sleep(2000);
+   
+
+	String item = LoginLocators.TotalNumberOfItems().getText();
+	String[] bits = item.split(" ");								//Splitting the String
+	String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
+	int count1 = Integer.parseInt(compliancesCount);
+	String s = LoginLocators.TotalNumberOfItems().getText();
+	Thread.sleep(1000);
+	if(!s.equalsIgnoreCase("0 - 0 of 0 items")) {
+	Thread.sleep(4000);
+	if(open == count1)
+				
+	{
+					
+	//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
+					
+//	test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+	
+	test.log(LogStatus.PASS, "Dashboard Count = "+ open);
+	test.log(LogStatus.PASS, "Displayed records from grid = "+count1);
+				
+	}
+				
+	else
+				
+	{
+					
+	//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
+					
+	test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+				
+	}
+	
+	Thread.sleep(2000);
+	
+    JavascriptExecutor jss = (JavascriptExecutor) getDriver();
+    
+    jss.executeScript("window.scrollBy(0,-1000)");
+    Thread.sleep(2000);
+    
+//    MethodsD.GridAndExcelCountMatch(test,workbook);
+    
+    OneCommonMethod.validateExportedExcelDYNAMIC(
+    	    driver.get(),test,
+    	    LoginLocators.Exportbtn(),        // WebElement for export button
+    	    LoginLocators.DashboardBox_TotalNoOfItems(),     // WebElement for grid count text
+    	    "Branch",                               // Column header to verify
+    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+    	);
+    
+    
+    
+	Thread.sleep(3000);
+	By locator = By.className("svg-icon");
+
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	WebElement ViewButton = getDriver().findElement(locator);	
+	Thread.sleep(3000);
+JavascriptExecutor jse=(JavascriptExecutor) getDriver();
+jse.executeScript("arguments[0].click();", ViewButton);
+	Thread.sleep(4000);
+	test.log(LogStatus.PASS, "overView Successfully");
+	Thread.sleep(2000);
+	LoginLocators.CloseDocument().click();
+	Thread.sleep(3000);
+	LoginLocators.BrachCode().click();
+	Thread.sleep(3000);
+	LoginLocators.type2().click();
 	Thread.sleep(3000);
 	LoginLocators.typeValue().click();
 	Thread.sleep(3000);
@@ -3405,20 +3840,20 @@ else {
 	public static void ChallanActionReview( ExtentTest test,String user) throws InterruptedException, IOException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");
+			LoginLocators.Search().sendKeys("TESTAUTO");
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");	
+			LoginLocators.Search().sendKeys("TESTAUTO");	
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");	
+			LoginLocators.Search().sendKeys("TESTAUTO");	
 		}
 		//LoginLocatorsLoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
 	//	LoginLocators.Search().sendKeys("WWKRG");
@@ -3548,7 +3983,7 @@ else {
 	public static void RiskGraph( ExtentTest test,String risk,int complianceCount) throws InterruptedException, IOException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 	
 		if(risk.equalsIgnoreCase("High"))
@@ -3662,7 +4097,7 @@ else {
 	public static void CompRiskGraph( ExtentTest test,String risk,int complianceCount) throws InterruptedException, IOException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 	
 		if(risk.equalsIgnoreCase("High"))
@@ -3778,7 +4213,7 @@ else {
 	{
 	
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -3799,7 +4234,7 @@ else {
 	//	LoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
 	//	LoginLocators.Search().sendKeys("WWKRG");
 
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
 		LoginLocators.DashboardArrow().click();
 		Thread.sleep(10000);
@@ -3825,14 +4260,10 @@ else {
 		{
 			action.moveToElement(e).click().build().perform();
 		}
-			try {	
-				LoginLocators.PenActnClosePopup().click();	
-				Thread.sleep(2000);
-		Thread.sleep(2000);
-			}
-			catch(Exception e) {
-				
-			}
+		try {
+			LoginLocators.PenActnClosePopup().click();
+			Thread.sleep(5000);
+		} catch (Exception e) { }
 		
    			
 	String item = LoginLocators.TotalNumberOfItems().getText();
@@ -4007,7 +4438,7 @@ else {
 	{
 	
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -4207,7 +4638,7 @@ else {
 	
 	public static void View( ExtentTest test) throws InterruptedException, IOException
 	{
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 
 	By locate = By.xpath("//div//img[@class='svg-icon ng-star-inserted']");
 
@@ -4244,25 +4675,77 @@ else {
 	Thread.sleep(3000);
 	}
 }
+	public static void abstractSummary(ExtentTest test,String user) throws InterruptedException, IOException
+	{
+	
+
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(7000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+		if(user.equalsIgnoreCase("Performer"))
+		{
+			LoginLocators.Search().sendKeys("TESTAUTO2");
+		}
+		else if(user.equalsIgnoreCase("Distributor"))
+		{
+			LoginLocators.Search().sendKeys("TESTAUTO2");	
+		}
+		else if(user.equalsIgnoreCase("Reviewer"))
+		{
+			LoginLocators.Search().sendKeys("AVACORED5");	
+		}
+
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+		LoginLocators.DashboardArrow().click();
+		Thread.sleep(10000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.SelectPeriodDashboard()));
+		LoginLocators.SelectPeriodDashboard().click();
+		Thread.sleep(2000);
+		LoginLocators.SelectPeriodValue1().click();
+		
+		Thread.sleep(4000);
+		JavascriptExecutor js = (JavascriptExecutor) getDriver();
+	    
+	    js.executeScript("window.scrollBy(0,500)");
+	    if(LoginLocators.abstractSummaryHeader().isDisplayed())
+	    {
+	    	LoginLocators.abstractSummaryHeader().getText();
+	    	test.log(LogStatus.PASS, "Abstract Summary tab is displayed on dashboard");
+	    }
+	    else {
+	    	test.log(LogStatus.FAIL, "Abstract Summary tab is not displayed on dashboard");
+	    }
+	    
+	    
+	    //This will get text and convert in into integer (Replaced text as well as %)
+	    
+//	    String text = getDriver().findElement(By.xpath("(//div[@class='status-card complied'])[2]")).getText();  // "22 %"
+//	    int value = Integer.parseInt(text.replaceAll("[^0-9]", ""));        // 22
+//	    System.out.println(value);
+//	    test.log(LogStatus.PASS, "Abstract Summary Count == " + value);
+
+	
+	}
 	
 	public static void ApplicableStatues(ExtentTest test,String user) throws InterruptedException, IOException
 	{
 	
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");
+			LoginLocators.Search().sendKeys("TESTAUTO2");
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");	
+			LoginLocators.Search().sendKeys("TESTAUTO2");	
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");	
+			LoginLocators.Search().sendKeys("TESTAUTO2");	
 		}
 	//	LoginLocatorsLoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
 	//	LoginLocators.Search().sendKeys("WWKRG");
@@ -4297,20 +4780,21 @@ else {
 	{
 	
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
-		Thread.sleep(5000); Thread.sleep(5000);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(5000); Thread.sleep(5000);Thread.sleep(5000); Thread.sleep(5000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");
+			LoginLocators.Search().sendKeys("TESTAUTO3");
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");	
+			LoginLocators.Search().sendKeys("TESTAUTO2");	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");	
+			LoginLocators.Search().sendKeys("TESTAUTO3");	
 		}
 	//	LoginLocatorsLoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
 		//LoginLocators.Search().sendKeys("WWKRG");
@@ -4322,7 +4806,7 @@ else {
 		
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.SelectPeriodDashboard()));
 //		LoginLocators.SelectPeriodDashboard().click();
-		
+		Thread.sleep(5000); Thread.sleep(5000);
 		Thread.sleep(2000);
 //		LoginLocators.SelectPeriodValue1().click();
 		
@@ -4330,6 +4814,7 @@ else {
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	    
 	    js.executeScript("window.scrollBy(0,2000)");
+	    Thread.sleep(4000);
 	    if(LoginLocators.DailyUpdateHeader().isDisplayed())
 	    {
 	    	//String dly = LoginLocators.DailyUpdate().getText();
@@ -4343,13 +4828,23 @@ else {
 	    	test.log(LogStatus.FAIL, "Daily Update Read More link is not working");
 
 	    }
+	    
+	    
+	    
+//	    DashboardCounts.upcomingCountValidation(test,
+//      DashboardCounts.upcomingMain(),
+//      DashboardCounts.upcomingRegisters(),
+//      DashboardCounts.upcomingReturns(),
+//      DashboardCounts.upcomingChallans(),
+//     "Dashboard → Upcoming count validation 2024 year");
+
 	
 	}
 	public static void Brows(ExtentTest test) throws InterruptedException, IOException
 	{
 	
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		
@@ -4374,7 +4869,7 @@ else {
 	{
 		
 		
-		WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);	
 		if(user.equalsIgnoreCase("Performer"))
 		{
@@ -4408,9 +4903,9 @@ else {
        Thread.sleep(3000);
        LoginLocators.ExpandBranchnew().click();
        Thread.sleep(3000);
-       String branch =LoginLocators.Branchvalue3().getText();
+       String branch =LoginLocators.BranchPune_BranchPune().getText();
        Thread.sleep(2000);
-       LoginLocators.Branchvalue3().click();
+       LoginLocators.BranchPune_BranchPune().click();
        Thread.sleep(2000);
        
        LoginLocators.ActFilter().click();
@@ -4479,7 +4974,7 @@ else {
 					{
 						if(text.get(l).equalsIgnoreCase("Mohali_Branch Punjab")
 						 ||text.get(l).equalsIgnoreCase("Branch Punjab")
-						 ||text.get(l).equalsIgnoreCase("Mines Act, 1952 and Mines Rules, 1955"))
+						 ||text.get(l).equalsIgnoreCase("Branch Pune"))
 							
 						{
 						  pass.add(text.get(l));
@@ -4536,7 +5031,7 @@ else {
 	{
 		
 		
-		WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(5000);	Thread.sleep(5000);	Thread.sleep(5000);	
 		if(user.equalsIgnoreCase("Performer"))
 		{
@@ -4682,11 +5177,64 @@ else {
 		}
 		
 	}
+	public static void overdueRedirectionWorkspace( ExtentTest test,String user) throws InterruptedException
+	{
+		
+		
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(5000);	Thread.sleep(5000);	Thread.sleep(3000);	
+		if(user.equalsIgnoreCase("Performer"))
+		{
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+		}
+		else if(user.equalsIgnoreCase("Distributor"))
+		{
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+		}
+		else if(user.equalsIgnoreCase("Reviewer"))
+		{
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
+		}
+	//	LoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
+	//	LoginLocators.Search().sendKeys("WWKRG");
+		Thread.sleep(7000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+		Thread.sleep(8000);
+		LoginLocators.DashboardArrow().click();
+		Thread.sleep(10000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.SelectPeriodDashboard()));
+		LoginLocators.SelectPeriodDashboard().click();
+		Thread.sleep(5000);
+		LoginLocators.SelectPeriodValue1().click();
+		Thread.sleep(9000);
+		LoginLocators.OverdueBox().click();				                
+        Thread.sleep(8000);
+        
+        LoginLocators.viewRedirection().click();	
+        Thread.sleep(9000);
+        String actType = LoginLocators.actTypeTxt().getText();
+        Thread.sleep(5000);
+        if(actType.equalsIgnoreCase("Challan")
+        || actType.equalsIgnoreCase("Register")
+        || actType.equalsIgnoreCase("Return")) {
+        	test.log(LogStatus.PASS,"View Redirection to workspace button displayed");
+        	test.log(LogStatus.PASS,"View Redirection to workspace button working fine");
+        	test.log(LogStatus.PASS,"On clicking to workspace user is redirected to workspace");
+        	test.log(LogStatus.PASS,"By default filters is selected ");
+        	test.log(LogStatus.PASS,"Act displayed = " + actType);
+        }else {
+        	test.log(LogStatus.FAIL,"By default filters is selected wrong");
+        	test.log(LogStatus.FAIL,"Act displayed = " + actType);
+        }
+        
+        
+	}
+	
 	public static void OverdueFilter( ExtentTest test,String user) throws InterruptedException
 	{
 		
 		
-		WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(5000);	Thread.sleep(5000);	Thread.sleep(3000);	
 		if(user.equalsIgnoreCase("Performer"))
 		{
@@ -4719,11 +5267,11 @@ else {
         
         LoginLocators.SelectBranch().click();
        Thread.sleep(3000);
-       LoginLocators.ExpandBranchSecond().click();
+       LoginLocators.ExpandBranchh().click();
        Thread.sleep(3000);
-       String branch =LoginLocators.BranchvalueCheckbox().getText();
+       String branch =LoginLocators.BranchPune_BranchPune().getText();
        Thread.sleep(2000);
-       LoginLocators.BranchvalueCheckbox().click();
+       LoginLocators.BranchPune_BranchPune().click();
        Thread.sleep(2000);
        LoginLocators.ApplyBtn1().click();
        Thread.sleep(2000);
@@ -4780,7 +5328,7 @@ else {
 					
 					if(i==0)
 					{
-						if(text.get(l).equalsIgnoreCase("Branch Punjab")||text.get(l).equalsIgnoreCase("tcs in hinjewadi"))
+						if(text.get(l).equalsIgnoreCase("Branch Punjab")||text.get(l).equalsIgnoreCase("Branch Pune"))
 						{
 						  pass.add(text.get(l));
 						}
@@ -4836,7 +5384,7 @@ else {
 	{
 		
 		
-		WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(5000);	Thread.sleep(5000);	Thread.sleep(3000);	
 		if(user.equalsIgnoreCase("Performer"))
 		{
@@ -4868,11 +5416,11 @@ else {
         
         LoginLocators.SelectBranch().click();
        Thread.sleep(3000);
-       LoginLocators.ExpandBranchSecond().click();
+       LoginLocators.ExpandBranchh().click();
        Thread.sleep(3000);
-       String branch =LoginLocators.BranchvalueCheckbox().getText();
+       String branch =LoginLocators.BranchPune_BranchPune().getText();
        Thread.sleep(10000);
-       LoginLocators.BranchvalueCheckbox().click();
+       LoginLocators.BranchPune_BranchPune().click();
        Thread.sleep(2000);
        LoginLocators.ApplyBtn1().click();
        Thread.sleep(2000);
@@ -4929,7 +5477,7 @@ else {
 					
 					if(i==0)
 					{
-						if(text.get(l).equalsIgnoreCase("Branch Punjab")||text.get(l).equalsIgnoreCase("Branch Gujarat"))
+						if(text.get(l).equalsIgnoreCase("Branch Punjab")||text.get(l).equalsIgnoreCase("Branch Pune"))
 						{
 						  pass.add(text.get(l));
 						}
@@ -4986,7 +5534,7 @@ else {
 	{
 	
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -5195,7 +5743,7 @@ else {
 	{
 		
 		
-		WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);	
 		if(user.equalsIgnoreCase("Performer"))
 		{
@@ -5340,7 +5888,7 @@ else {
 	}
 	public static void RegisterUpcomingFilter( ExtentTest test,String user) throws InterruptedException
 	{		
-		WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);	
 		if(user.equalsIgnoreCase("Performer"))
 		{
@@ -5487,10 +6035,1119 @@ else {
 		}
 		
 	}
+	public static void RegisterOverdueFilter2( ExtentTest test,String user) throws InterruptedException
+	{		
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(3000);	
+		if(user.equalsIgnoreCase("Performer"))
+		{
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+		}
+		else if(user.equalsIgnoreCase("Distributor"))
+		{
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+		}
+		else if(user.equalsIgnoreCase("Reviewer"))
+		{	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+		}
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+		LoginLocators.DashboardArrow().click();
+		Thread.sleep(15000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.SelectPeriodDashboard()));
+		LoginLocators.SelectPeriodDashboard().click();
+		Thread.sleep(5000);
+		LoginLocators.SelectPeriodValue1().click();
+		Thread.sleep(9000);
+		LoginLocators.registerOverdue().click();				                
+        Thread.sleep(2000);
+	   
+        LoginLocators.SelectBranch().click();
+        Thread.sleep(3000);
+       //LoginLocators.ExpandBranchn().click();
+        LoginLocators.ExpandBranchh().click();
+        Thread.sleep(3000);
+        
+ //     String branch =LoginLocators.Branchvaluen().getText();
+        Thread.sleep(2000);
+ //     LoginLocators.Branchvaluen().click();
+        
+        String branch =LoginLocators.BranchPune_BranchPune().getText();
+        Thread.sleep(2000);
+        LoginLocators.BranchPune_BranchPune().click();
+        Thread.sleep(2000);
+        LoginLocators.Period().click();
+        Thread.sleep(3000);
+        LoginLocators.PeriodValue().click();
+        Thread.sleep(2000);
+        LoginLocators.SelectYear2().click();
+        Thread.sleep(3000);
+        LoginLocators.selectValue2025().click();
+        Thread.sleep(2000);
+//        LoginLocators.ApplyBtn1().click();
+        OneCommonMethod.verifyApplyButton(getDriver(), test, LoginLocators.ApplyBtn1(), LoginLocators.TotalNumberOfItems(), "APPLY_COUNT_CHANGE");
+        Thread.sleep(2000);
+       
+        List<String> li=new ArrayList<String>();
+        
+      //  li.add(locationtext);
+        li.add(branch);
+        
+        Thread.sleep(3000);
+        
+		List<String> filter=new ArrayList<String>();	
+		filter.add("branch");
+		
+		
+		JavascriptExecutor js = (JavascriptExecutor) getDriver();
+		js.executeScript("window.scrollBy(0,1000)");	
+		Thread.sleep(3000);
+
+		LoginLocators.TotalNumberOfItems().click();					
+		String s = LoginLocators.TotalNumberOfItems().getText();
+		Thread.sleep(2000);
+
+		if(!s.equalsIgnoreCase("0 - 0 of 0 items")) {
+		Thread.sleep(5000);
+	
+		List<WebElement> branchcol=getDriver().findElements(By.xpath("//tbody/tr[1]/td[2]"));
+		
+		
+		Thread.sleep(2000);
+
+		for(int i=0; i<li.size(); i++){
+			
+			List<String> text= new ArrayList<String>();
+			HashSet<String> pass=new LinkedHashSet<>();
+			HashSet<String> fail=new LinkedHashSet<>();
+			List<WebElement> raw=new ArrayList<WebElement>();
+				if(i==0)
+				{
+					raw.addAll(branchcol);
+				}
+			
+			  
+			
+						
+			for(int k=0;k<raw.size();k++)
+				{
+					text.add(raw.get(k).getText());
+				}
+				for(int l=0;l<text.size();l++)
+				{
+					
+					if(i==0)
+					{
+						if(text.get(l).equalsIgnoreCase("Jayanagar III Block_TTTT")||text.get(l).equalsIgnoreCase("Branch Pune"))
+						{
+						  pass.add(text.get(l));
+						}
+						else
+						{
+							 fail.add(text.get(l));
+						}
+					}
+					else
+					{
+						
+					
+				if(text.get(l).equals(li.get(i)))
+					{
+					
+					
+						pass.add(text.get(l));	
+						System.out.println("pass : "+text.get(l)+" : "+li.get(i));
+					}
+				else
+				{
+					fail.add(text.get(l));		
+					System.out.println("fail : "+text.get(l)+" : "+li.get(i));
+					System.out.println(i);
+				}
+				 }
+				}
+		
+	for(String Fal : fail)
+		 {
+				test.log(LogStatus.FAIL, filter.get(i)+" column shows incorrect value : "+Fal);
+		 }	
+		 for(String Pas : pass)
+		 {
+			 test.log(LogStatus.PASS,  filter.get(i)+" dropdown working properly.");
+				test.log(LogStatus.PASS, filter.get(i)+" displayed : "+Pas);	
+				System.out.println(filter.get(i)+" : "+Pas);
+				test.log(LogStatus.PASS, "period dropdown is working properly"); //me
+				test.log(LogStatus.PASS, "year dropdown is working properly");
+	 }
+		OneCommonMethod.verifyClearButton(getDriver(), test, LoginLocators.Clearbtn1(), LoginLocators.TotalNumberOfItems(), "COUNT_CHANGE");
+		text.clear();
+		pass.clear();
+		fail.clear();
+		raw.clear();
+		
+		
+		}
+		}else {
+			test.log(LogStatus.PASS,"No records found");	
+		}
+		
+	}
+	
+	public static void ReturnUpcomingFilter2( ExtentTest test,String user) throws InterruptedException
+	{		
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(3000);	
+		if(user.equalsIgnoreCase("Performer"))
+		{
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO");
+		}
+		else if(user.equalsIgnoreCase("Distributor"))
+		{
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+		}
+		else if(user.equalsIgnoreCase("Reviewer"))
+		{	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+		}
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+		LoginLocators.DashboardArrow().click();
+		Thread.sleep(15000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.SelectPeriodDashboard()));
+		LoginLocators.SelectPeriodDashboard().click();
+		Thread.sleep(5000);
+		LoginLocators.SelectPeriodValue1().click();
+		Thread.sleep(9000);
+		LoginLocators.returnUpcoming().click();				                
+        Thread.sleep(5000);
+	   
+        LoginLocators.SelectBranch().click();
+        Thread.sleep(3000);
+       //LoginLocators.ExpandBranchn().click();
+//       LoginLocators.ExpandBranchh().click();
+        getDriver().findElement(By.xpath("(//kendo-svgicon[@class='k-svg-i-caret-alt-right k-svg-icon k-icon ng-star-inserted'])[3]")).click();
+        Thread.sleep(3000);
+        Thread.sleep(2000);
+        
+      String branch =LoginLocators.BranchPune_Maha().getText();//TESTAUTO2
+//        String branch =LoginLocators.BranchAndra_Tripupathi().getText();//AVANEW
+        Thread.sleep(2000);
+      LoginLocators.BranchPune_Maha().click();//TESTAUTO2
+//        LoginLocators.BranchAndra_Tripupathi().click();
+        Thread.sleep(2000);
+        LoginLocators.Period().click(); //No data is displaying
+        Thread.sleep(3000);
+//      LoginLocators.PeriodValue().click(); //No data is displaying
+        Thread.sleep(2000);
+        LoginLocators.SelectYear2().click();
+        Thread.sleep(3000);
+//      LoginLocators.selectValue2025().click(); //No data is displaying
+        Thread.sleep(2000);
+
+        OneCommonMethod.verifyApplyButton(getDriver(), test, LoginLocators.ApplyBtn1(), LoginLocators.TotalNumberOfItems(), "APPLY_COUNT_CHANGE");
+        Thread.sleep(2000);
+       
+        List<String> li=new ArrayList<String>();
+        
+      //  li.add(locationtext);
+        li.add(branch);
+        
+        Thread.sleep(3000);
+        
+		List<String> filter=new ArrayList<String>();	
+		filter.add("branch");
+		
+		
+		JavascriptExecutor js = (JavascriptExecutor) getDriver();
+		js.executeScript("window.scrollBy(0,1000)");	
+		Thread.sleep(3000);
+
+		LoginLocators.TotalNumberOfItems().click();					
+		String s = LoginLocators.TotalNumberOfItems().getText();
+		Thread.sleep(2000);
+
+		if(!s.equalsIgnoreCase("0 - 0 of 0 items")) {
+		Thread.sleep(5000);
+	
+		List<WebElement> branchcol=getDriver().findElements(By.xpath("//tbody/tr[1]/td[2]"));
+		
+		
+		Thread.sleep(2000);
+
+		for(int i=0; i<li.size(); i++){
+			
+			List<String> text= new ArrayList<String>();
+			HashSet<String> pass=new LinkedHashSet<>();
+			HashSet<String> fail=new LinkedHashSet<>();
+			List<WebElement> raw=new ArrayList<WebElement>();
+				if(i==0)
+				{
+					raw.addAll(branchcol);
+				}
+			
+			  
+			
+						
+			for(int k=0;k<raw.size();k++)
+				{
+					text.add(raw.get(k).getText());
+				}
+				for(int l=0;l<text.size();l++)
+				{
+					
+					if(i==0)
+					{
+						if(text.get(l).equalsIgnoreCase("Jayanagar III Block_TTTT")||text.get(l).equalsIgnoreCase("Branch Pune") || text.get(l).equalsIgnoreCase("Branch Andra")
+						   || text.get(l).equalsIgnoreCase("Maha Branch"))
+						{
+						  pass.add(text.get(l));
+						}
+						else
+						{
+							 fail.add(text.get(l));
+						}
+					}
+					else
+					{
+						
+					
+				if(text.get(l).equals(li.get(i)))
+					{
+					
+					
+						pass.add(text.get(l));	
+						System.out.println("pass : "+text.get(l)+" : "+li.get(i));
+					}
+				else
+				{
+					fail.add(text.get(l));		
+					System.out.println("fail : "+text.get(l)+" : "+li.get(i));
+					System.out.println(i);
+				}
+				 }
+				}
+		
+	for(String Fal : fail)
+		 {
+				test.log(LogStatus.FAIL, filter.get(i)+" column shows incorrect value : "+Fal);
+		 }	
+		 for(String Pas : pass)
+		 {
+			 test.log(LogStatus.PASS,  filter.get(i)+" dropdown working properly.");
+				test.log(LogStatus.PASS, filter.get(i)+" displayed : "+Pas);	
+				System.out.println(filter.get(i)+" : "+Pas);
+				test.log(LogStatus.PASS, "period dropdown is working properly"); //me
+				test.log(LogStatus.PASS, "year dropdown is working properly");
+	 }
+		OneCommonMethod.verifyClearButton(getDriver(), test, LoginLocators.Clearbtn1(), LoginLocators.TotalNumberOfItems(), "COUNT_CHANGE");
+		text.clear();
+		pass.clear();
+		fail.clear();
+		raw.clear();
+		
+		
+		}
+		}else {
+			test.log(LogStatus.PASS,"No records found");	
+		}
+		
+	}
+	
+	public static void ReturnOverdueFilter2( ExtentTest test,String user) throws InterruptedException
+	{		
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(3000);	
+		if(user.equalsIgnoreCase("Performer"))
+		{
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO");
+		}
+		else if(user.equalsIgnoreCase("Distributor"))
+		{
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO");
+		}
+		else if(user.equalsIgnoreCase("Reviewer"))
+		{	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO");
+		}
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+		LoginLocators.DashboardArrow().click();
+		Thread.sleep(15000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.SelectPeriodDashboard()));
+		LoginLocators.SelectPeriodDashboard().click();
+		Thread.sleep(5000);
+		LoginLocators.SelectPeriodValue1().click();
+		Thread.sleep(9000);
+		LoginLocators.returnOverdue().click();				                
+        Thread.sleep(5000);
+	   
+        LoginLocators.SelectBranch().click();
+        Thread.sleep(3000);
+       //LoginLocators.ExpandBranchn().click();
+//        LoginLocators.ExpandBranchh().click();
+        getDriver().findElement(By.xpath("(//kendo-svgicon[@class='k-svg-i-caret-alt-right k-svg-icon k-icon ng-star-inserted'])[3]")).click();
+        Thread.sleep(3000);
+        Thread.sleep(2000);
+        
+      String branch =LoginLocators.BranchPune_Maha().getText();//TESTAUTO
+        
+//      String branch =LoginLocators.BranchPune_BranchPune().getText();//TESTAUTO2
+//        String branch =LoginLocators.BranchAndra_Tripupathi().getText();//TESTAUTO2
+        Thread.sleep(2000);
+        LoginLocators.BranchPune_Maha().click();//TESTAUTO2
+//      LoginLocators.BranchAndra_Tripupathi().click();
+        Thread.sleep(2000);
+        LoginLocators.Period().click(); //No data is displaying
+        Thread.sleep(3000);
+//      LoginLocators.PeriodValue().click(); //No data is displaying
+        Thread.sleep(2000);
+        LoginLocators.SelectYear2().click();
+        Thread.sleep(3000);
+//      LoginLocators.selectValue2025().click(); //No data is displaying
+        Thread.sleep(2000);
+
+        OneCommonMethod.verifyApplyButton(getDriver(), test, LoginLocators.ApplyBtn1(), LoginLocators.TotalNumberOfItems(), "APPLY_COUNT_CHANGE");
+        Thread.sleep(2000);
+       
+        List<String> li=new ArrayList<String>();
+        
+      //  li.add(locationtext);
+        li.add(branch);
+        
+        Thread.sleep(3000);
+        
+		List<String> filter=new ArrayList<String>();	
+		filter.add("branch");
+		
+		
+		JavascriptExecutor js = (JavascriptExecutor) getDriver();
+		js.executeScript("window.scrollBy(0,1000)");	
+		Thread.sleep(3000);
+
+		LoginLocators.TotalNumberOfItems().click();					
+		String s = LoginLocators.TotalNumberOfItems().getText();
+		Thread.sleep(2000);
+
+		if(!s.equalsIgnoreCase("0 - 0 of 0 items")) {
+		Thread.sleep(5000);
+	
+		List<WebElement> branchcol=getDriver().findElements(By.xpath("//tbody/tr[1]/td[2]"));
+		
+		
+		Thread.sleep(2000);
+
+		for(int i=0; i<li.size(); i++){
+			
+			List<String> text= new ArrayList<String>();
+			HashSet<String> pass=new LinkedHashSet<>();
+			HashSet<String> fail=new LinkedHashSet<>();
+			List<WebElement> raw=new ArrayList<WebElement>();
+				if(i==0)
+				{
+					raw.addAll(branchcol);
+				}
+			
+			  
+			
+						
+			for(int k=0;k<raw.size();k++)
+				{
+					text.add(raw.get(k).getText());
+				}
+				for(int l=0;l<text.size();l++)
+				{
+					
+					if(i==0)
+					{
+						if(text.get(l).equalsIgnoreCase("Jayanagar III Block_TTTT")||text.get(l).equalsIgnoreCase("Branch Pune") || text.get(l).equalsIgnoreCase("Branch Andra")
+								|| text.get(l).equalsIgnoreCase("Maha Branch"))
+						{
+						  pass.add(text.get(l));
+						}
+						else
+						{
+							 fail.add(text.get(l));
+						}
+					}
+					else
+					{
+						
+					
+				if(text.get(l).equals(li.get(i)))
+					{
+					
+					
+						pass.add(text.get(l));	
+						System.out.println("pass : "+text.get(l)+" : "+li.get(i));
+					}
+				else
+				{
+					fail.add(text.get(l));		
+					System.out.println("fail : "+text.get(l)+" : "+li.get(i));
+					System.out.println(i);
+				}
+				 }
+				}
+		
+	for(String Fal : fail)
+		 {
+				test.log(LogStatus.FAIL, filter.get(i)+" column shows incorrect value : "+Fal);
+		 }	
+		 for(String Pas : pass)
+		 {
+			 test.log(LogStatus.PASS,  filter.get(i)+" dropdown working properly.");
+				test.log(LogStatus.PASS, filter.get(i)+" displayed : "+Pas);	
+				System.out.println(filter.get(i)+" : "+Pas);
+				test.log(LogStatus.PASS, "period dropdown is working properly"); //me
+				test.log(LogStatus.PASS, "year dropdown is working properly");
+	 }
+		OneCommonMethod.verifyClearButton(getDriver(), test, LoginLocators.Clearbtn1(), LoginLocators.TotalNumberOfItems(), "COUNT_CHANGE");
+		text.clear();
+		pass.clear();
+		fail.clear();
+		raw.clear();
+		
+		
+		}
+		}else {
+			test.log(LogStatus.PASS,"No records found");	
+		}
+		
+	}
+	public static void ReturnActionFilter( ExtentTest test,String user) throws InterruptedException
+	{		
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(3000);	
+		if(user.equalsIgnoreCase("Performer"))
+		{
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+		}
+		else if(user.equalsIgnoreCase("Distributor"))
+		{
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+		}
+		else if(user.equalsIgnoreCase("Reviewer"))
+		{	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+		}
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+		LoginLocators.DashboardArrow().click();
+		Thread.sleep(15000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.SelectPeriodDashboard()));
+		LoginLocators.SelectPeriodDashboard().click();
+		Thread.sleep(5000);
+		LoginLocators.SelectPeriodValue1().click();
+		Thread.sleep(9000);
+		LoginLocators.returnAction().click();				                
+        Thread.sleep(5000);
+	   
+        LoginLocators.SelectBranch().click();
+        Thread.sleep(3000);
+       //LoginLocators.ExpandBranchn().click();
+        LoginLocators.ExpandBranchh().click();
+        Thread.sleep(3000);
+        Thread.sleep(2000);
+        
+//      String branch =LoginLocators.BranchPune_BranchPune().getText();//TESTAUTO2
+        String branch =LoginLocators.BranchAndra_Tripupathi().getText();//TESTAUTO2
+        Thread.sleep(2000);
+//      LoginLocators.BranchPune_BranchPune().click();//TESTAUTO2
+        LoginLocators.BranchAndra_Tripupathi().click();
+        Thread.sleep(2000);
+        LoginLocators.Period().click(); //No data is displaying
+        Thread.sleep(3000);
+//      LoginLocators.PeriodValue().click(); //No data is displaying
+        Thread.sleep(2000);
+        LoginLocators.SelectYear2().click();
+        Thread.sleep(3000);
+//      LoginLocators.selectValue2025().click(); //No data is displaying
+        Thread.sleep(2000);
+
+        OneCommonMethod.verifyApplyButton(getDriver(), test, LoginLocators.ApplyBtn1(), LoginLocators.TotalNumberOfItems(), "APPLY_COUNT_CHANGE");
+        Thread.sleep(2000);
+       
+        List<String> li=new ArrayList<String>();
+        
+      //  li.add(locationtext);
+        li.add(branch);
+        
+        Thread.sleep(3000);
+        
+		List<String> filter=new ArrayList<String>();	
+		filter.add("branch");
+		
+		
+		JavascriptExecutor js = (JavascriptExecutor) getDriver();
+		js.executeScript("window.scrollBy(0,1000)");	
+		Thread.sleep(3000);
+
+		LoginLocators.TotalNumberOfItems().click();					
+		String s = LoginLocators.TotalNumberOfItems().getText();
+		Thread.sleep(2000);
+
+		if(!s.equalsIgnoreCase("0 - 0 of 0 items")) {
+		Thread.sleep(5000);
+	
+		List<WebElement> branchcol=getDriver().findElements(By.xpath("//tbody/tr[1]/td[2]"));
+		
+		
+		Thread.sleep(2000);
+
+		for(int i=0; i<li.size(); i++){
+			
+			List<String> text= new ArrayList<String>();
+			HashSet<String> pass=new LinkedHashSet<>();
+			HashSet<String> fail=new LinkedHashSet<>();
+			List<WebElement> raw=new ArrayList<WebElement>();
+				if(i==0)
+				{
+					raw.addAll(branchcol);
+				}
+			
+			  
+			
+						
+			for(int k=0;k<raw.size();k++)
+				{
+					text.add(raw.get(k).getText());
+				}
+				for(int l=0;l<text.size();l++)
+				{
+					
+					if(i==0)
+					{
+						if(text.get(l).equalsIgnoreCase("Jayanagar III Block_TTTT")||text.get(l).equalsIgnoreCase("Branch Pune") || text.get(l).equalsIgnoreCase("Branch Andra"))
+						{
+						  pass.add(text.get(l));
+						}
+						else
+						{
+							 fail.add(text.get(l));
+						}
+					}
+					else
+					{
+						
+					
+				if(text.get(l).equals(li.get(i)))
+					{
+					
+					
+						pass.add(text.get(l));	
+						System.out.println("pass : "+text.get(l)+" : "+li.get(i));
+					}
+				else
+				{
+					fail.add(text.get(l));		
+					System.out.println("fail : "+text.get(l)+" : "+li.get(i));
+					System.out.println(i);
+				}
+				 }
+				}
+		
+	for(String Fal : fail)
+		 {
+				test.log(LogStatus.FAIL, filter.get(i)+" column shows incorrect value : "+Fal);
+		 }	
+		 for(String Pas : pass)
+		 {
+			 test.log(LogStatus.PASS,  filter.get(i)+" dropdown working properly.");
+				test.log(LogStatus.PASS, filter.get(i)+" displayed : "+Pas);	
+				System.out.println(filter.get(i)+" : "+Pas);
+				test.log(LogStatus.PASS, "period dropdown is working properly"); //me
+				test.log(LogStatus.PASS, "year dropdown is working properly");
+	 }
+		OneCommonMethod.verifyClearButton(getDriver(), test, LoginLocators.Clearbtn1(), LoginLocators.TotalNumberOfItems(), "COUNT_CHANGE");
+		text.clear();
+		pass.clear();
+		fail.clear();
+		raw.clear();
+		
+		
+		}
+		}else {
+			test.log(LogStatus.PASS,"No records found");	
+		}
+		
+	}
+	
+	public static void challanUpcomingFilters( ExtentTest test,String user) throws InterruptedException
+	{		
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(3000);	
+		if(user.equalsIgnoreCase("Performer"))
+		{
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+		}
+		else if(user.equalsIgnoreCase("Distributor"))
+		{
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+		}
+		else if(user.equalsIgnoreCase("Reviewer"))
+		{	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+		}
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+		LoginLocators.DashboardArrow().click();
+		Thread.sleep(15000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.SelectPeriodDashboard()));
+		LoginLocators.SelectPeriodDashboard().click();
+		Thread.sleep(5000);
+		LoginLocators.SelectPeriodValue1().click();
+		Thread.sleep(9000);
+		LoginLocators.challanUpcoming().click();				                
+        Thread.sleep(5000);
+	   
+        LoginLocators.SelectBranch().click();
+        Thread.sleep(3000);
+       //LoginLocators.ExpandBranchn().click();
+        LoginLocators.ExpandBranchh().click();
+        Thread.sleep(3000);
+        Thread.sleep(2000);
+        
+      String branch =LoginLocators.BranchPune_BranchPune().getText();//TESTAUTO2
+//        String branch =LoginLocators.BranchAndra_Tripupathi().getText();//TESTAUTO2
+        Thread.sleep(2000);
+      LoginLocators.BranchPune_BranchPune().click();//TESTAUTO2
+//        LoginLocators.BranchAndra_Tripupathi().click();
+        Thread.sleep(2000);
+        LoginLocators.Period().click(); //No data is displaying
+        Thread.sleep(3000);
+//      LoginLocators.PeriodValue().click(); //No data is displaying
+        Thread.sleep(2000);
+        LoginLocators.SelectYear2().click();
+        Thread.sleep(3000);
+//      LoginLocators.selectValue2025().click(); //No data is displaying
+        Thread.sleep(2000);
+
+        OneCommonMethod.verifyApplyButton(getDriver(), test, LoginLocators.ApplyBtn1(), LoginLocators.TotalNumberOfItems(), "APPLY_COUNT_CHANGE");
+        Thread.sleep(2000);
+       
+        List<String> li=new ArrayList<String>();
+        
+      //  li.add(locationtext);
+        li.add(branch);
+        
+        Thread.sleep(3000);
+        
+		List<String> filter=new ArrayList<String>();	
+		filter.add("branch");
+		
+		
+		JavascriptExecutor js = (JavascriptExecutor) getDriver();
+		js.executeScript("window.scrollBy(0,1000)");	
+		Thread.sleep(3000);
+
+		LoginLocators.TotalNumberOfItems().click();					
+		String s = LoginLocators.TotalNumberOfItems().getText();
+		Thread.sleep(2000);
+
+		if(!s.equalsIgnoreCase("0 - 0 of 0 items")) {
+		Thread.sleep(5000);
+	
+		List<WebElement> branchcol=getDriver().findElements(By.xpath("//tbody/tr[1]/td[2]"));
+		
+		
+		Thread.sleep(2000);
+
+		for(int i=0; i<li.size(); i++){
+			
+			List<String> text= new ArrayList<String>();
+			HashSet<String> pass=new LinkedHashSet<>();
+			HashSet<String> fail=new LinkedHashSet<>();
+			List<WebElement> raw=new ArrayList<WebElement>();
+				if(i==0)
+				{
+					raw.addAll(branchcol);
+				}
+			
+			  
+			
+						
+			for(int k=0;k<raw.size();k++)
+				{
+					text.add(raw.get(k).getText());
+				}
+				for(int l=0;l<text.size();l++)
+				{
+					
+					if(i==0)
+					{
+						if(text.get(l).equalsIgnoreCase("Jayanagar III Block_TTTT")||text.get(l).equalsIgnoreCase("Branch Pune") || text.get(l).equalsIgnoreCase("Branch Andra"))
+						{
+						  pass.add(text.get(l));
+						}
+						else
+						{
+							 fail.add(text.get(l));
+						}
+					}
+					else
+					{
+						
+					
+				if(text.get(l).equals(li.get(i)))
+					{
+					
+					
+						pass.add(text.get(l));	
+						System.out.println("pass : "+text.get(l)+" : "+li.get(i));
+					}
+				else
+				{
+					fail.add(text.get(l));		
+					System.out.println("fail : "+text.get(l)+" : "+li.get(i));
+					System.out.println(i);
+				}
+				 }
+				}
+		
+	for(String Fal : fail)
+		 {
+				test.log(LogStatus.FAIL, filter.get(i)+" column shows incorrect value : "+Fal);
+		 }	
+		 for(String Pas : pass)
+		 {
+			 test.log(LogStatus.PASS,  filter.get(i)+" dropdown working properly.");
+				test.log(LogStatus.PASS, filter.get(i)+" displayed : "+Pas);	
+				System.out.println(filter.get(i)+" : "+Pas);
+				test.log(LogStatus.PASS, "period dropdown is working properly"); //me
+				test.log(LogStatus.PASS, "year dropdown is working properly");
+	 }
+		OneCommonMethod.verifyClearButton(getDriver(), test, LoginLocators.Clearbtn1(), LoginLocators.TotalNumberOfItems(), "COUNT_CHANGE");
+		text.clear();
+		pass.clear();
+		fail.clear();
+		raw.clear();
+		
+		
+		}
+		}else {
+			test.log(LogStatus.PASS,"No records found");	
+		}
+		
+	}
+	public static void challanOverdueFilters( ExtentTest test,String user) throws InterruptedException
+	{		
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(3000);	
+		if(user.equalsIgnoreCase("Performer"))
+		{
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+		}
+		else if(user.equalsIgnoreCase("Distributor"))
+		{
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+		}
+		else if(user.equalsIgnoreCase("Reviewer"))
+		{	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+		}
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+		LoginLocators.DashboardArrow().click();
+		Thread.sleep(15000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.SelectPeriodDashboard()));
+		LoginLocators.SelectPeriodDashboard().click();
+		Thread.sleep(5000);
+		LoginLocators.SelectPeriodValue1().click();
+		Thread.sleep(9000);
+		LoginLocators.challanOverdue().click();				                
+        Thread.sleep(5000);
+	   
+        LoginLocators.SelectBranch().click();
+        Thread.sleep(3000);
+       //LoginLocators.ExpandBranchn().click();
+        LoginLocators.ExpandBranchh().click();
+        Thread.sleep(3000);
+        Thread.sleep(2000);
+        
+      String branch =LoginLocators.BranchPune_BranchPune().getText();//TESTAUTO2
+//        String branch =LoginLocators.BranchAndra_Tripupathi().getText();//TESTAUTO2
+        Thread.sleep(2000);
+      LoginLocators.BranchPune_BranchPune().click();//TESTAUTO2
+//        LoginLocators.BranchAndra_Tripupathi().click();
+        Thread.sleep(2000);
+        LoginLocators.Period().click(); //No data is displaying
+        Thread.sleep(3000);
+//      LoginLocators.PeriodValue().click(); //No data is displaying
+        Thread.sleep(2000);
+        LoginLocators.SelectYear2().click();
+        Thread.sleep(3000);
+//      LoginLocators.selectValue2025().click(); //No data is displaying
+        Thread.sleep(2000);
+
+        OneCommonMethod.verifyApplyButton(getDriver(), test, LoginLocators.ApplyBtn1(), LoginLocators.TotalNumberOfItems(), "APPLY_COUNT_CHANGE");
+        Thread.sleep(2000);
+       
+        List<String> li=new ArrayList<String>();
+        
+      //  li.add(locationtext);
+        li.add(branch);
+        
+        Thread.sleep(3000);
+        
+		List<String> filter=new ArrayList<String>();	
+		filter.add("branch");
+		
+		
+		JavascriptExecutor js = (JavascriptExecutor) getDriver();
+		js.executeScript("window.scrollBy(0,1000)");	
+		Thread.sleep(3000);
+
+		LoginLocators.TotalNumberOfItems().click();					
+		String s = LoginLocators.TotalNumberOfItems().getText();
+		Thread.sleep(2000);
+
+		if(!s.equalsIgnoreCase("0 - 0 of 0 items")) {
+		Thread.sleep(5000);
+	
+		List<WebElement> branchcol=getDriver().findElements(By.xpath("//tbody/tr[1]/td[2]"));
+		
+		
+		Thread.sleep(2000);
+
+		for(int i=0; i<li.size(); i++){
+			
+			List<String> text= new ArrayList<String>();
+			HashSet<String> pass=new LinkedHashSet<>();
+			HashSet<String> fail=new LinkedHashSet<>();
+			List<WebElement> raw=new ArrayList<WebElement>();
+				if(i==0)
+				{
+					raw.addAll(branchcol);
+				}
+			
+			  
+			
+						
+			for(int k=0;k<raw.size();k++)
+				{
+					text.add(raw.get(k).getText());
+				}
+				for(int l=0;l<text.size();l++)
+				{
+					
+					if(i==0)
+					{
+						if(text.get(l).equalsIgnoreCase("Jayanagar III Block_TTTT")||text.get(l).equalsIgnoreCase("Branch Pune") || text.get(l).equalsIgnoreCase("Branch Andra"))
+						{
+						  pass.add(text.get(l));
+						}
+						else
+						{
+							 fail.add(text.get(l));
+						}
+					}
+					else
+					{
+						
+					
+				if(text.get(l).equals(li.get(i)))
+					{
+					
+					
+						pass.add(text.get(l));	
+						System.out.println("pass : "+text.get(l)+" : "+li.get(i));
+					}
+				else
+				{
+					fail.add(text.get(l));		
+					System.out.println("fail : "+text.get(l)+" : "+li.get(i));
+					System.out.println(i);
+				}
+				 }
+				}
+		
+	for(String Fal : fail)
+		 {
+				test.log(LogStatus.FAIL, filter.get(i)+" column shows incorrect value : "+Fal);
+		 }	
+		 for(String Pas : pass)
+		 {
+			 test.log(LogStatus.PASS,  filter.get(i)+" dropdown working properly.");
+				test.log(LogStatus.PASS, filter.get(i)+" displayed : "+Pas);	
+				System.out.println(filter.get(i)+" : "+Pas);
+				test.log(LogStatus.PASS, "period dropdown is working properly"); //me
+				test.log(LogStatus.PASS, "year dropdown is working properly");
+	 }
+		OneCommonMethod.verifyClearButton(getDriver(), test, LoginLocators.Clearbtn1(), LoginLocators.TotalNumberOfItems(), "COUNT_CHANGE");
+		text.clear();
+		pass.clear();
+		fail.clear();
+		raw.clear();
+		
+		
+		}
+		}else {
+			test.log(LogStatus.PASS,"No records found");	
+		}
+		
+	}
+	public static void challanActionsFilters( ExtentTest test,String user) throws InterruptedException
+	{		
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(3000);	
+		if(user.equalsIgnoreCase("Performer"))
+		{
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+		}
+		else if(user.equalsIgnoreCase("Distributor"))
+		{
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+		}
+		else if(user.equalsIgnoreCase("Reviewer"))
+		{	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+		}
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+		LoginLocators.DashboardArrow().click();
+		Thread.sleep(15000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.SelectPeriodDashboard()));
+		LoginLocators.SelectPeriodDashboard().click();
+		Thread.sleep(5000);
+		LoginLocators.SelectPeriodValue1().click();
+		Thread.sleep(9000);
+		LoginLocators.challanAction().click();				                
+        Thread.sleep(5000);
+	   
+        LoginLocators.SelectBranch().click();
+        Thread.sleep(3000);
+       //LoginLocators.ExpandBranchn().click();
+        LoginLocators.ExpandBranchh().click();
+        Thread.sleep(3000);
+        Thread.sleep(2000);
+        
+      String branch =LoginLocators.BranchPune_BranchPune().getText();//TESTAUTO2
+//        String branch =LoginLocators.BranchAndra_Tripupathi().getText();//TESTAUTO2
+        Thread.sleep(2000);
+      LoginLocators.BranchPune_BranchPune().click();//TESTAUTO2
+//        LoginLocators.BranchAndra_Tripupathi().click();
+        Thread.sleep(2000);
+        LoginLocators.Period().click(); //No data is displaying
+        Thread.sleep(3000);
+//      LoginLocators.PeriodValue().click(); //No data is displaying
+        Thread.sleep(2000);
+        LoginLocators.SelectYear2().click();
+        Thread.sleep(3000);
+//      LoginLocators.selectValue2025().click(); //No data is displaying
+        Thread.sleep(2000);
+
+        OneCommonMethod.verifyApplyButton(getDriver(), test, LoginLocators.ApplyBtn1(), LoginLocators.TotalNumberOfItems(), "APPLY_COUNT_CHANGE");
+        Thread.sleep(2000);
+       
+        List<String> li=new ArrayList<String>();
+        
+      //  li.add(locationtext);
+        li.add(branch);
+        
+        Thread.sleep(3000);
+        
+		List<String> filter=new ArrayList<String>();	
+		filter.add("branch");
+		
+		
+		JavascriptExecutor js = (JavascriptExecutor) getDriver();
+		js.executeScript("window.scrollBy(0,1000)");	
+		Thread.sleep(3000);
+
+		LoginLocators.TotalNumberOfItems().click();					
+		String s = LoginLocators.TotalNumberOfItems().getText();
+		Thread.sleep(2000);
+
+		if(!s.equalsIgnoreCase("0 - 0 of 0 items")) {
+		Thread.sleep(5000);
+	
+		List<WebElement> branchcol=getDriver().findElements(By.xpath("//tbody/tr[1]/td[2]"));
+		
+		
+		Thread.sleep(2000);
+
+		for(int i=0; i<li.size(); i++){
+			
+			List<String> text= new ArrayList<String>();
+			HashSet<String> pass=new LinkedHashSet<>();
+			HashSet<String> fail=new LinkedHashSet<>();
+			List<WebElement> raw=new ArrayList<WebElement>();
+				if(i==0)
+				{
+					raw.addAll(branchcol);
+				}
+			
+			  
+			
+						
+			for(int k=0;k<raw.size();k++)
+				{
+					text.add(raw.get(k).getText());
+				}
+				for(int l=0;l<text.size();l++)
+				{
+					
+					if(i==0)
+					{
+						if(text.get(l).equalsIgnoreCase("Jayanagar III Block_TTTT")||text.get(l).equalsIgnoreCase("Branch Pune") || text.get(l).equalsIgnoreCase("Branch Andra"))
+						{
+						  pass.add(text.get(l));
+						}
+						else
+						{
+							 fail.add(text.get(l));
+						}
+					}
+					else
+					{
+						
+					
+				if(text.get(l).equals(li.get(i)))
+					{
+					
+					
+						pass.add(text.get(l));	
+						System.out.println("pass : "+text.get(l)+" : "+li.get(i));
+					}
+				else
+				{
+					fail.add(text.get(l));		
+					System.out.println("fail : "+text.get(l)+" : "+li.get(i));
+					System.out.println(i);
+				}
+				 }
+				}
+		
+	for(String Fal : fail)
+		 {
+				test.log(LogStatus.FAIL, filter.get(i)+" column shows incorrect value : "+Fal);
+		 }	
+		 for(String Pas : pass)
+		 {
+			 test.log(LogStatus.PASS,  filter.get(i)+" dropdown working properly.");
+				test.log(LogStatus.PASS, filter.get(i)+" displayed : "+Pas);	
+				System.out.println(filter.get(i)+" : "+Pas);
+				test.log(LogStatus.PASS, "period dropdown is working properly"); //me
+				test.log(LogStatus.PASS, "year dropdown is working properly");
+	 }
+		OneCommonMethod.verifyClearButton(getDriver(), test, LoginLocators.Clearbtn1(), LoginLocators.TotalNumberOfItems(), "COUNT_CHANGE");
+		text.clear();
+		pass.clear();
+		fail.clear();
+		raw.clear();
+		
+		
+		}
+		}else {
+			test.log(LogStatus.PASS,"No records found");	
+		}
+		
+	}
 	
 	public static void RegisterOverdueFilter( ExtentTest test,String user) throws InterruptedException
 	{		
-		WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);	
 		if(user.equalsIgnoreCase("Performer"))
 		{
@@ -5632,7 +7289,7 @@ else {
 	
 	public static void RegisterActionreviewFilter( ExtentTest test,String user) throws InterruptedException
 	{		
-		WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);	
 		if(user.equalsIgnoreCase("Performer"))
 		{
@@ -5774,7 +7431,7 @@ else {
 	
 	public static void ReturnUpcomingFilter( ExtentTest test,String user) throws InterruptedException
 	{		
-		WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);	
 		if(user.equalsIgnoreCase("Performer"))
 		{
@@ -5916,7 +7573,7 @@ else {
 	
 	public static void ReturnOverdueFilter( ExtentTest test,String user) throws InterruptedException
 	{		
-		WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);	
 		if(user.equalsIgnoreCase("Performer"))
 		{
@@ -6058,7 +7715,7 @@ else {
 	
 	public static void ReturnActionReviewFilter( ExtentTest test,String user) throws InterruptedException
 	{		
-		WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);	
 		if(user.equalsIgnoreCase("Performer"))
 		{
@@ -6200,7 +7857,7 @@ else {
 	
 	public static void challanUpcomingFilter( ExtentTest test,String user) throws InterruptedException
 	{		
-		WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);	
 		if(user.equalsIgnoreCase("Performer"))
 		{
@@ -6342,7 +7999,7 @@ else {
 	
 	public static void challanOverdueFilter( ExtentTest test,String user) throws InterruptedException
 	{		
-		WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);	
 		if(user.equalsIgnoreCase("Performer"))
 		{
@@ -6484,7 +8141,7 @@ else {
 	
 	public static void challanActionReviewFilter( ExtentTest test,String user) throws InterruptedException
 	{		
-		WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);	
 		if(user.equalsIgnoreCase("Performer"))
 		{
@@ -6626,7 +8283,7 @@ else {
 	
 	public static void CompliedFilter( ExtentTest test,String user) throws InterruptedException
 	{		
-		WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);	
 		if(user.equalsIgnoreCase("Performer"))
 		{
@@ -6812,7 +8469,7 @@ else {
 	}
 	public static void CompliedHighRiskSummaryFilter( ExtentTest test,String user) throws InterruptedException
 	{		
-		WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);	
 		if(user.equalsIgnoreCase("Performer"))
 		{
@@ -6828,8 +8485,6 @@ else {
 			LoginLocators.Search().sendKeys("AVACORED5");	
 			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 		}
-	//	LoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
-	//	LoginLocators.Search().sendKeys("WWKRG");
 		Thread.sleep(5000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
 		LoginLocators.DashboardArrow().click();
@@ -6881,7 +8536,7 @@ else {
        Thread.sleep(3000);
    //    String year =LoginLocators.SelectYearvalue().getText();
        Thread.sleep(2000);
-       LoginLocators.SelectValuetype().click();
+       LoginLocators.selectValue2025().click();
        Thread.sleep(2000);
        
    //    String Period = period+year;
@@ -7023,9 +8678,215 @@ else {
 		
 	}
 	
+	public static void nonCompliedHighRiskSummaryFilter( ExtentTest test,String user, String priority) throws InterruptedException
+	{		
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(3000);	
+		if(user.equalsIgnoreCase("Performer"))
+		{
+			 OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+		}
+		else if(user.equalsIgnoreCase("Distributor"))
+		{
+			LoginLocators.Search().sendKeys("TESTAUTO2");
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+		}
+		else if(user.equalsIgnoreCase("Reviewer"))
+		{
+			LoginLocators.Search().sendKeys("AVACORED5");	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+		}
+		Thread.sleep(5000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+		LoginLocators.DashboardArrow().click();
+		Thread.sleep(10000);
+		LoginLocators.SelectPeriodDashboard().click();
+		Thread.sleep(5000);
+		LoginLocators.SelectPeriodValue2024().click();
+		Thread.sleep(2000);
+		JavascriptExecutor js = (JavascriptExecutor) getDriver();		
+
+		js.executeScript("window.scrollBy(0,300)");	
+		Thread.sleep(3000);
+		
+		//-----Clicking Based On Priority-----
+		if (priority.equals("High")) {
+			Thread.sleep(5000);
+//			LocatorsP.HighRisk1().click();
+			LocatorsP.HighRisk2().click();
+			Thread.sleep(8000);
+		}
+		if(priority.equals("Medium")) {
+			Thread.sleep(5000);
+//			LocatorsP.MediumRisk1().click();
+			LocatorsP.MediumRisk2().click();
+			Thread.sleep(8000);
+		}
+		if(priority.equals("Low")) {
+			Thread.sleep(5000);
+//			LocatorsP.LowRisk1().click();
+			LocatorsP.LowRisk2().click();
+			Thread.sleep(8000);
+		}
+		if(priority.equals("Complied Filters")) {
+			//In risk summary tc only added this 
+			String path = "//*[local-name()='svg']//*[name()='g' and @class='k-chart-point']";
+			 List<WebElement> PathNC = getDriver().findElements(By.xpath(path));
+			Actions action = new Actions(getDriver());
+			for(WebElement e : PathNC)
+			{
+				action.moveToElement(e).click().build().perform();
+			}
+			try {
+				LoginLocators.PenActnClosePopup().click();
+				Thread.sleep(5000);
+			} catch (Exception e) { }
+		}
+	   
+      LoginLocators.SelectBranch().click();
+      Thread.sleep(3000);
+      LoginLocators.ExpandBranchh().click();
+      Thread.sleep(3000);
+      String branch =LoginLocators.BranchPune_BranchPune().getText();
+      Thread.sleep(2000);
+      LoginLocators.BranchPune_BranchPune().click();
+      Thread.sleep(2000);
+       
+       LoginLocators.Period().click();
+       Thread.sleep(3000);
+   //    String period =LoginLocators.PeriodValue().getText();
+       Thread.sleep(2000);
+       LoginLocators.PeriodValue().click();
+       Thread.sleep(2000);
+       
+       LoginLocators.SelectYear().click();
+       Thread.sleep(3000);
+   //    String year =LoginLocators.SelectYearvalue().getText();
+       Thread.sleep(2000);
+       LoginLocators.selectValue2024_dropdown().click();
+       Thread.sleep(2000);
+       
+       if(LoginLocators.ApplyBtn1().isDisplayed()) {
+    	   LoginLocators.ApplyBtn1().click();
+    	   test.log(LogStatus.PASS,"Apply button is working fine");	
+       }
+       Thread.sleep(2000);
+       
+        List<String> li=new ArrayList<String>();
+        
+     //   li.add(Period);
+        li.add(branch);
+        
+        Thread.sleep(3000);
+        
+		List<String> filter=new ArrayList<String>();	
+		filter.add("branch");
+	//	filter.add("period");
+		
+		
+		js.executeScript("window.scrollBy(0,1000)");	
+		Thread.sleep(3000);
+
+		LoginLocators.TotalNumberOfItems().click();					
+		String s = LoginLocators.TotalNumberOfItems().getText();
+		Thread.sleep(2000);
+
+		if(!s.equalsIgnoreCase("0 - 0 of 0 items")) {
+		Thread.sleep(5000);
+	
+		List<WebElement> branchcol=getDriver().findElements(By.xpath("//tbody/tr[1]/td[2]"));
+		Thread.sleep(2000);
+
+		for(int i=0; i<li.size(); i++){
+			
+			List<String> text= new ArrayList<String>();
+			HashSet<String> pass=new LinkedHashSet<>();
+			HashSet<String> fail=new LinkedHashSet<>();
+			List<WebElement> raw=new ArrayList<WebElement>();
+				if(i==0)
+				{
+					raw.addAll(branchcol);
+				}
+				
+			
+			for(int k=0;k<raw.size();k++)
+				{
+					text.add(raw.get(k).getText());
+				}
+				for(int l=0;l<text.size();l++)
+				{
+					
+					if(i==0)
+					{
+						if(text.get(l).equalsIgnoreCase("Branch Pune")||text.get(l).equalsIgnoreCase("ooooooooo"))
+						{
+						  pass.add(text.get(l));
+						}
+						else
+						{
+							 fail.add(text.get(l));
+						}
+					}
+					
+					else
+					{
+						
+					
+				if(text.get(l).equals(li.get(i)))
+					{
+					
+					
+						pass.add(text.get(l));	
+						System.out.println("pass : "+text.get(l)+" : "+li.get(i));
+					}
+				else{
+					fail.add(text.get(l));		
+					System.out.println("fail : "+text.get(l)+" : "+li.get(i));
+					System.out.println(i);
+				    }
+				}
+			}
+		
+	for(String Fal : fail){
+				test.log(LogStatus.FAIL, filter.get(i)+" column shows incorrect value : "+Fal);
+		 }	
+		 for(String Pas : pass){
+			    test.log(LogStatus.PASS,  filter.get(i)+" dropdown working properly.");
+				test.log(LogStatus.PASS, filter.get(i)+" displayed : "+Pas);	
+				System.out.println(filter.get(i)+" : "+Pas);
+				test.log(LogStatus.PASS, "period dropdown is working properly"); //me
+				test.log(LogStatus.PASS, "year dropdown is working properly");
+	            }
+		text.clear();
+		pass.clear();
+		fail.clear();
+		raw.clear();
+		}
+		
+		}
+		else {
+			test.log(LogStatus.PASS,"No records found");	
+		}
+		
+		Thread.sleep(5000);
+		//Code for Clear button
+		if(LoginLocators.Clear().isEnabled())
+		{
+			LoginLocators.Clear().click();
+			test.log(LogStatus.PASS,"Clear button is working fine");	
+		}
+		else
+		{
+			test.log(LogStatus.FAIL,"Clear button is not working");
+		}
+		
+		
+	}
+	
+	
 	public static void CompliedMediumRiskSummaryFilter( ExtentTest test,String user) throws InterruptedException
 	{		
-		WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(5000);	Thread.sleep(5000);	Thread.sleep(5000);	
 		if(user.equalsIgnoreCase("Performer"))
 		{
@@ -7033,11 +8894,11 @@ else {
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
 		{	
-			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
 		{	
-			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 		}
 	//	LoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
 	//	LoginLocators.Search().sendKeys("WWKRG");
@@ -7237,7 +9098,7 @@ else {
 	}
 	public static void CompliedLowRiskSummaryFilter( ExtentTest test,String user) throws InterruptedException
 	{		
-		WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(5000);	Thread.sleep(5000);	Thread.sleep(5000);	
 		if(user.equalsIgnoreCase("Performer"))
 		{
@@ -7305,7 +9166,7 @@ else {
        Thread.sleep(3000);
    //    String year =LoginLocators.SelectYearvalue().getText();
        Thread.sleep(2000);
-       LoginLocators.SelectValuetype().click();
+       LoginLocators.selectValue2025().click();
        Thread.sleep(2000);
        
    //    String Period = period+year;
@@ -7449,7 +9310,7 @@ else {
 	
 	public static void CompliedRiskSummaryGraphFilter( ExtentTest test,String user) throws InterruptedException
 	{		
-		WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);	
 		if(user.equalsIgnoreCase("Performer"))
 		{
@@ -7616,7 +9477,7 @@ else {
 	{
 	
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -7631,8 +9492,6 @@ else {
 		{
 			LoginLocators.Search().sendKeys("AVACORED5");	
 		}
-	//	LoginLocatorsLoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
-	//	LoginLocators.Search().sendKeys("WWKRG");
 
 		Thread.sleep(2000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
@@ -7678,12 +9537,245 @@ else {
 			
 	
 	}
+	public static void myreportComplianceAssignment(ExtentTest test,String user) throws InterruptedException, IOException
+	{
+	
+
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(7000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+		if(user.equalsIgnoreCase("Performer"))
+		{
+			LoginLocators.Search().sendKeys("AVAHRTEC");
+			
+		}
+		else if(user.equalsIgnoreCase("Distributor"))
+		{
+			LoginLocators.Search().sendKeys("AVAHRTEC");	
+		}
+		else if(user.equalsIgnoreCase("Reviewer"))
+		{
+			LoginLocators.Search().sendKeys("AVAHRTEC");	
+		}
+
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+		LoginLocators.DashboardArrow().click();
+		Thread.sleep(9000);
+		LoginLocators.Report().click();
+		Thread.sleep(2000);
+		LoginLocators.selectBranch().click();
+		Thread.sleep(2000);
+		LoginLocators.BranchValue().click();
+		Thread.sleep(2000);
+//		LoginLocators.ComplianceType().click();
+		Thread.sleep(2000);
+//		LoginLocators.SelectValuetype().click();
+		Thread.sleep(2000);
+
+		if(LoginLocators.ApplyButton().isDisplayed()) {
+			LoginLocators.ApplyButton().click();
+			test.log(LogStatus.PASS, "All filters are working fine");
+			test.log(LogStatus.PASS, "Apply button is working fine");
+		}
+		
+	    Thread.sleep(9000);
+	    
+	    
+	    OneCommonMethod.validateExportedExcelDYNAMIC(
+	    	    driver.get(),
+	    	    test,
+	    	    LoginLocators.Exportbtn(),       
+	    	    LoginLocators.TotalNoOfItem(),     
+	    	    "Act Name",                               
+	    	    "Excel file exported successfully"     
+	    	);
+
+		
+		Thread.sleep(3000);
+		if(LoginLocators.ClearButton().isDisplayed()) {
+			LoginLocators.ClearButton().click();
+			test.log(LogStatus.PASS, "Clear button is working fine");
+		}
+		else {
+			test.log(LogStatus.FAIL, "Clear button is now displayed");
+		}
+	    Thread.sleep(9000);
+			
+	
+	} 
+	
+	public static void consolidatedStatusReport(ExtentTest test,String user) throws InterruptedException, IOException
+	{
+	
+
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(7000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+		if(user.equalsIgnoreCase("Performer"))
+		{
+			LoginLocators.Search().sendKeys("TESTAUTO");
+		}
+		else if(user.equalsIgnoreCase("Distributor"))
+		{
+			LoginLocators.Search().sendKeys("AVACORED5");	
+		}
+		else if(user.equalsIgnoreCase("Reviewer"))
+		{
+			LoginLocators.Search().sendKeys("AVACORED5");	
+		}
+
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+		LoginLocators.DashboardArrow().click();
+		Thread.sleep(9000);
+		LoginLocators.Report().click();
+		Thread.sleep(7000);
+		LoginLocators.consolidatedStatusReport().click();
+		
+		test.log(LogStatus.PASS, "Consolidated Status Report tab is reflected & working fine");
+		
+		WebElement zone = getDriver().findElement(By.xpath("//span[normalize-space()='Zone']"));
+		zone.click();Thread.sleep(2000);
+		
+		WebElement south = getDriver().findElement(By.xpath("//span[normalize-space()='South']"));
+		south.click();Thread.sleep(2000);
+		
+		WebElement catehoryOfClients = getDriver().findElement(By.xpath("//kendo-multiselect[@class='f-textbox k-input-md k-rounded-md k-input-solid k-multiselect k-input']"));
+		catehoryOfClients.click();Thread.sleep(2000);
+		
+		WebElement selectAll = getDriver().findElement(By.xpath("//span[contains(normalize-space(),'Select All')]"));
+		selectAll.click();Thread.sleep(2000);
+		
+//		LoginLocators.ApplyButton().click();
+		
+		WebElement clientID = getDriver().findElement(By.xpath("(//input[@class='k-input-inner'])[2]"));
+		clientID.click();Thread.sleep(2000);
+		
+		WebElement selectAll2 = getDriver().findElement(By.xpath("//span[contains(normalize-space(),'Select All')]"));
+		selectAll2.click();Thread.sleep(2000);
+		
+		WebElement year = getDriver().findElement(By.xpath("//span[normalize-space()='Year']"));
+		year.click();Thread.sleep(2000);
+		
+		WebElement year25 = getDriver().findElement(By.xpath("//span[normalize-space()='2025']"));
+		year25.click();Thread.sleep(2000);
+		
+		WebElement period = getDriver().findElement(By.xpath("//span[normalize-space()='Period']"));
+		period.click();Thread.sleep(2000);
+		
+		WebElement periodJan = getDriver().findElement(By.xpath("//span[normalize-space()='January']"));
+		periodJan.click();Thread.sleep(2000);
+		
+		
+		OneCommonMethod.verifyApplyButton(getDriver(), test, DistributerLocators.clickApply(),DistributerLocators.readTotalItem(), "APPLY_GRID_APPEARS");
+	    Thread.sleep(9000);
+	    
+	    String gridText = getDriver().findElement(By.xpath("//tbody/tr[1]/td[1]/div[1]")).getText();
+	    if(gridText.equals("AVAIWFEN")) {
+	    	
+	    	test.log(LogStatus.PASS, "All Consolidated Status Report tab filters are working fine");
+	    	test.log(LogStatus.PASS, "Inside the grid entity ID is displayed : " + gridText);
+	    	
+	    }
+	    
+	    
+		OneCommonMethod.validateFileDownloadDynamic(getDriver(), test, LoginLocators.Exportbtn(), "Consolidated Status Report downloaded successfully !");
+		
+		
+		OneCommonMethod.verifyClearButton(getDriver(), test, DistributerLocators.clickClearBtn(), DistributerLocators.readTotalItem(), "COUNT_CHANGE");
+		
+	}
+	
+	public static void assignmentReportsFilterExports(ExtentTest test,String user, String action) throws InterruptedException, IOException
+	{
+	
+
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(7000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+		if(user.equalsIgnoreCase("Performer"))
+		{
+			LoginLocators.Search().sendKeys("AVAHRTEC");
+		}
+		else if(user.equalsIgnoreCase("Distributor"))
+		{
+			LoginLocators.Search().sendKeys("AVAHRTEC");	
+		}
+		else if(user.equalsIgnoreCase("Reviewer"))
+		{
+			LoginLocators.Search().sendKeys("AVAHRTEC");	
+		}
+
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+		LoginLocators.DashboardArrow().click();
+		Thread.sleep(9000);
+		LoginLocators.Report().click();
+		Thread.sleep(2000);
+		Thread.sleep(2000);
+		
+		if(action.equalsIgnoreCase("Registers")) {
+		LoginLocators.ComplianceType().click();
+		Thread.sleep(2000);
+		LoginLocators.selectRegister().click();
+		Thread.sleep(2000);
+		LoginLocators.ApplyButton().click();
+	    Thread.sleep(9000);
+	    OneCommonMethod.validateExportedExcelDYNAMIC(
+	    	    driver.get(),
+	    	    test,
+	    	    LoginLocators.Exportbtn(),        
+	    	    LoginLocators.TotalNoOfItem(),   
+	    	    "Act Name",                              
+	    	    "Registers report exported successfully" );
+		Thread.sleep(3000);
+		LoginLocators.ClearButton().click();
+		}
+		
+		if(action.equalsIgnoreCase("Returns")) {
+		LoginLocators.ComplianceType().click();
+		Thread.sleep(2000);
+		LoginLocators.selectRetrun().click();
+		Thread.sleep(2000);
+		LoginLocators.ApplyButton().click();
+	    Thread.sleep(9000);
+	    OneCommonMethod.validateExportedExcelDYNAMIC(
+	    	    driver.get(),
+	    	    test,
+	    	    LoginLocators.Exportbtn(),        
+	    	    LoginLocators.TotalNoOfItem(),   
+	    	    "Act Name",                              
+	    	    "Returns report exported successfully" );
+		Thread.sleep(3000);
+		LoginLocators.ClearButton().click();
+		}
+		
+		if(action.equalsIgnoreCase("Challans")) {
+		LoginLocators.ComplianceType().click();
+		Thread.sleep(2000);
+		LoginLocators.selectChallan().click();
+		Thread.sleep(2000);
+		LoginLocators.ApplyButton().click();
+	    Thread.sleep(9000);
+	    OneCommonMethod.validateExportedExcelDYNAMIC(
+	    	    driver.get(),
+	    	    test,
+	    	    LoginLocators.Exportbtn(),        
+	    	    LoginLocators.TotalNoOfItem(),   
+	    	    "Act Name",                              
+	    	    "Challans report exported successfully" );
+		Thread.sleep(3000);
+		LoginLocators.ClearButton().click();
+		}
+	
+	}
 	
 	public static void CLRAAssignmentReport(ExtentTest test,String user) throws InterruptedException, IOException
 	{
 	
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -7725,30 +9817,122 @@ else {
 	    LoginLocators.Clearbtn1().click();
 	    Thread.sleep(9000);
 	}
+	
+
+	public static void clraAssignmentReport(ExtentTest test,String user) throws InterruptedException, IOException
+	{
+	
+
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(7000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+		if(user.equalsIgnoreCase("Performer"))
+		{
+			LoginLocators.Search().sendKeys("AVAHRTEC");
+		}
+		else if(user.equalsIgnoreCase("Distributor"))
+		{
+			Thread.sleep(5000);
+			LoginLocators.Search().sendKeys("AVAHRTEC");	
+		}
+		else if(user.equalsIgnoreCase("Reviewer"))
+		{
+			LoginLocators.Search().sendKeys("AVAHRTEC");	
+		}
+		
+
+		Thread.sleep(5000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+		LoginLocators.DashboardArrow().click();
+		Thread.sleep(9000);
+		LoginLocators.Report().click();
+		Thread.sleep(2000);
+		
+		LoginLocators.CLRAAssignReport().click();
+		Thread.sleep(2000);
+		LoginLocators.Branch2().click();
+		Thread.sleep(2000);
+		LoginLocators.branchvalue4().click();
+		Thread.sleep(2000);			
+		LoginLocators.selecttype().click();
+		Thread.sleep(2000);
+		LoginLocators.TypeValue().click();
+		Thread.sleep(2000);
+		
+		if(LoginLocators.ApplyBtn1().isDisplayed()) {
+			LoginLocators.ApplyBtn1().click();
+			test.log(LogStatus.PASS, "All filters are working fine");
+			test.log(LogStatus.PASS, "Apply button is working fine");
+		}
+		
+	    Thread.sleep(9000);
+	    
+	    
+	    OneCommonMethod.validateExportedExcelDYNAMIC(
+	    	    driver.get(),
+	    	    test,
+	    	    LoginLocators.Exportbtn(),       
+	    	    LoginLocators.TotalNoOfItem(),     
+	    	    "Act Name",                              
+	    	    "Registers file exported successfully"     
+	    	);
+		
+		
+		LoginLocators.selecttype().click();
+		Thread.sleep(2000);
+		LoginLocators.selectRetrun().click();
+		Thread.sleep(2000);
+		LoginLocators.ApplyBtn1().click();
+		Thread.sleep(2000);
+		
+	    OneCommonMethod.validateExportedExcelDYNAMIC(
+	    	    driver.get(),
+	    	    test,
+	    	    LoginLocators.Exportbtn(),       
+	    	    LoginLocators.TotalNoOfItem(),     
+	    	    "Act Name",                              
+	    	    "Returns file exported successfully"     
+	    	);
+	    
+	    Thread.sleep(9000);
+	    MethodsD.GridAndExcelCountMatch3(test,workbook);
+		Thread.sleep(3000);
+		
+		if(LoginLocators.Clear().isDisplayed()) {
+			LoginLocators.Clear().click();
+			test.log(LogStatus.PASS, "Clear button is working fine");
+		}
+		else {
+			test.log(LogStatus.FAIL, "Clear button is now displayed");
+		}
+	    Thread.sleep(9000);
+	}
 
 	
 	public static void VariousReport(ExtentTest test,String user) throws InterruptedException, IOException
 	{
 	
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");
+			LoginLocators.Search().sendKeys("AVAHRTEC");
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");	
+			LoginLocators.Search().sendKeys("AVAHRTEC");	
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");	
+			LoginLocators.Search().sendKeys("AVAHRTEC");	
 		}
-	//	LoginLocatorsLoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
-	//	LoginLocators.Search().sendKeys("WWKRG");
 
+
+		/// Paycode Master ///	
+		
+		
 		Thread.sleep(2000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
 		LoginLocators.DashboardArrow().click();
@@ -7757,21 +9941,135 @@ else {
 		Thread.sleep(2000);
 		
 		 LoginLocators.VariousReport().click();
+		 Thread.sleep(2000);
+		 LoginLocators.VariousType().click();
+		 Thread.sleep(2000);
+		 LoginLocators.VariousTypePaycode().click();
+		 Thread.sleep(2000);
+		 Thread.sleep(2000);
+
+		 LoginLocators.ApplyBtn2().click();
+		 Thread.sleep(9000);
+		 MethodsD.GridAndExcelCountMatch3(test,workbook);
+		 Thread.sleep(3000);
+		 test.log(LogStatus.PASS, "Paycode Master file exported successfully.");
+		 
+		 
+		 //// International Worker ////
+		 
+		 
+		 LoginLocators.VariousClear().click();
+		 Thread.sleep(3000);
+		 LoginLocators.VariousType().click();
+		 Thread.sleep(2000);
+		 LoginLocators.VariousTypeInternationalWorker().click();
+		 Thread.sleep(2000);
+		 
+		 CoordinatorLocator.NoticeReceivedDateCalendar1().click();
+			OneCommonMethod.selectCalendarDateFromInput(driver.get(), test,
+					CoordinatorLocator.NoticeReceivedDateCalendar1(),
+					DistributerLocators.Calendar_NavigateToParentView(),
+					"01-01-2026"
+			);
 			Thread.sleep(2000);
-			LoginLocators.VariousType().click();
-			Thread.sleep(2000);
-			LoginLocators.VariousTypeValue().click();
-			Thread.sleep(2000);
-//			LoginLocators.Calender().click();
-//			Thread.sleep(2000);
-//			LoginLocators.Calenderyear().click();
-//			Thread.sleep(2000);
-//			LoginLocators.CalenderMonth().click();
-//			Thread.sleep(2000);
+			 
 			LoginLocators.ApplyBtn2().click();
-		    Thread.sleep(9000);
-		    MethodsD.GridAndExcelCountMatch3(test,workbook);
-			Thread.sleep(3000);
+			Thread.sleep(9000);
+			OneCommonMethod.validateExportedExcelDYNAMIC(driver.get(),
+					test,LoginLocators.Exportbtn(),All_ClientPortal_Locators.readTotalItemsNotice(),"Employee ID", "File Exported Successfully ! ");	
+			
+			Thread.sleep(2000);
+			test.log(LogStatus.PASS, "InternationalWorker-Variance file exported successfully.");
+			 
+	 
+			
+			//// VPF & EPS -Variance //// 
+			
+			
+			
+			 LoginLocators.VariousClear().click();
+			 Thread.sleep(3000);
+			 LoginLocators.VariousType().click();
+			 Thread.sleep(2000);
+			
+			 LoginLocators.VariousTypeVPFVariance().click();
+			 Thread.sleep(2000);
+			 
+			 CoordinatorLocator.NoticeReceivedDateCalendar1().click();
+				OneCommonMethod.selectCalendarDateFromInput(driver.get(), test,
+						CoordinatorLocator.NoticeReceivedDateCalendar1(),
+						DistributerLocators.Calendar_NavigateToParentView(),
+						"01-02-2025"
+				);
+				
+				 
+				Thread.sleep(2000);
+				LoginLocators.ApplyBtn2().click();
+				Thread.sleep(9000);
+				OneCommonMethod.validateExportedExcelDYNAMIC(driver.get(),
+						test,LoginLocators.Exportbtn(),All_ClientPortal_Locators.readTotalItemsNotice(),"Employee ID", "File Exported Successfully ! ");	
+				
+				Thread.sleep(2000);
+				test.log(LogStatus.PASS, "VPF & EPS -Variance file exported successfully.");
+				
+			
+			
+			//// PT Contribution ////
+				
+				LoginLocators.VariousClear().click();
+				Thread.sleep(3000);
+				LoginLocators.VariousType().click();
+				Thread.sleep(2000);
+				
+				LoginLocators.VariousTypeConsolidatedPTContribution().click();
+				Thread.sleep(2000);
+				 
+				CoordinatorLocator.NoticeReceivedDateCalendar1().click();
+				OneCommonMethod.selectCalendarDateFromInput(driver.get(), test,
+						CoordinatorLocator.NoticeReceivedDateCalendar1(),
+							DistributerLocators.Calendar_NavigateToParentView(),
+							"01-12-2025"
+					);
+							 
+				Thread.sleep(2000);
+				LoginLocators.ApplyBtn2().click();
+				Thread.sleep(9000);
+				OneCommonMethod.validateExportedExcelDYNAMIC(driver.get(),
+						test,LoginLocators.Exportbtn(),All_ClientPortal_Locators.readTotalItemsNotice(),"Employee ID", "File Exported Successfully ! ");	
+					
+				Thread.sleep(2000);
+				test.log(LogStatus.PASS, "PT Contribution file exported successfully.");
+									
+					
+	////		Consolidated Return Reports			////
+									
+				LoginLocators.VariousClear().click();
+				Thread.sleep(3000);
+				LoginLocators.VariousType().click();
+				Thread.sleep(2000);
+					
+				LoginLocators.VariousTypeConsolidatedReturnReports().click();
+				Thread.sleep(2000);
+					 
+				OneCommonMethod.validateFileDownloadDynamic(driver.get(),
+						test,LoginLocators.ConsolidatedReturnReportsExport(),"Consolidated Return Reports Downloaded.");
+		    					
+				
+	////		 ER1Contribution 					////
+								
+				LoginLocators.VariousClear().click();
+				Thread.sleep(3000);
+				LoginLocators.VariousType().click();
+				Thread.sleep(2000);
+					
+				LoginLocators.VariousTypeER1Contribution().click();
+				Thread.sleep(2000);
+								
+				OneCommonMethod.validateFileDownloadDynamic(driver.get(),
+						test,LoginLocators.ER1ContributionReportsExport(),"ER1 Contribution Report Downloaded.");
+		    		
+		 
+			
 			
 	}
 
@@ -7781,7 +10079,7 @@ else {
 	{
 	
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -7791,17 +10089,23 @@ else {
 		else if(user.equalsIgnoreCase("Distributor"))
 		{
 			LoginLocators.Search().sendKeys("TESTAUTO2");	
+			wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+			LoginLocators.DashboardArrow().click();
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");	
+			LoginLocators.Search().sendKeys("AVAHRTEC");	
 		}
-	//	LoginLocatorsLoginLocators.Search().sendKeys("Regtrack Pvt Ltd");
-	//	LoginLocators.Search().sendKeys("WWKRG");
-
-		Thread.sleep(2000);
+		
+		
+		Thread.sleep(5000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
 		LoginLocators.DashboardArrow().click();
+		Thread.sleep(9000);
+		LoginLocators.Report().click();
+		Thread.sleep(2000);
+		Thread.sleep(2000);
+
 		Thread.sleep(9000);
 		LoginLocators.Report().click();
 		Thread.sleep(2000);
@@ -7831,6 +10135,8 @@ else {
 			LoginLocators.ApplyBtn1().click();
 		    Thread.sleep(9000);
 //		    MethodsD.GridAndExcelCountMatch2(test,workbook);
+		    test.log(LogStatus.PASS, "All filters are working fine");
+			test.log(LogStatus.PASS, "Apply button is working fine");
 		    
 		    OneCommonMethod.validateExportedExcelDYNAMIC(
 		    	    driver.get(),
@@ -7845,7 +10151,7 @@ else {
 		    
 			Thread.sleep(3000);
 		    
-//		    File dir = new File("C:\\Users\\bilali\\Downloads");
+//		    File dir = new File("C:\\Users\\swapnilb\\Downloads");
 //			File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
 //			
 //			Thread.sleep(3000);
@@ -7860,7 +10166,7 @@ else {
 //			    	
 //			    	}		
 //		 	Thread.sleep(9000);
-//			File dir1 = new File("C:\\Users\\bilali\\Downloads");
+//			File dir1 = new File("C:\\Users\\swapnilb\\Downloads");
 //			File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
 //			
 //			Thread.sleep(3000);
@@ -7881,7 +10187,7 @@ else {
 	public static void PendingActionPerform( ExtentTest test,String user) throws InterruptedException, IOException, AWTException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -8021,7 +10327,7 @@ else {
 	public static void PendingReviewAction( ExtentTest test,String user) throws InterruptedException, IOException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -8118,7 +10424,7 @@ else {
 	public static void Viewworspace( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		 if (LoginLocators.View().isDisplayed()) {
-				WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+				WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 				wait.until(ExpectedConditions.visibilityOf(LoginLocators.View()));
 	        	LoginLocators.View().click();
 	    	    Thread.sleep(500);
@@ -8135,7 +10441,7 @@ else {
 
 
 	//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -8234,7 +10540,10 @@ else {
 		
             
             	Thread.sleep(2000);	
-    			File dir2 = new File("C:\\Users\\bilali\\Downloads");
+//    			File dir2 = new File("C:\\Users\\bilali\\Downloads");
+            	File dir2 = new File(System.getProperty("user.home") + File.separator + "Downloads");
+            	
+    			
     			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
     			
     			Thread.sleep(9000);
@@ -8242,7 +10551,9 @@ else {
     	//	LoginLocators.AttendanceTemplate().click();
     			AttendanceTemplate.click();
     		 	Thread.sleep(18000);
-    			File dir3 = new File("C:\\Users\\bilali\\Downloads");
+//    			File dir3 = new File("C:\\Users\\bilali\\Downloads");
+    			File dir3 = new File(System.getProperty("user.home") + File.separator + "Downloads");
+
     			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
     			
     		   
@@ -8355,7 +10666,7 @@ else {
 		Thread.sleep(20000);	
 		MethodsD.LeaveSummaryDetails(test, user);
 		Thread.sleep(2000);	
-		getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		LoginLocators.Refresh().click();
 		Thread.sleep(2000);
         LoginLocators.Check().click();
@@ -8377,7 +10688,7 @@ else {
 	public static void WorkspaceChallanAct( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -8523,7 +10834,7 @@ else {
 	public static void WorkspaceChallanForms( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -8592,7 +10903,7 @@ else {
 	public static void WorkspaceRegistersForms( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -8660,7 +10971,7 @@ else {
 	public static void WorkspaceRegistersSingleFormSelection( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -8740,7 +11051,7 @@ else {
 	public static void WorkspaceProceedBtn( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -8842,7 +11153,7 @@ else {
 	public static void WorkspaceChallanActs( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -9001,7 +11312,7 @@ else {
 	public static void WorkspaceRegisterActs( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -9076,7 +11387,7 @@ else {
 	public static void WorkspaceReturnActs( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -9164,7 +11475,7 @@ else {
 	public static void WorkspaceReturnQuarterlyActs( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -9249,7 +11560,7 @@ else {
 	public static void WorkspaceReturnHalfYearlyActs( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -9332,7 +11643,7 @@ else {
 	public static void WorkspaceReturnAnnualActs( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -9425,7 +11736,7 @@ else {
 	public static void WorkspaceReturnBiAnnualActs( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -9505,7 +11816,7 @@ else {
 	public static void WorkspaceSelectYearColumn( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -9593,7 +11904,7 @@ else {
 	public static void WorkspaceSelectPeriodColumn( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -9707,7 +12018,7 @@ else {
 	public static void WorkspaceReturnForms( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 		
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -9782,7 +12093,7 @@ else {
 	{
 	
 	//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -9993,7 +12304,7 @@ else {
 	{
 	
 	//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -10101,7 +12412,7 @@ else {
 
 
 	//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -10336,7 +12647,7 @@ else {
 
 
 	//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -10403,7 +12714,7 @@ else {
 	public static void Salary( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		try {
 		if(LoginLocators.SalaryText().isDisplayed()) {
@@ -10444,15 +12755,17 @@ else {
 		
             
             	Thread.sleep(2000);	
-    			File dir2 = new File("C:\\Users\\bilali\\Downloads");
+//    			File dir2 = new File("C:\\Users\\bilali\\Downloads");
+    			File dir2 = new File(System.getProperty("user.home") + File.separator + "Downloads");
     			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
     			
     			Thread.sleep(9000);
     			
-    	//	LoginLocators.AttendanceTemplate().click();
+    	   //	LoginLocators.AttendanceTemplate().click();
     			AttendanceTemplate.click();
     		 	Thread.sleep(18000);
-    			File dir3 = new File("C:\\Users\\bilali\\Downloads");
+//    			File dir3 = new File("C:\\Users\\bilali\\Downloads");
+    		 	File dir3 = new File(System.getProperty("user.home") + File.separator + "Downloads");
     			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
     			
     		   
@@ -10471,7 +12784,7 @@ else {
     	       Thread.sleep(4000);  // Wait for dialog to appear
 
     	        // Specify the file path
-    	        String filePath = "D:\\Upload Automation Files\\WorkSpace\\SalaryFile.xlsx";
+    	        String filePath = "D:\\Upload Automation Files\\WorkSpace\\SampleTESTAUTO.xlsx";
     	        StringSelection selection = new StringSelection(filePath);
 
     	        // Copy file path to clipboard
@@ -10569,7 +12882,7 @@ else {
 	public static void LeaveSummaryDetails( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		try {
 		if(LoginLocators.LeaveSummaryText().isDisplayed()) {
@@ -10732,7 +13045,7 @@ else {
 	public static void History( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -10829,7 +13142,7 @@ else {
 	public static void WorkspaceSampleTemplate( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -10909,7 +13222,7 @@ else {
 	public static void WorkspaceEmptyFile( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -11058,7 +13371,7 @@ else {
 	public static void WorkspaceErrorFileUpload( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -11225,7 +13538,7 @@ else {
 	public static void WorkspaceInvalidFileDownloadErrorFile( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -11373,7 +13686,7 @@ else {
 	public static void ECRMasterSearches( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -11433,7 +13746,7 @@ else {
 	{
 	
 	//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -11659,7 +13972,7 @@ else {
 	{
 		//WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -11729,7 +14042,7 @@ else {
 	public static void SalaryReturn( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		try {
 		if(LoginLocators.SalaryText().isDisplayed()) {
@@ -11887,7 +14200,7 @@ else {
 	public static void LeaveSummaryDetailsReturn( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		try {
 		if(LoginLocators.LeaveSummaryText().isDisplayed()) {
@@ -12042,7 +14355,7 @@ else {
 	{
 	
 	//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 //		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -12207,7 +14520,7 @@ else {
     		   }
     		   LoginLocators.OK().click();
     		   Thread.sleep(2000);	
-   			getDriver().manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
+    		   getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
     		   LoginLocators.Refresh().click();
     		   Thread.sleep(2000);	
     		//   test.log(LogStatus.PASS,  "Attendance "+ attendance);
@@ -12259,7 +14572,7 @@ else {
 		Thread.sleep(20000);	
 		MethodsD.LeaveSummaryDetailsChallan(test, user);
 		Thread.sleep(20000);
-		getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		 LoginLocators.Refresh().click();
 		 Thread.sleep(4000);	
         LoginLocators.Check().click();
@@ -12291,7 +14604,7 @@ else {
 	public static void SalaryChallan( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		try {
 		if(LoginLocators.SalaryText().isDisplayed()) {
@@ -12456,7 +14769,7 @@ else {
 	public static void LeaveSummaryDetailsChallan( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		try {
 		if(LoginLocators.LeaveSummaryText().isDisplayed()) {
@@ -12622,7 +14935,7 @@ else {
 
 
 	//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -12735,7 +15048,7 @@ else {
 
 
 	//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -12946,7 +15259,7 @@ else {
 	public static void SalaryEmptysheet( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		try {
 		if(LoginLocators.SalaryText().isDisplayed()) {
@@ -13074,7 +15387,7 @@ else {
 	public static void LeaveSummaryDetailsEmptySheet( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		try {
 		if(LoginLocators.LeaveSummaryText().isDisplayed()) {
@@ -13203,7 +15516,7 @@ else {
 
 
 	//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -13281,7 +15594,7 @@ else {
 
 
 	//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -13479,7 +15792,7 @@ public static void WorkspaceErroorFileDownload( ExtentTest test, String user) th
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -13685,7 +15998,7 @@ public static void ECRMasterExport( ExtentTest test, String user) throws Interru
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -13716,7 +16029,7 @@ public static void ECRMasterAddNew( ExtentTest test, String user) throws Interru
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -13778,7 +16091,7 @@ public static void ECRMasterBulkUpload( ExtentTest test, String user) throws Int
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -13870,7 +16183,7 @@ public static void ECRMasterUpdate( ExtentTest test, String user) throws Interru
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -13924,7 +16237,7 @@ public static void ECRMasterInvalidClientID( ExtentTest test, String user) throw
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -13984,7 +16297,7 @@ public static void ECRConfirmationGrid( ExtentTest test, String user) throws Int
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -14037,7 +16350,7 @@ public static void ECRMasterSearch( ExtentTest test, String user) throws Interru
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -14092,7 +16405,7 @@ public static void SubcodeMasterSearch( ExtentTest test, String user) throws Int
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -14152,7 +16465,7 @@ public static void SubcodeMasterAddNew( ExtentTest test, String user) throws Int
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -14220,7 +16533,7 @@ public static void SubcodeMasterExportbutton( ExtentTest test, String user) thro
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -14263,7 +16576,7 @@ public static void DispensaryMasterSearch( ExtentTest test, String user) throws 
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -14329,7 +16642,7 @@ public static void DispensaryMasterAddNew( ExtentTest test, String user) throws 
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -14396,7 +16709,7 @@ public static void DispensaryMasterExport( ExtentTest test, String user) throws 
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -14446,7 +16759,7 @@ public static void DispensaryMasterEditPopup( ExtentTest test, String user) thro
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -14510,7 +16823,7 @@ public static void ESICInputs_NewGeneration( ExtentTest test, String user) throw
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -14559,7 +16872,7 @@ public static void ESICInputs_NewGeneration_UploadValidation( ExtentTest test, S
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -14661,7 +16974,7 @@ public static void ESICInputs_NewGeneration_BrowseDelete( ExtentTest test, Strin
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -14684,11 +16997,11 @@ public static void ESICInputs_NewGeneration_BrowseDelete( ExtentTest test, Strin
 	Thread.sleep(2000);
 	
 	//Correct Entity Verification
-    OneCommonMethod.verifyTestEntity(
-    driver.get(), test,
-    By.xpath("//span[normalize-space()='AVATCGEN CORE DEMO[AVACORED5]']"),
-    "AVATCGEN CORE DEMO[AVACORED5]"
-     );
+//    OneCommonMethod.verifyTestEntity(
+//    driver.get(), test,
+//    By.xpath("//span[normalize-space()='AVATCGEN CORE DEMO[AVACORED5]']"),
+//    "AVATCGEN CORE DEMO[AVACORED5]"
+//     );
 	
 	Thread.sleep(5000);
 	LoginLocators.ESICCards().click();
@@ -14772,7 +17085,7 @@ public static void ESICInputs_Updation_SampleFile( ExtentTest test, String user)
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -14823,7 +17136,7 @@ public static void ESICInputs_Updation_UploadValidation( ExtentTest test, String
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -14891,7 +17204,7 @@ public static void ESICInputs_Updation_BrowseDelete( ExtentTest test, String use
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -14914,11 +17227,11 @@ public static void ESICInputs_Updation_BrowseDelete( ExtentTest test, String use
 	Thread.sleep(5000);
 	
 	//Correct Entity Verification
-    OneCommonMethod.verifyTestEntity(
-    driver.get(), test,
-    By.xpath("//span[normalize-space()='AVATCGEN CORE DEMO[AVACORED5]']"),
-    "AVATCGEN CORE DEMO[AVACORED5]"
-     );
+//    OneCommonMethod.verifyTestEntity(
+//    driver.get(), test,
+//    By.xpath("//span[normalize-space()='AVATCGEN CORE DEMO[AVACORED5]']"),
+//    "AVATCGEN CORE DEMO[AVACORED5]"
+//     );
 	
 	LoginLocators.ESICCards().click();
 	Thread.sleep(5000);
@@ -14977,7 +17290,7 @@ public static void ESICInputs_Downloads_SampleFile( ExtentTest test, String user
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -15000,11 +17313,11 @@ public static void ESICInputs_Downloads_SampleFile( ExtentTest test, String user
 	Thread.sleep(5000);
 	
 	//Correct Entity Verification
-    OneCommonMethod.verifyTestEntity(
-    driver.get(), test,
-    By.xpath("//span[normalize-space()='AVATCGEN CORE DEMO[AVACORED5]']"),
-    "AVATCGEN CORE DEMO[AVACORED5]"
-     );
+//    OneCommonMethod.verifyTestEntity(
+//    driver.get(), test,
+//    By.xpath("//span[normalize-space()='AVATCGEN CORE DEMO[AVACORED5]']"),
+//    "AVATCGEN CORE DEMO[AVACORED5]"
+//     );
 	
 	LoginLocators.ESICCards().click();
 	Thread.sleep(5000);
@@ -15031,7 +17344,7 @@ public static void ESICInputs_Downloads_UploadValidation( ExtentTest test, Strin
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -15095,7 +17408,7 @@ public static void ESICInputs_Downloads_BrowseDelete( ExtentTest test, String us
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -15161,7 +17474,7 @@ public static void ESICInputs_Failed_SampleDownload( ExtentTest test, String use
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -15216,7 +17529,7 @@ public static void ESICInputs_Failed_UploadValidation( ExtentTest test, String u
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -15278,7 +17591,7 @@ public static void ESICInputs_Failed_BrowseDelete( ExtentTest test, String user)
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -15342,7 +17655,7 @@ public static void AddUser( ExtentTest test, String user) throws InterruptedExce
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -15419,7 +17732,7 @@ public static void DispensaryMaster( ExtentTest test, String user,XSSFWorkbook w
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -15530,7 +17843,7 @@ public static void DispensaryMasterFilter( ExtentTest test, String user) throws 
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -15653,7 +17966,7 @@ public static void dispensaryMasterSearch( ExtentTest test, String user) throws 
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -15709,7 +18022,7 @@ public static void MyDocumnent(ExtentTest test,String user) throws InterruptedEx
 {
 
 
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -15807,7 +18120,7 @@ public static void MyDocumnentExport(ExtentTest test,String user) throws Interru
 {
 
 
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -15904,7 +18217,7 @@ public static void MyDocumnentDigitalSignature(ExtentTest test,String user) thro
 {
 
 
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -16002,7 +18315,7 @@ public static void DigitalSignatureEdit(ExtentTest test,String user) throws Inte
 {
 
 
-//	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+//	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 //	Thread.sleep(7000);
 //	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 //	if(user.equalsIgnoreCase("Performer"))
@@ -16102,11 +18415,101 @@ public static void DigitalSignatureEdit(ExtentTest test,String user) throws Inte
 	   
 }
 
-public static void MyDocumentSearch( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+
+
+public static void dolReactivation( ExtentTest test, String user) throws Exception
+{
+
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+	Thread.sleep(3000);	
+	if(user.equalsIgnoreCase("Performer"))
+	{
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+	}
+	else if(user.equalsIgnoreCase("Distributor"))
+	{
+		LoginLocators.Search().sendKeys("TESTAUTO");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO");
+	}
+	else if(user.equalsIgnoreCase("Reviewer"))
+	{
+		LoginLocators.Search().sendKeys("TESTAUTO2");	
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+	}
+	Thread.sleep(5000);
+	wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+	LoginLocators.DashboardArrow().click();
+	Thread.sleep(10000);
+	
+	LoginLocators.oboardEmployee().click();
+	Thread.sleep(5000);
+	
+	OneCommonMethod.validateExportedExcelDYNAMIC(driver.get(),
+			test,LoginLocators.oboardEmpExport(),All_ClientPortal_Locators.readTotalItemsNotice(),"Employee ID", "DOL Reactivation Exported Successfully! ");	
+	
+	Thread.sleep(2000);
+	
+	
+	LoginLocators.oboardEmpEdit().click();
+	Thread.sleep(2000);
+	test.log(LogStatus.PASS,"Employee Edit Button is clickable.");
+	
+	LoginLocators.oboardEmpSave().click();
+	Thread.sleep(5000);
+	test.log(LogStatus.PASS,"Employee Save Button is clickable.");
+	
+	LoginLocators.oboardEmpSaveOkPopUp().click();
+	Thread.sleep(5000);
+	test.log(LogStatus.PASS,"Employee Status Updated Successfully.");
+	
+	LoginLocators.oboardEmpSearch().sendKeys("Sheetal");
+	Thread.sleep(5000);
+	test.log(LogStatus.PASS,"Search field is working fine.");
+			
+	
+	LoginLocators.dolReactivationBulkUpload().click();
+	Thread.sleep(5000);
+	test.log(LogStatus.PASS,"DOL Reactivation Bulk Upload button clickable.");
+	
+	
+	OneCommonMethod.validateFileDownloadDynamic(
+		    driver.get(),test,LoginLocators.dolBulkUploadSampleTemplate(),"Sample Template downloaded successfully");
+	
+	
+	LoginLocators.dolBulkUploadBrowse().click();
+	Thread.sleep(5000);
+	
+	OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\ReactivationDOLBulkUploaddd.xlsx");
+	Thread.sleep(5000);
+	
+	LoginLocators.dolBulkUploadButton().click();
+	Thread.sleep(5000);
+		
+	
+	String text1 = getDriver().findElement(By.xpath("//h4[@class='f-label']")).getText();
+	if (text1.equalsIgnoreCase("Error while uploading file.Error file downloaded")) {
+		Thread.sleep(5000);
+		test.log(LogStatus.PASS,"While Uploading invalid file error message is displayed");
+		test.log(LogStatus.PASS,"Message Displayed : " + text1);
+	}
+	else 
+	{
+		Thread.sleep(5000);
+		test.log(LogStatus.FAIL,"While Uploading invalid file error message is displayed");
+		test.log(LogStatus.FAIL,"Message Displayed : " + text1);
+	}
+	Thread.sleep(3000);
+	Locators.ok().click();
+	Thread.sleep(3000);
+			
+	
+}
+
+public static void digitalSingantureSearch( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -16120,11 +18523,12 @@ public static void MyDocumentSearch( ExtentTest test, String user) throws Interr
 	}
 	else if(user.equalsIgnoreCase("Distributor"))
 	{
-		LoginLocators.Search().sendKeys("AVACORED5");	
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+		PerformerLocator.DistributorPremisesArrow().click();
 	}
 	else if(user.equalsIgnoreCase("Reviewer"))
 	{
-		LoginLocators.Search().sendKeys("TESTAUTO2");	
+		LoginLocators.Search().sendKeys("TESTAUTO3");	
 		
 		Thread.sleep(2000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.StatutoryDocumentArroww()));
@@ -16138,10 +18542,9 @@ public static void MyDocumentSearch( ExtentTest test, String user) throws Interr
 	Thread.sleep(5000);
 	String searchvalue = LoginLocators.GridValue().getText();
 	Thread.sleep(5000);
-//	LoginLocators.Search1().sendKeys(searchvalue);
-	LoginLocators.Search1().sendKeys("EMP001");
-//	LoginLocators.Search1().click();
-//	Thread.sleep(2000);
+
+	LoginLocators.Search1().sendKeys("Test");
+
 	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	js.executeScript("window.scrollBy(0,1000)");	
 	Thread.sleep(3000);
@@ -16150,7 +18553,8 @@ public static void MyDocumentSearch( ExtentTest test, String user) throws Interr
 	Thread.sleep(2000);
 	if(!s.equalsIgnoreCase("0 - 0 of 0 items")) {
 		String searchvalue1 = LoginLocators.GridValue().getText();
-		   test.log(LogStatus.PASS,  "Search filter Working properly : "+ searchvalue1);
+		   test.log(LogStatus.PASS,  "Type to search field is working fine");
+		   test.log(LogStatus.PASS,  "Data displayed in grid : "+ searchvalue1);
 
 	}
 	else {
@@ -16159,16 +18563,435 @@ public static void MyDocumentSearch( ExtentTest test, String user) throws Interr
 	}
 	
 }
-public static void RegulatoryAbstractFilters( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+
+
+public static void addNeDigitalSignature( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 {
 
-//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
 	{
 		LoginLocators.Search().sendKeys("AVACORED5");
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.WorkspaceArrow()));
+		Thread.sleep(2000);
+		LoginLocators.WorkspaceArrow().click();
+	}
+	else if(user.equalsIgnoreCase("Distributor"))
+	{
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+		PerformerLocator.DistributorPremisesArrow().click();
+	}
+	else if(user.equalsIgnoreCase("Reviewer"))
+	{
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.StatutoryDocumentArroww()));
+		Thread.sleep(2000);
+		LoginLocators.StatutoryDocumentArroww().click();
+	}
+	
+
+	Thread.sleep(9000);
+	LoginLocators.MyDocument().click();
+	Thread.sleep(5000);
+	LoginLocators.AddNewBtn().click();
+	Thread.sleep(5000);
+//	LoginLocators lp = new LoginLocators();
+	LoginLocators.getAuthorisedPersonId().click();
+	LoginLocators.getAuthorisedPersonId().sendKeys(OneCommonMethod.getRandomString());
+	Thread.sleep(2000);
+	LoginLocators.getAuthorisedPerson().sendKeys(OneCommonMethod.getRandomString());
+	Thread.sleep(2000);
+	LoginLocators.getDesignation().sendKeys(OneCommonMethod.getRandomString());
+	Thread.sleep(2000);
+	LoginLocators.getMobileNumber().sendKeys("9999999999");
+	Thread.sleep(2000);
+	DistributerLocators.Calendar1().click();
+	OneCommonMethod.selectCalendarDateFromInput(driver.get(), test, DistributerLocators.Calendar1(), // calendar icon
+			DistributerLocators.Calendar_NavigateToParentView(), // parent view arrow
+			"01-11-2025"
+	);
+	
+	Thread.sleep(2000);
+	DistributerLocators.Calendar2().click();
+	OneCommonMethod.selectCalendarDateFromInput(driver.get(), test, DistributerLocators.Calendar2(), 
+			DistributerLocators.Calendar_NavigateToParentView(), 
+			"15-06-2026" 
+	);
+	
+	LoginLocators.getSelectStatus().click();
+	Thread.sleep(2000);
+	LoginLocators.getSelectInactive().click();
+	Thread.sleep(2000);
+	LoginLocators.getRemarks().sendKeys(OneCommonMethod.getRandomString());
+	Thread.sleep(2000);
+	LoginLocators.getSave().click();
+	Thread.sleep(8000);
+	
+	String successMsg = LoginLocators.getMessage().getText();
+	Thread.sleep(2000);
+	if(successMsg.equalsIgnoreCase("Signature added successfully!")) {
+		test.log(LogStatus.PASS,  "All text fields and dropdown are working fine ");
+		Thread.sleep(1000);
+		test.log(LogStatus.PASS,  "Selected Effective From and To dates");
+		Thread.sleep(2000);
+		test.log(LogStatus.PASS,  "Save button is working fine");
+		Thread.sleep(2000);
+		test.log(LogStatus.PASS,  "New Digital signature added successfully");
+		test.log(LogStatus.PASS,  "Success message displayed: " + successMsg);
+	}
+	else {
+		test.log(LogStatus.FAIL,  "Digital signature not added successfully");
+	}
+}
+
+public static void addNewExistingDigitalSignature( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+{
+
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+	Thread.sleep(7000);
+	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+	if(user.equalsIgnoreCase("Performer"))
+	{
+		LoginLocators.Search().sendKeys("AVACORED5");
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.WorkspaceArrow()));
+		Thread.sleep(2000);
+		LoginLocators.WorkspaceArrow().click();
+	}
+	else if(user.equalsIgnoreCase("Distributor"))
+	{
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+		PerformerLocator.DistributorPremisesArrow().click();
+	}
+	else if(user.equalsIgnoreCase("Reviewer"))
+	{
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.StatutoryDocumentArroww()));
+		Thread.sleep(2000);
+		LoginLocators.StatutoryDocumentArroww().click();
+	}
+	
+
+	Thread.sleep(9000);
+	LoginLocators.MyDocument().click();
+	Thread.sleep(5000);
+	LoginLocators.AddNewBtn().click();
+	Thread.sleep(5000);
+	LoginLocators.getExisting().click();
+	Thread.sleep(5000);
+	LoginLocators.getAuthorisedPersonDrp().click();
+	Thread.sleep(2000);
+	LoginLocators.selectAuthorisedPersonDrp().click();
+	
+//	LoginLocators lp = new LoginLocators();
+//	LoginLocators.getAuthorisedPersonId().click();
+//	LoginLocators.getAuthorisedPersonId().sendKeys(OneCommonMethod.getRandomString());
+//	Thread.sleep(2000);
+//	LoginLocators.getAuthorisedPerson().sendKeys(OneCommonMethod.getRandomString());
+	Thread.sleep(2000);
+	LoginLocators.getDesignation().sendKeys(OneCommonMethod.getRandomString());
+	Thread.sleep(2000);
+	LoginLocators.getMobileNumber().sendKeys("9999999999");
+	Thread.sleep(2000);
+	DistributerLocators.Calendar1().click();
+	OneCommonMethod.selectCalendarDateFromInput(driver.get(), test, DistributerLocators.Calendar1(), // calendar icon
+			DistributerLocators.Calendar_NavigateToParentView(), // parent view arrow
+			"01-11-2025"
+	);
+	
+	Thread.sleep(2000);
+	DistributerLocators.Calendar2().click();
+	OneCommonMethod.selectCalendarDateFromInput(driver.get(), test, DistributerLocators.Calendar2(), 
+			DistributerLocators.Calendar_NavigateToParentView(), 
+			"15-06-2026" 
+	);
+	
+	LoginLocators.getSelectStatus().click();
+	Thread.sleep(2000);
+	LoginLocators.getSelectInactive().click();
+	Thread.sleep(2000);
+	LoginLocators.getRemarks().sendKeys(OneCommonMethod.getRandomString());
+	Thread.sleep(2000);
+	LoginLocators.getSave().click();
+	Thread.sleep(8000);
+	
+	String successMsg = LoginLocators.getMessage().getText();
+	Thread.sleep(2000);
+	if(successMsg.equalsIgnoreCase("Signature added successfully!")) {
+		test.log(LogStatus.PASS,  "Existing Digital signature all fields and dropdowns are working fine");
+		test.log(LogStatus.PASS,  "Existing Digital signature added successfully");
+		test.log(LogStatus.PASS,  "Success message displayed: " + successMsg);
+	}
+	else {
+		test.log(LogStatus.FAIL,  "Digital signature not added successfully");
+	}
+}
+
+public static void effectiveDateFromToAddNew( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+{
+
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+	Thread.sleep(7000);
+	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+	if(user.equalsIgnoreCase("Performer"))
+	{
+		LoginLocators.Search().sendKeys("AVACORED5");
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.WorkspaceArrow()));
+		Thread.sleep(2000);
+		LoginLocators.WorkspaceArrow().click();
+	}
+	else if(user.equalsIgnoreCase("Distributor"))
+	{
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+		PerformerLocator.DistributorPremisesArrow().click();
+	}
+	else if(user.equalsIgnoreCase("Reviewer"))
+	{
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.StatutoryDocumentArroww()));
+		Thread.sleep(2000);
+		LoginLocators.StatutoryDocumentArroww().click();
+	}
+	
+
+	Thread.sleep(9000);
+	LoginLocators.MyDocument().click();
+	Thread.sleep(5000);
+	LoginLocators.AddNewBtn().click();
+	Thread.sleep(5000);
+//	LoginLocators.getExisting().click();
+
+	Thread.sleep(2000);
+	DistributerLocators.Calendar1().click();
+	OneCommonMethod.selectCalendarDateFromInput(driver.get(), test, DistributerLocators.Calendar1(), // calendar icon
+			DistributerLocators.Calendar_NavigateToParentView(), // parent view arrow
+			"01-01-2026"
+	);
+	
+	Thread.sleep(2000);
+	DistributerLocators.Calendar2().click();
+	OneCommonMethod.selectCalendarDateFromInput(driver.get(), test, DistributerLocators.Calendar2(), 
+			DistributerLocators.Calendar_NavigateToParentView(), 
+			"15-06-2025" 
+	);
+	
+	Thread.sleep(5000);
+	String successMsg = LoginLocators.MsgDisp().getText();
+	Thread.sleep(2000);
+	if(successMsg.equalsIgnoreCase("Effective To date cannot be less than Effective From date")) {
+		test.log(LogStatus.PASS,  "While selecting effective from date is greater than effective to date in 'New' error message displayed");
+		test.log(LogStatus.PASS,  "Message Displayed: " + successMsg);
+	}
+	else {
+		test.log(LogStatus.FAIL,  "Message displayed: " + successMsg);
+	}
+	LoginLocators.ClickOK().click();
+	Thread.sleep(5000);
+	
+	
+	LoginLocators.getExisting().click();
+	
+	
+	
+	
+	Thread.sleep(2000);
+	DistributerLocators.Calendar1().click();
+	OneCommonMethod.selectCalendarDateFromInput(driver.get(), test, DistributerLocators.Calendar1(), // calendar icon
+			DistributerLocators.Calendar_NavigateToParentView(), // parent view arrow
+			"01-01-2026"
+	);
+	
+	Thread.sleep(2000);
+	DistributerLocators.Calendar2().click();
+	OneCommonMethod.selectCalendarDateFromInput(driver.get(), test, DistributerLocators.Calendar2(), 
+			DistributerLocators.Calendar_NavigateToParentView(), 
+			"15-06-2025" 
+	);
+	
+	Thread.sleep(5000);
+	String successMsg2 = LoginLocators.MsgDisp().getText();
+	Thread.sleep(2000);
+	if(successMsg2.equalsIgnoreCase("Effective To date cannot be less than Effective From date")) {
+		test.log(LogStatus.PASS,  "While selecting effective from date is greater than effective to date in 'Existing' error message displayed");
+		test.log(LogStatus.PASS,  "Message Displayed: " + successMsg2);
+	}
+	else {
+		test.log(LogStatus.FAIL,  "Message displayed: " + successMsg2);
+	}
+	LoginLocators.ClickOK().click();
+	
+	
+}
+public static void effectiveDateFromToEdit( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+{
+
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+	Thread.sleep(7000);
+	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+	if(user.equalsIgnoreCase("Performer"))
+	{
+		LoginLocators.Search().sendKeys("AVACORED5");
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.WorkspaceArrow()));
+		Thread.sleep(2000);
+		LoginLocators.WorkspaceArrow().click();
+	}
+	else if(user.equalsIgnoreCase("Distributor"))
+	{
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+		PerformerLocator.DistributorPremisesArrow().click();
+	}
+	else if(user.equalsIgnoreCase("Reviewer"))
+	{
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.StatutoryDocumentArroww()));
+		Thread.sleep(2000);
+		LoginLocators.StatutoryDocumentArroww().click();
+	}
+	
+
+	Thread.sleep(9000);
+	LoginLocators.MyDocument().click();
+	Thread.sleep(5000);
+	LoginLocators.Edit().click();
+	Thread.sleep(5000);
+//	LoginLocators.getExisting().click();
+
+	Thread.sleep(2000);
+//	DistributerLocators.Calendar1().click();
+//	OneCommonMethod.selectCalendarDateFromInput(driver.get(), test, DistributerLocators.Calendar1(), // calendar icon
+//			DistributerLocators.Calendar_NavigateToParentView(), // parent view arrow
+//			"01-01-2026"
+//	);
+	
+	Thread.sleep(2000);
+	DistributerLocators.Calendar2().click();
+	OneCommonMethod.selectCalendarDateFromInput(driver.get(), test, DistributerLocators.Calendar2(), 
+			DistributerLocators.Calendar_NavigateToParentView(), 
+			"15-06-2024" 
+	);
+	
+	Thread.sleep(5000);
+	String successMsg = LoginLocators.MsgDisp().getText();
+	Thread.sleep(2000);
+	if(successMsg.equalsIgnoreCase("Effective To date cannot be less than Effective From date")) {
+		test.log(LogStatus.PASS,  "While selecting effective from date is greater than effective to date in 'New' error message displayed");
+		test.log(LogStatus.PASS,  "Message Displayed: " + successMsg);
+	}
+	else {
+		test.log(LogStatus.FAIL,  "Message displayed: " + successMsg);
+	}
+	LoginLocators.ClickOK().click();
+	Thread.sleep(5000);
+	
+	
+	LoginLocators.getExisting().click();
+	
+	
+	
+	
+	Thread.sleep(2000);
+//	DistributerLocators.Calendar1().click();
+//	OneCommonMethod.selectCalendarDateFromInput(driver.get(), test, DistributerLocators.Calendar1(), // calendar icon
+//			DistributerLocators.Calendar_NavigateToParentView(), // parent view arrow
+//			"01-01-2026"
+//	);
+	
+	Thread.sleep(2000);
+	DistributerLocators.Calendar2().click();
+	OneCommonMethod.selectCalendarDateFromInput(driver.get(), test, DistributerLocators.Calendar2(), 
+			DistributerLocators.Calendar_NavigateToParentView(), 
+			"15-06-2024" 
+	);
+	
+	Thread.sleep(5000);
+	String successMsg2 = LoginLocators.MsgDisp().getText();
+	Thread.sleep(2000);
+	if(successMsg2.equalsIgnoreCase("Effective To date cannot be less than Effective From date")) {
+		test.log(LogStatus.PASS,  "While selecting effective from date is greater than effective to date in 'Existing' error message displayed");
+		test.log(LogStatus.PASS,  "Message Displayed: " + successMsg2);
+	}
+	else {
+		test.log(LogStatus.FAIL,  "Message displayed: " + successMsg2);
+	}
+	LoginLocators.ClickOK().click();
+	
+	
+}
+
+public static void digitalSignatureEdit( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+{
+
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+	Thread.sleep(7000);
+	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+	if(user.equalsIgnoreCase("Performer"))
+	{
+		LoginLocators.Search().sendKeys("AVACORED5");
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.WorkspaceArrow()));
+		Thread.sleep(2000);
+		LoginLocators.WorkspaceArrow().click();
+	}
+	else if(user.equalsIgnoreCase("Distributor"))
+	{
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+		PerformerLocator.DistributorPremisesArrow().click();
+	}
+	else if(user.equalsIgnoreCase("Reviewer"))
+	{
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.StatutoryDocumentArroww()));
+		Thread.sleep(2000);
+		LoginLocators.StatutoryDocumentArroww().click();
+	}
+	
+
+	Thread.sleep(9000);
+	LoginLocators.MyDocument().click();
+	Thread.sleep(5000);
+	LoginLocators.Edit().click();
+	Thread.sleep(5000);
+
+	
+	LoginLocators.getSelectStatus().click();
+	Thread.sleep(2000);
+	LoginLocators.getSelectInactive().click();
+	Thread.sleep(2000);
+	LoginLocators.getSave().click();
+	Thread.sleep(8000);
+	
+	String successMsg = getDriver().findElement(By.xpath("(//h4[@class='f-label'])[3]")).getText();
+	Thread.sleep(2000);
+	if(successMsg.equalsIgnoreCase("Signature updated successfully!")) {
+		test.log(LogStatus.PASS,  "Digital signature edit button is working fine");
+		Thread.sleep(1000);
+		test.log(LogStatus.PASS,  "On clicking to edit save button success message is displayed");
+		test.log(LogStatus.PASS,  "Message displayed: "+ successMsg);
+	}
+	else {
+		test.log(LogStatus.FAIL,  "Message displayed: " + successMsg);
+	}
+}
+public static void RegulatoryAbstractFilters( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+{
+
+//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+	Thread.sleep(7000);
+	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+	if(user.equalsIgnoreCase("Performer"))
+	{
+		LoginLocators.Search().sendKeys("TESTAUTO2");
 		
 		Thread.sleep(2000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.WorkspaceArrow()));
@@ -16195,11 +19018,11 @@ public static void RegulatoryAbstractFilters( ExtentTest test, String user) thro
 	Thread.sleep(5000);
 	LoginLocators.SelectState_RegulatoryAbstracts().click();
 	Thread.sleep(5000);
-	LoginLocators.Select1st_RegulatoryAbstracts().click();
+	LoginLocators.Select1st_MAH().click();
 	Thread.sleep(5000);
 	LoginLocators.SelectAct_RegulatoryAbstracts().click();
 	Thread.sleep(5000);
-	LoginLocators.Select1st_RegulatoryAbstracts().click();
+	LoginLocators.SelectSEA_AlliedActs().click();
 	Thread.sleep(5000);
 	String gridValue = getDriver().findElement(By.xpath("//div[@title='Maharashtra']")).getText();
 	
@@ -16232,7 +19055,7 @@ public static void RegulatoryAbstractUpload( ExtentTest test, String user) throw
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -16296,7 +19119,7 @@ public static void RegulatoryAbstractUpload( ExtentTest test, String user) throw
 	Thread.sleep(2000);
 	
 	LoginLocators.Save_RegulatoryAbstracts().click();
-	
+	Thread.sleep(5000);
 	String txt = LoginLocators.GetMessageText().getText();
 	
 	if (txt.equalsIgnoreCase("Saved Successfully")) {
@@ -16318,7 +19141,7 @@ public static void RegulatoryAbstractUploadError( ExtentTest test, String user) 
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -16390,7 +19213,7 @@ public static void RegulatoryAbstractRegional( ExtentTest test, String user) thr
 {
 
 //	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-	WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 	if(user.equalsIgnoreCase("Performer"))
@@ -16419,11 +19242,12 @@ public static void RegulatoryAbstractRegional( ExtentTest test, String user) thr
 		Thread.sleep(9000);
 		LoginLocators.RegulatoryAbstracts().click();
 		Thread.sleep(5000);
-		OneCommonMethod.validateFileDownloadDynamic(
+		OneCommonMethod.validateFileDownloadDynamicMASTER(
 			    driver.get(),
 			    test,
 			    LoginLocators.RegionalDownload_RegulatoryAbstracts(),   // WebElement
-			    "Regional File is downloaded successfully"   // Dynamic log message
+			    "Regional File is downloaded successfully",   // Dynamic log message
+			    5000
 			);
 
 		Thread.sleep(5000);
@@ -16517,7 +19341,7 @@ public static void RegulatoryAbstractRegional( ExtentTest test, String user) thr
 
 public static void waitForLoaderToDisappear() {
     try {
-        WebDriverWait wait = new WebDriverWait(getDriver(), 140);
+    	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
         // Wait until loader disappears from the screen
         wait.until(ExpectedConditions.invisibilityOf(All_ClientPortal_Locators.loaderTime()));
     } catch (org.openqa.selenium.TimeoutException e) {

@@ -3,6 +3,7 @@ package testCases;
 import java.awt.AWTException;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.List;
 
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -37,7 +38,7 @@ import rcp.OneCommonMethod;
 
 
 
-public class All_Distributor_TWO  extends BasePage {
+public class All_Distributor_TWO extends BasePage {
 	
 	public static WebElement upload = null;		//WebElement to get upload button
 	public static ExtentReports extent;			//Instance created for report file
@@ -74,12 +75,13 @@ public class All_Distributor_TWO  extends BasePage {
 		Initialization(link,0,"Statutory");
 	
 	}
-	/**
-	
+
+
 	@Test(priority = 1) //Bilal
 	void CompanyLogo() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Verify to check after distributor login TeamLease RegTech Logo is displayed or not?");
+		
 		
 		MethodsD.CompanyLogo(test,"Performer");
 		
@@ -109,6 +111,17 @@ public class All_Distributor_TWO  extends BasePage {
 		extent.flush();
 	}
 	
+	@Test(priority = 16)
+	void customerUserMapping() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Verify to check Customer User Mapping functionalities is working or not?");
+		
+		MethodsD.customerUserMapping(test,"Performer");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
 	
 	@Test(priority = 20) //Bilal
 	void Corporate_Verification() throws InterruptedException, IOException
@@ -116,6 +129,17 @@ public class All_Distributor_TWO  extends BasePage {
 		test = extent.startTest("Verify to check Corporate functionalities is working or not?");
 		
 		MethodsD.Corporate_Verification(test,"Performer");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 20) //Bilal
+	void corporate_UserMapping() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Verify to check corporate - corporate user mapping works correctly");
+		
+		MethodsD.corporate_UserMapping(test,"Performer");
 		
 		extent.endTest(test);
 		extent.flush();
@@ -312,7 +336,7 @@ public class All_Distributor_TWO  extends BasePage {
 		@Test(priority = 65)
 		void RegisterActionReview() throws InterruptedException, IOException
 		{
-			test = extent.startTest(" Count by Clicking on Register - 'Action/Review'");
+			test = extent.startTest("Count by Clicking on Register - 'Action/Review'");
 			
 		//	All_Distributor_Methods.RegisterActionReview(test,"Distributor");
 			MethodsD.RegisterActionReview(test,"Distributor");
@@ -325,7 +349,7 @@ public class All_Distributor_TWO  extends BasePage {
 		@Test(priority = 67)
 		void ReturnUpcoming() throws InterruptedException, IOException
 		{
-			test = extent.startTest(" Count by Clicking on Returns - 'Upcoming'");
+			test = extent.startTest("Count by Clicking on Returns - 'Upcoming'");
 			
 		//	All_Distributor_Methods.ReturnUpcoming(test,"Distributor");
 			MethodsD.ReturnUpcoming(test,"Distributor");
@@ -337,7 +361,7 @@ public class All_Distributor_TWO  extends BasePage {
 		@Test(priority = 69)
 		void ReturnOverdue() throws InterruptedException, IOException
 		{
-			test = extent.startTest(" Count by Clicking on Returns - 'Overdue'");
+			test = extent.startTest("Count by Clicking on Returns - 'Overdue'");
 			
 		//	All_Distributor_Methods.ReturnOverdue(test,"Distributor");
 			MethodsD.ReturnOverdue(test,"Distributor");
@@ -405,12 +429,122 @@ public class All_Distributor_TWO  extends BasePage {
 			extent.flush();
 		}
 		
+		
+		@Test(priority = 81) 
+		void RiskSummaryNotCompliedGraph() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Bar Graph -Risk Summary - Not Complied - Count Verification");
+			
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+			Thread.sleep(7000);
+			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+			LoginLocators.Search().sendKeys("TESTAUTO2");
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+			
+			Thread.sleep(5000);
+			Thread.sleep(8000);
+			LoginLocators.DashboardArrow().click();
+			Thread.sleep(10000);
+			LoginLocators.SelectPeriodDashboard().click();
+			Thread.sleep(2000);
+			LoginLocators.SelectPeriodValue2024().click();
+			Thread.sleep(2000);
+			JavascriptExecutor js = (JavascriptExecutor) getDriver();
+		    
+		    js.executeScript("window.scrollBy(0,300)");
+		    Thread.sleep(2000);
+		    
+			Thread.sleep(3000);
+			int high = Integer.parseInt(LocatorsP.HighRisk2().getText());	//Reading Dashboard count.
+			int medium = Integer.parseInt(LocatorsP.MediumRisk2().getText());	//Reading Dashboard count.
+			int low = Integer.parseInt(LocatorsP.LowRisk2().getText());	//Reading Dashboard count.
+			
+			Thread.sleep(500);
+			
+				if(high >= 0)
+				{
+					MethodsP.RiskGraph2( test, "High", high);
+				}
+				else
+				{
+					test.log(LogStatus.PASS, "'High' Risk Compliance Count = "+high);
+				}
+				
+				if(medium >= 0)
+				{
+					js.executeScript("window.scrollBy(0,300)");
+					MethodsP.RiskGraph2( test, "Medium", medium);
+				}
+				else
+				{
+					js.executeScript("window.scrollBy(0,300)");
+					test.log(LogStatus.PASS, "'Medium' Risk Compliance Count = "+high);
+				}
+				
+				if(low >= 0)
+				{
+					js.executeScript("window.scrollBy(0,300)");
+					MethodsP.RiskGraph2( test, "Low", low);
+				}
+				else
+				{
+					js.executeScript("window.scrollBy(0,300)");
+					test.log(LogStatus.PASS, "'Low' Risk Compliance Count = "+low);
+				}
+						
+				Thread.sleep(5000);
+			
+				Thread.sleep(2000);
+				LoginLocators.Dashboard().click();			//Clicking on Dashboard
+				Thread.sleep(2000);
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		@Test(priority = 82) 
+		void nonCompliedHighRiskSummaryFilter() throws InterruptedException, IOException
+		{
+			test = extent.startTest("High Risk Summary - Non Complied - Multiple Filter verification");
+			
+			MethodsD.nonCompliedHighRiskSummaryFilter(test,"Performer", "High");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		@Test(priority = 83) 
+		void nonCompliedMediumRiskSummaryFilter() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Medium Risk Summary - Non Complied - Multiple Filter verification");
+			
+			MethodsD.nonCompliedHighRiskSummaryFilter(test,"Performer", "Medium");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		@Test(priority = 84) 
+		void nonCompliedLowRiskSummaryFilter() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Low Risk Summary - Non Complied - Multiple Filter verification");
+			
+			MethodsD.nonCompliedHighRiskSummaryFilter(test,"Performer", "Low");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		
+		
+		
+		
+		
+		
 		@Test(priority = 85) //Need to add below test case for complied filter test cases 
 		void RiskSummaryCompliedGraph() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Bar Graph -Risk Summary - Complied - Count Verification");
 			
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(5000);Thread.sleep(5000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 //			LoginLocators.Search().sendKeys("TESTAUTO2");
@@ -499,6 +633,15 @@ public class All_Distributor_TWO  extends BasePage {
 			extent.flush();
 		}
 		
+		@Test(priority = 89)  
+		void abstractSummary() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Verify to check - Abstract Summary verifiction displaying correctly");
+			MethodsD.abstractSummary(test,"Distributor");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
 		
 		@Test(priority = 90) //If see some test case add above
 		void ApplicableStatues() throws InterruptedException, IOException
@@ -527,8 +670,8 @@ public class All_Distributor_TWO  extends BasePage {
 
 
 		//Part 2
-		
-	**/
+	
+
 		
 		//Manage Masters
 		@Test(priority = 100) //Bilal
@@ -541,6 +684,38 @@ public class All_Distributor_TWO  extends BasePage {
 	   		extent.endTest(test);
 	   		extent.flush();
 	   	}
+		
+		@Test(priority = 100) 
+	   	void stateCityExportMapping() throws InterruptedException, IOException
+	   	{
+	   		test = extent.startTest("Manage Master - State City - Verify to check export mapping buttons working or not");
+	   		
+	   		PerformerMethod.stateCityExportMapping(test, workbook, "Distributor");
+	   		
+	   		extent.endTest(test);
+	   		extent.flush();
+	   	}
+		@Test(priority = 100) 
+	   	void stateCityExport() throws InterruptedException, IOException
+	   	{
+	   		test = extent.startTest("Manage Master - State City - Verify to check export mapping buttons working or not");
+	   		
+	   		PerformerMethod.stateCityExport(test, workbook, "Distributor");
+	   		
+	   		extent.endTest(test);
+	   		extent.flush();
+	   	}
+		@Test(priority = 100) 
+	   	void authorityAddressUpload() throws InterruptedException, IOException
+	   	{
+	   		test = extent.startTest("Manage Master - State City - Verify to check Authority address upload working or not");
+	   		
+	   		PerformerMethod.authorityAddressUpload(test, workbook, "Distributor");
+	   		
+	   		extent.endTest(test);
+	   		extent.flush();
+	   	}
+		
 		@Test(priority = 101) //Bilal
 	   	void StateCityAddressMapping() throws Exception
 	   	{
@@ -577,12 +752,14 @@ public class All_Distributor_TWO  extends BasePage {
 		
 		
 		
-		@Test(priority = 109) //Bilal
+		@Test(priority = 109) 
 	   	void DesignationSearch() throws InterruptedException, IOException
 	   	{
-test = extent.startTest("Manage Master - Designation - Verify to check Search/Select Designation dropdown is working or not");
-	   		   		
+            test = extent.startTest("Manage Master - Designation - Verify to check Search/Select Designation dropdown is working or not");
 	   		PerformerMethod.DesignationSearch(test, workbook , "Distributor");
+	   		
+	   		test = extent.startTest("Manage Master - Designation - Verify to check Active/InActive filters are working or not");
+	   		PerformerMethod.designationActiveInActive(test , "Distributor");
 
 	   		extent.endTest(test);
 	   		extent.flush();
@@ -618,11 +795,238 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 	   		extent.endTest(test);
 	   		extent.flush();
 	   	}
+	    
+		@Test(priority = 118) 
+	   	void leaveTypeSearch() throws InterruptedException, IOException
+	   	{
+	   		test = extent.startTest("Manage Master - Leave Type - Verify to check Search Leave type/Description working or not");
+	   		
+	   		PerformerMethod.leaveTypeSearch(test, workbook, "Distributor");
+	   		
+	   		extent.endTest(test);
+	   		extent.flush();
+	   	}
+		@Test(priority = 118) 
+	   	void leaveTypeExport() throws InterruptedException, IOException
+	   	{
+	   		test = extent.startTest("Manage Master - Leave Type - Verify to check Export button working or not");
+	   		
+	   		PerformerMethod.leaveTypeExport(test, workbook, "Distributor");
+	   		
+	   		extent.endTest(test);
+	   		extent.flush();
+	   	}
 		
+		@Test(priority = 125)
+	   	void PaycodeMappingSearchField() throws InterruptedException, IOException
+	   	{
+	test = extent.startTest("Manage Masters - Paycode Mapping - Verify to check search field is working or not?");
+	   		   		
+	   		PerformerMethod.PaycodeMappingSearchField(test, workbook,"Distributor");
+
+	   		extent.endTest(test);
+	   		extent.flush();
+	   	}
+		
+		@Test(priority = 126) 
+	   	void PaycodeMappingAddNew() throws InterruptedException, IOException
+	   	{
+	test = extent.startTest("Manage Masters - Paycode Mapping - Verify to check Add New error is displayed or not?");
+	   		   		
+	   		PerformerMethod.PaycodeMappingAddNew(test, workbook, "Distributor");
+
+	   		extent.endTest(test);
+	   		extent.flush();
+	   	}
+		
+		@Test(priority = 127) 
+	   	void paycodeUploadSample() throws InterruptedException, IOException, AWTException
+	   	{
+	test = extent.startTest("Manage Masters - Paycode Mapping - Upload - Verify to check sample documents are downloading or not");
+	   		   		
+	   		PerformerMethod.paycodeUploadSample(test, workbook, "Distributor");
+
+	   		extent.endTest(test);
+	   		extent.flush();
+	   	}
+		
+		@Test(priority = 128) 
+	   	void PaycodeMappingUpload() throws InterruptedException, IOException, AWTException
+	   	{
+	test = extent.startTest("Manage Masters - Paycode Mapping - Verify to check paycode Upload or not?");
+	   		   		
+	   		PerformerMethod.PaycodeMappingUpload(test, workbook, "Distributor");
+
+	   		extent.endTest(test);
+	   		extent.flush();
+	   	}
+		@Test(priority = 129) 
+	   	void PaycodeMappingUploadInvalid() throws InterruptedException, IOException, AWTException
+	   	{
+	test = extent.startTest("Manage Masters - Paycode Mapping - Verify to upload invalid file which contains special characters error message is displayed or not?");
+	   		   		
+	   		PerformerMethod.PaycodeMappingUploadInvalid(test, workbook, "Distributor");
+
+	   		extent.endTest(test);
+	   		extent.flush();
+	   	}
+		
+		@Test(priority = 130)  
+	   	void PaycodeMappingEditUpdate() throws InterruptedException, IOException
+	   	{
+	test = extent.startTest("Manage Masters - Paycode Mapping - Verify to check paycode is editable or not?");
+	   		   		
+	   		PerformerMethod.PaycodeMappingEditUpdate(test, workbook, "Distributor");
+
+	   		extent.endTest(test);
+	   		extent.flush();
+	   	}
+		
+		@Test(priority = 135) 
+	   	void manageMasterStaturyMaster() throws InterruptedException, IOException, AWTException
+	   	{
+	test = extent.startTest("Manage Masters - Statutory Master - Verify to check filters verification are working or not?");
+	   		   		
+	   		PerformerMethod.manageMasterStaturyMaster(test, workbook, "Distributor");
+
+	   		extent.endTest(test);
+	   		extent.flush();
+	   	}
+		
+		@Test(priority = 136) 
+	   	void MastersStaturyDoc() throws InterruptedException, IOException, AWTException
+	   	{
+	test = extent.startTest("Manage Masters - Statutory Master - Verify to check Exports with all Compliance Types are working or not?");
+	   		   		
+	   		PerformerMethod.MastersStaturyDoc(test, workbook, "Distributor");
+
+	   		extent.endTest(test);
+	   		extent.flush();
+	   	}
+		
+		@Test(priority = 139) //Swapnil
+		void OnboardEmployee() throws Exception
+		{
+			test = extent.startTest("OnBoard Employee - DOL Reactivation section Verification.");
+			MethodsD.dolReactivation(test,"Distributor");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		
+		//My Document Digital signature
+		@Test(priority = 140) 
+		void MyDocumentSearch() throws InterruptedException, IOException, AWTException
+		{
+			test = extent.startTest("My document - Digital Signature - Verify Search field is working or not?");
+			
+			MethodsD.digitalSingantureSearch(test,"Distributor");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		@Test(priority = 140) 
+		void addNeDigitalSignature() throws InterruptedException, IOException, AWTException
+		{
+			test = extent.startTest("My document - Digital Signature - Verify to add new - New Digital Signature is adding or not");
+			
+			MethodsD.addNeDigitalSignature(test,"Distributor");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		@Test(priority = 140) 
+		void addNewExistingDigitalSignature() throws InterruptedException, IOException, AWTException
+		{
+			test = extent.startTest("My document - Digital Signature - Verify to add new - Existing Digital Signature is adding or not");
+			
+			MethodsD.addNewExistingDigitalSignature(test,"Distributor");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		@Test(priority = 140) 
+		void effectiveDateFromToAddNew() throws InterruptedException, IOException, AWTException
+		{
+			test = extent.startTest("My document - Digital Signature - Verify to add new - check error messages to selecting effective from date is greater than effective to date ");
+			
+			MethodsD.effectiveDateFromToAddNew(test,"Distributor");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		@Test(priority = 140) 
+		void digitalSignatureEdit() throws InterruptedException, IOException, AWTException
+		{
+			test = extent.startTest("My document - Digital Signature - Verify to check edit button working or not");
+			
+			MethodsD.digitalSignatureEdit(test,"Distributor");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		@Test(priority = 140) 
+		void effectiveDateFromToEdit() throws InterruptedException, IOException, AWTException
+		{
+			test = extent.startTest("My document - Digital Signature - Verify to edit - check error messages to selecting effective from date is greater than effective to date ");
+			
+			MethodsD.effectiveDateFromToEdit(test,"Distributor");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
 		
 		//-----------*****On board Entity:*****------------
 	    //Premises: 
-		@Test(priority = 160) 
+		
+		@Test(priority = 160)
+		void searchPremises() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Onboard Entity - Premises - Verify to check type to search field is working or not?");
+			
+			Methods.searchPremises(test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+//		@Test(priority = 161) // NEW TC (Pending)
+		void uploadShiftMasterPremises() throws Exception
+		{
+			test = extent.startTest("Onboard Entity - Premises - Verify to check upload shift master is working or not?");
+			
+			Methods.uploadShiftMasterPremises(test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		@Test(priority = 162) 
+		void uploadAddressMapping() throws Exception
+		{
+			test = extent.startTest("Onboard Entity - Premises - Verify to check upload address mapping is working or not?");
+			
+			Methods.uploadAddressMapping(test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		@Test(priority = 163) 
+		void uploadPremises() throws Exception
+		{
+			test = extent.startTest("Onboard Entity - Premises - Verify to check upload button is working or not?");
+			
+			Methods.uploadPremises(test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		
+		
+		@Test(priority = 165) 
 		void ExportPremises() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Onboard Entity - Premises - Verify Export button is working or not?");
@@ -643,6 +1047,19 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 			extent.endTest(test);
 			extent.flush();
 		}
+		
+		@Test(priority = 171) 
+		void deletePremises() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Onboard Entity - Premises - Verify to check Delete button is working or not?");
+			
+			Methods.deletePremises(test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+
 		
 		//Need to add above delete button verification 
 		@Test(priority = 175) 
@@ -705,7 +1122,7 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 		
 		
 		
-		@Test(priority = 214) 
+		@Test(priority = 214) //Completed till here
 		void PayCodeUploadSampleFile() throws InterruptedException, IOException, AWTException
 		{
 			test = extent.startTest("Onboard Entity - Paycode Mapping - Verify to check upload - sample files is downloading or not?");
@@ -736,10 +1153,41 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 			extent.endTest(test);
 			extent.flush();
 		}
+		@Test(priority = 221) 
+		void ubExport() throws InterruptedException, IOException, AWTException
+		{
+			test = extent.startTest("Onboard Entity - User-Branch Mapping - Verify to check Export button works correctly");
+			
+			All_Distributor_Methods.ubExport(test,"Distributor");
+			  
+			extent.endTest(test);
+			extent.flush();
+		}
+		@Test(priority = 222) 
+		void ubExportsFilters() throws InterruptedException, IOException, AWTException
+		{
+			test = extent.startTest("Onboard Entity - User-Branch Mapping - Verify to check Exports with Filters are working correctly ");
+			
+			All_Distributor_Methods.ubExportsFilters(test, "Distributor");
+			  
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		@Test(priority = 223) 
+		void ubDelete() throws InterruptedException, IOException, AWTException
+		{
+			test = extent.startTest("Onboard Entity - User-Branch Mapping - Verify to check Delete button are working correctly ");
+			
+			All_Distributor_Methods.ubDelete(test, "Distributor");
+			  
+			extent.endTest(test);
+			extent.flush();
+		}
 		
 	
 		//Compliance asiisgnment
-		@Test(priority = 225)
+		@Test(priority = 225) 
 		void Entity_CompAssignment() throws InterruptedException, IOException, AWTException
 		{
 			test = extent.startTest("Onboard Entity - Compliance Assignment - Verify to check compliance assignment works correctly");
@@ -780,6 +1228,16 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 			extent.flush();
 
 		}
+		@Test(priority = 236) 
+	   	void bulkCompReassignment() throws InterruptedException, IOException
+	   	{
+	   		test = extent.startTest("Onboard Entity - Manage Compliance - Bulk Compliance Reassignment - Verify validation message");
+	   		 
+	   		All_Distributor_Methods.bulkCompReassignment(test, workbook,"Entity");
+	   		
+	   		extent.endTest(test);
+	   		extent.flush();
+	   	}
 		
 		
 		//Compliance Reassignment:
@@ -906,7 +1364,7 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 		@Test(priority = 310) 
 	   	void CLRA_Location_SearchField() throws InterruptedException, IOException, AWTException
 	   	{
-	   		test = extent.startTest("OnBoard CLRA - Location - Verify to search field is working or not?");
+	   		test = extent.startTest("OnBoard CLRA - Locations - Verify to search field is working or not?");
 	   		
 	   		All_Distributor_Methods.CLRA_Location_SearchField(test, workbook);
 	   		
@@ -916,7 +1374,7 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 		@Test(priority = 311) 
 	   	void CLRA_AddLocation_Error() throws InterruptedException, IOException, AWTException
 	   	{
-	   		test = extent.startTest("OnBoard CLRA - Location - Verify to check add new error is displayed or not?");
+	   		test = extent.startTest("OnBoard CLRA - Locations - Verify to check add new error is displayed or not?");
 	   		
 	   		All_Distributor_Methods.CLRA_AddLocation_Error(test, workbook);
 	   		
@@ -927,9 +1385,19 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 		@Test(priority = 312) //While uploading file with some error xml page is opening need to raise issue 
 	   	void CLRA_AddLocation_Upload() throws Exception
 	   	{
-	   		test = extent.startTest("OnBoard CLRA - Location - Verify to check upload location button is working or not?");
+	   		test = extent.startTest("OnBoard CLRA - Locations - Verify to check upload location button is working or not?");
 	   		
 	   		All_Distributor_Methods.CLRA_AddLocation_Upload(test, workbook);
+	   		
+	   		extent.endTest(test);
+	   		extent.flush();
+	   	}
+		@Test(priority = 313) 
+	   	void CLRA_LocationExport() throws InterruptedException, IOException, AWTException
+	   	{
+	   		test = extent.startTest("OnBoard CLRA - Locations - Verify to check Export button is working or not?");
+	   		
+	   		All_Distributor_Methods.CLRA_LocationExport(test, workbook);
 	   		
 	   		extent.endTest(test);
 	   		extent.flush();
@@ -937,7 +1405,7 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 		@Test(priority = 315) 
 	   	void CLRA_AddLocation_EditUpdate() throws InterruptedException, IOException, AWTException
 	   	{
-	   		test = extent.startTest("OnBoard CLRA - Location - Verify to check Edit & Delete button is working or not?");
+	   		test = extent.startTest("OnBoard CLRA - Locations - Verify to check Edit & Delete button is working or not?");
 	   		
 	   		All_Distributor_Methods.CLRA_AddLocation_EditUpdate(test, workbook);
 	   		
@@ -1080,6 +1548,17 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 	   		extent.flush();
 	   	}
 	    
+	    
+		@Test(priority = 236) 
+	   	void CLRAbulkCompReassignment() throws InterruptedException, IOException
+	   	{
+	   		test = extent.startTest("OnBoard CLRA - Manage Compliance - Bulk Compliance Reassignment - Verify validation message");
+	   		 
+	   		All_Distributor_Methods.bulkCompReassignment(test, workbook, "CLRA");
+	   		
+	   		extent.endTest(test);
+	   		extent.flush();
+	   	}
 	    @Test(priority = 352)
 	   	void CLRA_ManageComp_ScneduleCreation() throws InterruptedException, IOException
 	   	{
@@ -1115,12 +1594,44 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 		
 		
 		
-		@Test(priority = 400)
-		void Report() throws InterruptedException, IOException
+		
+		@Test(priority = 400) 
+		void myreportComplianceAssignment() throws InterruptedException, IOException
 		{
 			test = extent.startTest("My Report - Compliance Assignment Report ");
 			
-			MethodsD.CompAssignmentReport(test,"Distributor");
+			MethodsD.myreportComplianceAssignment(test,"Distributor");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		@Test(priority = 400) 
+		void assignmentReportsRegister() throws InterruptedException, IOException
+		{
+			test = extent.startTest("My Report - Compliance Assignment Report - Verify to check Registers compliance exports correctly");
+			
+			MethodsD.assignmentReportsFilterExports(test,"Distributor", "Registers");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		@Test(priority = 400) 
+		void assignmentReportsReturn() throws InterruptedException, IOException
+		{
+			test = extent.startTest("My Report - Compliance Assignment Report - Verify to check Returns compliance exports correctly");
+			
+			MethodsD.assignmentReportsFilterExports(test,"Distributor", "Returns");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		@Test(priority = 400) 
+		void assignmentReportsChallan() throws InterruptedException, IOException
+		{
+			test = extent.startTest("My Report - Compliance Assignment Report - Verify to check Challans compliance exports correctly");
+			
+			MethodsD.assignmentReportsFilterExports(test,"Distributor", "Challans");
 			
 			extent.endTest(test);
 			extent.flush();
@@ -1148,29 +1659,30 @@ test = extent.startTest("Manage Master - Designation - Verify to check Search/Se
 			extent.flush();
 		}
 		
-		@Test(priority = 403)
-		void CLRAAssignmentReport() throws InterruptedException, IOException
+		@Test(priority = 403) 
+		void clraAssignmentReport() throws InterruptedException, IOException
 		{
 			test = extent.startTest("My Report - CLRA Assignment Report");
 			
-			MethodsD.CLRAAssignmentReport(test,"Distributor");
+			MethodsD.clraAssignmentReport(test,"Distributor");
 			
 			extent.endTest(test);
 			extent.flush();
 		}
 		
+		
+
 	
 	
 	
-	
-	
-	
-	
+
+
+
 	   
 	   
+	
 	   
-	   
-	   
+	
 	   
 	   
 	

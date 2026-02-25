@@ -56,7 +56,7 @@ public class ClientsTest extends BasePage {
 	@BeforeMethod
 	void Login() throws InterruptedException, IOException
 	{
-		initialization(link,6,"Statutory");
+		Initialization(link,6,"Statutory");
 		ClientMethods.filterEntity(test);
 	
 	}

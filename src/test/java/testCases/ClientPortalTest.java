@@ -58,7 +58,7 @@ public class ClientPortalTest extends BasePage {
 	@BeforeMethod
 	void Login() throws InterruptedException, IOException
 	{
-		initialization(link,4,"Statutory");
+		Initialization(link,4,"Statutory");
 	
 	}
 	

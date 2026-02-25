@@ -63,8 +63,8 @@ public class CoordinatorTestCases extends BasePage
 	
 	
 	
-//---------------------Notice Module------------------
-	
+
+	//---------------------Notice Module------------------	
 	@Test(priority = 1) //Bilal
    	void CoordinatorLogo() throws InterruptedException, IOException
    	{
@@ -143,7 +143,7 @@ public class CoordinatorTestCases extends BasePage
    		extent.flush();
 
    	}
-//	@Test(priority = 8)
+	@Test(priority = 8)
    	void PendingActionExport() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Notices - Pending Action - Export button verification");
@@ -276,7 +276,7 @@ public class CoordinatorTestCases extends BasePage
    		extent.flush();
    	}
 
-	@Test(priority = 15) //New
+	@Test(priority = 16) //New
    	void noticeDocumentBrowse() throws Exception
    	{
    		test = extent.startTest("Notices - Add New - Verify to check Notice Document Browse button is enabled or not");
@@ -314,6 +314,9 @@ public class CoordinatorTestCases extends BasePage
    		
    		test = extent.startTest("Notices - Add New - Notice Document - Verify to check error with upload HTML file");
    		CoordinatorMethod.noticeAddNewNoticeDocumentValidation("Validation : HTML",test);
+   		
+   		extent.endTest(test);
+   		extent.flush();
    		
    	}
 	
@@ -521,7 +524,18 @@ public class CoordinatorTestCases extends BasePage
    		extent.flush();
    	}
 	
-	@Test(priority = 32)
+	@Test(priority = 32) //NEW TC NEW TC
+   	void doSectionDocReq() throws Exception
+   	{
+   		test = extent.startTest("Notices - Edit - Verify to check Document Requirements for the Notice works correctly");
+   		
+   		CoordinatorMethod.doSectionDocReq(test);
+   		
+   		extent.endTest(test);
+   		extent.flush();
+   	}
+	
+	@Test(priority = 33)
    	void docReqNoticeLabel() throws InterruptedException, IOException, EncryptedDocumentException, AWTException
    	{
    		test = extent.startTest("Notices - Edit - Verify to check Document Requirement for the Notice label bar works correctly ");
@@ -531,7 +545,7 @@ public class CoordinatorTestCases extends BasePage
    		extent.endTest(test);
    		extent.flush();
    	}
-	@Test(priority = 33) 
+	@Test(priority = 34) 
    	void docSectionBackButton() throws InterruptedException, IOException, EncryptedDocumentException, AWTException
    	{
    		test = extent.startTest("Notices - Edit - Document Section - Verify to check Back button works correctly");
@@ -842,8 +856,19 @@ public class CoordinatorTestCases extends BasePage
    		extent.flush();
    	}
  	
+	@Test(priority = 72) //NEW TC NEW TC
+   	void EditDocReqOTActivity() throws Exception
+   	{
+   		test = extent.startTest("Registration - Edit - Verification of Document Requirements for the OT Activity works correctly");
+   		
+   		CoordinatorMethod.EditDocReqOTActivity(test);
+   		
+   		extent.endTest(test);
+   		extent.flush();
+   	}
+ 	
  	//Sometimes running sometimes not
-	@Test(priority = 72) //Bilal   Pending Tried with all clicks but now working
+	@Test(priority = 73) //Bilal   Pending Tried with all clicks but now working
    	void EditIconDocumentRepoDownload() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Registration - Edit - Verify to download documents from document repository.");
@@ -908,6 +933,20 @@ public class CoordinatorTestCases extends BasePage
    		extent.flush();
 
    	}
+	
+	@Test(priority = 77) 	// NEW TC BY SWAPNIL
+	void ExistingLicenseDraftRCPcountMatch() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Registration - Existing License - Draft RCP  verification");
+		CoordinatorMethod.ExistingLicenseDraftRCPcountMatch(test, "Draft RCP");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+
+
+
+
 	@Test(priority = 77)
    	void ExistingLicenseendingAction() throws InterruptedException, IOException
    	{
@@ -998,7 +1037,17 @@ public class CoordinatorTestCases extends BasePage
 
 	}
 
+	// Statutory Documents
+		@Test(priority = 100)	// NEW TC BY SWAPNIL
+		void StatutoryDocument() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Statutory Document - Filters and downloads verification");
+			CoordinatorMethod.StatutoryDoc(test);
 
+			extent.endTest(test);
+			extent.flush();
+
+		} 
 
 
 

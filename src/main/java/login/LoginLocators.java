@@ -27,7 +27,8 @@ public class LoginLocators extends BasePage {
 	
 	public static WebElement clickSubmit()	//Method for searching button for Save/Sign-in
 	{
-		submit = getDriver().findElement(By.id("Submit"));
+		submit = getDriver().findElement(By.id("Submit")); // LIVE
+//		submit = getDriver().findElement(By.xpath("//button[@class='figma-btn-blue']"));//UAT
 		return submit;
 	}
 	
@@ -64,9 +65,29 @@ public class LoginLocators extends BasePage {
 		submit = getDriver().findElement(By.xpath("//button[normalize-space()='User']"));
 		return submit;
 	}
+	public static WebElement corporateUserMappingBtn()
+	{
+		submit = getDriver().findElement(By.xpath("//button[normalize-space()='Customer User Mapping']"));
+		return submit;
+	}
+	public static WebElement corporateUserMappingTxt()
+	{
+		submit = getDriver().findElement(By.xpath("//a[normalize-space()='Customer User Mapping']"));
+		return submit;
+	}
+	public static WebElement corporateUserMappingHyperLink()
+	{
+		submit = getDriver().findElement(By.xpath("//div[@class='cell-content total-click']"));
+		return submit;
+	}
 	public static WebElement Corporate()
 	{
 		submit = getDriver().findElement(By.xpath("//button[normalize-space()='Corporate']"));
+		return submit;
+	}
+	public static WebElement corporateUserMapping()
+	{
+		submit = getDriver().findElement(By.xpath("//button[normalize-space()='Corporate User Mapping']"));
 		return submit;
 	}
 	public static WebElement CorporateProceed()
@@ -82,6 +103,11 @@ public class LoginLocators extends BasePage {
 	public static WebElement SampleTemplate()	
 	{
 		submit = getDriver().findElement(By.xpath("//img[@title='Download Template']"));
+		return submit;
+	}
+	public static WebElement SampleDocument2()	
+	{
+		submit = getDriver().findElement(By.xpath("//a[normalize-space()='Sample Document']"));
 		return submit;
 	}
 	public static WebElement UploadBtn()
@@ -153,9 +179,20 @@ public class LoginLocators extends BasePage {
 		return submit;
 	}
 	
-	public static WebElement OverdueBox()	//Method for searching button for Save/Sign-in
+	public static WebElement OverdueBox()
 	{
 		submit = getDriver().findElement(By.cssSelector("body > app-root > div > app-layout > section > div > div > app-compliance-dashboard > div:nth-child(2) > div:nth-child(3) > div > div > div:nth-child(2) > div.min-card-count"));
+		return submit;
+	}
+	
+	public static WebElement viewRedirection() // Redirection to workspace 
+	{
+		submit = getDriver().findElement(By.xpath("//img[@title='View']"));
+		return submit;
+	}
+	public static WebElement actTypeTxt() // Act Type validation for get text
+	{
+		submit = getDriver().findElement(By.xpath("(//span[@class='k-input-value-text'])[1]"));
 		return submit;
 	}
 	
@@ -220,6 +257,41 @@ public class LoginLocators extends BasePage {
 		submit = getDriver().findElement(By.cssSelector("body > app-root:nth-child(1) > div:nth-child(1) > app-layout:nth-child(1) > section:nth-child(2) > div:nth-child(3) > div:nth-child(1) > app-compliance-dashboard:nth-child(3) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2)"));
 		return submit;
 	}
+	public static WebElement registerOverdue()
+	{
+		submit = getDriver().findElement(By.xpath("(//div[@class='summary-card-content-item-count'])[2]"));
+		return submit;
+	}
+	public static WebElement returnOverdue()
+	{
+		submit = getDriver().findElement(By.xpath("(//div[@class='summary-card-content-item-count'])[5]"));
+		return submit;
+	}
+	public static WebElement returnUpcoming()
+	{
+		submit = getDriver().findElement(By.xpath("(//div[@class='summary-card-content-item-count'])[4]"));
+		return submit;
+	}
+	public static WebElement returnAction()
+	{
+		submit = getDriver().findElement(By.xpath("(//div[@class='summary-card-content-item-count'])[6]"));
+		return submit;
+	}
+	public static WebElement challanUpcoming()
+	{
+		submit = getDriver().findElement(By.xpath("(//div[@class='summary-card-content-item-count'])[7]"));
+		return submit;
+	}
+	public static WebElement challanOverdue()
+	{
+		submit = getDriver().findElement(By.xpath("(//div[@class='summary-card-content-item-count'])[8]"));
+		return submit;
+	}
+	public static WebElement challanAction()
+	{
+		submit = getDriver().findElement(By.xpath("(//div[@class='summary-card-content-item-count'])[9]"));
+		return submit;
+	}
 	public static WebElement RegisterActionReview()	//Method for searching button for Save/Sign-in
 	{
 		submit = getDriver().findElement(By.cssSelector("body > app-root:nth-child(1) > div:nth-child(1) > app-layout:nth-child(1) > section:nth-child(2) > div:nth-child(3) > div:nth-child(1) > app-compliance-dashboard:nth-child(3) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(2)"));
@@ -265,10 +337,9 @@ public class LoginLocators extends BasePage {
 	
 	public static WebElement TotalNumberOfItems() {
 	    List<By> locators = Arrays.asList(
-	        By.xpath("(//kendo-pager-info[@class='k-pager-info k-label ng-star-inserted'])[1]"),
+	        By.xpath("//kendo-pager-info[@class='k-pager-info k-label ng-star-inserted'])[1]"),
 	        By.xpath("//kendo-pager-info[@class='k-pager-info k-label']"),
-	        By.cssSelector(""),
-	        By.xpath("")     );
+	        By.cssSelector("kendo-grid.custom-grid > kendo-pager.k-pager > kendo-pager-info.k-pager-info"));
 
 	    for (By locator : locators) {
 	        try {
@@ -323,9 +394,14 @@ public class LoginLocators extends BasePage {
 		submit = getDriver().findElement(By.xpath("//input[@class='k-input-inner']"));
 		return submit;
 	}
-	public static WebElement SelectYear()	//Method for searching button for Save/Sign-in
+	public static WebElement SelectYear()
 	{
 		submit = getDriver().findElement(By.xpath("(//kendo-dropdownlist[@class='f-textbox k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker'])[3]"));
+		return submit;
+	}
+	public static WebElement SelectYear2()//Index2
+	{
+		submit = getDriver().findElement(By.xpath("(//kendo-dropdownlist[@class='f-textbox k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker'])[2]"));
 		return submit;
 	}
 	public static WebElement SelectYearvalue()	//Method for searching button for Save/Sign-in
@@ -349,9 +425,14 @@ public class LoginLocators extends BasePage {
 		submit = getDriver().findElement(By.cssSelector("body > app-root > div > app-layout > section > div > div > app-compliance-dashboard > app-dashboard-compliance-popup > kendo-dialog > div.k-window.k-dialog.ng-tns-c1063677181-1 > kendo-dialog-titlebar > div > button > kendo-icon-wrapper > kendo-svgicon"));
 		return submit;
 	}
+	public static WebElement closePopup1()
+	{
+		submit = getDriver().findElement(By.xpath("(//button[@title='Close'])[1]"));
+		return submit;
+	}
 	public static WebElement ClosePopUp_2()	
 	{
-		submit = getDriver().findElement(By.cssSelector("(//button[@title='Close'])[2]"));
+		submit = getDriver().findElement(By.xpath("(//button[@title='Close'])[2]"));
 		return submit;
 	}
 	public static WebElement Close()	//Method for searching button for Save/Sign-in
@@ -396,7 +477,7 @@ public class LoginLocators extends BasePage {
 		submit = getDriver().findElement(By.xpath("(//kendo-svgicon[@class='k-svg-i-caret-alt-right k-svg-icon k-icon ng-star-inserted'])[5]"));
 		return submit;
 	}
-	public static WebElement ExpandBranchSecond()	//Method for searching button for Save/Sign-in
+	public static WebElement ExpandBranchSecond()	//
 	{
 		submit = getDriver().findElement(By.xpath("(//kendo-svgicon[@class='k-svg-i-caret-alt-right k-svg-icon k-icon ng-star-inserted'])[2]"));
 		return submit;
@@ -408,16 +489,16 @@ public class LoginLocators extends BasePage {
 	}
 	
 	
-	public static WebElement ExpandBranchh()	//Method for searching button for Save/Sign-in
+	public static WebElement ExpandBranchh()	//Changed after added multi branches TESTAUTO2 (Dont use TESUAUTO1)
 	{
-		submit = getDriver().findElement(By.xpath("(//kendo-svgicon[@class='k-svg-i-caret-alt-right k-svg-icon k-icon ng-star-inserted'])[1]"));
+		submit = getDriver().findElement(By.xpath("(//kendo-svgicon[@class='k-svg-i-caret-alt-right k-svg-icon k-icon ng-star-inserted'])[7]"));
 		return submit;
 	}
 	
 	
-	public static WebElement ExpandBranchnew()	//Method for searching button for Save/Sign-in
+	public static WebElement ExpandBranchnew()	//TESTAUTO2 only
 	{
-		submit = getDriver().findElement(By.xpath("(//kendo-svgicon[@class='k-svg-i-caret-alt-right k-svg-icon k-icon ng-star-inserted'])[2]"));
+		submit = getDriver().findElement(By.xpath("(//kendo-svgicon[@class='k-svg-i-caret-alt-right k-svg-icon k-icon ng-star-inserted'])[7]"));
 		return submit;
 	}
 	public static WebElement ExpandBranchn()	//ExpandBranchh
@@ -472,9 +553,19 @@ public class LoginLocators extends BasePage {
 		submit = getDriver().findElement(By.xpath("(//span[.=' Pune_Branch Pune '])[1]"));
 		return submit;
 	}
-	public static WebElement BranchPune_BranchPune()	//Method for searching button for Save/Sign-in
+	public static WebElement BranchPune_BranchPune()//TESTAUTO2
 	{
 		submit = getDriver().findElement(By.xpath("(//span[.=' pune_Branch Pune '])[1]"));
+		return submit;
+	}
+	public static WebElement BranchPune_Maha() //TESTAUTO
+	{
+		submit = getDriver().findElement(By.xpath("//span[normalize-space()='Pune Rahatani_Maha Branch']"));
+		return submit;
+	}
+	public static WebElement BranchAndra_Tripupathi()
+	{
+		submit = getDriver().findElement(By.xpath("//span[contains(text(),'Tirupathi_Branch Andra')]"));
 		return submit;
 	}
 	
@@ -543,7 +634,7 @@ public class LoginLocators extends BasePage {
 	}
 	public static WebElement SelectPeriodValue2024()	//Method for searching button for Save/Sign-in
 	{
-		submit = getDriver().findElement(By.xpath("//span[.='2024']"));
+		submit = getDriver().findElement(By.xpath("//span[.='2025']"));
 		return submit;
 	}
 	public static WebElement CompHighRisk()	//Method for searching button for Save/Sign-in
@@ -604,6 +695,12 @@ public class LoginLocators extends BasePage {
 	public static WebElement type()	
 	{
 		submit = getDriver().findElement(By.xpath("(//span[@class='k-input-value-text'])[5]"));
+		return submit;
+	}
+	
+	public static WebElement type2()	
+	{
+		submit = getDriver().findElement(By.xpath("//span[normalize-space()='Type']"));
 		return submit;
 	}
 	public static WebElement BranchCodetype()	
@@ -744,6 +841,11 @@ public class LoginLocators extends BasePage {
 		submit = getDriver().findElement(By.cssSelector("body > app-root > div > app-layout > section > div > div > app-compliance-dashboard > div:nth-child(5) > div:nth-child(2) > div > app-cd-applicable-status > ul > li:nth-child(2) > div"));
 		return submit;
 	}
+	public static WebElement abstractSummaryHeader()
+	{
+		submit = getDriver().findElement(By.xpath("//h4[normalize-space()='Abstract Summary']"));
+		return submit;
+	}
 	public static WebElement DailyUpdateHeader()	//Method for searching button for Save/Sign-in
 	{
 		submit = getDriver().findElement(By.xpath("//h4[@class='Updates-head']"));
@@ -778,7 +880,12 @@ public class LoginLocators extends BasePage {
 	
 	public static WebElement BranchValue()
 	{
-		submit = getDriver().findElement(By.xpath("(//input[@class='k-checkbox k-checkbox-md k-rounded-md'])[6]"));
+		submit = getDriver().findElement(By.xpath("(//input[@class='k-checkbox k-checkbox-md k-rounded-md'])[5]"));
+		return submit;
+	}
+	public static WebElement selectBranch()
+	{
+		submit = getDriver().findElement(By.xpath("//span[normalize-space()='Select Branches']"));
 		return submit;
 	}
 	public static WebElement BranchCheckBox()
@@ -786,9 +893,14 @@ public class LoginLocators extends BasePage {
 		submit = getDriver().findElement(By.xpath("//input[@type='checkbox']"));
 		return submit;
 	}
-	public static WebElement Report()	//Method for searching button for Save/Sign-in
+	public static WebElement Report()
 	{
 		submit = getDriver().findElement(By.xpath("//ul[@class='nav-links']//li//div//a//div//span[.='My Reports']"));
+		return submit;
+	}
+	public static WebElement consolidatedStatusReport()
+	{
+		submit = getDriver().findElement(By.xpath("//a[normalize-space()='Consolidated Status Report']"));
 		return submit;
 	}
 	public static WebElement MyDocument()	//Method for searching button for Save/Sign-in
@@ -888,6 +1000,16 @@ public class LoginLocators extends BasePage {
 		submit = getDriver().findElement(By.xpath("//span[@class='k-list-item-text']"));
 		return submit;
 	}
+	public static WebElement Select1st_MAH()
+	{
+		submit = getDriver().findElement(By.xpath("//span[text()='Maharashtra']"));
+		return submit;
+	}
+	public static WebElement SelectSEA_AlliedActs()
+	{
+		submit = getDriver().findElement(By.xpath("//span[contains(text(),'SEA and')]"));
+		return submit;
+	}
 	public static WebElement Select1stValueInUpload_RegulatoryAbstracts() //This xpath is after clicking on upload for first value
 	{
 		submit = getDriver().findElement(By.xpath("//li[@class='k-list-item k-focus ng-star-inserted']"));
@@ -908,6 +1030,17 @@ public class LoginLocators extends BasePage {
 		submit = getDriver().findElement(By.xpath("(//kendo-pager-info[@class='k-pager-info k-label'])[1]"));
 		return submit;
 	}
+	public static WebElement exportButton() 
+	{
+		submit = getDriver().findElement(By.cssSelector("img[src*='ExportButton.svg']"));
+		return submit;
+	}
+	public static WebElement itemsPerPage() //DashboardBox_TotalNoOfItems
+	{
+		submit = getDriver().findElement(By.cssSelector("kendo-grid.custom-grid > kendo-pager.k-pager > kendo-pager-info.k-pager-info"));
+		return submit;
+	}
+
 	
 	public static WebElement DashboardBox_TotalNoOfItems() //DashboardBox_TotalNoOfItems
 	{
@@ -950,9 +1083,39 @@ public class LoginLocators extends BasePage {
 		submit = getDriver().findElement(By.xpath("//kendo-dropdownlist[@class='f-textbox k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker']"));
 		return submit;
 	}
-	public static WebElement SelectValuetype()	//Method for searching button for Save/Sign-in
+	public static WebElement SelectValuetype()
 	{
 		submit = getDriver().findElement(By.xpath("//ul[@class='k-list-ul']/li[1]"));
+		return submit;
+	}
+	public static WebElement selectValue2024()
+	{
+		submit = getDriver().findElement(By.xpath("(//span[normalize-space()='2024'])"));
+		return submit;
+	}
+	public static WebElement selectValue2024_dropdown()
+	{
+		submit = getDriver().findElement(By.xpath("(//span[normalize-space()='2025'])[3]"));
+		return submit;
+	}
+	public static WebElement selectValue2025()
+	{
+		submit = getDriver().findElement(By.xpath("(//span[normalize-space()='2025'])[3]"));
+		return submit;
+	}
+	public static WebElement selectRegister()	
+	{
+		submit = getDriver().findElement(By.xpath("//span[normalize-space()='Register']"));
+		return submit;
+	}
+	public static WebElement selectRetrun()	
+	{
+		submit = getDriver().findElement(By.xpath("//span[normalize-space()='Return']"));
+		return submit;
+	}
+	public static WebElement selectChallan()
+	{
+		submit = getDriver().findElement(By.xpath("//span[normalize-space()='Challan']"));
 		return submit;
 	}
 	public static WebElement selecttype()	//Method for searching button for Save/Sign-in
@@ -1529,9 +1692,29 @@ public class LoginLocators extends BasePage {
 		submit = getDriver().findElement(By.xpath("(//img[@title='Edit'])[1]"));
 		return submit;
 	}
-	public static WebElement edit()	//Method for searching button for Save/Sign-in
+	public static WebElement edit()
 	{
 		submit = getDriver().findElement(By.xpath("(//img[@title='edit'])[1]"));
+		return submit;
+	}
+	public static WebElement headerDownload()
+	{
+		submit = getDriver().findElement(By.xpath("//img[@title='Header Copy Download']"));
+		return submit;
+	}
+	public static WebElement footerDownload()
+	{
+		submit = getDriver().findElement(By.xpath("//img[@title='Footer Copy Download']"));
+		return submit;
+	}
+	public static WebElement sealSignatureDownload()
+	{
+		submit = getDriver().findElement(By.xpath("//img[@title='Seal And Signature Copy Download']"));
+		return submit;
+	}
+	public static WebElement next()
+	{
+		submit = getDriver().findElement(By.xpath("//button[normalize-space()='next']"));
 		return submit;
 	}
 	public static WebElement Delete1()	//Method for searching button for Save/Sign-in
@@ -2002,9 +2185,214 @@ public class LoginLocators extends BasePage {
 	}
 	
 	
+	//Digital Signature:
+    private WebDriver driver;
+	
+
+	public static WebElement getAuthorisedPersonId()
+	{
+		submit = getDriver().findElement(By.cssSelector("input[placeholder='Authorised Person Id']"));
+		return submit;
+	}
+	public static WebElement getAuthorisedPerson()
+	{
+		submit = getDriver().findElement(By.cssSelector("input[placeholder='Authorised Person']"));
+		return submit;
+	}
+	public static WebElement getDesignation()
+	{
+		submit = getDriver().findElement(By.cssSelector("input[placeholder='Designation']"));
+		return submit;
+	}
+	public static WebElement getMobileNumber()
+	{
+		submit = getDriver().findElement(By.cssSelector("input[placeholder='Mobile Number']"));
+		return submit;
+	}
+	public static WebElement getRemarks()
+	{
+		submit = getDriver().findElement(By.cssSelector("textarea[placeholder='Remarks']"));
+		return submit;
+	}
+
+	public static WebElement getSelectStatus() {
+	    List<By> locators = Arrays.asList(
+	        By.xpath("//span[normalize-space()='Select']"),
+	        By.xpath("//span[contains(text(),'InActive')]"),
+	        By.xpath("//span[contains(text(),'Active')]") );
+
+	    for (By locator : locators) {
+	        try {
+	            WebElement element = getDriver().findElement(locator);
+	            if (element != null && element.isDisplayed()) {
+	                return element; // 🎯 Element found, return it immediately
+	            }
+	        } catch (Exception e) {
+	            // Locator not found, try next one
+	        }
+	    }
+	    System.out.println("❌ Element not found using any locator.");
+	    return null; // All locators failed
+	}
+
+	public static WebElement getSelectInactive()
+	{
+		submit = getDriver().findElement(By.xpath("//span[normalize-space()='Inactive']"));
+		return submit;
+	}
+	public static WebElement getSave()
+	{
+		submit = getDriver().findElement(By.cssSelector("button[title='Save']"));
+		return submit;
+	}
+	public static WebElement getMessage()
+	{
+		submit = getDriver().findElement(By.xpath("//h4[normalize-space()='Signature added successfully!']"));
+		return submit;
+	}
+	public static WebElement getExisting()
+	{
+		submit = getDriver().findElement(By.id("existing"));
+		return submit;
+	}
+	public static WebElement getAuthorisedPersonDrp()
+	{
+		submit = getDriver().findElement(By.xpath("(//button[@class='k-input-button k-button k-icon-button k-button-md k-button-solid k-button-solid-base'])[2]"));
+		return submit;
+	}
+	public static WebElement selectAuthorisedPersonDrp()
+	{
+		submit = getDriver().findElement(By.xpath("(//ul[@class='k-list-ul'])[1]"));
+		return submit;
+	}
 	
 	
 	
+	
+	
+	
+	//----------Swapnil------------
+	public static WebElement VariousTypePaycode()	
+	{
+		submit = getDriver().findElement(By.xpath("//ul[@class='k-list-ul']/li[1]"));
+		return submit;
+	}
+	public static WebElement VariousTypeInternationalWorker()	
+	{
+		submit = getDriver().findElement(By.xpath("//ul[@class='k-list-ul']/li[2]"));
+		return submit;
+	}
+	public static WebElement InternationalVarianceCalender()	
+	{
+		submit = getDriver().findElement(By.xpath("//button[@title='Toggle calendar']"));
+		return submit;
+	}
+	public static WebElement InternationalVarianceCalenderDate()	
+	{
+		submit = getDriver().findElement(By.xpath("//input[@id='datepicker-6']"));
+		return submit;
+	}
+		
+	public static WebElement VariousTypeVPFVariance()	
+	{
+		submit = getDriver().findElement(By.xpath("//ul[@class='k-list-ul']/li[3]"));
+		return submit;
+	}
+	public static WebElement VariousTypeConsolidatedReturnReports()	
+	{
+		submit = getDriver().findElement(By.xpath("//ul[@class='k-list-ul']/li[4]"));
+		return submit;
+	}
+	public static WebElement ConsolidatedReturnReportsExport()	
+	{
+		submit = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/ExportButton.svg']"));
+		return submit;
+	}
+	
+	
+	public static WebElement VariousTypeConsolidatedPTContribution()	
+	{
+		submit = getDriver().findElement(By.xpath("//ul[@class='k-list-ul']/li[5]"));
+		return submit;
+	}
+	public static WebElement VariousTypeER1Contribution()	
+	{
+		submit = getDriver().findElement(By.xpath("//ul[@class='k-list-ul']/li[6]"));
+		return submit;
+	}
+	public static WebElement ER1ContributionReportsExport()	
+	{
+		submit = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/ExportButton.svg']"));
+		return submit;
+	}
+	public static WebElement VariousClear()	//Method for searching button for Save/Sign-in
+	{
+		submit = getDriver().findElement(By.cssSelector("img[src='../assets/vectors/ClearFilter.svg']"));
+		return submit;
+	}
+	
+	
+	
+	//DOJ reactivation:
+	public static WebElement oboardEmployee()
+	{
+		submit = getDriver().findElement(By.xpath("//span[normalize-space()='Onboard Employee']"));
+		return submit;
+	}
+	
+	public static WebElement oboardEmpExport()
+	{
+		submit = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/ExportButton.svg']"));
+		return submit;
+	}
+	
+	public static WebElement oboardEmpEdit()
+	{
+		submit = getDriver().findElement(By.xpath("//tbody/tr[1]/td[5]/div[1]/img[1]"));
+		return submit;
+	}
+	
+	public static WebElement oboardEmpSave()
+	{
+		submit = getDriver().findElement(By.xpath("//body[1]/app-root[1]/div[1]/app-layout[1]/section[1]/div[1]/div[1]/app-dol-reactivation[1]/kendo-grid[1]/div[1]/kendo-grid-list[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[5]/div[1]/img[2]"));
+		return submit;
+	}
+	
+	public static WebElement oboardEmpSaveOkPopUp()
+	{
+		submit = getDriver().findElement(By.xpath("//button[@title='OK']"));
+		return submit;
+	}
+	
+	public static WebElement oboardEmpSearch()
+	{
+		submit = getDriver().findElement(By.xpath("//input[@placeholder='Type to Search']"));
+		return submit;
+	}	
+	
+	public static WebElement dolReactivationBulkUpload()
+	{
+		submit = getDriver().findElement(By.xpath("//button[normalize-space()='DOL Reactivation Bulk Upload']"));
+		return submit;
+	}
+	
+	public static WebElement dolBulkUploadSampleTemplate()
+	{
+		submit = getDriver().findElement(By.xpath("(//a[normalize-space()='Sample Document'])[1]"));
+		return submit;
+	}
+	
+	public static WebElement dolBulkUploadBrowse()
+	{
+		submit = getDriver().findElement(By.xpath("//label[normalize-space()='Browse']"));
+		return submit;
+	}
+	
+	public static WebElement dolBulkUploadButton()
+	{
+		submit = getDriver().findElement(By.xpath("//button[normalize-space()='Upload']"));
+		return submit;
+	}
 	
 	
 }

@@ -8,7 +8,9 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -44,7 +46,7 @@ public class ReviewerMethod extends BasePage
 	 
 	 public static void StatutoryDocApplyClaerBtn(ExtentTest test, String user) throws InterruptedException
 		{
-		 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		 	Thread.sleep(1000);
 			if(user.equalsIgnoreCase("Performer"))
 			{
@@ -131,9 +133,48 @@ public class ReviewerMethod extends BasePage
 			ReviwerLocator.clickdashboard().click();
 			}
 	 
+			public static void statutoryDocRedirection(ExtentTest test,String compType ,String ActType, String selectYear, String selectMonth) throws InterruptedException {
+				
+				Thread.sleep(8000);
+				Thread.sleep(2000);
+				ReviwerLocator.clickStatutoryDoc().click();
+				Thread.sleep(2000);
+				ReviwerLocator.clickComplianceType().click();
+				Thread.sleep(2000);
+//				ReviwerLocator.selectComplianceType1().click();
+				ReviwerLocator.selectActType(compType).click();
+				Thread.sleep(2000);
+				ReviwerLocator.clickAct2().click();
+				Thread.sleep(2000);
+				ReviwerLocator.selectActType(ActType).click();
+				Thread.sleep(2000);
+				ReviwerLocator.clickYear().click();
+				Thread.sleep(2000);
+//				ReviwerLocator.selectComplianceType1().click();
+				ReviwerLocator.selectActType(selectYear).click();
+				Thread.sleep(2000);
+				ReviwerLocator.clickPeriod().click();
+				Thread.sleep(2000);
+//				ReviwerLocator.selectPeriodJan().click(); 
+				ReviwerLocator.selectActType(selectMonth).click();
+				Thread.sleep(2000);
+				ReviwerLocator.clickComplianceStatus().click();
+				Thread.sleep(2000);
+//				ReviwerLocator.selectComplianceType().click();
+				Thread.sleep(2000);
+				Thread.sleep(1000);
+				ReviwerLocator.clickBranch1().click();
+				
+				Thread.sleep(2000);
+				ReviwerLocator.clickcheckboxTest().click();
+				Thread.sleep(3000);
+				ReviwerLocator.clickApply().click();
+				Thread.sleep(6000);
+			}
+	 
 	 public static void StatutoryDocRegisterForms(ExtentTest test, String user) throws InterruptedException
 		{
-		 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		 	Thread.sleep(1000);
 			if(user.equalsIgnoreCase("Performer"))
 			{
@@ -202,13 +243,51 @@ public class ReviewerMethod extends BasePage
 			
 			
 			}
+	 
+	 
+	 public static void staturyDocChallanForms(ExtentTest test, String user) throws InterruptedException
+		{
+		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		 	Thread.sleep(1000);
+			if(user.equalsIgnoreCase("Performer"))
+			{
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO");
+				Thread.sleep(5000);
+				ReviwerLocator.clickWorkspaceArrow().click();
+				Thread.sleep(1000);
+			}
+			else if(user.equalsIgnoreCase("Distributor"))
+			{
+				LoginLocators.Search().sendKeys("AVACORED5");	
+			}
+			else if(user.equalsIgnoreCase("Reviewer"))
+			{
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO");
+				Thread.sleep(4000);
+				ReviwerLocator.clickStaturyDocumentArrow().click();
+			}
+			
+			statutoryDocRedirection(test,"Challan","Professional Tax Act","2024","January");
+			
+			try {
+				if (ReviwerLocator.clickDownload().isDisplayed()) {
+					Thread.sleep(4000);
+					test.log(LogStatus.PASS, "Challan forms is displayed");
+				} else {
+					test.log(LogStatus.FAIL, "Challan forms is not displayed");
+				}
+			} catch (NoSuchElementException e) { }
+			
+			Thread.sleep(2000);
+			
+		}
 
 
 public static void StatutoryDocFilter(ExtentTest test) throws InterruptedException
 {
- 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+ 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(1000);
-	ReviwerLocator.SerchCustomer().sendKeys("AVAANGUL");
+	OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 	Thread.sleep(8000);
 	ReviwerLocator.clickStaturyDocumentArrow().click();
 	Thread.sleep(2000);
@@ -233,20 +312,23 @@ public static void StatutoryDocFilter(ExtentTest test) throws InterruptedExcepti
 	Thread.sleep(2000);
 	if(ReviwerLocator.Dropdown().isDisplayed())
 	{
-		
+		Thread.sleep(2000);
+		PerformerLocator.selectComplianceShopsAndEstablishment().click();
 		test.log(LogStatus.PASS, "Act' value's should reflect in dropdown.");
 	}
 	else
 	{
 		test.log(LogStatus.FAIL, "Act' value's should not reflect in dropdown.");
 	}
+	
+
 	Thread.sleep(2000);
 	ReviwerLocator.clickYear().click();
 	
 	Thread.sleep(2000);
 	if(ReviwerLocator.Dropdown().isDisplayed())
 	{
-		
+		PerformerLocator.Year2025().click();
 		test.log(LogStatus.PASS, "Year' value's should reflect in dropdown.");
 	}
 	else
@@ -255,10 +337,9 @@ public static void StatutoryDocFilter(ExtentTest test) throws InterruptedExcepti
 	}
 	Thread.sleep(2000);
 	ReviwerLocator.clickPeriod().click();
-	Thread.sleep(2000);
+	Thread.sleep(5000);
 	if(ReviwerLocator.Dropdown().isDisplayed())
 	{
-		
 		test.log(LogStatus.PASS, "Period' value's should reflect in dropdown.");
 	}
 	else
@@ -286,7 +367,7 @@ public static void StatutoryDocFilter(ExtentTest test) throws InterruptedExcepti
 }
 public static void StateDocZipFile(ExtentTest test, String user) throws InterruptedException
 {
- 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+ 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(5000);
 	
 	if(user.equalsIgnoreCase("Performer"))
@@ -328,9 +409,9 @@ public static void StateDocZipFile(ExtentTest test, String user) throws Interrup
 	Thread.sleep(2000);
 	ReviwerLocator.selectComplianceType().click();
 	Thread.sleep(2000);
-	ReviwerLocator.clickComplianceStatus().click();
+//	ReviwerLocator.clickComplianceStatus().click();
 	Thread.sleep(2000);
-	ReviwerLocator.selectComplianceType().click();
+//	ReviwerLocator.selectComplianceType().click();
 	Thread.sleep(2000);
 	ReviwerLocator.clickBranch1().click();
 	Thread.sleep(2000);
@@ -352,6 +433,107 @@ public static void StateDocZipFile(ExtentTest test, String user) throws Interrup
 		
 	}
 
+	public static void StateDocZipFileChallan(ExtentTest test, String user) throws InterruptedException
+	{
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(5000);
+
+		if (user.equalsIgnoreCase("Performer")) {
+			OneCommonMethod.searchEntityAndSelect(driver.get(), test, LoginLocators.Search(), "TESTAUTO");
+			Thread.sleep(8000);
+			ReviwerLocator.clickWorkspaceArrow().click();
+		} else if (user.equalsIgnoreCase("Reviewer")) {
+			LoginLocators.Search().sendKeys("TESTAUTO");
+			OneCommonMethod.searchEntityAndSelect(driver.get(), test, LoginLocators.Search(), "TESTAUTO");
+			Thread.sleep(8000);
+			ReviwerLocator.clickStaturyDocumentArrow().click();
+		}
+		
+		statutoryDocRedirection(test, "Challan", "Professional Tax Act", "2024", "January");
+		Thread.sleep(9000);
+	}
+	public static void StateDocZipFileChallanESI(ExtentTest test, String user) throws InterruptedException
+	{
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(5000);
+
+		if (user.equalsIgnoreCase("Performer")) {
+			OneCommonMethod.searchEntityAndSelect(driver.get(), test, LoginLocators.Search(), "TESTAUTO");
+			Thread.sleep(8000);
+			ReviwerLocator.clickWorkspaceArrow().click();
+		} else if (user.equalsIgnoreCase("Reviewer")) {
+			LoginLocators.Search().sendKeys("TESTAUTO");
+			OneCommonMethod.searchEntityAndSelect(driver.get(), test, LoginLocators.Search(), "TESTAUTO");
+			Thread.sleep(8000);
+			ReviwerLocator.clickStaturyDocumentArrow().click();
+		}
+		
+		statutoryDocRedirection(test, "Challan", "Employee State Insurance Act", "2024", "January");
+		Thread.sleep(9000);
+	}
+	public static void StateDocZipFileChallanEPF(ExtentTest test, String user) throws InterruptedException
+	{
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(5000);
+
+		if (user.equalsIgnoreCase("Performer")) {
+			OneCommonMethod.searchEntityAndSelect(driver.get(), test, LoginLocators.Search(), "TESTAUTO");
+			Thread.sleep(8000);
+			ReviwerLocator.clickWorkspaceArrow().click();
+		} else if (user.equalsIgnoreCase("Reviewer")) {
+			LoginLocators.Search().sendKeys("TESTAUTO");
+			OneCommonMethod.searchEntityAndSelect(driver.get(), test, LoginLocators.Search(), "TESTAUTO");
+			Thread.sleep(8000);
+			ReviwerLocator.clickStaturyDocumentArrow().click();
+		}
+		
+		statutoryDocRedirection(test, "Challan", "Employee Provident Fund Act", "2024", "January");
+		Thread.sleep(9000);
+	}
+	
+	public static void PTConsolidatedW (ExtentTest test, String user) throws InterruptedException
+	{		
+		OneCommonMethod.validateFileDownloadDynamic( driver.get(),
+			    test,
+			    ReviwerLocator.PTConsolidatedWorkings(),
+			    "PT Consolidated Workings File is downloaded successfully" );
+	}
+	public static void ESIConsolidatedW (ExtentTest test, String user) throws InterruptedException
+	{		
+		OneCommonMethod.validateFileDownloadDynamic( driver.get(),
+			    test,
+			    ReviwerLocator.ESIConsolidatedWorkings(),
+			    "ESI Consolidated Workings File is downloaded successfully" );
+	}
+	public static void EPFConsolidatedW (ExtentTest test, String user) throws InterruptedException
+	{		
+		OneCommonMethod.validateFileDownloadDynamic( driver.get(),
+			    test,
+			    ReviwerLocator.EPFConsolidatedWorkings(),
+			    "ESI Consolidated Workings File is downloaded successfully" );
+	}
+	
+	public static void branchView(ExtentTest test, String user) throws InterruptedException {
+		
+		Thread.sleep(8000);
+		getDriver().findElement(By.xpath("(//img[@title='Branch view'])")).click();
+  		Thread.sleep(5000);
+//  		ReviwerLocator.viewDocument().click();
+  		Thread.sleep(5000);
+  		String txt = ReviwerLocator.branchesView().getText();
+  		if(ReviwerLocator.branchesView().isDisplayed()) {
+  			test.log(LogStatus.PASS,  "Branch View button working successfully ");	
+  			test.log(LogStatus.PASS,  "Popup displayed = " + txt);
+  			
+  			
+  		}
+  		else {
+  			test.log(LogStatus.FAIL,  "Branch View button is not working");	
+  		}
+
+	}
+
+
 	public static void StateDownloadDocSingle(ExtentTest test, String user) throws InterruptedException {
 
 		Thread.sleep(5000);
@@ -370,13 +552,50 @@ public static void StateDocZipFile(ExtentTest test, String user) throws Interrup
 		Thread.sleep(5000);
 		
 	}
+	
+	public static void StateDownloadDocSingleEPF(ExtentTest test, String user) throws InterruptedException {
+
+		Thread.sleep(5000);
+		Thread.sleep(8000);
+		All_ClientPortal_Methods.clickElementUsingJS(ReviwerLocator.clickDownload());
+//		ReviwerLocator.clickDownload1().click();
+		Thread.sleep(5000);
+		OneCommonMethod.validateFileDownloadDynamic(
+			    driver.get(),
+			    test,
+			    ReviwerLocator.clickDownloadDocument5(),   // WebElement
+			    "File is downloaded successfully"   // Dynamic log message
+			);
+		Thread.sleep(5000);
+		ReviwerLocator.clickcloseBtn().click();
+		Thread.sleep(5000);
+		
+	}
 	public static void StateViewDocSingle(ExtentTest test, String user) throws InterruptedException {
 		
 		Thread.sleep(8000);
-		ReviwerLocator.clickview().click();
+//		ReviwerLocator.clickview().click();
+		getDriver().findElement(By.xpath("//img[@title='View']")).click();
   		Thread.sleep(5000);
   		ReviwerLocator.viewDocument().click();
+  		Thread.sleep(8000);
+  		if(ReviwerLocator.documentView().isDisplayed()) {
+  			test.log(LogStatus.PASS,  "Document view successfully");	
+  			
+  		}
+  		else {
+  			test.log(LogStatus.FAIL,  "View document button is not working");	
+  		}
+
+	}
+	public static void StateViewDocSingleEPF(ExtentTest test, String user) throws InterruptedException {
+		
+		Thread.sleep(8000);
+//		ReviwerLocator.clickview().click();
+		getDriver().findElement(By.xpath("//img[@title='View']")).click();
   		Thread.sleep(5000);
+  		ReviwerLocator.viewDocument5().click();
+  		Thread.sleep(8000);
   		if(ReviwerLocator.documentView().isDisplayed()) {
   			test.log(LogStatus.PASS,  "Document view successfully");	
   			
@@ -415,10 +634,36 @@ public static void StateDocZipFile(ExtentTest test, String user) throws Interrup
 		Thread.sleep(5000);
 
 	}
+	public static void StateDownloadDocOverviewChallanPT(ExtentTest test, String user) throws InterruptedException {
+
+		Thread.sleep(5000);
+		Thread.sleep(9000);
+		ReviwerLocator.clickOverview().click();
+		Thread.sleep(5000);
+		try {
+			String txt = getDriver().findElement(By.xpath("//label[normalize-space()='Status :']")).getText();
+			if (txt.equalsIgnoreCase("Status :")) {
+				test.log(LogStatus.PASS, "Overview button is working fine");
+				test.log(LogStatus.PASS, "Overview text is displayed : " + txt);
+				Thread.sleep(5000);
+				ReviwerLocator.clickcloseBtn().click();
+				Thread.sleep(5000);
+			}
+
+			else {
+				test.log(LogStatus.FAIL, "Overview popup is not displayed");
+			}
+
+		} catch (Exception e) {
+			System.out.println("Overview button exception ");
+		}
+		Thread.sleep(5000);
+
+	}
 
 public static void StateDownloadDoc(ExtentTest test, String user) throws InterruptedException
 {
- 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+ 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(5000);
 	if(user.equalsIgnoreCase("Performer"))
 	{
@@ -444,7 +689,7 @@ public static void StateDownloadDoc(ExtentTest test, String user) throws Interru
 	Thread.sleep(2000);
 	ReviwerLocator.clickStatutoryDoc().click();
 	Thread.sleep(2000);
-	ReviwerLocator.clickBranchRadioBtn().click();
+//	ReviwerLocator.clickBranchRadioBtn().click();
 	Thread.sleep(2000);
 	ReviwerLocator.clickComplianceType().click();
 	Thread.sleep(2000);
@@ -463,15 +708,17 @@ public static void StateDownloadDoc(ExtentTest test, String user) throws Interru
 	ReviwerLocator.selectComplianceType().click();
 	Thread.sleep(2000);
 	ReviwerLocator.clickComplianceStatus().click();
-	ReviwerLocator.selectComplianceType().click();
+	Thread.sleep(2000);
+//	ReviwerLocator.selectComplianceType().click();
 	Thread.sleep(2000);
 	ReviwerLocator.clickBranch1().click();
+	Thread.sleep(2000);
 	ReviwerLocator.clickcheckbox().click();
 //	Thread.sleep(1000);
 //	ReviwerLocator.clickBranchTiangle().click();
 //	Thread.sleep(1000);
 //	ReviwerLocator.selectBranch1().click();
-	Thread.sleep(2000);
+	Thread.sleep(5000);
 	ReviwerLocator.clickApply().click();
 	
 	Thread.sleep(6000);
@@ -527,7 +774,7 @@ public static void StateDownloadDoc(ExtentTest test, String user) throws Interru
 }
 public static void StatutoryDocZipFile(ExtentTest test, String user) throws InterruptedException
 {
-	 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+	 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(5000);
 		ReviwerLocator.SerchCustomer().sendKeys("TESTAUTO");
 		getDriver().navigate().refresh();
@@ -635,7 +882,7 @@ public static void StatutoryDocZipFile(ExtentTest test, String user) throws Inte
 }
 public static void StatutoryDocDownloadDoc(ExtentTest test) throws InterruptedException
 {
- 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+ 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(5000);
 	ReviwerLocator.SerchCustomer().sendKeys("TESTAUTO");
 	Thread.sleep(8000);
@@ -1069,7 +1316,7 @@ public static void ChallanComplianceDocDownload(ExtentTest test) throws Interrup
 }
 public static void StatutoryDocViewandOverview(ExtentTest test, String user) throws InterruptedException
 {
- 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+ 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(5000);
 	ReviwerLocator.SerchCustomer().sendKeys("TESTAUTO");
 	getDriver().navigate().refresh();
@@ -1115,12 +1362,13 @@ public static void StatutoryDocViewandOverview(ExtentTest test, String user) thr
 	Thread.sleep(2000);
 	ReviwerLocator.selectComplianceType().click();
 	Thread.sleep(2000);
-	ReviwerLocator.clickComplianceStatus().click();
+//	ReviwerLocator.clickComplianceStatus().click();
 	Thread.sleep(2000);
 	ReviwerLocator.selectComplianceType().click();
 	
 	Thread.sleep(2000);
 	ReviwerLocator.clickBranch1().click();
+	Thread.sleep(2000);
 	ReviwerLocator.clickcheckbox().click();
 //	Thread.sleep(1000);
 //	ReviwerLocator.clickBranchTiangle().click();
@@ -1453,7 +1701,7 @@ public static void DesignationExportBtn( ExtentTest test,XSSFWorkbook workbook) 
 	Thread.sleep(1000);
 	ReviwerLocator.clickExportBtn().click();
 	
-	WebDriverWait wait=new WebDriverWait(getDriver(), 30);
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 //	wait.until(ExpectedConditions.invisibilityOf(ReviwerLocator.clickApply()));
 	
 	Thread.sleep(60000);

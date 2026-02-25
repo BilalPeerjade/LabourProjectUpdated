@@ -74,7 +74,8 @@ public class ESIC_ConsolatedMethod extends BasePage {
 	
 	public static void ESIC_Consolated_Redirection( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		

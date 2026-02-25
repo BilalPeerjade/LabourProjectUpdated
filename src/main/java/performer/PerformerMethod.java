@@ -9,13 +9,13 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-
+import java.time.Duration;
 import java.util.ArrayList;
 
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
-
+import java.util.NoSuchElementException;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -86,6 +86,226 @@ public class PerformerMethod extends BasePage
 			
 		}
 	 
+		
+		public static void Corporate_Verify( ExtentTest test) throws InterruptedException, IOException
+		{
+		
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+			Thread.sleep(7000);Thread.sleep(5000);Thread.sleep(5000);
+			
+			
+			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+			
+			LoginLocators.Corporate().click();
+			Thread.sleep(5000);
+			
+			
+			
+			Locators.SearchUser().sendKeys("AVAAVATCG5");
+			Thread.sleep(8000);
+		//	Locators.SearchUser1().click();
+			getDriver().findElement(By.xpath("//span[normalize-space()='AVAAVATCG5 (Gopi)']")).click();
+			
+			Thread.sleep(5000);
+			Locators.Apply().click();
+			Thread.sleep(3000);
+			String txt = getDriver().findElement(By.xpath("(//td[@role='gridcell'])[2]")).getText();
+			
+			if(txt.equalsIgnoreCase("AVAAVATCG5"))
+			{
+				Thread.sleep(3000);
+				test.log(LogStatus.PASS,"Search filter is working fine");
+				Thread.sleep(1000);
+				test.log(LogStatus.PASS,"Search value is displayed in grid = " + txt);
+				test.log(LogStatus.PASS,"Apply button is working fine");
+				
+			}
+			
+			Thread.sleep(3000);
+			if(LoginLocators.Clear().isEnabled())
+			{
+				LoginLocators.Clear().click();
+				test.log(LogStatus.PASS,"Clear button is working fine");
+				Thread.sleep(3000);
+				
+			}
+			Thread.sleep(7000);
+			
+			
+			
+			LoginLocators.Back().click();
+			Thread.sleep(9000);Thread.sleep(3000);
+			String entityPage = getDriver().findElement(By.xpath("//h4[normalize-space()='Entities']")).getText();
+			
+			if(entityPage.equalsIgnoreCase("Entities"))
+		    {
+		    	test.log(LogStatus.PASS,"Back button is working fine");
+		    	test.log(LogStatus.PASS,"On clicking to Back button user is redirected to Entities/Home Page");
+		    	LoginLocators.Corporate().click();
+				Thread.sleep(6000);
+				LoginLocators.Edit().click();
+				Thread.sleep(5000);
+				
+				try {
+				String editTitle = getDriver().findElement(By.xpath("//span[@title='Customer Details']")).getText();
+				
+				if(editTitle.equalsIgnoreCase("Customer Details"))
+			    {
+					test.log(LogStatus.PASS,"Edit button is working fine");
+			    }
+				else {
+					test.log(LogStatus.FAIL,"Edit button is not working");
+				}
+				}
+				catch(NoSuchElementException e) {
+					
+				}
+		    } 
+			
+			Thread.sleep(7000);
+			
+	}
+		
+		
+		public static void CorporateEntity_Verify( ExtentTest test) throws InterruptedException, IOException
+		{
+		
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+			Thread.sleep(7000);Thread.sleep(5000);Thread.sleep(5000);
+			
+			
+			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+			
+			LoginLocators.Corporate().click();
+			Thread.sleep(5000);
+			
+			
+			
+			Locators.SearchUser().sendKeys("AVAAVATCG5");
+			Thread.sleep(8000);
+		//	Locators.SearchUser1().click();
+			getDriver().findElement(By.xpath("//span[normalize-space()='AVAAVATCG5 (Gopi)']")).click();
+			
+			Thread.sleep(5000);
+			Locators.Apply().click();
+			Thread.sleep(3000);
+			String txt = getDriver().findElement(By.xpath("(//td[@role='gridcell'])[2]")).getText();
+			
+			
+			
+			LoginLocators.CorporateProceed().click();
+			Thread.sleep(9000);
+			
+			String entitytext = getDriver().findElement(By.xpath("//a[normalize-space()='Entity']")).getText();
+			if(entitytext.equalsIgnoreCase("Entity"))
+			{
+				test.log(LogStatus.PASS,"Proceed to entity button is working fine");
+				test.log(LogStatus.PASS,"On clicking to Proceed button user is redirected to Entity page successfully");
+				
+			}
+			
+			
+			Locators.SearchUser().sendKeys("AVA");
+			Thread.sleep(3000);
+			Locators.SearchUser().sendKeys("CORED");
+			Thread.sleep(3000);
+			Locators.SearchUser().sendKeys("5");
+			Thread.sleep(3000);
+			Locators.searchCorporateEntity().click();
+			Thread.sleep(3000);
+			String entitySearchText = getDriver().findElement(By.xpath("//tbody/tr[1]/td[2]")).getText();
+			
+			if(entitySearchText.equalsIgnoreCase("gopi"))
+			{
+				test.log(LogStatus.PASS,"Search filter is working fine");
+				Thread.sleep(3000);
+				test.log(LogStatus.PASS,"Search value is displayed in grid = " + entitySearchText);
+				test.log(LogStatus.PASS,"Apply button is working fine");
+			}
+			
+			else
+			{
+				
+			}
+			
+			
+			
+			if(LoginLocators.Clear().isEnabled())
+			{
+				LoginLocators.Clear().click();
+				test.log(LogStatus.PASS,"Clear button is working fine");
+				Thread.sleep(3000);
+				
+			}
+			Thread.sleep(3000);
+			
+			LoginLocators.Back().click();
+			Thread.sleep(9000);Thread.sleep(3000);
+			String entityPage = getDriver().findElement(By.xpath("//a[normalize-space()='Corporate']")).getText();
+			
+			if(entityPage.equalsIgnoreCase("Corporate"))
+		    {
+		    	test.log(LogStatus.PASS,"Back button is working fine");
+		    	test.log(LogStatus.PASS,"On clicking to Back button user is redirected to Corporate Page");
+				Thread.sleep(6000);
+		    }
+			
+		    Thread.sleep(2000);
+			
+	}
+		
+		public static void CorporateEntity_Edit( ExtentTest test) throws InterruptedException, IOException
+		{
+		
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+			Thread.sleep(7000);Thread.sleep(5000);Thread.sleep(5000);
+			
+			
+			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+			
+			LoginLocators.Corporate().click();
+			Thread.sleep(5000);
+			
+			
+			
+			Locators.SearchUser().sendKeys("AVAAVATCG5");
+			Thread.sleep(8000);
+			getDriver().findElement(By.xpath("//span[normalize-space()='AVAAVATCG5 (Gopi)']")).click();
+			
+			Thread.sleep(5000);
+			Locators.Apply().click();
+			Thread.sleep(3000);
+			String txt = getDriver().findElement(By.xpath("(//td[@role='gridcell'])[2]")).getText();
+			
+			LoginLocators.CorporateProceed().click();
+			Thread.sleep(9000);
+			
+			OneCommonMethod.zoomOutScreen(3);
+		    Thread.sleep(2000);
+		    LoginLocators.Edit().click();
+		    Thread.sleep(4000);
+		    OneCommonMethod.validateFileDownloadDynamic(getDriver(), test, LoginLocators.headerDownload(), "Header file downloaded successfully");
+		    Thread.sleep(4000);
+		    OneCommonMethod.validateFileDownloadDynamic(getDriver(), test, LoginLocators.footerDownload(), "Footer file downloaded successfully");
+		    Thread.sleep(4000);
+		    OneCommonMethod.validateFileDownloadDynamic(getDriver(), test, LoginLocators.sealSignatureDownload(), "Seal & Signature file downloaded successfully");
+		    Thread.sleep(2000);
+		    LoginLocators.next().click();
+		    Thread.sleep(2000);
+		    LoginLocators.next().click();
+		    Thread.sleep(2000);
+		    
+		    WebElement ele = getDriver().findElement(By.xpath("//label[contains(normalize-space(), 'IV SPOC Name')]"));
+		    if(ele.isDisplayed()) {
+		    	test.log(LogStatus.PASS,"Next button is working fine");
+		    }
+		    else {
+		    	test.log(LogStatus.FAIL,"Next button is not working" + "Element displayed: " + ele);
+		    }
+			
+	}
+		
+		
  public static void AddEmployee( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{
 	 
@@ -450,7 +670,7 @@ public class PerformerMethod extends BasePage
 	//	JavascriptExecutor jss = (JavascriptExecutor) getDriver();
 	//	jss.executeScript("arguments[0].click();", we5);
 	//	we5.sendKeys(Keys.ENTER);
-	//	WebDriverWait wait = new WebDriverWait(getDriver(), (30));
+	//	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	//	WebElement we6 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[normalize-space()='Next']")));
 	//	we6.click();
 
@@ -458,7 +678,7 @@ public class PerformerMethod extends BasePage
 	//	new Actions(getDriver()).moveByOffset(location.getX(), location.getY()).click().build().perform();
 		
 		By locator = By.xpath("//button[normalize-space()='Next']");
-		  WebDriverWait wait = new WebDriverWait(getDriver(), (30));
+		  WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 					wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 					Thread.sleep(4000);
 					// retrieving "foo-button" HTML element
@@ -1044,9 +1264,9 @@ public class PerformerMethod extends BasePage
  
 	public static void SearchFilerEmp(ExtentTest test) throws InterruptedException
 	{
-		WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(5000);
-		PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
+		PerformerLocator.SerchCustomer().sendKeys("TESTAUTO3");
 		Thread.sleep(5000);
 		PerformerLocator.clickWorkspaceArrow().click();
 		Thread.sleep(7000);
@@ -1168,6 +1388,113 @@ public class PerformerMethod extends BasePage
 			PerformerLocator.clickdashboard().click();
 		}
 	
+	
+	public static void employeeFilters(ExtentTest test) throws InterruptedException, IOException
+	{
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+			Thread.sleep(5000);
+			PerformerLocator.SerchCustomer().sendKeys("TESTAUTO3");
+			Thread.sleep(5000);
+			PerformerLocator.clickWorkspaceArrow().click();
+			Thread.sleep(7000);
+			PerformerLocator.clickOnboardEmployee().click();
+	
+			Thread.sleep(5000);
+			PerformerLocator.searchEmpName().click();
+	
+			//Employee Name
+			Thread.sleep(1000);
+			PerformerLocator.clickEmpName().click();
+			Thread.sleep(1000);
+			PerformerLocator.searchEmpployees().sendKeys("Rejesh1");
+			Thread.sleep(1000);
+			PerformerLocator.selectDropdown().click();
+			Thread.sleep(1000);
+			if(PerformerLocator.Apply().isDisplayed()) {
+				test.log(LogStatus.PASS,"Apply button working fine");
+				PerformerLocator.Apply().click();
+			}
+			else {
+				test.log(LogStatus.FAIL,"Apply button is not displayed");
+			}
+			Thread.sleep(5000);
+			String empName = getDriver().findElement(By.xpath("(//td[@role='gridcell'])[2]")).getText();
+			if(empName.equals("Rejesh1")) {
+				test.log(LogStatus.PASS,"While searching employee with 'name' is displayed in grid");	
+				test.log(LogStatus.PASS,"Name displayed in grid : " + empName);	
+			}
+			else {
+				test.log(LogStatus.FAIL,"Employee name displayed in grid : " + empName);	
+			}
+			
+			//Employee ID
+			if(PerformerLocator.Clear().isDisplayed()) {
+				test.log(LogStatus.PASS,"Clear button working fine");
+				PerformerLocator.Clear().click();
+			}
+			else {
+				test.log(LogStatus.FAIL,"Clear button is not displayed");
+			}
+			Thread.sleep(4000);
+			PerformerLocator.clickEmpName().click();
+			Thread.sleep(1000);
+			PerformerLocator.searchEmpployees().sendKeys("ID88888878");
+			Thread.sleep(1000);
+			PerformerLocator.selectDropdown().click();
+			Thread.sleep(1000);
+			PerformerLocator.Apply().click();
+			Thread.sleep(5000);
+			String empID = getDriver().findElement(By.xpath("(//td[@role='gridcell'])[1]")).getText();
+			if(empID.equals("ID88888878")) {
+				test.log(LogStatus.PASS,"While searching employee with 'ID' is displayed in grid");	
+				test.log(LogStatus.PASS,"ID displayed in grid : " + empID);	
+			}
+			else {
+				test.log(LogStatus.FAIL,"Employee ID displayed in grid : " + empID);	
+			}
+			
+			//Employee Active
+			PerformerLocator.Clear().click();
+			Thread.sleep(4000);
+			PerformerLocator.clickStatusEmp().click();
+			Thread.sleep(1000);
+			Thread.sleep(1000);
+			PerformerLocator.selectstatus().click();
+			Thread.sleep(1000);
+			PerformerLocator.Apply().click();
+			Thread.sleep(5000);
+			String empActive = getDriver().findElement(By.xpath("(//td[@role='gridcell'])[8]")).getText();
+			if(empActive.equals("Active")) {
+				test.log(LogStatus.PASS,"While searching employee with 'Active' is displayed in grid");	
+				test.log(LogStatus.PASS,"Active displayed in grid : " + empActive);	
+			}
+			else {
+				test.log(LogStatus.FAIL,"Active Employee displayed in grid : " + empActive);	
+			}
+			
+			
+			//Employee Inactive
+			PerformerLocator.Clear().click();
+			Thread.sleep(4000);
+			PerformerLocator.clickStatusEmp().click();
+			Thread.sleep(1000);
+			Thread.sleep(1000);
+			PerformerLocator.selectstatusInActive().click();
+			Thread.sleep(1000);
+			PerformerLocator.Apply().click();
+			Thread.sleep(5000);
+			String empInActive = getDriver().findElement(By.xpath("(//td[@role='gridcell'])[8]")).getText();
+			if(empInActive.equals("InActive")) {
+				test.log(LogStatus.PASS,"While searching employee with 'InActive' is displayed in grid");	
+				test.log(LogStatus.PASS,"InActive displayed in grid : " + empInActive);	
+			}
+			else {
+				test.log(LogStatus.FAIL,"InActive Employee displayed in grid : " + empInActive);	
+			}
+			
+			
+	}
+	
 	public static void InvalidPersonalEmpDeatiles( ExtentTest test) throws InterruptedException, IOException
 	{
 		Thread.sleep(1000);
@@ -1222,7 +1549,7 @@ public class PerformerMethod extends BasePage
 	}
 	 public static void DownloadCTCTemplateFile( ExtentTest test) throws InterruptedException, IOException, AWTException
 		{
-		 	WebDriverWait wait = new WebDriverWait(getDriver(),20);
+		 WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -1420,7 +1747,7 @@ public class PerformerMethod extends BasePage
 		}
 	 public static void employeeMasterReportExport2( ExtentTest test) throws InterruptedException, IOException, AWTException
 		{
-		 	WebDriverWait  wait=new WebDriverWait(getDriver(), 20);
+		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		 	Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("TESTAUTO2");
 			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
@@ -1499,11 +1826,104 @@ public class PerformerMethod extends BasePage
 		
 			
 		}
+	 public static void employeeEdit( ExtentTest test) throws InterruptedException, IOException, AWTException
+		{
+		 	Thread.sleep(1000);
+			PerformerLocator.SerchCustomer().sendKeys("TESTAUTO2");
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO");
+			Thread.sleep(1000);
+			PerformerLocator.clickWorkspaceArrow().click();
+			Thread.sleep(7000);
+			PerformerLocator.clickOnboardEmployee().click();
+			Thread.sleep(3000);
+			PerformerLocator.clickUpdateNewEmployee().click();
+			Thread.sleep(3000);
+//			OneCommonMethod.zoomOutScreen(3);
+			OneCommonMethod.scroll(getDriver(), 500);
+			Thread.sleep(3000);
+			PerformerLocator.clickNext().click();
+			OneCommonMethod.scroll(getDriver(), 500);
+			Thread.sleep(4000);
+			PerformerLocator.clickNext().click();
+			OneCommonMethod.scroll(getDriver(), 500);
+			Thread.sleep(5000);
+			PerformerLocator.clicksave().click();
+			
+			String message = PerformerLocator.clickMsg().getText();
+			if(message.equalsIgnoreCase("Employee Updated Successfully")) {
+				test.log(LogStatus.PASS, "Edit button is working successfully");
+				test.log(LogStatus.PASS, "Message displayed : " + message);
+			}
+			else {
+				test.log(LogStatus.FAIL, "Edit button is not working");
+				test.log(LogStatus.FAIL, "Message displayed : " + message);
+			}
+			
+			Thread.sleep(3000);
+		
+			
+		}
+	 
+	 public static void employeeBulkUpload( ExtentTest test) throws Exception
+		{
+		 	Thread.sleep(1000);
+			PerformerLocator.SerchCustomer().sendKeys("TESTAUTO2");
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+			Thread.sleep(1000);
+			PerformerLocator.clickWorkspaceArrow().click();
+			Thread.sleep(7000);
+			PerformerLocator.clickOnboardEmployee().click();
+			Thread.sleep(3000);
+//			PerformerLocator.clickUploadEmp().click();
+			if(PerformerLocator.clickUploadEmp().isDisplayed()) {
+				PerformerLocator.clickUploadEmp().click();
+			}
+			PerformerLocator.clickCheckBox().click();
+			Thread.sleep(3000);
+			OneCommonMethod.validateFileDownloadDynamic(getDriver(), test, PerformerLocator.SampleTemplate(), "Sample Template downloaded successfully");
+			Thread.sleep(8000);
+			
+			OneCommonMethod.uploadFileWithoutRobot(getDriver(),
+				    By.xpath("//span[@class='filename']"),
+				    "D:\\Upload Automation Files\\Employee Master\\EmployeeMaster.xlsx",
+				    By.xpath("//button[normalize-space()='Upload']")
+				);
+		
+			String message = PerformerLocator.clickMsg().getText();
+			if(message.equalsIgnoreCase("File uploaded Successfully!")) {
+				test.log(LogStatus.PASS, "File Uploaded successfully");
+				test.log(LogStatus.PASS, "Message displayed : " + message);
+			}
+			else {
+				test.log(LogStatus.FAIL, "File is not Uploaded");
+				test.log(LogStatus.FAIL, "Message displayed : " + message);
+			}
+			
+		}
+	 public static void employeeBulkUploadHistory( ExtentTest test) throws Exception
+		{
+		 	Thread.sleep(1000);
+			PerformerLocator.SerchCustomer().sendKeys("TESTAUTO2");
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+			Thread.sleep(1000);
+			PerformerLocator.clickWorkspaceArrow().click();
+			Thread.sleep(7000);
+			PerformerLocator.clickOnboardEmployee().click();
+			Thread.sleep(3000);
+			PerformerLocator.clickUploadEmp().click();
+			Thread.sleep(3000);
+			
+			PerformerLocator.HistoryButton().click();
+			Thread.sleep(3000);
+			OneCommonMethod.validateFileDownloadDynamic(getDriver(), test, PerformerLocator.clickDownload(), "History File downloaded successfully");
+			Thread.sleep(8000);
+			
+		}
 			
 	 public static void employeeLimitedExport( ExtentTest test) throws InterruptedException, IOException, AWTException
 		{
 		 
-			 WebDriverWait  wait=new WebDriverWait(getDriver(), 20);
+			 WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			 Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("TESTAUTO2");
 			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
@@ -1567,7 +1987,7 @@ public class PerformerMethod extends BasePage
 		}
 	 public static void EmployeeMonthwiseReport( ExtentTest test) throws InterruptedException, IOException, AWTException
 		{
-		 WebDriverWait  wait=new WebDriverWait(getDriver(), 20);
+		 WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		 Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -2324,7 +2744,7 @@ public class PerformerMethod extends BasePage
 	 
 	 public static void UploadCTCInvalidFile( ExtentTest test) throws InterruptedException, IOException, AWTException
 		{
-			 WebDriverWait wait=new WebDriverWait(getDriver(),20);
+			 WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			 Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -2407,7 +2827,7 @@ public class PerformerMethod extends BasePage
 	 
 	 public static void UploadCTCInvalidFileFormat( ExtentTest test) throws InterruptedException, IOException, AWTException
 		{
-			 WebDriverWait wait=new WebDriverWait(getDriver(),20);
+			 WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			 Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -2550,7 +2970,7 @@ public class PerformerMethod extends BasePage
 	 
 	 public static void onBoardEntityPremiseViewBtn( ExtentTest test) throws InterruptedException, IOException, AWTException
 		{
-			WebDriverWait wait=new WebDriverWait(getDriver(),20);
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		 	Thread.sleep(5000);
 			PerformerLocator.SerchCustomer().sendKeys("TESTAUTO2");
 			Thread.sleep(5000);
@@ -2599,7 +3019,7 @@ public class PerformerMethod extends BasePage
 	 
 	 public static void OnBoardEntitySearch( ExtentTest test) throws InterruptedException, IOException, AWTException
 		{
-			WebDriverWait wait=new WebDriverWait(getDriver(),20);
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		 	Thread.sleep(5000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(5000);
@@ -2630,7 +3050,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 		}
 	 public static void onBoardEntityViewBtn( ExtentTest test) throws InterruptedException, IOException, AWTException
 		{
-			WebDriverWait wait=new WebDriverWait(getDriver(),20);
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		 	Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -2668,7 +3088,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 		}
 	 public static void onBoardEntityPremiseDeatilesDisabled( ExtentTest test) throws InterruptedException, IOException, AWTException
 		{
-			WebDriverWait wait=new WebDriverWait(getDriver(),20);
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		 	Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -2707,7 +3127,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 		}
 	 public static void SearchFilerPremisesEntity(ExtentTest test) throws InterruptedException
 		{
-			WebDriverWait wait=new WebDriverWait(getDriver(),20);
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -2827,7 +3247,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			}
 	 public static void BranchDorpdownUserBranchMapping(ExtentTest test) throws InterruptedException
 		{
-			WebDriverWait wait=new WebDriverWait(getDriver(),20);
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -2989,7 +3409,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	}
 	 public static void UploadHolidayMaster(ExtentTest test) throws InterruptedException, AWTException
 		{
-			WebDriverWait wait=new WebDriverWait(getDriver(),20);
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -3064,7 +3484,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void InvalidDataUploadHolidayMaster(ExtentTest test) throws InterruptedException, AWTException
 		{
-			WebDriverWait wait=new WebDriverWait(getDriver(),20);
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -3203,7 +3623,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void InvalidFileUploadHolidayMaster(ExtentTest test) throws InterruptedException, AWTException
 		{
-			WebDriverWait wait=new WebDriverWait(getDriver(),20);
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -3277,7 +3697,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 		}
 	 public static void EmptyFileUploadHolidayMaster(ExtentTest test) throws InterruptedException, AWTException
 		{
-			WebDriverWait wait=new WebDriverWait(getDriver(),20);
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -3352,7 +3772,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 		}
 	 public static void WithoutUploadHolidayMaster(ExtentTest test) throws InterruptedException, AWTException
 		{
-			WebDriverWait wait=new WebDriverWait(getDriver(),20);
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -3392,7 +3812,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 		}
 	 public static void MapUser(ExtentTest test) throws InterruptedException
 		{
-			WebDriverWait wait=new WebDriverWait(getDriver(),20);
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -3457,7 +3877,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 		}
 	 public static void MapUserManagement(ExtentTest test) throws InterruptedException
 		{
-			WebDriverWait wait=new WebDriverWait(getDriver(),20);
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -3619,7 +4039,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void StatutoryDocApplyClaerBtn(ExtentTest test) throws InterruptedException
 		{
-		 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -3685,7 +4105,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			}
 	 public static void StatutoryDocumentModule(ExtentTest test) throws InterruptedException
 		{
-		 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("TESTAUTO");
 			Thread.sleep(1000);
@@ -3711,7 +4131,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void StateDocZipFile(ExtentTest test) throws InterruptedException
 		{
-		 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		 	Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -3812,7 +4232,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			
 	 public static void StatutoryDocZipFile(ExtentTest test) throws InterruptedException
 		{
-		 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -3899,7 +4319,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void StateDownloadDoc(ExtentTest test) throws InterruptedException
 		{
-		 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -3988,7 +4408,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			
 	 public static void StatutoryDocDownloadDoc(ExtentTest test) throws InterruptedException
 		{
-		 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -4082,7 +4502,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void StatutoryDocViewandOverview(ExtentTest test) throws InterruptedException
 		{
-		 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -4166,7 +4586,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void ChallanDocViewandOverview(ExtentTest test) throws InterruptedException
 		{
-		 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -4240,7 +4660,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void ChallanDocDownload(ExtentTest test) throws InterruptedException
 		{
-		 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -4320,7 +4740,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 		}
 	 public static void ChallanComplianceDocViewandOverview(ExtentTest test) throws InterruptedException
 		{
-		 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -4394,7 +4814,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void ChallanComplianceDocDownload(ExtentTest test) throws InterruptedException
 		{
-		 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -4475,7 +4895,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void StatutoryDocFilter(ExtentTest test) throws InterruptedException
 		{
-		 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -4556,7 +4976,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void InputFileFilter(ExtentTest test) throws InterruptedException
 		{
-		 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -4613,7 +5033,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void InputFileSubmitBtn(ExtentTest test) throws InterruptedException, AWTException
 		{
-		 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -4654,7 +5074,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 		}
 	 public static void InputFileSampleTemplate(ExtentTest test) throws InterruptedException, AWTException
 		{
-		 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -4706,7 +5126,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			
 	 public static void InputFileAttendanceUploadSheet(ExtentTest test) throws InterruptedException, AWTException
 		{
-		 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -4788,7 +5208,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void InputFileSalaryeUploadSheet(ExtentTest test) throws InterruptedException, AWTException
 		{
-		 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -4870,7 +5290,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	
 	 public static void InputFileAttendanceInvalidDataSheet(ExtentTest test) throws InterruptedException, AWTException
 		{
-		 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -4952,7 +5372,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void InputFileAttendanceWithoutUpload(ExtentTest test) throws InterruptedException, AWTException
 		{
-		 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -4998,7 +5418,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void InputFileSalaryWithoutUpload(ExtentTest test) throws InterruptedException, AWTException
 		{
-		 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -5044,7 +5464,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void InputFileSalaryInvalidSheet(ExtentTest test) throws InterruptedException, AWTException
 		{
-		 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -5127,7 +5547,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void InputFileAttendanceInvalidSheet(ExtentTest test) throws InterruptedException, AWTException
 		{
-		 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -5209,7 +5629,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void InputFileDisableDownload(ExtentTest test) throws InterruptedException, AWTException
 		{
-		 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -5294,7 +5714,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 		}
 	 public static void ErrorFileDownload(ExtentTest test) throws InterruptedException, AWTException
 		{
-		 WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		 WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -5393,7 +5813,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void GreenColour(ExtentTest test) throws InterruptedException, AWTException
 		{
-		 WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		 WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -5445,7 +5865,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void RedColour(ExtentTest test) throws InterruptedException, AWTException
 		{
-		 WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		 WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -5494,7 +5914,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void GreenColourUploaded(ExtentTest test) throws InterruptedException, AWTException
 		{
-		 WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		 WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -5554,7 +5974,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			
 			
 			Thread.sleep(2000);
-			WebElement myElement = (new WebDriverWait(getDriver(), 30)).until(ExpectedConditions.elementToBeClickable(By.cssSelector(".grid-scroll-container")));
+			WebElement myElement = (new WebDriverWait(getDriver(), Duration.ofSeconds(120))).until(ExpectedConditions.elementToBeClickable(By.cssSelector(".grid-scroll-container")));
             myElement.click();
             Actions move = new Actions(getDriver());
             move.moveToElement(myElement).clickAndHold();
@@ -5586,7 +6006,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void History(ExtentTest test) throws InterruptedException, AWTException
 		{
-		 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -5646,7 +6066,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 public static void AnchorDashboardSummary(ExtentTest test) throws InterruptedException, AWTException
 		{
 
-		 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -5751,7 +6171,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void InputFileSalaryUploadSheet(ExtentTest test,String type) throws InterruptedException, AWTException
 		{
-		 	WebDriverWait wait=new WebDriverWait(getDriver(),20);
+		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -5852,7 +6272,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void InputFileChallanSalaryUploadSheet(ExtentTest test) throws InterruptedException, IOException, AWTException
 		{
-			WebDriverWait wait = new WebDriverWait(getDriver(), 50);
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			
 			Thread.sleep(500);
 			InputFileSalaryUploadSheet(test, "Challan");
@@ -5864,7 +6284,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void InputFileReturnSalaryUploadSheet(ExtentTest test) throws InterruptedException, IOException, AWTException
 		{
-			WebDriverWait wait = new WebDriverWait(getDriver(), 50);
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			
 			Thread.sleep(500);
 			InputFileSalaryUploadSheet(test, "Return");
@@ -5950,9 +6370,9 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 public static void AddDesignation( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 	 {
 	 	
-		WebDriverWait wait = new WebDriverWait(getDriver(), (30));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	 	Thread.sleep(2000);
-		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 	 	Thread.sleep(5000);
 		PerformerLocator.clickWorkspaceArrow().click();
 	 	Thread.sleep(5000);
@@ -5984,12 +6404,14 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 	  
 	 	  if(msg.equalsIgnoreCase("Designation Added Successfully") || msg.equalsIgnoreCase("Designation is already exists."))
 	 	 {
-	 		 test.log(LogStatus.PASS, "Message displayed = "+msg);
-	 		 
+	 		 test.log(LogStatus.PASS, "Add New Popup is working fine");
+	 		 test.log(LogStatus.PASS, "While adding designation error message is displayed ");
+	 		 test.log(LogStatus.PASS, "Message displayed = " + msg);
 	 	 }
 	 	 else
 	 	 {
-	 		 test.log(LogStatus.FAIL, "Message displayed = "+msg);
+	 		test.log(LogStatus.FAIL, "While adding designation error message is displayed ");
+	 		 test.log(LogStatus.FAIL, "Message displayed = " + msg);
 	 	 }
 	 	  
 	 	  Thread.sleep(1000);
@@ -6049,6 +6471,249 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 	}
 	 	
 	 	}
+	 
+	 public static void stateCityExportMapping( ExtentTest test,XSSFWorkbook workbook, String user) throws InterruptedException, IOException
+	 {
+	 	
+		 
+		    Thread.sleep(10000);
+			if(user.equalsIgnoreCase("Performer"))
+			{
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+				PerformerLocator.clickWorkspaceArrow().click();
+			 	Thread.sleep(5000);
+			}
+			else if(user.equalsIgnoreCase("Distributor"))
+			{
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+				PerformerLocator.DistributorPremisesArrow().click();
+				Thread.sleep(5000);
+			}
+			else if(user.equalsIgnoreCase("Reviewer"))
+			{	
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+				PerformerLocator.ReviewerStaturyDocumentArrow().click();
+			 	Thread.sleep(5000);
+			}
+			
+	 	
+	 	Thread.sleep(5000);
+		PerformerLocator.clickManageMaster().click();
+	 	Thread.sleep(5000);
+//		PerformerLocator.clickDesignation().click();
+	 	Thread.sleep(1000);
+	 	
+	 	OneCommonMethod.validateFileDownloadDynamic(getDriver(), test, PerformerLocator.stateCityExportMapping(), "Export Mapping File downloaded successfully");
+	 	
+	 	Thread.sleep(5900);
+
+	 }
+	 public static void stateCityExport( ExtentTest test,XSSFWorkbook workbook, String user) throws InterruptedException, IOException
+	 {
+	 	
+		 
+		    Thread.sleep(10000);
+			if(user.equalsIgnoreCase("Performer"))
+			{
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+				PerformerLocator.clickWorkspaceArrow().click();
+			 	Thread.sleep(5000);
+			}
+			else if(user.equalsIgnoreCase("Distributor"))
+			{
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+				PerformerLocator.DistributorPremisesArrow().click();
+				Thread.sleep(5000);
+			}
+			else if(user.equalsIgnoreCase("Reviewer"))
+			{	
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+				PerformerLocator.ReviewerStaturyDocumentArrow().click();
+			 	Thread.sleep(5000);
+			}
+			
+	 	
+	 	Thread.sleep(5000);
+		PerformerLocator.clickManageMaster().click();
+	 	Thread.sleep(5000);
+//		PerformerLocator.clickDesignation().click();
+	 	Thread.sleep(1000);
+	 	OneCommonMethod.scroll(getDriver(),500);
+	    OneCommonMethod.validateExportedExcelDYNAMIC(
+	    	    driver.get(),test,
+	    	    LoginLocators.exportButton(),        // WebElement for export button
+	    	    LoginLocators.itemsPerPage(),     // WebElement for grid count text
+	    	    "State Name",                               // Column header to verify
+	    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+	    	);
+	 	
+	 	Thread.sleep(5900);
+	 	
+	 	
+	 	
+	 	
+	 }
+	 public static void leaveTypeExport( ExtentTest test,XSSFWorkbook workbook, String user) throws InterruptedException, IOException
+	 {
+	 	
+		 
+		    Thread.sleep(10000);
+			if(user.equalsIgnoreCase("Performer"))
+			{
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+				PerformerLocator.clickWorkspaceArrow().click();
+			 	Thread.sleep(5000);
+			}
+			else if(user.equalsIgnoreCase("Distributor"))
+			{
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+				PerformerLocator.DistributorPremisesArrow().click();
+				Thread.sleep(5000);
+			}
+			else if(user.equalsIgnoreCase("Reviewer"))
+			{	
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+				PerformerLocator.ReviewerStaturyDocumentArrow().click();
+			 	Thread.sleep(5000);
+			}
+			
+	 	
+	 	Thread.sleep(5000);
+		PerformerLocator.clickManageMaster().click();
+	 	Thread.sleep(5000);
+	 	PerformerLocator.leaveType().click();
+//		PerformerLocator.clickDesignation().click();
+	 	Thread.sleep(1000);
+	 	OneCommonMethod.scroll(getDriver(),500);
+	    OneCommonMethod.validateExportedExcelDYNAMIC(
+	    	    driver.get(),test,
+	    	    LoginLocators.exportButton(),        // WebElement for export button
+	    	    LoginLocators.itemsPerPage(),     // WebElement for grid count text
+	    	    "Leave_Description",                               // Column header to verify
+	    	    "File Exported Successfully ! "     // Success log text (only if PASS)
+	    	);
+	 	
+	 	Thread.sleep(5800);
+	 	
+	 	
+	 	
+	 	
+	 }
+	 public static void authorityAddressUpload( ExtentTest test,XSSFWorkbook workbook, String user) throws InterruptedException, IOException
+	 {
+	 	
+		 
+		    Thread.sleep(10000);
+			if(user.equalsIgnoreCase("Performer"))
+			{
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+				PerformerLocator.clickWorkspaceArrow().click();
+			 	Thread.sleep(5000);
+			}
+			else if(user.equalsIgnoreCase("Distributor"))
+			{
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+				PerformerLocator.DistributorPremisesArrow().click();
+				Thread.sleep(5000);
+			}
+			else if(user.equalsIgnoreCase("Reviewer"))
+			{	
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+				PerformerLocator.ReviewerStaturyDocumentArrow().click();
+			 	Thread.sleep(5000);
+			}
+			
+	 	
+	 	Thread.sleep(5000);
+		PerformerLocator.clickManageMaster().click();
+	 	Thread.sleep(5000);
+	 	
+	 	PerformerLocator.authorityAddressUploadBtn().click();
+	 	String txtt = getDriver().findElement(By.xpath("//span[normalize-space()='Upload Authority Address']")).getText();
+	 	if(txtt.equals("Upload Authority Address")) {
+	 		test.log(LogStatus.PASS, "Upload Authority Address popup displayed: " + txtt);
+	 		OneCommonMethod.validateFileDownloadDynamic(getDriver(), test, PerformerLocator.SampleDocumentDownload(), "Sample Document File downloaded successfully");
+	 	}
+	 	else {
+	 		test.log(LogStatus.FAIL, "Upload Authority Address popup is not displayed");
+	 	}
+	 	
+	 	Thread.sleep(5900);
+	 	
+	 	PerformerLocator.Uplaodclick().click();
+	 	
+	 	
+	 	String errorTxt = PerformerLocator.clickMsg().getText();
+	 	if(errorTxt.equals("No file selected")) {
+	 		test.log(LogStatus.PASS, "Error message is displayed on clicking to upload button");
+	 		test.log(LogStatus.PASS, "Error message is displayed: " + errorTxt);
+	 	}
+	 	else {
+	 		test.log(LogStatus.FAIL, "Error message displayed : " + errorTxt);
+	 	}
+	 	
+	 }
+	 
+	 public static void leaveTypeSearch( ExtentTest test,XSSFWorkbook workbook, String user) throws InterruptedException, IOException
+	 {
+	 	
+		 
+		    Thread.sleep(10000);
+			if(user.equalsIgnoreCase("Performer"))
+			{
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+				PerformerLocator.clickWorkspaceArrow().click();
+			 	Thread.sleep(5000);
+			}
+			else if(user.equalsIgnoreCase("Distributor"))
+			{
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+				PerformerLocator.DistributorPremisesArrow().click();
+				Thread.sleep(5000);
+			}
+			else if(user.equalsIgnoreCase("Reviewer"))
+			{	
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+				PerformerLocator.ReviewerStaturyDocumentArrow().click();
+			 	Thread.sleep(5000);
+			}
+			
+	 	
+	 	Thread.sleep(5000);
+		PerformerLocator.clickManageMaster().click();
+	 	Thread.sleep(5000);
+	 	
+	 	PerformerLocator.leaveType().click();
+	 	
+	 	getDriver().findElement(By.xpath("//input[@placeholder='Search Leave Type/Description']")).sendKeys("Work ");
+	 	getDriver().findElement(By.xpath("//input[@placeholder='Search Leave Type/Description']")).sendKeys("from ");
+	 	getDriver().findElement(By.xpath("//input[@placeholder='Search Leave Type/Description']")).sendKeys("Home ");
+	 	Thread.sleep(2000);
+	 	getDriver().findElement(By.xpath("//span[normalize-space()='Work from Home WFH']")).click();
+	 	Thread.sleep(2000);
+	 	PerformerLocator.Apply().click();
+	 	Thread.sleep(2000);
+	 	
+	 	String txtt = getDriver().findElement(By.xpath("//tbody/tr/td[3]")).getText();
+	 	if(txtt.equals("Work from Home")) {
+	 		test.log(LogStatus.PASS, "Search Leave type/Description dropdown is working fine");
+	 		test.log(LogStatus.PASS, "Searched Data displayed insde the grid : " + txtt);
+	 		test.log(LogStatus.PASS, "Apply button is working fine");
+	 		
+	 	}
+	 	else {
+	 		test.log(LogStatus.FAIL, "Search Leave type/Description data is not displayed inside grid");
+	 	}
+	 	
+	 	
+	 	if(PerformerLocator.clickclearBtn().isDisplayed()) {
+	 		PerformerLocator.clickclearBtn().click();
+	 		test.log(LogStatus.PASS, "Clear button is working fine");
+	 		
+	 	}
+
+	 	
+	 }
 	 
 	 public static void StateCitySealANDSignatureInvalid( ExtentTest test,XSSFWorkbook workbook, String user) throws Exception
 	 {
@@ -6151,6 +6816,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			else if(user.equalsIgnoreCase("Distributor"))
 			{
 				LoginLocators.Search().sendKeys("TESTAUTO3");
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 				PerformerLocator.DistributorPremisesArrow().click();
 				Thread.sleep(5000);
 			}
@@ -6228,6 +6894,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			else if(user.equalsIgnoreCase("Distributor"))
 			{
 				LoginLocators.Search().sendKeys("TESTAUTO3");
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 				PerformerLocator.DistributorPremisesArrow().click();
 				Thread.sleep(5000);
 			}
@@ -6265,7 +6932,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 public static void DesignationSearch ( ExtentTest test,XSSFWorkbook workbook ,String user) throws InterruptedException, IOException
 	 {
 	 	
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			if(user.equalsIgnoreCase("Performer"))
@@ -6325,6 +6992,53 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 	
 	 	}
 	 
+	 public static void designationActiveInActive ( ExtentTest test, String user) throws InterruptedException, IOException
+	 {
+		 PerformerLocator.Clear().click();
+		 Thread.sleep(5000);
+		 WebElement selectFilter = getDriver().findElement(By.xpath("(//button[@class='k-input-button k-button k-icon-button k-button-md k-button-solid k-button-solid-base'])[2]"));
+		 Thread.sleep(2000);
+		 selectFilter.click();
+		 WebElement active = getDriver().findElement(By.xpath("//span[normalize-space()='Active']"));
+		 Thread.sleep(2000);
+		 active.click();
+		 PerformerLocator.Apply().click();
+		 Thread.sleep(5000);
+		 
+		 
+		 String grid = getDriver().findElement(By.xpath("(//td[@role='gridcell'])[2]")).getText();
+		 if(grid.equals("Active")) {
+			 test.log(LogStatus.PASS, "Active filter are working properly");
+			 test.log(LogStatus.PASS, "Text displayed in the grid : " + grid);
+		 }
+		 else {
+			 test.log(LogStatus.FAIL, "Active filter are not working properly");
+			 test.log(LogStatus.FAIL, "Text displayed in the grid : " + grid);
+		 }
+		 Thread.sleep(5000);
+		 
+		 
+		 PerformerLocator.Clear().click();
+		 Thread.sleep(5000);
+		 selectFilter.click();
+		 WebElement inActive = getDriver().findElement(By.xpath("//span[normalize-space()='InActive']"));
+		 Thread.sleep(2000);
+		 inActive.click();
+		 Thread.sleep(2000);
+		 PerformerLocator.Apply().click();
+		 Thread.sleep(5000);
+		 String gridInActive = getDriver().findElement(By.xpath("(//td[@role='gridcell'])[2]")).getText();
+		 if(gridInActive.equals("InActive")) {
+			 test.log(LogStatus.PASS, "InActive filter are working properly");
+			 test.log(LogStatus.PASS, "Text displayed in the grid : " + gridInActive);
+		 }
+		 else {
+			 test.log(LogStatus.FAIL, "InActive filter are not working properly");
+			 test.log(LogStatus.FAIL, "Text displayed in the grid : " + gridInActive);
+		 }
+		 
+	 }
+	 
 	 public static void LeaveTypeSearch ( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 	 {
 	 	
@@ -6365,20 +7079,38 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 	}
 	 	
 	 	}
-	 public static void PaycodeMappingAddNew ( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+	 public static void PaycodeMappingAddNew ( ExtentTest test,XSSFWorkbook workbook, String user) throws InterruptedException, IOException
 	 {
 	 	
-	 	Thread.sleep(5000);Thread.sleep(5000);Thread.sleep(5000);
-		PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 	 	Thread.sleep(5000);
-		PerformerLocator.clickWorkspaceArrow().click();
+		
+		if(user.equalsIgnoreCase("Performer"))
+		{
+			Thread.sleep(5000);Thread.sleep(5000);
+			PerformerLocator.SerchCustomer().sendKeys("TESTAUTO2");
+			PerformerLocator.clickWorkspaceArrow().click();
+		}
+		else if(user.equalsIgnoreCase("Distributor"))
+		{	Thread.sleep(5000);Thread.sleep(5000);
+			PerformerLocator.SerchCustomer().sendKeys("TESTAUTO2");
+			PerformerLocator.DistributorPremisesArrow().click();
+		}
+		else if(user.equalsIgnoreCase("Reviewer"))
+		{	Thread.sleep(5000);Thread.sleep(5000);
+			PerformerLocator.SerchCustomer().sendKeys("TESTAUTO2");
+			PerformerLocator.ReviewerStaturyDocumentArrow().click();
+		}
+		
+		
+		
+		
 		
  		//Correct Entity Verification
-        OneCommonMethod.verifyTestEntity(
-        driver.get(), test,
-        By.xpath("//span[normalize-space()='AVATCGEN CORE DEMO[AVACORED5]']"),
-        "AVATCGEN CORE DEMO[AVACORED5]"
-         );
+//        OneCommonMethod.verifyTestEntity(
+//        driver.get(), test,
+//        By.xpath("//span[normalize-space()='AVATCGEN CORE DEMO[AVACORED5]']"),
+//        "AVATCGEN CORE DEMO[AVACORED5]"
+//         );
 		
 	 	Thread.sleep(5000);
 		PerformerLocator.clickManageMaster().click();
@@ -6402,23 +7134,13 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 	getDriver().findElement(By.xpath("//input[@placeholder='Sequence Order']")).sendKeys("2");
 	 	Thread.sleep(2000);
 	 	
-	 	PerformerLocator.clicksave().click();
-	 	
-/*	 	WebElement errorMessage = getDriver().findElement(By.xpath("//h4[normalize-space()='Paycode is already exists']"));
-	 	if(errorMessage.equals("Paycode is already exists"))
-	 	{
-	 		test.log(LogStatus.PASS, "Error Message is displayed: " + errorMessage);
-	 	}
-	 	
-	 	else
-	 	{
-	 		test.log(LogStatus.FAIL, "Error Message is not displayed" );
-	 	}
-*/	 	
+	 	PerformerLocator.clicksave().click();	
 	    
 		String text1 = getDriver().findElement(By.xpath("//h4[@class='f-label']")).getText();
 		
 		if(text1.equalsIgnoreCase("Paycode is already exists")) {Thread.sleep(5000);
+		    test.log(LogStatus.PASS,"While adding paycode which is already exists error message is displayed");
+		    
 			test.log(LogStatus.PASS,"Message Displayed : "+text1);
 	
 		}else {Thread.sleep(5000);
@@ -6426,23 +7148,35 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 		}
 
 	 	
-	 	}
+	 }
 	 
-	 public static void PaycodeMappingSearchField ( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+	 public static void PaycodeMappingSearchField ( ExtentTest test,XSSFWorkbook workbook, String name) throws InterruptedException, IOException
 	 {
 	 	
 	 	Thread.sleep(5000);
-		PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
-	 	Thread.sleep(5000);
-		PerformerLocator.clickWorkspaceArrow().click();
+		
+		
+		if(name.equalsIgnoreCase("Performer"))
+		{
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+			PerformerLocator.clickWorkspaceArrow().click();
+		}
+		else if(name.equalsIgnoreCase("Distributor"))
+		{	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+			PerformerLocator.DistributorPremisesArrow().click();
+		}
+		else if(name.equalsIgnoreCase("Reviewer"))
+		{	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+			PerformerLocator.ReviewerStaturyDocumentArrow().click();
+		}
+		
 	 	Thread.sleep(5000);
 		PerformerLocator.clickManageMaster().click();
 	 	Thread.sleep(5000);
-
-	 	
 	 	PerformerLocator.clickPaycodeMappingModule().click();
 	 	Thread.sleep(3000);
-
 	 	PerformerLocator.PaycodeMappingSearch().click();
 	 	Thread.sleep(3000);
 	 	PerformerLocator.PaycodeMappingSearch().sendKeys("Basic");
@@ -6456,6 +7190,8 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 	if(txt.isDisplayed()){
 	 		Thread.sleep(1000);
 	 		test.log(LogStatus.PASS, "Search Paycode /Header Name dropdown is working fine");
+	 		Thread.sleep(1000);
+	 		test.log(LogStatus.PASS, "Apply button is working fine");
 	 	}
 		
 	 	else
@@ -6463,16 +7199,38 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 		test.log(LogStatus.PASS, "Search Value is not displayed");
 	 	}
 	 	
+	 	if(PerformerLocator.clickClearBtn().isDisplayed()) {
+	 		PerformerLocator.clickClearBtn().click();
+	 		test.log(LogStatus.PASS, "Clear button is working fine");
+	 	}
+	 	else {
+	 		test.log(LogStatus.FAIL, "Clear button is not displayed");
+	 	}
 
 	 	
 	 	}
-	 public static void PaycodeMappingEditUpdate ( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+	 public static void PaycodeMappingEditUpdate ( ExtentTest test,XSSFWorkbook workbook, String user) throws InterruptedException, IOException
 	 {
 	 	
 	 	Thread.sleep(1000);
-		PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
-	 	Thread.sleep(1000);
-		PerformerLocator.clickWorkspaceArrow().click();
+		
+		if(user.equalsIgnoreCase("Performer"))
+		{
+			Thread.sleep(2000);Thread.sleep(2000);
+			PerformerLocator.SerchCustomer().sendKeys("TESTAUTO3");
+			PerformerLocator.clickWorkspaceArrow().click();
+		}
+		else if(user.equalsIgnoreCase("Distributor"))
+		{	Thread.sleep(2000);
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+			PerformerLocator.DistributorPremisesArrow().click();
+		}
+		else if(user.equalsIgnoreCase("Reviewer"))
+		{	Thread.sleep(5000);
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+			PerformerLocator.ReviewerStaturyDocumentArrow().click();
+		}
+		
 	 	Thread.sleep(5000);
 		PerformerLocator.clickManageMaster().click();
 	 	Thread.sleep(3000);
@@ -6492,6 +7250,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 		
 		if(text1.equalsIgnoreCase("Data Edited Successfully")) {Thread.sleep(5000);
 		    test.log(LogStatus.PASS,"Edit button is working successfully");
+		    test.log(LogStatus.PASS,"On clicking save button paycode update success message is displayed");
 			test.log(LogStatus.PASS,"Message Displayed : "+text1);
 	
 		}else {Thread.sleep(5000);
@@ -6501,13 +7260,28 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 	
 	 	}
 	 
-	 public static void PaycodeMappingUpload ( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException, AWTException
+	 public static void PaycodeMappingUpload ( ExtentTest test,XSSFWorkbook workbook, String user) throws InterruptedException, IOException, AWTException
 	 {
 	 	
 	 	Thread.sleep(5000);
-		PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
-	 	Thread.sleep(8000);
-		PerformerLocator.clickWorkspaceArrow().click();
+		
+		if(user.equalsIgnoreCase("Performer"))
+		{
+			Thread.sleep(5000);Thread.sleep(5000);
+			PerformerLocator.SerchCustomer().sendKeys("TESTAUTO3");
+			PerformerLocator.clickWorkspaceArrow().click();
+		}
+		else if(user.equalsIgnoreCase("Distributor"))
+		{	Thread.sleep(5000);Thread.sleep(5000);
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+			PerformerLocator.DistributorPremisesArrow().click();
+		}
+		else if(user.equalsIgnoreCase("Reviewer"))
+		{	Thread.sleep(5000);Thread.sleep(5000);
+			PerformerLocator.SerchCustomer().sendKeys("TESTAUTO3");
+			PerformerLocator.ReviewerStaturyDocumentArrow().click();
+		}
+		
 	 	Thread.sleep(5000);
 		PerformerLocator.clickManageMaster().click();
 	 	Thread.sleep(3000);
@@ -6558,35 +7332,78 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
  				
  					String text1 = getDriver().findElement(By.xpath("//h4[@class='f-label']")).getText();
  					
- 					if(text1.equalsIgnoreCase("File uploaded successfully")) {Thread.sleep(5000);
- 						test.log(LogStatus.PASS,"Message Displayed : "+text1);
- 				
- 					}else {Thread.sleep(5000);
- 						test.log(LogStatus.FAIL,"Message Displayed : "+text1);
- 					}
-	 	
-	
-	    
-/*		String text1 = getDriver().findElement(By.xpath("//h4[@class='f-label']")).getText();
-		
-		if(text1.equalsIgnoreCase("Data Edited Successfully")) {Thread.sleep(5000);
-		    test.log(LogStatus.PASS,"Edit button is working successfully");
-			test.log(LogStatus.PASS,"Message Displayed : "+text1);
-	
-		}else {Thread.sleep(5000);
-			test.log(LogStatus.FAIL,"Message Displayed : "+text1);
-		}
-*/
+					if (text1.equalsIgnoreCase("File uploaded successfully")) {
+						Thread.sleep(5000);
+						test.log(LogStatus.PASS, "While uploading paycode success message is displayed");
+						test.log(LogStatus.PASS, "Message Displayed : " + text1);
+
+					} else {
+						Thread.sleep(5000);
+						test.log(LogStatus.FAIL, "Message Displayed : " + text1);
+					}
 	 	
 	 	}
 	 
-	 public static void PaycodeMappingUploadInvalid ( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException, AWTException
+	 public static void paycodeUploadSample ( ExtentTest test,XSSFWorkbook workbook, String user) throws InterruptedException, IOException, AWTException
+	 {
+	 	
+	 	Thread.sleep(5000);
+		
+		if(user.equalsIgnoreCase("Performer"))
+		{
+			Thread.sleep(5000);Thread.sleep(5000);
+			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
+			PerformerLocator.clickWorkspaceArrow().click();
+		}
+		else if(user.equalsIgnoreCase("Distributor"))
+		{	Thread.sleep(5000);Thread.sleep(5000);
+			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+			PerformerLocator.DistributorPremisesArrow().click();
+		}
+		else if(user.equalsIgnoreCase("Reviewer"))
+		{	Thread.sleep(5000);Thread.sleep(5000);
+			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
+			PerformerLocator.ReviewerStaturyDocumentArrow().click();
+		}
+		
+	 	Thread.sleep(5000);
+		PerformerLocator.clickManageMaster().click();
+	 	Thread.sleep(3000);
+	 	PerformerLocator.clickPaycodeMappingModule().click();
+	 	Thread.sleep(3000);
+	 	PerformerLocator.Uplaodclick().click();
+	 	Thread.sleep(3000);
+	 	OneCommonMethod.validateFileDownloadDynamic(getDriver(), test, PerformerLocator.uploadPaycodeSample(), "Upload Paycode sample file is downloaded successfully");
+	 	Thread.sleep(8000);
+	 	OneCommonMethod.validateFileDownloadDynamic(getDriver(), test, PerformerLocator.uploadPaycodeMasterSample(), "Upload Paycode Master sample file is downloaded successfully");
+	 	Thread.sleep(3000);
+	 }
+	 
+	 public static void PaycodeMappingUploadInvalid ( ExtentTest test,XSSFWorkbook workbook,String user) throws InterruptedException, IOException, AWTException
 	 {
 	 	
 	 	Thread.sleep(1000);
-		PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
-	 	Thread.sleep(1000);
-		PerformerLocator.clickWorkspaceArrow().click();
+		
+		if(user.equalsIgnoreCase("Performer"))
+		{
+			Thread.sleep(2000);Thread.sleep(2000);
+			PerformerLocator.SerchCustomer().sendKeys("TESTAUTO3");
+			PerformerLocator.clickWorkspaceArrow().click();
+		}
+		else if(user.equalsIgnoreCase("Distributor"))
+		{	Thread.sleep(5000);
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+			PerformerLocator.DistributorPremisesArrow().click();
+		}
+		else if(user.equalsIgnoreCase("Reviewer"))
+		{	Thread.sleep(5000);Thread.sleep(5000);
+			PerformerLocator.SerchCustomer().sendKeys("TESTAUTO3");
+			PerformerLocator.ReviewerStaturyDocumentArrow().click();
+		}
+		
+		
+		
 	 	Thread.sleep(5000);
 		PerformerLocator.clickManageMaster().click();
 	 	Thread.sleep(3000);
@@ -6630,66 +7447,64 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
  		
  		 Thread.sleep(5000);
  				 
- //		 Locators.Upload().click();
- 		 getDriver().findElement(By.xpath("(//button[normalize-space()='Upload'])[2]")).click();
- 					
- 					Thread.sleep(5000);
- 				
- 		//			String text1 = getDriver().findElement(By.xpath("//h4[@class='f-label']")).getText();
- 					String text1=	PerformerLocator.clickMsg().getText();
- 					
- 					if(text1.equalsIgnoreCase("Invalid template file!")) {Thread.sleep(5000);
- 						test.log(LogStatus.PASS,"Message Displayed : "+text1);
- 				
- 					}else {Thread.sleep(5000);
- 						test.log(LogStatus.FAIL,"Message Displayed : "+text1);
- 					}
-	 	
-	
-	    
+			// Locators.Upload().click();
+			getDriver().findElement(By.xpath("(//button[normalize-space()='Upload'])[2]")).click();
 
-	 	
-	 	}
+			Thread.sleep(5000);
+			String text1 = PerformerLocator.clickMsg().getText();
+
+			if (text1.equalsIgnoreCase("Invalid template file!")) {
+				Thread.sleep(5000);
+				test.log(LogStatus.PASS,
+						"While uploading paycode with some special characters error message displayed");
+				test.log(LogStatus.PASS, "Message Displayed : " + text1);
+
+			} else {
+				Thread.sleep(5000);
+				test.log(LogStatus.FAIL, "Message Displayed : " + text1);
+			}
+
+		}
 	 
 	 
-	 public static void MastersStaturyDoc ( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException, AWTException
+	 public static void MastersStaturyDoc ( ExtentTest test,XSSFWorkbook workbook, String user) throws InterruptedException, IOException, AWTException
 	 {
 	 	
 	 	Thread.sleep(1000);
-		PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
-	 	Thread.sleep(1000);
-		PerformerLocator.clickWorkspaceArrow().click();
-	 	Thread.sleep(5000);
+		if(user.equalsIgnoreCase("Performer"))
+		{
+			Thread.sleep(5000);Thread.sleep(5000);
+			PerformerLocator.SerchCustomer().sendKeys("TESTAUTO3");
+			OneCommonMethod.searchEntityAndSelect(getDriver(), test, PerformerLocator.SerchCustomer(), "TESTAUTO3");
+			PerformerLocator.clickWorkspaceArrow().click();
+		}
+		if(user.equalsIgnoreCase("Distributor"))
+		{	Thread.sleep(5000);
+			OneCommonMethod.searchEntityAndSelect(getDriver(), test, PerformerLocator.SerchCustomer(), "TESTAUTO3");
+			PerformerLocator.DistributorPremisesArrow().click();
+		}
+		if(user.equalsIgnoreCase("Reviewer"))
+		{	Thread.sleep(5000);Thread.sleep(5000);
+			PerformerLocator.SerchCustomer().sendKeys("TESTAUTO3");
+			OneCommonMethod.searchEntityAndSelect(getDriver(), test, PerformerLocator.SerchCustomer(), "TESTAUTO3");
+			PerformerLocator.ReviewerStaturyDocumentArrow().click();
+		}
+	 	
 		PerformerLocator.clickManageMaster().click();
 	 	Thread.sleep(3000);
-
-	 	
 	 	PerformerLocator.clickStaturyMasterTab().click();
 	 	Thread.sleep(3000);
-	 
-	 //	PerformerLocator.clickStaturyMasterTab().click();
-	 	
 	 	PerformerLocator.clickComplianceDropdwon().click();
 	 	Thread.sleep(2000);
 	 	
 	 	PerformerLocator.selectComplianceChallan().click();
 	 	Thread.sleep(2000);
-	 	
-	 	OneCommonMethod.zoomOutScreen(2);
-	 	
+	 	OneCommonMethod.setZoom(getDriver(), 80);
 	 	PerformerLocator.Apply().click();
 	 	Thread.sleep(5000);
 
-	 	test.log(LogStatus.INFO,"Checking Challan Export with grid count");
-		// Export logic-- Challan
-		OneCommonMethod.validateExportedExcel(
-			    driver.get(),
-			    test,
-			    PerformerLocator.clickExportBtn(),            // Export button WebElement
-			    PerformerLocator.ReadTotalIteams(),   // Count ka dynamic locator
-			    "Short Description"                                  //Header Name
-			);
-	 	
+		OneCommonMethod.validateExportedExcelDYNAMIC(getDriver(), test, PerformerLocator.clickExportBtn(), PerformerLocator.ReadTotalIteams(),
+		"Short Description", "Challan File Exported Successfully");
 	
 		PerformerLocator.Clear().click();
 		Thread.sleep(3000);
@@ -6700,16 +7515,8 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 		PerformerLocator.Apply().click();
 		Thread.sleep(5000);
 		
-		
-		test.log(LogStatus.INFO,"Now Checking Registers Export with grid count");
-		// Export logic-- Registers
-		OneCommonMethod.validateExportedExcel(
-			    driver.get(),
-			    test,
-			    PerformerLocator.clickExportBtn(),            // Export button WebElement
-			    PerformerLocator.ReadTotalIteams(),   // Count ka dynamic locator
-			    "Form Name"                                  //Header Name
-			);
+		OneCommonMethod.validateExportedExcelDYNAMIC(getDriver(), test, PerformerLocator.clickExportBtn(), PerformerLocator.ReadTotalIteams(),
+		"Form Name", "Registers File Exported Successfully");
 		
 		PerformerLocator.Clear().click();
 		Thread.sleep(2000);
@@ -6719,25 +7526,92 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 		Thread.sleep(2000);
 		PerformerLocator.Apply().click();
 		Thread.sleep(5000);
+
+		OneCommonMethod.validateExportedExcelDYNAMIC(getDriver(), test, PerformerLocator.clickExportBtn(), PerformerLocator.ReadTotalIteams(),
+		"Short Description", "Returns File Exported Successfully");
+	 	
+	 }
+	 
+	 public static void manageMasterStaturyMaster ( ExtentTest test,XSSFWorkbook workbook, String user) throws InterruptedException, IOException, AWTException
+	 {
+	 	
+	 	Thread.sleep(1000);
+		if(user.equalsIgnoreCase("Performer"))
+		{
+			Thread.sleep(5000);
+			PerformerLocator.SerchCustomer().sendKeys("TESTAUTO3");
+			OneCommonMethod.searchEntityAndSelect(getDriver(), test, PerformerLocator.SerchCustomer(), "TESTAUTO3");
+			PerformerLocator.clickWorkspaceArrow().click();
+		}
+		if(user.equalsIgnoreCase("Distributor"))
+		{	Thread.sleep(5000);
+			OneCommonMethod.searchEntityAndSelect(getDriver(), test, PerformerLocator.SerchCustomer(), "TESTAUTO3");
+			PerformerLocator.DistributorPremisesArrow().click();
+		}
 		
-		
-		test.log(LogStatus.INFO,"Now Checking Returns Export with grid count");
-		// Export logic-- Return
-		OneCommonMethod.validateExportedExcel(
-			    driver.get(),
-			    test,
-			    PerformerLocator.clickExportBtn(),            // Export button WebElement
-			    PerformerLocator.ReadTotalIteams(),   // Count ka dynamic locator
-			    "Short Description"                                  //Header Name
-			);
+		if(user.equalsIgnoreCase("Reviewer"))
+		{	Thread.sleep(5000);Thread.sleep(5000);
+			PerformerLocator.SerchCustomer().sendKeys("TESTAUTO3");
+			OneCommonMethod.searchEntityAndSelect(getDriver(), test, PerformerLocator.SerchCustomer(), "TESTAUTO3");
+			PerformerLocator.ReviewerStaturyDocumentArrow().click();
+		}
+	 	
+	 	
+		PerformerLocator.clickManageMaster().click();
+	 	Thread.sleep(3000);
+	 	PerformerLocator.clickStaturyMasterTab().click();
+	 	Thread.sleep(3000);
+	 	PerformerLocator.clickComplianceDropdwon().click();
+	 	Thread.sleep(2000);
+	 	if(PerformerLocator.selectComplianceRegister().isDisplayed()) {
+	 		Thread.sleep(2000);
+	 		PerformerLocator.selectComplianceRegister().click();
+	 	}
+	 	PerformerLocator.Apply().click();
+	 	Thread.sleep(5000);
+	 	Thread.sleep(5000);
+	 	
+	 	WebElement field = getDriver().findElement(By.xpath("/html/body/app-root/div/app-layout/section/div/div/app-statutory-master/div/div/div[1]/app-combo-box/kendo-combobox/input"));
+	 	Thread.sleep(4000);
+	 	field.click();
+	 	Thread.sleep(2000);
+	 	field.sendKeys("195906");
+	 	
+	 	getDriver().findElement(By.xpath("//span[normalize-space()='CLRA Form XII (195906)']")).click();
+	 	
+	 	if(PerformerLocator.Apply().isDisplayed()) {
+	 		PerformerLocator.Apply().click();
+	 		Thread.sleep(4000);
+	 	}
+	 	String grirText = getDriver().findElement(By.xpath("(//td[@role='gridcell'])[1]")).getText();
+		if(grirText.equals("195906")) {
+			test.log(LogStatus.PASS, "Compliance type dropdown is working fine");
+			Thread.sleep(4000);
+			test.log(LogStatus.PASS, "Apply button is working fine");
+			Thread.sleep(1000);
+			test.log(LogStatus.PASS, "Search ComplianceID / Form dropdon is working fine ");
+			test.log(LogStatus.PASS, "Searched data displayed in grid: " + grirText);
+		}
+		else {
+			test.log(LogStatus.FAIL, "Search ComplianceID / Form dropdon searched data is not displayed in grid");
+		}
+
+		if(PerformerLocator.Clear().isDisplayed()) {
+			PerformerLocator.Clear().click();
+			test.log(LogStatus.PASS, "Clear button is working fine");
+		}
+		else {
+			test.log(LogStatus.FAIL, "Clear button is not displayed");
+		}
+
 
 	 	
-	 	}
+	 }
 	 public static void ChallanPTSlab ( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException, AWTException
 	 {
 	 	
 	 	Thread.sleep(1000);
-		PerformerLocator.SerchCustomer().sendKeys("AVANEW");
+		PerformerLocator.SerchCustomer().sendKeys("TESTAUTO3");
 	 	Thread.sleep(1000);
 		PerformerLocator.clickWorkspaceArrow().click();
 	 	Thread.sleep(5000);
@@ -6844,28 +7718,28 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 		 Thread.sleep(5000);
 			if(user.equalsIgnoreCase("Performer"))
 			{
-				LoginLocators.Search().sendKeys("AVACORED5");
+				LoginLocators.Search().sendKeys("TESTAUTO3");
 				Thread.sleep(5000);
 				PerformerLocator.clickWorkspaceArrow().click();
 			 	Thread.sleep(7000);
 			}
 			else if(user.equalsIgnoreCase("Distributor"))
 			{
-				LoginLocators.Search().sendKeys("AVANEW");
+				LoginLocators.Search().sendKeys("TESTAUTO3");
 				Thread.sleep(5000);
 				PerformerLocator.clickDashboard().click();
 			 	Thread.sleep(10000);
 			}
 			else if(user.equalsIgnoreCase("Reviewer"))
 			{
-				LoginLocators.Search().sendKeys("TESTAUTO2");	
+				LoginLocators.Search().sendKeys("TESTAUTO3");	
 				Thread.sleep(5000);
 				PerformerLocator.ReviewerStaturyDocumentArrow().click();
 			}
 		
 	 	Thread.sleep(1000);
 	 	Thread.sleep(5000);
-	 	WebDriverWait wait2 = new WebDriverWait(getDriver(), (30));
+	 	WebDriverWait wait2=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	 	wait2.until(ExpectedConditions.visibilityOf(PerformerLocator.clickManageMaster()));
 		PerformerLocator.clickManageMaster().click();
 	 	Thread.sleep(5000);
@@ -6907,9 +7781,9 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 	Thread.sleep(1000);
 		PerformerLocator.clickExportBtn().click();
 	 	
-	 	WebDriverWait wait=new WebDriverWait(getDriver(), 60);
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	 	Thread.sleep(10000);
-	 	wait.until(ExpectedConditions.invisibilityOf(PerformerLocator.GridLoad1()));
+//	 	wait.until(ExpectedConditions.invisibilityOf(PerformerLocator.GridLoad1()));
 	 	Thread.sleep(60000);
 
 
@@ -7055,6 +7929,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 	
 	 	Thread.sleep(5000);
 		PerformerLocator.SerchCustomer().sendKeys("TESTAUTO3");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 	 	Thread.sleep(5000);
 	 	
 	 	if(user.equalsIgnoreCase("Performer"))
@@ -7159,6 +8034,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 	
 	 	Thread.sleep(5000);
 		PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 	 	Thread.sleep(5000);
 	 	
 	 	if(user.equalsIgnoreCase("Performer"))
@@ -7232,7 +8108,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 {
 	 	
 	 	Thread.sleep(5000);Thread.sleep(5000);
-		PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
+	 	OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 	 	Thread.sleep(5000);
 	 	
 	 	if(user.equalsIgnoreCase("Performer"))
@@ -7387,7 +8263,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 {
 	 	
 	 	Thread.sleep(1000);
-		PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
+		PerformerLocator.SerchCustomer().sendKeys("TESTAUTO3");
 	 	Thread.sleep(5000);
 		PerformerLocator.clickWorkspaceArrow().click();
 	 	Thread.sleep(7000);
@@ -7450,7 +8326,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			if(user.equalsIgnoreCase("Performer"))
 			{
 				Thread.sleep(4000);
-				LoginLocators.Search().sendKeys("AVACORED5");
+				LoginLocators.Search().sendKeys("TESTAUTO3");
 //				PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			 	Thread.sleep(5000);
 				PerformerLocator.clickWorkspaceArrow().click();

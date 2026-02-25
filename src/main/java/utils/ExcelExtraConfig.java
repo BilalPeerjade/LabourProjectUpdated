@@ -80,24 +80,24 @@ public class ExcelExtraConfig {
 	
 	
 	//single single 
-    public ExcelExtraConfig() {
-    }
-
-    public ExcelExtraConfig(String enable) {
-        this.enable = enable;
-    }
-
-    public void setEnable(String enable) {
-        this.enable = enable;
-    }
-
-    public void setColumnIndex(int columnIndex) {
-        this.columnIndex = columnIndex;
-    }
-
-    public void setStopAtKeyword(String stopAtKeyword) {
-        this.stopAtKeyword = stopAtKeyword;
-    }
+//    public ExcelExtraConfig() {
+//    }
+//
+//    public ExcelExtraConfig(String enable) {
+//        this.enable = enable;
+//    }
+//
+//    public void setEnable(String enable) {
+//        this.enable = enable;
+//    }
+//
+//    public void setColumnIndex(int columnIndex) {
+//        this.columnIndex = columnIndex;
+//    }
+//
+//    public void setStopAtKeyword(String stopAtKeyword) {
+//        this.stopAtKeyword = stopAtKeyword;
+//    }
 	
     public int getTotalColumnIndex() {
         return totalColumnIndex;

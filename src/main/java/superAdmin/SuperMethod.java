@@ -4,6 +4,7 @@ import java.awt.AWTException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.Duration;
 
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -29,7 +30,7 @@ public class SuperMethod extends BasePage{
 	 public static void regionalDownload ( ExtentTest test) throws InterruptedException, IOException, AWTException
 		{		
 			Actions action = new Actions(getDriver());
-			WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(3000);
 		    
 					Thread.sleep(3000);

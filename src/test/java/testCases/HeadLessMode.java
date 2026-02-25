@@ -30,10 +30,10 @@ public class HeadLessMode extends BasePage {
     void setBrowser() throws InterruptedException, IOException {
         extent = new ExtentReports("D:\\Labour Angular\\LabourMergeProject\\LabourMergeProject\\Report\\ClientPortal.html", true);
 
-        System.setProperty("webdriver.chrome.driver", "C:/path/to/chromedriver.exe"); // <-- update your chromedriver path
+        System.setProperty("webdriver.chrome.driver", "D:\\Labour Angular\\LabourMergeProject\\LabourMergeProject\\chromedriver.exe"); // <-- update your chromedriver path
 
         ChromeOptions options = new ChromeOptions();
-        options.setHeadless(true);
+//        options.setHeadless(true);
         options.addArguments("--window-size=1920,1080");
 
         driver.set(new ChromeDriver(options));

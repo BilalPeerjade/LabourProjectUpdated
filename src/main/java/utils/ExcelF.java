@@ -1,5 +1,6 @@
 package utils;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,9 +25,9 @@ public class ExcelF {
 	
 	//for single methods:
 	//Default constructor
-    public ExcelF() {
-    	
-    }
+//    public ExcelF() {
+//    	
+//    }
 	
 	
 	
@@ -78,8 +79,11 @@ public class ExcelF {
     public boolean isEnabled() {
         return ena;
     }
-    private boolean ena;
-
+    
+    
+//    private boolean ena = check();
+//    private boolean ena = check(23,12,25);
+    private boolean ena = true;
     public void setEnabled(boolean enabled) {
         this.ena = enabled;
     }
@@ -94,8 +98,31 @@ public class ExcelF {
     }
     
     
+/*    public static boolean check(int dd, int mm, int yy) {
 
+        // input date
+        LocalDate inputDate = LocalDate.of(2000 + yy, mm, dd);
 
+        // today's date
+        LocalDate todayDate = LocalDate.now();
+
+        // agar input date future me hai to true
+        if (inputDate.isAfter(todayDate)) {
+            return true;
+        }
+
+        // aaj ya past date ke liye false
+        return false;
+    }
+    
+    //Good
+    public static boolean check() {
+        LocalDate input = LocalDate.of(2000 + 25, 12, 24); //YY DD MM
+        LocalDate todayDate = LocalDate.now();
+        if (input.isAfter(todayDate)) {return true;}
+        return false;
+    }
+    */
 
 	
  

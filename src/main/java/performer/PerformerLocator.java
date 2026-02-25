@@ -1,9 +1,11 @@
 package performer;
 
+import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -41,6 +43,11 @@ private static WebElement labour = null;			//WebElement variable created for Use
 		return labour;
 	}
 
+	public static WebElement anchorDashboardSummary()	
+	{
+		labour = getDriver().findElement(By.cssSelector("button[title='AnchorDashboardSummary Export']"));
+		return labour;
+	}
 	public static WebElement clickOnboardEmployee()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//span[normalize-space()='Onboard Employee']"));
@@ -71,7 +78,7 @@ private static WebElement labour = null;			//WebElement variable created for Use
 	//Locator Chaining 
 	public static WebElement enterEmplNameTestt(String locatorName)
 	{
-		WebDriverWait wait = new WebDriverWait(getDriver(), (30));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	    WebElement labour = wait.until(ExpectedConditions.visibilityOfElementLocated(
 	        By.xpath("//form//input[@formcontrolname='" + locatorName + "']")
 	    ));
@@ -317,6 +324,11 @@ private static WebElement labour = null;			//WebElement variable created for Use
 		labour = getDriver().findElement(By.xpath("//span[contains(text(),'Active')]"));
 		return labour;
 	}
+	public static WebElement selectstatusInActive()
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='InActive']"));
+		return labour;
+	}
 	public static WebElement updatestatus()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//ul[@class='k-list-ul']/li[2]"));
@@ -419,6 +431,12 @@ private static WebElement labour = null;			//WebElement variable created for Use
 		getDriver().findElement(By.xpath("(//label[normalize-space()='Browse'])[1]")); 
 		return labour;
 	}
+	
+	public static WebElement uploadShiftMasterBrowse()	
+	{
+		getDriver().findElement(By.xpath("//label[@style='color: #125AAB; text-decoration: underline; cursor: pointer; margin-left: -29px; font-weight: 500;']")); 
+		return labour;
+	}
 	public static WebElement clickUploadEmp()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//*[@title='Bulk Upload']"));
@@ -437,6 +455,16 @@ private static WebElement labour = null;			//WebElement variable created for Use
 	public static WebElement clickdownloadbtn()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//*[@title='Sample Template']"));
+		return labour;
+	}
+	public static WebElement uploadPaycodeSample()	
+	{
+		labour = getDriver().findElement(By.linkText("Upload Paycode"));
+		return labour;
+	}
+	public static WebElement uploadPaycodeMasterSample()	
+	{
+		labour = getDriver().findElement(By.linkText("Master Paycode"));
 		return labour;
 	}
 	public static WebElement successmsgUploadEmp()		//Method for searching Username input
@@ -482,6 +510,11 @@ private static WebElement labour = null;			//WebElement variable created for Use
 	public static WebElement clickEmpName()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("(//*[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon'])"));
+		return labour;
+	}
+	public static WebElement searchEmpployees()		//Method for searching Username input
+	{
+		labour = getDriver().findElement(By.xpath("//input[@class='k-input-inner']"));
 		return labour;
 	}
 	public static WebElement clickApplyBtn()		//Method for searching Username input
@@ -714,6 +747,24 @@ private static WebElement labour = null;			//WebElement variable created for Use
 	public static WebElement clickcheckbox2()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("(//input[@type='checkbox'])[6]"));
+		
+		return labour;
+	}
+	public static WebElement clickCheckBox()
+	{
+		labour = getDriver().findElement(By.xpath("(//input[@type='checkbox'])"));
+		
+		return labour;
+	}
+	public static WebElement SampleTemplate()
+	{
+		labour = getDriver().findElement(By.xpath("//button[normalize-space()='Download Template']"));
+		
+		return labour;
+	}
+	public static WebElement HistoryButton()
+	{
+		labour = getDriver().findElement(By.xpath("//img[@title='History']"));
 		
 		return labour;
 	}
@@ -1312,6 +1363,11 @@ private static WebElement labour = null;			//WebElement variable created for Use
 		labour = getDriver().findElement(By.xpath("//span[normalize-space()='Manage Masters']"));
 		return labour;
 	}
+	public static WebElement leaveType()
+	{
+		labour = getDriver().findElement(By.linkText("Leave Type"));
+		return labour;
+	}
 	public static WebElement clickSealandSignatureBtn()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//*[@src='../assets/vectors/UploadButton.svg']"));
@@ -1324,6 +1380,7 @@ private static WebElement labour = null;			//WebElement variable created for Use
 	   	     return labour;
 		
 	}
+
 	
 	public static WebElement clickMsg()	
 	{
@@ -1363,7 +1420,7 @@ private static WebElement labour = null;			//WebElement variable created for Use
 	}
 	public static WebElement GridLoad1()		//Method for searching Username input
 	{
-		labour = getDriver().findElement(By.xpath("/html/body/app-root/div/app-layout/section/div/div/app-designation-master/div[2]/kendo-loader/div/span[1]"));
+		labour = getDriver().findElement(By.xpath("//div[@class='k-loader-canvas']"));
 		return labour;
 	}
 	public static WebElement clickUploadBtn()	
@@ -1405,6 +1462,16 @@ private static WebElement labour = null;			//WebElement variable created for Use
 	public static WebElement StateCitySearch()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//input[@placeholder='Search State/Location Code']"));
+		return labour;
+	}
+	public static WebElement stateCityExportMapping()
+	{
+		labour = getDriver().findElement(By.cssSelector("button[title='Export Mapping']"));
+		return labour;
+	}
+	public static WebElement authorityAddressUploadBtn() 
+	{
+		labour = getDriver().findElement(By.cssSelector("button[title='Authority Address Upload']"));
 		return labour;
 	}
 	public static WebElement StateCityAddressMapping()

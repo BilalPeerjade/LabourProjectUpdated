@@ -62,6 +62,9 @@ public class PT_Me extends BasePage{
 	static String filePath ="D:\\Labour Angular\\LabourMergeProject\\LabourMergeProject\\TestData\\Labour.xlsx";
 	
 	public static File downloadedExcelFile; // shared file for all test cases
+	
+//	private static ThreadLocal<File> downloadedExcelFile = new ThreadLocal<File>();
+
 
 //	public static String masterFilePath = "D:\\Upload Automation Files\\BusinessScenarios\\Month\\EmployeeMaster_TESTAUTO.xlsx";
 	
@@ -84,7 +87,7 @@ public class PT_Me extends BasePage{
 		
 
 	//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 //		if(user.equalsIgnoreCase("Performer"))
@@ -320,7 +323,7 @@ public class PT_Me extends BasePage{
 	public static void Challan_PT_StaturyDocRedirection( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		
@@ -373,7 +376,7 @@ public class PT_Me extends BasePage{
 	{
 
 	//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 //		if(user.equalsIgnoreCase("Performer"))
@@ -513,7 +516,7 @@ public class PT_Me extends BasePage{
 	{
 
 	//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 //		if(user.equalsIgnoreCase("Performer"))
@@ -845,7 +848,7 @@ public class PT_Me extends BasePage{
 	{
 
 	//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 //		if(user.equalsIgnoreCase("Performer"))
@@ -972,7 +975,7 @@ public class PT_Me extends BasePage{
 	{
 
 	//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 //		if(user.equalsIgnoreCase("Performer"))
@@ -1115,7 +1118,7 @@ public class PT_Me extends BasePage{
 	{
 
 	//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 //		if(user.equalsIgnoreCase("Performer"))
@@ -1263,7 +1266,7 @@ public class PT_Me extends BasePage{
 	{
 
 	//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 //		if(user.equalsIgnoreCase("Performer"))
@@ -1666,7 +1669,7 @@ public class PT_Me extends BasePage{
 	{
 
 	//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 //		if(user.equalsIgnoreCase("Performer"))
@@ -2119,15 +2122,15 @@ public class PT_Me extends BasePage{
 
         
         
-        
-      
-        List<ExcelF> af = new ArrayList<>();
-        
-        af.add(new ExcelF(38, Arrays.asList("Active")));
- 
-        af.add(new ExcelF(9, Arrays.asList("ANP")));
 
-        af.add(new ExcelF(58, Arrays.asList("Yes")));
+      
+        List<ExcelF> excelFilters = new ArrayList<>();
+        
+        excelFilters.add(new ExcelF(38, Arrays.asList("Active")));
+ 
+        excelFilters.add(new ExcelF(9, Arrays.asList("ANP")));
+
+        excelFilters.add(new ExcelF(58, Arrays.asList("Yes")));
         
          
         String masterSheetName = "EmployeeMaster";
@@ -2136,7 +2139,7 @@ public class PT_Me extends BasePage{
             FilePath.EMPLOYEE_MASTER,
             masterSheetName,
             masterColumnIndex,
-            af,
+            excelFilters,
             "YES"   // Yes filters to apply
         );
 
@@ -2173,6 +2176,10 @@ public class PT_Me extends BasePage{
             extraConfig,
             "Employee IDs are reflecting properly as per masters!"
         );
+        
+        
+	
+        
 		
 	}
 	public static void Challan_PT_WEB_EmployeeID( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
@@ -3744,6 +3751,8 @@ public class PT_Me extends BasePage{
 		Challan_PT_StaturyDocRedirection(test,user);
 		downloadANPFile(test,"");
 		 
+		
+
 		String targetHeaderKeyword = "Gender";
 		int targetColumnIndex = 3;
 		String targetSheetName = "PTChallan";
@@ -3794,6 +3803,7 @@ public class PT_Me extends BasePage{
 		    extraConfig,
 		    "Validating Genders from Employee Master file"
 		);
+		
 
 	}
 	public static void Challan_PT_BHR_Gender( ExtentTest test, String user) throws InterruptedException, IOException, AWTException

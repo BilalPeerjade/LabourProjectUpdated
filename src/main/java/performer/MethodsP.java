@@ -8,7 +8,8 @@ package performer;
 	import java.io.File;
 	import java.io.FileInputStream;
 	import java.io.IOException;
-	import java.util.ArrayList;
+import java.time.Duration;
+import java.util.ArrayList;
 	import java.util.HashSet;
 	import java.util.LinkedHashSet;
 	import java.util.List;
@@ -45,7 +46,7 @@ package performer;
 		public static void complianceBox( ExtentTest test, String user) throws InterruptedException, IOException
 		{
 		
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			if(user.equalsIgnoreCase("Performer"))
@@ -261,7 +262,7 @@ package performer;
 	        
 	        js.executeScript("window.scrollBy(0,700)");
 	        Thread.sleep(2000); 
-	        WebDriverWait wait = new WebDriverWait(getDriver(),(120));
+	        WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.TotalNoOfItem()));
 
 	        LoginLocators.TotalNoOfItem().click();					//Clicking on Text of total items just to scroll down.
@@ -370,7 +371,7 @@ package performer;
 	        
 	        js.executeScript("window.scrollBy(0,700)");
 	        Thread.sleep(2000); 
-	        WebDriverWait wait = new WebDriverWait(getDriver(),(120));
+	        WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.TotalNoOfItem()));
 
 	        LoginLocators.TotalNoOfItem().click();					//Clicking on Text of total items just to scroll down.
@@ -479,7 +480,7 @@ package performer;
 	        
 	        js.executeScript("window.scrollBy(0,700)");
 	        Thread.sleep(2000); 
-	        WebDriverWait wait = new WebDriverWait(getDriver(),(120));
+	        WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.TotalNoOfItem()));
 
 	        LoginLocators.TotalNoOfItem().click();					//Clicking on Text of total items just to scroll down.
@@ -587,7 +588,7 @@ package performer;
 	        
 	        js.executeScript("window.scrollBy(0,700)");
 	        Thread.sleep(2000); 
-	        WebDriverWait wait = new WebDriverWait(getDriver(),(120));
+	        WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.TotalNumberOfItems()));
 
 	        LoginLocators.TotalNumberOfItems().click();					//Clicking on Text of total items just to scroll down.
@@ -700,7 +701,7 @@ package performer;
 	        
 	        js.executeScript("window.scrollBy(0,700)");
 	        Thread.sleep(2000); 
-	        WebDriverWait wait = new WebDriverWait(getDriver(),(120));
+	        WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.TotalNumberOfItems()));
 
 	        LoginLocators.TotalNumberOfItems().click();					//Clicking on Text of total items just to scroll down.
@@ -812,7 +813,7 @@ package performer;
 		public static void UpcomingBox( ExtentTest test,String user) throws InterruptedException, IOException
 		{
 		
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			if(user.equalsIgnoreCase("Performer"))
@@ -934,7 +935,7 @@ package performer;
 		public static void OverdueBox( ExtentTest test,String user) throws InterruptedException, IOException
 		{
 		
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			if(user.equalsIgnoreCase("Performer"))
@@ -1057,7 +1058,7 @@ package performer;
 		public static void PendingActionBox( ExtentTest test,String user) throws InterruptedException, IOException
 		{
 		
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			if(user.equalsIgnoreCase("Performer"))
@@ -1178,7 +1179,7 @@ package performer;
 		public static void PendingReviewBox( ExtentTest test,String user) throws InterruptedException, IOException
 		{
 		
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			if(user.equalsIgnoreCase("Performer"))
@@ -1299,7 +1300,7 @@ package performer;
 		public static void RegisterUpcoming( ExtentTest test,String user) throws InterruptedException, IOException
 		{
 		
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			if(user.equalsIgnoreCase("Performer"))
@@ -1425,7 +1426,7 @@ package performer;
 		public static void RegisterOverdue( ExtentTest test,String user) throws InterruptedException, IOException
 		{
 		
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			if(user.equalsIgnoreCase("Performer"))
@@ -1551,7 +1552,7 @@ package performer;
 		public static void RegisterActionReview( ExtentTest test,String user) throws InterruptedException, IOException
 		{
 		
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			if(user.equalsIgnoreCase("Performer"))
@@ -1677,7 +1678,7 @@ package performer;
 		public static void ReturnUpcoming( ExtentTest test,String user) throws InterruptedException, IOException
 		{
 		
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			if(user.equalsIgnoreCase("Performer"))
@@ -1803,7 +1804,7 @@ package performer;
 		public static void ReturnOverdue( ExtentTest test,String user) throws InterruptedException, IOException
 		{
 		
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			if(user.equalsIgnoreCase("Performer"))
@@ -1929,7 +1930,7 @@ package performer;
 		public static void ReturnActionReview( ExtentTest test,String user) throws InterruptedException, IOException
 		{
 		
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			if(user.equalsIgnoreCase("Performer"))
@@ -2055,7 +2056,7 @@ package performer;
 		public static void ChallanUpcoming( ExtentTest test,String user) throws InterruptedException, IOException
 		{
 		
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			if(user.equalsIgnoreCase("Performer"))
@@ -2181,7 +2182,7 @@ package performer;
 		public static void ChallanOverdue( ExtentTest test,String user) throws InterruptedException, IOException
 		{
 		
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			if(user.equalsIgnoreCase("Performer"))
@@ -2307,7 +2308,7 @@ package performer;
 		public static void ChallanActionReview( ExtentTest test,String user) throws InterruptedException, IOException
 		{
 		
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			if(user.equalsIgnoreCase("Performer"))
@@ -2434,7 +2435,7 @@ package performer;
 		public static void RiskGraph( ExtentTest test,String risk,int complianceCount) throws InterruptedException, IOException
 		{
 		
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 		
 			if(risk.equalsIgnoreCase("High"))
@@ -2546,10 +2547,112 @@ package performer;
 		
 	}
 		
+		
+		//Distributor
+		public static void RiskGraph2( ExtentTest test,String risk,int complianceCount) throws InterruptedException, IOException
+		{
+		
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+			Thread.sleep(7000);
+
+			if (risk.equalsIgnoreCase("High")) {
+				Thread.sleep(3000);
+				LocatorsP.HighRisk2().click();
+			} else if (risk.equalsIgnoreCase("Medium")) {
+				Thread.sleep(7000);
+				LocatorsP.MediumRisk2().click();
+				Thread.sleep(2000);
+			} else if (risk.equalsIgnoreCase("Low")) {
+				LocatorsP.LowRisk2().click();
+			}
+
+			Thread.sleep(5000);
+
+			String item = LoginLocators.TotalNumberOfItems().getText();
+			String[] bits = item.split(" "); // Splitting the String
+			String compliancesCount = bits[bits.length - 2]; // Getting the second last word (total number of users)
+			int count1 = Integer.parseInt(compliancesCount);
+			String s = LoginLocators.TotalNumberOfItems().getText();
+			Thread.sleep(1000);
+			if (!s.equalsIgnoreCase("0 - 0 of 0 items")) {
+				Thread.sleep(4000);
+				if (count1 == complianceCount){
+					test.log(LogStatus.PASS, "'" + risk + "' - " + "Dashboard Count = " + complianceCount
+							+ " | Displayed records from grid = " + count1);
+				}
+				else
+				{
+					test.log(LogStatus.FAIL, "'" + risk + "' - " + "Dashboard Count = " + complianceCount
+							+ " | Displayed records from grid = " + count1);
+				}
+
+				Thread.sleep(2000);
+
+				JavascriptExecutor jss = (JavascriptExecutor) getDriver();
+
+				jss.executeScript("window.scrollBy(0,-1000)");
+				Thread.sleep(2000);
+				MethodsP.GridAndExcelCountMatch(test, workbook);
+				Thread.sleep(3000);
+				By locator = By.className("svg-icon");
+
+				wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+				Thread.sleep(4000);
+				WebElement ViewButton = getDriver().findElement(locator);
+				Thread.sleep(3000);
+				JavascriptExecutor jse = (JavascriptExecutor) getDriver();
+				jse.executeScript("arguments[0].click();", ViewButton);
+				Thread.sleep(4000);
+				test.log(LogStatus.PASS, "Overview Successfully");
+				Thread.sleep(7000);
+				LoginLocators.CloseDocument().click();
+				Thread.sleep(3000);
+				LoginLocators.BrachCode().click();
+				Thread.sleep(3000);
+				LoginLocators.type().click();
+				Thread.sleep(3000);
+				LoginLocators.typeValue().click();
+				Thread.sleep(3000);
+				LoginLocators.SelectValue().click();
+				Thread.sleep(3000);
+				try {
+					LoginLocators.SelectValueDropdown().click();
+					Thread.sleep(3000);
+					LoginLocators.ApplyBtn().click();
+				} catch (Exception e) {
+//					LoginLocators.ApplyBtn().click();
+					Thread.sleep(3000);
+				}
+				// LoginLocators.displayedrecord().getText();
+				Thread.sleep(3000);
+				LoginLocators.ClearBtn().click();
+				Thread.sleep(3000);
+				test.log(LogStatus.PASS, "Branch Code Filters working Properly");
+				LoginLocators.CloseBranchCode().click();
+				Thread.sleep(3000);
+				try {
+					LoginLocators.ClosePopUp1().click();
+					Thread.sleep(3000);
+				} catch (Exception e) {
+
+					LoginLocators.ClosePopUp2().click();
+					Thread.sleep(3000);
+				}
+			} else {
+
+				test.log(LogStatus.PASS, "'" + risk + "' - " + " Count from grid is 0");
+
+			}
+
+		}
+		
+		
+		
+		
 		public static void CompRiskGraph( ExtentTest test,String risk,int complianceCount) throws InterruptedException, IOException
 		{
 		
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 		
 			if(risk.equalsIgnoreCase("High"))
@@ -2621,7 +2724,7 @@ package performer;
 		Thread.sleep(5000);
 		
 		//Explicit wait
-		WebDriverWait wait2 = new WebDriverWait(getDriver(), (30));
+		WebDriverWait wait2=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		wait2.until(ExpectedConditions.visibilityOf(LoginLocators.CloseDocument()));
 		
 		Thread.sleep(8000);
@@ -2678,7 +2781,7 @@ package performer;
 		{
 		
 
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			if(user.equalsIgnoreCase("Performer"))
@@ -2881,7 +2984,7 @@ package performer;
 		{
 		
 
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			if(user.equalsIgnoreCase("Performer"))
@@ -3063,7 +3166,7 @@ package performer;
 		
 		public static void View( ExtentTest test) throws InterruptedException, IOException
 		{
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 
 		By locate = By.xpath("//div//img[@class='svg-icon ng-star-inserted']");
 
@@ -3105,7 +3208,7 @@ package performer;
 		{
 		
 
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			if(user.equalsIgnoreCase("Performer"))
@@ -3152,7 +3255,7 @@ package performer;
 		{
 		
 
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			if(user.equalsIgnoreCase("Performer"))
@@ -3198,7 +3301,7 @@ package performer;
 		{
 		
 
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			
@@ -3223,7 +3326,7 @@ package performer;
 		{
 			
 			
-			WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(3000);	
 			if(user.equalsIgnoreCase("Performer"))
 			{
@@ -3379,7 +3482,7 @@ package performer;
 		{
 			
 			
-			WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(3000);	
 			if(user.equalsIgnoreCase("Performer"))
 			{
@@ -3522,7 +3625,7 @@ package performer;
 		{
 			
 			
-			WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(3000);	
 			if(user.equalsIgnoreCase("Performer"))
 			{
@@ -3666,7 +3769,7 @@ package performer;
 		{
 			
 			
-			WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(3000);	
 			if(user.equalsIgnoreCase("Performer"))
 			{
@@ -3810,7 +3913,7 @@ package performer;
 		{
 			
 			
-			WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(3000);	
 			if(user.equalsIgnoreCase("Performer"))
 			{
@@ -3951,7 +4054,7 @@ package performer;
 		}
 		public static void RegisterUpcomingFilter( ExtentTest test,String user) throws InterruptedException
 		{		
-			WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(3000);	
 			if(user.equalsIgnoreCase("Performer"))
 			{
@@ -4093,7 +4196,7 @@ package performer;
 		
 		public static void RegisterOverdueFilter( ExtentTest test,String user) throws InterruptedException
 		{		
-			WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(3000);	
 			if(user.equalsIgnoreCase("Performer"))
 			{
@@ -4235,7 +4338,7 @@ package performer;
 		
 		public static void RegisterActionreviewFilter( ExtentTest test,String user) throws InterruptedException
 		{		
-			WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(3000);	
 			if(user.equalsIgnoreCase("Performer"))
 			{
@@ -4377,7 +4480,7 @@ package performer;
 		
 		public static void ReturnUpcomingFilter( ExtentTest test,String user) throws InterruptedException
 		{		
-			WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(3000);	
 			if(user.equalsIgnoreCase("Performer"))
 			{
@@ -4519,7 +4622,7 @@ package performer;
 		
 		public static void ReturnOverdueFilter( ExtentTest test,String user) throws InterruptedException
 		{		
-			WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(3000);	
 			if(user.equalsIgnoreCase("Performer"))
 			{
@@ -4661,7 +4764,7 @@ package performer;
 		
 		public static void ReturnActionReviewFilter( ExtentTest test,String user) throws InterruptedException
 		{		
-			WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(3000);	
 			if(user.equalsIgnoreCase("Performer"))
 			{
@@ -4803,7 +4906,7 @@ package performer;
 		
 		public static void challanUpcomingFilter( ExtentTest test,String user) throws InterruptedException
 		{		
-			WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(3000);	
 			if(user.equalsIgnoreCase("Performer"))
 			{
@@ -4945,7 +5048,7 @@ package performer;
 		
 		public static void challanOverdueFilter( ExtentTest test,String user) throws InterruptedException
 		{		
-			WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(3000);	
 			if(user.equalsIgnoreCase("Performer"))
 			{
@@ -5087,7 +5190,7 @@ package performer;
 		
 		public static void challanActionReviewFilter( ExtentTest test,String user) throws InterruptedException
 		{		
-			WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(3000);	
 			if(user.equalsIgnoreCase("Performer"))
 			{
@@ -5229,7 +5332,7 @@ package performer;
 		
 		public static void CompliedFilter( ExtentTest test,String user) throws InterruptedException
 		{		
-			WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(3000);	
 			if(user.equalsIgnoreCase("Performer"))
 			{
@@ -5402,7 +5505,7 @@ package performer;
 		
 		public static void CompliedRiskSummaryGraphFilter( ExtentTest test,String user) throws InterruptedException
 		{		
-			WebDriverWait wait = new WebDriverWait( getDriver(),(60));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(3000);	
 			if(user.equalsIgnoreCase("Performer"))
 			{
@@ -5568,7 +5671,7 @@ package performer;
 		{
 		
 
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			if(user.equalsIgnoreCase("Performer"))
@@ -5698,7 +5801,7 @@ package performer;
 		public static void PendingActionPerform( ExtentTest test,String user) throws InterruptedException, IOException, AWTException
 		{
 		
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			if(user.equalsIgnoreCase("Performer"))
@@ -5838,7 +5941,7 @@ package performer;
 		public static void PendingReviewAction( ExtentTest test,String user) throws InterruptedException, IOException
 		{
 		
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			if(user.equalsIgnoreCase("Performer"))
@@ -5933,7 +6036,7 @@ package performer;
 		public static void Viewworspace( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 		{
 			 if (LoginLocators.View().isDisplayed()) {
-					WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+					WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 					wait.until(ExpectedConditions.visibilityOf(LoginLocators.View()));
 		        	LoginLocators.View().click();
 		    	    Thread.sleep(500);
@@ -5950,7 +6053,7 @@ package performer;
 
 
 		//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			if(user.equalsIgnoreCase("Performer"))
@@ -6162,7 +6265,7 @@ package performer;
 			Thread.sleep(20000);	
 			MethodsP.LeaveSummaryDetails(test, user);
 			Thread.sleep(2000);	
-			getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 			LoginLocators.Refresh().click();
 			Thread.sleep(2000);
 	        LoginLocators.Check().click();
@@ -6186,7 +6289,7 @@ package performer;
 		public static void Salary( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 		{
 		
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			try {
 			if(LoginLocators.SalaryText().isDisplayed()) {
@@ -6344,7 +6447,7 @@ package performer;
 		public static void LeaveSummaryDetails( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 		{
 		
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			try {
 			if(LoginLocators.LeaveSummaryText().isDisplayed()) {
@@ -6499,7 +6602,7 @@ package performer;
 		public static void History( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 		{
 		
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			if(user.equalsIgnoreCase("Performer"))
@@ -6597,7 +6700,7 @@ package performer;
 		{
 		
 		//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			if(user.equalsIgnoreCase("Performer"))
@@ -6823,7 +6926,7 @@ package performer;
 		{
 			//WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
 
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			if(user.equalsIgnoreCase("Performer"))
@@ -6893,7 +6996,7 @@ package performer;
 		public static void SalaryReturn( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 		{
 		
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			try {
 			if(LoginLocators.SalaryText().isDisplayed()) {
@@ -7051,7 +7154,7 @@ package performer;
 		public static void LeaveSummaryDetailsReturn( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 		{
 		
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			try {
 			if(LoginLocators.LeaveSummaryText().isDisplayed()) {
@@ -7206,7 +7309,7 @@ package performer;
 		{
 		
 		//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			if(user.equalsIgnoreCase("Performer"))
@@ -7363,7 +7466,9 @@ package performer;
 	    		   Thread.sleep(2000);
 	    		   LoginLocators.OK().click();
 	    		   Thread.sleep(2000);	
-	   			getDriver().manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
+	   			getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+	   			
+	   			
 	    		   LoginLocators.Refresh().click();
 	    		   Thread.sleep(2000);	
 	    		   test.log(LogStatus.PASS,  "Attendance "+ attendance);
@@ -7415,7 +7520,7 @@ package performer;
 			Thread.sleep(2000);	
 			MethodsP.LeaveSummaryDetailsChallan(test, user);
 			Thread.sleep(4000);	
-			getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 			 LoginLocators.Refresh().click();
 			 Thread.sleep(4000);	
 	        LoginLocators.Check().click();
@@ -7439,7 +7544,7 @@ package performer;
 		public static void SalaryChallan( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 		{
 		
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			try {
 			if(LoginLocators.SalaryText().isDisplayed()) {
@@ -7595,7 +7700,7 @@ package performer;
 		public static void LeaveSummaryDetailsChallan( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 		{
 		
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			try {
 			if(LoginLocators.LeaveSummaryText().isDisplayed()) {
@@ -7752,7 +7857,7 @@ package performer;
 
 
 		//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			if(user.equalsIgnoreCase("Performer"))
@@ -7865,7 +7970,7 @@ package performer;
 
 
 		//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			if(user.equalsIgnoreCase("Performer"))
@@ -8076,7 +8181,7 @@ package performer;
 		public static void SalaryEmptysheet( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 		{
 		
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			try {
 			if(LoginLocators.SalaryText().isDisplayed()) {
@@ -8204,7 +8309,7 @@ package performer;
 		public static void LeaveSummaryDetailsEmptySheet( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 		{
 		
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			try {
 			if(LoginLocators.LeaveSummaryText().isDisplayed()) {
@@ -8333,7 +8438,7 @@ package performer;
 
 
 		//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			if(user.equalsIgnoreCase("Performer"))
@@ -8411,7 +8516,7 @@ package performer;
 
 
 		//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			if(user.equalsIgnoreCase("Performer"))
@@ -8609,7 +8714,7 @@ package performer;
 	{
 
 //		WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -8815,7 +8920,7 @@ package performer;
 	{
 
 //		WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -8846,7 +8951,7 @@ package performer;
 	{
 
 //		WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -8908,7 +9013,7 @@ package performer;
 	{
 
 //		WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -9000,7 +9105,7 @@ package performer;
 	{
 
 //		WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -9054,7 +9159,7 @@ package performer;
 	{
 
 //		WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -9114,7 +9219,7 @@ package performer;
 	{
 
 //		WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -9169,7 +9274,7 @@ package performer;
 	{
 
 //		WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -9229,7 +9334,7 @@ package performer;
 	{
 
 //		WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -9306,7 +9411,7 @@ package performer;
 	{
 
 //		WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -9417,7 +9522,7 @@ package performer;
 	{
 
 //		WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -9540,7 +9645,7 @@ package performer;
 	{
 
 //		WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -9596,7 +9701,7 @@ package performer;
 	{
 
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -9694,7 +9799,7 @@ package performer;
 	{
 
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -9791,7 +9896,7 @@ package performer;
 	{
 
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))
@@ -9889,7 +9994,7 @@ package performer;
 	{
 
 
-//		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+//		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 //		Thread.sleep(7000);
 //		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 //		if(user.equalsIgnoreCase("Performer"))
@@ -9993,7 +10098,7 @@ package performer;
 	{
 
 //		WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		if(user.equalsIgnoreCase("Performer"))

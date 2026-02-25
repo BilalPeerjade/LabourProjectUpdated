@@ -73,6 +73,11 @@ public class PT_ConsolidatedMethods extends BasePage {
 	
 	public static File downloadedExcelFile; // shared file for all test cases
 	
+	//----------Unique Download Path all safe including parallel run----------
+//	String threadFolder = System.getProperty("user.home") + File.separator + "Downloads" + File.separator + "run_" + java.util.UUID.randomUUID();
+//    File downloadDir = new File(threadFolder);
+//    downloadDir.mkdirs();
+    //------------------------------------------------------------------------
 
 
 //	public static String EMPmasterFilePath = "D:\\Upload Automation Files\\BusinessScenarios\\Month\\EmployeeMaster_TESTAUTO.xlsx";
@@ -101,7 +106,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 	public static void ChallanPTConsolated_Redirection( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(formLocators.Search()));
 		
@@ -148,6 +153,13 @@ public class PT_ConsolidatedMethods extends BasePage {
 		formLocators.PT_ConsolatedWorking().click();
         Thread.sleep(8000); // wait for file to download
 
+        //------------------
+//		String threadFolder = System.getProperty("user.home") + File.separator + "Downloads" + File.separator + "run_" + java.util.UUID.randomUUID();
+//        File downloadDir = new File(threadFolder);
+//        downloadDir.mkdirs();
+
+
+        
         // Step 2: Get latest file
         File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
         File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
@@ -159,7 +171,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 	public static void ChallanPTConsolated_PTReport_EmployeeIds( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(formLocators.Search()));
 		
@@ -334,7 +346,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 	public static void ChallanPTConsolated_PTReport_EmployeeName( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(formLocators.Search()));
 		
@@ -492,7 +504,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 	public static void ChallanPTConsolated_PTReport_DOJ( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(formLocators.Search()));
 		
@@ -614,7 +626,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 	public static void ChallanPTConsolated_PTReport_Gender( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(formLocators.Search()));
 		
@@ -748,7 +760,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 	public static void ChallanPTConsolated_NAE_Gender( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(formLocators.Search()));
 		
@@ -874,7 +886,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 	public static void ChallanPTConsolated_PTReport_Branch( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(formLocators.Search()));
 		
@@ -1000,7 +1012,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 	public static void ChallanPTConsolated_PTReport_PTGrossWages( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(formLocators.Search()));
 		
@@ -1124,7 +1136,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 	public static void ChallanPTConsolated_PTReport_ClientPTDeduction( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(formLocators.Search()));
 		
@@ -2292,10 +2304,64 @@ public class PT_ConsolidatedMethods extends BasePage {
         );
 		
 	}
+	
+/*	public static void PTSummaryAmountTest( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+	
+//	SHEET_ALIAS.put("Summary", "Summary"); need to add this alias sheet before running
+
+        
+		ChallanPTConsolated_Redirection(test,user);
+        
+// 		We cant check PT amout as per slab in summary sheet induividal states (It required utility change)
+//		sheet wise filers we cant apply 
+//		sheet wise means sheet.A me filter or sheet.B me dusra filter utlity me ye logic nahi hai (Note ye filters downloaded vs downloaded validation me hai sirf
+//		but we can check directly Total with below logic
+		
+		// ---------- Filters ----------
+		List<ExcelF> masterFilters = new ArrayList<>();      // not used (OK)
+		List<ExcelF> downloadedFilters = new ArrayList<>();
+		Map<String, String> headerKeywords = new HashMap<>();
+
+//		downloadedFilters.add( new ExcelF( ExcelUtils.columnLetterToIndex("G"),   // PT Report state column
+//		        Arrays.asList("Andhra Pradesh")
+//		    )
+//		);
+
+		// ---------- Extra config (already existing logic) ----------
+//		ExcelExtraConfig extraConfig = new ExcelExtraConfig("NO", ExcelUtils.columnLetterToIndex("K"), "VPF");
+		ExcelExtraConfig extraConfig = new ExcelExtraConfig("YES", ExcelUtils.columnLetterToIndex("A"), "Total");
+
+		// ---------- Rule ----------
+		String calculationRule = "PT_Report.K = Summary.F";
+
+		// ---------- Validation ----------
+		Utilis3.validateExcelCalculation(
+		        downloadedExcelFile,          // downloaded file
+		        FilePath.SALARY_FILE,          // master path (logic already there)
+		        test,
+		        calculationRule,
+		        "DOWNLOADED",                 // Downloaded vs Downloaded
+		        null,                          // sheet names already in rule
+
+		        masterFilters,                // empty (allowed)
+		        downloadedFilters,            // state + VPF filters
+		        extraConfig,
+		        0.00,                          // no tolerance
+		        false,                         // totals only
+		        1,                             // start row offset
+		        headerKeywords,
+		        "AP | Summary total vs PT Report total validation"
+		);
+
+
+		
+	}
+	*/
 	public static void ChallanPTConsolated_NAE_EmployeeIds( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(formLocators.Search()));
 		
@@ -2473,7 +2539,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 	public static void ChallanPTConsolated_NAE_EmployeeName( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(formLocators.Search()));
 		
@@ -2669,7 +2735,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 		    targetFilters,                    // filters for downloaded
 		    extraConfig,                      // <-- total logic on
 		    0.01,                             // tolerance
-		    true,                            // row by row compare off
+		    true,                             // row by row compare off
 		    0,                                // start row offset
 		    headerMap,                        // header labels
 		    "Client PT Deduction total is coming properly as per masters"
@@ -2680,7 +2746,7 @@ public class PT_ConsolidatedMethods extends BasePage {
 	public static void ChallanPTConsolated_PTReport_Diffrence( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(formLocators.Search()));
 		

@@ -8,6 +8,7 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Iterator;
 import java.util.Set;
 import org.apache.poi.ss.usermodel.Cell;
@@ -46,7 +47,7 @@ public class ClientMethods extends BasePage {
 	public static void filterEntity ( ExtentTest test) throws InterruptedException, IOException
 	{Thread.sleep(7000);		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -191,7 +192,7 @@ public class ClientMethods extends BasePage {
 	int	CategoriesCountDas = Integer.parseInt(string_Categories);
 	ClientLocators.AssignedCompliances().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//img[contains(@title,'Overview')])[1]")));
 		Thread.sleep(8000);
 		js.executeScript("window.scrollBy(0,500)");
@@ -226,7 +227,7 @@ public class ClientMethods extends BasePage {
 	
 	ClientLocators.AssignedCompliances().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//img[contains(@title,'Overview')])[1]")));
 		Thread.sleep(8000);
 		Thread.sleep(3000);
@@ -256,7 +257,7 @@ public class ClientMethods extends BasePage {
 	
 	ClientLocators.AssignedCompliances().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//img[contains(@title,'Overview')])[1]")));
 		Thread.sleep(8000);
 		
@@ -282,7 +283,7 @@ public class ClientMethods extends BasePage {
 	int	CategoriesCountDas = Integer.parseInt(string_Categories);
 	ClientLocators.ExpiredRegistrations().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		ClientLocators.readTotalItems().click();					//Clicking on total items count
 		Thread.sleep(500);
@@ -503,7 +504,7 @@ public class ClientMethods extends BasePage {
 	  		Thread.sleep(2000);
 	  		ClientLocators.selectActivityType1().click();
 	  		Thread.sleep(2000);
-	  		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+	  		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	  		ClientLocators.Sumit().click();
 	  		Thread.sleep(2000);
 	  		 By locator = By.xpath("(//h4[@class='f-label'])");
@@ -565,7 +566,7 @@ public class ClientMethods extends BasePage {
 	int	CategoriesCountDas = Integer.parseInt(string_Categories);
 	ClientLocators.OpenNotices().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		ClientLocators.readTotalItems().click();					//Clicking on total items count
 		Thread.sleep(500);
@@ -593,7 +594,7 @@ public class ClientMethods extends BasePage {
 	
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(CPLocator.MyDocument()));	
 		CPLocator.Entity().click();
@@ -624,7 +625,7 @@ public class ClientMethods extends BasePage {
 	public static void ViewAddNew ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{Thread.sleep(5000);		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 			  	ClientLocators.OpenNotices().click();
@@ -778,7 +779,7 @@ public class ClientMethods extends BasePage {
 		
 		ClientLocators.View().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//img[contains(@title,'Overview')])[1]")));
 		Thread.sleep(8000);
 		Thread.sleep(3000);
@@ -951,7 +952,7 @@ public class ClientMethods extends BasePage {
 		int CategoriesCountDas = Integer.parseInt(compliancesCount1);
      	ClientLocators.Active().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		ClientLocators.ActiveCol().click();
 		Thread.sleep(3000);
@@ -989,7 +990,7 @@ public class ClientMethods extends BasePage {
 		int CategoriesCountDas = Integer.parseInt(compliancesCount1);
      	ClientLocators.Expired().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		ClientLocators.ExpiredCol().click();
 		Thread.sleep(3000);
@@ -1028,7 +1029,7 @@ public class ClientMethods extends BasePage {
 		int CategoriesCountDas = Integer.parseInt(compliancesCount1);
      	ClientLocators.Active().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(5000);
 		ClientLocators.ActiveCol().click();
 		Thread.sleep(3000);
@@ -1132,7 +1133,7 @@ public class ClientMethods extends BasePage {
 		int CategoriesCountDas = Integer.parseInt(compliancesCount1);
      	ClientLocators.Expired().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		ClientLocators.ExpiredCol().click();
 		Thread.sleep(3000);
@@ -1235,7 +1236,7 @@ public class ClientMethods extends BasePage {
 		
      	ClientLocators.Active().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		ClientLocators.ActiveCol().click();
 		Thread.sleep(3000);
@@ -1260,7 +1261,7 @@ public class ClientMethods extends BasePage {
 		
      	ClientLocators.Expired().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		ClientLocators.ExpiredCol().click();
 		Thread.sleep(3000);
@@ -1283,7 +1284,7 @@ public class ClientMethods extends BasePage {
 	
 		ClientLocators.Active().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		ClientLocators.ActiveCol().click();
 		Thread.sleep(3000);
@@ -1312,7 +1313,7 @@ public class ClientMethods extends BasePage {
 	
 		ClientLocators.Expired().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		ClientLocators.ExpiredCol().click();
 		Thread.sleep(3000);
@@ -1344,7 +1345,7 @@ public class ClientMethods extends BasePage {
 		
      	ClientLocators.Active().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		ClientLocators.ActiveCol().click();
 		Thread.sleep(3000);
@@ -1371,7 +1372,7 @@ public class ClientMethods extends BasePage {
 		
      	ClientLocators.Expired().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		ClientLocators.ExpiredCol().click();
 		Thread.sleep(3000);
@@ -1395,7 +1396,7 @@ public class ClientMethods extends BasePage {
 	
 		ClientLocators.Active().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		ClientLocators.ActiveCol().click();
 		Thread.sleep(3000);
@@ -1426,7 +1427,7 @@ public class ClientMethods extends BasePage {
 	
 		ClientLocators.Expired().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		ClientLocators.ExpiredCol().click();
 		Thread.sleep(3000);
@@ -1457,7 +1458,7 @@ public class ClientMethods extends BasePage {
 	
 		ClientLocators.Active().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	
 		
 	
@@ -1579,7 +1580,7 @@ public class ClientMethods extends BasePage {
 		int CategoriesCountDas = Integer.parseInt(compliancesCount1);
      	ClientLocators.Overdue().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		
 		js.executeScript("window.scrollBy(0,300)");	
@@ -1701,7 +1702,7 @@ public class ClientMethods extends BasePage {
 		ClientLocators.readTotalItemsD().click();					//Clicking on Text of total items just to scroll down.
 		String s = ClientLocators.readTotalItemsD().getText();
 		if(!s.equalsIgnoreCase("0 - 0 of 0 items")) {Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//img[contains(@title,'Overview')])[1]")));
 		Thread.sleep(8000);
 		Thread.sleep(3000);
@@ -2011,7 +2012,7 @@ public class ClientMethods extends BasePage {
 		ClientLocators.ECOverdue().click();
 		Thread.sleep(5000);
 		
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	//	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//img[contains(@title,'Overview')])[1]")));
 		Thread.sleep(8000);
 		Thread.sleep(3000);
@@ -2132,7 +2133,7 @@ public class ClientMethods extends BasePage {
 		String s = ClientLocators.readTotalItemsD().getText();
 		if(!s.equalsIgnoreCase("0 - 0 of 0 items")) {Thread.sleep(5000);
 		
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//img[contains(@title,'Overview')])[1]")));
 		Thread.sleep(8000);
 		Thread.sleep(3000);
@@ -2172,7 +2173,7 @@ public class ClientMethods extends BasePage {
 		ClientLocators.FCCompied().click();
 		Thread.sleep(5000);
 		
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		ClientLocators.readTotalItems().click();					//Clicking on total items count
 		Thread.sleep(500);
 		String item = ClientLocators.readTotalItems().getText();	//Reading total items String value
@@ -2349,7 +2350,7 @@ public class ClientMethods extends BasePage {
 		ClientLocators.ClraOverdue().click();
 		Thread.sleep(5000);
 		
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//img[contains(@title,'Overview')])[1]")));
 		Thread.sleep(8000);
 		Thread.sleep(3000);
@@ -2383,7 +2384,7 @@ public class ClientMethods extends BasePage {
 		ClientLocators.ClraComplied().click();
 		Thread.sleep(5000);
 		
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		ClientLocators.readTotalItems().click();					//Clicking on total items count
 		Thread.sleep(500);
 		String item = ClientLocators.readTotalItems().getText();	//Reading total items String value
@@ -2524,7 +2525,7 @@ public class ClientMethods extends BasePage {
 		int CategoriesCountDas = Integer.parseInt(compliancesCount1);
      	ClientLocators.Open().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		ClientLocators.OpenCol().click();
 		Thread.sleep(3000);
@@ -2622,7 +2623,7 @@ public class ClientMethods extends BasePage {
 		int CategoriesCountDas = Integer.parseInt(compliancesCount1);
      	ClientLocators.Closed().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		ClientLocators.ClosedCol().click();
 		Thread.sleep(3000);
@@ -2749,7 +2750,7 @@ public class ClientMethods extends BasePage {
 		int CategoriesCountDas = Integer.parseInt(string_Categories);
      	ClientLocators.Registration().click();
 		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (500));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		
 		
 		ClientLocators.readTotalItems().click();					//Clicking on total items count
@@ -2991,7 +2992,7 @@ public class ClientMethods extends BasePage {
 		WebElement element = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/ExportButton.svg']"));
 		js.executeScript("arguments[0].scrollIntoView(true);", element);
 		Thread.sleep(4000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (100)) ;
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
      	ClientLocators.ClickTriangle().click();
 		Thread.sleep(2000);
 		ClientLocators.nextmonth().click();
@@ -3097,7 +3098,7 @@ else
     	WebElement element = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/ExportButton.svg']"));
 		js.executeScript("arguments[0].scrollIntoView(true);", element);
 		Thread.sleep(4000);
-		WebDriverWait wait = new WebDriverWait(getDriver(), (100)) ;
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
      	ClientLocators.ClickTriangle().click();
 		Thread.sleep(2000);
 		ClientLocators.nextmonth().click();
@@ -3144,7 +3145,7 @@ else
       	WebElement element = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/ExportButton.svg']"));
 		js.executeScript("arguments[0].scrollIntoView(true);", element);
 		Thread.sleep(4000);
-  		WebDriverWait wait = new WebDriverWait(getDriver(), (100)) ;
+  		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
        	ClientLocators.ClickTriangle().click();
   		Thread.sleep(2000);
   		ClientLocators.nextmonth().click();
@@ -3169,7 +3170,7 @@ else
       	WebElement element = getDriver().findElement(By.xpath("//div[@class='updates']//div[1]//a[1]"));
 		js.executeScript("arguments[0].scrollIntoView(true);", element);
 		Thread.sleep(4000);
-  		WebDriverWait wait = new WebDriverWait(getDriver(), (100)) ;
+  		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
        	ClientLocators.read().click();
   		Thread.sleep(2000);
   		SwitchtoChild(test);
@@ -3216,7 +3217,7 @@ else
     public static void InputUpload ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{Thread.sleep(5000);		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	/*	ClientLocators.SelectEntity().click();
 		Thread.sleep(2000);
@@ -3282,7 +3283,7 @@ else
     public static void InputUploadTem ( ExtentTest test) throws InterruptedException, IOException, AWTException
    	{Thread.sleep(5000);		
    		Actions action = new Actions(getDriver());
-   		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+   		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
    		Thread.sleep(3000);
    		//ClientLocators.SelectEntity().click();
    		Thread.sleep(2000);
@@ -3691,7 +3692,7 @@ else
     public static void InputUploadTemSa ( ExtentTest test) throws InterruptedException, IOException, AWTException
    	{Thread.sleep(5000);		
    		Actions action = new Actions(getDriver());
-   		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+   		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
    		Thread.sleep(3000);
    		/*	ClientLocators.SelectEntity().click();
 		Thread.sleep(2000);
@@ -3729,7 +3730,7 @@ else
     public static void InputUploadSA ( ExtentTest test) throws InterruptedException, IOException, AWTException
    	{Thread.sleep(5000);		
    		Actions action = new Actions(getDriver());
-   		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+   		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
    		Thread.sleep(3000);
    		/*	ClientLocators.SelectEntity().click();
 		Thread.sleep(2000);
@@ -4166,7 +4167,7 @@ else
     public static void InputUploadTemChha ( ExtentTest test) throws InterruptedException, IOException, AWTException
    	{Thread.sleep(5000);		
    		Actions action = new Actions(getDriver());
-   		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+   		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
    		Thread.sleep(3000);
    		/*	ClientLocators.SelectEntity().click();
 		Thread.sleep(2000);
@@ -4212,7 +4213,7 @@ else
     public static void InputUploadCh ( ExtentTest test) throws InterruptedException, IOException, AWTException
    	{Thread.sleep(5000);		
    		Actions action = new Actions(getDriver());
-   		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+   		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
    		Thread.sleep(3000);
    		/*	ClientLocators.SelectEntity().click();
 		Thread.sleep(2000);
@@ -4700,7 +4701,7 @@ else
     public static void InputUploadTemRe ( ExtentTest test) throws InterruptedException, IOException, AWTException
    	{Thread.sleep(5000);		
    		Actions action = new Actions(getDriver());
-   		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+   		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
    		Thread.sleep(3000);
    		/*	ClientLocators.SelectEntity().click();
 		Thread.sleep(2000);
@@ -4745,7 +4746,7 @@ else
     public static void InputUploadRe ( ExtentTest test) throws InterruptedException, IOException, AWTException
    	{Thread.sleep(5000);		
    		Actions action = new Actions(getDriver());
-   		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+   		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
    		Thread.sleep(3000);
    		/*	ClientLocators.SelectEntity().click();
 		Thread.sleep(2000);

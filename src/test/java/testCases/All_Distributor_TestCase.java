@@ -3,6 +3,7 @@ package testCases;
 import java.awt.AWTException;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.List;
 
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -350,7 +351,7 @@ import rcp.OneCommonMethod;
 		{
 			test = extent.startTest("Bar Graph -Risk Summary - Not Complied - Count Verification");
 			
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			LoginLocators.Search().sendKeys("AVACORED5");
@@ -424,7 +425,7 @@ import rcp.OneCommonMethod;
 		{
 			test = extent.startTest("Bar Graph -Risk Summary - Complied - Count Verification");
 			
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(7000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 			LoginLocators.Search().sendKeys("AVACORED5");
@@ -495,7 +496,7 @@ import rcp.OneCommonMethod;
 		{
 			test = extent.startTest("Bar Graph -Risk Summary - Complied - Count Verification");
 			
-			WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(5000);Thread.sleep(5000);
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 //			LoginLocators.Search().sendKeys("TESTAUTO2");

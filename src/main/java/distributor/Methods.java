@@ -3,10 +3,12 @@ package distributor;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -52,8 +54,7 @@ public class Methods extends BasePage {
 	
 	public static void User ( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -77,8 +78,7 @@ public class Methods extends BasePage {
 	
 	public static void UserAddNew ( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -156,8 +156,7 @@ public class Methods extends BasePage {
 	
 	public static void UserEdit ( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -209,8 +208,7 @@ public class Methods extends BasePage {
 	
 	public static void CorporateToEntity ( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 		Locators.Corporate().click();
 		Thread.sleep(3000);
@@ -229,8 +227,7 @@ public class Methods extends BasePage {
 	
 	public static void UserEditInvalid ( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -283,8 +280,7 @@ public class Methods extends BasePage {
 	
 	public static void SearchUser ( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -337,8 +333,7 @@ public class Methods extends BasePage {
 	
 	public static void SearchUserClear ( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -393,8 +388,7 @@ public class Methods extends BasePage {
 	
 	public static void UserDelete( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -427,8 +421,7 @@ public class Methods extends BasePage {
 	
 	public static void UserDeleteAssign( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -461,8 +454,7 @@ public class Methods extends BasePage {
 	
 	public static void UserDeleteCancel( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -498,8 +490,7 @@ public class Methods extends BasePage {
 	
 	public static void UserBack( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -546,8 +537,7 @@ public class Methods extends BasePage {
 	
 	public static void ExportUser( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -660,8 +650,7 @@ public class Methods extends BasePage {
 	
 	public static void  Corporate ( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -685,8 +674,7 @@ public class Methods extends BasePage {
 	
 	public static void CorporateAddNew ( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -761,8 +749,7 @@ public class Methods extends BasePage {
 	
 	public static void CorporateEdit ( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -816,8 +803,7 @@ public class Methods extends BasePage {
 	
 	public static void CorporateEditInvalid ( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -904,8 +890,7 @@ public class Methods extends BasePage {
 	
 	public static void SearchCorporate ( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -964,8 +949,7 @@ public class Methods extends BasePage {
 	
 	public static void SearchCorporateClear ( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -1025,8 +1009,7 @@ public class Methods extends BasePage {
 	
 	public static void corporateDelete( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -1060,8 +1043,7 @@ public class Methods extends BasePage {
 	
 	public static void CorDeleteCancel( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -1097,8 +1079,7 @@ public class Methods extends BasePage {
 	
 	public static void CorporateView( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -1168,8 +1149,7 @@ public class Methods extends BasePage {
 	
 	public static void CorporateBack( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -1217,8 +1197,7 @@ public class Methods extends BasePage {
 	
 	public static void Entity( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -1289,8 +1268,7 @@ public class Methods extends BasePage {
 	
 	public static void EntityAddNew ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -1647,8 +1625,7 @@ public class Methods extends BasePage {
 	
 	public static void EntityEdit ( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -1726,8 +1703,7 @@ public class Methods extends BasePage {
 	
 	public static void EntityEditinvalid ( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -1790,8 +1766,7 @@ public class Methods extends BasePage {
 	
 	public static void SearchEntity ( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -1845,8 +1820,7 @@ public class Methods extends BasePage {
 	
 	public static void SearchEntityClear ( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -1904,8 +1878,7 @@ public class Methods extends BasePage {
 	
 	public static void EntityDelete( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -1941,8 +1914,7 @@ public class Methods extends BasePage {
 	
 	public static void EntityDeleteCancel( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -1981,8 +1953,7 @@ public class Methods extends BasePage {
 	
 	public static void EntityBulkUpload ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -2050,8 +2021,7 @@ Locators.DownloadTemplate().click();
 	
 	public static boolean EntityBulkUploadInvalid ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -2137,8 +2107,7 @@ Locators.DownloadTemplate2().click();
 	
 	public static void EntityBulkUploadCheck ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -2209,8 +2178,7 @@ Locators.CheckBox().click();
 	
 	public static void EntityBulkUploadInvalidCheck ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -2287,8 +2255,7 @@ Locators.DownloadTemplate2().click();
 	
 	public static void EntityBulkUploadCheckB ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -2357,8 +2324,7 @@ Locators.CheckBox().click();
 	
 	public static void ResetBtn ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -2397,8 +2363,7 @@ Locators.CheckBox().click();
 	
 	public static void AllCheckbox ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -2435,8 +2400,7 @@ Locators.CheckBox().click();
 	
 	public static void EntityBack( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -2481,8 +2445,7 @@ Locators.CheckBox().click();
 	
 	public static void  EntityLocation( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -2509,7 +2472,7 @@ Locators.CheckBox().click();
 	public static void  EntityExcel( ExtentTest test) throws InterruptedException, IOException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -2537,8 +2500,7 @@ Locators.CheckBox().click();
 	
 	public static void Searchentities ( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -2562,7 +2524,7 @@ Locators.CheckBox().click();
 	{		
 		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		
@@ -2808,14 +2770,14 @@ Locators.CheckBox().click();
 	
 	public static void  ExportPremises( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		Thread.sleep(5000);Thread.sleep(5000);Thread.sleep(5000);
 	  	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='User']")));	//Wait until records table get visible.
 
 		Locators.Searchentities().sendKeys("AVACORED5"); // Writing Task title
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 		Thread.sleep(3000);
 		
 				
@@ -2842,11 +2804,331 @@ Locators.CheckBox().click();
 		}
 	  
 	}
+	public static void  searchPremises( ExtentTest test) throws InterruptedException, IOException
+	{		
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(3000);
+	    
+		Thread.sleep(5000);Thread.sleep(5000);Thread.sleep(5000);
+	  	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='User']")));	//Wait until records table get visible.
+
+		Locators.Searchentities().sendKeys("TESTAUTO2"); // Writing Task title
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+		Thread.sleep(3000);
+		
+				
+				Thread.sleep(3000);
+                 Locators.clickPremisesArrow().click();
+				Thread.sleep(3000);
+				Locators.OnboardEntity().click();
+				Thread.sleep(8000);
+				
+				Locators.Searchbranch().click();
+				Thread.sleep(3000);
+				Locators.Searchbranch().sendKeys("Branch Pune");
+				
+				String grid = getDriver().findElement(By.xpath("//td[@role='gridcell']")).getText();
+				if(grid.equalsIgnoreCase("")) {
+					 test.log(LogStatus.PASS, "Search field is working successfully");
+					 test.log(LogStatus.PASS, "Searched value displayed in the grid : " + grid);
+				}
+				else {
+					 test.log(LogStatus.FAIL, "Search field is not working properly");
+					 test.log(LogStatus.FAIL, "Searched value displayed in the grid : " + grid);
+				}
+				
+	  
+	}
+	
+	public static void  uploadShiftMasterPremises( ExtentTest test) throws Exception
+	{		
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(3000);
+	    
+		Thread.sleep(5000);Thread.sleep(5000);Thread.sleep(5000);
+	  	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='User']")));	//Wait until records table get visible.
+
+		Locators.Searchentities().sendKeys("TESTAUTO3"); // Writing Task title
+		Thread.sleep(3000);
+		
+				
+				Thread.sleep(3000);
+                Locators.clickPremisesArrow().click();
+				Thread.sleep(3000);
+				Locators.OnboardEntity().click();
+//				Thread.sleep(3000);
+//				getDriver().navigate().refresh();
+				Thread.sleep(8000);
+				Locators.uploadShiftMaster().click();
+				
+				OneCommonMethod.validateFileDownloadDynamic(driver.get(),test,
+						Locators.sampleDocument(), 
+					    "Sample Document Upload Shift Master File is downloaded"   // Dynamic log message
+					);
+				
+				
+				//----Error message----
+//	 		    Thread.sleep(5000);
+//	 			PerformerLocator.UploadBtn().click();
+//	 			Thread.sleep(2000);
+//	 			String msg=	PerformerLocator.clickMsg().getText();
+//	 			
+//	 			 if(msg.equalsIgnoreCase("You have not chosen any file."))
+//	 			 {
+//	 				test.log(LogStatus.PASS, "Without uploading file error message popup displayed");
+//	 				test.log(LogStatus.PASS, "Message displayed = "+msg); 
+//	 			 }
+//	 			 else{
+//	 			     test.log(LogStatus.FAIL, "Without uploading file error message popup displayed");
+//	 				 test.log(LogStatus.FAIL, "Message displayed = "+msg);
+//	 			 }
+//	 			 Thread.sleep(4000);
+//	 		     PerformerLocator.clickOkBtn().click();
+				
+				
+				Thread.sleep(3000);
+				getDriver().navigate().refresh();
+				Thread.sleep(8000);
+				Locators.uploadShiftMaster().click();
+				Thread.sleep(8000);
+				
+				WebDriverWait wait2=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+				wait2.until(ExpectedConditions.visibilityOf(PerformerLocator.uploadShiftMasterBrowse()));
+				
+				System.out.println("---------------------");
+				String txt = PerformerLocator.uploadShiftMasterBrowse().getText();
+				System.out.println(txt);
+				System.out.println("----******************----");
+				
+					Thread.sleep(8000);
+					JavascriptExecutor js = (JavascriptExecutor) getDriver();
+					js.executeScript("arguments[0].click();", PerformerLocator.uploadShiftMasterBrowse());
+					
+
+//					PerformerLocator.browse().click();
+//					OneCommonMethod.safeClick(getDriver(), PerformerLocator.browse());
+					Thread.sleep(3000);
+					OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Distributor Admin\\Premises Upload.xlsx");
+					Thread.sleep(3000);
+					PerformerLocator.UploadBtn().click();
+					Thread.sleep(3000);
+
+					Thread.sleep(2000);
+					String msg2 = PerformerLocator.clickMsg().getText();
+	 			
+					if (msg2.equalsIgnoreCase("File Uploaded Successfully.")) {
+						test.log(LogStatus.PASS, "Upload button is working fine");
+						Thread.sleep(2000);
+						test.log(LogStatus.PASS, "File Uploaded successfully");
+						Thread.sleep(3500);
+						test.log(LogStatus.PASS, "On uploading file success message popup displayed");
+						test.log(LogStatus.PASS, "Message displayed = " + msg2);
+					} else {
+						test.log(LogStatus.FAIL, "Success message is not displayed properly");
+						test.log(LogStatus.FAIL, "Message displayed = " + msg2);
+					}
+					Thread.sleep(1000);
+					PerformerLocator.clickOkBtn().click();
+				
+				
+	  
+	}
+	
+	public static void  uploadAddressMapping( ExtentTest test) throws Exception
+	{		
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(3000);
+	    
+		Thread.sleep(5000);Thread.sleep(5000);Thread.sleep(5000);
+	  	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='User']")));	//Wait until records table get visible.
+
+		Locators.Searchentities().sendKeys("TESTAUTO3"); // Writing Task title
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+		Thread.sleep(3000);
+		
+				
+				Thread.sleep(3000);
+                Locators.clickPremisesArrow().click();
+				Thread.sleep(3000);
+				Locators.OnboardEntity().click();
+				Thread.sleep(8000);
+				Locators.UploadAddressMapping().click();
+				
+				OneCommonMethod.validateFileDownloadDynamic(driver.get(),test,
+						Locators.sampleDocument(), 
+					    "Sample Document Upload Address Mapping File is downloaded" );
+				Thread.sleep(8000);
+				
+				OneCommonMethod.validateFileDownloadDynamicMASTER(driver.get(),test,
+						Locators.uploadAddMap_MasterDownload(), 
+					    "Master Document Upload Address Mapping File is downloaded" ,10000);
+				
+				Thread.sleep(8000); //Given more due to master big file download
+				Thread.sleep(8000);
+				OneCommonMethod.validateFileDownloadDynamic(driver.get(),test,
+						Locators.uploadAddMap_AvailableAddressType(), 
+					    "Available Address Type Document Upload Address Mapping File is downloaded" );
+				Thread.sleep(8000);
+				
+				
+				//----Error message----
+	 		    Thread.sleep(5000);
+	 			PerformerLocator.UploadBtn().click();
+	 			Thread.sleep(2000);
+	 			String msg=	PerformerLocator.clickMsg().getText();
+	 			
+	 			 if(msg.equalsIgnoreCase("You have not chosen any file."))
+	 			 {
+	 				test.log(LogStatus.PASS, "Without uploading file error message popup displayed");
+	 				test.log(LogStatus.PASS, "Message displayed = "+msg); 
+	 			 }
+	 			 else{
+	 			     test.log(LogStatus.FAIL, "Without uploading file error message popup displayed");
+	 				 test.log(LogStatus.FAIL, "Message displayed = "+msg);
+	 			 }
+	 			 Thread.sleep(4000);
+	 		     PerformerLocator.clickOkBtn().click();
+				
+				
+					Thread.sleep(5000);
+//					PerformerLocator.browse().click();
+//					Thread.sleep(3000);
+//					OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Distributor Admin\\Premises Upload.xlsx");
+//					Thread.sleep(3000);
+//					PerformerLocator.UploadBtn().click();
+//					Thread.sleep(3000);
+//
+//					Thread.sleep(2000);
+//					String msg2 = PerformerLocator.clickMsg().getText();
+//	 			
+//					if (msg2.equalsIgnoreCase("File Uploaded Successfully.")) {
+//						test.log(LogStatus.PASS, "Upload button is working fine");
+//						Thread.sleep(2000);
+//						test.log(LogStatus.PASS, "File Uploaded successfully");
+//						Thread.sleep(3500);
+//						test.log(LogStatus.PASS, "On uploading file success message popup displayed");
+//						test.log(LogStatus.PASS, "Message displayed = " + msg2);
+//					} else {
+//						test.log(LogStatus.FAIL, "Success message is not displayed properly");
+//						test.log(LogStatus.FAIL, "Message displayed = " + msg2);
+//					}
+//					Thread.sleep(1000);
+//					PerformerLocator.clickOkBtn().click();
+//				
+				
+	  
+	}
+	
+	public static void  uploadPremises( ExtentTest test) throws Exception
+	{		
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(3000);
+	    
+		Thread.sleep(5000);Thread.sleep(5000);Thread.sleep(5000);
+	  	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='User']")));	//Wait until records table get visible.
+
+		Locators.Searchentities().sendKeys("TESTAUTO3"); // Writing Task title
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+		Thread.sleep(3000);
+		
+				
+				Thread.sleep(3000);
+                Locators.clickPremisesArrow().click();
+				Thread.sleep(3000);
+				Locators.OnboardEntity().click();
+				Thread.sleep(8000);
+				WebElement clickUpload = getDriver().findElement(By.xpath("//button[@title='Upload']"));
+				clickUpload.click();
+				Thread.sleep(3000);
+				
+				String uploadPopup = getDriver().findElement(By.xpath("//span[@title='Premise Bulk Upload']")).getText();
+				if(uploadPopup.equals("Premise Bulk Upload")) {
+					test.log(LogStatus.PASS, "Upload button is working fine");
+					test.log(LogStatus.PASS, "on clicking to upload button popup displayed : " + uploadPopup);
+				}else {
+					test.log(LogStatus.FAIL, "Upload button is not working fine");
+					test.log(LogStatus.FAIL, "on clicking to upload button popup displayed : " + uploadPopup);
+				}
+				Thread.sleep(3000);
+				
+				
+				WebElement checkBoxAll = getDriver().findElement(By.xpath("//input[@type='checkbox']"));
+				checkBoxAll.click();
+				Thread.sleep(2000);
+				test.log(LogStatus.PASS, "All check box is selected");
+				OneCommonMethod.validateFileDownloadDynamic(driver.get(),test,Locators.UpoadBranchSam(), 
+					    "On selecting all check box template is downloaded" );
+				Thread.sleep(8000);
+				if(Locators.Reset().isDisplayed()) {
+					Locators.Reset().click();
+					test.log(LogStatus.PASS, "Reset button is working fine");
+				}else {
+					test.log(LogStatus.FAIL, "Reset button is not working properly");
+				}
+				
+				
+				WebElement checkBoxSingle = getDriver().findElement(By.xpath("(//input[@type='checkbox'])[3]"));
+				checkBoxSingle.click();
+				Thread.sleep(2000);
+				test.log(LogStatus.PASS, "Single check box is selected");
+				OneCommonMethod.validateFileDownloadDynamic(driver.get(),test,Locators.UpoadBranchSam(), 
+					    "On selecting single check box template is downloaded" );
+				Thread.sleep(8000);
+				
+				
+				
+				
+				//----Error message----
+	 		    Thread.sleep(5000);
+	 			PerformerLocator.Uplaodclick().click();
+	 			Thread.sleep(5000);
+	 			String msg=	PerformerLocator.clickMsg().getText();
+	 			
+	 			 if(msg.equalsIgnoreCase("You have not chosen any file."))
+	 			 {
+	 				test.log(LogStatus.PASS, "Without uploading file error message popup displayed");
+	 				test.log(LogStatus.PASS, "Message displayed = "+msg); 
+	 			 }
+	 			 else{
+	 			     test.log(LogStatus.FAIL, "Without uploading file error message popup displayed");
+	 				 test.log(LogStatus.FAIL, "Message displayed = "+msg);
+	 			 }
+	 			 Thread.sleep(4000);
+	 		     PerformerLocator.clickOkBtn().click();
+				
+				
+					Thread.sleep(5000);
+//					PerformerLocator.browse().click();
+//					Thread.sleep(3000);
+//					OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Distributor Admin\\Premises Upload.xlsx");
+//					Thread.sleep(3000);
+//					PerformerLocator.UploadBtn().click();
+//					Thread.sleep(3000);
+//
+//					Thread.sleep(2000);
+//					String msg2 = PerformerLocator.clickMsg().getText();
+//	 			
+//					if (msg2.equalsIgnoreCase("File Uploaded Successfully.")) {
+//						test.log(LogStatus.PASS, "Upload button is working fine");
+//						Thread.sleep(2000);
+//						test.log(LogStatus.PASS, "File Uploaded successfully");
+//						Thread.sleep(3500);
+//						test.log(LogStatus.PASS, "On uploading file success message popup displayed");
+//						test.log(LogStatus.PASS, "Message displayed = " + msg2);
+//					} else {
+//						test.log(LogStatus.FAIL, "Success message is not displayed properly");
+//						test.log(LogStatus.FAIL, "Message displayed = " + msg2);
+//					}
+//					Thread.sleep(1000);
+//					PerformerLocator.clickOkBtn().click();
+//				
+				
+	  
+	}
 	
 	public static void  Premises_AddressMapping( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		Thread.sleep(5000);Thread.sleep(5000);Thread.sleep(5000);
@@ -2901,14 +3183,14 @@ Locators.CheckBox().click();
 	
 	public static void  EditPremises( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		Thread.sleep(5000);Thread.sleep(5000);Thread.sleep(5000);
 	  	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='User']")));	//Wait until records table get visible.
 
-//		Locators.Searchentities().sendKeys("TESTAUTO3"); // Writing Task title
+
 	  	OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 		Thread.sleep(3000);
 		
@@ -2948,18 +3230,98 @@ Locators.CheckBox().click();
         			 test.log(LogStatus.FAIL, "Message displayed : " + txt);
         			
         		}
-                
-                
-                
-	  	
+        		Thread.sleep(3000);
+        		
 	  
 	}
+	
+	public static void  deletePremises( ExtentTest test) throws InterruptedException, IOException
+	{
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(3000);
+	    
+		Thread.sleep(5000);Thread.sleep(5000);Thread.sleep(5000);
+	  	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='User']")));	//Wait until records table get visible.
+
+
+	  	OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+		Thread.sleep(3000);
+		
+				
+				Thread.sleep(3000);
+                 Locators.clickPremisesArrow().click();
+				Thread.sleep(3000);
+				Locators.OnboardEntity().click();
+				Thread.sleep(8000);
+				
+	    		
+        		//-----Delete Button-----
+//        		PerformerLocator.clickOkBtn().click();
+				WebElement Tringle = getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-right k-treelist-toggle k-svg-icon k-icon']"));
+        		Thread.sleep(5000);
+//				Locators.OnboardEntity().click();
+				Thread.sleep(7000);
+				Tringle.click();
+                Thread.sleep(4000);
+                WebElement Tringle2 = getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-right k-treelist-toggle k-svg-icon k-icon']"));
+                Thread.sleep(4000);
+                Tringle2.click();
+                Thread.sleep(4000);
+        		
+        		
+        		WebElement deleteBtn = getDriver().findElement(By.xpath("(//img[@title='Delete'])[2]"));
+                if(deleteBtn.isDisplayed()) {
+                	deleteBtn.click();
+                	test.log(LogStatus.PASS, "Delete button is working fine");
+                	Thread.sleep(3000);
+					String deleteTxt = DistributerLocators.MessageText().getText();
+
+					if (deleteTxt.equalsIgnoreCase("Are you sure you want to delete this branch?")) {
+						test.log(LogStatus.PASS, "On clicking to delete button message conformation message displayed");
+						Thread.sleep(3000);
+						test.log(LogStatus.PASS, "Message Displayed : " + deleteTxt); 
+						Locators.DeleteCan().click();
+						Thread.sleep(3000);
+						test.log(LogStatus.PASS, "On clicking to Cancel button message popup is removed");
+						Thread.sleep(3000);
+					}else {
+						test.log(LogStatus.FAIL, "On clicking to delete button message conformation message displayed wrong");
+						Thread.sleep(3000);
+						test.log(LogStatus.FAIL, "Message Displayed : " + deleteTxt); 
+					}
+					
+                	
+                }else {
+                	test.log(LogStatus.FAIL, "Delete button is not working properly");
+                }
+                
+                
+                
+                
+                Thread.sleep(5000);
+//                deleteBtn.click();
+                WebElement deleteBtn2 = getDriver().findElement(By.xpath("(//img[@title='Delete'])[2]"));
+                deleteBtn2.click();
+                Thread.sleep(5000);
+                PerformerLocator.clickOkBtn().click();
+                Thread.sleep(5000);
+                String successMess = DistributerLocators.MessageText().getText();
+                if (successMess.equalsIgnoreCase("Branch Inactivated successfully")) {
+					test.log(LogStatus.PASS, "Delete Confirmation OK button is working fine");
+					Thread.sleep(3000);
+					test.log(LogStatus.PASS, "On clicking to OK button success message displayed");
+					test.log(LogStatus.PASS, "Message Displayed : " + successMess); 
+                }
+		
+	}
+	
+
 	
 	
 	public static void UploadBranch ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -3054,7 +3416,7 @@ Locators.CheckBox().click();
 	public static boolean UploadBranchInvalid ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -3148,7 +3510,7 @@ Locators.CheckBox().click();
 	public static void UploadBranchCheck ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -3225,7 +3587,7 @@ Locators.UpoadBranchSam().click();
 	public static void UploadInvalidCheck ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(10000);
 	    
 		
@@ -3242,11 +3604,11 @@ Locators.UpoadBranchSam().click();
 
 
 				//Correct Entity Verification
-                OneCommonMethod.verifyTestEntity(
-	            driver.get(), test,
-	            By.xpath("//span[normalize-space()='Test Automation 3[TESTAUTO3]']"),
-	            "Test Automation 3[TESTAUTO3]"
-	             );
+//                OneCommonMethod.verifyTestEntity(
+//	            driver.get(), test,
+//	            By.xpath("//span[normalize-space()='Test Automation 3[TESTAUTO3]']"),
+//	            "Test Automation 3[TESTAUTO3]"
+//	             );
 
 
 
@@ -3320,7 +3682,7 @@ Locators.UpoadBranchSam().click();
 	public static void UploadBranchCheckEmpty ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(10000);
 	    
 		
@@ -3335,11 +3697,11 @@ Locators.UpoadBranchSam().click();
                  Locators.clickPremisesArrow().click();
                  
          		//Correct Entity Verification
-                 OneCommonMethod.verifyTestEntity(
-                 driver.get(), test,
-                 By.xpath("//span[normalize-space()='Test Automation 3[TESTAUTO3]']"),
-                 "Test Automation 3[TESTAUTO3]"
-                  );
+//                 OneCommonMethod.verifyTestEntity(
+//                 driver.get(), test,
+//                 By.xpath("//span[normalize-space()='Test Automation 3[TESTAUTO3]']"),
+//                 "Test Automation 3[TESTAUTO3]"
+//                  );
                  
                  
 				Thread.sleep(4000);
@@ -3407,7 +3769,7 @@ Locators.UpoadBranchSam().click();
 	public static void UploadBranchEmpty ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -3485,7 +3847,7 @@ Locators.UpoadBranchSam().click();
 	public static void UploadBranchInvalidTemp ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(10000);
 	    
 		
@@ -3499,11 +3861,11 @@ Locators.UpoadBranchSam().click();
                  Locators.clickPremisesArrow().click();
                  
                //Correct Entity Verification
-                 OneCommonMethod.verifyTestEntity(
-                 driver.get(), test,
-                 By.xpath("//span[normalize-space()='Test Automation 3[TESTAUTO3]']"),
-                 "Test Automation 3[TESTAUTO3]"
-                  );
+//                 OneCommonMethod.verifyTestEntity(
+//                 driver.get(), test,
+//                 By.xpath("//span[normalize-space()='Test Automation 3[TESTAUTO3]']"),
+//                 "Test Automation 3[TESTAUTO3]"
+//                  );
 				Thread.sleep(3000);
 				Locators.OnboardEntity().click();
 				Thread.sleep(8000);
@@ -3571,7 +3933,7 @@ Locators.UpoadBranchSam().click();
 	public static void UploadBranchCheckInvalidTemp ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -3652,7 +4014,7 @@ Locators.UpoadBranchSam().click();
 	public static void UploadBranchInvalidFormate ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -3730,7 +4092,7 @@ Locators.UpoadBranchSam().click();
 	public static void UploadBranchCheckInvalidFormate ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -3811,7 +4173,7 @@ Locators.UpoadBranchSam().click();
 	public static void Upload( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -3852,7 +4214,7 @@ Locators.UpoadBranchSam().click();
 	public static void UploadCheck( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -3896,7 +4258,7 @@ Locators.UpoadBranchSam().click();
 	public static void UploadAddMapping ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -3943,7 +4305,7 @@ Locators.UpoadBranchSam().click();
 	public static void MUploadAddMapping ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -3986,7 +4348,7 @@ Locators.UpoadBranchSam().click();
 	public static void UploadAddressMap ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -4068,7 +4430,7 @@ Locators.UpoadBranchSam().click();
 	public static void UploadAddressMapEmpty ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -4150,7 +4512,7 @@ Locators.UpoadBranchSam().click();
 	public static boolean UploadAddInvalid ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -4251,7 +4613,7 @@ Locators.UpoadBranchSam().click();
 	public static void UploadAddInvalidTemp ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -4327,7 +4689,7 @@ Locators.UploadAddressMapping().click();
 	public static void UploadAddInvalidFormate ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -4406,7 +4768,7 @@ Locators.UploadAddressMapping().click();
 	public static void UploadADD( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -4450,7 +4812,7 @@ Locators.UploadAddressMapping().click();
 	public static void branchDelete( ExtentTest test) throws InterruptedException, IOException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -4512,7 +4874,7 @@ Locators.UploadAddressMapping().click();
 	public static void BDeleteCancel( ExtentTest test) throws InterruptedException, IOException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -4573,7 +4935,7 @@ Locators.UploadAddressMapping().click();
 	public static void AllCheckBox( ExtentTest test) throws InterruptedException, IOException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -4614,7 +4976,7 @@ Locators.UploadAddressMapping().click();
 	public static void SearchBranch ( ExtentTest test) throws InterruptedException, IOException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -4668,7 +5030,7 @@ Locators.UploadAddressMapping().click();
 	public static void PayCodeAddNew ( ExtentTest test) throws InterruptedException, IOException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -4751,14 +5113,13 @@ Locators.UploadAddressMapping().click();
 	
 	public static void PayCodeAddNewError ( ExtentTest test, String user) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
-	  	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='User']")));	//Wait until records table get visible.
-	  	Thread.sleep(5000);Thread.sleep(5000);Thread.sleep(5000);
-	  	Locators.Searchentities().sendKeys("AVACORED5"); // Writing Task title
+	  	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='User']")));
+	  	Thread.sleep(5000);
+	  	OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 		Thread.sleep(3000);
 		
 				
@@ -4879,16 +5240,16 @@ Locators.UploadAddressMapping().click();
 	
 	public static void OnboardEntityPaycodeSearchDropdown ( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
-		Thread.sleep(3000);
-	    
 		
-	  	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='User']")));	//Wait until records table get visible.
+			WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+			Thread.sleep(3000);
 
-	  	Thread.sleep(3000);Thread.sleep(3000);Thread.sleep(3000);
-	  	Locators.Searchentities().sendKeys("AVACORED5"); // Writing Task title
-		Thread.sleep(3000);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='User']")));
+
+			Thread.sleep(3000);
+			Locators.Searchentities().sendKeys("AVACORED5"); // Writing Task title
+			OneCommonMethod.searchEntityAndSelect(driver.get(), test, LoginLocators.Search(), "TESTAUTO3");
+			Thread.sleep(3000);
 		
 				
 				Thread.sleep(3000);
@@ -4925,7 +5286,7 @@ Locators.UploadAddressMapping().click();
 	public static void PayCodeAddNewInvalid ( ExtentTest test) throws InterruptedException, IOException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -5007,16 +5368,11 @@ Locators.UploadAddressMapping().click();
 	
 	public static void PayCodeEdit ( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
-		Thread.sleep(3000);
-	    
-		
-	  	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='User']")));	//Wait until records table get visible.
-	  	Thread.sleep(3000);Thread.sleep(5000);Thread.sleep(5000);
-	  	Locators.Searchentities().sendKeys("AVACORED5"); // Writing Task title
-		Thread.sleep(5000);
-		
+				WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+				Thread.sleep(3000);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='User']")));
+				Thread.sleep(3000);
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 				
 				Thread.sleep(3000);
                  Locators.clickPremisesArrow().click();
@@ -5106,13 +5462,14 @@ Locators.UploadAddressMapping().click();
 	public static void PayCodeUploadSampleFile ( ExtentTest test) throws InterruptedException, IOException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
 	  	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='User']")));	//Wait until records table get visible.
-	  	Thread.sleep(3000);Thread.sleep(5000);Thread.sleep(5000);
+	  	Thread.sleep(3000);
 	  	Locators.Searchentities().sendKeys("AVACORED5"); // Writing Task title
+	  	OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 		Thread.sleep(5000);
 		
 				
@@ -5150,7 +5507,7 @@ Locators.UploadAddressMapping().click();
 	public static void PayCodeUploadCheck ( ExtentTest test) throws Exception
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -5200,7 +5557,7 @@ Locators.UploadAddressMapping().click();
 	public static void UploadPaycode ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -5296,7 +5653,7 @@ Locators.UploadAddressMapping().click();
 	public static boolean UploadPaycodeInvalid ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -5396,7 +5753,7 @@ Locators.SamplePaycod().click();
 	public static void UploadPaycodeEmpty ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -5474,7 +5831,7 @@ Locators.SamplePaycod().click();
 	public static void SearchPaycode ( ExtentTest test) throws InterruptedException, IOException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -5520,7 +5877,7 @@ Locators.SamplePaycod().click();
 	public static void SearchPaycodeClear ( ExtentTest test) throws InterruptedException, IOException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -5569,7 +5926,7 @@ Locators.SamplePaycod().click();
 	public static void PaycodeDelete( ExtentTest test) throws InterruptedException, IOException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -5613,7 +5970,7 @@ Locators.SamplePaycod().click();
 	public static void PaycodeDeleteCancel( ExtentTest test) throws InterruptedException, IOException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -5653,7 +6010,7 @@ Locators.SamplePaycod().click();
 	public static void Mapuser ( ExtentTest test) throws InterruptedException, IOException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -5735,7 +6092,7 @@ Locators.SamplePaycod().click();
 	public static void Mapuseralready ( ExtentTest test) throws InterruptedException, IOException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -5813,7 +6170,7 @@ Locators.SamplePaycod().click();
 	public static void MapuserManagement ( ExtentTest test) throws InterruptedException, IOException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -5890,7 +6247,7 @@ Locators.SamplePaycod().click();
 	public static void MapuserManagementAlredy ( ExtentTest test) throws InterruptedException, IOException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -5968,7 +6325,7 @@ Locators.SamplePaycod().click();
 	public static void UserMapDelete( ExtentTest test) throws InterruptedException, IOException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -6011,7 +6368,7 @@ Locators.SamplePaycod().click();
 	public static void UserMapFilter( ExtentTest test) throws InterruptedException, IOException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -6162,7 +6519,7 @@ Locators.SamplePaycod().click();
 	public static void UserMapFilterClear( ExtentTest test) throws InterruptedException, IOException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -6227,7 +6584,7 @@ Locators.SamplePaycod().click();
 	public static void MapuserDeleteCancel( ExtentTest test) throws InterruptedException, IOException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -6265,7 +6622,7 @@ Locators.SamplePaycod().click();
 	public static void Exportleavetype( ExtentTest test) throws InterruptedException, IOException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -6386,7 +6743,7 @@ Locators.SamplePaycod().click();
 	public static void Searchleave ( ExtentTest test) throws InterruptedException, IOException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -6426,7 +6783,7 @@ Locators.SamplePaycod().click();
 	public static void SearchleaveClear ( ExtentTest test) throws InterruptedException, IOException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -6468,7 +6825,7 @@ Locators.SamplePaycod().click();
 	public static void PayCodeAddNewMM ( ExtentTest test) throws InterruptedException, IOException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -6552,7 +6909,7 @@ Locators.SamplePaycod().click();
 	public static void PayCodeAddNewInvalidMM ( ExtentTest test) throws InterruptedException, IOException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -6636,7 +6993,7 @@ Locators.SamplePaycod().click();
 	public static void PayCodeEditMM ( ExtentTest test) throws InterruptedException, IOException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -6694,7 +7051,7 @@ Locators.SamplePaycod().click();
 	public static void UploadPaycodeMM ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -6786,7 +7143,7 @@ Locators.SamplePaycod().click();
 	public static boolean UploadPaycodeInvalidMM ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -6886,7 +7243,7 @@ Locators.SamplePaycod().click();
 	public static void UploadPaycodeEmptyMM ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -6964,7 +7321,7 @@ Locators.SamplePaycod().click();
 	public static void UploadPaycodeforMM ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -7038,7 +7395,7 @@ Locators.SamplePaycod().click();
 	public static void UploadPaycodeNoMM ( ExtentTest test) throws InterruptedException, IOException, AWTException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -7081,7 +7438,7 @@ Locators.SamplePaycod().click();
 	public static void SearchPaycodeMM ( ExtentTest test) throws InterruptedException, IOException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -7124,7 +7481,7 @@ Locators.SamplePaycod().click();
 	public static void SearchPaycodeClearMM ( ExtentTest test) throws InterruptedException, IOException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -7170,7 +7527,7 @@ Locators.SamplePaycod().click();
 	public static void PaycodeDeleteCancelMM( ExtentTest test) throws InterruptedException, IOException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -7210,7 +7567,7 @@ Locators.SamplePaycod().click();
 	public static void PaycodeDeleteMM( ExtentTest test) throws InterruptedException, IOException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -7254,7 +7611,7 @@ Locators.SamplePaycod().click();
 	public static void ExportSM( ExtentTest test, String type) throws InterruptedException, IOException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -7388,7 +7745,7 @@ Locators.SamplePaycod().click();
 	public static void SearchSMMM ( ExtentTest test) throws InterruptedException, IOException
 	{		
 		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
@@ -7437,8 +7794,7 @@ Locators.SamplePaycod().click();
 	
 	public static void SearchSMClear ( ExtentTest test) throws InterruptedException, IOException
 	{		
-		Actions action = new Actions(getDriver());
-		WebDriverWait wait = new WebDriverWait( getDriver(), (40));
+
 		Thread.sleep(3000);
 	    
 		

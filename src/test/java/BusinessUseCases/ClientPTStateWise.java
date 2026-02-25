@@ -24,7 +24,9 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import appScriptTest.SheetReporter2;
 import clientPortal.All_ClientPortal_Methods;
+import coordinator.CoordinatorMethod;
 import distributor.MethodsD;
 import formsCalculations.EPF_ConsolatedMethods;
 import formsCalculations.PT_Me;
@@ -97,7 +99,37 @@ public class ClientPTStateWise extends BasePage {
 
 	}
 	
+	@Test(priority = 1) // NEW TC
+   	void CoordinatorLogo() throws InterruptedException, IOException
+   	{
+   	    
+   		test = extent.startTest("Verify the TeamLease RegTech logos are displayed after SME login");
+   		CoordinatorMethod.CoordinatorLogo(test);
+   		
+   		
+   		extent.endTest(test);
+   		extent.flush();
+   	}
 	
+	@Test(priority = 1) // NEW TC
+   	void CoordinatorLogo2() throws InterruptedException, IOException
+   	{
+   	    
+   		test = extent.startTest("Verify the TeamLease RegTech logos are displayed after SME login");
+   		CoordinatorMethod.CoordinatorLogo(test);
+   		
+   		SheetReporter2.ReportResult r = SheetReporter2.reportFormRun("Client PT State KAR");
+   		System.out.println("Sheet update -> " + r);
+//   		SheetReporter2.reportFormRun("Client PT State KAR");
+   		
+   		extent.endTest(test);
+   		extent.flush();
+   	}
+	
+	
+	
+	
+	//----------------
 	
 	
 	@Test(priority = 1) 
@@ -105,6 +137,12 @@ public class ClientPTStateWise extends BasePage {
 	{
 		test = extent.startTest("PT Challan - ANP - Validate Employee IDs are reflecting correctly");
 		PT_Me.Challan_PT_ANP_EmployeeID(test, "");
+	    
+
+	    // 1
+	    test = extent.startTest("PT Challan - ANP - Validate Employee IDs are reflecting correctly");
+
+		
 		
 		extent.endTest(test);
 		extent.flush();
@@ -159,7 +197,7 @@ public class ClientPTStateWise extends BasePage {
 		extent.flush();
 	}
 	
-	
+	/*
 	
 	@Test(priority = 8) 
 	void Challan_PT_BHR_EmployeeID() throws InterruptedException, IOException, AWTException
@@ -1009,9 +1047,1460 @@ public class ClientPTStateWise extends BasePage {
 	
 	
 	
+	*/
 	
-	
-	
+	@Test(priority = 1) 
+	void Challan_PT_ANP_EmployeeIDa() throws InterruptedException, IOException, AWTException
+	{
+		
+		test = extent.startTest("PT Challan - ANP - Validate Employee IDs are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeID(test, "");
+		
+		
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		
+		
+		
+		//---------------------------------
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, ""); 		extent.endTest(test);
+		extent.flush();
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		extent.endTest(test);
+		extent.flush();
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		extent.endTest(test);
+		extent.flush();
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		extent.endTest(test);
+		extent.flush();
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		extent.endTest(test);
+		extent.flush();
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		extent.endTest(test);
+		extent.flush();
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		extent.endTest(test);
+		extent.flush();
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		extent.endTest(test);
+		extent.flush();
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		
+		extent.endTest(test);
+		extent.flush();
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		extent.endTest(test);
+		extent.flush();
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		extent.endTest(test);
+		extent.flush();
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		extent.endTest(test);
+		extent.flush();
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		extent.endTest(test);
+		extent.flush();
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		extent.endTest(test);
+		extent.flush();
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		extent.endTest(test);
+		extent.flush();
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");		extent.endTest(test);
+		extent.flush();
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		extent.endTest(test);
+		extent.flush();
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		extent.endTest(test);
+		extent.flush();
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		extent.endTest(test);
+		extent.flush();
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		extent.endTest(test);
+		extent.flush();
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		extent.endTest(test);
+		extent.flush();
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		extent.endTest(test);
+		extent.flush();
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		extent.endTest(test);
+		extent.flush();
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		//2
+		test = extent.startTest("PT Challan - ANP - Validate 'Employee Names' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_EmployeeName(test, "");
+		
+		//3
+		test = extent.startTest("PT Challan - ANP - Validate 'Genders' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_Gender(test, "");
+		
+		//4 PT state (Pending)
+		test = extent.startTest("PT Challan - ANP - Validate 'PT State' are reflecting correctly");
+		PT_Methods.Challan_PT_ANP_PTState(test, "");
+		
+		extent.endTest(test);
+		extent.flush();
+		
+	}
 	
 	
 	

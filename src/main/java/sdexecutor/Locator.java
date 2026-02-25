@@ -165,7 +165,7 @@ public class Locator extends BasePage
 	}
 	public static WebElement ExistingLicesneDetailes()		//Method for searching Username input
 	{
-		labour = getDriver().findElement(By.xpath("//*[@class='k-window-title k-dialog-title']"));
+		labour = getDriver().findElement(By.xpath("//span[contains (text(), 'Existing License Details')]"));
 		return labour;
 	}
 	public static WebElement ExistingLicesneInitiateAction()		//Method for searching Username input
@@ -331,6 +331,129 @@ public class Locator extends BasePage
 	public static WebElement UploadedFinalRCLicense()
 	{
 		labour = getDriver().findElement(By.xpath("(//img[@src='../assets/vectors/NoAccessDownload.svg'])[3]"));
+		return labour;
+	}
+	
+	
+	
+	//----------------Swapnil-----------
+	public static WebElement StatutoryDocumentButton()
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='Statutory Documents']"));
+		return labour;
+	}
+	
+	public static WebElement ClientDropdown()
+	{
+		labour = getDriver().findElement(By.xpath("(//span[contains(text(),'Select Client')])"));
+		return labour;
+	}
+	
+	public static WebElement SelectedClient()
+	{
+		labour = getDriver().findElement(By.xpath("(//span[contains(text(),'Test Automation 2 [TESTAUTO2]')])[1]"));
+		return labour;
+	}
+	
+	public static WebElement ComplianceDropdown()
+	{
+		labour = getDriver().findElement(By.xpath("//span[contains(text(),'Compliance')]"));
+		return labour;
+	}
+	
+	public static WebElement SelectedComplianceType()
+	{
+		labour = getDriver().findElement(By.xpath("//span[contains(text(),'Register')]"));
+		return labour;
+	}
+	
+	public static WebElement ActDropdown()
+	{
+		labour = getDriver().findElement(By.xpath("//span[contains(text(),'Select Act')]"));
+		return labour;
+	}
+	
+	public static WebElement SelectedAct()
+	{
+		labour = getDriver().findElement(By.xpath("//span[contains(text(),'Shops and Establishment and Allied Acts')]"));
+		return labour;
+	}
+	
+	public static WebElement YearDropdown()
+	{
+		labour = getDriver().findElement(By.xpath("//span[@class='k-input-value-text'][normalize-space()='Year']"));
+		return labour;
+	}
+	
+	public static WebElement SelectedYear()
+	{
+		labour = getDriver().findElement(By.xpath("//span[contains(text(),'2025')]"));
+		return labour;
+	}
+	
+	public static WebElement PeriodDropdown()
+	{
+		labour = getDriver().findElement(By.xpath("//span[contains(text(),'Period')]"));
+		return labour;
+	}
+	
+	public static WebElement SelectedPeriod()
+	{
+		labour = getDriver().findElement(By.xpath("//span[contains(text(),'January')]"));
+		return labour;
+	}
+	
+	public static WebElement ApplyButon()
+	{
+		labour = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/ApplyFilter.svg']"));
+		return labour;
+	}
+	
+	public static WebElement ClearButon()
+	{
+		labour = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/ClearFilter.svg']"));
+		return labour;
+	}
+	
+	public static WebElement CheckBoxAll()
+	{
+		labour = getDriver().findElement(By.xpath("//input[@class='ng-untouched ng-pristine ng-valid']"));
+		return labour;
+	}
+	
+	public static WebElement BulkDownload()
+	{
+		labour = getDriver().findElement(By.xpath("//button[normalize-space()='Download']"));
+		return labour;
+	}
+	
+	public static WebElement SingleDownload()
+	{
+		labour = getDriver().findElement(By.xpath("(//img[@title='Download'])[1]"));
+		return labour;
+	}
+	
+	public static WebElement ViewFirst()
+	{
+		labour = getDriver().findElement(By.xpath("//img[@title='View']"));//tr[@class='k-master-row k-table-row ng-star-inserted']
+		return labour;
+	}
+	
+	public static WebElement ViewSecond()
+	{
+		labour = getDriver().findElement(By.xpath("//tbody/tr[1]/td[2]/div[1]/button[1]/img[1]"));
+		return labour;
+	}
+
+	public static WebElement ViewMainPopUpClose()
+	{
+		labour = getDriver().findElement(By.cssSelector("button[title='Close']"));
+		return labour;
+	}
+	
+	public static WebElement ViewSecondPopUpClose()
+	{
+		labour = getDriver().findElement(By.xpath("(//button[@title='Close'])[2]"));
 		return labour;
 	}
 

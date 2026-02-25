@@ -1,7 +1,11 @@
 package reviewer;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import login.BasePage;
 
@@ -44,11 +48,25 @@ public class ReviwerLocator extends BasePage
 		
 		return labour;
 	}
-	public static WebElement selectComplianceType()		//Method for searching Username input
+	public static WebElement selectComplianceType()	
 	{
 		labour = getDriver().findElement(By.xpath("//*[@class='k-list-ul']/li"));
 		return labour;
 	}
+	
+	public static WebElement selectActType(String text)
+	{
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+	    WebElement element = wait.until(
+	        ExpectedConditions.visibilityOfElementLocated(
+	            By.xpath("//span[normalize-space()='" + text + "']")));
+	    return element;
+	}
+
+
+
+
+
 	public static WebElement selectYear2024()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//span[normalize-space()='2024']"));
@@ -149,9 +167,29 @@ public class ReviwerLocator extends BasePage
 		labour = getDriver().findElement(By.xpath("(//img[@title='Download'])[2]"));
 		return labour;
 	}
-	public static WebElement clickDownloadDocument()		//Method for searching Username input
+	public static WebElement clickDownloadDocument()
 	{
 		labour = getDriver().findElement(By.xpath("//img[@alt='Download Document']"));
+		return labour;
+	}
+	public static WebElement clickDownloadDocument5()
+	{
+		labour = getDriver().findElement(By.xpath("(//img[@alt='Download Document'])[5]"));
+		return labour;
+	}
+	public static WebElement PTConsolidatedWorkings()
+	{
+		labour = getDriver().findElement(By.xpath("//button[normalize-space()='PT Consolidated Workings']"));
+		return labour;
+	}
+	public static WebElement ESIConsolidatedWorkings()
+	{
+		labour = getDriver().findElement(By.xpath("//button[normalize-space()='ESIC Consolidated Workings']"));
+		return labour;
+	}
+	public static WebElement EPFConsolidatedWorkings()
+	{
+		labour = getDriver().findElement(By.xpath("//button[normalize-space()='EPF Consolidated Workings']"));
 		return labour;
 	}
 	public static WebElement clickDownload2()		//Method for searching Username input
@@ -179,9 +217,19 @@ public class ReviwerLocator extends BasePage
 		labour = getDriver().findElement(By.xpath("//img[@alt='View Document']"));
 		return labour;
 	}
+	public static WebElement viewDocument5()	
+	{
+		labour = getDriver().findElement(By.xpath("(//img[@alt='View Document'])[5]"));
+		return labour;
+	}
 	public static WebElement documentView()	
 	{
 		labour = getDriver().findElement(By.xpath("//span[normalize-space()='Document Viewer']"));
+		return labour;
+	}
+	public static WebElement branchesView()	
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='Branches']"));
 		return labour;
 	}
 	public static WebElement clickview1()		//Method for searching Username input
@@ -244,7 +292,13 @@ public class ReviwerLocator extends BasePage
 	}
 	public static WebElement clickcheckbox()		//Method for searching Username input
 	{
-		labour = getDriver().findElement(By.xpath("(//input[@type='checkbox'])"));
+		labour = getDriver().findElement(By.xpath("(//input[@type='checkbox'])[4]"));
+		
+		return labour;
+	}
+	public static WebElement clickcheckboxTest()//This is for sheetChecking
+	{
+		labour = getDriver().findElement(By.xpath("(//input[@type='checkbox'])[3]"));
 		
 		return labour;
 	}

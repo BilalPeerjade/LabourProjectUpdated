@@ -23,7 +23,7 @@ public class All_ClientPortal_Locators extends BasePage {
 	
 	public static WebElement SelectEntity( )		//Method for closing Message Popup
 	{
-		clients = getDriver().findElement(By.xpath("//span[@class='k-input-inner k-readonly']"));
+		clients = getDriver().findElement(By.xpath("//span[contains(text(),'Compliance process private limited')]"));
 		return clients;
 	}
 	
@@ -41,7 +41,7 @@ public class All_ClientPortal_Locators extends BasePage {
 	
 	public static WebElement EntityTri2( )		//Method for closing Message Popup
 	{
-		clients = getDriver().findElement(By.xpath("(//*[@class='k-svg-i-caret-alt-right k-svg-icon k-icon ng-star-inserted'])[4]"));
+		clients = getDriver().findElement(By.xpath("(//*[@class='k-svg-i-caret-alt-right k-svg-icon k-icon ng-star-inserted'])[2]"));
 		return clients;
 	}
 	
@@ -72,7 +72,7 @@ public class All_ClientPortal_Locators extends BasePage {
 	
 	public static WebElement SelectYear( )		//Method for closing Message Popup
 	{
-		clients = getDriver().findElement(By.xpath("(//span[@class='k-input-value-text'][normalize-space()='2025'])[1]"));
+		clients = getDriver().findElement(By.xpath("(//span[@class='k-input-value-text'][normalize-space()='2026'])[1]"));
 		return clients;
 	}
 	
@@ -138,7 +138,7 @@ public class All_ClientPortal_Locators extends BasePage {
 		return clients;
 	}
 	
-	public static WebElement Search( )		//Method for closing Message Popup
+	public static WebElement Search( )
 	{
 		clients = getDriver().findElement(By.xpath("//input[@placeholder='Type to Search']"));
 		return clients;
@@ -231,7 +231,7 @@ public class All_ClientPortal_Locators extends BasePage {
 		return clients;
 	}
 	
-	public static WebElement OpenNotices( )		//Method for closing Message Popup
+	public static WebElement OpenNotices( )		
 	{
 		clients = getDriver().findElement(By.xpath("(//div[@class='min-card-count-red'])[2]"));
 		return clients;
@@ -470,19 +470,19 @@ public class All_ClientPortal_Locators extends BasePage {
 	
 	public static WebElement Expired( )		
 	{
-		clients = getDriver().findElement(By.xpath("(//*[name()='g'])[19]"));
+		clients = getDriver().findElement(By.xpath("(//*[name()='g'])[20]"));// (//*[name()='g'])[19]
 		return clients;
 	}
 	
 	public static WebElement ActiveCol( )		
 	{
-		clients = getDriver().findElement(By.xpath("(//div[@class='cell-content total-click ng-star-inserted'])"));
+		clients = getDriver().findElement(By.xpath("(//div[@class='cell-content total-click pointer-cursor ng-star-inserted'])"));
 		return clients;
 	}
 	
 	public static WebElement ExpiredCol( )		
 	{
-		clients = getDriver().findElement(By.xpath("(//div[@class='cell-content total-click ng-star-inserted'])[2]"));
+		clients = getDriver().findElement(By.xpath("(//div[@class='cell-content total-click pointer-cursor ng-star-inserted'])[3]"));
 		return clients;
 	}
 	
@@ -629,7 +629,7 @@ public class All_ClientPortal_Locators extends BasePage {
 	
 	public static WebElement Open( )		
 	{
-		clients = getDriver().findElement(By.xpath("(//*[name()='g'])[30]"));
+		clients = getDriver().findElement(By.xpath("(//*[contains(text(), 'Open')])[2]"));//  (//*[name()='g'])[32]
 		return clients;
 	}
 	
@@ -641,7 +641,7 @@ public class All_ClientPortal_Locators extends BasePage {
 	
 	public static WebElement Closed( )		
 	{
-		clients = getDriver().findElement(By.xpath("(//*[name()='g'])[31]"));
+		clients = getDriver().findElement(By.xpath("//*[contains(text(), 'Closed')]"));//   (//*[name()='g'])[33]
 		return clients;
 	}
 	
@@ -1723,6 +1723,11 @@ public static WebElement clickLicense()		//Method for searching Username input
 		labour = getDriver().findElement(By.xpath("//*[@class='k-list-ul']/li[3]"));
 		return labour;
 	}
+	public static WebElement selectYear_2024()		
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='2024']"));
+		return labour;
+	}
 	public static WebElement selectComplianceType2()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//span[normalize-space()='Shops and Establishment and Allied Acts']"));
@@ -1937,6 +1942,12 @@ public static WebElement clickLicense()		//Method for searching Username input
 		labour = getDriver().findElement(By.xpath("(//button[@class='figma-btn-white'])[2]"));
 		return labour;
 	}
+	
+	public static WebElement CorpExport()	
+	{
+		labour = getDriver().findElement(By.xpath("//button[@title='Corporate Export']//img"));
+		return labour;
+	}
 	public static WebElement ComplianceDropdown()	//Method for searching button for Save/Sign-in
 	{
 		labour = getDriver().findElement(By.xpath("//app-dropdown-list[@class='dropdown-setting']"));
@@ -2002,7 +2013,7 @@ public static WebElement clickLicense()		//Method for searching Username input
 	}
 	public static WebElement DownloadTwo()		//Method for searching Username input
 	{   //P17
-		labour = getDriver().findElement(By.cssSelector("tbody tr:nth-child(1) td:nth-child(10) div:nth-child(1) div:nth-child(1) button:nth-child(3) img:nth-child(1)"));
+		labour = getDriver().findElement(By.xpath("(//img[@title='Download'])[2]"));
 		return labour;
 	}
 	public static WebElement loaderPath()		
@@ -2186,7 +2197,7 @@ public static WebElement clickLicense()		//Method for searching Username input
 	}
 	public static WebElement inputperiodDrp()	
 	{
-		labour = getDriver().findElement(By.xpath("//span[contains(text(),'October')]"));
+		labour = getDriver().findElement(By.xpath("//span[contains(text(),'February') or contains (text(),'March') or contains (text(),'April')]"));
 		return labour;
 	}
 	public static WebElement inputperiodDrpSelect1()	
@@ -2201,7 +2212,7 @@ public static WebElement clickLicense()		//Method for searching Username input
 	}
 	public static WebElement inputYearDrpp()	
 	{
-		labour = getDriver().findElement(By.xpath("//span[contains(text(),'2025')]"));
+		labour = getDriver().findElement(By.xpath("//span[contains(text(),'2026')]"));
 		return labour;
 	}
 	public static WebElement inputYearDrppSelect2()	

@@ -32,11 +32,16 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
+import com.registers.helper.ExcelSheetNameBusinessValidator;
+import com.registers.helper.ExcelSheetNameBusinessValidator.ExcelExclude;
+import com.registers.helper.SheetNameValidatorDOJNumericUtil;
+import com.registers.helper.SheetNameValidatorDOJUtil;
+import com.registers.helper.SheetNameValidatorUtil;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
@@ -47,6 +52,9 @@ import login.BasePage;
 import login.LoginLocators;
 import performer.PerformerLocator;
 import rcp.OneCommonMethod;
+import reviewer.ReviewerLocators;
+import reviewer.ReviewerMethod;
+import reviewer.ReviwerLocator;
 import utils.DownloadHelper;
 import utils.ExcelExtraConfig;
 import utils.ExcelFileDetails;
@@ -86,7 +94,7 @@ public class PT_Methods extends BasePage{
 		
 
 	//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 //		if(user.equalsIgnoreCase("Performer"))
@@ -322,7 +330,7 @@ public class PT_Methods extends BasePage{
 	public static void Challan_PT_StaturyDocRedirection( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 	{
 
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 		
@@ -375,7 +383,7 @@ public class PT_Methods extends BasePage{
 	{
 
 	//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 //		if(user.equalsIgnoreCase("Performer"))
@@ -515,7 +523,7 @@ public class PT_Methods extends BasePage{
 	{
 
 	//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 //		if(user.equalsIgnoreCase("Performer"))
@@ -847,7 +855,7 @@ public class PT_Methods extends BasePage{
 	{
 
 	//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 //		if(user.equalsIgnoreCase("Performer"))
@@ -974,7 +982,7 @@ public class PT_Methods extends BasePage{
 	{
 
 	//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 //		if(user.equalsIgnoreCase("Performer"))
@@ -1117,7 +1125,7 @@ public class PT_Methods extends BasePage{
 	{
 
 	//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 //		if(user.equalsIgnoreCase("Performer"))
@@ -1265,7 +1273,7 @@ public class PT_Methods extends BasePage{
 	{
 
 	//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 //		if(user.equalsIgnoreCase("Performer"))
@@ -1630,7 +1638,7 @@ public class PT_Methods extends BasePage{
 	{
 
 	//	WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofMinutes(2)); // 2 minutes
-		WebDriverWait wait = new WebDriverWait(getDriver(), (120));
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(7000);
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
 //		if(user.equalsIgnoreCase("Performer"))
@@ -1870,13 +1878,10 @@ public class PT_Methods extends BasePage{
         
         
       
-        List<ExcelF> af = new ArrayList<>();
-        
-        af.add(new ExcelF(38, Arrays.asList("Active")));
- 
-        af.add(new ExcelF(9, Arrays.asList("ANP")));
-
-        af.add(new ExcelF(58, Arrays.asList("Yes")));
+		List<ExcelF> af = new ArrayList<>();
+		af.add(new ExcelF(38, Arrays.asList("Active")));
+		af.add(new ExcelF(9, Arrays.asList("ANP")));
+		af.add(new ExcelF(58, Arrays.asList("Yes")));
         
          
         String masterSheetName = "EmployeeMaster";
@@ -6424,7 +6429,208 @@ public class PT_Methods extends BasePage{
 	}
 	
 	
+	public static void uatAVAREGRedirection( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(5000);
+
+		if (user.equalsIgnoreCase("Performer")) {
+			OneCommonMethod.searchEntityAndSelect(driver.get(), test, LoginLocators.Search(), "DOCAUTOO4");
+			Thread.sleep(8000);
+			ReviwerLocator.clickWorkspaceArrow().click();
+		}
+		
+		
+		ReviewerMethod.statutoryDocRedirection(test, "Register", "Shops and Establishment and Allied Acts", "2025", "August");
+		Thread.sleep(9000);
+		Thread.sleep(9000);
+		
+		getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-right k-treelist-toggle k-svg-icon k-icon ng-star-inserted']")).click();
+		Thread.sleep(5000);
+		
+		
+		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
+		d1.clickDownload("Maintaining a Register of leave in Form XXV", 1);
+		
+		Thread.sleep(5000);
+        // Step 1: Manually download file
+		formLocators.downloadDocument().click();
+        Thread.sleep(10000); // wait for file to download
+
+        // Step 2: Get latest file
+        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
+        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
+        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
+        downloadedExcelFile = files[0];
+		
+		
+		
+	}
 	
+	public static void ExcelSheetNameTest( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		
+		uatAVAREGRedirection(test,"Performer");
+		
+//		String EMPLOYEE_MASTER = "C:\\Users\\bilali\\Downloads\\EmployeeMasterUAT.xlsx";
+		String EMPLOYEE_MASTER = FilePath.EMPLOYEE_MASTER;
+
+		
+		List<ExcelF> masterFilters = new ArrayList<>();
+
+		masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("I"),Arrays.asList("Andra Branch")));
+		masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AM"),Arrays.asList("Active")));
+
+		
+		ExcelFileDetails masterDetails =
+		        new ExcelFileDetails(
+		        		EMPLOYEE_MASTER, // 👈 SAME STRING
+		                "EmployeeMaster",   // sheetName (not used here)
+		                0,      // empNameColumnIndex (not used here)
+		                masterFilters,   // filters
+		                "YES"    // applyFilter
+		        );
+		
+		List<String> valuesExclude = new ArrayList<String>();
+		valuesExclude.add("SM123");
+		ExcelExclude exclude = new ExcelExclude(3,valuesExclude);
+
+		ExcelSheetNameBusinessValidator.ValidationResult result = ExcelSheetNameBusinessValidator.validateExcelBusinessData(
+		                masterDetails,
+		                downloadedExcelFile,
+		                3,      // empId column index
+		                15,      // DOJ column index
+		                masterFilters,   // masterFilters
+		                false,  // checkDOJ
+		                false,  // checkNumeric
+		                exclude,   // ExcelExclude
+		                true,  // generateHtmlReport
+		                test
+		        );
+	}
+	
+	public static void ExcelSheetNameTest2( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		
+//		uatAVAREGRedirection(test,"Performer");
+		
+//		String EMPLOYEE_MASTER = "C:\\Users\\bilali\\Downloads\\EmployeeMasterUAT.xlsx";
+		String EMPLOYEE_MASTER = FilePath.EMPLOYEE_MASTER;
+		
+		List<ExcelF> masterFilters = new ArrayList<>();
+
+//		masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("G"),Arrays.asList("ANP")));
+		masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("I"),Arrays.asList("Andra Branch")));
+		masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AM"),Arrays.asList("Active")));
+
+		
+		ExcelFileDetails masterDetails =
+		        new ExcelFileDetails(
+		        		EMPLOYEE_MASTER,   // SAME filePath String
+		                null,          // sheetName (not used)
+		                3,             // Employee ID index (as you said)
+		                masterFilters, // filters attached
+		                "Yes"             // applyFilter flag
+		        );
+		
+		boolean checkDOJ = true;
+		boolean checkNumeric = true;
+		boolean generateHtmlReport = true;
+		
+		ExcelSheetNameBusinessValidator.ValidationResult result =
+		        ExcelSheetNameBusinessValidator.validateExcelBusinessData(
+		                masterDetails,          // ExcelFileDetails (MASTER)
+		                downloadedExcelFile,    // Downloaded Excel
+		                3,                      // Employee ID column index
+		                15,                     // DOJ column index
+		                masterFilters,          // Filters
+		                checkDOJ,               // DOJ check
+		                checkNumeric,           // Numeric check
+		                null,                   // ❌ ExcelExclude (NO)
+		                generateHtmlReport,     // HTML report
+		                test                    // ExtentTest
+		        );
+		
+	}
+	
+	public static void ExcelSheetNameTest3( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		List<ExcelF> masterFilters = new ArrayList<>();
+
+		masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("I"),Arrays.asList("Andra Branch")));
+		masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AM"),Arrays.asList("Active")));
+		String EMPLOYEE_MASTER = FilePath.EMPLOYEE_MASTER;
+		
+		ExcelFileDetails masterDetails =
+		        new ExcelFileDetails(
+		        		EMPLOYEE_MASTER,   // SAME filePath String
+		                null,          // sheetName (not used)
+		                3,             // Employee ID index (as you said)
+		                masterFilters, // filters attached
+		                "Yes"             // applyFilter flag
+		        );
+		
+		SheetNameValidatorUtil.validateExcelBusinessData(masterDetails, downloadedExcelFile, 3, masterFilters, null, true, test);
+	}
+	
+	public static void ExcelSheetNameTest4( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		List<ExcelF> masterFilters = new ArrayList<>();
+
+		masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("I"),Arrays.asList("Andra Branch")));
+		masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AM"),Arrays.asList("Active")));
+		String EMPLOYEE_MASTER = FilePath.EMPLOYEE_MASTER;
+		
+		ExcelFileDetails masterDetails =
+		        new ExcelFileDetails(
+		        		EMPLOYEE_MASTER,   // SAME filePath String
+		                null,          // sheetName (not used)
+		                3,             // Employee ID index (as you said)
+		                masterFilters, // filters attached
+		                "Yes"             // applyFilter flag
+		        );
+		
+		SheetNameValidatorDOJUtil.validateSheetNamesWithDOJ(masterDetails, downloadedExcelFile, 3, 15, masterFilters, null, true, test);
+	}
+	public static void ExcelSheetNameTest5( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		List<ExcelF> masterFilters = new ArrayList<>();
+
+		masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("I"),Arrays.asList("Andra Branch")));
+		masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AM"),Arrays.asList("Active")));
+		String EMPLOYEE_MASTER = FilePath.EMPLOYEE_MASTER2;
+		
+		ExcelFileDetails masterDetails =
+		        new ExcelFileDetails(
+		        		EMPLOYEE_MASTER,   // SAME filePath String
+		                null,          // sheetName (not used)
+		                3,             // Employee ID index (as you said)
+		                masterFilters, // filters attached
+		                "Yes"             // applyFilter flag
+		        );
+		
+		SheetNameValidatorDOJUtil.validateSheetNamesWithDOJ(masterDetails, downloadedExcelFile, 3, 15, masterFilters, null, true, test);
+	}
+	
+	public static void ExcelSheetNameTest6( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		List<ExcelF> masterFilters = new ArrayList<>();
+
+		masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("I"),Arrays.asList("Andra Branch")));
+		masterFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AM"),Arrays.asList("Active")));
+		String EMPLOYEE_MASTER = FilePath.EMPLOYEE_MASTER2;
+		
+		ExcelFileDetails masterDetails =
+		        new ExcelFileDetails(
+		        		EMPLOYEE_MASTER,   // SAME filePath String
+		                null,          // sheetName (not used)
+		                3,             // Employee ID index (as you said)
+		                masterFilters, // filters attached
+		                "Yes"             // applyFilter flag
+		        );
+		
+		SheetNameValidatorDOJNumericUtil.validateSheetNamesWithNumeric(masterDetails, downloadedExcelFile, 3, 15, masterFilters, null, true, test);
+	}
 	
 	
 	
