@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>58/7/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>102/13/0</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Feb 26 06:25:14 IST 2026</td>
+<td>Started on:</td><td>Thu Feb 26 23:41:18 IST 2026</td>
 </tr>
-<tr><td>Total time:</td><td>4458 seconds (4458982 ms)</td>
+<tr><td>Total time:</td><td>14823 seconds (14823211 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,16 +76,16 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.NoticeDocumentsChecking()'><b>NoticeDocumentsChecking</b><br>Test class: testCases.CoordinatorTestCases</td>
-<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//button[normalize-space()=&apos;Add Notice&apos;]&quot;}
+<td title='testCases.All_Client_Portal_TestCases.searchEcComplied()'><b>searchEcComplied</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td><div><pre>org.openqa.selenium.ElementNotInteractableException: element not interactable
   (Session info: chrome=145.0.7632.117)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
 Build info: version: &apos;4.39.0&apos;, revision: &apos;126f156aee&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [7b10e811341eac859c26bbc850178311, findElement {using=xpath, value=//button[normalize-space()=&apos;Add Notice&apos;]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51199}, goog:processID: 19956, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51199/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 7b10e811341eac859c26bbc850178311
+Command: [f68e3a262866a6c3adab75c9c476fc8f, clickElement {id=f.BEE3BBE2432F4AEEA36AB1FC53A4FADB.d.8033D3BF31965621AA71A0EA3FF39FFE.e.208}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51996}, goog:processID: 23728, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51996/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (f68e3a262866a6c3adab75c9c476fc8f)] -&gt; xpath: //span[contains(text(),&apos;Register&apos;)]]
+Session ID: f68e3a262866a6c3adab75c9c476fc8f
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
@@ -96,13 +96,10 @@ Session ID: 7b10e811341eac859c26bbc850178311
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:561)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:166)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:384)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:378)
-	at coordinator.CoordinatorLocator.clickaddnewNotices(CoordinatorLocator.java:67)
-	at coordinator.CoordinatorMethod.NoticeAddNewRecepitAcknowledgement(CoordinatorMethod.java:1947)
-	at testCases.CoordinatorTestCases.NoticeDocumentsChecking(CoordinatorTestCases.java:240)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+	at clientPortal.All_ClientPortal_Methods.Merged_CompPer_EST_Comp(All_ClientPortal_Methods.java:5864)
+	at testCases.All_Client_Portal_TestCases.searchEcComplied(All_Client_Portal_TestCases.java:881)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
@@ -129,16 +126,16 @@ Session ID: 7b10e811341eac859c26bbc850178311
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div><a href='#' onClick='toggleBox("stack-trace27754166", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace27754166'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//button[normalize-space()=&apos;Add Notice&apos;]&quot;}
+</pre></div><a href='#' onClick='toggleBox("stack-trace1576941791", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1576941791'><pre>org.openqa.selenium.ElementNotInteractableException: element not interactable
   (Session info: chrome=145.0.7632.117)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
 Build info: version: &apos;4.39.0&apos;, revision: &apos;126f156aee&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [7b10e811341eac859c26bbc850178311, findElement {using=xpath, value=//button[normalize-space()=&apos;Add Notice&apos;]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51199}, goog:processID: 19956, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51199/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 7b10e811341eac859c26bbc850178311
+Command: [f68e3a262866a6c3adab75c9c476fc8f, clickElement {id=f.BEE3BBE2432F4AEEA36AB1FC53A4FADB.d.8033D3BF31965621AA71A0EA3FF39FFE.e.208}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51996}, goog:processID: 23728, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51996/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (f68e3a262866a6c3adab75c9c476fc8f)] -&gt; xpath: //span[contains(text(),&apos;Register&apos;)]]
+Session ID: f68e3a262866a6c3adab75c9c476fc8f
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
@@ -149,121 +146,10 @@ Session ID: 7b10e811341eac859c26bbc850178311
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:561)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:166)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:384)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:378)
-	at coordinator.CoordinatorLocator.clickaddnewNotices(CoordinatorLocator.java:67)
-	at coordinator.CoordinatorMethod.NoticeAddNewRecepitAcknowledgement(CoordinatorMethod.java:1947)
-	at testCases.CoordinatorTestCases.NoticeDocumentsChecking(CoordinatorTestCases.java:240)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-	at org.testng.TestRunner.privateRun(TestRunner.java:829)
-	at org.testng.TestRunner.run(TestRunner.java:602)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:330)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
-	at org.testng.TestNG.runSuites(TestNG.java:1099)
-	at org.testng.TestNG.run(TestNG.java:1067)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div></td>
-<td>8</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
-<tr>
-<td title='testCases.CoordinatorTestCases.NoticeEditAllTabsCheck()'><b>NoticeEditAllTabsCheck</b><br>Test class: testCases.CoordinatorTestCases</td>
-<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[normalize-space()=&apos;Translation Required&apos;]&quot;}
-  (Session info: chrome=145.0.7632.117)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
-Build info: version: &apos;4.39.0&apos;, revision: &apos;126f156aee&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [2e8a77862cb9889c2e43866bb88e1b2f, findElement {using=xpath, value=//span[normalize-space()=&apos;Translation Required&apos;]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64872}, goog:processID: 17932, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64872/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 2e8a77862cb9889c2e43866bb88e1b2f
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:561)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:166)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:384)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:378)
-	at coordinator.CoordinatorMethod.NoticeEditAllTabsCheck(CoordinatorMethod.java:1722)
-	at testCases.CoordinatorTestCases.NoticeEditAllTabsCheck(CoordinatorTestCases.java:428)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-	at org.testng.TestRunner.privateRun(TestRunner.java:829)
-	at org.testng.TestRunner.run(TestRunner.java:602)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:330)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
-	at org.testng.TestNG.runSuites(TestNG.java:1099)
-	at org.testng.TestNG.run(TestNG.java:1067)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1508612218", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1508612218'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[normalize-space()=&apos;Translation Required&apos;]&quot;}
-  (Session info: chrome=145.0.7632.117)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
-Build info: version: &apos;4.39.0&apos;, revision: &apos;126f156aee&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [2e8a77862cb9889c2e43866bb88e1b2f, findElement {using=xpath, value=//span[normalize-space()=&apos;Translation Required&apos;]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64872}, goog:processID: 17932, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64872/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 2e8a77862cb9889c2e43866bb88e1b2f
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:561)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:166)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:384)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:378)
-	at coordinator.CoordinatorMethod.NoticeEditAllTabsCheck(CoordinatorMethod.java:1722)
-	at testCases.CoordinatorTestCases.NoticeEditAllTabsCheck(CoordinatorTestCases.java:428)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+	at clientPortal.All_ClientPortal_Methods.Merged_CompPer_EST_Comp(All_ClientPortal_Methods.java:5864)
+	at testCases.All_Client_Portal_TestCases.searchEcComplied(All_Client_Portal_TestCases.java:881)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
@@ -291,19 +177,19 @@ Session ID: 2e8a77862cb9889c2e43866bb88e1b2f
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </pre></div></td>
-<td>20</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>102</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.ExistingLicenseInitiateAction()'><b>ExistingLicenseInitiateAction</b><br>Test class: testCases.CoordinatorTestCases</td>
-<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;(//img[@title=&apos;Initiate Action&apos;])[1]&quot;}
+<td title='testCases.All_Client_Portal_TestCases.NoticeStatusOpenClosedCountWithTotalNotices()'><b>NoticeStatusOpenClosedCountWithTotalNotices</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;tbody tr[role=&apos;row&apos;] td:nth-child(4) div:nth-child(1)&quot;}
   (Session info: chrome=145.0.7632.117)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
 Build info: version: &apos;4.39.0&apos;, revision: &apos;126f156aee&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [b90b40da781bdf3b1bc4e629098a2258, findElement {using=xpath, value=(//img[@title=&apos;Initiate Action&apos;])[1]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55847}, goog:processID: 19812, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55847/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: b90b40da781bdf3b1bc4e629098a2258
+Command: [696b71b4090edf6c60102871e754a3c6, findElement {value=tbody tr[role=&apos;row&apos;] td:nth-child(4) div:nth-child(1), using=css selector}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65200}, goog:processID: 21948, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65200/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 696b71b4090edf6c60102871e754a3c6
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
@@ -318,9 +204,9 @@ Session ID: b90b40da781bdf3b1bc4e629098a2258
 	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:384)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:378)
-	at coordinator.CoordinatorLocator.ExistingLicesneInitiateAction(CoordinatorLocator.java:484)
-	at coordinator.CoordinatorMethod.ExistingLicenseInitiateAction(CoordinatorMethod.java:4891)
-	at testCases.CoordinatorTestCases.ExistingLicenseInitiateAction(CoordinatorTestCases.java:1022)
+	at clientPortal.All_ClientPortal_Locators.ClosedCol(All_ClientPortal_Locators.java:650)
+	at clientPortal.All_ClientPortal_Methods.NoticeStatusOpenClosedCountWithTotalNotices(All_ClientPortal_Methods.java:7254)
+	at testCases.All_Client_Portal_TestCases.NoticeStatusOpenClosedCountWithTotalNotices(All_Client_Portal_TestCases.java:1822)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
@@ -347,16 +233,16 @@ Session ID: b90b40da781bdf3b1bc4e629098a2258
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div><a href='#' onClick='toggleBox("stack-trace156947375", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace156947375'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;(//img[@title=&apos;Initiate Action&apos;])[1]&quot;}
+</pre></div><a href='#' onClick='toggleBox("stack-trace700657953", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace700657953'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;tbody tr[role=&apos;row&apos;] td:nth-child(4) div:nth-child(1)&quot;}
   (Session info: chrome=145.0.7632.117)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
 Build info: version: &apos;4.39.0&apos;, revision: &apos;126f156aee&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [b90b40da781bdf3b1bc4e629098a2258, findElement {using=xpath, value=(//img[@title=&apos;Initiate Action&apos;])[1]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55847}, goog:processID: 19812, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55847/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: b90b40da781bdf3b1bc4e629098a2258
+Command: [696b71b4090edf6c60102871e754a3c6, findElement {value=tbody tr[role=&apos;row&apos;] td:nth-child(4) div:nth-child(1), using=css selector}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65200}, goog:processID: 21948, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65200/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 696b71b4090edf6c60102871e754a3c6
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
@@ -371,9 +257,9 @@ Session ID: b90b40da781bdf3b1bc4e629098a2258
 	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:384)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:378)
-	at coordinator.CoordinatorLocator.ExistingLicesneInitiateAction(CoordinatorLocator.java:484)
-	at coordinator.CoordinatorMethod.ExistingLicenseInitiateAction(CoordinatorMethod.java:4891)
-	at testCases.CoordinatorTestCases.ExistingLicenseInitiateAction(CoordinatorTestCases.java:1022)
+	at clientPortal.All_ClientPortal_Locators.ClosedCol(All_ClientPortal_Locators.java:650)
+	at clientPortal.All_ClientPortal_Methods.NoticeStatusOpenClosedCountWithTotalNotices(All_ClientPortal_Methods.java:7254)
+	at testCases.All_Client_Portal_TestCases.NoticeStatusOpenClosedCountWithTotalNotices(All_Client_Portal_TestCases.java:1822)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
@@ -401,19 +287,19 @@ Session ID: b90b40da781bdf3b1bc4e629098a2258
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </pre></div></td>
-<td>13</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>62</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.ExistingLicenseViewIcon()'><b>ExistingLicenseViewIcon</b><br>Test class: testCases.CoordinatorTestCases</td>
-<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;(//img[@title=&apos;View&apos;])[1]&quot;}
+<td title='testCases.All_Client_Portal_TestCases.NoticeStatusPagination()'><b>NoticeStatusPagination</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;tbody tr[role=&apos;row&apos;] td:nth-child(4) div:nth-child(1)&quot;}
   (Session info: chrome=145.0.7632.117)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
 Build info: version: &apos;4.39.0&apos;, revision: &apos;126f156aee&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [2615b0f621f54b529f37ca744feecc5c, findElement {using=xpath, value=(//img[@title=&apos;View&apos;])[1]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52221}, goog:processID: 21740, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52221/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 2615b0f621f54b529f37ca744feecc5c
+Command: [ba3061552b76c5906002bb3b931f088a, findElement {value=tbody tr[role=&apos;row&apos;] td:nth-child(4) div:nth-child(1), using=css selector}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56899}, goog:processID: 21388, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56899/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: ba3061552b76c5906002bb3b931f088a
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
@@ -428,9 +314,9 @@ Session ID: 2615b0f621f54b529f37ca744feecc5c
 	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:384)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:378)
-	at coordinator.CoordinatorLocator.ExistingLicesneViewIcon(CoordinatorLocator.java:474)
-	at coordinator.CoordinatorMethod.ExistingLicenseViewIcon(CoordinatorMethod.java:4618)
-	at testCases.CoordinatorTestCases.ExistingLicenseViewIcon(CoordinatorTestCases.java:1011)
+	at clientPortal.All_ClientPortal_Locators.ClosedCol(All_ClientPortal_Locators.java:650)
+	at clientPortal.All_ClientPortal_Methods.NoticeStatusPagination(All_ClientPortal_Methods.java:7301)
+	at testCases.All_Client_Portal_TestCases.NoticeStatusPagination(All_Client_Portal_TestCases.java:1834)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
@@ -457,16 +343,16 @@ Session ID: 2615b0f621f54b529f37ca744feecc5c
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div><a href='#' onClick='toggleBox("stack-trace2049011801", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace2049011801'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;(//img[@title=&apos;View&apos;])[1]&quot;}
+</pre></div><a href='#' onClick='toggleBox("stack-trace1760653591", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1760653591'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;tbody tr[role=&apos;row&apos;] td:nth-child(4) div:nth-child(1)&quot;}
   (Session info: chrome=145.0.7632.117)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
 Build info: version: &apos;4.39.0&apos;, revision: &apos;126f156aee&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [2615b0f621f54b529f37ca744feecc5c, findElement {using=xpath, value=(//img[@title=&apos;View&apos;])[1]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52221}, goog:processID: 21740, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52221/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 2615b0f621f54b529f37ca744feecc5c
+Command: [ba3061552b76c5906002bb3b931f088a, findElement {value=tbody tr[role=&apos;row&apos;] td:nth-child(4) div:nth-child(1), using=css selector}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56899}, goog:processID: 21388, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56899/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: ba3061552b76c5906002bb3b931f088a
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
@@ -481,9 +367,9 @@ Session ID: 2615b0f621f54b529f37ca744feecc5c
 	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:384)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:378)
-	at coordinator.CoordinatorLocator.ExistingLicesneViewIcon(CoordinatorLocator.java:474)
-	at coordinator.CoordinatorMethod.ExistingLicenseViewIcon(CoordinatorMethod.java:4618)
-	at testCases.CoordinatorTestCases.ExistingLicenseViewIcon(CoordinatorTestCases.java:1011)
+	at clientPortal.All_ClientPortal_Locators.ClosedCol(All_ClientPortal_Locators.java:650)
+	at clientPortal.All_ClientPortal_Methods.NoticeStatusPagination(All_ClientPortal_Methods.java:7301)
+	at testCases.All_Client_Portal_TestCases.NoticeStatusPagination(All_Client_Portal_TestCases.java:1834)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
@@ -511,19 +397,19 @@ Session ID: 2615b0f621f54b529f37ca744feecc5c
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </pre></div></td>
-<td>10</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>62</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.ExistingLicenseDownload()'><b>ExistingLicenseDownload</b><br>Test class: testCases.CoordinatorTestCases</td>
-<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[@alt=&apos;Download Icon&apos;]&quot;}
+<td title='testCases.All_Client_Portal_TestCases.NoticeStatusClosedPagination()'><b>NoticeStatusClosedPagination</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;tbody tr[role=&apos;row&apos;] td:nth-child(4) div:nth-child(1)&quot;}
   (Session info: chrome=145.0.7632.117)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
 Build info: version: &apos;4.39.0&apos;, revision: &apos;126f156aee&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [fb2978b2f28e3ac015634dcaadfe7c9a, findElement {using=xpath, value=//*[@alt=&apos;Download Icon&apos;]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59996}, goog:processID: 23028, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59996/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: fb2978b2f28e3ac015634dcaadfe7c9a
+Command: [3b6cffdbdfd2f2e4d19cf4e7941a49fe, findElement {value=tbody tr[role=&apos;row&apos;] td:nth-child(4) div:nth-child(1), using=css selector}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51734}, goog:processID: 21956, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51734/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 3b6cffdbdfd2f2e4d19cf4e7941a49fe
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
@@ -538,9 +424,9 @@ Session ID: fb2978b2f28e3ac015634dcaadfe7c9a
 	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:384)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:378)
-	at coordinator.CoordinatorLocator.ExistingLicesneDownload(CoordinatorLocator.java:509)
-	at coordinator.CoordinatorMethod.ExistingLicenseDownload(CoordinatorMethod.java:4948)
-	at testCases.CoordinatorTestCases.ExistingLicenseDownload(CoordinatorTestCases.java:1033)
+	at clientPortal.All_ClientPortal_Locators.ClosedCol(All_ClientPortal_Locators.java:650)
+	at clientPortal.All_ClientPortal_Methods.NoticeStatusClosedPagination(All_ClientPortal_Methods.java:7230)
+	at testCases.All_Client_Portal_TestCases.NoticeStatusClosedPagination(All_Client_Portal_TestCases.java:1810)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
@@ -567,16 +453,16 @@ Session ID: fb2978b2f28e3ac015634dcaadfe7c9a
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div><a href='#' onClick='toggleBox("stack-trace719539498", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace719539498'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[@alt=&apos;Download Icon&apos;]&quot;}
+</pre></div><a href='#' onClick='toggleBox("stack-trace1383755389", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1383755389'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;tbody tr[role=&apos;row&apos;] td:nth-child(4) div:nth-child(1)&quot;}
   (Session info: chrome=145.0.7632.117)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
 Build info: version: &apos;4.39.0&apos;, revision: &apos;126f156aee&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [fb2978b2f28e3ac015634dcaadfe7c9a, findElement {using=xpath, value=//*[@alt=&apos;Download Icon&apos;]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59996}, goog:processID: 23028, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59996/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: fb2978b2f28e3ac015634dcaadfe7c9a
+Command: [3b6cffdbdfd2f2e4d19cf4e7941a49fe, findElement {value=tbody tr[role=&apos;row&apos;] td:nth-child(4) div:nth-child(1), using=css selector}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51734}, goog:processID: 21956, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51734/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 3b6cffdbdfd2f2e4d19cf4e7941a49fe
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
@@ -591,9 +477,9 @@ Session ID: fb2978b2f28e3ac015634dcaadfe7c9a
 	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:384)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:378)
-	at coordinator.CoordinatorLocator.ExistingLicesneDownload(CoordinatorLocator.java:509)
-	at coordinator.CoordinatorMethod.ExistingLicenseDownload(CoordinatorMethod.java:4948)
-	at testCases.CoordinatorTestCases.ExistingLicenseDownload(CoordinatorTestCases.java:1033)
+	at clientPortal.All_ClientPortal_Locators.ClosedCol(All_ClientPortal_Locators.java:650)
+	at clientPortal.All_ClientPortal_Methods.NoticeStatusClosedPagination(All_ClientPortal_Methods.java:7230)
+	at testCases.All_Client_Portal_TestCases.NoticeStatusClosedPagination(All_Client_Portal_TestCases.java:1810)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
@@ -621,19 +507,19 @@ Session ID: fb2978b2f28e3ac015634dcaadfe7c9a
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </pre></div></td>
-<td>8</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>62</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.NoticeEditDownload()'><b>NoticeEditDownload</b><br>Test class: testCases.CoordinatorTestCases</td>
-<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//label[normalize-space()=&apos;Address&apos;]&quot;}
+<td title='testCases.All_Client_Portal_TestCases.ERviewBack()'><b>ERviewBack</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td><div><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element is not clickable at point (757, 616)
   (Session info: chrome=145.0.7632.117)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
 Build info: version: &apos;4.39.0&apos;, revision: &apos;126f156aee&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [2184a561f01eb349992787601dc1b95c, findElement {using=xpath, value=//label[normalize-space()=&apos;Address&apos;]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53240}, goog:processID: 20856, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53240/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 2184a561f01eb349992787601dc1b95c
+Command: [549be12f2d5ca8414089221f6fb5f88b, clickElement {id=f.2F111E27B7AD3F8169F1480A4558A0AB.d.6C6B1CB09B4B954943D13D155F1CC026.e.250}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63109}, goog:processID: 18480, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63109/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (549be12f2d5ca8414089221f6fb5f88b)] -&gt; xpath: //button[@class=&apos;figma-btn-blue&apos;]]
+Session ID: 549be12f2d5ca8414089221f6fb5f88b
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
@@ -644,12 +530,10 @@ Session ID: 2184a561f01eb349992787601dc1b95c
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:561)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:166)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:384)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:378)
-	at coordinator.CoordinatorMethod.NoticeEditDownload(CoordinatorMethod.java:963)
-	at testCases.CoordinatorTestCases.NoticeEditDownload(CoordinatorTestCases.java:355)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+	at clientPortal.All_ClientPortal_Methods.ERviewBack(All_ClientPortal_Methods.java:1241)
+	at testCases.All_Client_Portal_TestCases.ERviewBack(All_Client_Portal_TestCases.java:386)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
@@ -676,16 +560,16 @@ Session ID: 2184a561f01eb349992787601dc1b95c
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1753868052", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1753868052'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//label[normalize-space()=&apos;Address&apos;]&quot;}
+</pre></div><a href='#' onClick='toggleBox("stack-trace44293675", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace44293675'><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element is not clickable at point (757, 616)
   (Session info: chrome=145.0.7632.117)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
 Build info: version: &apos;4.39.0&apos;, revision: &apos;126f156aee&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [2184a561f01eb349992787601dc1b95c, findElement {using=xpath, value=//label[normalize-space()=&apos;Address&apos;]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53240}, goog:processID: 20856, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53240/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 2184a561f01eb349992787601dc1b95c
+Command: [549be12f2d5ca8414089221f6fb5f88b, clickElement {id=f.2F111E27B7AD3F8169F1480A4558A0AB.d.6C6B1CB09B4B954943D13D155F1CC026.e.250}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63109}, goog:processID: 18480, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63109/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (549be12f2d5ca8414089221f6fb5f88b)] -&gt; xpath: //button[@class=&apos;figma-btn-blue&apos;]]
+Session ID: 549be12f2d5ca8414089221f6fb5f88b
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
@@ -696,12 +580,10 @@ Session ID: 2184a561f01eb349992787601dc1b95c
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:561)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:166)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:384)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:378)
-	at coordinator.CoordinatorMethod.NoticeEditDownload(CoordinatorMethod.java:963)
-	at testCases.CoordinatorTestCases.NoticeEditDownload(CoordinatorTestCases.java:355)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+	at clientPortal.All_ClientPortal_Methods.ERviewBack(All_ClientPortal_Methods.java:1241)
+	at testCases.All_Client_Portal_TestCases.ERviewBack(All_Client_Portal_TestCases.java:386)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
@@ -729,19 +611,19 @@ Session ID: 2184a561f01eb349992787601dc1b95c
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </pre></div></td>
-<td>42</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>81</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.StatutoryDocument()'><b>StatutoryDocument</b><br>Test class: testCases.CoordinatorTestCases</td>
-<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[contains(text(),&apos;Select Client&apos;)]&quot;}
+<td title='testCases.All_Client_Portal_TestCases.exportEcComplied()'><b>exportEcComplied</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//img[@alt=&apos;Download Document&apos;]&quot;}
   (Session info: chrome=145.0.7632.117)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
 Build info: version: &apos;4.39.0&apos;, revision: &apos;126f156aee&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [411fb90c79afa4c37fcdd92b5384ce25, findElement {using=xpath, value=//span[contains(text(),&apos;Select Client&apos;)]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64973}, goog:processID: 21608, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64973/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 411fb90c79afa4c37fcdd92b5384ce25
+Command: [72911085bc50f07320f3a67685c446e0, findElement {value=//img[@alt=&apos;Download Document&apos;], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54977}, goog:processID: 19648, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54977/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 72911085bc50f07320f3a67685c446e0
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
@@ -756,9 +638,9 @@ Session ID: 411fb90c79afa4c37fcdd92b5384ce25
 	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:384)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:378)
-	at coordinator.CoordinatorLocator.statutorydocSelectClient(CoordinatorLocator.java:655)
-	at coordinator.CoordinatorMethod.StatutoryDoc(CoordinatorMethod.java:4646)
-	at testCases.CoordinatorTestCases.StatutoryDocument(CoordinatorTestCases.java:1045)
+	at clientPortal.All_ClientPortal_Locators.compliancePerformanceFileDownPopup(All_ClientPortal_Locators.java:688)
+	at clientPortal.All_ClientPortal_Methods.downloadECComplied(All_ClientPortal_Methods.java:6212)
+	at testCases.All_Client_Portal_TestCases.exportEcComplied(All_Client_Portal_TestCases.java:927)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
@@ -785,16 +667,16 @@ Session ID: 411fb90c79afa4c37fcdd92b5384ce25
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div><a href='#' onClick='toggleBox("stack-trace486779597", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace486779597'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[contains(text(),&apos;Select Client&apos;)]&quot;}
+</pre></div><a href='#' onClick='toggleBox("stack-trace1657165581", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1657165581'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//img[@alt=&apos;Download Document&apos;]&quot;}
   (Session info: chrome=145.0.7632.117)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
 Build info: version: &apos;4.39.0&apos;, revision: &apos;126f156aee&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [411fb90c79afa4c37fcdd92b5384ce25, findElement {using=xpath, value=//span[contains(text(),&apos;Select Client&apos;)]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64973}, goog:processID: 21608, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64973/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 411fb90c79afa4c37fcdd92b5384ce25
+Command: [72911085bc50f07320f3a67685c446e0, findElement {value=//img[@alt=&apos;Download Document&apos;], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54977}, goog:processID: 19648, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54977/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 72911085bc50f07320f3a67685c446e0
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
@@ -809,9 +691,225 @@ Session ID: 411fb90c79afa4c37fcdd92b5384ce25
 	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:384)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:378)
-	at coordinator.CoordinatorLocator.statutorydocSelectClient(CoordinatorLocator.java:655)
-	at coordinator.CoordinatorMethod.StatutoryDoc(CoordinatorMethod.java:4646)
-	at testCases.CoordinatorTestCases.StatutoryDocument(CoordinatorTestCases.java:1045)
+	at clientPortal.All_ClientPortal_Locators.compliancePerformanceFileDownPopup(All_ClientPortal_Locators.java:688)
+	at clientPortal.All_ClientPortal_Methods.downloadECComplied(All_ClientPortal_Methods.java:6212)
+	at testCases.All_Client_Portal_TestCases.exportEcComplied(All_Client_Portal_TestCases.java:927)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.testng.TestRunner.privateRun(TestRunner.java:829)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+	at org.testng.TestNG.runSuites(TestNG.java:1099)
+	at org.testng.TestNG.run(TestNG.java:1067)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>175</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.NoticeViewEditTabs()'><b>NoticeViewEditTabs</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[normalize-space()=&apos;Document Repository&apos;]&quot;}
+  (Session info: chrome=145.0.7632.117)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: &apos;4.39.0&apos;, revision: &apos;126f156aee&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [44ca1e3bb5b746f2e7245bccb2c33667, findElement {value=//span[normalize-space()=&apos;Document Repository&apos;], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64351}, goog:processID: 22912, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64351/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 44ca1e3bb5b746f2e7245bccb2c33667
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:561)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:166)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:384)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:378)
+	at clientPortal.All_ClientPortal_Methods.NoticeViewEditTabs(All_ClientPortal_Methods.java:3227)
+	at testCases.All_Client_Portal_TestCases.NoticeViewEditTabs(All_Client_Portal_TestCases.java:636)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.testng.TestRunner.privateRun(TestRunner.java:829)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+	at org.testng.TestNG.runSuites(TestNG.java:1099)
+	at org.testng.TestNG.run(TestNG.java:1067)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div><a href='#' onClick='toggleBox("stack-trace446519923", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace446519923'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[normalize-space()=&apos;Document Repository&apos;]&quot;}
+  (Session info: chrome=145.0.7632.117)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: &apos;4.39.0&apos;, revision: &apos;126f156aee&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [44ca1e3bb5b746f2e7245bccb2c33667, findElement {value=//span[normalize-space()=&apos;Document Repository&apos;], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64351}, goog:processID: 22912, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64351/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 44ca1e3bb5b746f2e7245bccb2c33667
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:561)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:166)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:384)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:378)
+	at clientPortal.All_ClientPortal_Methods.NoticeViewEditTabs(All_ClientPortal_Methods.java:3227)
+	at testCases.All_Client_Portal_TestCases.NoticeViewEditTabs(All_Client_Portal_TestCases.java:636)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.testng.TestRunner.privateRun(TestRunner.java:829)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+	at org.testng.TestNG.runSuites(TestNG.java:1099)
+	at org.testng.TestNG.run(TestNG.java:1067)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>98</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.DailyUpdates()'><b>DailyUpdates</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[@class=&apos;updates&apos;]//div[1]//a[1]&quot;}
+  (Session info: chrome=145.0.7632.117)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: &apos;4.39.0&apos;, revision: &apos;126f156aee&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [02394dd9aa9c905e342b115ced5962fe, findElement {value=//div[@class=&apos;updates&apos;]//div[1]//a[1], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56732}, goog:processID: 23224, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56732/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 02394dd9aa9c905e342b115ced5962fe
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:561)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:166)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:384)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:378)
+	at clientPortal.All_ClientPortal_Methods.DailyUpdates(All_ClientPortal_Methods.java:9077)
+	at testCases.All_Client_Portal_TestCases.DailyUpdates(All_Client_Portal_TestCases.java:2194)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.testng.TestRunner.privateRun(TestRunner.java:829)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+	at org.testng.TestNG.runSuites(TestNG.java:1099)
+	at org.testng.TestNG.run(TestNG.java:1067)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1415126632", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1415126632'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[@class=&apos;updates&apos;]//div[1]//a[1]&quot;}
+  (Session info: chrome=145.0.7632.117)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: &apos;4.39.0&apos;, revision: &apos;126f156aee&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [02394dd9aa9c905e342b115ced5962fe, findElement {value=//div[@class=&apos;updates&apos;]//div[1]//a[1], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56732}, goog:processID: 23224, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56732/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 02394dd9aa9c905e342b115ced5962fe
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:561)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:166)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:384)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:378)
+	at clientPortal.All_ClientPortal_Methods.DailyUpdates(All_ClientPortal_Methods.java:9077)
+	at testCases.All_Client_Portal_TestCases.DailyUpdates(All_Client_Portal_TestCases.java:2194)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
@@ -840,7 +938,487 @@ Session ID: 411fb90c79afa4c37fcdd92b5384ce25
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </pre></div></td>
 <td>5</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.RegistrationActiveEditInitiateAction()'><b>RegistrationActiveEditInitiateAction</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //span[contains(text(),&apos;Active&apos;)] (tried for 120 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.39.0&apos;, revision: &apos;126f156aee&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51581}, goog:processID: 21948, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51581/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 89b0b96b3f6f8abe17b3f35c13e57613
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at clientPortal.All_ClientPortal_Methods.filterEntityAUTO2(All_ClientPortal_Methods.java:97)
+	at testCases.All_Client_Portal_TestCases.RegistrationActiveEditInitiateAction(All_Client_Portal_TestCases.java:1341)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.testng.TestRunner.privateRun(TestRunner.java:829)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+	at org.testng.TestNG.runSuites(TestNG.java:1099)
+	at org.testng.TestNG.run(TestNG.java:1067)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div><a href='#' onClick='toggleBox("stack-trace7870506", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace7870506'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //span[contains(text(),&apos;Active&apos;)] (tried for 120 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.39.0&apos;, revision: &apos;126f156aee&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51581}, goog:processID: 21948, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51581/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 89b0b96b3f6f8abe17b3f35c13e57613
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at clientPortal.All_ClientPortal_Methods.filterEntityAUTO2(All_ClientPortal_Methods.java:97)
+	at testCases.All_Client_Portal_TestCases.RegistrationActiveEditInitiateAction(All_Client_Portal_TestCases.java:1341)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.testng.TestRunner.privateRun(TestRunner.java:829)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+	at org.testng.TestNG.runSuites(TestNG.java:1099)
+	at org.testng.TestNG.run(TestNG.java:1067)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>133</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.RegistrationActiveEditInitiateActionSubmit()'><b>RegistrationActiveEditInitiateActionSubmit</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td><div><pre>org.openqa.selenium.UnhandledAlertException: unexpected alert open: {Alert text : Hash mismatch - Data may have been tampered.}
+  (Session info: chrome=145.0.7632.117): Hash mismatch - Data may have been tampered.
+Build info: version: &apos;4.39.0&apos;, revision: &apos;126f156aee&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [6a530edc38556e7ed0833f341c50da70, findElement {value=//span[contains(text(),&apos;Active&apos;)], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55227}, goog:processID: 14884, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55227/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 6a530edc38556e7ed0833f341c50da70
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:140)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:561)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:166)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:384)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:378)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:198)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:194)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+	at clientPortal.All_ClientPortal_Methods.filterEntityAUTO2(All_ClientPortal_Methods.java:97)
+	at testCases.All_Client_Portal_TestCases.RegistrationActiveEditInitiateActionSubmit(All_Client_Portal_TestCases.java:1329)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.testng.TestRunner.privateRun(TestRunner.java:829)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+	at org.testng.TestNG.runSuites(TestNG.java:1099)
+	at org.testng.TestNG.run(TestNG.java:1067)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div><a href='#' onClick='toggleBox("stack-trace549868595", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace549868595'><pre>org.openqa.selenium.UnhandledAlertException: unexpected alert open: {Alert text : Hash mismatch - Data may have been tampered.}
+  (Session info: chrome=145.0.7632.117): Hash mismatch - Data may have been tampered.
+Build info: version: &apos;4.39.0&apos;, revision: &apos;126f156aee&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [6a530edc38556e7ed0833f341c50da70, findElement {value=//span[contains(text(),&apos;Active&apos;)], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55227}, goog:processID: 14884, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55227/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 6a530edc38556e7ed0833f341c50da70
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:140)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:561)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:166)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:384)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:378)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:198)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:194)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+	at clientPortal.All_ClientPortal_Methods.filterEntityAUTO2(All_ClientPortal_Methods.java:97)
+	at testCases.All_Client_Portal_TestCases.RegistrationActiveEditInitiateActionSubmit(All_Client_Portal_TestCases.java:1329)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.testng.TestRunner.privateRun(TestRunner.java:829)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+	at org.testng.TestNG.runSuites(TestNG.java:1099)
+	at org.testng.TestNG.run(TestNG.java:1067)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>13</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.exportNotice()'><b>exportNotice</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: (//img[contains(@title,&apos;Overview&apos;)])[1] (tried for 120 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.39.0&apos;, revision: &apos;126f156aee&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61873}, goog:processID: 23816, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61873/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 375c4f53589fb80ce51ec85d68f6b0c6
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at clientPortal.All_ClientPortal_Methods.exportNotice(All_ClientPortal_Methods.java:2252)
+	at testCases.All_Client_Portal_TestCases.exportNotice(All_Client_Portal_TestCases.java:584)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.testng.TestRunner.privateRun(TestRunner.java:829)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+	at org.testng.TestNG.runSuites(TestNG.java:1099)
+	at org.testng.TestNG.run(TestNG.java:1067)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1449259703", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1449259703'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: (//img[contains(@title,&apos;Overview&apos;)])[1] (tried for 120 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.39.0&apos;, revision: &apos;126f156aee&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61873}, goog:processID: 23816, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61873/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 375c4f53589fb80ce51ec85d68f6b0c6
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at clientPortal.All_ClientPortal_Methods.exportNotice(All_ClientPortal_Methods.java:2252)
+	at testCases.All_Client_Portal_TestCases.exportNotice(All_Client_Portal_TestCases.java:584)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.testng.TestRunner.privateRun(TestRunner.java:829)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+	at org.testng.TestNG.runSuites(TestNG.java:1099)
+	at org.testng.TestNG.run(TestNG.java:1067)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>192</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.RegistrationSHistoryViewDownload()'><b>RegistrationSHistoryViewDownload</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[@class=&apos;k-svg-i-x k-button-icon k-svg-icon k-icon ng-star-inserted&apos;]&quot;}
+  (Session info: chrome=145.0.7632.117)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: &apos;4.39.0&apos;, revision: &apos;126f156aee&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [0bb21ed3df3c5307426ee9147e07f8f6, findElement {value=//*[@class=&apos;k-svg-i-x k-button-icon k-svg-icon k-icon ng-star-inserted&apos;], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65246}, goog:processID: 2108, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65246/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 0bb21ed3df3c5307426ee9147e07f8f6
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:561)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:166)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:384)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:378)
+	at clientPortal.All_ClientPortal_Locators.OverviewClose(All_ClientPortal_Locators.java:206)
+	at clientPortal.All_ClientPortal_Methods.RegistrationSHistoryViewDownload(All_ClientPortal_Methods.java:4696)
+	at testCases.All_Client_Portal_TestCases.RegistrationSHistoryViewDownload(All_Client_Portal_TestCases.java:1633)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.testng.TestRunner.privateRun(TestRunner.java:829)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+	at org.testng.TestNG.runSuites(TestNG.java:1099)
+	at org.testng.TestNG.run(TestNG.java:1067)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1560740030", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1560740030'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[@class=&apos;k-svg-i-x k-button-icon k-svg-icon k-icon ng-star-inserted&apos;]&quot;}
+  (Session info: chrome=145.0.7632.117)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: &apos;4.39.0&apos;, revision: &apos;126f156aee&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [0bb21ed3df3c5307426ee9147e07f8f6, findElement {value=//*[@class=&apos;k-svg-i-x k-button-icon k-svg-icon k-icon ng-star-inserted&apos;], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65246}, goog:processID: 2108, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65246/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 0bb21ed3df3c5307426ee9147e07f8f6
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:561)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:166)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:384)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:378)
+	at clientPortal.All_ClientPortal_Locators.OverviewClose(All_ClientPortal_Locators.java:206)
+	at clientPortal.All_ClientPortal_Methods.RegistrationSHistoryViewDownload(All_ClientPortal_Methods.java:4696)
+	at testCases.All_Client_Portal_TestCases.RegistrationSHistoryViewDownload(All_Client_Portal_TestCases.java:1633)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.testng.TestRunner.privateRun(TestRunner.java:829)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+	at org.testng.TestNG.runSuites(TestNG.java:1099)
+	at org.testng.TestNG.run(TestNG.java:1067)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>78</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.OpenNotice_BrowseUploadValidation()'><b>OpenNotice_BrowseUploadValidation</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//h4[@class=&apos;f-label&apos;]&quot;}
+  (Session info: chrome=145.0.7632.117)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: &apos;4.39.0&apos;, revision: &apos;126f156aee&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [9ef09ce19e1cae49115fd28ee517e613, findElement {value=//h4[@class=&apos;f-label&apos;], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52181}, goog:processID: 24376, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52181/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 9ef09ce19e1cae49115fd28ee517e613
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:561)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:166)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:384)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:378)
+	at clientPortal.All_ClientPortal_Locators.clickMsg(All_ClientPortal_Locators.java:1349)
+	at clientPortal.All_ClientPortal_Methods.OpenNotice_BrowseUploadValidation2(All_ClientPortal_Methods.java:2512)
+	at testCases.All_Client_Portal_TestCases.OpenNotice_BrowseUploadValidation(All_Client_Portal_TestCases.java:571)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.testng.TestRunner.privateRun(TestRunner.java:829)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+	at org.testng.TestNG.runSuites(TestNG.java:1099)
+	at org.testng.TestNG.run(TestNG.java:1067)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1637060526", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1637060526'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//h4[@class=&apos;f-label&apos;]&quot;}
+  (Session info: chrome=145.0.7632.117)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: &apos;4.39.0&apos;, revision: &apos;126f156aee&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [9ef09ce19e1cae49115fd28ee517e613, findElement {value=//h4[@class=&apos;f-label&apos;], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.117, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: C:\Users\bilali\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52181}, goog:processID: 24376, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52181/devtoo..., se:cdpVersion: 145.0.7632.117, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 9ef09ce19e1cae49115fd28ee517e613
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:561)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:166)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:384)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:378)
+	at clientPortal.All_ClientPortal_Locators.clickMsg(All_ClientPortal_Locators.java:1349)
+	at clientPortal.All_ClientPortal_Methods.OpenNotice_BrowseUploadValidation2(All_ClientPortal_Methods.java:2512)
+	at testCases.All_Client_Portal_TestCases.OpenNotice_BrowseUploadValidation(All_Client_Portal_TestCases.java:571)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.testng.TestRunner.privateRun(TestRunner.java:829)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+	at org.testng.TestNG.runSuites(TestNG.java:1099)
+	at org.testng.TestNG.run(TestNG.java:1067)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>1990</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
@@ -851,295 +1429,515 @@ Session ID: 411fb90c79afa4c37fcdd92b5384ce25
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.ExistingLicenseCountMatch()'><b>ExistingLicenseCountMatch</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.CalendarNextPreviousToday()'><b>CalendarNextPreviousToday</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
 <td>21</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.ExistingLicenseDraftRCPcountMatch()'><b>ExistingLicenseDraftRCPcountMatch</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.OverviewNotice()'><b>OverviewNotice</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>160</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>80</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.Closed()'><b>Closed</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.OpenNoticesEditDelete()'><b>OpenNoticesEditDelete</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>66</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>116</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.EditDocReqOTActivity()'><b>EditDocReqOTActivity</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.RegistrationStatusEditExport()'><b>RegistrationStatusEditExport</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>102</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>98</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.translationReq()'><b>translationReq</b><br>Test class: testCases.CoordinatorTestCases</td>
-<td></td>
-<td>25</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
-<tr>
-<td title='testCases.CoordinatorTestCases.RegistrationPendingAction()'><b>RegistrationPendingAction</b><br>Test class: testCases.CoordinatorTestCases</td>
-<td></td>
-<td>52</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
-<tr>
-<td title='testCases.CoordinatorTestCases.EditIconDocumentRepoDownload()'><b>EditIconDocumentRepoDownload</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.CorporateExport()'><b>CorporateExport</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
 <td>39</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.relaventDate()'><b>relaventDate</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.RegistrationStatusExport()'><b>RegistrationStatusExport</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>25</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>99</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.EditIconMiniTabsLicense()'><b>EditIconMiniTabsLicense</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.assignedCompChallanExport()'><b>assignedCompChallanExport</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>27</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>104</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.Noticelinkbuttonworking()'><b>Noticelinkbuttonworking</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.RegistrationStatusEditDownloadbtn()'><b>RegistrationStatusEditDownloadbtn</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>31</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>112</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.CoordinatorLogo()'><b>CoordinatorLogo</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.OpenNoticesPagination()'><b>OpenNoticesPagination</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>15</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>164</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.EditIconBackButton()'><b>EditIconBackButton</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.ClosedView()'><b>ClosedView</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>24</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>108</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.ExistingLicenseClosed()'><b>ExistingLicenseClosed</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.OpenNotices()'><b>OpenNotices</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>21</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>76</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.noticeResponselabel()'><b>noticeResponselabel</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.OpenNoticeViewPagination()'><b>OpenNoticeViewPagination</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>30</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>170</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.NoticeEditDocumentRepositoryDownloadCheck()'><b>NoticeEditDocumentRepositoryDownloadCheck</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.LocationsPagination()'><b>LocationsPagination</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>83</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>151</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.addNoticeVerification()'><b>addNoticeVerification</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.RegistrationStatusPagination()'><b>RegistrationStatusPagination</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>92</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>164</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.Overdue()'><b>Overdue</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.RegistrationSearch()'><b>RegistrationSearch</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>66</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>79</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.RegistrationOverdue()'><b>RegistrationOverdue</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.RegistrationStatusExportE()'><b>RegistrationStatusExportE</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>52</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>94</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.ExistingLicenseendingAction()'><b>ExistingLicenseendingAction</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.Entities()'><b>Entities</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>21</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>197</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.doSectionDocReq()'><b>doSectionDocReq</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.RegistrationSHistorySearch()'><b>RegistrationSHistorySearch</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>93</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>88</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.PendingAction()'><b>PendingAction</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.NoticeStatusOpenHyperLinkCount()'><b>NoticeStatusOpenHyperLinkCount</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>66</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>87</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.RegistrationPendingAssignmentExport()'><b>RegistrationPendingAssignmentExport</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.AssignedCompliancesRgisterReturnChallanCount()'><b>AssignedCompliancesRgisterReturnChallanCount</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>97</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>108</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.ExsitingLicenseExport()'><b>ExsitingLicenseExport</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.NoticeViewEditDocumentDownload()'><b>NoticeViewEditDocumentDownload</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>24</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>154</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.smeResposeBackButton()'><b>smeResposeBackButton</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.DownloadActiveEx()'><b>DownloadActiveEx</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>35</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>85</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.ColumnExpandIcon()'><b>ColumnExpandIcon</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.ViewAddNewNoticesNumberError()'><b>ViewAddNewNoticesNumberError</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>15</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>228</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.RegistrationClosed()'><b>RegistrationClosed</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.RegistrationActiveEditDownloadbtn()'><b>RegistrationActiveEditDownloadbtn</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>52</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>118</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.sdExtTranslationReq()'><b>sdExtTranslationReq</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.assignedCompRegisterExport()'><b>assignedCompRegisterExport</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>35</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>104</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.EditIconOtherTabsView()'><b>EditIconOtherTabsView</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.RegistrationSExport()'><b>RegistrationSExport</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>46</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>82</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.EditIconActRelevantDatesLabelBar()'><b>EditIconActRelevantDatesLabelBar</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.RegistrationSHistoryExportEx()'><b>RegistrationSHistoryExportEx</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>21</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>90</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.RegistrationOverdueExport()'><b>RegistrationOverdueExport</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.AssignedCompliances()'><b>AssignedCompliances</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>97</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>87</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.EditIcon()'><b>EditIcon</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.RegistrationSHistoryExport()'><b>RegistrationSHistoryExport</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>3</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>90</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.RegistrationAddNewBackButton()'><b>RegistrationAddNewBackButton</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.RegistrationSHistoryEx()'><b>RegistrationSHistoryEx</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>22</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>84</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.NoticeSearchBox()'><b>NoticeSearchBox</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.Locations()'><b>Locations</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>155</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>77</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.NoticelinkbuttonDashboard()'><b>NoticelinkbuttonDashboard</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.RCOverdueOverview()'><b>RCOverdueOverview</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>26</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>84</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.noticeDocumentBrowse()'><b>noticeDocumentBrowse</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.assignedSelectActFilter()'><b>assignedSelectActFilter</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>329</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>75</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.RegistrationPendingActionExport()'><b>RegistrationPendingActionExport</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.ERview()'><b>ERview</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>97</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>80</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.docReqNoticeLabel()'><b>docReqNoticeLabel</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.RCOverduePagination()'><b>RCOverduePagination</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>40</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>164</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.sdExecutorBackButton()'><b>sdExecutorBackButton</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.NoticeSearchClear()'><b>NoticeSearchClear</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>35</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>88</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.SearchBox()'><b>SearchBox</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.searchECOverdue()'><b>searchECOverdue</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>24</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>86</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.AddNewLicense()'><b>AddNewLicense</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.RegistrationStatusEditInitiateAction()'><b>RegistrationStatusEditInitiateAction</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>38</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>98</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.sdExtExtensionApplication()'><b>sdExtExtensionApplication</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.ViewAddNewNotices()'><b>ViewAddNewNotices</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>35</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>193</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.RegistrationCountMatch()'><b>RegistrationCountMatch</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.ExpiredRegistrationsEdit()'><b>ExpiredRegistrationsEdit</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>52</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>81</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.ExportBtn()'><b>ExportBtn</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.RegistrationSActivePagination()'><b>RegistrationSActivePagination</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>34</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>176</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.NoticeExportBtn()'><b>NoticeExportBtn</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.AbstractStatusIsDisplayed()'><b>AbstractStatusIsDisplayed</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>43</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>17</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.sdExtNoticeResponse()'><b>sdExtNoticeResponse</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.ExpiredRegistrationPagination()'><b>ExpiredRegistrationPagination</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>35</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>172</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.NoticeDocMandatory()'><b>NoticeDocMandatory</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.ExpiredRegistrations()'><b>ExpiredRegistrations</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>12</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>76</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.EditIconBasicInfoSave()'><b>EditIconBasicInfoSave</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.OpenView()'><b>OpenView</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>84</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.NoticeStatusSearch()'><b>NoticeStatusSearch</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>85</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.NoticeSearch()'><b>NoticeSearch</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>85</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.RegistrationActiveEditView()'><b>RegistrationActiveEditView</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>94</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.InitiateActionBack()'><b>InitiateActionBack</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>81</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.exportERE()'><b>exportERE</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>104</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.filtersChecking()'><b>filtersChecking</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
 <td>74</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.ExistingNotice()'><b>ExistingNotice</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.RCCompliedCountVerification()'><b>RCCompliedCountVerification</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>48</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>80</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.RegistrationEditBasicInfo_DisabledFields()'><b>RegistrationEditBasicInfo_DisabledFields</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.RegistrationStatusEdit()'><b>RegistrationStatusEdit</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>30</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>91</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.extensionApplication()'><b>extensionApplication</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.RegistrationStatusExpiredPagination()'><b>RegistrationStatusExpiredPagination</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>30</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>178</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.ExistingLicenseOverdue()'><b>ExistingLicenseOverdue</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.OpenNoticesback()'><b>OpenNoticesback</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>21</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>85</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.NoticeEditVerification()'><b>NoticeEditVerification</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.searchRCComplied()'><b>searchRCComplied</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>124</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>239</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.PendingActionExport()'><b>PendingActionExport</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.CalendarExport()'><b>CalendarExport</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>135</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.assignedCompReturnExport()'><b>assignedCompReturnExport</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>104</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.exportNoticeStatus()'><b>exportNoticeStatus</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>96</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.InitiateAction()'><b>InitiateAction</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
 <td>106</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.docSectionBackButton()'><b>docSectionBackButton</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.NoticeStatusClosedHyperLinkCount()'><b>NoticeStatusClosedHyperLinkCount</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>35</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>81</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.PendingAssignmentExport()'><b>PendingAssignmentExport</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.RCOverdueClearExport()'><b>RCOverdueClearExport</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>106</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>108</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.RegistrationClosedExport()'><b>RegistrationClosedExport</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.DownloadActive()'><b>DownloadActive</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>89</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.OpenNoticesEditback()'><b>OpenNoticesEditback</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>91</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.exportER()'><b>exportER</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>92</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.AssignedCompliancesPagination()'><b>AssignedCompliancesPagination</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>117</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.ClosedStatus()'><b>ClosedStatus</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>83</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.Clientlogo()'><b>Clientlogo</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>30</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.RegistrationSViewEx()'><b>RegistrationSViewEx</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>80</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.RegistrationActiveEditExport()'><b>RegistrationActiveEditExport</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>93</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.RegistrationActiveEditSearch()'><b>RegistrationActiveEditSearch</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>85</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.OpenStatus()'><b>OpenStatus</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>85</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.exportClosed()'><b>exportClosed</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>101</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.RegistrationActiveEditClear()'><b>RegistrationActiveEditClear</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>89</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.ViewOverDownloadRCComplied()'><b>ViewOverDownloadRCComplied</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>238</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.RegistrationStatusEditSearch()'><b>RegistrationStatusEditSearch</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>93</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.ECOverduePagination()'><b>ECOverduePagination</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>167</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.ERSearch()'><b>ERSearch</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>84</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.ECCompliedCountVerification()'><b>ECCompliedCountVerification</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>80</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.ERSearchClear()'><b>ERSearchClear</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>85</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.RegistrationStatusEditView()'><b>RegistrationStatusEditView</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>91</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.exportEC()'><b>exportEC</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>251</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.RegistrationActiveEditbtn()'><b>RegistrationActiveEditbtn</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>88</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.clearBtnECOverdue()'><b>clearBtnECOverdue</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>85</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.NoticeStatusOpenPagination()'><b>NoticeStatusOpenPagination</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>182</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.RegistrationStatusEx()'><b>RegistrationStatusEx</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>70</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.LocationsSearch()'><b>LocationsSearch</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>78</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.RegistrationStatusActiveColumnCount()'><b>RegistrationStatusActiveColumnCount</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>78</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.ExpiredSearch()'><b>ExpiredSearch</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>82</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.RegistrationStatusEditClearbtn()'><b>RegistrationStatusEditClearbtn</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>94</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.CalendarOverviewPagination()'><b>CalendarOverviewPagination</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>196</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.RegistrationSHistory()'><b>RegistrationSHistory</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
 <td>97</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.CountMatch()'><b>CountMatch</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.ActiveSearch()'><b>ActiveSearch</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>66</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>82</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 <tr>
-<td title='testCases.CoordinatorTestCases.SearchBoxExistiongLicense()'><b>SearchBoxExistiongLicense</b><br>Test class: testCases.CoordinatorTestCases</td>
+<td title='testCases.All_Client_Portal_TestCases.assignedCompSearch()'><b>assignedCompSearch</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
 <td></td>
-<td>15</td>
-<td>testCases.CoordinatorTestCases@7530ad9c</td></tr>
+<td>79</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.RegistrationSView()'><b>RegistrationSView</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>78</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.ECOverdue()'><b>ECOverdue</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>88</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.RCOverdueSearch()'><b>RCOverdueSearch</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>84</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.OpenNoticesView()'><b>OpenNoticesView</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>81</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.exportOpen()'><b>exportOpen</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>101</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.exportcount12()'><b>exportcount12</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>95</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.CalendarCount()'><b>CalendarCount</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>91</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
+<tr>
+<td title='testCases.All_Client_Portal_TestCases.OverviewAC()'><b>OverviewAC</b><br>Test class: testCases.All_Client_Portal_TestCases</td>
+<td></td>
+<td>93</td>
+<td>testCases.All_Client_Portal_TestCases@4e50c791</td></tr>
 </table><p>
 </body>
 </html>

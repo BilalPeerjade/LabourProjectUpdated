@@ -20,8 +20,6 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import clientPortal.All_ClientPortal_Methods;
-import clientPortal.All_ClientPortal_Methods;
-import clientPortal.All_ClientPortal_Methods;
 import login.BasePage;
 
 
@@ -67,10 +65,10 @@ public class All_Client_Portal_TestCases extends BasePage {
 	
 	
 	
-	
+	/**
 
 	
-/**
+
 	
 	
 	// Mayuri TCs - ClientTest.Java 1 to 112
@@ -3310,7 +3308,7 @@ void ChallanDocBulkDownload() throws InterruptedException, IOException, AWTExcep
 			}
 
 		
-    
+   
 
 
 	 

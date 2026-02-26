@@ -63,7 +63,6 @@ public class All_ClientPortal_Methods extends BasePage {
 	
 	public static void filterEntity ( ExtentTest test) throws InterruptedException, IOException
 	{Thread.sleep(7000);		
-		Actions action = new Actions(getDriver());
 		WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
@@ -152,7 +151,6 @@ public class All_ClientPortal_Methods extends BasePage {
 		
 		
 		Thread.sleep(7000);		
-		Actions action = new Actions(getDriver());
 		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(6000);
 	    
@@ -180,7 +178,6 @@ public class All_ClientPortal_Methods extends BasePage {
 	
 	public static void FlakyTest_filterEntityAUTO2(ExtentTest test) throws InterruptedException, IOException {
 	    Thread.sleep(7000);
-	    Actions action = new Actions(getDriver());
 	    WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	    Thread.sleep(6000);
 
@@ -240,7 +237,6 @@ public class All_ClientPortal_Methods extends BasePage {
 	{Thread.sleep(5000);
 	
 		Thread.sleep(2000);
-		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		String string_Categories =All_ClientPortal_Locators.Entities().getText();		//Storing old value of Statutory overdue.
 	    int	CategoriesCountDas = Integer.parseInt(string_Categories);
 	    All_ClientPortal_Locators.Entities().click();
@@ -361,9 +357,6 @@ public class All_ClientPortal_Methods extends BasePage {
 	public static void EntitiesSearch(  ExtentTest test) throws InterruptedException, IOException
 	{Thread.sleep(5000);
 	
-		Thread.sleep(2000);
-		JavascriptExecutor js = (JavascriptExecutor) getDriver();
-	
 //	    All_ClientPortal_Locators.Entities().click();
 		Thread.sleep(5000);
 		try {Thread.sleep(5000);
@@ -384,9 +377,6 @@ public class All_ClientPortal_Methods extends BasePage {
 	public static void EntitiesTabPagination(  ExtentTest test) throws InterruptedException, IOException
 	{Thread.sleep(5000);
 	
-		Thread.sleep(2000);
-		JavascriptExecutor js = (JavascriptExecutor) getDriver();
-	
 //	    All_ClientPortal_Locators.Entities().click();
 		Thread.sleep(5000);
 		
@@ -403,8 +393,6 @@ public class All_ClientPortal_Methods extends BasePage {
 	public static void Locations(  ExtentTest test) throws InterruptedException, IOException
 	{Thread.sleep(5000);
 	
-		Thread.sleep(2000);
-		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		String string_Categories =All_ClientPortal_Locators.Locations().getText();		//Storing old value of Statutory overdue.
     	int	CategoriesCountDas = Integer.parseInt(string_Categories);
 	    All_ClientPortal_Locators.Locations().click();
@@ -435,11 +423,6 @@ public class All_ClientPortal_Methods extends BasePage {
 	
 	public static void LocationsPagination(  ExtentTest test) throws InterruptedException, IOException
 	{Thread.sleep(5000);
-	
-		Thread.sleep(2000);
-		JavascriptExecutor js = (JavascriptExecutor) getDriver();
-//		String string_Categories =All_ClientPortal_Locators.Locations().getText();		//Storing old value of Statutory overdue.
-//    	int	CategoriesCountDas = Integer.parseInt(string_Categories);
 		
 		
 		
