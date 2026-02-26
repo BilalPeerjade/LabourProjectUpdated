@@ -5,10 +5,16 @@
     <classes>
       <class name="testCases.CoordinatorTestCases">
         <methods>
+          <include name="ExistingLicenseDownload"/>
+          <include name="NoticeEditDownload"/>
           <include name="Login"/>
-          <include name="EditDocReqOTActivity"/>
+          <include name="StatutoryDocument"/>
           <include name="close"/>
+          <include name="NoticeDocumentsChecking"/>
+          <include name="NoticeEditAllTabsCheck"/>
           <include name="setBrowser"/>
+          <include name="ExistingLicenseViewIcon"/>
+          <include name="ExistingLicenseInitiateAction"/>
         </methods>
       </class> <!-- testCases.CoordinatorTestCases -->
     </classes>
