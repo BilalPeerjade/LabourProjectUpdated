@@ -496,6 +496,17 @@ public class All_Performer_TestCases extends BasePage{
 		extent.endTest(test);
 		extent.flush();
 	}
+	@Test(priority = 35)// NEW TC NEW TC
+	void Complied() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Pie Chart - Performance summary - Complied - match verification");
+		
+		MethodsD.Complied(test,"Distributor");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
 	@Test(priority = 36) 
 	void ChallanAction() throws InterruptedException, IOException
 	{

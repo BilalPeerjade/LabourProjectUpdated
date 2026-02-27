@@ -422,7 +422,6 @@ public class All_Distributor_TWO extends BasePage {
 		{
 			test = extent.startTest("Pie Chart - Performance summary - Complied - match verification");
 			
-		//	All_Distributor_Methods.Complied(test,"Distributor");
 			MethodsD.Complied(test,"Distributor");
 			
 			extent.endTest(test);
