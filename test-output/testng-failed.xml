@@ -5,22 +5,23 @@
     <classes>
       <class name="testCases.All_Client_Portal_TestCases">
         <methods>
+          <include name="AddNewLicense"/>
           <include name="browserClosing"/>
-          <include name="OpenNotice_BrowseUploadValidation"/>
+          <include name="AddNewNotices"/>
+          <include name="EditIconsMiniTabs"/>
           <include name="DailyUpdates"/>
-          <include name="exportNotice"/>
+          <include name="NoticeEditAllTabs"/>
+          <include name="NoticeEditDownloadView"/>
           <include name="setBrowser"/>
-          <include name="RegistrationActiveEditInitiateAction"/>
-          <include name="searchEcComplied"/>
-          <include name="NoticeViewEditTabs"/>
-          <include name="exportEcComplied"/>
-          <include name="NoticeStatusClosedPagination"/>
-          <include name="ERviewBack"/>
-          <include name="NoticeStatusOpenClosedCountWithTotalNotices"/>
-          <include name="NoticeStatusPagination"/>
-          <include name="RegistrationActiveEditInitiateActionSubmit"/>
+          <include name="ChallanViewComplianceFile"/>
+          <include name="ExistingNoticesNo"/>
+          <include name="ExistingLicenseInitiateAction"/>
+          <include name="RegisrationRespository"/>
+          <include name="noticePopUpChecking"/>
+          <include name="EditIconChecktabs"/>
+          <include name="StatutoryDocApplyClaerBtn"/>
+          <include name="NoticeEditDocumentRepositoryDownload"/>
           <include name="Login"/>
-          <include name="RegistrationSHistoryViewDownload"/>
           <include name="Closing"/>
         </methods>
       </class> <!-- testCases.All_Client_Portal_TestCases -->
