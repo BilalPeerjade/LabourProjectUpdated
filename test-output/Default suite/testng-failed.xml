@@ -3,28 +3,24 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testCases.All_Client_Portal_TestCases">
+      <class name="testCases.SDExecutorTestCase">
         <methods>
-          <include name="AddNewLicense"/>
-          <include name="browserClosing"/>
-          <include name="AddNewNotices"/>
-          <include name="EditIconsMiniTabs"/>
-          <include name="DailyUpdates"/>
-          <include name="NoticeEditAllTabs"/>
-          <include name="NoticeEditDownloadView"/>
-          <include name="setBrowser"/>
-          <include name="ChallanViewComplianceFile"/>
-          <include name="ExistingNoticesNo"/>
-          <include name="ExistingLicenseInitiateAction"/>
-          <include name="RegisrationRespository"/>
-          <include name="noticePopUpChecking"/>
-          <include name="EditIconChecktabs"/>
-          <include name="StatutoryDocApplyClaerBtn"/>
-          <include name="NoticeEditDocumentRepositoryDownload"/>
+          <include name="registrationEditDocumentRepositiory"/>
+          <include name="StatutoryDocument"/>
+          <include name="translationReq"/>
+          <include name="editSubmittedToDept"/>
+          <include name="registrationEditTabs"/>
           <include name="Login"/>
-          <include name="Closing"/>
+          <include name="NoticeEditAllTabsCheck"/>
+          <include name="extensionApplication"/>
+          <include name="activityColsureLable"/>
+          <include name="EditIcon"/>
+          <include name="noticeResponse"/>
+          <include name="setBrowser"/>
+          <include name="close"/>
+          <include name="ExistingLicenseClosed"/>
         </methods>
-      </class> <!-- testCases.All_Client_Portal_TestCases -->
+      </class> <!-- testCases.SDExecutorTestCase -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -160,9 +160,9 @@ public class SMETestCase extends BasePage
 
 	}
 
-@AfterMethod
-void close()
-{
-  getDriver().close();
-}
+	@AfterMethod
+	void close() {
+		System.out.println("Currently Active Threads: " + Thread.activeCount());
+		getDriver().close();
+	}
 }
