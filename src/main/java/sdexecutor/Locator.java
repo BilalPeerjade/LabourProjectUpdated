@@ -116,6 +116,11 @@ public class Locator extends BasePage
 		labour = getDriver().findElement(By.xpath("//h4[normalize-space()='Are you sure you want to delete this License?']"));
 		return labour;
 	}
+	public static WebElement deleteMessage()	
+	{
+		labour = getDriver().findElement(By.xpath("//h4[@class='f-label']"));
+		return labour;
+	}
 	public static WebElement clickCancelBtn()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//span[normalize-space()='Cancel']"));
@@ -331,6 +336,11 @@ public class Locator extends BasePage
 	public static WebElement UploadedFinalRCLicense()
 	{
 		labour = getDriver().findElement(By.xpath("(//img[@src='../assets/vectors/NoAccessDownload.svg'])[3]"));
+		return labour;
+	}
+	public static WebElement gridDocRequiredForNotice()
+	{
+		labour = getDriver().findElement(By.xpath("//kendo-pager-info[@class='k-pager-info k-label']"));
 		return labour;
 	}
 	

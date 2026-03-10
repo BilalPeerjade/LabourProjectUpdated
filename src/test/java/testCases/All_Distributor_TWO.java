@@ -666,10 +666,10 @@ public class All_Distributor_TWO extends BasePage {
 		}
 		
 		
-
+/**
 
 		//Part 2
-	
+
 
 		
 		//Manage Masters
@@ -1121,7 +1121,7 @@ public class All_Distributor_TWO extends BasePage {
 		
 		
 		
-		@Test(priority = 214) //Completed till here
+		@Test(priority = 214) 
 		void PayCodeUploadSampleFile() throws InterruptedException, IOException, AWTException
 		{
 			test = extent.startTest("Onboard Entity - Paycode Mapping - Verify to check upload - sample files is downloading or not?");
@@ -1142,7 +1142,7 @@ public class All_Distributor_TWO extends BasePage {
 			extent.flush();
 		}
 //Onboard Entity --> User branch mapping 
-		@Test(priority = 220)
+		@Test(priority = 220) 
 		void Entity_UMapuser() throws InterruptedException, IOException, AWTException
 		{
 			test = extent.startTest("Onboard Entity - User-Branch Mapping - Verify to check Map User button is working or not?");
@@ -1162,7 +1162,7 @@ public class All_Distributor_TWO extends BasePage {
 			extent.endTest(test);
 			extent.flush();
 		}
-		@Test(priority = 222) 
+		@Test(priority = 222)
 		void ubExportsFilters() throws InterruptedException, IOException, AWTException
 		{
 			test = extent.startTest("Onboard Entity - User-Branch Mapping - Verify to check Exports with Filters are working correctly ");
@@ -1173,7 +1173,7 @@ public class All_Distributor_TWO extends BasePage {
 			extent.flush();
 		}
 		
-		@Test(priority = 223) 
+		@Test(priority = 223)  
 		void ubDelete() throws InterruptedException, IOException, AWTException
 		{
 			test = extent.startTest("Onboard Entity - User-Branch Mapping - Verify to check Delete button are working correctly ");
@@ -1217,7 +1217,7 @@ public class All_Distributor_TWO extends BasePage {
 		
 		
 		//Assignment Removal
-		@Test(priority = 235)
+		@Test(priority = 235) 
 		void AssignmentRemoval() throws InterruptedException, IOException {
 			test = extent.startTest("OnBorad Entity - Manage Compliance - Verify to check Assignment Removal works correctly");
 
@@ -1253,7 +1253,7 @@ public class All_Distributor_TWO extends BasePage {
 		
 		
 		//Schedule Creation:
-		@Test(priority = 250) //Bilal
+		@Test(priority = 250) //Bilal 
 	   	void scheduleCreationValidation() throws InterruptedException, IOException
 	   	{
 	   		test = extent.startTest("Onboard Entity - Manage Compliance - Schedule creation - Verify validation message");
@@ -1265,7 +1265,7 @@ public class All_Distributor_TWO extends BasePage {
 	   	}
 		
 		//Schedule Removal
-		@Test(priority = 255)
+		@Test(priority = 255) 
 		void ScheduleRemoval() throws InterruptedException, IOException {
 			test = extent.startTest("Onboard Entity - Manage Compliance - Verify Schedule Removal works correctly");
 
@@ -1281,7 +1281,7 @@ public class All_Distributor_TWO extends BasePage {
 		
 		
 		//OnBoard CLRA:-----
-		@Test(priority = 300)
+		@Test(priority = 300) 
 	   	void CLRASearchEmployee() throws InterruptedException, IOException, AWTException
 	   	{
 	   		test = extent.startTest("OnBorad CLRA-Search Box verification");
@@ -1292,7 +1292,7 @@ public class All_Distributor_TWO extends BasePage {
 	   		extent.flush();
 
 	   	}
-		@Test(priority = 301)
+		@Test(priority = 301) 
 	   	void CLRAEmployerAddNew() throws InterruptedException, IOException
 	   	{
 	   		test = extent.startTest("Onboard CLRA - Add Employer verification");
@@ -1302,7 +1302,7 @@ public class All_Distributor_TWO extends BasePage {
 	   		extent.endTest(test);
 	   		extent.flush();
 	   	}
-		@Test(priority = 302)
+		@Test(priority = 302) 
 	   	void CLRA_HolidayMaster_verification() throws Exception
 	   	{
 	   		test = extent.startTest("OnBorad CLRA - Verify to upload holiday master verification");
@@ -1316,7 +1316,7 @@ public class All_Distributor_TWO extends BasePage {
 	   		extent.endTest(test);
 	   		extent.flush();
 	   	}
-		@Test(priority = 303)
+		@Test(priority = 303) 
 	   	void bulkUpload() throws Exception
 	   	{
 	   		test = extent.startTest("OnBorad CLRA-Bulk Upload verification");
@@ -1326,7 +1326,7 @@ public class All_Distributor_TWO extends BasePage {
 	   		extent.endTest(test);
 	   		extent.flush();
 	   	}
-		@Test(priority = 304)
+		@Test(priority = 304) 
 	   	void EmployeerExportBtn() throws InterruptedException, IOException, AWTException
 	   	{
 	   		test = extent.startTest("OnBorad CLRA - Export button verification");
@@ -1337,7 +1337,7 @@ public class All_Distributor_TWO extends BasePage {
 	   		extent.flush();
 	   	}
 		
-		@Test(priority = 305)
+		@Test(priority = 305) 
 	   	void UpdateEmployer() throws InterruptedException, IOException
 	   	{
 	   		test = extent.startTest("OnBorad CLRA - Employer - Verify to check edit button is working or not?");
@@ -1347,7 +1347,7 @@ public class All_Distributor_TWO extends BasePage {
 	   		extent.endTest(test);
 	   		extent.flush();
 	   	}
-		@Test(priority = 306) 
+		@Test(priority = 306) //Completed till here
 	   	void DeleteEmployer() throws InterruptedException, IOException
 	   	{
 	   		test = extent.startTest("OnBorad CLRA - Employer - Verify to check delete button is working or not?");
@@ -1674,7 +1674,7 @@ public class All_Distributor_TWO extends BasePage {
 	
 	
 	
-
+*/
 
 
 	   

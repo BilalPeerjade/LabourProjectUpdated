@@ -496,7 +496,7 @@ public class All_Performer_TestCases extends BasePage{
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 35)// NEW TC NEW TC
+	@Test(priority = 35)
 	void Complied() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Pie Chart - Performance summary - Complied - match verification");
@@ -924,7 +924,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 
 	//Part 2
 
- /**
+
 
    	
    	//Onboard Employee:--
@@ -971,7 +971,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
    		extent.flush();
    	}
     
-    @Test(priority = 110) 
+    @Test(priority = 110) //NEW TC NEW TC
     void employeeBulkUpload() throws Exception
     {
     	test = extent.startTest("Onboard Employee - Verify to check bulk upload functionalities working correctly");
@@ -1047,6 +1047,17 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 		extent.endTest(test);
 		extent.flush();
 	}
+	
+   	@Test(priority = 151) // NEW TC NEW TC
+   	void OnBoardEntityUploadHolidayMaster() throws Exception
+   	{
+   		test = extent.startTest("OnBoard Entity - Upload Holiday Master verfication");
+   		
+   		PerformerMethod.OnBoardEntityUploadHolidayMaster(test);
+   		
+   		extent.endTest(test);
+   		extent.flush();
+   	}
     
    	@Test(priority = 151)
    	void OnBoardEntityExport() throws InterruptedException, IOException, AWTException
@@ -1553,6 +1564,27 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 
 	}
 	
+	
+	@Test(priority = 315) //NEW TC NEW TC
+	void PayBonusStateDocZipFile() throws InterruptedException, IOException, AWTException 
+	{
+		test = extent.startTest("Statutory Documents - Returns - Verify to download ZIP folder");
+		ReviewerMethod.PayBonusStateDocZipFile(test, "Performer");
+		
+		test = extent.startTest("Statutory Documents - Returns - Verify to check Overview button is working correctly");
+		ReviewerMethod.StateDownloadDocOverview(test, "Performer");
+
+		test = extent.startTest("Statutory Documents - Returns - Verify to download document file");
+		ReviewerMethod.StateDownloadDocSingle(test, "Performer");
+		
+		test = extent.startTest("Statutory Documents - Returns - Verify to view document file");
+		ReviewerMethod.StateViewDocSingle(test, "Performer");
+
+		extent.endTest(test);
+		extent.flush();
+
+	}
+	
     
     //----- Input Files -----
     
@@ -1840,7 +1872,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 		}
 	
 
-**/
+
 
 	
    	

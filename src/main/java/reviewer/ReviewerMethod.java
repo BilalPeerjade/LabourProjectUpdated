@@ -367,7 +367,6 @@ public static void StatutoryDocFilter(ExtentTest test) throws InterruptedExcepti
 }
 public static void StateDocZipFile(ExtentTest test, String user) throws InterruptedException
 {
- 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(5000);
 	
 	if(user.equalsIgnoreCase("Performer"))
@@ -404,6 +403,77 @@ public static void StateDocZipFile(ExtentTest test, String user) throws Interrup
 	ReviwerLocator.clickYear().click();
 	Thread.sleep(2000);
 	ReviwerLocator.selectYear2024().click();
+	Thread.sleep(2000);
+	ReviwerLocator.clickPeriod().click();
+	Thread.sleep(2000);
+	ReviwerLocator.selectComplianceType().click();
+	Thread.sleep(2000);
+//	ReviwerLocator.clickComplianceStatus().click();
+	Thread.sleep(2000);
+//	ReviwerLocator.selectComplianceType().click();
+	Thread.sleep(2000);
+	ReviwerLocator.clickBranch1().click();
+	Thread.sleep(2000);
+	ReviwerLocator.clickcheckbox().click();
+	Thread.sleep(2000);
+	ReviwerLocator.clickApply().click();
+
+		Thread.sleep(9000);
+		
+		OneCommonMethod.validateFileDownloadDynamic(
+			    driver.get(),
+			    test,
+			    ReviwerLocator.clickDownload(),   // WebElement
+			    "ZIP File is downloaded successfully !"   // Dynamic log message
+			);
+		
+	
+	Thread.sleep(9000);
+		
+	}
+
+public static void PayBonusStateDocZipFile(ExtentTest test, String user) throws InterruptedException
+{
+	Thread.sleep(5000);
+	
+	if(user.equalsIgnoreCase("Performer"))
+	{
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO");
+		Thread.sleep(8000);
+		ReviwerLocator.clickWorkspaceArrow().click();
+	}
+	else if(user.equalsIgnoreCase("Distributor"))
+	{
+		LoginLocators.Search().sendKeys("AVACORED5");	
+	}
+	else if(user.equalsIgnoreCase("Reviewer"))
+	{
+		LoginLocators.Search().sendKeys("TESTAUTO");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO");
+		Thread.sleep(8000);
+		ReviwerLocator.clickStaturyDocumentArrow().click();
+	}
+	
+	
+	Thread.sleep(8000);
+	ReviwerLocator.clickStatutoryDoc().click();
+	
+	Thread.sleep(2000);
+	ReviwerLocator.clickComplianceType().click();
+	Thread.sleep(2000);
+	ReviwerLocator.selectComplianceReturn().click();
+	Thread.sleep(2000);
+	ReviwerLocator.selectComplianceFrequency().click();
+	Thread.sleep(2000);
+	ReviwerLocator.selectComplianceFrequencyAnnaul().click();
+	Thread.sleep(2000);
+	ReviwerLocator.clickAct2().click();
+	Thread.sleep(2000);
+	ReviwerLocator.selectPBA1965().click();
+	Thread.sleep(2000);
+	ReviwerLocator.clickYear().click();
+	Thread.sleep(2000);
+	ReviwerLocator.selectYear2025().click();
 	Thread.sleep(2000);
 	ReviwerLocator.clickPeriod().click();
 	Thread.sleep(2000);
@@ -473,7 +543,6 @@ public static void StateDocZipFile(ExtentTest test, String user) throws Interrup
 	}
 	public static void StateDocZipFileChallanEPF(ExtentTest test, String user) throws InterruptedException
 	{
-		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(5000);
 
 		if (user.equalsIgnoreCase("Performer")) {

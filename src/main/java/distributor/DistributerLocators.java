@@ -597,6 +597,11 @@ public class DistributerLocators extends BasePage
 		labour = getDriver().findElement(By.xpath("(//*[@class='k-input-value-text'])"));
 		return labour;
 	}
+	public static WebElement testAutomation3()	
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()= 'Test Automation 3']"));
+		return labour;
+	}
 
 	public static WebElement clickBranch1()	
 	{
@@ -669,7 +674,11 @@ public class DistributerLocators extends BasePage
 	public static WebElement select_Bobbili_Avacored_branch()
 	{
 		labour = getDriver().findElement(By.xpath("//span[contains(text(),'Bobbili_Avacored test')]"));
-		//*[@role='group'])[2]/li
+		return labour;
+	}
+	public static WebElement select_Amaravati_Andra_Branch()
+	{
+		labour = getDriver().findElement(By.xpath("//span[contains(text(),'Amaravati_Andra Branch')]"));
 		return labour;
 	}
 	public static WebElement selectBranch1()

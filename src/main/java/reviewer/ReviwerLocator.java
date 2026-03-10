@@ -67,14 +67,39 @@ public class ReviwerLocator extends BasePage
 
 
 
-	public static WebElement selectYear2024()		//Method for searching Username input
+	public static WebElement selectYear2024()	
 	{
 		labour = getDriver().findElement(By.xpath("//span[normalize-space()='2024']"));
+		return labour;
+	}
+	public static WebElement selectYear2025()	
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='2025']"));
 		return labour;
 	}
 	public static WebElement selectComplianceType1()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("//*[@class='k-list-ul']/li[2]"));
+		return labour;
+	}
+	public static WebElement selectComplianceReturn()	
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='Return']"));
+		return labour;
+	}
+	public static WebElement selectComplianceFrequency()	
+	{
+		labour = getDriver().findElement(By.xpath("//span[contains(text(),'Frequency')]"));
+		return labour;
+	}
+	public static WebElement selectComplianceFrequencyAnnaul()	
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='Annual']"));
+		return labour;
+	}
+	public static WebElement selectPBA1965()	
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='Payment of Bonus Act, 1965']"));
 		return labour;
 	}
 	public static WebElement selectPeriodJan()	

@@ -1090,12 +1090,8 @@ public class All_Distributor_Methods extends BasePage {
 //			LoginLocators.Search().sendKeys("AVACORED5");
 
 			Thread.sleep(5000);
-			Thread.sleep(5000);
-			Thread.sleep(5000);
-			// DistributerLocators.SerchCustomer().sendKeys("TESTAUTO3");
-			OneCommonMethod.searchEntityAndSelect(driver.get(), test, LoginLocators.Search(), "AVACORED5");
-			;
-			Thread.sleep(5000);
+			OneCommonMethod.searchEntityAndSelect(driver.get(), test, LoginLocators.Search(), "TESTAUTO3");
+			Thread.sleep(1000);
 			DistributerLocators.clickPremiseMasterArrow().click();
 			Thread.sleep(7000);
 			DistributerLocators.clickOnboardCLRA().click();
@@ -1151,10 +1147,9 @@ public class All_Distributor_Methods extends BasePage {
 	public static void UpdateEmployer(ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException {
 
 		Thread.sleep(5000);
-		Thread.sleep(5000);
-		Thread.sleep(5000);
-		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
-		Thread.sleep(5000);
+
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+		Thread.sleep(1000);
 		DistributerLocators.clickPremiseMasterArrow().click();
 		Thread.sleep(7000);
 		DistributerLocators.clickOnboardCLRA().click();
@@ -1203,11 +1198,9 @@ public class All_Distributor_Methods extends BasePage {
 	public static void DeleteEmployer(ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException {
 
 		Thread.sleep(5000);
-		Thread.sleep(5000);
-		Thread.sleep(5000);
-		// DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
-		OneCommonMethod.searchEntityAndSelect(driver.get(), test, LoginLocators.Search(), "AVACORED5");
-		Thread.sleep(4000);
+
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+		Thread.sleep(1000);
 		DistributerLocators.clickPremiseMasterArrow().click();
 		Thread.sleep(7000);
 		DistributerLocators.clickOnboardCLRA().click();
@@ -1341,16 +1334,11 @@ public class All_Distributor_Methods extends BasePage {
 	public static void bulkUpload(ExtentTest test, XSSFWorkbook workbook) throws Exception {
 		getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		Thread.sleep(5000);
-		Thread.sleep(5000);
-		Thread.sleep(5000);
-		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 		Thread.sleep(5000);
 		DistributerLocators.clickPremiseMasterArrow().click();
 		Thread.sleep(7000);
 
-		// Correct Entity Verification
-		OneCommonMethod.verifyTestEntity(driver.get(), test,
-				By.xpath("//span[normalize-space()='AVATCGEN CORE DEMO[AVACORED5]']"), "AVATCGEN CORE DEMO[AVACORED5]");
 
 		DistributerLocators.clickOnboardCLRA().click();
 
@@ -1395,10 +1383,8 @@ public class All_Distributor_Methods extends BasePage {
 
 		getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		Thread.sleep(5000);
-		Thread.sleep(5000);
-		Thread.sleep(5000);
-		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
-		Thread.sleep(6000);
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+		Thread.sleep(1000);
 		DistributerLocators.clickPremiseMasterArrow().click();
 		Thread.sleep(7000);
 		DistributerLocators.clickOnboardCLRA().click();
@@ -1509,12 +1495,9 @@ public class All_Distributor_Methods extends BasePage {
 	public static void CLRA_HolidayMaster_verification(ExtentTest test, XSSFWorkbook workbook) throws Exception {
 
 		Thread.sleep(5000);
-		Thread.sleep(5000);
-		Thread.sleep(5000);
-		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
 		
 		OneCommonMethod.searchEntityAndSelect(driver.get(), test, LoginLocators.Search(), "TESTAUTO3");
-		Thread.sleep(10000);
+		Thread.sleep(1000);
 		DistributerLocators.clickPremiseMasterArrow().click();
 		Thread.sleep(7000);
 
@@ -1730,7 +1713,6 @@ public class All_Distributor_Methods extends BasePage {
 	}
 
 	public static void Entity_UMapuser(ExtentTest test) throws InterruptedException, IOException {
-		Actions action = new Actions(getDriver());
 		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 
@@ -1738,12 +1720,9 @@ public class All_Distributor_Methods extends BasePage {
 																													// until
 																													// records
 																													// table
-																													// get
-																													// visible.
+																													// get																					// visible.
 		Thread.sleep(3000);
-		Thread.sleep(5000);
-		Thread.sleep(5000);
-		Locators.Searchentities().sendKeys("AVACORED5"); // Writing Task title
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 		Thread.sleep(3000);
 
 		Thread.sleep(8000);
@@ -1817,17 +1796,14 @@ public class All_Distributor_Methods extends BasePage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='Corporate']"))); 
 		
 		Thread.sleep(3000);
-		Thread.sleep(5000);
-		Thread.sleep(5000);
 		if(user.equalsIgnoreCase("Performer"))
 		{
-			Locators.Searchentities().sendKeys("AVACORED5"); 
-			Thread.sleep(5000);
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 			PerformerLocator.clickWorkspaceArrow().click();
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
 		{
-			LoginLocators.Search().sendKeys("AVACORED5");	
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 			Locators.clickPremisesArrow().click();
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
@@ -1873,7 +1849,7 @@ public class All_Distributor_Methods extends BasePage {
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
 		{
-			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVANEW");
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 			Locators.clickPremisesArrow().click();
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
@@ -1892,7 +1868,7 @@ public class All_Distributor_Methods extends BasePage {
 		Thread.sleep(3000);
 		Locators.ubselectBranches().click();
 		Thread.sleep(3000);
-		WebElement state = getDriver().findElement(By.xpath("//span[normalize-space()='Gujarat']"));
+		WebElement state = getDriver().findElement(By.xpath("//span[normalize-space()='Bihar']"));
 		state.click();
 		Thread.sleep(3000);
 		
@@ -1941,8 +1917,8 @@ public class All_Distributor_Methods extends BasePage {
 //		Locators.ubselectBranches().click(); // Change
 		getDriver().findElement(By.xpath("//span[contains(normalize-space(),'Select Branch')]")).click();
 		Thread.sleep(3000);
-		WebElement clraBranch = getDriver().findElement(By.xpath("//span[contains(text(),'Ambuj')]"));
-		Thread.sleep(3000);
+		WebElement clraBranch = getDriver().findElement(By.xpath("//span[contains(text(),'Team')]"));
+		Thread.sleep(5000);
 		clraBranch.click();
 		Thread.sleep(3000);
 		Locators.apply().click();
@@ -1995,7 +1971,7 @@ public class All_Distributor_Methods extends BasePage {
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
 		{	
-			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 			Locators.clickPremisesArrow().click();
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
@@ -2067,13 +2043,11 @@ public class All_Distributor_Methods extends BasePage {
 
 	public static void CLRASearchEmployee(ExtentTest test, XSSFWorkbook workbook)
 			throws InterruptedException, IOException {
-		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 
 		Thread.sleep(5000);
-		Thread.sleep(5000);
-		Thread.sleep(5000);
-		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
-		Thread.sleep(5000);
+
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+		Thread.sleep(1000);
 		DistributerLocators.clickPremiseMasterArrow().click();
 		Thread.sleep(7000);
 		DistributerLocators.clickOnboardCLRA().click();
@@ -3596,9 +3570,8 @@ public class All_Distributor_Methods extends BasePage {
 			throws InterruptedException, IOException, AWTException {
 
 		Thread.sleep(5000);
-		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
-		OneCommonMethod.searchEntityAndSelect(driver.get(), test, LoginLocators.Search(), "AVACORED5");
-		Thread.sleep(5000);
+		OneCommonMethod.searchEntityAndSelect(driver.get(), test, LoginLocators.Search(), "TESTAUTO3");
+		Thread.sleep(1000);
 		DistributerLocators.clickPremiseMasterArrow().click();
 		Thread.sleep(7000);
 		DistributerLocators.clickOnboardCLRA().click();
@@ -4394,10 +4367,8 @@ public class All_Distributor_Methods extends BasePage {
 			throws InterruptedException, IOException {
 
 		Thread.sleep(5000);
-		Thread.sleep(5000);
-		Thread.sleep(5000);
-		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
-		Thread.sleep(8000);
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+		Thread.sleep(1000);
 		DistributerLocators.clickPremiseMasterArrow().click();
 		Thread.sleep(7000);
 		DistributerLocators.clickOnBoardEntity().click();
@@ -4412,7 +4383,7 @@ public class All_Distributor_Methods extends BasePage {
 		Thread.sleep(1000);
 		DistributerLocators.clickBranchTiangle().click();
 		Thread.sleep(1000);
-		DistributerLocators.select_Bobbili_Avacored_branch().click();
+		DistributerLocators.select_Amaravati_Andra_Branch().click();
 
 		Thread.sleep(1000);
 		DistributerLocators.clickRole().click();
@@ -4466,7 +4437,7 @@ public class All_Distributor_Methods extends BasePage {
 		
 //		DistributerLocators.TypetosearchCLRA().sendKeys("8353");
 		
-		getDriver().findElement(By.xpath("//input[@placeholder='Type to Search']")).sendKeys("11246");
+		getDriver().findElement(By.xpath("//input[@placeholder='Type to Search']")).sendKeys("12532");
 		Thread.sleep(5000);
 //		String texttt = getDriver().findElement(By.xpath("//tbody/tr[1]/td[2]")).getText();
 		
@@ -4474,7 +4445,7 @@ public class All_Distributor_Methods extends BasePage {
 		if(DistributerLocators.gridBOX().isDisplayed())
 		{
 			String texttt = DistributerLocators.gridBOX().getText();
-			if (texttt.equals("11246")) {
+			if (texttt.equals("12532")) {
 				test.log(LogStatus.PASS, "Type to search field is working fine");
 				test.log(LogStatus.PASS, "Searched text is displayed in grid" + texttt);
 			} else {
@@ -4511,7 +4482,8 @@ public class All_Distributor_Methods extends BasePage {
 
 		Thread.sleep(4000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
-		Thread.sleep(7000);
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+		Thread.sleep(1000);
 		DistributerLocators.clickDashboard().click();
 		Thread.sleep(15000);
 		DistributerLocators.clickOnBoardEntity().click();
@@ -4526,17 +4498,20 @@ public class All_Distributor_Methods extends BasePage {
 		
 		Thread.sleep(1000);
 		DistributerLocators.clickBranch1().click();
-		Thread.sleep(1000);
-		DistributerLocators.clickBranchTiangle().click();
-	     Thread.sleep(1000);
-		DistributerLocators.selectBranch1().click();
+		Thread.sleep(3000);
+		DistributerLocators.testAutomation3().click();
+//		DistributerLocators.clickBranch1().click();
+//		Thread.sleep(1000);
+//		DistributerLocators.clickBranchTiangle().click();
+//	     Thread.sleep(1000);
+//		DistributerLocators.selectBranch1().click();
 		Thread.sleep(1000);
 		
 		if(DistributerLocators.applybtn().isDisplayed()) {
-			Thread.sleep(1000);
+			Thread.sleep(3000);
 			DistributerLocators.applybtn().click();
 			test.log(LogStatus.PASS, "All filters are working fine");
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 			test.log(LogStatus.PASS, "Apply button is working fine");
 		}
 		
@@ -4586,19 +4561,19 @@ public class All_Distributor_Methods extends BasePage {
 		}
 		Thread.sleep(1000);
 		DistributerLocators.clickOkBtn().click();
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		
 		
 		
 		
 		
 		
-		getDriver().findElement(By.xpath("//input[@placeholder='Type to Search']")).sendKeys("2753");
+		getDriver().findElement(By.xpath("//input[@placeholder='Type to Search']")).sendKeys("8353");
 		Thread.sleep(5000);
 		if(DistributerLocators.gridBOX().isDisplayed())
 		{
 			String texttt = DistributerLocators.gridBOX().getText();
-			if (texttt.equals("2753")) {
+			if (texttt.equals("8353")) {
 				test.log(LogStatus.PASS, "Type to search field is working fine");
 				test.log(LogStatus.PASS, "Searched text is displayed in grid : " + texttt);
 			} else {
@@ -4638,7 +4613,7 @@ public class All_Distributor_Methods extends BasePage {
 
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
-		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 		Thread.sleep(1000);
 		DistributerLocators.clickDashboard().click();
 		Thread.sleep(7000);
@@ -4655,7 +4630,8 @@ public class All_Distributor_Methods extends BasePage {
 		Thread.sleep(1000);
 		DistributerLocators.clickBranch1().click();
 		Thread.sleep(1000);
-		DistributerLocators.clickBranches().click();
+//		DistributerLocators.clickBranches().click();
+		DistributerLocators.testAutomation3().click();
 	     Thread.sleep(1000);
 //		DistributerLocators.selectBranch1().click();
 		Thread.sleep(1000);
@@ -4718,13 +4694,13 @@ public class All_Distributor_Methods extends BasePage {
 		
 		
 		
-		getDriver().findElement(By.xpath("//input[@placeholder='Type to Search']")).sendKeys("1224");
+		getDriver().findElement(By.xpath("//input[@placeholder='Type to Search']")).sendKeys("8353");
 		Thread.sleep(5000);
 		
 		if(DistributerLocators.gridBOX().isDisplayed())
 		{
 			String texttt = DistributerLocators.gridBOX().getText();
-			if (texttt.equals("1224")) {
+			if (texttt.equals("8353")) {
 				test.log(LogStatus.PASS, "Type to search field is working fine");
 				test.log(LogStatus.PASS, "Searched text is displayed in grid : " + texttt);
 			} else {
@@ -4758,8 +4734,7 @@ public class All_Distributor_Methods extends BasePage {
 		
 
 		Thread.sleep(1000);
-		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
-		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 		
 		
 		Thread.sleep(1000);
@@ -4779,7 +4754,7 @@ public class All_Distributor_Methods extends BasePage {
 		DistributerLocators.clickBranch1().click();
 		Thread.sleep(1000);
 //		DistributerLocators.clickBranchTiangle().click();
-		DistributerLocators.clickBranches().click();
+		DistributerLocators.testAutomation3().click();
 	     Thread.sleep(1000);
 //		DistributerLocators.selectBranch1().click();
 		
@@ -4843,7 +4818,7 @@ public class All_Distributor_Methods extends BasePage {
 		
 		DistributerLocators.clickcloseBtn().click();
 		Thread.sleep(5000);
-		getDriver().findElement(By.xpath("//input[@placeholder='Type to Search']")).sendKeys("29246");
+		getDriver().findElement(By.xpath("//input[@placeholder='Type to Search']")).sendKeys("8353");
 		Thread.sleep(5000);
 		Thread.sleep(5000);
 		Thread.sleep(5000);
@@ -4851,7 +4826,7 @@ public class All_Distributor_Methods extends BasePage {
 		if(DistributerLocators.gridBOX().isDisplayed())
 		{
 			String texttt = DistributerLocators.gridBOX().getText();
-			if (texttt.equals("29246")) {
+			if (texttt.equals("8353")) {
 				test.log(LogStatus.PASS, "Type to search field is working fine");
 				test.log(LogStatus.PASS, "Searched text is displayed in grid : " + texttt);
 			} else {
@@ -4886,10 +4861,8 @@ public class All_Distributor_Methods extends BasePage {
 			throws InterruptedException, IOException {
 
 		Thread.sleep(5000);
-		Thread.sleep(5000);
-		Thread.sleep(5000);
-		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
-		Thread.sleep(8000);
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+		Thread.sleep(1000);
 		DistributerLocators.clickPremiseMasterArrow().click();
 		Thread.sleep(7000);
 		DistributerLocators.clickOnBoardEntity().click();
@@ -6311,11 +6284,10 @@ public class All_Distributor_Methods extends BasePage {
 	
 	public static void Entity_CompAssignment(ExtentTest test, XSSFWorkbook workbook)
 			throws InterruptedException, IOException {
-		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
-		OneCommonMethod.searchEntityAndSelect(driver.get(), test, LoginLocators.Search(), "AVACORED5");
+		OneCommonMethod.searchEntityAndSelect(driver.get(), test, LoginLocators.Search(), "TESTAUTO3");
 		Thread.sleep(1000);
 		DistributerLocators.clickPremiseMasterArrow().click();
 

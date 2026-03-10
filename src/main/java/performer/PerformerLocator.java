@@ -431,6 +431,11 @@ private static WebElement labour = null;			//WebElement variable created for Use
 		getDriver().findElement(By.xpath("(//label[normalize-space()='Browse'])[1]")); 
 		return labour;
 	}
+	public static WebElement browseBtn()	
+	{
+		getDriver().findElement(By.xpath("//button[@title='Browse']")); 
+		return labour;
+	}
 	
 	public static WebElement uploadShiftMasterBrowse()	
 	{

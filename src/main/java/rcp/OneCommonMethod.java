@@ -766,9 +766,9 @@ public class OneCommonMethod extends BasePage{
 		for (int attempt = 1; attempt <= 2; attempt++) {
 			try {
 				searchBox.clear();
-				Thread.sleep(15000);
+				Thread.sleep(1500);
 				searchBox.sendKeys(entityId);
-				Thread.sleep(6000); // your preferred fixed pause
+				Thread.sleep(1000); // your preferred fixed pause
 
 				WebElement row = driver.findElement(gridCell); // will auto‑wait up to 10 s
 				row.click(); // proceed with entity

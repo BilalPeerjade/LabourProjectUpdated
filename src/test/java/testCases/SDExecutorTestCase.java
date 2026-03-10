@@ -272,6 +272,18 @@ void NoticeEditDownload() throws InterruptedException, IOException, EncryptedDoc
    		extent.endTest(test);
    		extent.flush();
    	}
+	
+	@Test(priority = 20) //NEW TC NEW TC
+   	void doSectionDocReqSDEx() throws Exception
+   	{
+   		test = extent.startTest("Notices - Edit - Verify to check Document Requirements for the Notice works correctly");
+   		
+   		Method.doSectionDocReqSDEx(test);
+   		
+   		extent.endTest(test);
+   		extent.flush();
+   	}
+	
 
 /////////////////////////////////Registration//////////////////////////////
 

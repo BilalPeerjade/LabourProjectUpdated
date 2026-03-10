@@ -1878,25 +1878,43 @@ public class PerformerMethod extends BasePage
 			if(PerformerLocator.clickUploadEmp().isDisplayed()) {
 				PerformerLocator.clickUploadEmp().click();
 			}
+			Thread.sleep(3000);
 			PerformerLocator.clickCheckBox().click();
 			Thread.sleep(3000);
 			OneCommonMethod.validateFileDownloadDynamic(getDriver(), test, PerformerLocator.SampleTemplate(), "Sample Template downloaded successfully");
 			Thread.sleep(8000);
-			
-			OneCommonMethod.uploadFileWithoutRobot(getDriver(),
-				    By.xpath("//span[@class='filename']"),
-				    "D:\\Upload Automation Files\\Employee Master\\EmployeeMaster.xlsx",
-				    By.xpath("//button[normalize-space()='Upload']")
-				);
+//			PerformerLocator.browseBtn().click();
+			getDriver().findElement(By.xpath("//button[@title='Browse']")).click();
+			Thread.sleep(3000);
+			OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Employee Master\\EmployeeMaster.xlsx");
+			Thread.sleep(3000);
+			getDriver().findElement(By.xpath("//button[normalize-space()='Upload']")).click();
+			Thread.sleep(3000);
+//			OneCommonMethod.uploadFileWithoutRobot(getDriver(),
+//				    By.xpath("//span[@class='filename']"),
+//				    "D:\\Upload Automation Files\\Employee Master\\EmployeeMaster.xlsx",
+//				    By.xpath("//button[normalize-space()='Upload']")
+//				);
 		
 			String message = PerformerLocator.clickMsg().getText();
 			if(message.equalsIgnoreCase("File uploaded Successfully!")) {
 				test.log(LogStatus.PASS, "File Uploaded successfully");
 				test.log(LogStatus.PASS, "Message displayed : " + message);
+				Thread.sleep(2000);
+				PerformerLocator.clickOkBtn().click();
 			}
 			else {
 				test.log(LogStatus.FAIL, "File is not Uploaded");
 				test.log(LogStatus.FAIL, "Message displayed : " + message);
+			}
+			
+			if(PerformerLocator.clickRefresh().isDisplayed()) {
+				PerformerLocator.clickRefresh().click();
+				test.log(LogStatus.PASS, "Refresh button is working fine");
+			}
+			if(PerformerLocator.clickReset().isDisplayed()) {
+				PerformerLocator.clickReset().click();
+				test.log(LogStatus.PASS, "Reset button is working fine");
 			}
 			
 		}
@@ -2895,6 +2913,56 @@ public class PerformerMethod extends BasePage
 				Thread.sleep(1000);
 				PerformerLocator.clickdashboard().click();			
 			
+		}
+	 public static void OnBoardEntityUploadHolidayMaster(ExtentTest test) throws Exception
+		{
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+			Thread.sleep(1000);
+			PerformerLocator.clickWorkspaceArrow().click();
+			Thread.sleep(7000);
+			PerformerLocator.clickOnboardEntity().click();
+			Thread.sleep(5000);
+			
+			PerformerLocator.clickUploadHolidayMaster().click();
+			
+			OneCommonMethod.validateFileDownloadDynamic(getDriver(), test, PerformerLocator.SampleDocumentDownload(), "Sample Document downloaded successfully");
+			
+			
+			getDriver().findElement(By.xpath("//button[normalize-space()='Upload']")).click();
+			Thread.sleep(3000);
+			String messageWithouUpload = PerformerLocator.clickMsg().getText();
+			if(messageWithouUpload.equalsIgnoreCase("You have not chosen any file.")) {
+				test.log(LogStatus.PASS, "Without uploading file error message is displayd");
+				test.log(LogStatus.PASS, "Message displayed : " + messageWithouUpload);
+				Thread.sleep(2000);
+				PerformerLocator.clickOkBtn().click();
+			}
+			else {
+				test.log(LogStatus.FAIL, "File is not Uploaded");
+				test.log(LogStatus.FAIL, "Message displayed : " + messageWithouUpload);
+				PerformerLocator.clickOkBtn().click();
+			}
+			
+			Thread.sleep(2000);
+			getDriver().findElement(By.xpath("//label[text()=' Browse ']")).click();
+			Thread.sleep(3000);
+			OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Distributor Admin\\Premises Upload\\HolidayMaster.xlsx");
+			Thread.sleep(3000);
+			getDriver().findElement(By.xpath("//button[normalize-space()='Upload']")).click();
+			Thread.sleep(3000);
+			
+			String message = PerformerLocator.clickMsg().getText();
+			if(message.equalsIgnoreCase("File uploaded successfully")) {
+				test.log(LogStatus.PASS, "File Uploaded successfully");
+				test.log(LogStatus.PASS, "While uploading file on holiday master upload success message is displayed");
+				test.log(LogStatus.PASS, "Message displayed : " + message);
+				Thread.sleep(2000);
+				PerformerLocator.clickOkBtn().click();
+			}
+			else {
+				test.log(LogStatus.FAIL, "File is not Uploaded");
+				test.log(LogStatus.FAIL, "Message displayed : " + message);
+			}
 		}
 	 
 	 public static void OnBoardEntityExport( ExtentTest test) throws InterruptedException, IOException, AWTException
@@ -4740,7 +4808,6 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 		}
 	 public static void ChallanComplianceDocViewandOverview(ExtentTest test) throws InterruptedException
 		{
-		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -4976,7 +5043,6 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void InputFileFilter(ExtentTest test) throws InterruptedException
 		{
-		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -5208,7 +5274,6 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void InputFileSalaryeUploadSheet(ExtentTest test) throws InterruptedException, AWTException
 		{
-		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -5464,7 +5529,6 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void InputFileSalaryInvalidSheet(ExtentTest test) throws InterruptedException, AWTException
 		{
-		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -5714,7 +5778,6 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 		}
 	 public static void ErrorFileDownload(ExtentTest test) throws InterruptedException, AWTException
 		{
-		 WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -5813,7 +5876,6 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void GreenColour(ExtentTest test) throws InterruptedException, AWTException
 		{
-		 WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -5865,7 +5927,6 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void RedColour(ExtentTest test) throws InterruptedException, AWTException
 		{
-		 WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -5914,7 +5975,6 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void GreenColourUploaded(ExtentTest test) throws InterruptedException, AWTException
 		{
-		 WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -6006,7 +6066,6 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void History(ExtentTest test) throws InterruptedException, AWTException
 		{
-		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -6065,8 +6124,6 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void AnchorDashboardSummary(ExtentTest test) throws InterruptedException, AWTException
 		{
-
-		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -6171,7 +6228,6 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void InputFileSalaryUploadSheet(ExtentTest test,String type) throws InterruptedException, AWTException
 		{
-		 	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			Thread.sleep(1000);
 			PerformerLocator.SerchCustomer().sendKeys("AVACORED5");
 			Thread.sleep(1000);
@@ -6272,7 +6328,6 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 
 	 public static void InputFileChallanSalaryUploadSheet(ExtentTest test) throws InterruptedException, IOException, AWTException
 		{
-			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 			
 			Thread.sleep(500);
 			InputFileSalaryUploadSheet(test, "Challan");
@@ -6283,15 +6338,12 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 		}
 	 
 	 public static void InputFileReturnSalaryUploadSheet(ExtentTest test) throws InterruptedException, IOException, AWTException
-		{
-			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
-			
+		{	
 			Thread.sleep(500);
 			InputFileSalaryUploadSheet(test, "Return");
-			
-			
+
 			Thread.sleep(1000);
-			   PerformerLocator.clickdashboard().click();
+			PerformerLocator.clickdashboard().click();
 		}
 	 
 	 public static void UploadSealandSignature( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException, AWTException
@@ -6383,15 +6435,9 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 	Thread.sleep(3000);
 		PerformerLocator.clickAddNewDesignation().click();
 	 	
-	 	FileInputStream fis = new FileInputStream(filePath);
-	     Workbook workbook1 = WorkbookFactory.create(fis);
-	     Sheet sheet = workbook1.getSheetAt(0);
+
 	 	
 	 	Thread.sleep(1000);
-//	 	Row row = sheet.getRow(9);						//Selected 0th index row (First row)
-//	 	Cell c = row.getCell(1);						//Selected cell (0 row,1 column)
-//	 	String designation = c.getStringCellValue();
-//		PerformerLocator.enterDesignation().sendKeys(designation);
 	 	
 	 	PerformerLocator.enterDesignation().sendKeys("Engineer");
 	 	
@@ -7781,7 +7827,7 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 	Thread.sleep(1000);
 		PerformerLocator.clickExportBtn().click();
 	 	
-		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+
 	 	Thread.sleep(10000);
 //	 	wait.until(ExpectedConditions.invisibilityOf(PerformerLocator.GridLoad1()));
 	 	Thread.sleep(60000);

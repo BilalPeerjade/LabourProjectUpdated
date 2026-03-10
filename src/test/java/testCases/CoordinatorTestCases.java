@@ -524,7 +524,7 @@ public class CoordinatorTestCases extends BasePage
    		extent.flush();
    	}
 	
-	@Test(priority = 32) //NEW TC NEW TC
+	@Test(priority = 32) 
    	void doSectionDocReq() throws Exception
    	{
    		test = extent.startTest("Notices - Edit - Verify to check Document Requirements for the Notice works correctly");

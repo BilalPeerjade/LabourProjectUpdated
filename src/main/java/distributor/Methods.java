@@ -5506,14 +5506,13 @@ Locators.UploadAddressMapping().click();
 	}
 	public static void PayCodeUploadCheck ( ExtentTest test) throws Exception
 	{		
-		Actions action = new Actions(getDriver());
 		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(3000);
 	    
 		
 	  	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='User']")));	//Wait until records table get visible.
 	  	Thread.sleep(3000);Thread.sleep(5000);Thread.sleep(5000);
-	  	Locators.Searchentities().sendKeys("AVACORED5"); // Writing Task title
+	  	OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 		Thread.sleep(5000);
 		
 				

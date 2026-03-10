@@ -892,6 +892,56 @@ public class Method extends BasePage
 
 		}
 	 
+	 public static void doSectionDocReqSDEx(ExtentTest test) throws Exception
+	 {
+			Thread.sleep(5000);
+			Thread.sleep(5000);
+			CoordinatorLocator.EditBtn().click();
+			Thread.sleep(5000);
+			getDriver().findElement(By.xpath("//a[normalize-space()='Document Section']")).click();
+
+			// + Document Repository label bar
+			Thread.sleep(5000);
+			getDriver().findElement(By.xpath("(//img[@class='svg-icon-btn'])[2]")).click();
+			Thread.sleep(5000);
+			
+			String gridCountCheck = Locator.gridDocRequiredForNotice().getText();
+			Thread.sleep(5000);
+			if(gridCountCheck.equalsIgnoreCase("0 - 0 of 0 items")) {
+				test.log(LogStatus.PASS, "No iteams are available for action");
+			}
+			else {
+				Locator.clickDelete().click();
+				Thread.sleep(5000);
+				String deleteText = Locator.deleteMessage().getText();
+				if(deleteText.equals("Are you sure you want to delete this record?")) {
+					test.log(LogStatus.PASS, "On clicking to delete button confirmation message is displayed ");
+					test.log(LogStatus.PASS, "Message displayed : " + deleteText);
+				}
+				else {
+					test.log(LogStatus.FAIL, "On clicking to delete button confirmation message is displayed ");
+					test.log(LogStatus.FAIL, "Message displayed : " + deleteText);
+				}
+				Thread.sleep(5000);
+				Locator.clickCancelBtn().click();
+				Thread.sleep(5000);
+				Locator.clickDelete().click();
+				Thread.sleep(5000);
+				Locator.clickOkBtn().click();
+				Thread.sleep(5000);
+				String successMesg = Locator.deleteMessage().getText();
+				Thread.sleep(5000);
+				if(successMesg.equalsIgnoreCase("Record Deleted Successfully")) {
+					test.log(LogStatus.PASS, "On clicking to Delete Confirmation OK button success message is displayed");
+					test.log(LogStatus.PASS, "Message displayed : " + successMesg);
+				}
+				else {
+					test.log(LogStatus.FAIL, "On clicking to Delete Confirmation OK button success message is not displayed properly");
+					test.log(LogStatus.FAIL, "Message displayed : " + successMesg);
+				}	
+			}
+	 }
+	 
 	 public static void documentSectionDownloads(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
 	 {
 			Thread.sleep(5000);
