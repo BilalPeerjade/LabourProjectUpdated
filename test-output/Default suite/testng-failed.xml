@@ -3,24 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testCases.SDExecutorTestCase">
+      <class name="testCases.All_Performer_TestCases">
         <methods>
-          <include name="registrationEditDocumentRepositiory"/>
-          <include name="StatutoryDocument"/>
-          <include name="translationReq"/>
-          <include name="editSubmittedToDept"/>
-          <include name="registrationEditTabs"/>
           <include name="Login"/>
-          <include name="NoticeEditAllTabsCheck"/>
-          <include name="extensionApplication"/>
-          <include name="activityColsureLable"/>
-          <include name="EditIcon"/>
-          <include name="noticeResponse"/>
           <include name="setBrowser"/>
-          <include name="close"/>
-          <include name="ExistingLicenseClosed"/>
+          <include name="Closing"/>
+          <include name="afterMethod"/>
+          <include name="employeeBulkUpload"/>
         </methods>
-      </class> <!-- testCases.SDExecutorTestCase -->
+      </class> <!-- testCases.All_Performer_TestCases -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
