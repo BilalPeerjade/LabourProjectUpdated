@@ -333,7 +333,11 @@ public class CoordinatorMethod extends BasePage
 	 public static void uploadFileVerification(ExtentTest test) throws InterruptedException, IOException {
 		    // Wait for input elements to appear (max 10s)
 //		    WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+<<<<<<< Updated upstream
 		    WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+=======
+		    WebDriverWait wait = new WebDriverWait(getDriver(), (30));
+>>>>>>> Stashed changes
 
 		    List<WebElement> inputs = getDriver().findElements(By.cssSelector("input[type='file']"));
 
@@ -910,6 +914,234 @@ public class CoordinatorMethod extends BasePage
 
 	 	
 	 	
+<<<<<<< Updated upstream
+=======
+	 	
+	 	
+	 	
+	 	
+	 	
+	 	
+	 	
+	 	
+	 	
+	 	
+	 	
+/*	 	
+	 	try {
+	 	    Thread.sleep(5000);
+
+	 	    String[] searchKeywords = {"20676", "TESTAUTO2", "Test Automation 2", "Branch Punjab", "Summon", "RCP25-11620" , "NoticeNumber2", "27-Apr-2025", "26-Apr-2025","Highly Critical","Pending Assignment","26-Apr-2025"};
+
+	 	    for (String keyword : searchKeywords) {
+	 	    	
+	 	    	CoordinatorLocator.SearchBox().clear();
+		 	    CoordinatorLocator.SearchBox().sendKeys(keyword, Keys.ENTER);
+		 	    
+	 	        Thread.sleep(4000);
+
+	 	        try {
+	 	            // 1. Find the cell which contains the keyword
+	 	            WebElement cell = getDriver().findElement(By.xpath("//div[@title='" + keyword + "']"));
+	 	            
+	 	            // 2. Find the column index
+	 	            WebElement row = cell.findElement(By.xpath("./ancestor::tr")); // find parent row
+	 	            List<WebElement> allCells = row.findElements(By.xpath("./td"));
+	 	            
+	 	            int columnIndex = -1;
+	 	            for (int i = 0; i < allCells.size(); i++) {
+	 	                if (allCells.get(i).getText().trim().equals(keyword)) {
+	 	                    columnIndex = i + 1; // XPath index starts from 1
+	 	                    break;
+	 	                }
+	 	            }
+	 	            
+	 	            String columnName = "Unknown Column";
+
+	 	            // 3. Now fetch the column name from header
+	 	            if (columnIndex != -1) {
+	 	                WebElement header = getDriver().findElement(By.xpath("//table/thead/tr/th[" + columnIndex + "]"));
+	 	                columnName = header.getText();
+	 	            }
+
+	 	            // 4. Now finally log
+	 	            test.log(LogStatus.PASS, "Searched and found record under '" + columnName + "' column: " + keyword);
+
+	 	        } catch (Exception e) {
+	 	            test.log(LogStatus.INFO, "No record available for search keyword: " + keyword);
+	 	        }
+
+	 	        Thread.sleep(3000);
+	 	        All_ClientPortal_Locators.Clear().click();
+	 	        Thread.sleep(2000);
+	 	    }
+
+	 	} catch (Exception e) {
+	 	    e.printStackTrace();
+	 	    test.log(LogStatus.FAIL, "Exception occurred during multiple searches");
+	 	}
+
+	 	
+	*/ 	
+	 	
+	 	
+	 	
+	 	
+	 	
+	 	
+	 	
+	 	
+	 	
+	 	
+	 	
+/*	 	
+	 	try {
+	 	    Thread.sleep(5000);
+
+	 	    // Multiple search keywords
+	 	    String[] searchKeywords = {"TESTAUTO2", "Test Automation 2", "Branch Punjab", "Summon"};
+
+	 	    for (String keyword : searchKeywords) {
+	 	        // Search the keyword
+	 	    	CoordinatorLocator.SearchBox().clear();
+	 	       CoordinatorLocator.SearchBox().sendKeys(keyword, Keys.ENTER);
+	 	        Thread.sleep(4000);
+
+	 	        try {
+	 	            String text = getDriver().findElement(By.xpath("//div[@title='" + keyword + "']")).getText();
+	 	            test.log(LogStatus.PASS, "Selected Location along with their details should get reflected in the grid.");
+	 	            test.log(LogStatus.PASS, "Compliance ID selected: " + text);
+	 	        } catch (Exception e) {
+	 	            test.log(LogStatus.PASS, "No record available for search keyword: " + keyword);
+	 	        }
+
+	 	        // Click on Clear button
+	 	        Thread.sleep(3000);
+	 	        All_ClientPortal_Locators.Clear().click();
+	 	        Thread.sleep(2000);
+	 	    }
+
+	 	} catch (Exception e) {
+	 	    e.printStackTrace();
+	 	    test.log(LogStatus.FAIL, "Exception occurred during multiple searches");
+	 	}
+
+	*/ 	
+	 	
+	 	
+	 	
+	 	
+	 	
+	 	
+	 	
+	 	
+/*
+	 	List<String> li=new ArrayList<String>();
+	     
+	    
+	     li.add("QWW");
+
+	     
+	 	List<String> filter=new ArrayList<String>();	
+	 	
+	 	filter.add("QWW");	
+	 	
+	 	
+	 	js.executeScript("window.scrollBy(0,150)");	
+	 	Thread.sleep(3000);
+
+	 	 CoordinatorLocator.readTotalItems().click();				//Clicking on Text of total items just to scroll down.
+	 	String s = CoordinatorLocator.readTotalItems().getText();
+	 	Thread.sleep(2000);
+
+	 	try
+	 	{
+		 	Thread.sleep(5000);
+	
+		 	List<WebElement> typecol=getDriver().findElements(By.xpath("//*[@class='k-grid-aria-root']/kendo-grid-list/div/div[1]/table/tbody/tr[1]/td[3]"));
+		 	Thread.sleep(2000);
+	
+		 	for(int i=0; i<li.size(); i++){
+	 		
+	 		List<String> text= new ArrayList<String>();
+	 		HashSet<String> pass=new LinkedHashSet<>();
+	 		HashSet<String> fail=new LinkedHashSet<>();
+	 		List<WebElement> raw=new ArrayList<WebElement>();
+
+
+	 	 if(i==0)
+	 			{
+	 				raw.addAll(typecol);
+	 			}
+	 		
+	 			
+	 			
+	 		for(int k=0;k<raw.size();k++)
+	 			{
+	 				text.add(raw.get(k).getText());
+	 			}
+
+	 		for(int l=0;l<text.size();l++)
+	 		 {
+	 				
+	 			if(text.get(l).equals(li.get(i)))
+	 				{
+	 					pass.add(text.get(l));	
+	 					System.out.println("pass : "+text.get(l)+" : "+li.get(i));
+
+	 				}
+	 			else
+	 			   {
+	 					fail.add(text.get(l));		
+	 					System.out.println("fail : "+text.get(l)+" : "+li.get(i));
+	 					System.out.println(i);
+
+	 			   }
+	 		  }
+	 				
+	 		             
+	 	 
+	 		for(String Fal : fail)
+	 	 {
+	 			test.log(LogStatus.FAIL, filter.get(i)+" column shows incorrect value : "+Fal);
+	 	 }	
+	 	 for(String Pas : pass)
+	 	 {
+	 		 	test.log(LogStatus.PASS,  " Search box working properly.");
+	 			test.log(LogStatus.PASS, filter.get(i)+" displayed : "+Pas);	
+	 			System.out.println(filter.get(i)+" : "+Pas);
+	 	 }
+	 	 text.clear();
+	 	pass.clear();
+	 	fail.clear();
+	 	raw.clear();
+	 	
+	 	if(CoordinatorLocator.ClearBtn().isEnabled())
+	 	{
+	 		CoordinatorLocator.ClearBtn().click();
+	 		test.log(LogStatus.PASS, "Clear button working successfully.");
+	 		
+	 	}
+	 	else
+	 	{
+	 		test.log(LogStatus.PASS, "Clear button not working successfully.");
+	 		
+	 	}
+	 	
+	 	}
+	 	}
+	 	catch (Exception e) 
+	 	{
+	 		test.log(LogStatus.PASS,"No records available.");
+		}
+	 	
+	 	
+	 	*/
+	 	
+	 	
+	 	
+	 	
+>>>>>>> Stashed changes
 	 }
 	 
 
@@ -1148,7 +1380,11 @@ Thread.sleep(8000);
 		}
 	 public static void relaventDate(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
 	 {
+<<<<<<< Updated upstream
 			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+=======
+			WebDriverWait wait = new WebDriverWait(getDriver(), 140);
+>>>>>>> Stashed changes
 
 			Thread.sleep(5000);
 			CoordinatorLocator.SearchBox().sendKeys("Pending Assignment", Keys.ENTER);
@@ -1350,7 +1586,11 @@ Thread.sleep(8000);
 		}
 	 public static void translationReq(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
 	 {
+<<<<<<< Updated upstream
 			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+=======
+			WebDriverWait wait = new WebDriverWait(getDriver(), 140);
+>>>>>>> Stashed changes
 
 			Thread.sleep(5000);
 			CoordinatorLocator.SearchBox().sendKeys("Pending Assignment", Keys.ENTER);
@@ -1362,7 +1602,10 @@ Thread.sleep(8000);
 			
 			Thread.sleep(5000);
 			getDriver().findElement(By.xpath("//a[normalize-space()='SME Response']")).click();
+<<<<<<< Updated upstream
 			Thread.sleep(5000);
+=======
+>>>>>>> Stashed changes
 			String TransReq = getDriver().findElement(By.xpath("//span[normalize-space()='Translation Required']")).getText();
 
 			
@@ -1390,7 +1633,11 @@ Thread.sleep(8000);
 	 }
 	 public static void sdExtTranslationReq(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
 	 {
+<<<<<<< Updated upstream
 			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+=======
+			WebDriverWait wait = new WebDriverWait(getDriver(), 140);
+>>>>>>> Stashed changes
 
 			Thread.sleep(5000);
 			CoordinatorLocator.SearchBox().sendKeys("Pending Assignment", Keys.ENTER);
@@ -1402,7 +1649,10 @@ Thread.sleep(8000);
 			
 			Thread.sleep(5000);
 			getDriver().findElement(By.xpath("//a[normalize-space()='SD Executer']")).click();
+<<<<<<< Updated upstream
 			Thread.sleep(5000);
+=======
+>>>>>>> Stashed changes
 			String TransReq = getDriver().findElement(By.xpath("//span[normalize-space()='Translation Required']")).getText();
 
 			Thread.sleep(5000);
@@ -1438,7 +1688,11 @@ Thread.sleep(8000);
 	 }
 	 public static void sdExtExtensionApplication(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
 	 {
+<<<<<<< Updated upstream
 			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+=======
+			WebDriverWait wait = new WebDriverWait(getDriver(), 140);
+>>>>>>> Stashed changes
 
 			Thread.sleep(5000);
 			CoordinatorLocator.SearchBox().sendKeys("Pending Assignment", Keys.ENTER);
@@ -1450,7 +1704,10 @@ Thread.sleep(8000);
 			
 			Thread.sleep(5000);
 			getDriver().findElement(By.xpath("//a[normalize-space()='SD Executer']")).click();
+<<<<<<< Updated upstream
 			Thread.sleep(5000);
+=======
+>>>>>>> Stashed changes
 			String TransReq = getDriver().findElement(By.xpath("//span[normalize-space()='Translation Required']")).getText();
 
 			Thread.sleep(5000);
@@ -1479,7 +1736,11 @@ Thread.sleep(8000);
 	 }
 	 public static void sdExtNoticeResponse(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
 	 {
+<<<<<<< Updated upstream
 			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+=======
+			WebDriverWait wait = new WebDriverWait(getDriver(), 140);
+>>>>>>> Stashed changes
 
 			Thread.sleep(5000);
 			CoordinatorLocator.SearchBox().sendKeys("Pending Assignment", Keys.ENTER);
@@ -1491,7 +1752,10 @@ Thread.sleep(8000);
 			
 			Thread.sleep(5000);
 			getDriver().findElement(By.xpath("//a[normalize-space()='SD Executer']")).click();
+<<<<<<< Updated upstream
 			Thread.sleep(5000);
+=======
+>>>>>>> Stashed changes
 			String TransReq = getDriver().findElement(By.xpath("//span[normalize-space()='Translation Required']")).getText();
 
 			Thread.sleep(5000);
@@ -1520,7 +1784,11 @@ Thread.sleep(8000);
 	 }
 	 public static void extensionApplication(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
 	 {
+<<<<<<< Updated upstream
 			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+=======
+			WebDriverWait wait = new WebDriverWait(getDriver(), 140);
+>>>>>>> Stashed changes
 
 			Thread.sleep(5000);
 			CoordinatorLocator.SearchBox().sendKeys("Pending Assignment", Keys.ENTER);
@@ -1532,7 +1800,10 @@ Thread.sleep(8000);
 			
 			Thread.sleep(5000);
 			getDriver().findElement(By.xpath("//a[normalize-space()='SME Response']")).click();
+<<<<<<< Updated upstream
 			Thread.sleep(5000);
+=======
+>>>>>>> Stashed changes
 			String TransReq = getDriver().findElement(By.xpath("//span[normalize-space()='Translation Required']")).getText();
 
 			
@@ -1568,7 +1839,11 @@ Thread.sleep(8000);
 	 }
 	 public static void noticeResponselabel(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
 	 {
+<<<<<<< Updated upstream
 			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+=======
+			WebDriverWait wait = new WebDriverWait(getDriver(), 140);
+>>>>>>> Stashed changes
 
 			Thread.sleep(5000);
 			CoordinatorLocator.SearchBox().sendKeys("Pending Assignment", Keys.ENTER);
@@ -1580,7 +1855,10 @@ Thread.sleep(8000);
 			
 			Thread.sleep(5000);
 			getDriver().findElement(By.xpath("//a[normalize-space()='SME Response']")).click();
+<<<<<<< Updated upstream
 			Thread.sleep(5000);
+=======
+>>>>>>> Stashed changes
 			String TransReq = getDriver().findElement(By.xpath("//span[normalize-space()='Translation Required']")).getText();
 
 			
@@ -1607,7 +1885,11 @@ Thread.sleep(8000);
 	 }
 	 public static void sdExecutorBackButton(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
 	 {
+<<<<<<< Updated upstream
 			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+=======
+			WebDriverWait wait = new WebDriverWait(getDriver(), 140);
+>>>>>>> Stashed changes
 
 			Thread.sleep(5000);
 			CoordinatorLocator.SearchBox().sendKeys("Pending Assignment", Keys.ENTER);
@@ -1636,7 +1918,11 @@ Thread.sleep(8000);
 	 }
 	 public static void docSectionBackButton(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
 	 {
+<<<<<<< Updated upstream
 			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+=======
+			WebDriverWait wait = new WebDriverWait(getDriver(), 140);
+>>>>>>> Stashed changes
 
 			Thread.sleep(5000);
 			CoordinatorLocator.SearchBox().sendKeys("Pending Assignment", Keys.ENTER);
@@ -1665,7 +1951,11 @@ Thread.sleep(8000);
 	 }
 	 public static void smeResposeBackButton(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
 	 {
+<<<<<<< Updated upstream
 			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+=======
+			WebDriverWait wait = new WebDriverWait(getDriver(), 140);
+>>>>>>> Stashed changes
 
 			Thread.sleep(5000);
 			CoordinatorLocator.SearchBox().sendKeys("Pending Assignment", Keys.ENTER);
@@ -1762,11 +2052,17 @@ Thread.sleep(8000);
 	 public static void doSectionDocReq(ExtentTest test) throws Exception
 	 {
 			Thread.sleep(5000);
+<<<<<<< Updated upstream
+=======
+
+//			CoordinatorLocator.SearchBox().sendKeys("NoticeNumber2", Keys.ENTER);
+>>>>>>> Stashed changes
 			Thread.sleep(5000);
 			CoordinatorLocator.EditBtn().click();
 			Thread.sleep(5000);
 			getDriver().findElement(By.xpath("//a[normalize-space()='Document Section']")).click();
 
+<<<<<<< Updated upstream
 			// + Document Repository label bar
 			Thread.sleep(5000);
 			getDriver().findElement(By.xpath("(//img[@class='svg-icon-btn'])[2]")).click();
@@ -1833,6 +2129,8 @@ Thread.sleep(8000);
 			Thread.sleep(5000);
 			getDriver().findElement(By.xpath("//a[normalize-space()='Document Section']")).click();
 
+=======
+>>>>>>> Stashed changes
 			// + Document Repository label bar
 			Thread.sleep(5000);
 			getDriver().findElement(By.xpath("(//img[@class='svg-icon-btn'])[1]")).click();

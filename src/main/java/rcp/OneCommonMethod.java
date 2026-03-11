@@ -473,11 +473,18 @@ public class OneCommonMethod extends BasePage{
             File downloadDir = new File(downloadPath);
             File[] filesBefore = downloadDir.listFiles();
 
+<<<<<<< Updated upstream
 //            Thread.sleep(80000);
 
             downloadButton.click();
 //            Thread.sleep(50000);
             Thread.sleep(5000);
+=======
+            Thread.sleep(8000);
+>>>>>>> Stashed changes
+
+            downloadButton.click();
+            Thread.sleep(15000);
 
             File[] filesAfter = downloadDir.listFiles();
             Thread.sleep(8000);
@@ -498,7 +505,10 @@ public class OneCommonMethod extends BasePage{
                     }
                 }
             }
+<<<<<<< Updated upstream
 //            Thread.sleep(50000);
+=======
+>>>>>>> Stashed changes
             Thread.sleep(5000);
 
             if (downloadedFile != null) {

@@ -216,8 +216,12 @@ import businessTestCases.FilePath;
 	private void openBrower5(int no) throws IOException {
 
 		if (browser.contains("chrome")) {
+<<<<<<< Updated upstream
 //					System.setProperty("webdriver.chrome.driver", "D:\\Labour Angular\\LabourMergeProject\\LabourMergeProject\\chromedriver.exe");
 					System.setProperty("webdriver.chrome.driver", "C:\\Users\\bilali\\.cache\\selenium\\chromedriver\\win64\\144.0.7559.96\\chromedriver.exe");
+=======
+					System.setProperty("webdriver.chrome.driver", "D:\\Labour Angular\\LabourMergeProject\\LabourMergeProject\\chromedriver.exe");
+>>>>>>> Stashed changes
 					//WebDriverManager.chromedriver().setup();
 					ChromeOptions options = new ChromeOptions();
 					options.addArguments("--remote-allow-origins=*");
@@ -401,6 +405,7 @@ import businessTestCases.FilePath;
 	
 	
 	
+<<<<<<< Updated upstream
 
 	
 	
@@ -436,6 +441,13 @@ import businessTestCases.FilePath;
 	
 	
 	public void initializationSDExecutor(String link,int no,String text) throws InterruptedException, IOException {
+=======
+	
+	
+	
+	//n
+	public void Initialization(String link,int no,String text) throws InterruptedException, IOException {
+>>>>>>> Stashed changes
 		try {
 		//loadProperties(no);
 		openBrower1(no);
@@ -457,6 +469,21 @@ import businessTestCases.FilePath;
 		
 
 	}
+<<<<<<< Updated upstream
+=======
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+>>>>>>> Stashed changes
 	public void initialization2(String link,int no,String text) throws InterruptedException, IOException {
 		try {
 		//loadProperties(no);
@@ -474,8 +501,52 @@ import businessTestCases.FilePath;
 			
 	}
 	
+<<<<<<< Updated upstream
 	
 	
+=======
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	public void initializationSDExecutor(String link,int no,String text) throws InterruptedException, IOException {
+		try {
+		//loadProperties(no);
+		openBrower(no);
+		
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+
+		
+		read_Login_username(no);
+		read_Login_password(no);
+		
+		
+		LoginMethods.UserLoginSDExecutor(uname,password,"SD");		//Method of Login class to login user.
+		
+		
+		
+		
+
+	}
+	
+	
+	
+>>>>>>> Stashed changes
 
 	public void closeBrowser() {
 		getDriver().quit();

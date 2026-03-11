@@ -66,10 +66,17 @@ public class All_Client_Portal_TestCases extends BasePage {
 	
 	
 	
+<<<<<<< Updated upstream
 /**
 	
 
 	
+=======
+
+	
+	/**
+	
+>>>>>>> Stashed changes
 	
 	// Mayuri TCs - ClientTest.Java 1 to 112
 	@Test(priority = 1) //
@@ -2134,7 +2141,11 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 	
 	
 	
+<<<<<<< Updated upstream
 //
+=======
+/**	//
+>>>>>>> Stashed changes
 	
 	// ---Compliance Calendar---
 	@Test(priority = 137) //2 test case 
@@ -2204,8 +2215,12 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 	
 	
 	
+<<<<<<< Updated upstream
 
 	
+=======
+	**/
+>>>>>>> Stashed changes
 	
 
 

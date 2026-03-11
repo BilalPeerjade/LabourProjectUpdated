@@ -94,8 +94,13 @@ public class All_Performer_TestCases extends BasePage{
 	
 	}
 	
+<<<<<<< Updated upstream
 
 
+=======
+	
+/**
+>>>>>>> Stashed changes
 	
 	@Test(priority = 1) 
 	void CompanyLogo() throws InterruptedException, IOException
@@ -923,9 +928,15 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 
 
 	//Part 2
+<<<<<<< Updated upstream
 
 
 
+=======
+   	**/
+   	
+   	
+>>>>>>> Stashed changes
    	
    	//Onboard Employee:--
    	
@@ -1860,6 +1871,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 	
 	
 	
+<<<<<<< Updated upstream
 		@Test(priority = 460) 
 		void clraAssignmentReport() throws InterruptedException, IOException
 		{
@@ -1900,6 +1912,16 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 //  		//Thread.sleep(1000);
 //  		//getDriver().close();
 //  	}	       
+=======
+	@AfterMethod
+  	void browserClosing() throws InterruptedException
+  	{
+		Thread.sleep(10000);
+		closeBrowser();
+  		//Thread.sleep(1000);
+  		//getDriver().close();
+  	}	       
+>>>>>>> Stashed changes
   		       		
   	@AfterTest
   	void Closing() throws InterruptedException

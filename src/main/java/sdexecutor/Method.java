@@ -26,10 +26,13 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import clientPortal.All_ClientPortal_Locators;
+<<<<<<< Updated upstream
 import clientPortal.All_ClientPortal_Methods;
 import coordinator.CoordinatorLocator;
 import coordinator.CoordinatorMethod;
 import distributor.DistributerLocators;
+=======
+>>>>>>> Stashed changes
 import login.BasePage;
 import login.LoginLocators;
 import rcp.OneCommonMethod;
@@ -136,6 +139,7 @@ public class Method extends BasePage
         
 	}
 	 
+<<<<<<< Updated upstream
 	public static void tabsExport(ExtentTest test, String user) throws InterruptedException, IOException {
 
 		Thread.sleep(5000);
@@ -197,6 +201,8 @@ public class Method extends BasePage
 
 	}
 	 
+=======
+>>>>>>> Stashed changes
 	 
 	 public static void logoChecking( ExtentTest test) throws InterruptedException, IOException
 		{

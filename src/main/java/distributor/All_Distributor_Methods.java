@@ -4437,7 +4437,11 @@ public class All_Distributor_Methods extends BasePage {
 		
 //		DistributerLocators.TypetosearchCLRA().sendKeys("8353");
 		
+<<<<<<< Updated upstream
 		getDriver().findElement(By.xpath("//input[@placeholder='Type to Search']")).sendKeys("12532");
+=======
+		getDriver().findElement(By.xpath("//input[@placeholder='Type to Search']")).sendKeys("11246");
+>>>>>>> Stashed changes
 		Thread.sleep(5000);
 //		String texttt = getDriver().findElement(By.xpath("//tbody/tr[1]/td[2]")).getText();
 		
@@ -4445,7 +4449,11 @@ public class All_Distributor_Methods extends BasePage {
 		if(DistributerLocators.gridBOX().isDisplayed())
 		{
 			String texttt = DistributerLocators.gridBOX().getText();
+<<<<<<< Updated upstream
 			if (texttt.equals("12532")) {
+=======
+			if (texttt.equals("11246")) {
+>>>>>>> Stashed changes
 				test.log(LogStatus.PASS, "Type to search field is working fine");
 				test.log(LogStatus.PASS, "Searched text is displayed in grid" + texttt);
 			} else {
@@ -4482,8 +4490,12 @@ public class All_Distributor_Methods extends BasePage {
 
 		Thread.sleep(4000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+<<<<<<< Updated upstream
 		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 		Thread.sleep(1000);
+=======
+		Thread.sleep(7000);
+>>>>>>> Stashed changes
 		DistributerLocators.clickDashboard().click();
 		Thread.sleep(15000);
 		DistributerLocators.clickOnBoardEntity().click();
@@ -4498,6 +4510,7 @@ public class All_Distributor_Methods extends BasePage {
 		
 		Thread.sleep(1000);
 		DistributerLocators.clickBranch1().click();
+<<<<<<< Updated upstream
 		Thread.sleep(3000);
 		DistributerLocators.testAutomation3().click();
 //		DistributerLocators.clickBranch1().click();
@@ -4512,6 +4525,19 @@ public class All_Distributor_Methods extends BasePage {
 			DistributerLocators.applybtn().click();
 			test.log(LogStatus.PASS, "All filters are working fine");
 			Thread.sleep(5000);
+=======
+		Thread.sleep(1000);
+		DistributerLocators.clickBranchTiangle().click();
+	     Thread.sleep(1000);
+		DistributerLocators.selectBranch1().click();
+		Thread.sleep(1000);
+		
+		if(DistributerLocators.applybtn().isDisplayed()) {
+			Thread.sleep(1000);
+			DistributerLocators.applybtn().click();
+			test.log(LogStatus.PASS, "All filters are working fine");
+			Thread.sleep(2000);
+>>>>>>> Stashed changes
 			test.log(LogStatus.PASS, "Apply button is working fine");
 		}
 		
@@ -4561,19 +4587,31 @@ public class All_Distributor_Methods extends BasePage {
 		}
 		Thread.sleep(1000);
 		DistributerLocators.clickOkBtn().click();
+<<<<<<< Updated upstream
 		Thread.sleep(5000);
+=======
+		Thread.sleep(1000);
+>>>>>>> Stashed changes
 		
 		
 		
 		
 		
 		
+<<<<<<< Updated upstream
 		getDriver().findElement(By.xpath("//input[@placeholder='Type to Search']")).sendKeys("8353");
+=======
+		getDriver().findElement(By.xpath("//input[@placeholder='Type to Search']")).sendKeys("2753");
+>>>>>>> Stashed changes
 		Thread.sleep(5000);
 		if(DistributerLocators.gridBOX().isDisplayed())
 		{
 			String texttt = DistributerLocators.gridBOX().getText();
+<<<<<<< Updated upstream
 			if (texttt.equals("8353")) {
+=======
+			if (texttt.equals("2753")) {
+>>>>>>> Stashed changes
 				test.log(LogStatus.PASS, "Type to search field is working fine");
 				test.log(LogStatus.PASS, "Searched text is displayed in grid : " + texttt);
 			} else {
@@ -4613,7 +4651,11 @@ public class All_Distributor_Methods extends BasePage {
 
 		Thread.sleep(1000);
 		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+<<<<<<< Updated upstream
 		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+=======
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
+>>>>>>> Stashed changes
 		Thread.sleep(1000);
 		DistributerLocators.clickDashboard().click();
 		Thread.sleep(7000);
@@ -4630,8 +4672,12 @@ public class All_Distributor_Methods extends BasePage {
 		Thread.sleep(1000);
 		DistributerLocators.clickBranch1().click();
 		Thread.sleep(1000);
+<<<<<<< Updated upstream
 //		DistributerLocators.clickBranches().click();
 		DistributerLocators.testAutomation3().click();
+=======
+		DistributerLocators.clickBranches().click();
+>>>>>>> Stashed changes
 	     Thread.sleep(1000);
 //		DistributerLocators.selectBranch1().click();
 		Thread.sleep(1000);
@@ -4694,13 +4740,21 @@ public class All_Distributor_Methods extends BasePage {
 		
 		
 		
+<<<<<<< Updated upstream
 		getDriver().findElement(By.xpath("//input[@placeholder='Type to Search']")).sendKeys("8353");
+=======
+		getDriver().findElement(By.xpath("//input[@placeholder='Type to Search']")).sendKeys("1224");
+>>>>>>> Stashed changes
 		Thread.sleep(5000);
 		
 		if(DistributerLocators.gridBOX().isDisplayed())
 		{
 			String texttt = DistributerLocators.gridBOX().getText();
+<<<<<<< Updated upstream
 			if (texttt.equals("8353")) {
+=======
+			if (texttt.equals("1224")) {
+>>>>>>> Stashed changes
 				test.log(LogStatus.PASS, "Type to search field is working fine");
 				test.log(LogStatus.PASS, "Searched text is displayed in grid : " + texttt);
 			} else {
@@ -4734,7 +4788,12 @@ public class All_Distributor_Methods extends BasePage {
 		
 
 		Thread.sleep(1000);
+<<<<<<< Updated upstream
 		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+=======
+		DistributerLocators.SerchCustomer().sendKeys("AVACORED5");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"AVACORED5");
+>>>>>>> Stashed changes
 		
 		
 		Thread.sleep(1000);
@@ -4754,7 +4813,11 @@ public class All_Distributor_Methods extends BasePage {
 		DistributerLocators.clickBranch1().click();
 		Thread.sleep(1000);
 //		DistributerLocators.clickBranchTiangle().click();
+<<<<<<< Updated upstream
 		DistributerLocators.testAutomation3().click();
+=======
+		DistributerLocators.clickBranches().click();
+>>>>>>> Stashed changes
 	     Thread.sleep(1000);
 //		DistributerLocators.selectBranch1().click();
 		
@@ -4818,7 +4881,11 @@ public class All_Distributor_Methods extends BasePage {
 		
 		DistributerLocators.clickcloseBtn().click();
 		Thread.sleep(5000);
+<<<<<<< Updated upstream
 		getDriver().findElement(By.xpath("//input[@placeholder='Type to Search']")).sendKeys("8353");
+=======
+		getDriver().findElement(By.xpath("//input[@placeholder='Type to Search']")).sendKeys("29246");
+>>>>>>> Stashed changes
 		Thread.sleep(5000);
 		Thread.sleep(5000);
 		Thread.sleep(5000);
@@ -4826,7 +4893,11 @@ public class All_Distributor_Methods extends BasePage {
 		if(DistributerLocators.gridBOX().isDisplayed())
 		{
 			String texttt = DistributerLocators.gridBOX().getText();
+<<<<<<< Updated upstream
 			if (texttt.equals("8353")) {
+=======
+			if (texttt.equals("29246")) {
+>>>>>>> Stashed changes
 				test.log(LogStatus.PASS, "Type to search field is working fine");
 				test.log(LogStatus.PASS, "Searched text is displayed in grid : " + texttt);
 			} else {

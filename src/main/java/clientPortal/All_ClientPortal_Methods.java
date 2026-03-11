@@ -1299,6 +1299,12 @@ public class All_ClientPortal_Methods extends BasePage {
 			All_ClientPortal_Locators.EREdit().click();
 			
 			
+<<<<<<< Updated upstream
+=======
+			WebDriverWait wait = new WebDriverWait(getDriver(), 10);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='k-loader-canvas']")));
+			
+>>>>>>> Stashed changes
 			Thread.sleep(5000);
 			
 			Thread.sleep(3000);
@@ -7392,6 +7398,24 @@ public class All_ClientPortal_Methods extends BasePage {
 		All_ClientPortal_Locators.ClosedCol().click();
 		Thread.sleep(5000);
 
+<<<<<<< Updated upstream
+=======
+/*		File dir = new File("C:\\Users\\bilali\\Downloads");
+		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
+
+		Thread.sleep(500);
+		Locators.Export().click();
+
+		Thread.sleep(8000);
+		File dir1 = new File("C:\\Users\\bilali\\Downloads");
+		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
+		Thread.sleep(3000);
+		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
+			test.log(LogStatus.PASS,  " File downloaded successfully.");
+		} else {Thread.sleep(5000);
+			test.log(LogStatus.FAIL,  " File does not downloaded.");
+		} */
+>>>>>>> Stashed changes
 		
 		OneCommonMethod.validateExportedExcel(
 			    driver.get(),

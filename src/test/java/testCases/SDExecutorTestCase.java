@@ -73,7 +73,11 @@ public class SDExecutorTestCase extends BasePage
 	
                ////////Notices///////
 	
+<<<<<<< Updated upstream
 	/////
+=======
+	
+>>>>>>> Stashed changes
 	
 	@Test(priority = 1) 
    	void CoordinatorLogo() throws InterruptedException, IOException
@@ -107,6 +111,7 @@ void CountMatch() throws InterruptedException, IOException
 	extent.flush();
 
 }
+<<<<<<< Updated upstream
     @Test(priority = 4) 
 	void translationPendingExport() throws InterruptedException, IOException
 	{
@@ -119,6 +124,9 @@ void CountMatch() throws InterruptedException, IOException
 	}
 
     @Test(priority = 5)
+=======
+@Test(priority = 4)
+>>>>>>> Stashed changes
 	void PendingAction() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Notice- Ext.Submission Pending count verification");
@@ -129,6 +137,7 @@ void CountMatch() throws InterruptedException, IOException
 		extent.flush();
 
 	}
+<<<<<<< Updated upstream
 
 	@Test(priority = 6)
 	void exSubmittionPendingExport() throws InterruptedException, IOException {
@@ -142,6 +151,9 @@ void CountMatch() throws InterruptedException, IOException
 
 
 @Test(priority = 7)
+=======
+@Test(priority = 5)
+>>>>>>> Stashed changes
 	void Overdue() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Notice- Submission Pending count verification");
@@ -161,9 +173,13 @@ void CountMatch() throws InterruptedException, IOException
 		extent.endTest(test);
 		extent.flush();
 	}
+<<<<<<< Updated upstream
 
 
 @Test(priority = 9)
+=======
+@Test(priority = 6)
+>>>>>>> Stashed changes
 	void Closed() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Notice- Response Submitted count verification");
@@ -183,7 +199,11 @@ void CountMatch() throws InterruptedException, IOException
 		extent.endTest(test);
 		extent.flush();
 	}
+<<<<<<< Updated upstream
 @Test(priority = 11)
+=======
+@Test(priority = 7)
+>>>>>>> Stashed changes
 void NoticeExportBtn() throws InterruptedException, IOException, EncryptedDocumentException, AWTException
 {
 	test = extent.startTest("Notices -Export Btn verification");
@@ -195,7 +215,11 @@ void NoticeExportBtn() throws InterruptedException, IOException, EncryptedDocume
 	extent.flush();
 
 }
+<<<<<<< Updated upstream
 @Test(priority = 12)
+=======
+@Test(priority = 8)
+>>>>>>> Stashed changes
 void NoticeSearchBox() throws InterruptedException, IOException, EncryptedDocumentException, AWTException
 {
 	test = extent.startTest("Notices -Search Box and clear button verification");
@@ -206,7 +230,11 @@ void NoticeSearchBox() throws InterruptedException, IOException, EncryptedDocume
 	extent.flush();
 
 }
+<<<<<<< Updated upstream
 @Test(priority = 13)
+=======
+@Test(priority = 9)
+>>>>>>> Stashed changes
 void NoticeEditDownload() throws InterruptedException, IOException, EncryptedDocumentException, AWTException
 {
 	test = extent.startTest("Notices -Edit and download button verification");
@@ -287,7 +315,11 @@ void NoticeEditDownload() throws InterruptedException, IOException, EncryptedDoc
 
 /////////////////////////////////Registration//////////////////////////////
 
+<<<<<<< Updated upstream
     @Test(priority = 30)
+=======
+    @Test(priority = 10)
+>>>>>>> Stashed changes
 	void RegistrationCountMatch() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Registration- Pending Applications (Offline) count verification");
@@ -298,6 +330,7 @@ void NoticeEditDownload() throws InterruptedException, IOException, EncryptedDoc
 		extent.flush();
 
 	}
+<<<<<<< Updated upstream
     @Test(priority = 31)
 	void pendingApplicationExport() throws InterruptedException, IOException
 	{
@@ -310,6 +343,9 @@ void NoticeEditDownload() throws InterruptedException, IOException, EncryptedDoc
 
 	}
     @Test(priority = 32)
+=======
+    @Test(priority = 11)
+>>>>>>> Stashed changes
 	void RegistrationPendingAction() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Registration- Applied and Awaiting Dept Approval count verification");
@@ -320,6 +356,7 @@ void NoticeEditDownload() throws InterruptedException, IOException, EncryptedDoc
 		extent.flush();
 
 	}
+<<<<<<< Updated upstream
     @Test(priority = 33)
 	void appliedAndAwaitingExport() throws InterruptedException, IOException
 	{
@@ -332,6 +369,9 @@ void NoticeEditDownload() throws InterruptedException, IOException, EncryptedDoc
 
 	}
     @Test(priority = 34)
+=======
+    @Test(priority = 12)
+>>>>>>> Stashed changes
 	void RegistrationOverdue() throws InterruptedException, IOException
 	{ 
 		test = extent.startTest("Registration- Overdue count verification");
@@ -342,6 +382,7 @@ void NoticeEditDownload() throws InterruptedException, IOException, EncryptedDoc
 		extent.flush();
 
 	}
+<<<<<<< Updated upstream
     @Test(priority = 35)
 	void overdueExport() throws InterruptedException, IOException
 	{
@@ -354,6 +395,9 @@ void NoticeEditDownload() throws InterruptedException, IOException, EncryptedDoc
 
 	}
     @Test(priority = 36)
+=======
+@Test(priority =13)
+>>>>>>> Stashed changes
 	void RegistrationClosed() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Registration- Closed count verification");
@@ -364,8 +408,14 @@ void NoticeEditDownload() throws InterruptedException, IOException, EncryptedDoc
 		extent.flush();
 
 	}
+<<<<<<< Updated upstream
     @Test(priority = 37)
 	void closedExport() throws InterruptedException, IOException
+=======
+
+@Test(priority =14)
+	void ExportBtn() throws InterruptedException, IOException
+>>>>>>> Stashed changes
 	{
 		test = extent.startTest("Registration - Closed - Verify to check export works correctly");
 		
@@ -388,6 +438,7 @@ void NoticeEditDownload() throws InterruptedException, IOException, EncryptedDoc
 		extent.flush();
 
 	}
+<<<<<<< Updated upstream
     @Test(priority = 39)
 	void otaReport() throws InterruptedException, IOException
 	{
@@ -401,6 +452,9 @@ void NoticeEditDownload() throws InterruptedException, IOException, EncryptedDoc
 	}
 	
 @Test(priority = 40)
+=======
+@Test(priority =15)
+>>>>>>> Stashed changes
 	void SearchBox() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Registration - Search Box verification");
@@ -412,7 +466,11 @@ void NoticeEditDownload() throws InterruptedException, IOException, EncryptedDoc
 
 	}
 	
+<<<<<<< Updated upstream
 	@Test(priority = 41)
+=======
+	@Test(priority = 16)
+>>>>>>> Stashed changes
    	void EditIcon() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Registration - Edit Icon verification");

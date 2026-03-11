@@ -25,9 +25,15 @@ public class ExcelF {
 	
 	//for single methods:
 	//Default constructor
+<<<<<<< Updated upstream
 //    public ExcelF() {
 //    	
 //    }
+=======
+    public ExcelF() {
+    	
+    }
+>>>>>>> Stashed changes
 	
 	
 	
