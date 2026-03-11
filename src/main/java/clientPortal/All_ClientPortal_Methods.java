@@ -47,6 +47,7 @@ import distributor.DistributerLocators;
 import distributor.Locators;
 import login.BasePage;
 import login.LoginLocators;
+import rcp.ElementUtils;
 import rcp.OneCommonMethod;
 import rcp.UploadHelper;
 
@@ -1299,12 +1300,6 @@ public class All_ClientPortal_Methods extends BasePage {
 			All_ClientPortal_Locators.EREdit().click();
 			
 			
-<<<<<<< Updated upstream
-=======
-			WebDriverWait wait = new WebDriverWait(getDriver(), 10);
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='k-loader-canvas']")));
-			
->>>>>>> Stashed changes
 			Thread.sleep(5000);
 			
 			Thread.sleep(3000);
@@ -2238,7 +2233,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		All_ClientPortal_Locators.View().click();
 		Thread.sleep(5000);
 		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//img[contains(@title,'Overview')])[1]")));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//img[contains(@title,'View')])[1]")));
 		Thread.sleep(8000);
 		Thread.sleep(3000);
 		
@@ -6194,7 +6189,7 @@ public class All_ClientPortal_Methods extends BasePage {
 //		Thread.sleep(5000);
 		
 		All_ClientPortal_Locators.compliancePerformanceDownloadBtn().click();
-		
+		Thread.sleep(5000);
 		OneCommonMethod.validateFileDownloadDynamic(
 			    driver.get(),
 			    test,
@@ -6205,26 +6200,6 @@ public class All_ClientPortal_Methods extends BasePage {
 		Thread.sleep(2000);
 		All_ClientPortal_Locators.CloseButtonX().click();
 		Thread.sleep(3000);
-		
-
-		
-//		File dir = new File("C:\\Users\\bilali\\Downloads");
-//		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
-//
-//		Thread.sleep(5000);
-//		All_ClientPortal_Locators.compliancePerformanceDownloadBtn().click();
-//		Thread.sleep(8000);
-//		All_ClientPortal_Locators.compliancePerformanceFileDownPopup().click();
-//
-//		Thread.sleep(10000);
-//		File dir1 = new File("C:\\Users\\bilali\\Downloads");
-//		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
-//		Thread.sleep(3000);
-//		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
-//			test.log(LogStatus.PASS,  " File downloaded successfully.");
-//		} else {Thread.sleep(5000);
-//			test.log(LogStatus.FAIL,  " File does not downloaded.");
-//		}
 		
 	}
 	public static void PaginationECComplied(  ExtentTest test) throws InterruptedException, IOException
@@ -7216,7 +7191,8 @@ public class All_ClientPortal_Methods extends BasePage {
 	
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
-		WebElement element = (All_ClientPortal_Locators.ClosedCol());
+//		WebElement element = (All_ClientPortal_Locators.ClosedCol());
+		WebElement element = (All_ClientPortal_Locators.Closed());
 		js.executeScript("arguments[0].scrollIntoView(true);", element);
 		Thread.sleep(4000);
 		All_ClientPortal_Locators.Closed().click();
@@ -7240,7 +7216,7 @@ public class All_ClientPortal_Methods extends BasePage {
 	
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
-		WebElement element = (All_ClientPortal_Locators.ClosedCol());
+		WebElement element = (All_ClientPortal_Locators.Closed());
 		js.executeScript("arguments[0].scrollIntoView(true);", element);
 		Thread.sleep(4000);
 		All_ClientPortal_Locators.Closed().click();
@@ -7287,7 +7263,7 @@ public class All_ClientPortal_Methods extends BasePage {
 	
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
-		WebElement element = (All_ClientPortal_Locators.ClosedCol());
+		WebElement element = (All_ClientPortal_Locators.Closed());
 		js.executeScript("arguments[0].scrollIntoView(true);", element);
 		Thread.sleep(4000);
 		All_ClientPortal_Locators.Closed().click();
@@ -7398,24 +7374,6 @@ public class All_ClientPortal_Methods extends BasePage {
 		All_ClientPortal_Locators.ClosedCol().click();
 		Thread.sleep(5000);
 
-<<<<<<< Updated upstream
-=======
-/*		File dir = new File("C:\\Users\\bilali\\Downloads");
-		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
-
-		Thread.sleep(500);
-		Locators.Export().click();
-
-		Thread.sleep(8000);
-		File dir1 = new File("C:\\Users\\bilali\\Downloads");
-		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
-		Thread.sleep(3000);
-		if (dirContents.length < allFilesNew.length) {Thread.sleep(5000);
-			test.log(LogStatus.PASS,  " File downloaded successfully.");
-		} else {Thread.sleep(5000);
-			test.log(LogStatus.FAIL,  " File does not downloaded.");
-		} */
->>>>>>> Stashed changes
 		
 		OneCommonMethod.validateExportedExcel(
 			    driver.get(),
@@ -9081,8 +9039,14 @@ public class All_ClientPortal_Methods extends BasePage {
   	{Thread.sleep(5000);
   	
       	JavascriptExecutor js = (JavascriptExecutor) getDriver();
-      	WebElement element = getDriver().findElement(By.xpath("//div[@class='updates']//div[1]//a[1]"));
-		js.executeScript("arguments[0].scrollIntoView(true);", element);
+      	Thread.sleep(1000);
+      	OneCommonMethod.scroll(getDriver(), 5000);
+      	Thread.sleep(1000);
+      	OneCommonMethod.scroll(getDriver(), 5000);
+      	Thread.sleep(1000);
+//      	WebElement element = getDriver().findElement(By.xpath("//a[text()='Read More']"));
+//      	Thread.sleep(1000);
+//		js.executeScript("arguments[0].scrollIntoView(true);", element);
 		Thread.sleep(4000);
   		WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
   		
@@ -10176,27 +10140,30 @@ public class All_ClientPortal_Methods extends BasePage {
 		jse.executeScript("arguments[0].click();", ViewButton);
 		Thread.sleep(4000);
 
+		OneCommonMethod.validateFileDownloadDynamic(getDriver(), test, All_ClientPortal_Locators.inputFinalUploadDownload1(), 
+				"Attendance File: Final input uploaded downloaded successfully");
+		
 		Thread.sleep(2000);
-		// 1 Logic for Attendance File download
-        //All_ClientPortal_Locators.inputFinalUploadDownload1();
-
-		File dir = new File("C:\\Users\\bilali\\Downloads");
-		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
-
-		Thread.sleep(3000);
-		All_ClientPortal_Locators.inputFinalUploadDownload1().click();
-
-		Thread.sleep(10000);
-		File dir1 = new File("C:\\Users\\bilali\\Downloads");
-		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
-		Thread.sleep(3000);
-		if (dirContents.length < allFilesNew.length) {
-			Thread.sleep(5000);
-			test.log(LogStatus.PASS, "Attendance File: Final input uploaded downloaded successfully");
-		} else {
-			Thread.sleep(5000);
-			test.log(LogStatus.FAIL, "Attendance File: Final input uploaded not downloaded");
-		}
+//		// 1 Logic for Attendance File download
+//        //All_ClientPortal_Locators.inputFinalUploadDownload1();
+//
+//		File dir = new File("C:\\Users\\bilali\\Downloads");
+//		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
+//
+//		Thread.sleep(3000);
+//		All_ClientPortal_Locators.inputFinalUploadDownload1().click();
+//
+//		Thread.sleep(10000);
+//		File dir1 = new File("C:\\Users\\bilali\\Downloads");
+//		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
+//		Thread.sleep(3000);
+//		if (dirContents.length < allFilesNew.length) {
+//			Thread.sleep(5000);
+//			test.log(LogStatus.PASS, "Attendance File: Final input uploaded downloaded successfully");
+//		} else {
+//			Thread.sleep(5000);
+//			test.log(LogStatus.FAIL, "Attendance File: Final input uploaded not downloaded");
+//		}
 
 
 
@@ -12088,11 +12055,12 @@ public class All_ClientPortal_Methods extends BasePage {
 		Cell c2= row2.getCell(1);						//Selected cell (0 row,1 column)
 		String branch = c2.getStringCellValue();
 		All_ClientPortal_Locators.clickBranch().sendKeys(branch);
-		
+		Thread.sleep(2000);
 		All_ClientPortal_Locators.clickLicenseType().click();
+		Thread.sleep(2000);
 		All_ClientPortal_Locators.selectLicenseType().click();
 		
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		Row row3 = sheet.getRow(7);						//Selected 0th index row (First row)
 		Cell c3= row3.getCell(1);						//Selected cell (0 row,1 column)
 		String empname = c3.getStringCellValue();
@@ -12151,8 +12119,9 @@ public class All_ClientPortal_Methods extends BasePage {
 
 		Thread.sleep(1000);
 		All_ClientPortal_Locators.clickSubmit().click();
-		
+		Thread.sleep(5000);
 		String msg=All_ClientPortal_Locators.clickSuccessMsg().getText();
+		Thread.sleep(5000);
 		if(msg.equalsIgnoreCase("Registration saved successfully"))
 		{
 			test.log(LogStatus.PASS, "Message displayed:-"+msg);
@@ -12543,13 +12512,13 @@ public class All_ClientPortal_Methods extends BasePage {
 		All_ClientPortal_Locators.clickLicense().click();
 		Thread.sleep(1000);
 		All_ClientPortal_Locators.clickRegistration().click();
-		
+		Thread.sleep(4000);
 		All_ClientPortal_Locators.EditBtn().click();
-		
-		WebElement plus1 = getDriver().findElement(By.xpath("(//img[@class='svg-icon-btn'])[1]"));
-		WebElement plus2 = getDriver().findElement(By.xpath("(//img[@class='svg-icon-btn'])[2]"));
-		WebElement plus3 = getDriver().findElement(By.xpath("(//img[@class='svg-icon-btn'])[3]"));
-		WebElement plus4 = getDriver().findElement(By.xpath("(//img[@class='svg-icon-btn'])[4]"));
+		Thread.sleep(4000);
+		WebElement plus1 = getDriver().findElement(By.xpath("(//img[@class='svg-icon-btn ng-star-inserted'])[1]"));
+		WebElement plus2 = getDriver().findElement(By.xpath("(//img[@class='svg-icon-btn ng-star-inserted'])[2]"));
+		WebElement plus3 = getDriver().findElement(By.xpath("(//img[@class='svg-icon-btn ng-star-inserted'])[3]"));
+//		WebElement plus4 = getDriver().findElement(By.xpath("(//img[@class='svg-icon-btn ng-star-inserted'])[4]"));
 		
 		
 //		WebElement ActivityClosure = getDriver().findElement(By.xpath("//img[@class='svg-icon-btn ng-star-inserted']"));
@@ -12590,16 +12559,16 @@ public class All_ClientPortal_Methods extends BasePage {
 		}
 		
 		Thread.sleep(4000);
-		if(plus4.isEnabled())
-		{
-			plus4.click();
-			test.log(LogStatus.PASS, "+ Activity Relevant Dates button is clickable.");
-			Thread.sleep(4000);
-		}
-		else
-		{
-			test.log(LogStatus.FAIL, "+ Activity Relevant Dates button is not clickable.");
-		}
+//		if(plus4.isEnabled())
+//		{
+//			plus4.click();
+//			test.log(LogStatus.PASS, "+ Activity Relevant Dates button is clickable.");
+//			Thread.sleep(4000);
+//		}
+//		else
+//		{
+//			test.log(LogStatus.FAIL, "+ Activity Relevant Dates button is not clickable.");
+//		}
 		
 	
 /*		
@@ -13101,7 +13070,7 @@ public class All_ClientPortal_Methods extends BasePage {
 		All_ClientPortal_Locators.clickRegistration().click();
 		Thread.sleep(4000);
 		All_ClientPortal_Locators.ExistingLicesne().click();
-		
+		Thread.sleep(4000);
 		if(All_ClientPortal_Locators.ExistingLicesneInitiateAction().isEnabled())
 		{
 			Thread.sleep(1000);

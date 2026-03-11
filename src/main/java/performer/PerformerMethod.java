@@ -7132,31 +7132,20 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 		
 		if(user.equalsIgnoreCase("Performer"))
 		{
-			Thread.sleep(5000);Thread.sleep(5000);
-			PerformerLocator.SerchCustomer().sendKeys("TESTAUTO2");
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 			PerformerLocator.clickWorkspaceArrow().click();
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
-		{	Thread.sleep(5000);Thread.sleep(5000);
-			PerformerLocator.SerchCustomer().sendKeys("TESTAUTO2");
+		{
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 			PerformerLocator.DistributorPremisesArrow().click();
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
-		{	Thread.sleep(5000);Thread.sleep(5000);
-			PerformerLocator.SerchCustomer().sendKeys("TESTAUTO2");
+		{
+			OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
 			PerformerLocator.ReviewerStaturyDocumentArrow().click();
 		}
 		
-		
-		
-		
-		
- 		//Correct Entity Verification
-//        OneCommonMethod.verifyTestEntity(
-//        driver.get(), test,
-//        By.xpath("//span[normalize-space()='AVATCGEN CORE DEMO[AVACORED5]']"),
-//        "AVATCGEN CORE DEMO[AVACORED5]"
-//         );
 		
 	 	Thread.sleep(5000);
 		PerformerLocator.clickManageMaster().click();
@@ -7181,13 +7170,14 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 	Thread.sleep(2000);
 	 	
 	 	PerformerLocator.clicksave().click();	
-	    
+	 	Thread.sleep(5000);
 		String text1 = getDriver().findElement(By.xpath("//h4[@class='f-label']")).getText();
-		
+		Thread.sleep(2000);
 		if(text1.equalsIgnoreCase("Paycode is already exists")) {Thread.sleep(5000);
+			test.log(LogStatus.PASS,"Paycode mapping add new - all filters working fine");
 		    test.log(LogStatus.PASS,"While adding paycode which is already exists error message is displayed");
 		    
-			test.log(LogStatus.PASS,"Message Displayed : "+text1);
+			test.log(LogStatus.PASS,"Error Message Displayed : "+text1);
 	
 		}else {Thread.sleep(5000);
 			test.log(LogStatus.FAIL,"Message Displayed : "+text1);
@@ -7974,7 +7964,6 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 {
 	 	
 	 	Thread.sleep(5000);
-		PerformerLocator.SerchCustomer().sendKeys("TESTAUTO3");
 		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 	 	Thread.sleep(5000);
 	 	
@@ -7994,86 +7983,46 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 			PerformerLocator.ReviewerStaturyDocumentArrow().click();
 			Thread.sleep(5000);
 		}
-	 	Thread.sleep(5000);
-	 	Thread.sleep(5000);
-	 	
+		Thread.sleep(5000);
+		Thread.sleep(5000);
+
 		PerformerLocator.clickManageMaster().click();
-	 	Thread.sleep(5000);
+		Thread.sleep(5000);
 		PerformerLocator.clickDesignation().click();
-	 	
-	 	Thread.sleep(5000);
+
+		Thread.sleep(5000);
 		PerformerLocator.clickUploadBtn().click();
 		Thread.sleep(5000);
 		PerformerLocator.UploadDesignationDetailes().click();
-	 	
-		OneCommonMethod.validateFileDownloadDynamic(
-			    driver.get(),
-			    test,
-			    PerformerLocator.SampleDocumentDownload(),   // WebElement
-			    "Sample Document is downloaded"   // Dynamic log message
-			);
-	 	
-	 		
+
+		OneCommonMethod.validateFileDownloadDynamic(driver.get(), test, PerformerLocator.SampleDocumentDownload(),
+				"Sample Document is downloaded");
+
 		Thread.sleep(5000);
-				PerformerLocator.clickBrowse1().click();
-	 			
-	 			 Robot robot=new Robot();
-	 			 
-	 			 OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\OtherTwo\\Designation.xlsx");
-	 			 
-	 /*			 StringSelection filepath= new  StringSelection("C:\\Users\\snehalp\\Documents\\DesignationSample.xlsx");
-	 			 //copy above file to clipboard
-	 			 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, null);
-	 			 
-	 			 //Now press CRTL
-	 			 
-	 			 robot.keyPress(KeyEvent.VK_CONTROL);
-	 			 Thread.sleep(1000);
-	 			 
-	 			 //PRESS V
-	 			 robot.keyPress(KeyEvent.VK_V);
-	 			 Thread.sleep(1000);
-	 			 
-	 			 //Release V
-	 			 robot.keyRelease(KeyEvent.VK_V);
-	 			 
-	 			 
-	 			 //Release CRTL
-	 			 robot.keyRelease(KeyEvent.VK_CONTROL);
-	 			 
-	 			 //PRESS Enter
-	 			 robot.keyPress(KeyEvent.VK_ENTER);
-	 			 
-	 			 //Release CRTL
-	 			 robot.keyRelease(KeyEvent.VK_ENTER);
-	 			 
-	 			 Thread.sleep(1000);
-	 			 System.out.println("File uploaded successfully");
-	 	*/		 
-	 		     Thread.sleep(1000);
-	 			PerformerLocator.clickUploadbtnCTCBtn().click();
-	 			
-	 			Thread.sleep(2000);
-	 			String msg=	PerformerLocator.clickMsg().getText();
-	 			
-	 			 if(msg.equalsIgnoreCase("File uploaded successfully"))
-	 			 {
-	 				 test.log(LogStatus.PASS, "Message displayed = "+msg);
-	 				 
-	 			 }
-	 			 else
-	 			 {
-	 				 test.log(LogStatus.FAIL, "Message displayed = "+msg);
-	 			 }
-	 			 Thread.sleep(1000);
-	 			PerformerLocator.clickOkBtn().click();
-	 			
-//	 			Thread.sleep(1000);
-//	 			ReviwerLocator.clickcloseBtn().click();
-	 			Thread.sleep(1000);
+		PerformerLocator.clickBrowse1().click();
+
+		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\OtherTwo\\Designation.xlsx");
+
+		Thread.sleep(1000);
+		PerformerLocator.clickUploadbtnCTCBtn().click();
+
+		Thread.sleep(2000);
+		String msg = PerformerLocator.clickMsg().getText();
+
+		if (msg.equalsIgnoreCase("File uploaded successfully")) {
+			test.log(LogStatus.PASS, "While uploading file through upload designation success message is displayed");
+			test.log(LogStatus.PASS, "Message displayed = " + msg);
+
+		} else {
+			test.log(LogStatus.FAIL, "Message displayed = " + msg);
+		}
+		Thread.sleep(1000);
+		PerformerLocator.clickOkBtn().click();
+
+		Thread.sleep(1000);
 	 		
 	 	
-	 	}
+	}
 	 
 	 public static void BulkUpateDesignationAlreadyExist( ExtentTest test,XSSFWorkbook workbook,String user) throws Exception
 	 {

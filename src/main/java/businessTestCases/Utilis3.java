@@ -29,11 +29,8 @@ public class Utilis3 {
 	
 	
 	
-<<<<<<< Updated upstream
 	
 	
-=======
->>>>>>> Stashed changes
     
     
     

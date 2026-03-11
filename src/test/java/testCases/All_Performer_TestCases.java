@@ -25,7 +25,6 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-import clientPortal.All_ClientPortal_Methods;
 import distributor.All_Distributor_Methods;
 import distributor.MethodsD;
 import login.BasePage;
@@ -94,13 +93,8 @@ public class All_Performer_TestCases extends BasePage{
 	
 	}
 	
-<<<<<<< Updated upstream
 
 
-=======
-	
-/**
->>>>>>> Stashed changes
 	
 	@Test(priority = 1) 
 	void CompanyLogo() throws InterruptedException, IOException
@@ -784,8 +778,18 @@ public class All_Performer_TestCases extends BasePage{
    		extent.endTest(test);
    		extent.flush();
    	}
+    @Test(priority = 53) //NEW TC NEW TC
+   	void BulkUpateDesignation() throws Exception
+   	{
+   		test = extent.startTest("Manage Masters - Verify to update designation through bulk upload");
+   		
+   		PerformerMethod.BulkUpateDesignationn(test, workbook,"Performer");
+   		
+   		extent.endTest(test);
+   		extent.flush();
+   	}
 	
-    @Test(priority = 52)
+    @Test(priority = 54)
    	void AddDesignation() throws InterruptedException, IOException
    	{
 test = extent.startTest("Manage Master - Designation - Verify Add New Designation Error is throwing or not?");
@@ -795,7 +799,7 @@ test = extent.startTest("Manage Master - Designation - Verify Add New Designatio
    		extent.endTest(test);
    		extent.flush();
    	}
-	@Test(priority = 53) //Fail
+	@Test(priority = 55) //Fail
    	void DesignationExportBtn() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Designation Master-Export Button verification");
@@ -806,7 +810,7 @@ test = extent.startTest("Manage Master - Designation - Verify Add New Designatio
    		extent.flush();
    	}
     
-    @Test(priority = 54) //Pass
+    @Test(priority = 56) //Pass
    	void DeleteDesignation() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Manage Master - Designation - Verify to Delete/Inactive Designation");
@@ -817,7 +821,7 @@ test = extent.startTest("Manage Master - Designation - Verify Add New Designatio
    		extent.flush();
    	}
     
-	@Test(priority = 55)
+	@Test(priority = 57)
    	void DesignationClearBtn() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Designation Master-Clear Button verification");
@@ -828,7 +832,7 @@ test = extent.startTest("Manage Master - Designation - Verify Add New Designatio
    		extent.flush();
    	}
     
-	@Test(priority = 56) //Bilal 
+	@Test(priority = 58) //Bilal 
    	void LeaveTypeSearch() throws InterruptedException, IOException
    	{
 test = extent.startTest("Manage Master - Leave Type - Verify to check Search Leave Type dropdown is working or not?");
@@ -838,7 +842,7 @@ test = extent.startTest("Manage Master - Leave Type - Verify to check Search Lea
    		extent.endTest(test);
    		extent.flush();
    	}
-	@Test(priority = 56) 
+	@Test(priority = 59) 
    	void leaveTypeExport() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Manage Master - Leave Type - Verify to check Export button working or not");
@@ -848,7 +852,7 @@ test = extent.startTest("Manage Master - Leave Type - Verify to check Search Lea
    		extent.endTest(test);
    		extent.flush();
    	}
-	@Test(priority = 57) //Bilal
+	@Test(priority = 60) //Bilal
    	void PaycodeMappingSearchField() throws InterruptedException, IOException
    	{
 test = extent.startTest("Manage Masters - Paycode Mapping - Verify to check search field is working or not?");
@@ -859,7 +863,7 @@ test = extent.startTest("Manage Masters - Paycode Mapping - Verify to check sear
    		extent.flush();
    	}
 	
-	@Test(priority = 58) //Bilal
+	@Test(priority = 61) //Bilal // NEW TC NEW TC --> Updated
    	void PaycodeMappingAddNew() throws InterruptedException, IOException
    	{
 test = extent.startTest("Manage Masters - Paycode Mapping - Verify to check Add New error is displayed or not?");
@@ -870,7 +874,7 @@ test = extent.startTest("Manage Masters - Paycode Mapping - Verify to check Add 
    		extent.flush();
    	}
 	
-	@Test(priority = 59) //Bilal
+	@Test(priority = 62) //Bilal
    	void PaycodeMappingEditUpdate() throws InterruptedException, IOException
    	{
 test = extent.startTest("Manage Masters - Paycode Mapping - Verify to check paycode is editable or not?");
@@ -881,7 +885,7 @@ test = extent.startTest("Manage Masters - Paycode Mapping - Verify to check payc
    		extent.flush();
    	}
 	
-	@Test(priority = 60) //Bilal 
+	@Test(priority = 63) //Bilal 
    	void PaycodeMappingUpload() throws InterruptedException, IOException, AWTException
    	{
 test = extent.startTest("Manage Masters - Paycode Mapping - Verify to check paycode Upload or not?");
@@ -891,7 +895,7 @@ test = extent.startTest("Manage Masters - Paycode Mapping - Verify to check payc
    		extent.endTest(test);
    		extent.flush();
    	}
-	@Test(priority = 61) //Bilal 
+	@Test(priority = 64) //Bilal 
    	void PaycodeMappingUploadInvalid() throws InterruptedException, IOException, AWTException
    	{
 test = extent.startTest("Manage Masters - Paycode Mapping - Verify to upload invalid file which contains special characters error message is displayed or not?");
@@ -902,7 +906,7 @@ test = extent.startTest("Manage Masters - Paycode Mapping - Verify to upload inv
    		extent.flush();
    	}
 	
-	@Test(priority = 62) //Bilal
+	@Test(priority = 65) //Bilal
    	void MastersStaturyDoc() throws InterruptedException, IOException, AWTException
    	{
 test = extent.startTest("Manage Masters - Statutory Master - Verify to check Exports with all Compliance Types are working or not?");
@@ -928,15 +932,9 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 
 
 	//Part 2
-<<<<<<< Updated upstream
 
 
 
-=======
-   	**/
-   	
-   	
->>>>>>> Stashed changes
    	
    	//Onboard Employee:--
    	
@@ -1435,7 +1433,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 301)
+	@Test(priority = 302)
 	void StatutoryDocRegisterForms() throws InterruptedException, IOException, AWTException
 	{
 		test = extent.startTest("Statutory Documents - Verify to check Registers forms is displayed correctly");
@@ -1492,7 +1490,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 		extent.flush();
 	}
 	
-	@Test(priority = 307) 
+	@Test(priority = 308) 
 	void StateDocZipFileChallan() throws InterruptedException, IOException, AWTException 
 	{	
 		test = extent.startTest("Statutory Documents - Challan PT - Verify to check Overview button is working correctly");
@@ -1510,7 +1508,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 
 	}
 	
-	@Test(priority = 308) //ESIC
+	@Test(priority = 309) //ESIC
 	void ESIConsolidatedW() throws InterruptedException, IOException, AWTException 
 	{	
 		test = extent.startTest("Statutory Documents - Challan ESI - Verify to check ESI Consolidated Workings File is downloading correctly");
@@ -1525,7 +1523,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 		extent.flush();
 	}
 	
-	@Test(priority = 309) 
+	@Test(priority = 310) 
 	void challanESIC() throws InterruptedException, IOException, AWTException 
 	{	
 		test = extent.startTest("Statutory Documents - Challan ESI - Verify to check Overview button is working correctly");
@@ -1542,7 +1540,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 		extent.flush();
 
 	}
-	@Test(priority = 310) // NEW TC -- PF
+	@Test(priority = 311) // NEW TC -- PF
 	void EPFConsolidatedW() throws InterruptedException, IOException, AWTException 
 	{	
 		test = extent.startTest("Statutory Documents - Challan EPF - Verify to check ESI Consolidated Workings File is downloading correctly");
@@ -1557,7 +1555,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 		extent.flush();
 	}
 	
-	@Test(priority = 311) // NEW TC PF
+	@Test(priority = 312) // NEW TC PF
 	void challanEPF() throws InterruptedException, IOException, AWTException 
 	{	
 		test = extent.startTest("Statutory Documents - Challan EPF - Verify to check Overview button is working correctly");
@@ -1832,7 +1830,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 400) 
+	@Test(priority = 444) 
 	void assignmentReportsChallan() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Report - Compliance Assignment Report - Verify to check Challans compliance exports correctly");
@@ -1843,7 +1841,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 		extent.flush();
 	}
 	
-	@Test(priority = 400)
+	@Test(priority = 445)
 	void consolidatedStatusReport() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Report - Consolidated Status Report - Verification");
@@ -1871,7 +1869,6 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 	
 	
 	
-<<<<<<< Updated upstream
 		@Test(priority = 460) 
 		void clraAssignmentReport() throws InterruptedException, IOException
 		{
@@ -1912,16 +1909,6 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 //  		//Thread.sleep(1000);
 //  		//getDriver().close();
 //  	}	       
-=======
-	@AfterMethod
-  	void browserClosing() throws InterruptedException
-  	{
-		Thread.sleep(10000);
-		closeBrowser();
-  		//Thread.sleep(1000);
-  		//getDriver().close();
-  	}	       
->>>>>>> Stashed changes
   		       		
   	@AfterTest
   	void Closing() throws InterruptedException

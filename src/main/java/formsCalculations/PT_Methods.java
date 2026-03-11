@@ -1876,14 +1876,6 @@ public class PT_Methods extends BasePage{
         
         
         
-<<<<<<< Updated upstream
-=======
-        
-        
-        
-      
-        List<ExcelF> af = new ArrayList<>();
->>>>>>> Stashed changes
         
       
 		List<ExcelF> af = new ArrayList<>();

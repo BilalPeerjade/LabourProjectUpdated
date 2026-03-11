@@ -2013,11 +2013,7 @@ public static WebElement clickLicense()		//Method for searching Username input
 	}
 	public static WebElement DownloadTwo()		//Method for searching Username input
 	{   //P17
-<<<<<<< Updated upstream
 		labour = getDriver().findElement(By.xpath("(//img[@title='Download'])[2]"));
-=======
-		labour = getDriver().findElement(By.cssSelector("tbody tr:nth-child(1) td:nth-child(10) div:nth-child(1) div:nth-child(1) button:nth-child(3) img:nth-child(1)"));
->>>>>>> Stashed changes
 		return labour;
 	}
 	public static WebElement loaderPath()		
@@ -2201,11 +2197,7 @@ public static WebElement clickLicense()		//Method for searching Username input
 	}
 	public static WebElement inputperiodDrp()	
 	{
-<<<<<<< Updated upstream
 		labour = getDriver().findElement(By.xpath("//span[contains(text(),'February') or contains (text(),'March') or contains (text(),'April')]"));
-=======
-		labour = getDriver().findElement(By.xpath("//span[contains(text(),'October')]"));
->>>>>>> Stashed changes
 		return labour;
 	}
 	public static WebElement inputperiodDrpSelect1()	

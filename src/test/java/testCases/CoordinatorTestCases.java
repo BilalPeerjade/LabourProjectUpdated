@@ -524,7 +524,6 @@ public class CoordinatorTestCases extends BasePage
    		extent.flush();
    	}
 	
-<<<<<<< Updated upstream
 	@Test(priority = 32) 
    	void doSectionDocReq() throws Exception
    	{
@@ -537,9 +536,6 @@ public class CoordinatorTestCases extends BasePage
    	}
 	
 	@Test(priority = 33)
-=======
-	@Test(priority = 32)
->>>>>>> Stashed changes
    	void docReqNoticeLabel() throws InterruptedException, IOException, EncryptedDocumentException, AWTException
    	{
    		test = extent.startTest("Notices - Edit - Verify to check Document Requirement for the Notice label bar works correctly ");
@@ -549,11 +545,7 @@ public class CoordinatorTestCases extends BasePage
    		extent.endTest(test);
    		extent.flush();
    	}
-<<<<<<< Updated upstream
 	@Test(priority = 34) 
-=======
-	@Test(priority = 33) 
->>>>>>> Stashed changes
    	void docSectionBackButton() throws InterruptedException, IOException, EncryptedDocumentException, AWTException
    	{
    		test = extent.startTest("Notices - Edit - Document Section - Verify to check Back button works correctly");
@@ -876,11 +868,7 @@ public class CoordinatorTestCases extends BasePage
    	}
  	
  	//Sometimes running sometimes not
-<<<<<<< Updated upstream
 	@Test(priority = 73) //Bilal   Pending Tried with all clicks but now working
-=======
-	@Test(priority = 72) //Bilal   Pending Tried with all clicks but now working
->>>>>>> Stashed changes
    	void EditIconDocumentRepoDownload() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Registration - Edit - Verify to download documents from document repository.");
@@ -945,7 +933,6 @@ public class CoordinatorTestCases extends BasePage
    		extent.flush();
 
    	}
-<<<<<<< Updated upstream
 	
 	@Test(priority = 77) 	// NEW TC BY SWAPNIL
 	void ExistingLicenseDraftRCPcountMatch() throws InterruptedException, IOException
@@ -960,8 +947,6 @@ public class CoordinatorTestCases extends BasePage
 
 
 
-=======
->>>>>>> Stashed changes
 	@Test(priority = 77)
    	void ExistingLicenseendingAction() throws InterruptedException, IOException
    	{

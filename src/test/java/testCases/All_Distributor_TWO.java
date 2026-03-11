@@ -1186,11 +1186,7 @@ public class All_Distributor_TWO extends BasePage {
 		
 	
 		//Compliance asiisgnment
-<<<<<<< Updated upstream
 		@Test(priority = 225) 
-=======
-		@Test(priority = 225)
->>>>>>> Stashed changes
 		void Entity_CompAssignment() throws InterruptedException, IOException, AWTException
 		{
 			test = extent.startTest("Onboard Entity - Compliance Assignment - Verify to check compliance assignment works correctly");
@@ -1221,11 +1217,7 @@ public class All_Distributor_TWO extends BasePage {
 		
 		
 		//Assignment Removal
-<<<<<<< Updated upstream
 		@Test(priority = 235) 
-=======
-		@Test(priority = 235)
->>>>>>> Stashed changes
 		void AssignmentRemoval() throws InterruptedException, IOException {
 			test = extent.startTest("OnBorad Entity - Manage Compliance - Verify to check Assignment Removal works correctly");
 
@@ -1235,7 +1227,6 @@ public class All_Distributor_TWO extends BasePage {
 			extent.flush();
 
 		}
-<<<<<<< Updated upstream
 		@Test(priority = 236) 
 	   	void bulkCompReassignment() throws InterruptedException, IOException
 	   	{
@@ -1246,8 +1237,6 @@ public class All_Distributor_TWO extends BasePage {
 	   		extent.endTest(test);
 	   		extent.flush();
 	   	}
-=======
->>>>>>> Stashed changes
 		
 		
 		//Compliance Reassignment:
@@ -1276,15 +1265,9 @@ public class All_Distributor_TWO extends BasePage {
 	   	}
 		
 		//Schedule Removal
-<<<<<<< Updated upstream
 		@Test(priority = 255) 
 		void ScheduleRemoval() throws InterruptedException, IOException {
 			test = extent.startTest("Onboard Entity - Manage Compliance - Verify Schedule Removal works correctly");
-=======
-		@Test(priority = 255)
-		void ScheduleRemoval() throws InterruptedException, IOException {
-			test = extent.startTest("OnBorad Entity-Manage Compliance-Schedule Removal");
->>>>>>> Stashed changes
 
 			All_Distributor_Methods.manageCompScheduleRemoval(test, workbook);
 

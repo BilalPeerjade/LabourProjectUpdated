@@ -66,17 +66,10 @@ public class All_Client_Portal_TestCases extends BasePage {
 	
 	
 	
-<<<<<<< Updated upstream
-/**
+
 	
 
 	
-=======
-
-	
-	/**
-	
->>>>>>> Stashed changes
 	
 	// Mayuri TCs - ClientTest.Java 1 to 112
 	@Test(priority = 1) //
@@ -2141,11 +2134,7 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 	
 	
 	
-<<<<<<< Updated upstream
 //
-=======
-/**	//
->>>>>>> Stashed changes
 	
 	// ---Compliance Calendar---
 	@Test(priority = 137) //2 test case 
@@ -2199,7 +2188,7 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 	void DailyUpdates() throws InterruptedException, IOException
 	{
 		test = extent.startTest("'Daily Updates - Read more Link working or not?");
-//		All_ClientPortal_Methods.filterEntityAUTO2(test);
+		All_ClientPortal_Methods.filterEntityAUTO2(test);
 		All_ClientPortal_Methods.DailyUpdates(test);
 		
 		extent.endTest(test);
@@ -2215,12 +2204,8 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 	
 	
 	
-<<<<<<< Updated upstream
 
 	
-=======
-	**/
->>>>>>> Stashed changes
 	
 
 
@@ -2750,7 +2735,7 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
    		extent.endTest(test);
    		extent.flush();
    	}
-	
+	 
 @Test(priority = 249)
    	void ExsitingLicenseExport() throws InterruptedException, IOException
    	{

@@ -5835,7 +5835,7 @@ else {
 					
 					if(i==0)
 					{
-						if(text.get(l).equalsIgnoreCase("Test Automation 2")||text.get(l).equalsIgnoreCase("Branch Gujarat"))
+						if(text.get(l).equalsIgnoreCase("Branch Punjab")||text.get(l).equalsIgnoreCase("Branch Gujarat"))
 						{
 						  pass.add(text.get(l));
 						}
