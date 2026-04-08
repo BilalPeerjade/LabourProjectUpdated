@@ -47,6 +47,7 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import businessChallanForms.PT_ConsolidatedMethods;
 import businessTestCases.UtilisOne;
+import businessTestCases.CalculateWithIds;
 import businessTestCases.FilePath;
 import login.BasePage;
 import login.LoginLocators;
@@ -400,7 +401,7 @@ public class PT_Methods extends BasePage{
 //			LoginLocators.Search().sendKeys("AVACORED5");	
 //		}
 		
-		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"DOCAUTOO4");
 		
 		
 		Thread.sleep(2000);
@@ -421,11 +422,11 @@ public class PT_Methods extends BasePage{
 		Thread.sleep(2000);
 		PerformerLocator.clickYear().click();
 		Thread.sleep(2000);
-		PerformerLocator.Year2024().click();
+		PerformerLocator.Year2025T().click();
 		Thread.sleep(2000);
 		PerformerLocator.clickPeriod().click();
 		Thread.sleep(2000);
-		PerformerLocator.selectMonth().click();
+		PerformerLocator.selectMonthAug().click();
 		
 		
 		Thread.sleep(2000);
@@ -514,6 +515,56 @@ public class PT_Methods extends BasePage{
         
         
         
+		
+		
+	}
+	
+	public static void TestColar(ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		
+		ExcelExtraConfig mappingExclusionLimitsConfig = new ExcelExtraConfig("YES",ExcelUtils.columnLetterToIndex("A"), "Total");
+
+		List<ExcelF> optimizedMasterConstraintsFilters = new ArrayList<>();
+		List<ExcelF> optimizedTargetConstraintsFilters = new ArrayList<>();
+		
+		optimizedMasterConstraintsFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AA"),Arrays.asList("MAP")));
+		optimizedMasterConstraintsFilters.add(new ExcelF(ExcelUtils.columnLetterToIndex("AC"),Arrays.asList("Yes")));
+
+		// Naya object creation master file configuration handle karne ke liye
+		ExcelFileDetails masterFileConfig = new ExcelFileDetails(
+		    FilePath.SALARY_FILE,    // Yahan pe direct string object initialize hoga
+		    "MonthlyEmployeeChallanSalary",       // Master File Data Sheet
+		    0, 
+		    optimizedMasterConstraintsFilters, 
+		    "YES"
+		);
+
+		Map<String, String> columnIdentityDictionary = new HashMap<>();
+		columnIdentityDictionary.put("EMP_ID_MASTER", "B");      
+		columnIdentityDictionary.put("EMP_ID_DOWNLOADED", "B");  
+		columnIdentityDictionary.put("Q", "PT_Gross");
+		columnIdentityDictionary.put("G", "PT_Gross_wages");
+//		columnIdentityDictionary.put("L", "Evaluated difference value output");
+
+		// Execution Trigger
+		CalculateWithIds.validateExcelCalculationWithIds(
+			downloadedExcelFile,                     
+		    masterFileConfig,                                  // Parameter ab perfectly match ho gaya hai     
+		    test,                           
+//		    "MonthlyEmployeeChallanSalary.Q = PTChallan.G",    
+//		    "G = Master.Q", //Downloaded should be always LHS & Master RHS Mandatory
+		    "G = Master.Q - Master.O",
+		    "MASTER",                                          
+		    "PTChallan",   //sheet
+		    optimizedMasterConstraintsFilters,                 
+		    optimizedTargetConstraintsFilters,                 
+		    mappingExclusionLimitsConfig,                      
+		    0,                                                
+		    true,                                                 
+		    0,                                                 
+		    columnIdentityDictionary,                          
+		    "Professional Tax Deduction Record Evaluation logic successfully completed via dynamic hash architecture mapping validations."
+		);
 		
 		
 	}

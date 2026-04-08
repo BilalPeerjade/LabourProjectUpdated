@@ -120,7 +120,7 @@ public class DistributerLocators extends BasePage
 	}
 	public static WebElement TypetosearchCLRA()	
 	{
-		labour = getDriver().findElement(By.xpath("//input[@placeholder='Type To Search']"));
+		labour = getDriver().findElement(By.xpath("//input[@placeholder='Type to Search']"));
 		return labour;
 	}
 	
@@ -645,7 +645,10 @@ public class DistributerLocators extends BasePage
 	    List<By> locators = Arrays.asList(
 	        By.xpath("//span[contains(normalize-space(), 'Sonai_Test')]"),
 	        By.xpath("//span[contains(normalize-space(), 'pune_testt')]"),
-	        By.xpath("")//Not working this    
+	        By.xpath("//span[contains(normalize-space(), 'Bobbili_Branch Bobbili')]"),//Not working this    
+	        By.xpath("//span[contains(normalize-space(), 'pune_Test Bra')]"),
+	        By.xpath("//span[starts-with(normalize-space(), 'pune_')]") //after pune_ all will be accepted
+	      
 	        );
 
 	    for (By locator : locators) {

@@ -83,7 +83,7 @@ public class ExcelF {
     
 //    private boolean ena = check();
 //    private boolean ena = check(23,12,25);
-    private boolean ena = true;
+    private boolean ena = false;
     public void setEnabled(boolean enabled) {
         this.ena = enabled;
     }

@@ -364,6 +364,11 @@ private static WebElement labour = null;			//WebElement variable created for Use
 		labour = getDriver().findElement(By.xpath("//span[contains(text(),'January')]"));
 		return labour;
 	}
+	public static WebElement selectMonthAug()	
+	{
+		labour = getDriver().findElement(By.xpath("//span[contains(text(),'August')]"));
+		return labour;
+	}
 	public static WebElement selectMonthMay()	
 	{
 		labour = getDriver().findElement(By.xpath("//span[contains(text(),'May')]"));
@@ -1078,6 +1083,11 @@ private static WebElement labour = null;			//WebElement variable created for Use
 	public static WebElement Year2024()	
 	{
 		labour = getDriver().findElement(By.xpath("//span[normalize-space()='2024']"));
+		return labour;
+	}
+	public static WebElement Year2025T()	
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='2025']"));
 		return labour;
 	}
 	public static WebElement selectComplianceChallan()		//Method for searching Username input

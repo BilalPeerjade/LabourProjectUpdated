@@ -267,6 +267,17 @@ public class All_Performer_TestCases extends BasePage{
 		extent.flush();
 	}
 	
+	@Test(priority = 14)//NEW TC NEW TC
+	void compliancesCount() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Upcoming Box count verification with categorised upcoming");
+		
+		MethodsD.compliancesCount(test,"Distributor", "TESTAUTO2");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
 	//Overdue box - Verify Overdue count, Export button and Overview button is working properly or not?
 	@Test(priority = 15)
 	void OverdueBox() throws InterruptedException, IOException
@@ -284,6 +295,17 @@ public class All_Performer_TestCases extends BasePage{
 		test = extent.startTest(" Overdue Box Filter Verification'");
 		
 		MethodsD.OverdueFilter(test,"Performer");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 56)//NEW TC NEW TC
+	void compliancesOverdueCount() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Overdue Box count verification with categorised overdues");
+		
+		MethodsD.compliancesOverdueCount(test,"Distributor", "TESTAUTO2");
 		
 		extent.endTest(test);
 		extent.flush();
@@ -308,6 +330,17 @@ public class All_Performer_TestCases extends BasePage{
 		test = extent.startTest(" Count by Clicking on 'Pending Action'");
 		
 		MethodsD.PendingActionBox(test,"Performer");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 18)//NEW TC NEW TC
+	void pendingActionAndReviewCount() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Overdue Box count verification with categorised overdues");
+		
+		MethodsD.pendingActionAndReviewCount(test,"Distributor", "TESTAUTO2");
 		
 		extent.endTest(test);
 		extent.flush();
@@ -778,7 +811,7 @@ public class All_Performer_TestCases extends BasePage{
    		extent.endTest(test);
    		extent.flush();
    	}
-    @Test(priority = 53) //NEW TC NEW TC
+    @Test(priority = 53) 
    	void BulkUpateDesignation() throws Exception
    	{
    		test = extent.startTest("Manage Masters - Verify to update designation through bulk upload");
@@ -863,7 +896,7 @@ test = extent.startTest("Manage Masters - Paycode Mapping - Verify to check sear
    		extent.flush();
    	}
 	
-	@Test(priority = 61) //Bilal // NEW TC NEW TC --> Updated
+	@Test(priority = 61) 
    	void PaycodeMappingAddNew() throws InterruptedException, IOException
    	{
 test = extent.startTest("Manage Masters - Paycode Mapping - Verify to check Add New error is displayed or not?");
@@ -933,7 +966,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 
 	//Part 2
 
-
+/**
 
    	
    	//Onboard Employee:--
@@ -948,7 +981,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
  		extent.endTest(test);
  		extent.flush();
  	}
-    @Test(priority = 100) // NEW TC need to remove : SearchFilerEmp
+    @Test(priority = 100) //need to remove : SearchFilerEmp
  	void employeeFilters() throws InterruptedException, IOException
  	{
  		test = extent.startTest("Onboard Employee - Manage Employee - Verify to check employee search filters are working correctly");
@@ -980,7 +1013,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
    		extent.flush();
    	}
     
-    @Test(priority = 110) //NEW TC NEW TC
+    @Test(priority = 110) 
     void employeeBulkUpload() throws Exception
     {
     	test = extent.startTest("Onboard Employee - Verify to check bulk upload functionalities working correctly");
@@ -1057,7 +1090,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 		extent.flush();
 	}
 	
-   	@Test(priority = 151) // NEW TC NEW TC
+   	@Test(priority = 151) 
    	void OnBoardEntityUploadHolidayMaster() throws Exception
    	{
    		test = extent.startTest("OnBoard Entity - Upload Holiday Master verfication");
@@ -1362,6 +1395,68 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 	}
 	
 	
+	@Test(priority = 500)//Swapnil	 //Modified
+	void ReturnActivityER1() throws Exception
+	{
+		test = extent.startTest("Return Activity - Verify to ER1 Returns section is working or not");
+		MethodsD.ER1Returns(test,"Performer");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 501)		 
+	void ER1ACKUploadSection() throws Exception
+	{
+		test = extent.startTest("Return Activity - Verify to Check Acknowledgement Uploaded Section working or not");
+		MethodsD.ER1ACKUploadSection(test,"Performer");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 502)		 
+	void ER1ACKApplicableBranches() throws Exception
+	{
+		test = extent.startTest("Return Activity - Verify to Check Applicable Branches Section working or not");
+		MethodsD.ER1ApplicableBranches(test,"Performer");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 503)		 
+	void ER1ACKTotalBranches() throws Exception
+	{
+		test = extent.startTest("Return Activity - Verify to Check Total Branches Section working or not");
+		MethodsD.ER1TotalBranches(test,"Performer");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	//	ACK Uploads	//	
+	
+	@Test(priority = 500)		 
+	void AckUploads() throws Exception
+	{
+		test = extent.startTest("ACK Uploads - Verify to Check Acknowledgment Upload Section is working or not");
+		MethodsD.AckUploads(test,"Performer");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	
+	@Test(priority = 501)		 
+	void AckUploadsection() throws Exception
+	{		
+		test = extent.startTest("ACK Uploads scetion - Verify to Check Acknowledgment Upload Sections are working or not");
+		MethodsD.AckUploadsection(test,"Performer");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 	
 	
 	
@@ -1465,7 +1560,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 
 	}
 	
-	@Test(priority = 306) 
+	@Test(priority = 306) //moved in reviewer
 	void staturyDocChallanForms() throws InterruptedException, IOException, AWTException
 	{
 		test = extent.startTest("Statutory Documents - Verify to check Challan forms is displayed correctly");
@@ -1475,7 +1570,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 307) //PT
+	@Test(priority = 307) //PT //moved in reviewer
 	void PTConsolidatedW() throws InterruptedException, IOException, AWTException 
 	{	
 		test = extent.startTest("Statutory Documents - Challan PT - Verify to check PT Consolidated Workings File is downloading correctly");
@@ -1490,7 +1585,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 		extent.flush();
 	}
 	
-	@Test(priority = 308) 
+	@Test(priority = 308) //moved in reviewer
 	void StateDocZipFileChallan() throws InterruptedException, IOException, AWTException 
 	{	
 		test = extent.startTest("Statutory Documents - Challan PT - Verify to check Overview button is working correctly");
@@ -1508,7 +1603,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 
 	}
 	
-	@Test(priority = 309) //ESIC
+	@Test(priority = 309) //ESIC //moved in reviewer
 	void ESIConsolidatedW() throws InterruptedException, IOException, AWTException 
 	{	
 		test = extent.startTest("Statutory Documents - Challan ESI - Verify to check ESI Consolidated Workings File is downloading correctly");
@@ -1523,7 +1618,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 		extent.flush();
 	}
 	
-	@Test(priority = 310) 
+	@Test(priority = 310) //moved to reviewer
 	void challanESIC() throws InterruptedException, IOException, AWTException 
 	{	
 		test = extent.startTest("Statutory Documents - Challan ESI - Verify to check Overview button is working correctly");
@@ -1540,7 +1635,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 		extent.flush();
 
 	}
-	@Test(priority = 311) // NEW TC -- PF
+	@Test(priority = 311) //-- PF //moved to reviewer
 	void EPFConsolidatedW() throws InterruptedException, IOException, AWTException 
 	{	
 		test = extent.startTest("Statutory Documents - Challan EPF - Verify to check ESI Consolidated Workings File is downloading correctly");
@@ -1555,7 +1650,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 		extent.flush();
 	}
 	
-	@Test(priority = 312) // NEW TC PF
+	@Test(priority = 312) // PF
 	void challanEPF() throws InterruptedException, IOException, AWTException 
 	{	
 		test = extent.startTest("Statutory Documents - Challan EPF - Verify to check Overview button is working correctly");
@@ -1574,7 +1669,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 	}
 	
 	
-	@Test(priority = 315) //NEW TC NEW TC
+	@Test(priority = 315) //moved in reviewer
 	void PayBonusStateDocZipFile() throws InterruptedException, IOException, AWTException 
 	{
 		test = extent.startTest("Statutory Documents - Returns - Verify to download ZIP folder");
@@ -1796,6 +1891,22 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 		extent.flush();
 	}
 	
+	@Test(priority = 420)
+	void ESICReportMasters() throws Exception
+	{
+		test = extent.startTest("ESIC Cards - ESIC Report - Master - States - Verify export functionality works correctly");
+		MethodsD.ESICReportMasters(test,"Login");
+		
+		test = extent.startTest("ESIC Cards - ESIC Report - Master - District - Verify export functionality works correctly");
+		MethodsD.ESICReportMasters(test,"District");
+		
+		test = extent.startTest("ESIC Cards - ESIC Report - Master - Locations - Verify export functionality works correctly");
+		MethodsD.ESICReportMasters(test,"Locations");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
 	//------ Reports -------
 	
 	
@@ -1880,7 +1991,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 			extent.flush();
 		}
 	
-
+*/
 
 
 	

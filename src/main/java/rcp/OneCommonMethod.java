@@ -512,6 +512,54 @@ public class OneCommonMethod extends BasePage{
             test.log(LogStatus.FAIL, "Exception during download: " + logMessage);
         }
     }
+	public static void validateFileDownloadDynamic(WebDriver driver, ExtentTest test, WebElement downloadButton, String logMessage, boolean doubleClick) {
+        try {
+
+            String downloadPath = System.getProperty("user.home") + File.separator + "Downloads";
+            File downloadDir = new File(downloadPath);
+            File[] filesBefore = downloadDir.listFiles();
+
+
+            if(doubleClick) {
+            	Actions action = new Actions(driver);
+            	action.doubleClick(downloadButton);
+            }
+            
+            Thread.sleep(8000);
+
+            File[] filesAfter = downloadDir.listFiles();
+            Thread.sleep(8000);
+
+            File downloadedFile = null;
+            if (filesAfter.length > filesBefore.length) {
+                for (File file : filesAfter) {
+                    boolean isNew = true;
+                    for (File oldFile : filesBefore) {
+                        if (file.getName().equals(oldFile.getName())) {
+                            isNew = false;
+                            break;
+                        }
+                    }
+                    if (isNew) {
+                        downloadedFile = file;
+                        break;
+                    }
+                }
+            }
+//            Thread.sleep(50000);
+            Thread.sleep(5000);
+
+            if (downloadedFile != null) {
+                test.log(LogStatus.PASS, "" + logMessage);
+                test.log(LogStatus.PASS, "File Name is : " + downloadedFile.getName());
+            } else {
+                test.log(LogStatus.FAIL, "" + logMessage + " - File was not downloaded.");
+            }
+
+        } catch (Exception e) {
+            test.log(LogStatus.FAIL, "Exception during download: " + logMessage);
+        }
+    }
 	
 	
 	public static void validateFileDownloadDynamicMASTER(WebDriver driver, ExtentTest test, WebElement downloadButton,

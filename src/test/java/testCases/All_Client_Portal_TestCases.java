@@ -1239,6 +1239,34 @@ public class All_Client_Portal_TestCases extends BasePage {
 	}
 	
 	
+	@Test(priority = 75) //NEW TC NEW TC
+	void RegistrationStatusAppliedColumnCount() throws InterruptedException, IOException
+	{
+		test = extent.startTest("'Registration Status' - Verify Applied column hyper link working and Active count matching with grid or not?");
+		All_ClientPortal_Methods.filterEntityAUTO2(test);
+		All_ClientPortal_Methods.RegistrationStatusAppliedColumnCount(test);
+		
+		test = extent.startTest("'Registration Status' - Applied - Validate search filter working or not?");
+		All_ClientPortal_Methods.appliedSearch(test);
+		
+		test = extent.startTest("'Registration Status' - Applied - Export button working or not?");
+		All_ClientPortal_Methods.appliedExport(test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	@Test(priority = 75) //NEW TC NEW TC (Pending need to do all edit action clear export view etc...)
+	void RegistrationAppliedEditSearch() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Registrations Status' - Applied - Edit - search field working or not?");
+		All_ClientPortal_Methods.filterEntityAUTO2(test);
+		All_ClientPortal_Methods.RegistrationAppliedEditSearch(test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	
 	@Test(priority = 75) //06/02/2025
 	void ActiveSearch() throws InterruptedException, IOException
 	{
@@ -1415,6 +1443,19 @@ public class All_Client_Portal_TestCases extends BasePage {
 		All_ClientPortal_Methods.filterEntityAUTO2(test);
 		
 		All_ClientPortal_Methods.RegistrationSActivePagination(test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 90) //NEW TC NEW TC --->PENDING
+	void RegistrationStatusApplied() throws InterruptedException, IOException
+	{
+		test = extent.startTest("'Registration Status' - Verify Applied link is working and Applied count is matching with grid or not?");
+		
+		All_ClientPortal_Methods.filterEntityAUTO2(test);
+		
+		All_ClientPortal_Methods.RegistrationStatusApplied(test);
 		
 		extent.endTest(test);
 		extent.flush();
@@ -2209,7 +2250,7 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 	
 
 
-	
+	/*
 
 	
 	//---------Part 2-------For Daily Execution------
@@ -3004,18 +3045,18 @@ void RegionalDocDownload() throws InterruptedException, IOException, AWTExceptio
 	extent.flush();
 
 }
-@Test(priority = 269)
-void EnglishDocView() throws InterruptedException, IOException, AWTException
-{
-	test = extent.startTest("Abstracts - English view document Verification");
-	All_ClientPortal_Methods.filterEntityAUTO2(test);
+	@Test(priority = 269)
+	void EnglishDocView() throws InterruptedException, IOException, AWTException
+	{
+		test = extent.startTest("Abstracts - English view document Verification");
+		All_ClientPortal_Methods.filterEntityAUTO2(test);
 	
-	All_ClientPortal_Methods.EnglishDocView(test);
+		All_ClientPortal_Methods.EnglishDocView(test);
 	
-	extent.endTest(test);
-	extent.flush();
+		extent.endTest(test);
+		extent.flush();
 
-}
+	}
 @Test(priority = 270)
 void EnglishDocDownload() throws InterruptedException, IOException, AWTException
 {
@@ -3029,17 +3070,41 @@ void EnglishDocDownload() throws InterruptedException, IOException, AWTException
 
 }
 
-@Test(priority = 271)
-void SearchBoxMasterAbstract() throws InterruptedException, IOException, AWTException {
-	test = extent.startTest("Abstracts - Search box Verification");
-	All_ClientPortal_Methods.filterEntityAUTO2(test);
+	@Test(priority = 271)
+	void SearchBoxMasterAbstract() throws InterruptedException, IOException, AWTException {
+		test = extent.startTest("Abstracts - Search box Verification");
+		All_ClientPortal_Methods.filterEntityAUTO2(test);
 
-	All_ClientPortal_Methods.SearchBoxMasterAbstarct(test);
+		All_ClientPortal_Methods.SearchBoxMasterAbstarct(test);
 
-	extent.endTest(test);
-	extent.flush();
+		extent.endTest(test);
+		extent.flush();
 
-}
+	}
+	
+	@Test(priority = 272)//NEW TC NEW TC
+	void minimumWagesPreviousNotification() throws InterruptedException, IOException, AWTException {
+		test = extent.startTest("E Library - Minimum Wages - Verify All Export buttons works correctly");
+		All_ClientPortal_Methods.filterEntityAUTO2(test);
+
+		All_ClientPortal_Methods.minimumWagesPreviousNotification(test);
+
+		extent.endTest(test);
+		extent.flush();
+
+	}
+	
+	@Test(priority = 273)//NEW TC NEW TC
+	void listOfHolidays() throws InterruptedException, IOException, AWTException {
+		test = extent.startTest("E Library - List Of Holidays - Verify All Export buttons works correctly");
+		All_ClientPortal_Methods.filterEntityAUTO2(test);
+
+		All_ClientPortal_Methods.listOfHolidays(test);
+
+		extent.endTest(test);
+		extent.flush();
+
+	}
 
 
 
@@ -3054,7 +3119,7 @@ void SearchBoxMasterAbstract() throws InterruptedException, IOException, AWTExce
 
 ///------My Document-->Statutory document-----
 
-@Test(priority = 272)
+@Test(priority = 280)
 void StatutoryDocApplyClaerBtn() throws InterruptedException, IOException, AWTException
 {
 	test = extent.startTest("Statutoty Document-Apply Button and clear Verification");
@@ -3066,7 +3131,7 @@ void StatutoryDocApplyClaerBtn() throws InterruptedException, IOException, AWTEx
 	extent.flush();
 
 }
-@Test(priority = 273)
+@Test(priority = 281)
 void StatutoryDocFilter() throws InterruptedException, IOException, AWTException
 {
 	test = extent.startTest("Statutoty Document-Filter Verification");
@@ -3078,7 +3143,7 @@ void StatutoryDocFilter() throws InterruptedException, IOException, AWTException
 	extent.flush();
 
 }
-   @Test(priority = 274)
+   @Test(priority = 282)
 void StateDocZipFile() throws InterruptedException, IOException, AWTException
 {
 	test = extent.startTest("Statutoty Document- Registor Compliance Type -Action Column -Zip File Verification");
@@ -3090,7 +3155,7 @@ void StateDocZipFile() throws InterruptedException, IOException, AWTException
 	extent.flush();
 
 }
-@Test(priority = 275)
+@Test(priority = 283)
 void StatutoryDocViewandOverview() throws InterruptedException, IOException, AWTException
 {
 	test = extent.startTest("Statutoty Document-Registor Compliance Type -Action Column -View button Verification");
@@ -3102,7 +3167,7 @@ void StatutoryDocViewandOverview() throws InterruptedException, IOException, AWT
 	extent.flush();
 
 }
-@Test(priority = 276)
+@Test(priority = 284)
 void StatutoryDocBulkDownload() throws InterruptedException, IOException, AWTException
 {
 	test = extent.startTest("Statutoty Document-Registor Compliance Type - download button Verification");
@@ -3114,7 +3179,7 @@ void StatutoryDocBulkDownload() throws InterruptedException, IOException, AWTExc
 	extent.flush();
 
 }
-@Test(priority = 277)
+@Test(priority = 285)
 void ChallanDoc() throws InterruptedException, IOException, AWTException
 {
 	test = extent.startTest("Statutoty Document-Challan Compliance Type - select checkbox -download button Verification");
@@ -3126,7 +3191,7 @@ void ChallanDoc() throws InterruptedException, IOException, AWTException
 	extent.flush();
 
 }
-@Test(priority = 278)
+@Test(priority = 286)
 void ChallanComplianceDoc() throws InterruptedException, IOException, AWTException
 {
 	test = extent.startTest("Statutoty Document-Challan Compliance Type - compliance download button Verification");
@@ -3138,7 +3203,7 @@ void ChallanComplianceDoc() throws InterruptedException, IOException, AWTExcepti
 	extent.flush();
 
 }
-@Test(priority = 279)
+@Test(priority = 287)
 void ChallanViewBranchese() throws InterruptedException, IOException, AWTException
 {
 	test = extent.startTest("Statutoty Document-Challan Compliance Type -View branches Verification");
@@ -3150,7 +3215,7 @@ void ChallanViewBranchese() throws InterruptedException, IOException, AWTExcepti
 	extent.flush();
 
 }
-@Test(priority = 280)
+@Test(priority = 288)
 void ChallanViewWorkingFile() throws InterruptedException, IOException, AWTException
 {
 	test = extent.startTest("Statutoty Document-Challan Compliance Type -View working file Verification");
@@ -3162,7 +3227,7 @@ void ChallanViewWorkingFile() throws InterruptedException, IOException, AWTExcep
 	extent.flush();
 
 }
-@Test(priority = 281)
+@Test(priority = 289)
 void ChallanViewComplianceFile() throws InterruptedException, IOException, AWTException
 {
 	test = extent.startTest("Statutoty Document-Challan Compliance Type -View compliance file Verification");
@@ -3174,18 +3239,18 @@ void ChallanViewComplianceFile() throws InterruptedException, IOException, AWTEx
 	extent.flush();
 
 }
-@Test(priority = 282)
-void ChallanDocBulkDownload() throws InterruptedException, IOException, AWTException
-{
-	test = extent.startTest("Statutoty Document-Challan Compliance Type - working file download button Verification");
-	All_ClientPortal_Methods.filterEntityAUTO2(test);
+	@Test(priority = 290)
+	void ChallanDocBulkDownload() throws InterruptedException, IOException, AWTException
+	{
+		test = extent.startTest("Statutoty Document-Challan Compliance Type - working file download button Verification");
+		All_ClientPortal_Methods.filterEntityAUTO2(test);
 	
-	All_ClientPortal_Methods.ChallanDocBulkDownload(test);
+		All_ClientPortal_Methods.ChallanDocBulkDownload(test);
 	
-	extent.endTest(test);
-	extent.flush();
+		extent.endTest(test);
+		extent.flush();
 
-}
+	}
 
 
 
@@ -3194,7 +3259,7 @@ void ChallanDocBulkDownload() throws InterruptedException, IOException, AWTExcep
 	
 	// Shetal TCs Critical Documents 
 	
-	//   @Test(priority = 283)  //Shetal Hide due to Statury Documents already done 
+	//   @Test(priority = 291)  //Shetal Hide due to Statury Documents already done 
 		void MultipleDocument() throws InterruptedException, IOException, AWTException
 		{
 			test = extent.startTest("Statutory Documents - Multiple documnet Downloaded.");
@@ -3206,7 +3271,7 @@ void ChallanDocBulkDownload() throws InterruptedException, IOException, AWTExcep
 			extent.flush();
 		}
 	   
-	 //   @Test(priority = 284)
+	 //   @Test(priority = 292)
 		void MultipleDocumentDownload() throws InterruptedException, IOException, AWTException
 		{
 			test = extent.startTest("Statutory Documents - documnet Downloaded Verification");
@@ -3217,7 +3282,7 @@ void ChallanDocBulkDownload() throws InterruptedException, IOException, AWTExcep
 			extent.flush();
 		}
 	   
-	//  @Test(priority = 285)
+	//  @Test(priority = 293)
 		void MyDocumentView() throws InterruptedException, IOException, AWTException
 		{
 			test = extent.startTest("Statutory Documents - Documnet View Verification");
@@ -3228,7 +3293,7 @@ void ChallanDocBulkDownload() throws InterruptedException, IOException, AWTExcep
 			extent.flush();
 		}
 	   
-	//	 @Test(priority = 286)
+	//	 @Test(priority = 294)
 			void MyDocumentFilter() throws InterruptedException, IOException, AWTException
 			{
 				test = extent.startTest("Statutory Documents - Multiple Filter Verification");
@@ -3238,7 +3303,7 @@ void ChallanDocBulkDownload() throws InterruptedException, IOException, AWTExcep
 				extent.endTest(test);
 				extent.flush();
 			}
-	//		@Test(priority = 287)
+	//		@Test(priority = 295)
 			void MyDocumentAllTab() throws InterruptedException, IOException, AWTException
 			{
 				test = extent.startTest("Statutory Documents ");
@@ -3249,10 +3314,10 @@ void ChallanDocBulkDownload() throws InterruptedException, IOException, AWTExcep
 				extent.flush();
 			}
 		
-			@Test(priority = 288) 
+			@Test(priority = 296) //NEW TC NEW TC 
 			void CriticalDocument() throws InterruptedException, IOException, AWTException
 			{
-				test = extent.startTest("Critical Document - Check to Create Folder");
+				test = extent.startTest("Critical Document - Check Search field & Create Folder works correctly");
 				All_ClientPortal_Methods.filterEntityAUTO2(test);
 				
 				All_ClientPortal_Methods.CriticalDocument(test);
@@ -3260,7 +3325,7 @@ void ChallanDocBulkDownload() throws InterruptedException, IOException, AWTExcep
 				extent.endTest(test);
 				extent.flush();
 			}
-			@Test(priority = 289)
+			@Test(priority = 297)
 			void CriticalDocumentSubFolder() throws InterruptedException, IOException, AWTException
 			{
 				test = extent.startTest("Critical Document - Sub folder Critical Document");
@@ -3272,7 +3337,7 @@ void ChallanDocBulkDownload() throws InterruptedException, IOException, AWTExcep
 				extent.flush();
 			}
 			
-			@Test(priority = 290)
+			@Test(priority = 298)
 			void CriticalDocumentNewFile() throws InterruptedException, IOException, AWTException {
 				test = extent.startTest("Critical Document - Check to Add/Upload New File");
 				All_ClientPortal_Methods.filterEntityAUTO2(test);
@@ -3283,7 +3348,7 @@ void ChallanDocBulkDownload() throws InterruptedException, IOException, AWTExcep
 				extent.flush();
 			}
 			
-			@Test(priority = 291) // me (need to add full access and other scenarios)
+			@Test(priority = 299) //NEW TC NEW TC 
 			void CriticalDocumentshare() throws InterruptedException, IOException, AWTException {
 				test = extent.startTest("Critical Document - Share folder to another user");
 				All_ClientPortal_Methods.filterEntityAUTO2(test);
@@ -3294,9 +3359,9 @@ void ChallanDocBulkDownload() throws InterruptedException, IOException, AWTExcep
 				extent.flush();
 			}
 			
-			@Test(priority = 292) 
+			@Test(priority = 300) //NEW TC NEW TC
 			void criticalDocumentsCancelAndDelete() throws InterruptedException, IOException, AWTException {
-				test = extent.startTest("Critical Document - Verify to check cancel button is working correctly");
+				test = extent.startTest("Critical Document - Verify to check Delete button works correctly");
 				All_ClientPortal_Methods.filterEntityAUTO2(test);
 				All_ClientPortal_Methods.criticalDocumentsCancelAndDelete(test, "Cancel Button");
 				
@@ -3308,7 +3373,7 @@ void ChallanDocBulkDownload() throws InterruptedException, IOException, AWTExcep
 			}
 
 		
-   
+   */
 
 
 	 

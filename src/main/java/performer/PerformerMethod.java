@@ -6549,7 +6549,8 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 //		PerformerLocator.clickDesignation().click();
 	 	Thread.sleep(1000);
 	 	
-	 	OneCommonMethod.validateFileDownloadDynamic(getDriver(), test, PerformerLocator.stateCityExportMapping(), "Export Mapping File downloaded successfully");
+	 	OneCommonMethod.validateFileDownloadDynamicMASTER(getDriver(), test, 
+	 			PerformerLocator.stateCityExportMapping(), "Export Mapping File downloaded successfully",4000);
 	 	
 	 	Thread.sleep(5900);
 

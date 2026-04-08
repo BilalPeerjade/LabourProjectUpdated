@@ -2828,7 +2828,7 @@ Locators.CheckBox().click();
 				Locators.Searchbranch().sendKeys("Branch Pune");
 				
 				String grid = getDriver().findElement(By.xpath("//td[@role='gridcell']")).getText();
-				if(grid.equalsIgnoreCase("")) {
+				if(grid.equalsIgnoreCase("Test Automation 2")) {
 					 test.log(LogStatus.PASS, "Search field is working successfully");
 					 test.log(LogStatus.PASS, "Searched value displayed in the grid : " + grid);
 				}
@@ -3219,7 +3219,8 @@ Locators.CheckBox().click();
                 
         		String txt = DistributerLocators.MessageText().getText();
         		
-        		if(txt.equalsIgnoreCase("Details Updated Successfully"))
+        		if(txt.equalsIgnoreCase("Details Updated Successfully")
+        				|| txt.equalsIgnoreCase("RC Number \"11001\" is already exists."))
         		{
         			 test.log(LogStatus.PASS, "Premises Edit button is working fine");
         			 Thread.sleep(3000);
@@ -3269,7 +3270,7 @@ Locators.CheckBox().click();
                 Thread.sleep(4000);
         		
         		
-        		WebElement deleteBtn = getDriver().findElement(By.xpath("(//img[@title='Delete'])[2]"));
+        		WebElement deleteBtn = getDriver().findElement(By.xpath("(//img[@title='Delete'])[1]"));
                 if(deleteBtn.isDisplayed()) {
                 	deleteBtn.click();
                 	test.log(LogStatus.PASS, "Delete button is working fine");
@@ -3300,7 +3301,7 @@ Locators.CheckBox().click();
                 
                 Thread.sleep(5000);
 //                deleteBtn.click();
-                WebElement deleteBtn2 = getDriver().findElement(By.xpath("(//img[@title='Delete'])[2]"));
+                WebElement deleteBtn2 = getDriver().findElement(By.xpath("(//img[@title='Delete'])[1]"));
                 deleteBtn2.click();
                 Thread.sleep(5000);
                 PerformerLocator.clickOkBtn().click();

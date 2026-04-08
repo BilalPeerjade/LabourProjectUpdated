@@ -3399,6 +3399,47 @@ public class All_ClientPortal_Methods extends BasePage {
 		
 	}
 	
+	public static void RegistrationStatusApplied( ExtentTest test) throws InterruptedException, IOException
+	{
+		Thread.sleep(5000);
+		Thread.sleep(2000);
+		if (All_ClientPortal_Locators.Expired().isEnabled()) {
+			All_ClientPortal_Locators.Expired().click();
+
+		}
+		Thread.sleep(5000);
+
+		
+
+		// Step 1: Get count from "Active" column hyperlink
+		WebElement activeLink = All_ClientPortal_Locators.ExpiredCol();
+		String activeCountText = activeLink.getText().trim(); // e.g., "22"
+		int activeDashboardCount = Integer.parseInt(activeCountText);
+		test.log(LogStatus.INFO, "Expired count from dashboard: " + activeDashboardCount);
+
+		// Step 2: Click on hyperlink to open grid
+		activeLink.click();
+		Thread.sleep(3000); // or use WebDriverWait if needed
+		test.log(LogStatus.INFO, "Expired hyper link is clickable");
+
+		// Step 3: Get grid count from top bar (e.g., "1 - 10 of 22 items")
+		WebElement gridLabel = All_ClientPortal_Locators.readTotalItemsNotice(); // use your method here
+		String gridText = gridLabel.getText().trim();
+		String[] parts = gridText.split(" ");
+		int activeGridCount = Integer.parseInt(parts[parts.length - 2]);
+		test.log(LogStatus.INFO, "Expired count found in grid: " + activeGridCount);
+
+		// Step 4: Match both counts
+		if (activeDashboardCount == activeGridCount) {
+		    test.log(LogStatus.PASS, "PASS: Expired count from dashboard matches grid count.");
+		} else {
+		    test.log(LogStatus.FAIL, "FAIL: Mismatch. Dashboard = " + activeDashboardCount + ", Grid = " + activeGridCount);
+		}
+		
+		
+	}
+	
+	
 	public static void RegistrationStatusEx( ExtentTest test) throws InterruptedException, IOException
 	{Thread.sleep(5000);
 	
@@ -4022,6 +4063,36 @@ public class All_ClientPortal_Methods extends BasePage {
 		All_ClientPortal_Locators.Search().sendKeys("Active",Keys.ENTER);
 		Thread.sleep(4000);
 		String text = getDriver().findElement(By.xpath("(//div[@title='Active'][normalize-space()='Active'])[1]")).getText();
+		
+			
+		test.log(LogStatus.PASS, "Selected Location along with their details should get reflected in the grid.");
+		test.log(LogStatus.PASS, "Status selected : "+text);
+		
+		Thread.sleep(3000);
+		}catch(Exception e) {Thread.sleep(5000);
+			test.log(LogStatus.PASS, "no record available");
+		}
+		
+
+	}
+	public static void RegistrationAppliedEditSearch(ExtentTest test) throws InterruptedException
+	{
+		Thread.sleep(5000);
+		
+     	All_ClientPortal_Locators.Active().click();
+		Thread.sleep(5000);
+		
+		All_ClientPortal_Locators.appliedCol().click();
+		Thread.sleep(3000);
+		
+		All_ClientPortal_Locators.RegistrationStatusEditbtn().click();
+		Thread.sleep(8000);
+		
+		
+		try {Thread.sleep(5000);
+		All_ClientPortal_Locators.Search().sendKeys("TESTAUTO2",Keys.ENTER);
+		Thread.sleep(4000);
+		String text = getDriver().findElement(By.xpath("(//div[@title='TESTAUTO2'][normalize-space()='TESTAUTO2'])[1]")).getText();
 		
 			
 		test.log(LogStatus.PASS, "Selected Location along with their details should get reflected in the grid.");
@@ -4797,6 +4868,44 @@ public class All_ClientPortal_Methods extends BasePage {
 
 		
 	}
+	
+	public static void RegistrationStatusAppliedColumnCount(  ExtentTest test) throws InterruptedException, IOException
+	{
+		Thread.sleep(7000);
+		JavascriptExecutor js = (JavascriptExecutor) getDriver();
+	
+		All_ClientPortal_Locators.Active().click();
+		Thread.sleep(5000);
+
+		OneCommonMethod.setZoom(getDriver(), 75);
+		
+		// Step 1: Get count from "Applied" column hyperlink
+		WebElement activeLink = All_ClientPortal_Locators.appliedCol();
+		String activeCountText = activeLink.getText().trim(); // e.g., "22"
+		int activeDashboardCount = Integer.parseInt(activeCountText);
+		test.log(LogStatus.INFO, "Applied count from dashboard: " + activeDashboardCount);
+
+		// Step 2: Click on hyperlink to open grid
+		activeLink.click();
+		Thread.sleep(3000); // or use WebDriverWait if needed
+		test.log(LogStatus.INFO, "Applied hyper link is clickable");
+
+		// Step 3: Get grid count from top bar (e.g., "1 - 10 of 22 items")
+		WebElement gridLabel = All_ClientPortal_Locators.readTotalItemsNotice(); // use your method here
+		String gridText = gridLabel.getText().trim();
+		String[] parts = gridText.split(" ");
+		int activeGridCount = Integer.parseInt(parts[parts.length - 2]);
+		test.log(LogStatus.INFO, "Applied count found in grid: " + activeGridCount);
+
+		// Step 4: Match both counts
+		if (activeDashboardCount == activeGridCount) {
+		    test.log(LogStatus.PASS, "PASS: Applied count from dashboard matches grid count.");
+		} else {
+		    test.log(LogStatus.FAIL, "FAIL: Mismatch. Dashboard = " + activeDashboardCount + ", Grid = " + activeGridCount);
+		}
+
+	}
+	
 	public static void ExpiredSearch(  ExtentTest test) throws InterruptedException, IOException
 	{Thread.sleep(5000);
 	
@@ -4846,7 +4955,41 @@ public class All_ClientPortal_Methods extends BasePage {
 		}catch(Exception e) {Thread.sleep(5000);
 			test.log(LogStatus.PASS, "no record available");
 		}
-		
+	}
+	
+	public static void appliedSearch(  ExtentTest test) throws InterruptedException, IOException
+	{
+		Thread.sleep(5000);
+
+		try {
+			Thread.sleep(5000);
+			All_ClientPortal_Locators.Search().sendKeys("TESTAUTO2", Keys.ENTER);
+			Thread.sleep(4000);
+			String text = getDriver().findElement(By.xpath("//div[normalize-space()='TESTAUTO2']")).getText();
+
+			if(text.equalsIgnoreCase("TESTAUTO2")) {
+				test.log(LogStatus.PASS,"Selected License Name along with their details should get reflected in the grid.");
+				test.log(LogStatus.PASS, "License Name selected : " + text);
+			}
+			else {
+				test.log(LogStatus.FAIL,"Selected License Name along with their details should not get reflected in the grid.");
+				test.log(LogStatus.FAIL, "License Name selected : " + text);
+			}
+
+			Thread.sleep(3000);
+		} catch (Exception e) {
+			Thread.sleep(5000);
+			test.log(LogStatus.PASS, "no record available");
+		}
+		All_ClientPortal_Locators.Search().clear();
+		All_ClientPortal_Locators.Search().clear();
+	}
+	
+	public static void appliedExport(ExtentTest test) throws InterruptedException, IOException
+	{
+	    OneCommonMethod.validateExportedExcelDYNAMIC(driver.get(),test,
+	    		LoginLocators.Exportbtn(), All_ClientPortal_Locators.readTotalItemsNotice(),
+				"LicenseType", "File Exported Successfully ! ");
 	}
 	
 	public static void CompliancePerformance( ExtentTest test) throws InterruptedException, IOException
@@ -13726,9 +13869,11 @@ public static void AddNewNotices(ExtentTest test) throws InterruptedException, E
 //	Locator.selectDate2().click();
 	
 	All_ClientPortal_Locators.clickNoticeType().click();
+	Thread.sleep(2000);
 	All_ClientPortal_Locators.selectLocation1().click();   //Select Notice type
-	
+	Thread.sleep(2000);
 	All_ClientPortal_Locators.clickRisk().click();
+	Thread.sleep(2000);
 	All_ClientPortal_Locators.selectLocation1().click();   //Select Risk type
 	
 	
@@ -15795,17 +15940,6 @@ public static void SearchBoxMasterAbstarct(ExtentTest test) throws InterruptedEx
 	
 	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	Thread.sleep(3000);
-/*	All_ClientPortal_Locators.clickEntity().click();
-	Thread.sleep(3000);
-	All_ClientPortal_Locators.clickTringle1().click();
-	Thread.sleep(3000);
-	All_ClientPortal_Locators.selectEnity().click();
-	Thread.sleep(1000);
-	All_ClientPortal_Locators.clickYear().click();
-	Thread.sleep(1000);
-	All_ClientPortal_Locators.selectYear().click();
-	Thread.sleep(1000);
-	All_ClientPortal_Locators.ClickApplyBtn().click(); */
 	
 	Thread.sleep(3000);
 	All_ClientPortal_Locators.clickMasterAbstract().click();
@@ -15923,7 +16057,81 @@ public static void SearchBoxMasterAbstarct(ExtentTest test) throws InterruptedEx
 		}
 	}
 	
+
+	public static void minimumWagesPreviousNotification(ExtentTest test) throws InterruptedException
+	{
+		Thread.sleep(6000);
+		All_ClientPortal_Locators.E_Liberary().click();
+		Thread.sleep(3000);
+		All_ClientPortal_Locators.minimum_Wages().click();
+		Thread.sleep(3000);
+		if(All_ClientPortal_Locators.previousNotification().isDisplayed()) {
+			All_ClientPortal_Locators.previousNotification().click();
+			test.log(LogStatus.PASS,"Previous Notification button is working fine");	
+		}
+		Thread.sleep(3000);
+		
+		
+	    OneCommonMethod.validateExportedExcelDYNAMIC(driver.get(),test,
+	    		LoginLocators.Exportbtn(), All_ClientPortal_Locators.readTotalItemsNotice(),
+				"Employee ID", "Previous Notification - File Exported Successfully ! ");
+	    
+	    Thread.sleep(3000);
+	    All_ClientPortal_Locators.customBack().click();
+	    Thread.sleep(6000);
+	    
+		if(All_ClientPortal_Locators.viewComparision().isDisplayed()) {
+			All_ClientPortal_Locators.viewComparision().click();
+			test.log(LogStatus.PASS,"View Comparison button is working fine");	
+		}
+	    Thread.sleep(3000);
+	    
+		OneCommonMethod.validateFileDownloadDynamic(getDriver(), test, LoginLocators.Exportbtn(), 
+				"View Comparison - File Exported successfully !");
+		
+		
+	    Thread.sleep(3000);
+	    All_ClientPortal_Locators.customBack().click();
+	    Thread.sleep(6000);
+	    
+//	    OneCommonMethod.validateExportedExcelDYNAMIC(driver.get(),test,
+//	    		LoginLocators.Exportbtn(), All_ClientPortal_Locators.readTotalItemsNotice(),
+//				"Employee ID", "Minimum Wages - File Exported Successfully ! ");
+		OneCommonMethod.validateFileDownloadDynamic(getDriver(), test, LoginLocators.Exportbtn(), 
+				"Minimum Wages - File Exported Successfully ! ");
+
+	    
+	    
+		OneCommonMethod.validateFileDownloadDynamic(getDriver(), test, All_ClientPortal_Locators.downloadOriginal(), 
+				"Minimum Wages - Download Original - File is downloaded successfully !");
+
+	}
 	
+	
+	public static void listOfHolidays(ExtentTest test) throws InterruptedException
+	{
+		Thread.sleep(6000);
+		All_ClientPortal_Locators.E_Liberary().click();
+		Thread.sleep(3000);
+		All_ClientPortal_Locators.listOfHolidays().click();
+		Thread.sleep(3000);
+
+		
+//	    OneCommonMethod.validateExportedExcelDYNAMIC(driver.get(),test,
+//	    		LoginLocators.Exportbtn(), All_ClientPortal_Locators.readTotalItemsNotice(),
+//				"Employee ID", "File Exported Successfully ! ");
+		LoginLocators.Exportbtn().click();
+		OneCommonMethod.validateFileDownloadDynamic(getDriver(), test, LoginLocators.Exportbtn(), 
+				"File Exported Successfully ! ", true);
+	    
+
+	    Thread.sleep(3000);
+	    WebElement downloadBtn = getDriver().findElement(By.xpath("//a[text()='Download ']"));
+		OneCommonMethod.validateFileDownloadDynamic(getDriver(), test, downloadBtn, 
+				"View Comparison - File Exported successfully !");
+		
+
+	}
 
 
 
@@ -16337,17 +16545,28 @@ public static void CriticalDocument( ExtentTest test) throws InterruptedExceptio
 	WebDriverWait wait =new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(7000);
 	wait.until(ExpectedConditions.visibilityOf(All_ClientPortal_Locators.MyDocument()));	
-/*	All_ClientPortal_Locators.Entity().click();
-	Thread.sleep(2000);
-	All_ClientPortal_Locators.EntityExpand1().click();
-	Thread.sleep(2000);
-	All_ClientPortal_Locators.checkbox1().click();
-	Thread.sleep(2000);		
-	All_ClientPortal_Locators.Applybtn().click(); */
+
+	
 	Thread.sleep(3000);
 	All_ClientPortal_Locators.MyDocument().click();
 	Thread.sleep(2000);
 	All_ClientPortal_Locators.criticalDocuments().click();
+	Thread.sleep(2000);
+	
+	WebElement textField = 
+			getDriver().findElement(By.cssSelector("input[placeholder='Type to Search Files, folders(e.g. tags, process and subprocess)']"));
+	OneCommonMethod.typeLikeUser(textField, "Labor Doc Live",1,100);
+	
+	WebElement cellField = getDriver().findElement(By.xpath("(//div[@class='cell-content ng-star-inserted'])[1]"));
+	String cellText = cellField.getText();
+	if(cellText.equals("Labor Doc Live")) {
+		test.log(LogStatus.PASS,  "Search field is working fine");
+		test.log(LogStatus.PASS,  "Searched text displayed in the grid : " + cellText);
+	}else {
+		test.log(LogStatus.FAIL,  "Search field is not working properly");
+		test.log(LogStatus.FAIL,  "Searched text displayed in the grid : " + cellText);
+	}
+	
 	Thread.sleep(2000);
 	All_ClientPortal_Locators.NewFolder().click();
 	Thread.sleep(2000);
@@ -16500,6 +16719,8 @@ public static void CriticalDocumentshare( ExtentTest test) throws InterruptedExc
 	Thread.sleep(2000);
 	All_ClientPortal_Locators.criticalDocuments().click();
 	Thread.sleep(2000);
+	
+	// -------View---------
 	All_ClientPortal_Locators.Share().click();
 	Thread.sleep(2000);
 	All_ClientPortal_Locators.PermissionSelect().click();
@@ -16512,19 +16733,77 @@ public static void CriticalDocumentshare( ExtentTest test) throws InterruptedExc
 	Thread.sleep(2000);
 	All_ClientPortal_Locators.Done().click();
 	Thread.sleep(2000);
-	
-	String msg = LoginLocators.UploadSuccessfully().getText();
-	   Thread.sleep(2000);
-	   if(msg.equalsIgnoreCase("The Folder has been shared successfully!"))
-	   {
-		   test.log(LogStatus.PASS,  msg);
-	   }
-	   else {
-		   test.log(LogStatus.FAIL,   msg);
 
-	   }
-	   LoginLocators.OK().click();
-	   Thread.sleep(2000);
+	String msg = LoginLocators.UploadSuccessfully().getText();
+	Thread.sleep(2000);
+	if (msg.equalsIgnoreCase("The Folder has been shared successfully!")) {
+		test.log(LogStatus.PASS, "Folder is shared for on clicking to 'View'");
+		test.log(LogStatus.PASS, "On clicking to Done button success message is displayed");
+		test.log(LogStatus.PASS, msg);
+	} else {
+		test.log(LogStatus.FAIL, "View - On clicking to Done button success message is not displayed properly");
+		test.log(LogStatus.FAIL, msg);
+
+	}
+	LoginLocators.OK().click();
+	Thread.sleep(2000);
+	   
+	   
+	   
+		// ------View & Download---------
+		All_ClientPortal_Locators.Share().click();
+		Thread.sleep(2000);
+		All_ClientPortal_Locators.PermissionSelect().click();
+		Thread.sleep(2000);
+		All_ClientPortal_Locators.permissionViewDownload().click();
+		Thread.sleep(2000);
+		All_ClientPortal_Locators.SelectUser().click();
+		Thread.sleep(2000);
+		All_ClientPortal_Locators.SelectUserVal().click();
+		Thread.sleep(2000);
+		All_ClientPortal_Locators.Done().click();
+		Thread.sleep(2000);
+
+		String msg2 = LoginLocators.UploadSuccessfully().getText();
+		Thread.sleep(2000);
+		if (msg2.equalsIgnoreCase("The Folder has been shared successfully!")) {
+			test.log(LogStatus.PASS, "Folder is shared for on clicking to 'View & Download'");
+			test.log(LogStatus.PASS, "On clicking to Done button success message is displayed");
+			test.log(LogStatus.PASS, msg2);
+		} else {
+			test.log(LogStatus.FAIL, "View & Download - On clicking to Done button success message is not displayed properly");
+			test.log(LogStatus.FAIL, msg2);
+		}
+		LoginLocators.OK().click();
+		Thread.sleep(2000);
+		   
+		   
+			// -----Full Control-------
+			All_ClientPortal_Locators.Share().click();
+			Thread.sleep(2000);
+			All_ClientPortal_Locators.PermissionSelect().click();
+			Thread.sleep(2000);
+			All_ClientPortal_Locators.permissionFullControl().click();
+			Thread.sleep(2000);
+			All_ClientPortal_Locators.SelectUser().click();
+			Thread.sleep(2000);
+			All_ClientPortal_Locators.SelectUserVal().click();
+			Thread.sleep(2000);
+			All_ClientPortal_Locators.Done().click();
+			Thread.sleep(2000);
+
+			String msg3 = LoginLocators.UploadSuccessfully().getText();
+			Thread.sleep(2000);
+			if (msg3.equalsIgnoreCase("The Folder has been shared successfully!")) {
+				test.log(LogStatus.PASS, "Folder is shared for on clicking to 'Full Control'");
+				test.log(LogStatus.PASS, "On clicking to Done button success message is displayed");
+				test.log(LogStatus.PASS, msg3);
+			} else {
+				test.log(LogStatus.FAIL, "Full Control - On clicking to Done button success message is not displayed properly");
+				test.log(LogStatus.FAIL, msg3);
+			}
+			LoginLocators.OK().click();
+			Thread.sleep(2000);
 	   
 }
 
@@ -16542,10 +16821,37 @@ public static void criticalDocumentsCancelAndDelete(ExtentTest test, String user
 		Thread.sleep(5000);
 		All_ClientPortal_Locators.criticalDocumentDeleteBtn().click();
 		Thread.sleep(5000);
+		
+		String message = All_ClientPortal_Locators.clickMsg().getText();
+		if (message.equals("Are you sure you want to delete this document?")) {
+			test.log(LogStatus.PASS, "On clicking to delete button confirmation message is displayed");
+			test.log(LogStatus.PASS, "Message displayed : " + message);
+		} else {
+			test.log(LogStatus.FAIL, "On clicking to delete button confirmation message not displayed properly");
+			test.log(LogStatus.FAIL, "Message displayed : " + message);
+		}
 		All_ClientPortal_Locators.criticalDocumentCancelBtn().click();
+		
+		OneCommonMethod.explicitWaitForElementClickable(getDriver(), All_ClientPortal_Locators.criticalDocumentDeleteBtn(), 30);
+		Thread.sleep(40000);
+		test.log(LogStatus.PASS, "Cancel button is working fine");
+		
+		
+		Thread.sleep(10000);
+		WebElement ele = All_ClientPortal_Locators.criticalDocumentDeleteBtn();
+		ele.click();
 		Thread.sleep(5000);
-	
-	
+		All_ClientPortal_Locators.clickOkBtn().click();
+		
+		String messageAfterClickOK = All_ClientPortal_Locators.clickMsg().getText();
+		if (messageAfterClickOK.equals("Deleted Successfully")) {
+			test.log(LogStatus.PASS, "On clicking to Confirmation - OK button success message is displayed");
+			test.log(LogStatus.PASS, "Message displayed : " + messageAfterClickOK);
+		} else {
+			test.log(LogStatus.FAIL, "On clicking to Confirmation - OK button success message is not displayed properly");
+			test.log(LogStatus.FAIL, "Message displayed : " + messageAfterClickOK);
+		}
+		
 	}
 
 }

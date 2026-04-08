@@ -28,10 +28,13 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-
+import clientPortal.All_ClientPortal_Methods;
+import distributor.DistributerLocators;
 import login.BasePage;
 import login.LoginLocators;
 import rcp.OneCommonMethod;
+import rcp.RCPLocator;
+import sdexecutor.Locator;
 
 
 
@@ -317,10 +320,242 @@ public class Methods extends BasePage
 	 	
 	 }
 	 
+	 public static void noticeSMEResponseNoticeResponse(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
+	 {
+			getDriver().navigate().refresh();
+			Thread.sleep(5000);
+			Thread.sleep(5000);
+
+			Thread.sleep(5000);
+			Locator.plus3().click();
+			Thread.sleep(5000);
+			
+			
+			try {
+			    WebElement submitBtn = Locator.clickSubmit();
+
+			    if (submitBtn.isDisplayed() && submitBtn.isEnabled()) {
+			    	
+			    	
+			    	
+//				 	Locator.calendar1().click();
+//					OneCommonMethod.selectCalendarDateFromInput(driver.get(), test, 
+//							Locator.calendar1(), // calendar icon
+//							DistributerLocators.Calendar_NavigateToParentView(), 
+//							"31-10-2026" 
+//					);
+					
+					Thread.sleep(6000);
+					Locator.browse().click();
+					Thread.sleep(4000);
+					OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\Test.pdf");
+				 	Thread.sleep(4000);
+				 	
+				 	
+//				 	Locator.calendar2().click();
+//					OneCommonMethod.selectCalendarDateFromInput(driver.get(), test, 
+//							Locator.calendar2(), // calendar icon
+//							DistributerLocators.Calendar_NavigateToParentView(), 
+//							"31-12-2026" 
+//					);
+					Thread.sleep(4000);
+					LocatorSME.saveClick().click();
+					Thread.sleep(4000);
+					
+					
+					String textSubmit = Locator.message1().getText();
+					Thread.sleep(4000);
+					if(textSubmit.equalsIgnoreCase("Notice Submitted Successfully")) {
+						test.log(LogStatus.PASS, "Submit button is working fine");
+						Thread.sleep(1000);
+						test.log(LogStatus.PASS, "While clicking to Submit button success message is displayed");
+						Thread.sleep(2000);
+						test.log(LogStatus.PASS, "Message displayed : " + textSubmit);
+					}
+					else {
+						test.log(LogStatus.FAIL, "Message displayed on clikcing to submit button : " + textSubmit);
+					}
+					
+					Thread.sleep(4000);
+					Locator.clickOkBtn().click();
+					
+					Thread.sleep(4000);
+					Locator.clickBack().click();
+					test.log(LogStatus.PASS, "Back button is working fine");
+					
+					
+			    }
+			}
+			catch (Exception e) {
+				test.log(LogStatus.INFO, "Submit button is disabled/hidden — skipping all steps.");
+			}
+			
+	 	
+	 	
+	 }
+	 
+	 
+	 public static void noticeSMEResponseExtensionApplication(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
+	 {
+		 getDriver().navigate().refresh();
+	 	 Thread.sleep(5000);
+	 	Thread.sleep(5000);
+	 	
+	 	Locator.EditBtn().click();
+	 	Thread.sleep(5000);
+	 	Locator.plus2().click();
+	 	Thread.sleep(5000);
+	 	 
+			try {
+			    WebElement submitBtn = Locator.clickSubmit();
+			    WebElement save = LocatorSME.saveClick();
+
+			    if (submitBtn.isDisplayed() && submitBtn.isEnabled() 
+			    	&& save.isDisplayed() && save.isEnabled()) {
+			    	
+				 	if(Locator.yesRadio().isDisplayed()) {
+					 	Locator.yesRadio().click();
+					 	Thread.sleep(4000);
+					 	test.log(LogStatus.PASS, "Translation Required Radio button are working fine");
+				 	}
+				 	
+				 	
+				 	Locator.calendar1().click();
+					OneCommonMethod.selectCalendarDateFromInput(driver.get(), test, 
+							Locator.calendar1(), // calendar icon
+							DistributerLocators.Calendar_NavigateToParentView(), // parent view arrow
+							"31-10-2026" // date in dd-MM-yyyy format
+					);
+				 	
+				 	
+					Thread.sleep(6000);
+					Locator.browse().click();
+					Thread.sleep(4000);
+					OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Notice Module\\Upload Validations\\Test.pdf");
+					
+				 	
+				 	
+				 	Thread.sleep(4000);
+					LocatorSME.saveClick().click();
+					Thread.sleep(7000);
+					String textM = Locator.message3().getText();
+					Thread.sleep(4000);
+					if(textM.equalsIgnoreCase("Extension Saved Successfully")) {
+						test.log(LogStatus.PASS, "Save button is working fine");
+						Thread.sleep(1000);
+						test.log(LogStatus.PASS, "While clicking to Save button success message is displayed");
+						Thread.sleep(2000);
+						test.log(LogStatus.PASS, "Message displayed : " + textM);
+					}
+					else {
+						test.log(LogStatus.FAIL, "Message displayed on clikcing to save button : " + textM);
+					}
+					Thread.sleep(4000);
+					Locator.clickOkBtn().click();
+					Thread.sleep(4000);
+					
+					
+					LocatorSME.submitClick().click();
+					Thread.sleep(7000);
+					String textSubmit = Locator.message3().getText();
+					Thread.sleep(4000);
+					if(textSubmit.equalsIgnoreCase("Extension Saved Successfully")) {
+						test.log(LogStatus.PASS, "Submit button is working fine");
+						Thread.sleep(1000);
+						test.log(LogStatus.PASS, "While clicking to Submit button success message is displayed");
+						Thread.sleep(2000);
+						test.log(LogStatus.PASS, "Message displayed : " + textSubmit);
+					}
+					else {
+						test.log(LogStatus.FAIL, "Message displayed on clikcing to submit button : " + textSubmit);
+					}
+					
+					Thread.sleep(4000);
+					Locator.clickOkBtn().click();
+					
+			    	
+			    	
+
+			    } else {
+			        // --- If button disabled/hidden, skip everything ---
+			        test.log(LogStatus.INFO, "Submit button is disabled/hidden — skipping all steps.");
+			    }
+			} catch (Exception e) {
+			    test.log(LogStatus.INFO, "Submit button is disabled/hidden — skipping all steps.");
+			}
+	 	
+	 }
+	 
+	 public static void noticeSMEResponseTranslationReq(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
+	 {
+		 getDriver().navigate().refresh();
+	 	 Thread.sleep(5000);
+	 	
+	 	Locator.EditBtn().click();
+	 	Thread.sleep(5000);
+	 	Locator.plus1().click();
+	 	Thread.sleep(5000);
+	 	 
+			try {
+			    WebElement submitBtn = Locator.clickSubmit();
+
+			    if (submitBtn.isDisplayed() && submitBtn.isEnabled()) {
+			    	
+				 	if(Locator.yesRadio().isDisplayed()) {
+					 	Locator.yesRadio().click();
+					 	Thread.sleep(4000);
+					 	test.log(LogStatus.PASS, "Translation Required Radio button are working fine");
+				 	}
+				 	
+				 	WebElement downloadIcon = getDriver().findElement(By.xpath("//img[@alt='Download']"));
+				 	OneCommonMethod.validateFileDownloadDynamic(driver.get(), test, downloadIcon,"Original Notice Document Downloaded successfully");
+				 	
+				 	Thread.sleep(4000);
+					Locator.clickSubmit().click();
+					Thread.sleep(7000);
+					String textM = Locator.message3().getText();
+					Thread.sleep(4000);
+					if(textM.equalsIgnoreCase("Translation Submitted Successfully")) {
+						test.log(LogStatus.PASS, "Submit button is working fine");
+						Thread.sleep(1000);
+						test.log(LogStatus.PASS, "While clicking to submit button success message is displayed");
+						Thread.sleep(2000);
+						test.log(LogStatus.PASS, "Message displayed : " + textM);
+					}
+					else {
+						test.log(LogStatus.FAIL, "Message displayed on clikcing to submit button : " + textM);
+					}
+					
+					
+			    	
+			    	
+
+			    } else {
+			        // --- If button disabled/hidden, skip everything ---
+			        test.log(LogStatus.INFO, "Submit button is disabled/hidden — skipping all steps.");
+			    }
+			} catch (Exception e) {
+			    test.log(LogStatus.INFO, "Submit button is disabled/hidden — skipping all steps.");
+			}
+	 	
+	 }
+	 
+	 public static void noticeDocumentSectionDownloads(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
+	 {
+			getDriver().navigate().refresh();
+			Thread.sleep(7000);
+			Locator.EditBtn().click();
+			Thread.sleep(8000);
+			getDriver().findElement(By.xpath("//a[normalize-space()='Document Section']")).click();
+			Thread.sleep(2000);
+			getDriver().findElement(By.xpath("(//img[@class='svg-icon-btn'])[1]")).click();
+			Thread.sleep(2000);
+			All_ClientPortal_Methods.noticeDocuments(test);
+	 	
+	 }
 	 public static void NoticeEditDownload(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
 	 {
 		 getDriver().navigate().refresh();
-	 	JavascriptExecutor js = (JavascriptExecutor) getDriver();	
 	 	Thread.sleep(2000);
 	 	File dir3 = new File("C:\\Users\\bilali\\Downloads");
 	 	File[] dirContents1 = dir3.listFiles();							//Counting number of files in directory before download 

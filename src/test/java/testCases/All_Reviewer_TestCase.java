@@ -226,6 +226,17 @@ public class All_Reviewer_TestCase extends BasePage {
 			extent.flush();
 		}
 		
+		@Test(priority = 23)//NEW TC NEW TC
+		void compliancesCount() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Upcoming Box count verification with categorised upcoming");
+			
+			MethodsD.compliancesCount(test,"Distributor", "TESTAUTO2");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
 		
 		@Test(priority = 24)
 		void OverdueBox() throws InterruptedException, IOException
@@ -238,6 +249,16 @@ public class All_Reviewer_TestCase extends BasePage {
 			extent.flush();
 		}
 		
+		@Test(priority = 25)//NEW TC NEW TC
+		void compliancesOverdueCount() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Overdue Box count verification with categorised overdues");
+			
+			MethodsD.compliancesOverdueCount(test,"Distributor", "TESTAUTO2");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
 		
 		
 		@Test(priority = 26)
@@ -246,6 +267,17 @@ public class All_Reviewer_TestCase extends BasePage {
 			test = extent.startTest(" Count by Clicking on 'Pending Action'");
 			
 			MethodsD.PendingActionBox(test,"Reviewer");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+//		@Test(priority = 27)//NEW TC NEW TC
+		void pendingActionAndReviewCount() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Overdue Box count verification with categorised overdues");
+			
+			MethodsD.pendingActionAndReviewCount(test,"Distributor", "TESTAUTO2");
 			
 			extent.endTest(test);
 			extent.flush();
@@ -645,7 +677,7 @@ public class All_Reviewer_TestCase extends BasePage {
 	   		extent.flush();
 	   	}
 		
-		@Test(priority = 74) //NEW TC NEW TC
+		@Test(priority = 74) 
 	   	void authorityAddressUpload() throws InterruptedException, IOException
 	   	{
 	   		test = extent.startTest("Manage Master - State City - Verify to check Authority address upload working or not");
@@ -657,7 +689,7 @@ public class All_Reviewer_TestCase extends BasePage {
 	   	}
 		
 		
-		@Test(priority = 75) //NEW TC NEW TC
+		@Test(priority = 75) 
 	   	void DesignationSearch() throws InterruptedException, IOException
 	   	{
 	        test = extent.startTest("Manage Master - Designation - Verify to check Search/Select Designation dropdown is working or not");
@@ -670,7 +702,7 @@ public class All_Reviewer_TestCase extends BasePage {
 	   		extent.flush();
 	   	}
 		
-	    @Test(priority = 76)//NEW TC NEW TC
+	    @Test(priority = 76)
 	   	void AddDesignation() throws InterruptedException, IOException
 	   	{
 	        test = extent.startTest("Manage Master - Designation - Verify Add New Designation Error is throwing or not?");
@@ -680,7 +712,7 @@ public class All_Reviewer_TestCase extends BasePage {
 	   		extent.endTest(test);
 	   		extent.flush();
 	   	}
-	    @Test(priority = 76) //NEW TC NEW TC
+	    @Test(priority = 76) 
 	   	void BulkUpateDesignation() throws Exception
 	   	{
 	   		test = extent.startTest("Manage Masters - Verify to update designation through bulk upload");
@@ -690,7 +722,7 @@ public class All_Reviewer_TestCase extends BasePage {
 	   		extent.endTest(test);
 	   		extent.flush();
 	   	}
-	    @Test(priority = 77) //NEW TC NEW TC 
+	    @Test(priority = 77) 
 	   	void BulkUpateDesignationAlreadyExistForUpdate() throws Exception
 	   	{
 	   		test = extent.startTest("Manage Masters - Designation - Verify to check error to update designation through upload");
@@ -717,7 +749,7 @@ public class All_Reviewer_TestCase extends BasePage {
 		
 		
 		
-		@Test(priority = 85) //NEW TC NEW TC
+		@Test(priority = 85)
 	   	void LeaveTypeSearch() throws InterruptedException, IOException
 	   	{
 	test = extent.startTest("Manage Master - Leave Type - Verify to check Search Leave Type dropdown is working or not?");
@@ -727,7 +759,7 @@ public class All_Reviewer_TestCase extends BasePage {
 	   		extent.endTest(test);
 	   		extent.flush();
 	   	}
-		@Test(priority = 86) //NEW TC NEW TC
+		@Test(priority = 86) 
 	   	void leaveTypeExport() throws InterruptedException, IOException
 	   	{
 	   		test = extent.startTest("Manage Master - Leave Type - Verify to check Export button working or not");
@@ -738,7 +770,7 @@ public class All_Reviewer_TestCase extends BasePage {
 	   		extent.flush();
 	   	}
 		
-		@Test(priority = 135) //NEW TC NEW TC (Override)
+		@Test(priority = 135) //(Override)
 	   	void manageMasterStaturyMaster() throws InterruptedException, IOException, AWTException
 	   	{
 	test = extent.startTest("Manage Masters - Statutory Master - Verify to check filters verification are working or not?");
@@ -808,7 +840,7 @@ public class All_Reviewer_TestCase extends BasePage {
 			extent.flush();
 		}
 		
-		@Test(priority = 153)//NEW TC NEW TC
+		@Test(priority = 153)
 		void RegulatoryAbstractRegional() throws Exception
 		{
 			test = extent.startTest("Regulatory Abstracts - Verify to check Regional column Download and View buttons are working or not?");
@@ -828,7 +860,7 @@ public class All_Reviewer_TestCase extends BasePage {
 			extent.endTest(test);
 			extent.flush();
 		}
-		@Test(priority = 155)// NEW TC NEW TC
+		@Test(priority = 155)
 		void RegulatoryAbstractAcknowledgement() throws Exception
 		{
 			test = extent.startTest("Regulatory Abstracts - Verify to check Acknowledgement column Download and View buttons are working or not?");
@@ -904,6 +936,139 @@ public class All_Reviewer_TestCase extends BasePage {
 			
 			extent.endTest(test);
 			extent.flush();
+		}
+		
+		@Test(priority = 256) 
+		void staturyDocChallanForms() throws InterruptedException, IOException, AWTException
+		{
+			test = extent.startTest("Statutory Documents - Verify to check Challan forms is displayed correctly");
+			
+			ReviewerMethod.staturyDocChallanForms(test, "Reviewer");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		@Test(priority = 257) 
+		void PTConsolidatedW() throws InterruptedException, IOException, AWTException 
+		{	
+			test = extent.startTest("Statutory Documents - Challan PT - Verify to check PT Consolidated Workings File is downloading correctly");
+			ReviewerMethod.StateDocZipFileChallan(test, "Reviewer");//redirection
+			ReviewerMethod.PTConsolidatedW(test, "Reviewer");
+			
+			test = extent.startTest("Statutory Documents - Challan PT - Verify to check Branch view button is working correctly");
+			ReviewerMethod.branchView(test, "Reviewer");
+			
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		@Test(priority = 258) 
+		void StateDocZipFileChallan() throws InterruptedException, IOException, AWTException 
+		{	
+			test = extent.startTest("Statutory Documents - Challan PT - Verify to check Overview button is working correctly");
+			ReviewerMethod.StateDocZipFileChallan(test, "Reviewer"); //redirection
+			ReviewerMethod.StateDownloadDocOverviewChallanPT(test, "Reviewer");
+
+			test = extent.startTest("Statutory Documents - Challan PT - Verify to download document file");
+			ReviewerMethod.StateDownloadDocSingle(test, "Reviewer");
+			
+			test = extent.startTest("Statutory Documents - Challan PT - Verify to view document file");
+			ReviewerMethod.StateViewDocSingle(test, "Reviewer");
+
+			extent.endTest(test);
+			extent.flush();
+
+		}
+		
+		@Test(priority = 259) //ESIC 
+		void ESIConsolidatedW() throws InterruptedException, IOException, AWTException 
+		{	
+			test = extent.startTest("Statutory Documents - Challan ESI - Verify to check ESI Consolidated Workings File is downloading correctly");
+			ReviewerMethod.StateDocZipFileChallanESI(test, "Reviewer");//redirection
+			ReviewerMethod.ESIConsolidatedW(test, "Reviewer");
+			
+			test = extent.startTest("Statutory Documents - Challan ESI - Verify to check Branch view button is working correctly");
+			ReviewerMethod.branchView(test, "Reviewer");
+			
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		
+		@Test(priority = 310) 
+		void challanESIC() throws InterruptedException, IOException, AWTException 
+		{	
+			test = extent.startTest("Statutory Documents - Challan ESI - Verify to check Overview button is working correctly");
+			ReviewerMethod.StateDocZipFileChallanESI(test, "Reviewer"); //redirection
+			ReviewerMethod.StateDownloadDocOverviewChallanPT(test, "Reviewer");
+
+			test = extent.startTest("Statutory Documents - Challan ESI - Verify to download document file");
+			ReviewerMethod.StateDownloadDocSingle(test, "Reviewer");
+			
+			test = extent.startTest("Statutory Documents - Challan ESI - Verify to view document file");
+			ReviewerMethod.StateViewDocSingle(test, "Reviewer");
+
+			extent.endTest(test);
+			extent.flush();
+
+		}
+		
+		@Test(priority = 311) 
+		void EPFConsolidatedW() throws InterruptedException, IOException, AWTException 
+		{	
+			test = extent.startTest("Statutory Documents - Challan EPF - Verify to check ESI Consolidated Workings File is downloading correctly");
+			ReviewerMethod.StateDocZipFileChallanEPF(test, "Reviewer");//redirection
+			ReviewerMethod.EPFConsolidatedW(test, "Reviewer");
+			
+			test = extent.startTest("Statutory Documents - Challan EPF - Verify to check Branch view button is working correctly");
+			ReviewerMethod.branchView(test, "Performer");
+			
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		@Test(priority = 312) 
+		void challanEPF() throws InterruptedException, IOException, AWTException 
+		{	
+			test = extent.startTest("Statutory Documents - Challan EPF - Verify to check Overview button is working correctly");
+			ReviewerMethod.StateDocZipFileChallanEPF(test, "Reviewer"); //redirection
+			ReviewerMethod.StateDownloadDocOverviewChallanPT(test, "Reviewer");
+
+			test = extent.startTest("Statutory Documents - Challan EPF - Verify to download document file");
+			ReviewerMethod.StateDownloadDocSingleEPF(test, "Reviewer");
+			
+			test = extent.startTest("Statutory Documents - Challan EPF - Verify to view document file");
+			ReviewerMethod.StateViewDocSingleEPF(test, "Reviewer");
+
+			extent.endTest(test);
+			extent.flush();
+
+		}
+		
+		
+		
+		@Test(priority = 270) //NEW TC NEW TC
+		void PayBonusStateDocZipFile() throws InterruptedException, IOException, AWTException 
+		{
+			test = extent.startTest("Statutory Documents - Returns - Verify to download ZIP folder");
+			ReviewerMethod.PayBonusStateDocZipFile(test, "Reviewer");
+			
+			test = extent.startTest("Statutory Documents - Returns - Verify to check Overview button is working correctly");
+			ReviewerMethod.StateDownloadDocOverview(test, "Performer");
+
+			test = extent.startTest("Statutory Documents - Returns - Verify to download document file");
+			ReviewerMethod.StateDownloadDocSingle(test, "Performer");
+			
+			test = extent.startTest("Statutory Documents - Returns - Verify to view document file");
+			ReviewerMethod.StateViewDocSingle(test, "Performer");
+
+			extent.endTest(test);
+			extent.flush();
+
 		}
 		
 		

@@ -632,6 +632,11 @@ public class LoginLocators extends BasePage {
 		submit = getDriver().findElement(By.xpath("//span[.='2025']"));
 		return submit;
 	}
+	public static WebElement SelectPeriodValue2026()	
+	{
+		submit = getDriver().findElement(By.xpath("//span[.='2026']"));
+		return submit;
+	}
 	public static WebElement SelectPeriodValue2024()	//Method for searching button for Save/Sign-in
 	{
 		submit = getDriver().findElement(By.xpath("//span[.='2025']"));
@@ -1771,9 +1776,34 @@ public class LoginLocators extends BasePage {
 		submit = getDriver().findElement(By.xpath("//ul[@class='nav nav-tabs']//li[2]"));
 		return submit;
 	}
-	public static WebElement ESICInputs()	//Method for searching button for Save/Sign-in
+	public static WebElement ESICInputs()
 	{
 		submit = getDriver().findElement(By.xpath("//ul[@class='nav nav-tabs']//li[3]"));
+		return submit;
+	}
+	public static WebElement ESICReports()
+	{
+		submit = getDriver().findElement(By.xpath("//a[normalize-space()='ESIC Report']"));
+		return submit;
+	}
+	public static WebElement selectReportType()
+	{
+		submit = getDriver().findElement(By.xpath("//span[contains(text(),'Select Report Type')]"));
+		return submit;
+	}
+	public static WebElement selectMasterDropdown()
+	{
+		submit = getDriver().findElement(By.xpath("//span[normalize-space()='Master']"));
+		return submit;
+	}
+	public static WebElement ESICReportSelectType()
+	{
+		submit = getDriver().findElement(By.xpath("(//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon'])[2]"));
+		return submit;
+	}
+	public static WebElement ESICReportSelectTypeValue(String value)
+	{
+		submit = getDriver().findElement(By.xpath("//span[normalize-space()='"+value+"']"));
 		return submit;
 	}
 	public static WebElement CheckBox_Updation()	//ESIC Updation checkbox
@@ -2391,6 +2421,427 @@ public class LoginLocators extends BasePage {
 	public static WebElement dolBulkUploadButton()
 	{
 		submit = getDriver().findElement(By.xpath("//button[normalize-space()='Upload']"));
+		return submit;
+	}
+	
+	
+	//-----Swapnil--------
+	public static WebElement workspace()
+	{
+		submit = getDriver().findElement(By.xpath("//span[text()='My WorkSpace']"));
+		return submit;
+	}
+	
+	public static WebElement ReturnActivity()
+	{
+		submit = getDriver().findElement(By.xpath("//span[text()='Returns Activity']"));
+		return submit;
+	}
+	
+	public static WebElement ER1_Returns()
+	{
+		submit = getDriver().findElement(By.xpath("//span[normalize-space()='ER1 Returns']"));
+		return submit;
+	}
+	
+	public static WebElement ER1_Searchfield()
+	{
+		submit = getDriver().findElement(By.xpath("//input[@placeholder='Type to Search']"));
+		return submit;
+	}
+	
+	public static WebElement ER1_YearDropdown()
+	{
+		submit = getDriver().findElement(By.xpath("//span[@class='k-input-value-text'][normalize-space()='2026']"));
+		return submit;
+	}
+	
+	public static WebElement ER1_YearSelect()
+	{
+		submit = getDriver().findElement(By.xpath("//span[normalize-space()='2025']"));
+		return submit;
+	}
+	
+	public static WebElement ER1_QuarterDropdown()
+	{
+		submit = getDriver().findElement(By.xpath("//span[@class='k-input-value-text'][normalize-space()='Quarterly 1']"));
+		return submit;
+	}
+	
+	public static WebElement ER1_QuarterSelect()
+	{
+		submit = getDriver().findElement(By.xpath("//span[normalize-space()='Quarterly 2']"));
+		return submit;
+	}
+	
+	public static WebElement ER1_ApplyButton()
+	{
+		submit = getDriver().findElement(By.xpath("//button[@title='Apply']"));
+		return submit;
+	}
+	
+	public static WebElement ER1_TemplateDownload()
+	{
+		submit = getDriver().findElement(By.xpath("//img[@alt='Download Template']"));
+		return submit;
+	}
+	
+	public static WebElement ER1_GeneratedButton()
+	{
+		submit = getDriver().findElement(By.xpath("//button[normalize-space()='Generate']"));
+		return submit;
+	}
+	
+	public static WebElement ER1_GeneratedButtonOk()
+	{
+		submit = getDriver().findElement(By.xpath("//button[@title='OK']"));
+		return submit;
+	}
+	
+	public static WebElement ER1_GeneratedBulkDownload()
+	{
+		submit = getDriver().findElement(By.xpath("//img[@title='ER1 Returns Bulk Download']"));
+		return submit;
+	}
+	
+	public static WebElement ER1_AcknowledgementDownload()
+	{
+		submit = getDriver().findElement(By.xpath("//img[@title='Acknowledgement Download']"));
+		return submit;
+	}
+	
+	public static WebElement ER1_AcknowledgementBulkUpload()
+	{
+		submit = getDriver().findElement(By.xpath("//img[@title='Acknowledgement Bulk Upload']"));
+		return submit;
+	}
+	
+	public static WebElement ER1_AcknowledgementBulkUploadButton()
+	{
+		submit = getDriver().findElement(By.xpath("//button[normalize-space()='Bulk Upload']"));
+		return submit;
+	}
+	
+	
+	public static WebElement ER1_PendingACKUpload()
+	{
+		submit = getDriver().findElement(By.xpath("(//td[@role='gridcell'])[13]"));
+		return submit;
+	}	
+	
+	public static WebElement ER1_PendingACKUploadExport()
+	{
+		submit = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/ExportButton.svg']"));
+		return submit;
+	}
+	
+	public static WebElement ER1_TotalNoOfItems()
+	{
+		submit = getDriver().findElement(By.xpath("//kendo-pager-info[@class='k-pager-info k-label']"));
+		return submit;
+	}
+	
+	public static WebElement ER1_SingleUpload()
+	{
+		submit = getDriver().findElement(By.xpath("(//img[@title='Upload'])[1]"));
+		return submit;
+	}
+	
+	public static WebElement ER1_SingleUploadApply()
+	{
+		submit = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/ApplyFilter.svg']"));
+		return submit;
+	}
+	
+	public static WebElement ER1_BulkUpload()
+	{
+		submit = getDriver().findElement(By.xpath("//button[normalize-space()='Bulk Upload']"));
+		return submit;
+	}
+	
+	public static WebElement ER1_BulkUploadBrowse()
+	{
+		submit = getDriver().findElement(By.xpath("//label[normalize-space()='Browse']"));
+		return submit;
+	}
+	
+	public static WebElement ER1_BulkUploadErrorMessage()
+	{
+		submit = getDriver().findElement(By.xpath("//h4[normalize-space()='Please select .zip or .pdf file only.']"));
+		return submit;
+	}
+	
+	public static WebElement ER1_BulkUploadErrorOkPopUp()
+	{
+		submit = getDriver().findElement(By.xpath("//button[@title='OK']"));
+		return submit;
+	}
+	
+	public static WebElement ER1_BulkUploadPopUpClose()
+	{
+		submit = getDriver().findElement(By.xpath("//button[@title='Close']"));
+		return submit;
+	}
+	
+	public static WebElement ER1_BulkUploadBack()
+	{
+		submit = getDriver().findElement(By.xpath("//img[@title='Back']"));
+		return submit;
+	}
+	
+	public static WebElement ER1_ACKUploadedExport()
+	{
+		submit = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/ExportButton.svg']"));
+		return submit;
+	}	
+	
+	public static WebElement ER1_ACKUploadedSingleDownload()
+	{
+		submit = getDriver().findElement(By.xpath("//img[@title='download']"));
+		return submit;
+	}	
+	
+	public static WebElement ER1_ACKUploadedUpload()
+	{
+		submit = getDriver().findElement(By.xpath("//tr[@class='k-master-row k-table-row ng-star-inserted']//img[@title='Upload']"));
+		return submit;
+	}	
+	
+	
+	public static WebElement ER1ACKUploadSectionSingleUpload()
+	{
+		submit = getDriver().findElement(By.xpath("//tr[@class='k-master-row k-table-row']//img[@title='Upload']"));
+		return submit;
+	}
+	
+	public static WebElement ER1_ApplicableBranchesExport()
+	{
+		submit = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/ExportButton.svg']"));
+		return submit;
+	}
+	
+	public static WebElement ER1_ApplicableBranchesBack()
+	{
+		submit = getDriver().findElement(By.xpath("//img[@title='Back']"));
+		return submit;
+	}
+	
+	
+	
+	public static WebElement ER1_ACKApproved()
+	{
+		submit = getDriver().findElement(By.xpath("(//div[@class='cell-content total-click'])[4]"));
+		return submit;
+	}	
+	
+	public static WebElement ER1_ACKUploaded()
+	{
+		submit = getDriver().findElement(By.xpath("//tbody/tr[@role='row']/td[11]/div[1]"));
+		return submit;
+	}	
+	
+	public static WebElement ER1_ApplicableBranches()
+	{
+		submit = getDriver().findElement(By.xpath("(//div[@class='cell-content total-click'])[2]"));
+		return submit;
+	}	
+	
+	public static WebElement ER1_TotalBranches()
+	{
+		submit = getDriver().findElement(By.xpath("(//div[@class='cell-content total-click'])[1]"));
+		return submit;
+	}
+	
+	public static WebElement ER1_TotalBranchesExport()
+	{
+		submit = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/ExportButton.svg']"));
+		return submit;
+	}
+	
+	public static WebElement ACK_Upload()
+	{
+		submit = getDriver().findElement(By.xpath("//span[normalize-space()='Ack Upload']"));
+		return submit;
+	}
+	
+	public static WebElement ACK_ActivityDropdown()
+	{
+		submit = getDriver().findElement(By.xpath("//span[contains(text(),'Contract Labour (Regulation & Abolition) Act,1970')]"));
+		return submit;
+	}
+	
+	public static WebElement ACK_Activity()
+	{
+		submit = getDriver().findElement(By.xpath("(//span[contains(text(),\"Employee's\")])[1]"));
+		return submit;
+	}
+	
+	public static WebElement ACK_YearDropdown()
+	{
+		submit = getDriver().findElement(By.xpath("//span[contains(text(),'2026')]"));
+		return submit;
+	}
+	
+	public static WebElement ACK_Year()
+	{
+		submit = getDriver().findElement(By.xpath("//span[normalize-space()='2025']"));
+		return submit;
+	}
+	
+	public static WebElement ACK_Apply()
+	{
+		submit = getDriver().findElement(By.xpath("//button[@title='Apply']"));
+		return submit;
+	}
+	
+	public static WebElement ACK_Search()
+	{
+		submit = getDriver().findElement(By.xpath("//input[@placeholder='Type to Search']"));
+		return submit;
+	}
+	
+	public static WebElement ACK_Export()
+	{
+		submit = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/ExportButton.svg']"));
+		return submit;
+	}
+	
+	public static WebElement ACK_Download()
+	{
+		submit = getDriver().findElement(By.xpath("//img[@title='Acknowledgement Download']"));
+		return submit;
+	}
+	
+	public static WebElement ACK_TotalBranch()
+	{
+		submit = getDriver().findElement(By.xpath("(//a[normalize-space()='42'])[1]"));
+		return submit;
+	}
+	
+	public static WebElement ACK_TotalBranchExport()
+	{
+		submit = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/ExportButton.svg']"));
+		return submit;
+	}
+	
+	public static WebElement ACK_TotalBranchBack()
+	{
+		submit = getDriver().findElement(By.xpath("//img[@title='Back']"));
+		return submit;
+	}
+	
+	public static WebElement ACK_Generated()
+	{
+		submit = getDriver().findElement(By.xpath("(//div[@class='cell-content total-click'])[2]"));
+		return submit;
+	}
+	
+	public static WebElement ACK_GeneratedExport()
+	{
+		submit = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/ExportButton.svg']"));
+		return submit;
+	}
+	
+	public static WebElement ACK_GeneratedBack()
+	{
+		submit = getDriver().findElement(By.xpath("//img[@title='Back']"));
+		return submit;
+	}
+	
+	public static WebElement ACK_NotGenerated()
+	{
+		submit = getDriver().findElement(By.xpath("//tbody/tr[@role='row']/td[7]/div[1]"));
+		return submit;
+	}
+	
+	public static WebElement ACK_NotGeneratedExport()
+	{
+		submit = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/ExportButton.svg']"));
+		return submit;
+	}
+	
+	public static WebElement ACK_NotGeneratedBack()
+	{
+		submit = getDriver().findElement(By.xpath("//img[@title='Back']"));
+		return submit;
+	}
+	
+	public static WebElement ACK_AckUploaded()
+	{
+		submit = getDriver().findElement(By.xpath("//tbody/tr[@role='row']/td[8]/div[1]"));
+		return submit;
+	}
+	
+	public static WebElement ACK_AckUploadedExport()
+	{
+		submit = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/ExportButton.svg']"));
+		return submit;
+	}
+	
+	public static WebElement ACK_AckUploadedBack()
+	{
+		submit = getDriver().findElement(By.xpath("//img[@title='Back']"));
+		return submit;
+	}
+	
+	public static WebElement ACK_PendingAck()
+	{
+		submit = getDriver().findElement(By.xpath("//tbody/tr[@role='row']/td[9]/div[1]"));
+		return submit;
+	}
+	
+	public static WebElement ACK_PendingAckExport()
+	{
+		submit = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/ExportButton.svg']"));
+		return submit;
+	}
+	
+	public static WebElement ACK_PendingAckBack()
+	{
+		submit = getDriver().findElement(By.xpath("//img[@title='Back']"));
+		return submit;
+	}
+	
+	
+	public static WebElement ACK_Approved()
+	{
+		submit = getDriver().findElement(By.xpath("//tbody/tr[@role='row']/td[10]/div[1]"));
+		return submit;
+	}
+	
+	public static WebElement ACK_ApprovedExport()
+	{
+		submit = getDriver().findElement(By.xpath("//img[@src='../assets/vectors/ExportButton.svg']"));
+		return submit;
+	}
+	
+	public static WebElement ACK_ApprovedBack()
+	{
+		submit = getDriver().findElement(By.xpath("//img[@title='Back']"));
+		return submit;
+	}
+	
+	public static WebElement ACK_History()
+	{
+		submit = getDriver().findElement(By.xpath("//img[@title='Auditor Log']"));
+		return submit;
+	}
+	
+	public static WebElement ACK_HistoryDownload()
+	{
+		submit = getDriver().findElement(By.xpath("//tr[@class='k-master-row k-alt k-table-alt-row k-table-row ng-star-inserted']//img[@title='download']"));
+		return submit;
+	}
+	
+	public static WebElement ACK_HistoryPopUpClose()
+	{
+		submit = getDriver().findElement(By.xpath("//kendo-svgicon[contains(@class,'k-svg-i-x')]"));
+		return submit;
+	}
+	
+	public static WebElement ACK_Clear()
+	{
+		submit = getDriver().findElement(By.xpath("//button[@title='Clear']"));
 		return submit;
 	}
 	

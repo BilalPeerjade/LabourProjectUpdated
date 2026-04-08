@@ -479,7 +479,11 @@ public class All_ClientPortal_Locators extends BasePage {
 		clients = getDriver().findElement(By.xpath("(//div[@class='cell-content total-click pointer-cursor ng-star-inserted'])"));
 		return clients;
 	}
-	
+	public static WebElement appliedCol( )		
+	{
+		clients = getDriver().findElement(By.xpath("(//div[@class='cell-content total-click pointer-cursor ng-star-inserted'])[2]"));
+		return clients;
+	}
 	public static WebElement ExpiredCol( )		
 	{
 		clients = getDriver().findElement(By.xpath("(//div[@class='cell-content total-click pointer-cursor ng-star-inserted'])[3]"));
@@ -1874,6 +1878,41 @@ public static WebElement clickLicense()		//Method for searching Username input
 		labour = getDriver().findElement(By.xpath("//span[normalize-space()='Abstracts']"));
 		return labour;
 	}
+	public static WebElement E_Liberary()	
+	{
+		labour = getDriver().findElement(By.xpath("//span[text()='E Library']"));
+		return labour;
+	}
+	public static WebElement minimum_Wages()	
+	{
+		labour = getDriver().findElement(By.xpath("//span[text()='Minimum Wages']"));
+		return labour;
+	}
+	public static WebElement listOfHolidays()	
+	{
+		labour = getDriver().findElement(By.xpath("//span[text()='List of Holidays']"));
+		return labour;
+	}
+	public static WebElement previousNotification()	
+	{
+		labour = getDriver().findElement(By.xpath("//button[normalize-space()='Previous Notifications']"));
+		return labour;
+	}
+	public static WebElement viewComparision()	
+	{
+		labour = getDriver().findElement(By.cssSelector("button[title='View Comparison']"));
+		return labour;
+	}
+	public static WebElement customBack()	//a[text()=' Download Original']
+	{
+		labour = getDriver().findElement(By.xpath("//span[@class='custom-icon-back']"));
+		return labour;
+	}
+	public static WebElement downloadOriginal()
+	{
+		labour = getDriver().findElement(By.xpath("//a[text()=' Download Original']"));
+		return labour;
+	}
 	public static WebElement clickVieqRegional()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("(//img[@alt='Icon e'])"));
@@ -2123,9 +2162,19 @@ public static WebElement clickLicense()		//Method for searching Username input
 		labour = getDriver().findElement(By.xpath("(//span[@class='k-input-value-text'])[2]"));
 		return labour;
 	}
-	public static WebElement PermissionSelectValue()	//Method for searching button for Save/Sign-in
+	public static WebElement PermissionSelectValue()
 	{
 		labour = getDriver().findElement(By.xpath("//ul[@class='k-list-ul']//li[2]"));
+		return labour;
+	}
+	public static WebElement permissionViewDownload()
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='View & Download']"));
+		return labour;
+	}
+	public static WebElement permissionFullControl()
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='Full Control']"));
 		return labour;
 	}
 	
@@ -2134,7 +2183,7 @@ public static WebElement clickLicense()		//Method for searching Username input
 		labour = getDriver().findElement(By.xpath("//span[@class='k-input-inner k-readonly']"));
 		return labour;
 	}
-	public static WebElement Done()	//Method for searching button for Save/Sign-in
+	public static WebElement Done()
 	{
 		labour = getDriver().findElement(By.xpath("//button[@class='figma-btn-blue ng-star-inserted']"));
 		return labour;

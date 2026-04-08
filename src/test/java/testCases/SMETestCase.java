@@ -20,6 +20,7 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import coordinator.CoordinatorMethod;
 import login.BasePage;
+import sdexecutor.Method;
 import sme.Methods;
 
 public class SMETestCase extends BasePage
@@ -147,18 +148,61 @@ public class SMETestCase extends BasePage
 		extent.flush();
 
 	}
-@Test(priority = 8)
-	void NoticeEditDownload() throws InterruptedException, IOException, EncryptedDocumentException, AWTException
-	{
+
+	@Test(priority = 8)
+	void NoticeEditDownload() throws InterruptedException, IOException, EncryptedDocumentException, AWTException {
 		test = extent.startTest("Notices -Edit and download button verification");
-		
-		
+
 		Methods.NoticeEditDownload(test);
+
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 8)
+	void noticeSMEResponseTranslationReq() throws InterruptedException, IOException, EncryptedDocumentException, AWTException {
+		test = extent.startTest("Notices - Edit - Verify SME Response - Translation Required works correctly");
+
+		Methods.noticeSMEResponseTranslationReq(test);
+
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 9)
+	void noticeSMEResponseExtensionApplication() throws InterruptedException, IOException, EncryptedDocumentException, AWTException {
+		
+		test = extent.startTest("Notices - Edit - Verify SME Response - Extension Application works correctly");
+		Methods.noticeSMEResponseExtensionApplication(test);
+
+		test = extent.startTest("Notices - Edit - Verify SME Response - Notice Response works correctly");
+		Methods.noticeSMEResponseNoticeResponse(test);
 		
 		extent.endTest(test);
 		extent.flush();
-
 	}
+	
+	@Test(priority = 10)
+	void noticeDocumentSectionDownloads() throws InterruptedException, IOException, EncryptedDocumentException, AWTException {
+		test = extent.startTest("Notices - Edit - Verify Document Section - Document Repository all downloads works correctly");
+
+		Methods.noticeDocumentSectionDownloads(test);
+
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 11)//NEW TC NEW TC
+	void doSectionDocReqSDEx() throws Exception {
+		test = extent.startTest("Notices - Edit - Verify Document Section - Document Repository - Document Requirements for the Notice works correctly");
+
+		Method.doSectionDocReqSDEx(test);
+
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	
 
 	@AfterMethod
 	void close() {

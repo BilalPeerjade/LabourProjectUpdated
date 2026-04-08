@@ -217,7 +217,7 @@ import businessTestCases.FilePath;
 
 		if (browser.contains("chrome")) {
 //					System.setProperty("webdriver.chrome.driver", "D:\\Labour Angular\\LabourMergeProject\\LabourMergeProject\\chromedriver.exe");
-					System.setProperty("webdriver.chrome.driver", "C:\\Users\\bilali\\.cache\\selenium\\chromedriver\\win64\\144.0.7559.96\\chromedriver.exe");
+					System.setProperty("webdriver.chrome.driver", "C:\\Users\\bilali\\.cache\\selenium\\chromedriver\\win64\\146.0.7680.165\\chromedriver.exe");
 					//WebDriverManager.chromedriver().setup();
 					ChromeOptions options = new ChromeOptions();
 					options.addArguments("--remote-allow-origins=*");
@@ -294,7 +294,7 @@ import businessTestCases.FilePath;
         }
         
         if (browser.toLowerCase().contains("chromeTTTTTTT")) {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\bilali\\.cache\\selenium\\chromedriver\\win64\\144.0.7559.96\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\bilali\\.cache\\selenium\\chromedriver\\win64\\146.0.7680.165\\chromedriver.exe");
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-blink-features=AutomationControlled");
@@ -349,7 +349,7 @@ import businessTestCases.FilePath;
 	
 	private void openBrower1(int no) throws IOException, InterruptedException {
 		
-	    System.setProperty("webdriver.chrome.driver", "C:\\Users\\bilali\\.cache\\selenium\\chromedriver\\win64\\144.0.7559.96\\chromedriver.exe");
+	    System.setProperty("webdriver.chrome.driver", "C:\\Users\\bilali\\.cache\\selenium\\chromedriver\\win64\\146.0.7680.165\\chromedriver.exe");
 	    
 	    ChromeOptions options = new ChromeOptions();
 	    options.addArguments("--remote-allow-origins=*");

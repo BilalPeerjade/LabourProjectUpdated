@@ -707,8 +707,6 @@ public class Method extends BasePage
 	 public static void noticeResponse(ExtentTest test) throws Exception
 	 {
 
-	 	
-	 	JavascriptExecutor js = (JavascriptExecutor) getDriver();	
 	 	Thread.sleep(7000);
 	 	getDriver().findElement(By.xpath("//span[normalize-space()='Submission Pending']")).click();
 	 	Thread.sleep(4000);
@@ -723,11 +721,6 @@ public class Method extends BasePage
 	 	else {
 	 		test.log(LogStatus.FAIL, "Notice Response label bar is not opened");
 	 	}
-	 	
-
-	 	
-	 	
-	 	
 	 	
 		Thread.sleep(6000);
 		Locator.clickSubmit().click();
@@ -896,6 +889,8 @@ public class Method extends BasePage
 	 {
 			Thread.sleep(5000);
 			Thread.sleep(5000);
+			CoordinatorLocator.noticesModule().click();
+			Thread.sleep(8000);
 			CoordinatorLocator.EditBtn().click();
 			Thread.sleep(5000);
 			getDriver().findElement(By.xpath("//a[normalize-space()='Document Section']")).click();
@@ -1664,102 +1659,6 @@ public class Method extends BasePage
 
 		}
 	 
-	 public static void DeleteButton(ExtentTest test) throws InterruptedException
-		{
-
-	 	 getDriver().navigate().refresh();
-			
-			JavascriptExecutor js = (JavascriptExecutor) getDriver();
-		
-			Thread.sleep(3000);
-			Locator.clickRegistration().click();
-			
-			
-			Thread.sleep(3000);
-			String item = Locator.readTotalItems().getText();
- 		String[] bits = item.split(" ");								//Splitting the String
- 		if(bits.length > 2)
- 		{
- 			Thread.sleep(2000);
- 			item = Locator.readTotalItems().getText();
- 			bits = item.split(" ");								//Splitting the String
- 		}
- 		String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
- 		if(compliancesCount.equalsIgnoreCase("to"))
- 		{
- 			Thread.sleep(2000);
- 			item = Locator.readTotalItems().getText();
- 			bits = item.split(" ");									//Splitting the String
- 			compliancesCount = bits[bits.length - 2];
- 		}
- 		int count = Integer.parseInt(compliancesCount);
- 			
-			Thread.sleep(2000);
-			Locator.clickDelete().click();
-			
-			Thread.sleep(2000);
-			String msg=Locator.clickDeleteMsg().getText();
-			
-			 if(msg.equalsIgnoreCase("Are you sure you want to delete this License?"))
-			 {
-				 test.log(LogStatus.PASS, "Message displayed = "+msg);
-				 
-			 }
-			 else
-			 {
-				 test.log(LogStatus.FAIL, "Message displayed = "+msg);
-			 }
-			 Thread.sleep(1000);
-				Locator.clickOkBtn().click();
-				
-//				Thread.sleep(2000);
-//				String msg1=Locator.deleteMsg1().getText();
-//				
-//				 if(msg1.equalsIgnoreCase("Record deleted succesfully"))
-//				 {
-//					 test.log(LogStatus.PASS, "Message displayed = "+msg1);
-//					 
-//				 }
-//				 else
-//				 {
-//					 test.log(LogStatus.FAIL, "Message displayed = "+msg1);
-//				 }
-				 
-//				 Thread.sleep(1000);
-//				Locator.clickOkBtn().click();
-				
-				Thread.sleep(1000);
- 			Locator.readTotalItems().click();
- 			String item1 = Locator.readTotalItems().getText();
- 			String[] bits1 = item1.split(" ");								//Splitting the String
- 			
- 			if(bits1.length > 2)
- 			{
- 				Thread.sleep(2000);
- 				item1 = Locator.readTotalItems().getText();
- 				bits1 = item1.split(" ");								//Splitting the String
- 			}
- 			String compliancesCount1 = bits1[bits1.length - 2];				//Getting the second last word (total number of users)
- 			
- 			if(compliancesCount1.equalsIgnoreCase("to"))
- 			{
- 				Thread.sleep(2000);
- 				item1 = Locator.readTotalItems().getText();
- 				bits1 = item1.split(" ");									//Splitting the String
- 				compliancesCount1 = bits1[bits1.length - 2];
- 			}
- 			int count1 = Integer.parseInt(compliancesCount1);
- 			if(count > count1)
- 				{
- 				
- 					test.log(LogStatus.PASS, "Before delete License count = "+count+" | After delete License count = "+count1);
- 				}
- 				else
- 				{
- 					test.log(LogStatus.FAIL, "Before delete License  count= "+count+" | After delete License count  = "+count1);
- 				}
-			
-		}
 	 
 	 public static void ExistingLicenseCountMatch( ExtentTest test,String Notice) throws InterruptedException, IOException
 		{
@@ -2111,37 +2010,12 @@ public class Method extends BasePage
 		}
 
 	 
-	 public static void DeleteCancelButton(ExtentTest test) throws InterruptedException
-		{
-
-	 	 getDriver().navigate().refresh();
-			JavascriptExecutor js = (JavascriptExecutor) getDriver();
-		
-			Thread.sleep(3000);
-			Locator.clickRegistration().click();
-			
-			Thread.sleep(3000);
-			Locator.clickDelete().click();
-			
-			if(Locator.clickCancelBtn().isEnabled())
-			{
-				Thread.sleep(3000);
-				Locator.clickCancelBtn().click();
-				test.log(LogStatus.PASS, "Cancel button is clickable");
-			}
-			else
-			{
-				test.log(LogStatus.FAIL, "Cancel button is clickable");
-			}
-			
-		}
 	 
 	 
 	 public static void StatutoryDocument(ExtentTest test) throws InterruptedException
 	 {
 		 getDriver().navigate().refresh();
 		 Thread.sleep(10000);
-		 JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		 
 		 Locator.StatutoryDocumentButton().click();
 		 Thread.sleep(3000);

@@ -106,8 +106,11 @@ public class TC2 extends BasePage {
 	void StaturyDocPF_Basic_EPFwagesMatching() throws InterruptedException, IOException, AWTException
 	{
 		test = extent.startTest("PT Challan - Validate Employee IDs are reflecting correctly");
-		
 		PT_Methods.Challan_PT_ValidateEmployeeID(test,"Performer");
+		
+		
+		test = extent.startTest("PT Challan - PT GROSS Wages");
+		PT_Methods.TestColar(test, "");
 		
 		extent.endTest(test);
 		extent.flush();

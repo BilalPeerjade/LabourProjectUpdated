@@ -77,6 +77,7 @@ public class All_Distributor_TWO extends BasePage {
 	}
 
 
+
 	@Test(priority = 1) //Bilal
 	void CompanyLogo() throws InterruptedException, IOException
 	{
@@ -205,6 +206,7 @@ public class All_Distributor_TWO extends BasePage {
 			extent.endTest(test);
 			extent.flush();
 		}
+		
 		@Test(priority = 53)
 		void UpcomingBox() throws InterruptedException, IOException
 		{
@@ -226,6 +228,17 @@ public class All_Distributor_TWO extends BasePage {
 			extent.endTest(test);
 			extent.flush();
 		}
+		@Test(priority = 54)//NEW TC NEW TC
+		void compliancesCount() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Upcoming Box count verification with categorised upcoming");
+			
+			MethodsD.compliancesCount(test,"Distributor", "TESTAUTO2");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
 		
 		@Test(priority = 55)
 		void OverdueBox() throws InterruptedException, IOException
@@ -245,6 +258,17 @@ public class All_Distributor_TWO extends BasePage {
 			
 		//	All_Distributor_Methods.OverdueFilter(test,"Distributor");
 			MethodsD.OverdueFilter(test,"Distributor");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		@Test(priority = 56)//NEW TC NEW TC
+		void compliancesOverdueCount() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Overdue Box count verification with categorised overdues");
+			
+			MethodsD.compliancesOverdueCount(test,"Distributor", "TESTAUTO2");
 			
 			extent.endTest(test);
 			extent.flush();
@@ -273,6 +297,16 @@ public class All_Distributor_TWO extends BasePage {
 			extent.flush();
 		}
 		
+//		@Test(priority = 58)//NEW TC NEW TC
+		void pendingActionAndReviewCount() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Overdue Box count verification with categorised overdues");
+			
+			MethodsD.pendingActionAndReviewCount(test,"Distributor", "AVAHRTEC");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
 		@Test(priority = 59)
 		void PendingReviewBox() throws InterruptedException, IOException
 		{
@@ -666,7 +700,7 @@ public class All_Distributor_TWO extends BasePage {
 		}
 		
 		
-/**
+	
 
 		//Part 2
 
@@ -684,7 +718,7 @@ public class All_Distributor_TWO extends BasePage {
 	   		extent.flush();
 	   	}
 		
-		@Test(priority = 100) 
+		@Test(priority = 101) 
 	   	void stateCityExportMapping() throws InterruptedException, IOException
 	   	{
 	   		test = extent.startTest("Manage Master - State City - Verify to check export mapping buttons working or not");
@@ -694,7 +728,7 @@ public class All_Distributor_TWO extends BasePage {
 	   		extent.endTest(test);
 	   		extent.flush();
 	   	}
-		@Test(priority = 100) 
+		@Test(priority = 102) 
 	   	void stateCityExport() throws InterruptedException, IOException
 	   	{
 	   		test = extent.startTest("Manage Master - State City - Verify to check export mapping buttons working or not");
@@ -704,7 +738,7 @@ public class All_Distributor_TWO extends BasePage {
 	   		extent.endTest(test);
 	   		extent.flush();
 	   	}
-		@Test(priority = 100) 
+		@Test(priority = 103) 
 	   	void authorityAddressUpload() throws InterruptedException, IOException
 	   	{
 	   		test = extent.startTest("Manage Master - State City - Verify to check Authority address upload working or not");
@@ -715,7 +749,7 @@ public class All_Distributor_TWO extends BasePage {
 	   		extent.flush();
 	   	}
 		
-		@Test(priority = 101) //Bilal
+		@Test(priority = 104) //Bilal
 	   	void StateCityAddressMapping() throws Exception
 	   	{
 	   		test = extent.startTest("Manage Master - State City - Verify to check address mapping button is working or not?");
@@ -725,7 +759,7 @@ public class All_Distributor_TWO extends BasePage {
 	   		extent.endTest(test);
 	   		extent.flush();
 	   	}
-		@Test(priority = 102) //Bilal
+		@Test(priority = 105) //Bilal
 	   	void StateCityAddNewPopUp() throws Exception
 	   	{
 	   		test = extent.startTest("Manage Master - State City - Verify to check add new popup is working correctly");
@@ -735,7 +769,7 @@ public class All_Distributor_TWO extends BasePage {
 	   		extent.endTest(test);
 	   		extent.flush();
 	   	}
-//		@Test(priority = 103) // Hide functionality
+//		@Test(priority = 106) // Hide functionality
 	   	void StateCitySealANDSignatureInvalid() throws Exception
 	   	{
 	   		test = extent.startTest("Manage Master - State City - Verify to check error without file selection and upload more than 4 kb file in seal and signature upload ");
@@ -751,7 +785,7 @@ public class All_Distributor_TWO extends BasePage {
 		
 		
 		
-		@Test(priority = 109) 
+		@Test(priority = 107) 
 	   	void DesignationSearch() throws InterruptedException, IOException
 	   	{
             test = extent.startTest("Manage Master - Designation - Verify to check Search/Select Designation dropdown is working or not");
@@ -805,7 +839,7 @@ public class All_Distributor_TWO extends BasePage {
 	   		extent.endTest(test);
 	   		extent.flush();
 	   	}
-		@Test(priority = 118) 
+		@Test(priority = 119) 
 	   	void leaveTypeExport() throws InterruptedException, IOException
 	   	{
 	   		test = extent.startTest("Manage Master - Leave Type - Verify to check Export button working or not");
@@ -926,7 +960,7 @@ public class All_Distributor_TWO extends BasePage {
 			extent.flush();
 		}
 		
-		@Test(priority = 140) 
+		@Test(priority = 141) 
 		void addNeDigitalSignature() throws InterruptedException, IOException, AWTException
 		{
 			test = extent.startTest("My document - Digital Signature - Verify to add new - New Digital Signature is adding or not");
@@ -936,7 +970,7 @@ public class All_Distributor_TWO extends BasePage {
 			extent.endTest(test);
 			extent.flush();
 		}
-		@Test(priority = 140) 
+		@Test(priority = 142) 
 		void addNewExistingDigitalSignature() throws InterruptedException, IOException, AWTException
 		{
 			test = extent.startTest("My document - Digital Signature - Verify to add new - Existing Digital Signature is adding or not");
@@ -946,7 +980,7 @@ public class All_Distributor_TWO extends BasePage {
 			extent.endTest(test);
 			extent.flush();
 		}
-		@Test(priority = 140) 
+		@Test(priority = 143) 
 		void effectiveDateFromToAddNew() throws InterruptedException, IOException, AWTException
 		{
 			test = extent.startTest("My document - Digital Signature - Verify to add new - check error messages to selecting effective from date is greater than effective to date ");
@@ -957,7 +991,7 @@ public class All_Distributor_TWO extends BasePage {
 			extent.flush();
 		}
 		
-		@Test(priority = 140) 
+		@Test(priority = 144) 
 		void digitalSignatureEdit() throws InterruptedException, IOException, AWTException
 		{
 			test = extent.startTest("My document - Digital Signature - Verify to check edit button working or not");
@@ -967,7 +1001,7 @@ public class All_Distributor_TWO extends BasePage {
 			extent.endTest(test);
 			extent.flush();
 		}
-		@Test(priority = 140) 
+		@Test(priority = 145) 
 		void effectiveDateFromToEdit() throws InterruptedException, IOException, AWTException
 		{
 			test = extent.startTest("My document - Digital Signature - Verify to edit - check error messages to selecting effective from date is greater than effective to date ");
@@ -1548,7 +1582,7 @@ public class All_Distributor_TWO extends BasePage {
 	   	}
 	    
 	    
-		@Test(priority = 236) 
+		@Test(priority = 352) 
 	   	void CLRAbulkCompReassignment() throws InterruptedException, IOException
 	   	{
 	   		test = extent.startTest("OnBoard CLRA - Manage Compliance - Bulk Compliance Reassignment - Verify validation message");
@@ -1558,7 +1592,7 @@ public class All_Distributor_TWO extends BasePage {
 	   		extent.endTest(test);
 	   		extent.flush();
 	   	}
-	    @Test(priority = 352)
+	    @Test(priority = 353)
 	   	void CLRA_ManageComp_ScneduleCreation() throws InterruptedException, IOException
 	   	{
 	   		test = extent.startTest("OnBoard CLRA - Manage Compliances - Schedule creation verification");
@@ -1569,7 +1603,7 @@ public class All_Distributor_TWO extends BasePage {
 	   		extent.flush();
 	   	}
 	    
-		@Test(priority = 353) 
+		@Test(priority = 354) 
 	   	void CLRAcheduleCreationValidation() throws InterruptedException, IOException
 	   	{
 	   		test = extent.startTest("OnBoard CLRA - Manage Compliance - Schedule creation - validation verification");
@@ -1580,7 +1614,7 @@ public class All_Distributor_TWO extends BasePage {
 	   		extent.flush();
 	   	}
 		
-		@Test(priority = 355) 
+		@Test(priority = 356) 
 	   	void CLRA_ManageComp_ScheduleRemoval() throws InterruptedException, IOException
 	   	{
 	   		test = extent.startTest("OnBoard CLRA - Manage Compliance - Schedule removal - verification");
@@ -1605,7 +1639,7 @@ public class All_Distributor_TWO extends BasePage {
 			extent.flush();
 		}
 		
-		@Test(priority = 400) 
+		@Test(priority = 401) 
 		void assignmentReportsRegister() throws InterruptedException, IOException
 		{
 			test = extent.startTest("My Report - Compliance Assignment Report - Verify to check Registers compliance exports correctly");
@@ -1615,7 +1649,7 @@ public class All_Distributor_TWO extends BasePage {
 			extent.endTest(test);
 			extent.flush();
 		}
-		@Test(priority = 400) 
+		@Test(priority = 402) 
 		void assignmentReportsReturn() throws InterruptedException, IOException
 		{
 			test = extent.startTest("My Report - Compliance Assignment Report - Verify to check Returns compliance exports correctly");
@@ -1625,7 +1659,7 @@ public class All_Distributor_TWO extends BasePage {
 			extent.endTest(test);
 			extent.flush();
 		}
-		@Test(priority = 400) 
+		@Test(priority = 403) 
 		void assignmentReportsChallan() throws InterruptedException, IOException
 		{
 			test = extent.startTest("My Report - Compliance Assignment Report - Verify to check Challans compliance exports correctly");
@@ -1636,7 +1670,7 @@ public class All_Distributor_TWO extends BasePage {
 			extent.flush();
 		}
 		
-		@Test(priority = 401)
+		@Test(priority = 404)
 		void StatusReport() throws InterruptedException, IOException
 		{
 			test = extent.startTest("My Report - Status Report ");
@@ -1647,7 +1681,7 @@ public class All_Distributor_TWO extends BasePage {
 			extent.flush();
 		}
 		
-		@Test(priority = 402)
+		@Test(priority = 405)
 		void VariousReport() throws InterruptedException, IOException
 		{
 			test = extent.startTest("My Report - Various Report ");
@@ -1658,7 +1692,7 @@ public class All_Distributor_TWO extends BasePage {
 			extent.flush();
 		}
 		
-		@Test(priority = 403) 
+		@Test(priority = 406) 
 		void clraAssignmentReport() throws InterruptedException, IOException
 		{
 			test = extent.startTest("My Report - CLRA Assignment Report");
@@ -1674,7 +1708,7 @@ public class All_Distributor_TWO extends BasePage {
 	
 	
 	
-*/
+
 
 
 	   

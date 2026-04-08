@@ -1882,7 +1882,7 @@ else
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.SelectPeriodDashboard()));
 		LoginLocators.SelectPeriodDashboard().click();
 		Thread.sleep(2000);
-		LoginLocators.SelectPeriodValue1().click();
+		LoginLocators.SelectPeriodValue2026().click();
 		Thread.sleep(9000);
 	int open = Integer.parseInt(LoginLocators.UpcomingBox().getText());	//Reading Dashboard count.
 	LoginLocators.UpcomingBox().click();					                //Clicking on Dashboard count
@@ -2446,7 +2446,7 @@ else {
 		
 		LoginLocators.SelectPeriodDashboard().click();
 		Thread.sleep(2000);
-		LoginLocators.SelectPeriodValue1().click();
+		LoginLocators.SelectPeriodValue2026().click();
 		Thread.sleep(9000);
 	int open = Integer.parseInt(LoginLocators.RegisterUpcoming().getText());	//Reading Dashboard count.
 	LoginLocators.RegisterUpcoming().click();					                //Clicking on Dashboard count
@@ -2872,7 +2872,7 @@ else {
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.SelectPeriodDashboard()));
 		LoginLocators.SelectPeriodDashboard().click();
 		Thread.sleep(2000);
-		LoginLocators.SelectPeriodValue1().click();
+		LoginLocators.SelectPeriodValue2026().click();
 		Thread.sleep(2000);
 	int open = Integer.parseInt(LoginLocators.ReturnUpcoming().getText());	//Reading Dashboard count.
 	LoginLocators.ReturnUpcoming().click();					                //Clicking on Dashboard count
@@ -3440,7 +3440,7 @@ else {
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.SelectPeriodDashboard()));
 		LoginLocators.SelectPeriodDashboard().click();
 		Thread.sleep(2000);
-		LoginLocators.SelectPeriodValue1().click();
+		LoginLocators.SelectPeriodValue2026().click();
 		Thread.sleep(5000);
 	int open = Integer.parseInt(LoginLocators.ChallanUpcoming().getText());	//Reading Dashboard count.
 	LoginLocators.ChallanUpcoming().click();					                //Clicking on Dashboard count
@@ -4864,6 +4864,200 @@ else {
 		
 	}
 	
+	public static void selectYear(ExtentTest test,String value) throws InterruptedException
+	{
+		Thread.sleep(1000);
+		OneCommonMethod.scroll(getDriver(), -10000);
+		LoginLocators.SelectPeriodDashboard().click();
+		Thread.sleep(4000);
+		WebElement selectDropdown = getDriver().findElement(By.xpath("//span[text()='" + value + "']"));
+		Thread.sleep(500);
+		selectDropdown.click();
+		Thread.sleep(5000);	
+	}
+	
+	public static void compliancesCount(ExtentTest test,String user, String Entity) throws InterruptedException
+	{
+		Thread.sleep(5000);	
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),Entity);
+		Thread.sleep(2000);
+		LoginLocators.DashboardArrow().click();
+		Thread.sleep(15000);
+
+		selectYear(test, "Current Month");
+				
+		DashboardCounts.upcomingCountValidation(test,
+		DashboardCounts.upcomingMain(),
+		DashboardCounts.upcomingRegisters(),
+		DashboardCounts.upcomingReturns(),
+		DashboardCounts.upcomingChallans(),
+		"Dashboard → Upcoming count validation <b><font color='red'> Current Month </font></b>");
+		
+		selectYear(test, "Previous Month");
+		DashboardCounts.upcomingCountValidation(test,
+		DashboardCounts.upcomingMain(),
+		DashboardCounts.upcomingRegisters(),
+		DashboardCounts.upcomingReturns(),
+		DashboardCounts.upcomingChallans(),
+		"Dashboard → Upcoming count validation <b><font color='red'> Previous Month </font></b> ");
+		
+		selectYear(test, "2027");
+		DashboardCounts.upcomingCountValidation(test,
+		DashboardCounts.upcomingMain(),
+		DashboardCounts.upcomingRegisters(),
+		DashboardCounts.upcomingReturns(),
+		DashboardCounts.upcomingChallans(),
+		"Dashboard → Upcoming count validation <b><font color='red'> 2027 year </font></b> ");
+		
+		selectYear(test, "2026");
+		DashboardCounts.upcomingCountValidation(test,
+		DashboardCounts.upcomingMain(),
+		DashboardCounts.upcomingRegisters(),
+		DashboardCounts.upcomingReturns(),
+		DashboardCounts.upcomingChallans(),
+		"Dashboard → Upcoming count validation <b><font color='red'> 2026 year </font></b> ");
+		
+		selectYear(test, "2025");
+		DashboardCounts.upcomingCountValidation(test,
+		DashboardCounts.upcomingMain(),
+		DashboardCounts.upcomingRegisters(),
+		DashboardCounts.upcomingReturns(),
+		DashboardCounts.upcomingChallans(),
+		"Dashboard → Upcoming count validation <b><font color='red'> 2025 year </font></b> ");
+		
+		selectYear(test, "2024");
+		DashboardCounts.upcomingCountValidation(test,
+		DashboardCounts.upcomingMain(),
+		DashboardCounts.upcomingRegisters(),
+		DashboardCounts.upcomingReturns(),
+		DashboardCounts.upcomingChallans(),
+		"Dashboard → Upcoming count validation <b><font color='red'> 2024 year </font></b> ");
+		
+	}
+	
+	public static void compliancesOverdueCount(ExtentTest test,String user, String Entity) throws InterruptedException
+	{
+		Thread.sleep(5000);	
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),Entity);
+		Thread.sleep(2000);
+		LoginLocators.DashboardArrow().click();
+		Thread.sleep(15000);
+		
+		selectYear(test, "Current Month");
+		
+		DashboardCounts.overdueCountValidation(test,
+		DashboardCounts.overdueMain(),
+		DashboardCounts.overdueRegisters(),
+		DashboardCounts.overdueReturns(),
+		DashboardCounts.overdueChallans(),
+		"Dashboard → Overdue count validation <b><font color='red'> Current Month </font></b>");
+		
+		//
+		selectYear(test, "Previous Month");
+		DashboardCounts.overdueCountValidation(test,
+		DashboardCounts.overdueMain(),
+		DashboardCounts.overdueRegisters(),
+		DashboardCounts.overdueReturns(),
+		DashboardCounts.overdueChallans(),
+		"Dashboard → Overdue count validation <b><font color='red'> Previous Month </font></b> ");
+		
+		selectYear(test, "2027");
+		DashboardCounts.overdueCountValidation(test,
+		DashboardCounts.overdueMain(),
+		DashboardCounts.overdueRegisters(),
+		DashboardCounts.overdueReturns(),
+		DashboardCounts.overdueChallans(),
+		"Dashboard → Overdue count validation <b><font color='red'> 2027 year </font></b> ");
+		
+		selectYear(test, "2026");
+		DashboardCounts.overdueCountValidation(test,
+		DashboardCounts.overdueMain(),
+		DashboardCounts.overdueRegisters(),
+		DashboardCounts.overdueReturns(),
+		DashboardCounts.overdueChallans(),
+		"Dashboard → Overdue count validation <b><font color='red'> 2026 year </font></b> ");
+		
+		selectYear(test, "2025");
+		DashboardCounts.overdueCountValidation(test,
+		DashboardCounts.overdueMain(),
+		DashboardCounts.overdueRegisters(),
+		DashboardCounts.overdueReturns(),
+		DashboardCounts.overdueChallans(),
+		"Dashboard → Overdue count validation <b><font color='red'> 2025 year </font></b> ");
+		
+		selectYear(test, "2024");
+		DashboardCounts.overdueCountValidation(test,
+		DashboardCounts.overdueMain(),
+		DashboardCounts.overdueRegisters(),
+		DashboardCounts.overdueReturns(),
+		DashboardCounts.overdueChallans(),
+		"Dashboard → Overdue count validation <b><font color='red'> 2024 year </font></b> ");
+	}
+	
+	public static void pendingActionAndReviewCount(ExtentTest test,String user, String Entity) throws InterruptedException
+	{
+		Thread.sleep(5000);	
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),Entity);
+		Thread.sleep(2000);
+		LoginLocators.DashboardArrow().click();
+		Thread.sleep(15000);
+		
+		selectYear(test, "Current Month");
+		
+		DashboardCounts.pendingActionAndReviewCount(test,
+		DashboardCounts.pendingActionMain(),
+		DashboardCounts.pendingReviewMain(),
+		DashboardCounts.actionRegisters(),
+		DashboardCounts.actionReturns(),
+		DashboardCounts.actionChallans(),
+		"Dashboard → Pending Action & Pending Review count validation <b><font color='red'> Current Month </font></b>");
+		
+		//
+		selectYear(test, "Previous Month");
+		DashboardCounts.pendingActionAndReviewCount(test,
+		DashboardCounts.pendingActionMain(),
+		DashboardCounts.pendingReviewMain(),
+		DashboardCounts.actionRegisters(),
+		DashboardCounts.actionReturns(),
+		DashboardCounts.actionChallans(),
+		"Dashboard → Pending Action & Pending Review count validation <b><font color='red'> Previous Month </font></b> ");
+		
+		selectYear(test, "2027");
+		DashboardCounts.pendingActionAndReviewCount(test,
+		DashboardCounts.pendingActionMain(),
+		DashboardCounts.pendingReviewMain(),
+		DashboardCounts.actionRegisters(),
+		DashboardCounts.actionReturns(),
+		DashboardCounts.actionChallans(),
+		"Dashboard → Pending Action & Pending Review count validation <b><font color='red'> 2027 year </font></b> ");
+		
+		selectYear(test, "2026");
+		DashboardCounts.pendingActionAndReviewCount(test,
+		DashboardCounts.pendingActionMain(),
+		DashboardCounts.pendingReviewMain(),
+		DashboardCounts.actionRegisters(),
+		DashboardCounts.actionReturns(),
+		DashboardCounts.actionChallans(),
+		"Dashboard → Pending Action & Pending Review count validation <b><font color='red'> 2026 year </font></b> ");
+		
+		selectYear(test, "2025");
+		DashboardCounts.pendingActionAndReviewCount(test,
+		DashboardCounts.pendingActionMain(),
+		DashboardCounts.pendingReviewMain(),
+		DashboardCounts.actionRegisters(),
+		DashboardCounts.actionReturns(),
+		DashboardCounts.actionChallans(),
+		"Dashboard → Pending Action & Pending Review count validation <b><font color='red'> 2025 year </font></b> ");
+		
+		selectYear(test, "2024");
+		DashboardCounts.pendingActionAndReviewCount(test,
+		DashboardCounts.pendingActionMain(),
+		DashboardCounts.pendingReviewMain(),
+		DashboardCounts.actionRegisters(),
+		DashboardCounts.actionReturns(),
+		DashboardCounts.actionChallans(),
+		"Dashboard → Pending Action & Pending Review count validation <b><font color='red'> 2024 year </font></b> ");
+	}
 	
 	public static void ComplianceFilter1( ExtentTest test,String user) throws InterruptedException
 	{
@@ -5055,7 +5249,7 @@ else {
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.SelectPeriodDashboard()));
 		LoginLocators.SelectPeriodDashboard().click();
 		Thread.sleep(5000);
-		LoginLocators.SelectPeriodValue1().click();
+		LoginLocators.SelectPeriodValue2026().click();
 		Thread.sleep(9000);
 		LoginLocators.UpcomingBox().click();				                
         Thread.sleep(6000);
@@ -5911,7 +6105,7 @@ else {
 		wait.until(ExpectedConditions.visibilityOf(LoginLocators.SelectPeriodDashboard()));
 		LoginLocators.SelectPeriodDashboard().click();
 		Thread.sleep(5000);
-		LoginLocators.SelectPeriodValue1().click();
+		LoginLocators.SelectPeriodValue2026().click();
 		Thread.sleep(9000);
 		LoginLocators.RegisterUpcoming().click();				                
         Thread.sleep(2000);
@@ -9551,7 +9745,8 @@ else {
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
 		{
-			LoginLocators.Search().sendKeys("AVAHRTEC");	
+			LoginLocators.Search().sendKeys("AVAHRTEC");
+			OneCommonMethod.searchEntityAndSelect(driver.get(), test, LoginLocators.Search(), "AVAHRTEC");
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
 		{
@@ -9700,7 +9895,8 @@ else {
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
 		{
-			LoginLocators.Search().sendKeys("AVAHRTEC");	
+			LoginLocators.Search().sendKeys("AVAHRTEC");
+			OneCommonMethod.searchEntityAndSelect(driver.get(), test, LoginLocators.Search(), "AVAHRTEC");
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
 		{
@@ -9834,6 +10030,7 @@ else {
 		{
 			Thread.sleep(5000);
 			LoginLocators.Search().sendKeys("AVAHRTEC");	
+			OneCommonMethod.searchEntityAndSelect(driver.get(), test, LoginLocators.Search(), "AVAHRTEC");
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
 		{
@@ -9923,6 +10120,7 @@ else {
 		else if(user.equalsIgnoreCase("Distributor"))
 		{
 			LoginLocators.Search().sendKeys("AVAHRTEC");	
+			OneCommonMethod.searchEntityAndSelect(driver.get(), test, LoginLocators.Search(), "AVAHRTEC");
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
 		{
@@ -10085,22 +10283,21 @@ else {
 		if(user.equalsIgnoreCase("Performer"))
 		{
 			LoginLocators.Search().sendKeys("TESTAUTO2");
+			LoginLocators.DashboardArrow().click();
 		}
 		else if(user.equalsIgnoreCase("Distributor"))
 		{
 			LoginLocators.Search().sendKeys("TESTAUTO2");	
 			wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
-			LoginLocators.DashboardArrow().click();
+			DistributerLocators.clickPremiseMasterArrow().click();
 		}
 		else if(user.equalsIgnoreCase("Reviewer"))
 		{
 			LoginLocators.Search().sendKeys("AVAHRTEC");	
+			LoginLocators.DashboardArrow().click();
 		}
 		
 		
-		Thread.sleep(5000);
-		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
-		LoginLocators.DashboardArrow().click();
 		Thread.sleep(9000);
 		LoginLocators.Report().click();
 		Thread.sleep(2000);
@@ -13681,6 +13878,658 @@ else {
 
 		
 	}
+	
+	public static void ER1Returns( ExtentTest test, String user) throws Exception
+	{
+	
+		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(7000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+		if(user.equalsIgnoreCase("Performer"))
+		{
+			LoginLocators.Search().sendKeys("TESTAUTO2");
+		}
+		else if(user.equalsIgnoreCase("Distributor"))
+		{
+			LoginLocators.Search().sendKeys("AVAHRTEC");	
+		}
+		else if(user.equalsIgnoreCase("Reviewer"))
+		{
+			LoginLocators.Search().sendKeys("AVAHRTEC");	
+		}
+		
+		Thread.sleep(2000);		
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+		LoginLocators.DashboardArrow().click();
+		Thread.sleep(9000);
+	
+		LoginLocators.workspace().click();//module
+		Thread.sleep(3000);
+		
+		LoginLocators.ReturnActivity().click();
+		Thread.sleep(3000);
+		
+		LoginLocators.ER1_Returns().click();
+		Thread.sleep(3000);
+		
+		LoginLocators.ER1_YearDropdown().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ER1_YearSelect().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ER1_QuarterDropdown().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ER1_QuarterSelect().click();
+		Thread.sleep(5000);		
+		
+		LoginLocators.ER1_ApplyButton().click();
+		Thread.sleep(5000);		
+		test.log(LogStatus.PASS,  "Apply button is working fine.");
+		
+	
+		test.log(LogStatus.PASS,  "All Filters are working fine.");
+		LoginLocators.ER1_Searchfield().sendKeys("AVAHRTEC");
+		Thread.sleep(5000);
+		test.log(LogStatus.PASS,  "Search field is working fine.");
+			
+		LoginLocators.ER1_TemplateDownload().click();
+		Thread.sleep(5000);
+		OneCommonMethod.validateFileDownloadDynamic(getDriver(), test, LoginLocators.ER1_TemplateDownload(), 
+				"ER1 Template downloaded successfully.");
+		
+//		File dir1 = new File("C:\\Users\\bilali\\Downloads");
+//		File[] allFilesNew = dir1.listFiles(); 
+//		Thread.sleep(5000);
+//		test.log(LogStatus.PASS,  "ER1 Template downloaded successfully.");
+				
+		
+		LoginLocators.ER1_GeneratedButton().click();
+		Thread.sleep(5000);
+		test.log(LogStatus.PASS, "ER1 Generate Button working fine.");
+		
+		LoginLocators.ER1_GeneratedButtonOk().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ER1_GeneratedBulkDownload().click();
+		Thread.sleep(5000);
+		OneCommonMethod.validateFileDownloadDynamic(getDriver(), test, LoginLocators.ER1_GeneratedBulkDownload(), 
+				"ER1 Returns Bulk downloaded successfully.");
+		
+//		File dir11 = new File("C:\\Users\\bilali\\Downloads");
+//		File[] allFilesNew1 = dir11.listFiles(); 
+//		Thread.sleep(5000);
+//		test.log(LogStatus.PASS,  "ER1 Returns Bulk downloaded successfully.");
+		
+		
+		LoginLocators.ER1_AcknowledgementDownload().click();
+		Thread.sleep(5000);
+		
+		OneCommonMethod.validateFileDownloadDynamic(getDriver(), test, LoginLocators.ER1_AcknowledgementDownload(), 
+				"ER1_Acknowledgement downloaded successfully.");
+		
+//		File dir12 = new File("C:\\Users\\bilali\\Downloads");
+//		File[] allFilesNew2 = dir12.listFiles(); 
+//		Thread.sleep(5000);
+//		test.log(LogStatus.PASS,  "ER1_Acknowledgement downloaded successfully."); 
+		
+
+		OneCommonMethod.setZoom(getDriver(), 70);
+		Thread.sleep(5000);
+		
+		LoginLocators.ER1_AcknowledgementBulkUpload().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ER1_AcknowledgementBulkUploadButton().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ER1_BulkUploadBrowse().click();
+		Thread.sleep(5000);
+		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\WorkSpace\\ER1\\2 Column Data Invalid File.xlsx");
+		
+		Thread.sleep(5000);
+		String msg = LoginLocators.ER1_BulkUploadErrorMessage().getText();
+
+		if (msg.equalsIgnoreCase("Please select .zip or .pdf file only."+ ""))
+		{
+			test.log(LogStatus.PASS, "While Uploading Invalid extension file , Error message displayed");
+			test.log(LogStatus.PASS, "Message displayed = " + msg);
+			
+		} 
+		else
+		{
+			test.log(LogStatus.FAIL, "Invalid Error message.");
+			test.log(LogStatus.FAIL, "Message displayed = " + msg);
+		}
+		LoginLocators.ER1_BulkUploadErrorOkPopUp().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ER1_BulkUploadPopUpClose().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ER1_BulkUploadBack().click();
+		Thread.sleep(5000);
+		Thread.sleep(5000);
+		
+		LoginLocators.ER1_Searchfield().sendKeys("AVAHRTEC");
+		Thread.sleep(5000);
+			
+//		Pending Acknowledgement Upload Section 	//
+
+		
+		LoginLocators.ER1_PendingACKUpload().click();
+		Thread.sleep(5000);
+		test.log(LogStatus.PASS,  "ER1_Pending Acknowledgement Upload button is clickable"); 
+		
+		OneCommonMethod.validateExportedExcelDYNAMIC(driver.get(),test,LoginLocators.Exportbtn(),
+	    LoginLocators.TotalNumberOfItems(),"Pending_Acknowledgement_Records","Pending Acknowledgement Records File Exported Successfully !");
+//		ER1_TotalNoOfItems
+		LoginLocators.ER1_SingleUpload().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ER1_SingleUploadApply().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ER1_BulkUpload().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ER1_BulkUploadBrowse().click();
+		Thread.sleep(5000);
+		OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\WorkSpace\\ER1\\2 Column Data Invalid File.xlsx");
+		
+		Thread.sleep(5000);
+		String msg2 = LoginLocators.ER1_BulkUploadErrorMessage().getText();
+
+		if (msg2.equalsIgnoreCase("Please select .zip or .pdf file only."+ ""))
+		{
+			test.log(LogStatus.PASS, "While Uploading Invalid extension file , Error message displayed");
+			test.log(LogStatus.PASS, "Message displayed = " + msg2);
+			
+		} 
+		else
+		{
+			test.log(LogStatus.FAIL, "Invalid Error message.");
+			test.log(LogStatus.FAIL, "Message displayed = " + msg2);
+		}
+		LoginLocators.ER1_BulkUploadErrorOkPopUp().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ER1_BulkUploadPopUpClose().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ER1_BulkUploadBack().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ER1_BulkUploadBack().click();
+		Thread.sleep(5000);
+		Thread.sleep(5000);
+					
+	}
+	
+	public static void ER1ACKUploadSection( ExtentTest test, String user) throws Exception
+	{
+	
+		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(7000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+		if(user.equalsIgnoreCase("Performer"))
+		{
+			LoginLocators.Search().sendKeys("TESTAUTO2");
+		}
+		else if(user.equalsIgnoreCase("Distributor"))
+		{
+			LoginLocators.Search().sendKeys("AVAHRTEC");	
+		}
+		else if(user.equalsIgnoreCase("Reviewer"))
+		{
+			LoginLocators.Search().sendKeys("AVAHRTEC");	
+		}
+		
+		Thread.sleep(2000);		
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+		LoginLocators.DashboardArrow().click();
+		Thread.sleep(9000);
+	
+		LoginLocators.workspace().click();
+		Thread.sleep(3000);
+		
+		LoginLocators.ReturnActivity().click();
+		Thread.sleep(3000);
+		
+		LoginLocators.ER1_Returns().click();
+		Thread.sleep(3000);
+		
+		LoginLocators.ER1_YearDropdown().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ER1_YearSelect().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ER1_QuarterDropdown().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ER1_QuarterSelect().click();
+		Thread.sleep(5000);		
+		
+		LoginLocators.ER1_ApplyButton().click();
+		Thread.sleep(5000);		
+			
+		LoginLocators.ER1_Searchfield().sendKeys("AVAHRTEC");
+		Thread.sleep(5000);
+		
+		OneCommonMethod.zoomOutScreen(2);
+		Thread.sleep(5000);
+		OneCommonMethod.zoomOutScreen(2);
+		Thread.sleep(5000);
+		
+//		Acknowledgement Uploaded Section      //
+		 
+		LoginLocators.ER1_ACKUploaded().click();
+		Thread.sleep(5000);
+		
+		Thread.sleep(5000);
+		OneCommonMethod.validateFileDownloadDynamic( driver.get(),test,
+				LoginLocators.ER1_ACKUploadedSingleDownload(), "Single Acknowledgement File is downloaded" );
+				
+		Thread.sleep(5000);
+		OneCommonMethod.validateExportedExcelDYNAMIC(driver.get(),test, LoginLocators.ER1_ACKUploadedExport(),
+	    LoginLocators.ER1_TotalNoOfItems(),"Acknowledgement_Uploaded_Records","Acknowledgement Uploaded Records File Exported Successfully !");
+		Thread.sleep(5000);
+		
+		LoginLocators.ER1ACKUploadSectionSingleUpload().click();
+		Thread.sleep(5000);
+		
+		
+		LoginLocators.ER1_BulkUpload().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ER1_BulkUploadBrowse().click();
+		Thread.sleep(5000);
+		OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\2 Column Data Invalid File.xlsx");
+		
+		Thread.sleep(5000);
+		String msg1 = LoginLocators.ER1_BulkUploadErrorMessage().getText();
+
+		if (msg1.equalsIgnoreCase("Please select .zip or .pdf file only."+ ""))
+		{
+			test.log(LogStatus.PASS, "While Uploading Invalid extension file , Error message displayed");
+			test.log(LogStatus.PASS, "Message displayed = " + msg1);
+			
+		} 
+		else
+		{
+			test.log(LogStatus.FAIL, "Invalid Error message.");
+			test.log(LogStatus.FAIL, "Message displayed = " + msg1);
+		}
+		LoginLocators.ER1_BulkUploadErrorOkPopUp().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ER1_BulkUploadPopUpClose().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ER1_BulkUploadBack().click();
+		Thread.sleep(5000);
+				
+		
+	}
+	
+	public static void ER1ApplicableBranches( ExtentTest test, String user) throws Exception
+	{
+	
+		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(7000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+		if(user.equalsIgnoreCase("Performer"))
+		{
+			LoginLocators.Search().sendKeys("TESTAUTO2");
+		}
+		else if(user.equalsIgnoreCase("Distributor"))
+		{
+			LoginLocators.Search().sendKeys("AVAHRTEC");	
+		}
+		else if(user.equalsIgnoreCase("Reviewer"))
+		{
+			LoginLocators.Search().sendKeys("AVAHRTEC");	
+		}
+		
+		Thread.sleep(2000);		
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+		LoginLocators.DashboardArrow().click();
+		Thread.sleep(9000);
+	
+		LoginLocators.workspace().click();
+		Thread.sleep(3000);
+		
+		LoginLocators.ReturnActivity().click();
+		Thread.sleep(3000);
+		
+		LoginLocators.ER1_Returns().click();
+		Thread.sleep(3000);
+		
+		LoginLocators.ER1_YearDropdown().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ER1_YearSelect().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ER1_QuarterDropdown().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ER1_QuarterSelect().click();
+		Thread.sleep(5000);		
+		
+		LoginLocators.ER1_ApplyButton().click();
+		Thread.sleep(5000);		
+			
+		LoginLocators.ER1_Searchfield().sendKeys("AVAHRTEC");
+		Thread.sleep(5000);
+		
+		OneCommonMethod.zoomOutScreen(2);
+		Thread.sleep(5000);
+		OneCommonMethod.zoomOutScreen(2);
+		Thread.sleep(5000);
+	
+		LoginLocators.ER1_ApplicableBranches().click();
+		Thread.sleep(5000);
+		
+		OneCommonMethod.validateExportedExcelDYNAMIC(driver.get(),test, LoginLocators.ER1_ApplicableBranchesExport(),
+			    LoginLocators.ER1_TotalNoOfItems(),"Applicable Branches_Records","ER1 Applicable Branches Records File Exported Successfully !");
+				Thread.sleep(5000);
+		
+		LoginLocators.ER1_ApplicableBranchesBack().click();
+		Thread.sleep(5000);
+		
+	}
+	
+	public static void ER1TotalBranches( ExtentTest test, String user) throws Exception
+	{
+	
+		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(7000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+		if(user.equalsIgnoreCase("Performer"))
+		{
+			LoginLocators.Search().sendKeys("TESTAUTO2");
+		}
+		else if(user.equalsIgnoreCase("Distributor"))
+		{
+			LoginLocators.Search().sendKeys("AVAHRTEC");	
+		}
+		else if(user.equalsIgnoreCase("Reviewer"))
+		{
+			LoginLocators.Search().sendKeys("AVAHRTEC");	
+		}
+		
+		Thread.sleep(2000);		
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+		LoginLocators.DashboardArrow().click();
+		Thread.sleep(9000);
+	
+		LoginLocators.workspace().click();
+		Thread.sleep(3000);
+		
+		LoginLocators.ReturnActivity().click();
+		Thread.sleep(3000);
+		
+		LoginLocators.ER1_Returns().click();
+		Thread.sleep(3000);
+		
+		LoginLocators.ER1_YearDropdown().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ER1_YearSelect().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ER1_QuarterDropdown().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ER1_QuarterSelect().click();
+		Thread.sleep(5000);		
+		
+		LoginLocators.ER1_ApplyButton().click();
+		Thread.sleep(5000);		
+			
+		LoginLocators.ER1_Searchfield().sendKeys("AVAHRTEC");
+		Thread.sleep(5000);
+		
+		OneCommonMethod.zoomOutScreen(2);
+		Thread.sleep(5000);
+		OneCommonMethod.zoomOutScreen(2);
+		Thread.sleep(5000);
+	
+		LoginLocators.ER1_TotalBranches().click();
+		Thread.sleep(3000);
+		
+		OneCommonMethod.validateExportedExcelDYNAMIC(driver.get(),test, LoginLocators.ER1_TotalBranchesExport(),
+			    LoginLocators.ER1_TotalNoOfItems(),"Total Branches Records","ER1 Total Branches Records File Exported Successfully !");
+		Thread.sleep(5000);
+		
+	}
+	
+
+	public static void AckUploads( ExtentTest test, String user) throws Exception
+	{
+	
+		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(7000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+		if(user.equalsIgnoreCase("Performer"))
+		{
+			LoginLocators.Search().sendKeys("AVAHRTEC");
+		}
+		else if(user.equalsIgnoreCase("Distributor"))
+		{
+			LoginLocators.Search().sendKeys("AVAHRTEC");	
+		}
+		else if(user.equalsIgnoreCase("Reviewer"))
+		{
+			LoginLocators.Search().sendKeys("AVAHRTEC");	
+		}
+		
+		Thread.sleep(2000);		
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+		LoginLocators.DashboardArrow().click();
+		Thread.sleep(9000);
+	
+		LoginLocators.workspace().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ReturnActivity().click();
+		Thread.sleep(5000);
+	
+		LoginLocators.ACK_Upload().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ACK_ActivityDropdown().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ACK_Activity().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ACK_YearDropdown().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ACK_Year().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ACK_Apply().click();
+		Thread.sleep(5000);
+		test.log(LogStatus.PASS,  "All Filters are working fine.");
+				
+		OneCommonMethod.zoomOutScreen(2);
+		Thread.sleep(5000);
+		
+//		Acknowledgment Page Export		
+		
+		OneCommonMethod.validateExportedExcelDYNAMIC(driver.get(),test, LoginLocators.ACK_Export(),
+			    LoginLocators.ER1_TotalNoOfItems(),"Acknowledgment Upload ","Acknowledgment File Exported Successfully !");
+		
+//		Acknowledgment Download				
+		
+		LoginLocators.ACK_Search().sendKeys("AVAHRTEC");
+		Thread.sleep(5000);
+		test.log(LogStatus.PASS,  "Search field is working fine.");
+
+		OneCommonMethod.validateFileDownloadDynamic(driver.get(),
+			    test,LoginLocators.ACK_Download(),"Acknowledgment File Downloaded Successfully !");
+				
+//		Total Branches					
+		
+		LoginLocators.ACK_TotalBranch().click();
+		Thread.sleep(5000);
+		
+		OneCommonMethod.validateExportedExcelDYNAMIC(driver.get(),test, LoginLocators.ACK_TotalBranchExport(),
+			    LoginLocators.ER1_TotalNoOfItems(),"ACK Total Branches","Total Branches File Downloaded Successfully !");
+		
+		LoginLocators.ACK_TotalBranchBack().click();
+		Thread.sleep(5000);
+				
+		LoginLocators.ACK_Search().sendKeys("AVAHRTEC");
+		Thread.sleep(5000);
+			
+//		Generated						
+		
+		LoginLocators.ACK_Generated().click();
+		Thread.sleep(5000);
+		
+		OneCommonMethod.validateExportedExcelDYNAMIC(driver.get(),test, LoginLocators.ACK_GeneratedExport(),
+			    LoginLocators.ER1_TotalNoOfItems(),"ACK Generated"," Generated Branches File Downloaded Successfully !");
+				
+		LoginLocators.ACK_GeneratedBack().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ACK_Search().sendKeys("TESTAUTO");
+		Thread.sleep(5000);
+		
+		
+//		Not	Generated			
+		
+		LoginLocators.ACK_NotGenerated().click();
+		Thread.sleep(5000);
+		
+		OneCommonMethod.validateExportedExcelDYNAMIC(driver.get(),test, LoginLocators.ACK_NotGeneratedExport(),
+			    LoginLocators.ER1_TotalNoOfItems(),"ACK Not Generated"," Acknowledgment Not Generated Branches File Downloaded Successfully !");
+				
+		LoginLocators.ACK_NotGeneratedBack().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ACK_Search().sendKeys("AVAHRTEC");
+		Thread.sleep(5000);
+		
+		
+	}
+	
+	public static void AckUploadsection( ExtentTest test, String user) throws Exception
+	{
+	
+		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(7000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+		if(user.equalsIgnoreCase("Performer"))
+		{
+			LoginLocators.Search().sendKeys("AVAHRTEC");
+		}
+		else if(user.equalsIgnoreCase("Distributor"))
+		{
+			LoginLocators.Search().sendKeys("AVAHRTEC");	
+		}
+		else if(user.equalsIgnoreCase("Reviewer"))
+		{
+			LoginLocators.Search().sendKeys("AVAHRTEC");	
+		}
+		
+		Thread.sleep(2000);		
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+		LoginLocators.DashboardArrow().click();
+		Thread.sleep(9000);
+	
+		LoginLocators.workspace().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ReturnActivity().click();
+		Thread.sleep(5000);
+	
+		LoginLocators.ACK_Upload().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ACK_ActivityDropdown().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ACK_Activity().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ACK_YearDropdown().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ACK_Year().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ACK_Apply().click();
+		Thread.sleep(5000);
+				
+		OneCommonMethod.zoomOutScreen(2);
+		Thread.sleep(5000);
+//		Acknowledgment Upload	
+
+		LoginLocators.ACK_AckUploaded().click();
+		Thread.sleep(5000);
+		
+		OneCommonMethod.validateExportedExcelDYNAMIC(driver.get(),test, LoginLocators.ACK_AckUploadedExport(),
+			    LoginLocators.ER1_TotalNoOfItems(),"ACK Uploaded "," Acknowledgment Uploaded Branches File Downloaded Successfully !");
+				
+		LoginLocators.ACK_AckUploadedBack().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ACK_Search().sendKeys("AVAHRTEC");
+		Thread.sleep(5000);
+		
+//		Pending Acknowledgment		
+		
+		LoginLocators.ACK_PendingAck().click();
+		Thread.sleep(5000);
+		
+		OneCommonMethod.validateExportedExcelDYNAMIC(driver.get(),test, LoginLocators.ACK_PendingAckExport(),
+			    LoginLocators.ER1_TotalNoOfItems(),"ACK Pending "," Acknowledgment Pending Branches File Downloaded Successfully !");
+				
+		LoginLocators.ACK_PendingAckBack().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ACK_Search().sendKeys("AVAHRTEC");
+		Thread.sleep(5000);
+		
+//		Acknowledgment Approved		
+		
+		LoginLocators.ACK_Approved().click();
+		Thread.sleep(5000);
+		
+		OneCommonMethod.validateExportedExcelDYNAMIC(driver.get(),test, LoginLocators.ACK_ApprovedExport(),
+			    LoginLocators.ER1_TotalNoOfItems(),"ACK Approved","Acknowledgement Approved File Downloaded Successfully !");
+		
+		LoginLocators.ACK_ApprovedBack().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ACK_Search().sendKeys("AVAHRTEC");
+		Thread.sleep(5000);
+		
+//		History				
+
+		LoginLocators.ACK_History().click();
+		Thread.sleep(5000);
+		
+		OneCommonMethod.validateFileDownloadDynamic(driver.get(),
+			    test,LoginLocators.ACK_HistoryDownload(),"Acknowledgment History File Downloaded Successfully !");
+		
+		LoginLocators.ACK_HistoryPopUpClose().click();
+		Thread.sleep(5000);
+		
+		LoginLocators.ACK_Clear().click();
+		Thread.sleep(5000);
+		test.log(LogStatus.PASS,  "Clear button is working fine.");
+		
+				
+	}
+	
 	
 	
 	public static void ECRMasterSearches( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
@@ -17651,6 +18500,84 @@ public static void ESICInputs_Failed_BrowseDelete( ExtentTest test, String user)
 	}
 	
 }
+	
+	
+public static void ESICReportMasters(ExtentTest test, String action) throws Exception
+{
+	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+	if (action.equalsIgnoreCase("Login")) {
+		Thread.sleep(7000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+		Thread.sleep(3000);
+		wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
+		Thread.sleep(2000);
+		LoginLocators.WorkspaceArrow().click();
+		Thread.sleep(5000);
+		LoginLocators.ESICCards().click();
+		Thread.sleep(5000);
+		LoginLocators.ESICReports().click();
+		Thread.sleep(5000);
+		LoginLocators.selectReportType().click();
+		Thread.sleep(5000);
+		LoginLocators.selectMasterDropdown().click();
+		Thread.sleep(2000);
+		LoginLocators.ESICReportSelectType().click();
+		Thread.sleep(2000);
+		LoginLocators.ESICReportSelectTypeValue("States").click();
+		LoginLocators.ECR_Apply().click();
+		Thread.sleep(7000);
+		
+	    OneCommonMethod.validateExportedExcelDYNAMIC(driver.get(),test,
+	    	    LoginLocators.Exportbtn(),       
+	    	    LoginLocators.TotalNoOfItem(),     
+	    	    "StateCode",                               
+	    	    "Master - States - Excel file exported successfully"     
+	    	);
+	
+	}
+	if (action.equalsIgnoreCase("District")) {
+		Thread.sleep(5000);
+		LoginLocators.ESICReportSelectType().click();
+		Thread.sleep(2000);
+		LoginLocators.ESICReportSelectTypeValue("District").click();
+		LoginLocators.ECR_Apply().click();
+		Thread.sleep(7000);
+
+		OneCommonMethod.validateExportedExcelDYNAMIC(driver.get(), test, LoginLocators.Exportbtn(),
+				LoginLocators.TotalNoOfItem(), "StateCode", 
+				"Master - District - Excel file exported successfully");
+	}
+	
+	if (action.equalsIgnoreCase("Locations")) {
+		Thread.sleep(5000);
+		LoginLocators.ESICReportSelectType().click();
+		Thread.sleep(2000);
+		LoginLocators.ESICReportSelectTypeValue("Locations").click();
+		LoginLocators.ECR_Apply().click();
+		Thread.sleep(7000);
+
+		OneCommonMethod.validateExportedExcelDYNAMIC(driver.get(), test, LoginLocators.Exportbtn(),
+				LoginLocators.TotalNoOfItem(), "StateCode", 
+				"Master - Locations - Excel file exported successfully");
+	}
+	
+	Thread.sleep(5000);
+	
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
 public static void AddUser( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
 {
 
@@ -18424,17 +19351,17 @@ public static void dolReactivation( ExtentTest test, String user) throws Excepti
 	Thread.sleep(3000);	
 	if(user.equalsIgnoreCase("Performer"))
 	{
-		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 	}
 	else if(user.equalsIgnoreCase("Distributor"))
 	{
 		LoginLocators.Search().sendKeys("TESTAUTO");
-		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 	}
 	else if(user.equalsIgnoreCase("Reviewer"))
 	{
 		LoginLocators.Search().sendKeys("TESTAUTO2");	
-		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO2");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
 	}
 	Thread.sleep(5000);
 	wait.until(ExpectedConditions.visibilityOf(LoginLocators.DashboardArrow()));
@@ -18479,7 +19406,7 @@ public static void dolReactivation( ExtentTest test, String user) throws Excepti
 	LoginLocators.dolBulkUploadBrowse().click();
 	Thread.sleep(5000);
 	
-	OneCommonMethod.uploadUsingRobot("D:\\AutomationLabourFiles\\ReactivationDOLBulkUploaddd.xlsx");
+	OneCommonMethod.uploadUsingRobot("D:\\Upload Automation Files\\Distributor Admin\\Entity Upload\\ReactivationDOLBulkUploaddd.xlsx");
 	Thread.sleep(5000);
 	
 	LoginLocators.dolBulkUploadButton().click();

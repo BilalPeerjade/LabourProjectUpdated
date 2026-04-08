@@ -27,9 +27,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-import clientPortal.All_ClientPortal_Locators;
 import clientPortal.All_ClientPortal_Methods;
-import distributor.DistributerLocators;
 import login.BasePage;
 import login.LoginLocators;
 import performer.PerformerLocator;
@@ -524,7 +522,6 @@ public static void PayBonusStateDocZipFile(ExtentTest test, String user) throws 
 	}
 	public static void StateDocZipFileChallanESI(ExtentTest test, String user) throws InterruptedException
 	{
-		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 		Thread.sleep(5000);
 
 		if (user.equalsIgnoreCase("Performer")) {

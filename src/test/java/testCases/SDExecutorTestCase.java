@@ -18,9 +18,7 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-import coordinator.CoordinatorMethod;
 import login.BasePage;
-import login.LoginMethods;
 import sdexecutor.Method;
 
 
@@ -273,7 +271,7 @@ void NoticeEditDownload() throws InterruptedException, IOException, EncryptedDoc
    		extent.flush();
    	}
 	
-	@Test(priority = 20) //NEW TC NEW TC
+	@Test(priority = 20)
    	void doSectionDocReqSDEx() throws Exception
    	{
    		test = extent.startTest("Notices - Edit - Verify to check Document Requirements for the Notice works correctly");
@@ -412,7 +410,7 @@ void NoticeEditDownload() throws InterruptedException, IOException, EncryptedDoc
 
 	}
 	
-	@Test(priority = 41)
+//	@Test(priority = 41)//NO DATA AVAILABLE 
    	void EditIcon() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Registration - Edit Icon verification");
@@ -423,7 +421,7 @@ void NoticeEditDownload() throws InterruptedException, IOException, EncryptedDoc
    		extent.flush();
 
    	}
-	@Test(priority = 42)
+//	@Test(priority = 42)//NO DATA AVAILABLE 
    	void editSubmittedToDept() throws Exception
    	{
    		test = extent.startTest("Registration - Edit - Verify to check Submitted to department section works correctly");
@@ -434,7 +432,7 @@ void NoticeEditDownload() throws InterruptedException, IOException, EncryptedDoc
    		extent.flush();
 
    	}
-	@Test(priority = 43)
+//	@Test(priority = 43)//NO DATA AVAILABLE 
    	void activityColsureLable() throws Exception
    	{
    		test = extent.startTest("Registration - Edit - Verify to check Activity Closure section works correctly");
@@ -445,7 +443,7 @@ void NoticeEditDownload() throws InterruptedException, IOException, EncryptedDoc
    		extent.flush();
 
    	}
-	@Test(priority = 44)
+//	@Test(priority = 44)//NO DATA AVAILABLE 
    	void registrationEditTabs() throws Exception
    	{
    		test = extent.startTest("Registration - Edit - Verify to check all tabs details displayed correctly ");
@@ -456,7 +454,7 @@ void NoticeEditDownload() throws InterruptedException, IOException, EncryptedDoc
    		extent.flush();
 
    	}
-	@Test(priority = 45)
+//	@Test(priority = 45)//NO DATA AVAILABLE 
    	void registrationEditDocumentRepositiory() throws Exception
    	{
    		test = extent.startTest("Registration - Edit - Document Section - Verify to check Document Repository documents download correctly");
@@ -467,30 +465,7 @@ void NoticeEditDownload() throws InterruptedException, IOException, EncryptedDoc
    		extent.flush();
 
    	}
-// 	@Test(priority = 4)
-   	void DeleteButton() throws InterruptedException, IOException
-   	{
-   		test = extent.startTest("Registration - Delete Icon verification");
-   		
-   		
-   		Method.DeleteButton(test);
-   		
-   		extent.endTest(test);
-   		extent.flush();
 
-   	}
-//	@Test(priority = 38)
-   	void DeleteCancelButton() throws InterruptedException, IOException
-   	{
-   		test = extent.startTest("Registration - Delete Icon -Cancel button verification");
-   		
-   		
-   		Method.DeleteCancelButton(test);
-   		
-   		extent.endTest(test);
-   		extent.flush();
-
-   	}
 	@Test(priority = 48)
    	void ExistingLicenseCountMatch() throws InterruptedException, IOException
    	{

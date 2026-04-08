@@ -287,6 +287,11 @@ public class CoordinatorLocator extends BasePage
 		labour = getDriver().findElement(By.xpath("/html/body/app-root/div/app-layout/section/div/div/app-notices/div/div[4]/kendo-loader/div/span[1]"));
 		return labour;
 	}
+	public static WebElement noticesModule()
+	{
+		labour = getDriver().findElement(By.xpath("//span[text()='Notices']"));
+		return labour;
+	}
 	public static WebElement EditBtn()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("(//img[@title='Edit'])"));
