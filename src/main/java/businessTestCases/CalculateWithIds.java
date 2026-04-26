@@ -354,7 +354,7 @@ public class CalculateWithIds {
         .append("<th style='border: 1px solid #e5e7eb; padding: 8px 10px;'>AUTOMATION STATUS</th>")
         .append("</tr></thead><tbody>");
 
-        int displayRenderLimit = Math.min(5, executionLogsCollection.size());
+        int displayRenderLimit = Math.min(500, executionLogsCollection.size());//Report Rows 5 will be here
         for (int loopIndex = 0; loopIndex < displayRenderLimit; loopIndex++) {
             RowResult resultNodeProperty = executionLogsCollection.get(loopIndex);
             

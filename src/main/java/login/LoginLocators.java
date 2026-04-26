@@ -563,6 +563,11 @@ public class LoginLocators extends BasePage {
 		submit = getDriver().findElement(By.xpath("//span[normalize-space()='Pune Rahatani_Maha Branch']"));
 		return submit;
 	}
+	public static WebElement BranchKar_Banglore() //TESTAUTO
+	{
+		submit = getDriver().findElement(By.xpath("//span[normalize-space()='Bangalore_Karnataka Branch']"));
+		return submit;
+	}
 	public static WebElement BranchAndra_Tripupathi()
 	{
 		submit = getDriver().findElement(By.xpath("//span[contains(text(),'Tirupathi_Branch Andra')]"));

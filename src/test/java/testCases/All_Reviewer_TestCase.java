@@ -226,7 +226,7 @@ public class All_Reviewer_TestCase extends BasePage {
 			extent.flush();
 		}
 		
-		@Test(priority = 23)//NEW TC NEW TC
+		@Test(priority = 23)
 		void compliancesCount() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Upcoming Box count verification with categorised upcoming");
@@ -272,10 +272,10 @@ public class All_Reviewer_TestCase extends BasePage {
 			extent.flush();
 		}
 		
-//		@Test(priority = 27)//NEW TC NEW TC
+		@Test(priority = 27)//NEW TC NEW TC
 		void pendingActionAndReviewCount() throws InterruptedException, IOException
 		{
-			test = extent.startTest("Overdue Box count verification with categorised overdues");
+			test = extent.startTest("Pending Action & Pending Review counts verification with categorised action ");
 			
 			MethodsD.pendingActionAndReviewCount(test,"Distributor", "TESTAUTO2");
 			
@@ -409,12 +409,27 @@ public class All_Reviewer_TestCase extends BasePage {
 			extent.endTest(test);
 			extent.flush();
 		}
+		
+		
+		
+		
 		@Test(priority = 49) 
 		void CompliedFilters() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Pie Chart - Performance summary - Complied - Multiple Filter verification");
 			
 			MethodsD.nonCompliedHighRiskSummaryFilter(test,"Performer", "Complied Filters");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		@Test(priority = 49)//NEW TC NEW TC
+		void performanceSummaryTotals() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Performance Summary Totals verification with complied and non complied");
+			
+			MethodsD.performanceSummaryTotals(test,"Distributor", "TESTAUTO2");
 			
 			extent.endTest(test);
 			extent.flush();

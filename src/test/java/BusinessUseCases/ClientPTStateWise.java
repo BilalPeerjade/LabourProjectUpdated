@@ -197,7 +197,7 @@ public class ClientPTStateWise extends BasePage {
 		extent.flush();
 	}
 	
-	/*
+
 	
 	@Test(priority = 8) 
 	void Challan_PT_BHR_EmployeeID() throws InterruptedException, IOException, AWTException
@@ -1047,7 +1047,7 @@ public class ClientPTStateWise extends BasePage {
 	
 	
 	
-	*/
+	/*
 	
 	@Test(priority = 1) 
 	void Challan_PT_ANP_EmployeeIDa() throws InterruptedException, IOException, AWTException
@@ -2502,7 +2502,7 @@ public class ClientPTStateWise extends BasePage {
 		
 	}
 	
-	
+	*/
 	
 	
 	

@@ -3,23 +3,23 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testCases.All_Performer_TestCases">
+      <class name="testCases.CoordinatorTestCases">
         <methods>
+          <include name="ExistingLicenseDownload"/>
+          <include name="EditIconMiniTabsLicense"/>
+          <include name="NoticeEditDownload"/>
           <include name="Login"/>
-          <include name="PendingActionBox"/>
-          <include name="PaycodeMappingEditUpdate"/>
-          <include name="ReturnActionFilter"/>
-          <include name="OverdueBox"/>
-          <include name="DailyUpdate"/>
-          <include name="CorporateEntity_Edit"/>
+          <include name="StatutoryDocument"/>
+          <include name="EditDocReqOTActivity"/>
+          <include name="close"/>
+          <include name="AddNewLicense"/>
+          <include name="ExistingLicenseDraftRCPcountMatch"/>
+          <include name="NoticeEditAllTabsCheck"/>
           <include name="setBrowser"/>
-          <include name="Closing"/>
-          <include name="afterMethod"/>
-          <include name="leaveTypeExport"/>
-          <include name="UpcomingBox"/>
-          <include name="anchorDashboardSummary"/>
+          <include name="ExistingLicenseInitiateAction"/>
+          <include name="ExistingLicenseViewIcon"/>
         </methods>
-      </class> <!-- testCases.All_Performer_TestCases -->
+      </class> <!-- testCases.CoordinatorTestCases -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

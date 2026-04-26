@@ -267,7 +267,7 @@ public class All_Performer_TestCases extends BasePage{
 		extent.flush();
 	}
 	
-	@Test(priority = 14)//NEW TC NEW TC
+	@Test(priority = 14)
 	void compliancesCount() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Upcoming Box count verification with categorised upcoming");
@@ -335,10 +335,10 @@ public class All_Performer_TestCases extends BasePage{
 		extent.flush();
 	}
 	
-//	@Test(priority = 18)//NEW TC NEW TC
+	@Test(priority = 18)
 	void pendingActionAndReviewCount() throws InterruptedException, IOException
 	{
-		test = extent.startTest("Overdue Box count verification with categorised overdues");
+		test = extent.startTest("Pending Action & Pending Review counts verification with categorised action");
 		
 		MethodsD.pendingActionAndReviewCount(test,"Distributor", "TESTAUTO2");
 		
@@ -534,6 +534,17 @@ public class All_Performer_TestCases extends BasePage{
 		test = extent.startTest("Pie Chart - Performance summary - Complied - match verification");
 		
 		MethodsD.Complied(test,"Distributor");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 35)//NEW TC NEW TC
+	void performanceSummaryTotals() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Performance Summary Totals verification with complied and non complied");
+		
+		MethodsD.performanceSummaryTotals(test,"Distributor", "TESTAUTO2");
 		
 		extent.endTest(test);
 		extent.flush();
@@ -966,7 +977,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 
 	//Part 2
 
-/**
+
 
    	
    	//Onboard Employee:--
@@ -1991,7 +2002,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 			extent.flush();
 		}
 	
-*/
+
 
 
 	

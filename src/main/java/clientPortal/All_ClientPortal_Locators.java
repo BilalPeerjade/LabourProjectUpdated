@@ -2517,4 +2517,196 @@ public static WebElement clickLicense()		//Method for searching Username input
 	
 	
 	
+	
+	
+	//----------Swapnil----------
+	public static WebElement eLibrary()	
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='E Library']"));
+		return labour;
+	}
+	
+	public static WebElement eLibraryLWF()	
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='Labour Welfare Fund']"));
+		return labour;
+	}
+	
+	public static WebElement eLibraryLWFSearch()	
+	{
+		labour = getDriver().findElement(By.xpath("//input[@placeholder='Type to Search']"));
+		return labour;
+	}
+	
+	public static WebElement eLibraryLWFSelectState()	
+	{
+		labour = getDriver().findElement(By.xpath("(//*[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted'])[1]"));
+		return labour;
+	}
+	
+	public static WebElement eLibraryLWFSelectedState()
+	{
+	    labour = getDriver().findElement(By.xpath("//span[normalize-space()='Andhra Pradesh']"));
+	    return labour;
+	}
+
+	public static WebElement eLibraryLWFSelectedState1()
+	{
+	    labour = getDriver().findElement(By.xpath("(//input[contains(@class,'k-input-inner')])[1]"));
+	    return labour;
+	}
+	
+	public static WebElement eLibraryLWFSelectedStateInGrid()
+	{
+	    labour = getDriver().findElement(By.xpath("//div[@title='Andhra Pradesh']"));
+	    return labour;
+	}
+	
+	public static WebElement eLibraryLWFSelectedStateRemove()	
+	{
+		labour = getDriver().findElement(By.xpath("(//*[@class='k-svg-i-x k-svg-icon k-icon ng-star-inserted'])[1]"));
+		return labour;
+	}
+	
+	
+	public static WebElement eLibraryLWFView()	
+	{
+		labour = getDriver().findElement(By.xpath("//img[@title='View']"));
+		return labour;
+	}
+	
+	public static WebElement eLibraryLWFViewClose()	
+	{
+		labour = getDriver().findElement(By.xpath("//*[@class='k-svg-i-x k-button-icon k-svg-icon k-icon ng-star-inserted']"));
+		return labour;
+	}
+	
+	public static WebElement eLibraryLWFViewApplicablity()	
+	{
+		labour = getDriver().findElement(By.xpath("//button[normalize-space()='View Applicablity']"));
+		return labour;
+	}
+	
+	public static WebElement eLibraryLWFViewApplicablityApp()	
+	{
+		labour = getDriver().findElement(By.xpath("//span[contains(text(),'List of States where Labour Welfare Fund is Applic')]"));
+		return labour;
+	}
+	
+	public static WebElement eLibraryLWFViewApplicablityNotApp()	
+	{
+		labour = getDriver().findElement(By.xpath("//span[contains(text(),'List of States where Labour Welfare Fund is Not Ap')]"));
+		return labour;
+	}
+	
+	public static WebElement eLibraryLWFViewApplicablityBack()	
+	{
+		labour = getDriver().findElement(By.xpath("//img[@title='Back']"));
+		return labour;
+	}
+	
+	public static WebElement eLibraryPTRepository()	
+	{
+		labour = getDriver().findElement(By.xpath("(//span[contains(text(),'PT Repository')])[1]"));
+		return labour;
+	}
+	
+	public static WebElement eLibraryPTRepoApplicablePunjab()	
+	{
+		labour = getDriver().findElement(By.xpath("//div[@title='Punjab']"));
+		return labour;
+	}
+	
+	public static WebElement eLibraryPTRepoApplicable()	
+	{
+		labour = getDriver().findElement(By.xpath("(//span[@title='Applicable'][normalize-space()='Applicable'])[1]"));
+		return labour;
+	}
+	
+	public static WebElement eLibraryPTRepoApplicableBack()	
+	{
+		labour = getDriver().findElement(By.xpath("//img[@title='Back']"));
+		return labour;
+	}
+	
+	public static WebElement eLibraryNewsLetter()	
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='News Letter']"));
+		return labour;
+	}
+
+	public static WebElement eLibraryNewsLetterSelectYear()	
+	{
+		labour = getDriver().findElement(By.xpath("//span[contains(text(),'Select Year')]"));
+		return labour;
+	}
+	
+	public static WebElement eLibraryNewsLetterSelectedYear()	
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='2026']"));
+		return labour;
+	}
+	
+	public static WebElement eLibraryNewsLetterSelectMonth()	
+	{
+		labour = getDriver().findElement(By.xpath("//span[contains(text(),'Select Month')]"));
+		return labour;
+	}
+	
+	public static WebElement eLibraryNewsLetterSelectedMonth()	
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='January']"));
+		return labour;
+	}
+	
+	public static WebElement eLibraryNewsLetterApply()	
+	{
+		labour = getDriver().findElement(By.xpath("//button[@title='Apply']"));
+		return labour;
+	}
+	
+	public static WebElement eLibraryNewsLetterClear()	
+	{
+		labour = getDriver().findElement(By.xpath("//button[@title='Clear']"));
+		return labour;
+	}
+	
+	public static WebElement eLibraryNewsLetterView()	
+	{
+		labour = getDriver().findElement(By.xpath("//img[@title='View']"));
+		return labour;
+	}
+	
+	public static WebElement eLibraryNewsLetterViewClose()	
+	{
+		labour = getDriver().findElement(By.xpath("//*[@class='k-svg-i-x k-button-icon k-svg-icon k-icon ng-star-inserted']"));
+		return labour;
+	}
+	
+	public static WebElement eLibraryNewsLetterSearch()	
+	{
+		labour = getDriver().findElement(By.xpath("//input[@placeholder='Type to Search']"));
+		return labour;
+	}
+	
+	public static WebElement eLibraryDailyUpdate()	
+	{
+		labour = getDriver().findElement(By.xpath("//span[normalize-space()='Daily Updates']"));
+		return labour;
+	}
+	
+	public static WebElement eLibraryDailyUpdateView()	
+	{
+		labour = getDriver().findElement(By.xpath("(//img[@title='View'])[1]"));
+		return labour;
+	}
+	
+	public static WebElement eLibraryDailyUpdateViewClose()	
+	{
+		labour = getDriver().findElement(By.xpath("//*[@class='k-svg-i-x k-button-icon k-svg-icon k-icon ng-star-inserted']"));
+		return labour;
+	}
+	
+	
+	
 }

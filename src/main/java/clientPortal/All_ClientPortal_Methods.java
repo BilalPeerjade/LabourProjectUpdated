@@ -13428,6 +13428,174 @@ public static void ExistingLicenseSubActivityViewandDownload(ExtentTest test) th
 	
 }
 
+public static void ELibraryNewsLtr(ExtentTest test) throws InterruptedException
+{
+	
+	Thread.sleep(5000);
+	All_ClientPortal_Locators.eLibrary().click();;
+	Thread.sleep(5000);		
+	
+	All_ClientPortal_Locators.eLibraryNewsLetter().click();
+	Thread.sleep(3000);		
+	test.log(LogStatus.PASS, "News Letter section is clickable from the Side Bar.");
+	
+	All_ClientPortal_Locators.eLibraryNewsLetterSelectYear().click();
+	Thread.sleep(3000);		
+	
+	All_ClientPortal_Locators.eLibraryNewsLetterSelectedYear().click();
+	Thread.sleep(3000);		
+	test.log(LogStatus.PASS, "News Letter - Year dropdown is working fine.");
+	
+	All_ClientPortal_Locators.eLibraryNewsLetterSelectMonth().click();
+	Thread.sleep(3000);		
+	
+	All_ClientPortal_Locators.eLibraryNewsLetterSelectedMonth().click();
+	Thread.sleep(3000);		
+	test.log(LogStatus.PASS, "News Letter - Month dropdown is working fine.");
+	
+	All_ClientPortal_Locators.eLibraryNewsLetterApply().click();
+	Thread.sleep(3000);		
+	test.log(LogStatus.PASS, "News Letter - Apply Button is working fine.");
+	
+	All_ClientPortal_Locators.eLibraryNewsLetterView().click();
+	Thread.sleep(5000);		
+	Thread.sleep(5000);		
+	
+	All_ClientPortal_Locators.eLibraryNewsLetterViewClose().click();
+	Thread.sleep(3000);		
+	test.log(LogStatus.PASS, "News Letter - News Letter is getting viewed Successfully.");
+		
+	All_ClientPortal_Locators.eLibraryNewsLetterClear().click();
+	Thread.sleep(3000);
+	
+	All_ClientPortal_Locators.eLibraryNewsLetterSearch().sendKeys("Feb_2026 Monthly Labour Law Newsletters");
+	Thread.sleep(3000);	
+	test.log(LogStatus.PASS, "News Letter - Search field is working fine.");
+					
+	All_ClientPortal_Locators.eLibraryNewsLetterClear().click();
+	Thread.sleep(3000);		
+	test.log(LogStatus.PASS, "News Letter - Clear button is working fine.");
+	
+
+}
+public static void ELibraryDailyUpdate(ExtentTest test) throws InterruptedException
+{
+	
+	Thread.sleep(5000);
+	All_ClientPortal_Locators.eLibrary().click();;
+	Thread.sleep(5000);		
+	
+	All_ClientPortal_Locators.eLibraryDailyUpdate().click();
+	Thread.sleep(5000);		
+	test.log(LogStatus.PASS, "Daily Updates section is clickable from the Side Bar.");
+			
+	All_ClientPortal_Locators.eLibraryDailyUpdateView().click();
+	Thread.sleep(5000);		
+	Thread.sleep(5000);		
+	test.log(LogStatus.PASS, "Daily Updates - Daily Update is getting viewed Successfully.");
+	
+	All_ClientPortal_Locators.eLibraryDailyUpdateViewClose().click();
+	Thread.sleep(5000);		
+	
+	
+}
+
+	
+
+
+
+public static void ELibraryLWF(ExtentTest test) throws InterruptedException
+{
+	Thread.sleep(5000);
+	
+	All_ClientPortal_Locators.eLibrary().click();;
+	Thread.sleep(5000);
+	
+	All_ClientPortal_Locators.eLibraryLWF().click();;
+	Thread.sleep(5000);
+	test.log(LogStatus.PASS, "Labour Welfare Funds section is clickable from the Side Bar.");
+	
+	All_ClientPortal_Locators.eLibraryLWFSelectState().click();
+	Thread.sleep(5000);
+	
+	All_ClientPortal_Locators.eLibraryLWFSelectedState().click();
+	Thread.sleep(5000);
+			
+	String selectedState = All_ClientPortal_Locators.eLibraryLWFSelectedState1().getAttribute("value").trim();
+	String gridState = All_ClientPortal_Locators.eLibraryLWFSelectedStateInGrid().getText().trim();
+
+	if(selectedState.equalsIgnoreCase(gridState))
+	{
+	    test.log(LogStatus.PASS, "Labour Welfare Funds - Select State Filter is working fine");
+	}
+	else
+	{
+	    test.log(LogStatus.FAIL, "Labour Welfare Funds - Select State Filter is not working. Selected = " + selectedState + " , Grid = " + gridState);
+	}				
+	
+	Thread.sleep(3000);
+	All_ClientPortal_Locators.eLibraryLWFSelectedStateRemove().click();
+	Thread.sleep(5000);
+	
+	All_ClientPortal_Locators.eLibraryLWFSearch().sendKeys("Chhattisgarh");
+	Thread.sleep(5000);
+	test.log(LogStatus.PASS, "Labour Welfare Funds - Search field is working fine.");
+	
+	All_ClientPortal_Locators.eLibraryLWFView().click();
+	Thread.sleep(5000);
+	test.log(LogStatus.PASS, "Labour Welfare Funds - Document View button is working fine.");
+	
+	All_ClientPortal_Locators.eLibraryLWFViewClose().click();
+	Thread.sleep(3000);
+	
+	All_ClientPortal_Locators.eLibraryLWFViewApplicablity().click();
+	Thread.sleep(3000);
+	test.log(LogStatus.PASS, "Labour Welfare Funds - View Applicability button is working fine.");
+	
+	All_ClientPortal_Locators.eLibraryLWFViewApplicablityApp().click();
+	Thread.sleep(3000);
+	test.log(LogStatus.PASS, "LWF View Applicability - List of States where Labour Welfare Fund is Applicable section is working fine.");
+	
+	All_ClientPortal_Locators.eLibraryLWFViewApplicablityNotApp().click();
+	Thread.sleep(3000);
+	test.log(LogStatus.PASS, "LWF View Applicability - List of States where Labour Welfare Fund is Not Applicable section is working fine.");
+	
+	All_ClientPortal_Locators.eLibraryLWFViewApplicablityBack().click();
+	Thread.sleep(3000);
+	test.log(LogStatus.PASS, "LWF View Applicability - Back button is working fine.");
+	Thread.sleep(3000);
+
+}
+
+
+public static void ELibraryPTRepo(ExtentTest test) throws InterruptedException
+{
+	
+	Thread.sleep(5000);
+	All_ClientPortal_Locators.eLibrary().click();;
+	Thread.sleep(5000);		
+	
+	All_ClientPortal_Locators.eLibraryPTRepository().click();
+	Thread.sleep(5000);
+	test.log(LogStatus.PASS, "PT Repository section is clickable from the Side Bar.");
+			
+	WebElement element = All_ClientPortal_Locators.eLibraryPTRepoApplicablePunjab();
+	JavascriptExecutor js = (JavascriptExecutor) getDriver();
+	js.executeScript("arguments[0].scrollIntoView(true);", All_ClientPortal_Locators.eLibraryLWFSelectedStateInGrid());
+	
+	Thread.sleep(5000);
+	Thread.sleep(5000);
+	All_ClientPortal_Locators.eLibraryPTRepoApplicable().click();
+	Thread.sleep(5000);
+	test.log(LogStatus.PASS, "PT Repository - PT Act Applicable button is working fine.");
+			
+	All_ClientPortal_Locators.eLibraryPTRepoApplicableBack().click();
+	Thread.sleep(5000);
+	test.log(LogStatus.PASS, "PT Act Applicable Page - Back button is working fine.");
+	
+}
+
+
 public static void RegisrationRespository(ExtentTest test) throws InterruptedException
 {
 	
@@ -14290,6 +14458,8 @@ public static void NoticeExportBtn(ExtentTest test) throws InterruptedException,
 
 	
 }
+
+
 
 public static void NoticeEditDownloadView(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
 {

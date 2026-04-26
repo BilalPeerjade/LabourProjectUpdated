@@ -1239,7 +1239,7 @@ public class All_Client_Portal_TestCases extends BasePage {
 	}
 	
 	
-	@Test(priority = 75) //NEW TC NEW TC
+	@Test(priority = 75) 
 	void RegistrationStatusAppliedColumnCount() throws InterruptedException, IOException
 	{
 		test = extent.startTest("'Registration Status' - Verify Applied column hyper link working and Active count matching with grid or not?");
@@ -2250,7 +2250,7 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 	
 
 
-	/*
+
 
 	
 	//---------Part 2-------For Daily Execution------
@@ -3082,6 +3082,72 @@ void EnglishDocDownload() throws InterruptedException, IOException, AWTException
 
 	}
 	
+	
+	
+	
+//	------    E-Library Section		Swapnil------//
+	
+	
+	
+	@Test(priority = 271)
+	void ELibraryLWF() throws InterruptedException, IOException, AWTException 
+	{
+		test = extent.startTest("E-Library - Labour Welfare Funds section Verification");
+		All_ClientPortal_Methods.filterEntityAUTO2(test);
+		All_ClientPortal_Methods.ELibraryLWF(test);
+
+		extent.endTest(test);
+		extent.flush();
+
+	}
+	
+
+	@Test(priority = 272)
+	void ELibraryPTRepository() throws InterruptedException, IOException, AWTException 
+	{
+		test = extent.startTest("E-Library - PT Repository section Verification");
+		All_ClientPortal_Methods.filterEntityAUTO2(test);
+		All_ClientPortal_Methods.ELibraryPTRepo(test);
+
+		extent.endTest(test);
+		extent.flush();
+
+	}
+	
+	
+	@Test(priority = 273)
+	void ELibraryNewsLetter() throws InterruptedException, IOException, AWTException 
+	{
+		test = extent.startTest("E-Library - News Letter section Verification");
+		All_ClientPortal_Methods.filterEntityAUTO2(test);
+		All_ClientPortal_Methods.ELibraryNewsLtr(test);
+
+		extent.endTest(test);
+		extent.flush();
+
+	}
+	
+	
+	@Test(priority = 274)
+	void ELibraryDailyUpdates() throws InterruptedException, IOException, AWTException 
+	{
+		test = extent.startTest("E-Library - Daily Updates section Verification");
+		All_ClientPortal_Methods.filterEntityAUTO2(test);
+		All_ClientPortal_Methods.ELibraryDailyUpdate(test);
+
+		extent.endTest(test);
+		extent.flush();
+
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@Test(priority = 272)//NEW TC NEW TC
 	void minimumWagesPreviousNotification() throws InterruptedException, IOException, AWTException {
 		test = extent.startTest("E Library - Minimum Wages - Verify All Export buttons works correctly");
@@ -3373,7 +3439,7 @@ void ChallanViewComplianceFile() throws InterruptedException, IOException, AWTEx
 			}
 
 		
-   */
+  
 
 
 	 

@@ -31,6 +31,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.Point;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebElement;
@@ -4718,13 +4719,44 @@ else {
 	    }
 	    
 	    
-	    //This will get text and convert in into integer (Replaced text as well as %)
+	    OneCommonMethod.setZoom(getDriver(), 60);
 	    
-//	    String text = getDriver().findElement(By.xpath("(//div[@class='status-card complied'])[2]")).getText();  // "22 %"
-//	    int value = Integer.parseInt(text.replaceAll("[^0-9]", ""));        // 22
-//	    System.out.println(value);
-//	    test.log(LogStatus.PASS, "Abstract Summary Count == " + value);
-
+	    selectYear(test, "Current Month");
+		DashboardCounts.abstractSummaryDisplayed(test, DashboardCounts.asDisplayed(), 
+		"Dashboard → Abstract Summary Displayed count less than 100 validation <b><font color='red'> Current Month </font></b>");
+		DashboardCounts.abstractSummaryNotDisplayed(test, DashboardCounts.asNotDisplayed(), 
+		"Dashboard → Abstract Summary Not Displayed count less than 100 validation <b><font color='red'> Current Month </font></b>");
+		
+	    selectYear(test, "Previous Month");
+		DashboardCounts.abstractSummaryDisplayed(test, DashboardCounts.asDisplayed(), 
+		"Dashboard → Abstract Summary Displayed count less than 100 validation <b><font color='red'> Previous Month </font></b>");
+		DashboardCounts.abstractSummaryNotDisplayed(test, DashboardCounts.asNotDisplayed(), 
+		"Dashboard → Abstract Summary Not Displayed count less than 100 validation <b><font color='red'> Previous Month </font></b>");
+		
+		selectYear(test, "2027");
+		DashboardCounts.abstractSummaryDisplayed(test, DashboardCounts.asDisplayed(), 
+		"Dashboard → Abstract Summary Displayed count less than 100 validation <b><font color='red'> 2027 Year </font></b>");
+		DashboardCounts.abstractSummaryNotDisplayed(test, DashboardCounts.asNotDisplayed(), 
+		"Dashboard → Abstract Summary Not Displayed count less than 100 validation <b><font color='red'> 2027 Year </font></b>");
+		
+		selectYear(test, "2026");
+		DashboardCounts.abstractSummaryDisplayed(test, DashboardCounts.asDisplayed(), 
+		"Dashboard → Abstract Summary Displayed count less than 100 validation <b><font color='red'> 2026 Year </font></b>");
+		DashboardCounts.abstractSummaryNotDisplayed(test, DashboardCounts.asNotDisplayed(), 
+		"Dashboard → Abstract Summary Not Displayed count less than 100 validation <b><font color='red'> 2026 Year </font></b>");
+		
+		selectYear(test, "2025");
+		DashboardCounts.abstractSummaryDisplayed(test, DashboardCounts.asDisplayed(), 
+		"Dashboard → Abstract Summary Displayed count less than 100 validation <b><font color='red'> 2025 Year </font></b>");
+		DashboardCounts.abstractSummaryNotDisplayed(test, DashboardCounts.asNotDisplayed(), 
+		"Dashboard → Abstract Summary Not Displayed count less than 100 validation <b><font color='red'> 2025 Year </font></b>");
+		
+		selectYear(test, "2024");
+		DashboardCounts.abstractSummaryDisplayed(test, DashboardCounts.asDisplayed(), 
+		"Dashboard → Abstract Summary Displayed count less than 100 validation <b><font color='red'> 2024 Year </font></b>");
+		DashboardCounts.abstractSummaryNotDisplayed(test, DashboardCounts.asNotDisplayed(), 
+		"Dashboard → Abstract Summary Not Displayed count less than 100 validation <b><font color='red'> 2024 Year </font></b>");
+	    
 	
 	}
 	
@@ -4883,6 +4915,11 @@ else {
 		Thread.sleep(2000);
 		LoginLocators.DashboardArrow().click();
 		Thread.sleep(15000);
+		OneCommonMethod.setZoom(getDriver(), 60);
+		Thread.sleep(2000);
+		
+		
+		
 
 		selectYear(test, "Current Month");
 				
@@ -5057,6 +5094,64 @@ else {
 		DashboardCounts.actionReturns(),
 		DashboardCounts.actionChallans(),
 		"Dashboard → Pending Action & Pending Review count validation <b><font color='red'> 2024 year </font></b> ");
+	}
+	
+	public static void performanceSummaryTotals(ExtentTest test,String user, String Entity) throws InterruptedException
+	{
+		Thread.sleep(5000);	
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),Entity);
+		Thread.sleep(2000);
+		LoginLocators.DashboardArrow().click();
+		Thread.sleep(15000);
+		OneCommonMethod.setZoom(getDriver(), 70);
+		Thread.sleep(2000);
+		
+		
+		selectYear(test, "Current Month");
+		DashboardCounts.performanceSummaryTotalsCount(test, 
+		DashboardCounts.psTotals(), 
+		DashboardCounts.psComplied(), 
+		DashboardCounts.psNonComplied(), 
+		"Dashboard → Performance Summary Totals with Complied & Non Complied count validation <b><font color='red'> Current Month </font></b> ");
+		
+		selectYear(test, "Previous Month");
+		DashboardCounts.performanceSummaryTotalsCount(test, 
+		DashboardCounts.psTotals(), 
+		DashboardCounts.psComplied(), 
+		DashboardCounts.psNonComplied(), 
+		"Dashboard → Performance Summary Totals with Complied & Non Complied count validation <b><font color='red'> Previous Month </font></b> ");
+		
+		
+		selectYear(test, "2027");
+		DashboardCounts.performanceSummaryTotalsCount(test, 
+		DashboardCounts.psTotals(), 
+		DashboardCounts.psComplied(), 
+		DashboardCounts.psNonComplied(), 
+		"Dashboard → Performance Summary Totals with Complied & Non Complied count validation <b><font color='red'> 2027 year </font></b> ");
+		
+		
+		selectYear(test, "2026");
+		DashboardCounts.performanceSummaryTotalsCount(test, 
+		DashboardCounts.psTotals(), 
+		DashboardCounts.psComplied(), 
+		DashboardCounts.psNonComplied(), 
+		"Dashboard → Performance Summary Totals with Complied & Non Complied count validation <b><font color='red'> 2026 year </font></b> ");
+		
+		
+		selectYear(test, "2025");
+		DashboardCounts.performanceSummaryTotalsCount(test, 
+		DashboardCounts.psTotals(), 
+		DashboardCounts.psComplied(), 
+		DashboardCounts.psNonComplied(), 
+		"Dashboard → Performance Summary Totals with Complied & Non Complied count validation <b><font color='red'> 2025 year </font></b> ");
+		
+		
+		selectYear(test, "2024");
+		DashboardCounts.performanceSummaryTotalsCount(test, 
+		DashboardCounts.psTotals(), 
+		DashboardCounts.psComplied(), 
+		DashboardCounts.psNonComplied(), 
+		"Dashboard → Performance Summary Totals with Complied & Non Complied count validation <b><font color='red'> 2024 year </font></b> ");
 	}
 	
 	public static void ComplianceFilter1( ExtentTest test,String user) throws InterruptedException
@@ -5261,9 +5356,9 @@ else {
        Thread.sleep(3000);
        LoginLocators.ExpandBranchn().click();
        Thread.sleep(3000);
-       String branch =LoginLocators.BranchvalueCheckbox().getText();
+       String branch =LoginLocators.BranchPune_Maha().getText();
        Thread.sleep(2000);
-       LoginLocators.BranchvalueCheckbox().click();
+       LoginLocators.BranchPune_Maha().click();
        Thread.sleep(2000);
        LoginLocators.ApplyBtn1().click();
        Thread.sleep(2000);
@@ -5320,7 +5415,8 @@ else {
 					
 					if(i==0)
 					{
-						if(text.get(l).equalsIgnoreCase("Jayanagar III Block_TTTT")||text.get(l).equalsIgnoreCase("PUN Branch"))
+						if(text.get(l).equalsIgnoreCase("Jayanagar III Block_TTTT")||text.get(l).equalsIgnoreCase("PUN Branch")
+						 ||text.get(l).equalsIgnoreCase("Maha Branch"))
 						{
 						  pass.add(text.get(l));
 						}
@@ -6424,10 +6520,10 @@ else {
         Thread.sleep(3000);
         Thread.sleep(2000);
         
-      String branch =LoginLocators.BranchPune_Maha().getText();//TESTAUTO2
+      String branch =LoginLocators.BranchKar_Banglore().getText();//TESTAUTO2
 //        String branch =LoginLocators.BranchAndra_Tripupathi().getText();//AVANEW
         Thread.sleep(2000);
-      LoginLocators.BranchPune_Maha().click();//TESTAUTO2
+      LoginLocators.BranchKar_Banglore().click();//TESTAUTO2
 //        LoginLocators.BranchAndra_Tripupathi().click();
         Thread.sleep(2000);
         LoginLocators.Period().click(); //No data is displaying
@@ -6492,7 +6588,7 @@ else {
 					
 					if(i==0)
 					{
-						if(text.get(l).equalsIgnoreCase("Jayanagar III Block_TTTT")||text.get(l).equalsIgnoreCase("Branch Pune") || text.get(l).equalsIgnoreCase("Branch Andra")
+						if(text.get(l).equalsIgnoreCase("Karnataka Branch")||text.get(l).equalsIgnoreCase("Branch Pune") || text.get(l).equalsIgnoreCase("Branch Andra")
 						   || text.get(l).equalsIgnoreCase("Maha Branch"))
 						{
 						  pass.add(text.get(l));
@@ -6584,12 +6680,12 @@ else {
         Thread.sleep(3000);
         Thread.sleep(2000);
         
-      String branch =LoginLocators.BranchPune_Maha().getText();//TESTAUTO
+      String branch =LoginLocators.BranchKar_Banglore().getText();//TESTAUTO
         
 //      String branch =LoginLocators.BranchPune_BranchPune().getText();//TESTAUTO2
 //        String branch =LoginLocators.BranchAndra_Tripupathi().getText();//TESTAUTO2
         Thread.sleep(2000);
-        LoginLocators.BranchPune_Maha().click();//TESTAUTO2
+        LoginLocators.BranchKar_Banglore().click();//TESTAUTO2
 //      LoginLocators.BranchAndra_Tripupathi().click();
         Thread.sleep(2000);
         LoginLocators.Period().click(); //No data is displaying
@@ -6654,7 +6750,7 @@ else {
 					
 					if(i==0)
 					{
-						if(text.get(l).equalsIgnoreCase("Jayanagar III Block_TTTT")||text.get(l).equalsIgnoreCase("Branch Pune") || text.get(l).equalsIgnoreCase("Branch Andra")
+						if(text.get(l).equalsIgnoreCase("Karnataka Branch")||text.get(l).equalsIgnoreCase("Branch Pune") || text.get(l).equalsIgnoreCase("Branch Andra")
 								|| text.get(l).equalsIgnoreCase("Maha Branch"))
 						{
 						  pass.add(text.get(l));

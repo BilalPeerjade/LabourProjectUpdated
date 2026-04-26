@@ -76,7 +76,7 @@ public class All_Distributor_TWO extends BasePage {
 	
 	}
 
-
+/**
 
 	@Test(priority = 1) //Bilal
 	void CompanyLogo() throws InterruptedException, IOException
@@ -228,7 +228,7 @@ public class All_Distributor_TWO extends BasePage {
 			extent.endTest(test);
 			extent.flush();
 		}
-		@Test(priority = 54)//NEW TC NEW TC
+		@Test(priority = 54)
 		void compliancesCount() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Upcoming Box count verification with categorised upcoming");
@@ -263,7 +263,7 @@ public class All_Distributor_TWO extends BasePage {
 			extent.flush();
 		}
 		
-		@Test(priority = 56)//NEW TC NEW TC
+		@Test(priority = 56)
 		void compliancesOverdueCount() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Overdue Box count verification with categorised overdues");
@@ -297,10 +297,10 @@ public class All_Distributor_TWO extends BasePage {
 			extent.flush();
 		}
 		
-//		@Test(priority = 58)//NEW TC NEW TC
+		@Test(priority = 58)
 		void pendingActionAndReviewCount() throws InterruptedException, IOException
 		{
-			test = extent.startTest("Overdue Box count verification with categorised overdues");
+			test = extent.startTest("Pending Action & Pending Review counts verification with categorised action ");
 			
 			MethodsD.pendingActionAndReviewCount(test,"Distributor", "AVAHRTEC");
 			
@@ -462,6 +462,16 @@ public class All_Distributor_TWO extends BasePage {
 			extent.flush();
 		}
 		
+		@Test(priority = 80)//NEW TC NEW TC - Pending
+		void performanceSummaryTotals() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Performance Summary Totals verification with complied and non complied");
+			
+			MethodsD.performanceSummaryTotals(test,"Distributor", "TESTAUTO2");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
 		
 		@Test(priority = 81) 
 		void RiskSummaryNotCompliedGraph() throws InterruptedException, IOException
@@ -666,7 +676,7 @@ public class All_Distributor_TWO extends BasePage {
 			extent.flush();
 		}
 		
-		@Test(priority = 89)  
+		@Test(priority = 89)  //NEW TC NEW TC
 		void abstractSummary() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Verify to check - Abstract Summary verifiction displaying correctly");
@@ -703,7 +713,7 @@ public class All_Distributor_TWO extends BasePage {
 	
 
 		//Part 2
-
+**/
 
 		
 		//Manage Masters

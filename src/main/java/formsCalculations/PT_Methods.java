@@ -552,8 +552,8 @@ public class PT_Methods extends BasePage{
 		    masterFileConfig,                                  // Parameter ab perfectly match ho gaya hai     
 		    test,                           
 //		    "MonthlyEmployeeChallanSalary.Q = PTChallan.G",    
-//		    "G = Master.Q", //Downloaded should be always LHS & Master RHS Mandatory
-		    "G = Master.Q - Master.O",
+		    "G = Master.Q", //Downloaded should be always LHS & Master RHS Mandatory
+//		    "G = Master.Q - Master.O",
 		    "MASTER",                                          
 		    "PTChallan",   //sheet
 		    optimizedMasterConstraintsFilters,                 
