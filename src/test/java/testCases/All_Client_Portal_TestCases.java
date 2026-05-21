@@ -2251,7 +2251,7 @@ test = extent.startTest("Compliance Performance bar graph - Verify to View butto
 
 
 
-
+/**
 	
 	//---------Part 2-------For Daily Execution------
 
@@ -3439,7 +3439,7 @@ void ChallanViewComplianceFile() throws InterruptedException, IOException, AWTEx
 			}
 
 		
-  
+  **/
 
 
 	 

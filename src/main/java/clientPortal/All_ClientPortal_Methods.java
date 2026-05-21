@@ -96,7 +96,8 @@ public class All_ClientPortal_Methods extends BasePage {
 		
 	  	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'Active')]")));	//Wait until records table get visible.
 	  	
-		All_ClientPortal_Locators.SelectEntity().click();
+//		All_ClientPortal_Locators.SelectEntity().click();
+	  	All_ClientPortal_Locators.SelectEntity2().click();
 		Thread.sleep(4000);
 	  	All_ClientPortal_Locators.EntityTri2().click();
 		Thread.sleep(5000);

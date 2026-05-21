@@ -838,7 +838,7 @@ import rcp.OneCommonMethod;
 	   		test = extent.startTest("Duplicate Designation verification");
 	   		
 	   	//	All_Distributor_Methods.DuplicateDesignation(test, workbook);
-	   		PerformerMethod.AddDesignation(test, workbook); //Common Method
+	   		PerformerMethod.AddDesignation(test, workbook, "Distributor"); //Common Method
 	   		
 	   		extent.endTest(test);
 	   		extent.flush();

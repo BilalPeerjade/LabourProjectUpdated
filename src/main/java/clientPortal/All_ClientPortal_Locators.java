@@ -21,9 +21,14 @@ public class All_ClientPortal_Locators extends BasePage {
 	
 	private static WebElement clients = null;				//WebElement variable created for 'Categories' click
 	
-	public static WebElement SelectEntity( )		//Method for closing Message Popup
+	public static WebElement SelectEntity( )
 	{
 		clients = getDriver().findElement(By.xpath("//span[contains(text(),'Compliance process private limited')]"));
+		return clients;
+	}
+	public static WebElement SelectEntity2( )
+	{
+		clients = getDriver().findElement(By.xpath("(//span[contains(text(),'TL Regtech Pvt Ltd')])[2]"));
 		return clients;
 	}
 	
@@ -41,7 +46,7 @@ public class All_ClientPortal_Locators extends BasePage {
 	
 	public static WebElement EntityTri2( )		//Method for closing Message Popup
 	{
-		clients = getDriver().findElement(By.xpath("(//*[@class='k-svg-i-caret-alt-right k-svg-icon k-icon ng-star-inserted'])[2]"));
+		clients = getDriver().findElement(By.xpath("(//*[@class='k-svg-i-caret-alt-right k-svg-icon k-icon ng-star-inserted'])[3]"));
 		return clients;
 	}
 	

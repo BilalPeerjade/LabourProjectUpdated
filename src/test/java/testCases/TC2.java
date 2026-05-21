@@ -146,6 +146,48 @@ public class TC2 extends BasePage {
 		extent.flush();
 	}
 
+//	public ExtentReports testt;
+//	@Test(priority = 1) 
+//	void test2() throws InterruptedException, IOException, AWTException
+//	{
+//		test = extent.startTest("ANP ----> Sheet Verification");
+//		PT_Methods.testing1(test,"Performer");
+//		
+////		test = extent.startTest("ANP ----> Sheet Verification");
+////		PT_Methods.testing2(test,"Performer");
+////		
+////		test = extent.startTest("ANP ----> Sheet Verification");
+////		PT_Methods.testing3(test,"Performer");
+//		
+//		test = extent.startTest("ANP ----> Sheet Verification");
+//		PT_Methods.testing4(extent,"Performer");
+//		test = extent.startTest("----> Sheet Verification");
+//		
+//		extent.endTest(test);
+//		extent.flush();
+//	}
+//	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@Test(priority = 1) 
+	void test3() throws InterruptedException, IOException, AWTException
+	{
+		test = extent.startTest("ANP ----> Sheet Verification");
+		PT_Methods.testing1(test,"Performer");
+		
+		test = extent.startTest("Attendence");
+		PT_Methods.testing5(extent,"Performer");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 	
 
 	

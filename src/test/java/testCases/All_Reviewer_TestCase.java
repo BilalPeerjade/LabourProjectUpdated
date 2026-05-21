@@ -708,7 +708,7 @@ public class All_Reviewer_TestCase extends BasePage {
 	   	void DesignationSearch() throws InterruptedException, IOException
 	   	{
 	        test = extent.startTest("Manage Master - Designation - Verify to check Search/Select Designation dropdown is working or not");
-	   		PerformerMethod.DesignationSearch(test, workbook , "Performer");
+	   		PerformerMethod.DesignationSearch(test, workbook , "Reviewer");
 	   		
 	   		test = extent.startTest("Manage Master - Designation - Verify to check Active/InActive filters are working or not");
 	   		PerformerMethod.designationActiveInActive(test , "Performer");
@@ -722,7 +722,7 @@ public class All_Reviewer_TestCase extends BasePage {
 	   	{
 	        test = extent.startTest("Manage Master - Designation - Verify Add New Designation Error is throwing or not?");
 	   		
-	   		PerformerMethod.AddDesignation(test, workbook);
+	   		PerformerMethod.AddDesignation(test, workbook, "Reviewer");
 	   		
 	   		extent.endTest(test);
 	   		extent.flush();
@@ -769,7 +769,7 @@ public class All_Reviewer_TestCase extends BasePage {
 	   	{
 	test = extent.startTest("Manage Master - Leave Type - Verify to check Search Leave Type dropdown is working or not?");
 	   		   		
-	   		PerformerMethod.LeaveTypeSearch(test, workbook);
+	   		PerformerMethod.LeaveTypeSearch(test, workbook,"Reviewer");
 
 	   		extent.endTest(test);
 	   		extent.flush();

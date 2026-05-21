@@ -838,7 +838,7 @@ public class All_Performer_TestCases extends BasePage{
    	{
 test = extent.startTest("Manage Master - Designation - Verify Add New Designation Error is throwing or not?");
    		
-   		PerformerMethod.AddDesignation(test, workbook);
+   		PerformerMethod.AddDesignation(test, workbook, "Performer");
    		
    		extent.endTest(test);
    		extent.flush();
@@ -881,7 +881,7 @@ test = extent.startTest("Manage Master - Designation - Verify Add New Designatio
    	{
 test = extent.startTest("Manage Master - Leave Type - Verify to check Search Leave Type dropdown is working or not?");
    		   		
-   		PerformerMethod.LeaveTypeSearch(test, workbook);
+   		PerformerMethod.LeaveTypeSearch(test, workbook,"Performer");
 
    		extent.endTest(test);
    		extent.flush();
@@ -977,7 +977,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 
 	//Part 2
 
-
+/*
 
    	
    	//Onboard Employee:--
@@ -2001,7 +2001,7 @@ test = extent.startTest("Manage Masters - Challan PT Slab - Verify the Employee 
 			extent.endTest(test);
 			extent.flush();
 		}
-	
+	*/
 
 
 

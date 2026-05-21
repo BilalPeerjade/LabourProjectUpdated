@@ -6419,14 +6419,40 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 	 	
 	 	
 	 }
-	 public static void AddDesignation( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+	 public static void AddDesignation( ExtentTest test,XSSFWorkbook workbook, String user) throws InterruptedException, IOException
 	 {
 	 	
-		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
-	 	Thread.sleep(2000);
-		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
-	 	Thread.sleep(5000);
-		PerformerLocator.clickWorkspaceArrow().click();
+//		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+//	 	Thread.sleep(2000);
+//		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+//	 	Thread.sleep(5000);
+//		PerformerLocator.clickWorkspaceArrow().click();
+		 
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+			Thread.sleep(7000);
+			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+			if(user.equalsIgnoreCase("Performer"))
+			{
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+				Thread.sleep(5000);
+				PerformerLocator.clickWorkspaceArrow().click();
+			}
+			else if(user.equalsIgnoreCase("Distributor"))
+			{
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+				Thread.sleep(5000);
+				PerformerLocator.DistributorPremisesArrow().click();
+			}
+			else if(user.equalsIgnoreCase("Reviewer"))
+			{
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+				Thread.sleep(5000);
+				PerformerLocator.ReviewerStaturyDocumentArrow().click();
+			}
+		 
+		 
+		 
+		 
 	 	Thread.sleep(5000);
 		PerformerLocator.clickManageMaster().click();
 	 	Thread.sleep(5000);
@@ -7086,14 +7112,39 @@ getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-righ
 		 
 	 }
 	 
-	 public static void LeaveTypeSearch ( ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+	 public static void LeaveTypeSearch ( ExtentTest test,XSSFWorkbook workbook, String user) throws InterruptedException, IOException
 	 {
 	 	
-	 	Thread.sleep(3000);
-		PerformerLocator.SerchCustomer().sendKeys("TESTAUTO2");
-	 	Thread.sleep(5000);
-		PerformerLocator.clickWorkspaceArrow().click();
-	 	Thread.sleep(5000);
+//	 	Thread.sleep(3000);
+//		PerformerLocator.SerchCustomer().sendKeys("TESTAUTO2");
+//	 	Thread.sleep(5000);
+//		PerformerLocator.clickWorkspaceArrow().click();
+//	 	Thread.sleep(5000);
+		 
+			WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+			Thread.sleep(7000);
+			wait.until(ExpectedConditions.visibilityOf(LoginLocators.Search()));
+			if(user.equalsIgnoreCase("Performer"))
+			{
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+				Thread.sleep(5000);
+				PerformerLocator.clickWorkspaceArrow().click();
+			}
+			else if(user.equalsIgnoreCase("Distributor"))
+			{
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+				Thread.sleep(5000);
+				PerformerLocator.DistributorPremisesArrow().click();
+			}
+			else if(user.equalsIgnoreCase("Reviewer"))
+			{
+				OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO3");
+				Thread.sleep(5000);
+				PerformerLocator.ReviewerStaturyDocumentArrow().click();
+			}
+		 
+		 
+		 
 		PerformerLocator.clickManageMaster().click();
 	 	Thread.sleep(5000);
 //		PerformerLocator.clickDesignation().click();

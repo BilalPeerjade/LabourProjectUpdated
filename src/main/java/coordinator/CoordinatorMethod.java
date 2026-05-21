@@ -750,100 +750,17 @@ public class CoordinatorMethod extends BasePage
 	 	
 	 }
 	 
-	 public static void NoticeExportBtn(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
-	 {
-	 	
-	 	JavascriptExecutor js = (JavascriptExecutor) getDriver();
-	 	
-		Thread.sleep(6000);
-//	      CoordinatorLocator.readTotalItems().click();
-		String item = CoordinatorLocator.readTotalItems().getText();
-		String[] bits = item.split(" "); // Splitting the String
-		String compliancesCount = bits[bits.length - 2]; // Getting the second last word (total number of users)
-		int count1 = Integer.parseInt(compliancesCount);
+		public static void NoticeExportBtn(ExtentTest test)
+				throws InterruptedException, EncryptedDocumentException, IOException, AWTException {
 
-		if (compliancesCount.equalsIgnoreCase("to")) {
-			Thread.sleep(5000);
-			item = CoordinatorLocator.readTotalItems().getText();
-			bits = item.split(" ");
+			Thread.sleep(6000);
+
+			OneCommonMethod.validateExportedExcelDYNAMIC(getDriver(), test, CoordinatorLocator.clickNoticeExport(),
+					CoordinatorLocator.readTotalItems(), "Client Id", "File Exported Successfully!!");
 
 		}
-
-		Thread.sleep(2000);
-		OneCommonMethod.validateExportedExcelDYNAMIC(getDriver(), test, null, null, item, compliancesCount);
-		JavascriptExecutor js1 = (JavascriptExecutor) getDriver();
-
-		js1.executeScript("window.scrollBy(0,-500)");
-		Thread.sleep(3000);
-		File dir = new File("C:\\Users\\bilali\\Downloads");
-		File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
-
-		Thread.sleep(3000);
-		CoordinatorLocator.clickNoticeExport().click();
-
-		Thread.sleep(5500);
-		File dir1 = new File("C:\\Users\\bilali\\Downloads");
-		File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
-
-		if (dirContents.length < allFilesNew.length) {
-
-			Thread.sleep(9000); // Clicking on 'Excel Report' image.
-			test.log(LogStatus.PASS, "File downloaded successfully.");
-			File lastModifiedFile = allFilesNew[0]; // Storing any 0th index file in 'lastModifiedFile' file name.
-			for (int i = 1; i < allFilesNew.length; i++) // For loop till the number of files in directory.
-			{
-				if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) // If allFilesNew[i] file is having
-																						// large/latest time time of
-																						// update then latest modified
-																						// file be allFilesNew[i] file.
-				{
-					lastModifiedFile = allFilesNew[i];
-				}
-			}
-
-			Thread.sleep(4000);
-			fis = new FileInputStream(lastModifiedFile);
-			workbook = new XSSFWorkbook(fis);
-			sheet = workbook.getSheetAt(0); // Retrieving first sheet of Workbook
-
-			sheet = workbook.getSheetAt(0);
-			int columnNumber = 3;
-			int rowCount = 0;
-			int actualRow = 0;
-
-			for (Row row : sheet) {
-
-				Cell cell = row.getCell(columnNumber);
-				if (cell != null) {
-
-					rowCount++;
-					actualRow = rowCount - 1;
-				}
-
-			}
-			fis.close();
-
-			if (count1 == actualRow) {
-				// test.log(LogStatus.PASS, "No of records from grid matches to no of records in
-				// Excel Sheet.");
-				test.log(LogStatus.PASS,
-						"Total records from Grid = " + count1 + " | Total records from Report = " + actualRow);
-			} else {
-				// test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of
-				// records in Excel Sheet.");
-				test.log(LogStatus.FAIL,
-						"Total records from Grid = " + count1 + " | Total records from Excel Sheet = " + actualRow);
-			}
-		} else {
-			test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
-		}
-
-	 	
-	 }
 	 public static void NoticeSearchBox(ExtentTest test) throws InterruptedException, EncryptedDocumentException, IOException, AWTException
 	 {
-	 	
-	 	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	 	
 	 	
 	 	Thread.sleep(3000);

@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.time.YearMonth;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -42,9 +43,11 @@ import com.registers.helper.ExcelSheetNameBusinessValidator.ExcelExclude;
 import com.registers.helper.SheetNameValidatorDOJNumericUtil;
 import com.registers.helper.SheetNameValidatorDOJUtil;
 import com.registers.helper.SheetNameValidatorUtil;
+import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import attendence.AttendanceValidationEngine;
 import businessChallanForms.PT_ConsolidatedMethods;
 import businessTestCases.UtilisOne;
 import businessTestCases.CalculateWithIds;
@@ -6487,12 +6490,13 @@ public class PT_Methods extends BasePage{
 
 		if (user.equalsIgnoreCase("Performer")) {
 			OneCommonMethod.searchEntityAndSelect(driver.get(), test, LoginLocators.Search(), "DOCAUTOO4");
+			OneCommonMethod.searchEntityAndSelect(driver.get(), test, LoginLocators.Search(), "TESTAUTO3");
 			Thread.sleep(8000);
 			ReviwerLocator.clickWorkspaceArrow().click();
 		}
 		
 		
-		ReviewerMethod.statutoryDocRedirection(test, "Register", "Shops and Establishment and Allied Acts", "2025", "August");
+		ReviewerMethod.statutoryDocRedirection(test, "Register", "Shops and Establishment and Allied Acts", "2025", "Januarary");
 		Thread.sleep(9000);
 		Thread.sleep(9000);
 		
@@ -6506,6 +6510,52 @@ public class PT_Methods extends BasePage{
 		Thread.sleep(5000);
         // Step 1: Manually download file
 		formLocators.downloadDocument().click();
+        Thread.sleep(10000); // wait for file to download
+
+        // Step 2: Get latest file
+        File downloadDir = new File(System.getProperty("user.home") + "\\Downloads");
+        File[] files = downloadDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".xlsx"));
+        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
+        downloadedExcelFile = files[0];
+		
+		
+		
+	}
+	
+	
+	public static void testauto3_atendence( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
+		Thread.sleep(5000);
+
+		if (user.equalsIgnoreCase("Performer")) {
+			OneCommonMethod.searchEntityAndSelect(driver.get(), test, LoginLocators.Search(), "TESTAUTO3");
+			Thread.sleep(8000);
+			ReviwerLocator.clickWorkspaceArrow().click();
+		}
+		
+		
+		ReviewerMethod.workspaceRedirection_testauto3(test, "Register", "Shops and Establishment and Allied Acts", "2025", "February");
+		Thread.sleep(9000);
+		Thread.sleep(9000);
+		
+		LoginLocators.CheckBox().click();
+		Thread.sleep(2000);
+		LoginLocators.Proceed().click();
+		Thread.sleep(9000);	
+		
+//		getDriver().findElement(By.xpath("//kendo-svgicon[@class='k-svg-i-caret-alt-right k-treelist-toggle k-svg-icon k-icon ng-star-inserted']")).click();
+		Thread.sleep(5000);
+		
+		
+//		DownloadHelper d1 = new DownloadHelper(driver.get(), test);
+//		d1.clickDownload("Maintaining a Register of leave in Form XXV", 1);
+		
+		Thread.sleep(5000);
+		Thread.sleep(5000);
+        // Step 1: Manually download file
+//		formLocators.downloadDocument().click();
+		getDriver().findElement(By.xpath("//img[@title='Input Convert Download']")).click();
         Thread.sleep(10000); // wait for file to download
 
         // Step 2: Get latest file
@@ -6558,6 +6608,89 @@ public class PT_Methods extends BasePage{
 		                true,  // generateHtmlReport
 		                test
 		        );
+	}
+	
+	public static void testing1( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+		
+		testauto3_atendence(test,"Performer");
+		
+//		String masterFile = "C:\\Users\\bilali\\Desktop\\Automation Reports\\Attendence Converter\\TestAuto3 Attendence.xlsx";
+//		DOJValidationUtil.validateDOJAttendance(masterFile, downloadedExcelFile, test, "TESTAUTO3", 1, 2025);
+		
+	}
+	public static void testing2( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+//		String masterFile = "C:\\Users\\bilali\\Desktop\\Automation Reports\\Attendence Converter\\TestAuto3 Attendence.xlsx";
+//		DOJValidationUtil2.validateDOJAttendance(test, "TESTAUTO3", 1, 2026, 2, masterFile, downloadedExcelFile);
+	}
+	public static void testing3( ExtentTest test, String user) throws InterruptedException, IOException, AWTException
+	{
+//		String masterFile = "C:\\Users\\bilali\\Desktop\\Automation Reports\\Attendence Converter\\TestAuto3 Attendence.xlsx";
+//		DOJValidationUtil3.validateDOJAttendance(test, "TESTAUTO3", 1, 2026, 2, masterFile, downloadedExcelFile);
+	}
+	public static void testing4( ExtentReports test, String user) throws InterruptedException, IOException, AWTException
+	{
+//		ExtentReports extent;
+		String masterFile = "C:\\Users\\bilali\\Desktop\\Automation Reports\\Attendence Converter\\TestAuto3 Attendence.xlsx";
+		
+		
+		
+		
+		//Commented code heavy 1 lakh
+//		DOJValidationUtil_Heavy.validateFullMonthDOJ(test,"TESTAUTO3", 1, 2025, masterFile, downloadedExcelFile);
+//		DOJValidationUtil4.validateFullMonthDOJ(test,"TESTAUTO3", 1, 2025, masterFile, downloadedExcelFile);
+		
+//		DOLValidationUtil_Heavy.validateFullMonthDOL(test, "TESTAUTO3", 1, 2025, masterFile, downloadedExcelFile);
+//		DOLValidationUtil.validateFullMonthDOL(test, "TESTAUTO3", 1, 2025, masterFile, downloadedExcelFile);
+//		
+//		
+//		HolidayValidationUtil.validateFullMonthHoliday(test, "TESTAUTO3", 1, 2025, masterFile, downloadedExcelFile);
+//		
+//		
+//		WeekOffValidationUtil.validateFullMonthWeekOff(test, "TESTAUTO3", 1, 2026, masterFile, downloadedExcelFile);
+		
+		
+		
+		
+		
+		
+		int maxDays = YearMonth.of(2025, 2).lengthOfMonth();
+		File masterFileFile = new File ("C:\\Users\\bilali\\Desktop\\Automation Reports\\Attendence Converter\\Template_3_2025 FEB.xlsx");
+		
+//		Map<String, String[]> masterDataCache = ExcelCacheManager.loadEntireExcelData(masterFileFile, 0, 1, maxDays);
+//		Map<String, String[]> downloadDataCache = ExcelCacheManager.loadEntireExcelData(downloadedExcelFile, 0, 1, maxDays);
+		
+//		DOJValidationUtil_Heavy.validateFullMonthDOJ(test, "TESTAUTO3", 2, 2025, masterDataCache, downloadDataCache);
+		
+//		DOLValidationUtil_Heavy.validateFullMonthDOL(test, "TESTAUTO3", 2, 2025, masterDataCache, downloadDataCache);
+		
+//		WeekOffValidationUtil_Heavy.validateFullMonthWeekOff(test, "TESTAUTO3", 2, 2025, masterDataCache, downloadDataCache);
+		
+	}
+	
+	
+	
+	
+	
+	public static void testing5( ExtentReports test, String user) throws InterruptedException, IOException, AWTException
+	{
+//		ExtentReports extent;
+		String masterFile = "C:\\Users\\bilali\\Desktop\\Automation Reports\\Attendence Converter\\TestAuto3 Attendence.xlsx";
+		
+		
+		List<Integer> col = Arrays.asList(1,2,3,4,5,6,7,8,9,10,11,12);
+
+		attendence.DOJValidationUtil4.validateSpecificDaysDOJ(
+			test, 
+		    "TESTAUTO3", 
+		    1, 
+		    2025, 
+		    masterFile, 
+		    downloadedExcelFile, 
+		    col );
+		
+		AttendanceValidationEngine.validateFullMonthDOL(test, "TESTAUTO3",1, 2026, masterFile, downloadedExcelFile);
 	}
 	
 	public static void ExcelSheetNameTest2( ExtentTest test, String user) throws InterruptedException, IOException, AWTException

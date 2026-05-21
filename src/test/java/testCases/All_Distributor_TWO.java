@@ -76,7 +76,7 @@ public class All_Distributor_TWO extends BasePage {
 	
 	}
 
-/**
+
 
 	@Test(priority = 1) //Bilal
 	void CompanyLogo() throws InterruptedException, IOException
@@ -711,9 +711,9 @@ public class All_Distributor_TWO extends BasePage {
 		
 		
 	
+/*
+	//Part 2
 
-		//Part 2
-**/
 
 		
 		//Manage Masters
@@ -1718,7 +1718,7 @@ public class All_Distributor_TWO extends BasePage {
 	
 	
 	
-
+*/
 
 
 	   

@@ -63,6 +63,14 @@ import java.util.Optional;
 
 //import org.openqa.selenium.devtools.v120.network.Network;
 import businessTestCases.FilePath;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+
+//import org.openqa.selenium.devtools.v148.network.Network;
+//import org.openqa.selenium.devtools.v148.network.model.Headers;
+//import org.openqa.selenium.devtools.v147.network.Network;
+
+
 
 
 	
@@ -199,7 +207,8 @@ import businessTestCases.FilePath;
 	public void Initialization(String link,int no,String text) throws InterruptedException, IOException {
 		try {
 		//loadProperties(no);
-		openBrower1(no);
+//		openBrower1(no);
+		openBrower5(no);
 		
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -217,117 +226,13 @@ import businessTestCases.FilePath;
 
 		if (browser.contains("chrome")) {
 //					System.setProperty("webdriver.chrome.driver", "D:\\Labour Angular\\LabourMergeProject\\LabourMergeProject\\chromedriver.exe");
-					System.setProperty("webdriver.chrome.driver", "C:\\Users\\bilali\\.cache\\selenium\\chromedriver\\win64\\146.0.7680.165\\chromedriver.exe");
+					System.setProperty("webdriver.chrome.driver", "C:\\Users\\bilali\\.cache\\selenium\\chromedriver\\win64\\148.0.7778.178\\chromedriver.exe");
+					
 					//WebDriverManager.chromedriver().setup();
 					ChromeOptions options = new ChromeOptions();
 					options.addArguments("--remote-allow-origins=*");
 					driver.set(new ChromeDriver(options));		
 			}
-		
-		if (browser.contains("chrome_secret")) {
-			System.setProperty("webdriver.chrome.driver", "D:\\Labour Angular\\LabourMergeProject\\LabourMergeProject\\chromedriver.exe");
-			
-			ChromeOptions options = new ChromeOptions();
-			options.addArguments("--disable-blink-features=AutomationControlled");//
-			options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});//
-			options.setExperimentalOption("useAutomationExtension", false);//
-			options.addArguments("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36");//
-			
-			options.addArguments("--remote-allow-origins=*");
-			driver.set(new ChromeDriver(options));		
-	}
-		
-		
-		if (browser.contains("edge")) {
-		    System.setProperty("webdriver.edge.driver", "C:\\Users\\bilali\\Desktop\\Automation Downloads\\msedgedriver.exe");
-		    EdgeOptions options = new EdgeOptions();
-
-		    // Selenium 3 me arguments aise set hote hain
-		    options.setCapability("ms:edgeOptions", new HashMap<String, Object>() {{
-		        put("args", Arrays.asList("--remote-allow-origins=*"));
-		    }});
-		    driver.set(new EdgeDriver(options));
-		}
-		
-		
-		
-		//Taken after deep research
-        if (browser.toLowerCase().contains("chromeUUUUU")) {
-
-            System.setProperty("webdriver.chrome.driver",
-                "C:\\Users\\bilali\\.cache\\selenium\\chromedriver\\win64\\144.0.7559.96\\chromedriver.exe");
-
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--remote-allow-origins=*");
-            options.addArguments("--disable-blink-features=AutomationControlled");
-            options.addArguments("--start-maximized");
-
-            ChromeDriver chromeDriver = new ChromeDriver(options);
-
-            // 🔥 DEVTOOLS MAGIC STARTS HERE
-            DevTools devTools = chromeDriver.getDevTools();
-            devTools.createSession();
-
-//            devTools.send(Network.enable(
-//                    Optional.empty(),
-//                    Optional.empty(),
-//                    Optional.empty()
-//            ));
-            devTools.send(Network.enable(
-		            Optional.empty(),
-		            Optional.empty(),
-		            Optional.empty(),
-		            Optional.empty(),
-		            Optional.empty()
-		    ));
-            
-
-            Map<String, Object> headers = new HashMap<String, Object>();
-//          headers.put("X-QA-Secret", "qa_9Fh38dkS93Jdk39DksLwP02xA");
-            headers.put("X-QA-Secret", "qa_9Fh38dkS93Jdk39DksLwP02xA");
-            
-
-            devTools.send(Network.setExtraHTTPHeaders(new Headers(headers)));
-            // 🔥 HEADER INJECTED BEFORE ANY NAVIGATION
-
-            driver.set(chromeDriver);
-        }
-        
-        if (browser.toLowerCase().contains("chromeTTTTTTT")) {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\bilali\\.cache\\selenium\\chromedriver\\win64\\146.0.7680.165\\chromedriver.exe");
-
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-blink-features=AutomationControlled");
-        options.addArguments("--remote-allow-origins=*");
-        options.addArguments("--start-maximized");
-
-        ChromeDriver driver = new ChromeDriver(options);
-
-        DevTools devTools = driver.getDevTools();
-        devTools.createSession();
-
-        // Enable Network so we can set headers
-//        devTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
-        devTools.send(Network.enable(
-	            Optional.empty(),
-	            Optional.empty(),
-	            Optional.empty(),
-	            Optional.empty(),
-	            Optional.empty()
-	    ));
-
-        Map<String, Object> extraHeaders = new HashMap<>();
-        extraHeaders.put("X-QA-Secret", "qa_9Fh38dkS93Jdk39DksLwP02xA");
-        devTools.send(Network.setExtraHTTPHeaders(new Headers(extraHeaders)));
-
-        // Remove known automation flag
-        driver.executeScript("Object.defineProperty(navigator, 'webdriver', {get: () => undefined});");
-
-//        return driver;
-    }
-        
-        
-		
 		
 				else {
 					System.out.println("please select valid browser");
@@ -349,7 +254,8 @@ import businessTestCases.FilePath;
 	
 	private void openBrower1(int no) throws IOException, InterruptedException {
 		
-	    System.setProperty("webdriver.chrome.driver", "C:\\Users\\bilali\\.cache\\selenium\\chromedriver\\win64\\146.0.7680.165\\chromedriver.exe");
+	    System.setProperty("webdriver.chrome.driver", "C:\\Users\\bilali\\.cache\\selenium\\chromedriver\\win64\\148.0.7778.178\\chromedriver.exe");
+	    
 	    
 	    ChromeOptions options = new ChromeOptions();
 	    options.addArguments("--remote-allow-origins=*");
@@ -379,10 +285,43 @@ import businessTestCases.FilePath;
 	}
 	
 	
+//		private void openBrower1(int no) throws IOException {
+//
+//		System.setProperty("webdriver.chrome.driver","D:\\Regtrack2.O-main\\chromedriver1.exe");
+//
+//		ChromeOptions options = new ChromeOptions();
+//		options.addArguments("--remote-allow-origins=*");
+//
+//		ChromeDriver chromeDriver = new ChromeDriver(options);
+//		driver.set(chromeDriver);
+//
+//		// :white_check_mark: FIRST: Read URL from Excel
+//		read_Login_url(no);
+//
+//		// :white_check_mark: Enable network
+//		chromeDriver.executeCdpCommand("Network.enable", new HashMap<>());
+//
+//		// :white_check_mark: Set Cloudflare header
+//		Map<String, Object> headersMap = new HashMap<>();
+//		headersMap.put("X-QA-Secret", "qa_9Fh38dkS93Jdk39DksLwP02xA");
+//
+//		Map<String, Object> params = new HashMap<>();
+//		params.put("headers", headersMap);
+//
+//		chromeDriver.executeCdpCommand("Network.setExtraHTTPHeaders", params);
+//
+//		// :white_check_mark: THEN open URL
+//		getDriver().get(url);
+//
+//		getDriver().manage().window().maximize();
+//		}
+	
+	
 	public void initialization(String link,int no,String text) throws InterruptedException, IOException {
 		try {
 		//loadProperties(no);
-		openBrower1(no);
+//		openBrower1(no);
+		openBrower5(no);
 		
 		}catch(Exception e) {
 			e.printStackTrace();

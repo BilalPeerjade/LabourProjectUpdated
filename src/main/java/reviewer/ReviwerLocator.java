@@ -42,6 +42,12 @@ public class ReviwerLocator extends BasePage
 		
 		return labour;
 	}
+	public static WebElement clickMyWorkspace()		//Method for searching Username input
+	{
+		labour = getDriver().findElement(By.xpath("(//span[text()='My WorkSpace'])"));
+		
+		return labour;
+	}
 	public static WebElement clickComplianceType()		//Method for searching Username input
 	{
 		labour = getDriver().findElement(By.xpath("(//span[@class='k-input-value-text'][normalize-space()='Compliance'])[1]"));

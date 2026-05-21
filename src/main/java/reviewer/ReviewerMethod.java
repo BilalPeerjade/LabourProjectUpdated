@@ -169,6 +169,51 @@ public class ReviewerMethod extends BasePage
 				ReviwerLocator.clickApply().click();
 				Thread.sleep(6000);
 			}
+			
+			public static void workspaceRedirection_testauto3(ExtentTest test,String compType ,String ActType, String selectYear, String selectMonth) throws InterruptedException {
+				
+				Thread.sleep(8000);
+				Thread.sleep(2000);
+//				ReviwerLocator.clickMyWorkspace().click();
+				Thread.sleep(2000);
+//				ReviwerLocator.clickComplianceType().click();
+				LoginLocators.ComplianceDropdown().click();
+				Thread.sleep(2000);
+//				ReviwerLocator.selectComplianceType1().click();
+				ReviwerLocator.selectActType(compType).click();
+				Thread.sleep(2000);
+//				ReviwerLocator.clickAct2().click();
+				LoginLocators.Act().click();
+				Thread.sleep(2000);
+				ReviwerLocator.selectActType(ActType).click();
+				Thread.sleep(2000);
+				ReviwerLocator.clickYear().click();
+				Thread.sleep(2000);
+//				ReviwerLocator.selectComplianceType1().click();
+				ReviwerLocator.selectActType(selectYear).click();
+				Thread.sleep(2000);
+				ReviwerLocator.clickPeriod().click();
+				Thread.sleep(2000);
+//				ReviwerLocator.selectPeriodJan().click(); 
+				ReviwerLocator.selectActType(selectMonth).click();
+				Thread.sleep(2000);
+//				ReviwerLocator.clickComplianceStatus().click();
+				LoginLocators.AllFile().click();
+				Thread.sleep(2000);
+//				ReviwerLocator.selectComplianceType().click();
+				LoginLocators.SelectAllCheckbox().click();
+				Thread.sleep(2000);
+				Thread.sleep(1000);
+				ReviwerLocator.clickBranch1().click();
+				
+				Thread.sleep(2000);
+				ReviwerLocator.clickcheckbox().click();
+				Thread.sleep(3000);
+				ReviwerLocator.clickApply().click();
+				Thread.sleep(6000);
+			}
+			
+			
 	 
 	 public static void StatutoryDocRegisterForms(ExtentTest test, String user) throws InterruptedException
 		{
@@ -1384,14 +1429,12 @@ public static void StatutoryDocViewandOverview(ExtentTest test, String user) thr
 {
  	WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(120));
 	Thread.sleep(5000);
-	ReviwerLocator.SerchCustomer().sendKeys("TESTAUTO");
-	getDriver().navigate().refresh();
-	Thread.sleep(8000);
 	
 	if(user.equalsIgnoreCase("Performer"))
 	{
 		Thread.sleep(8000);
 		LoginLocators.Search().sendKeys("TESTAUTO");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO");
 		Thread.sleep(8000);
 		ReviwerLocator.clickWorkspaceArrow().click();
 	}
@@ -1403,6 +1446,7 @@ public static void StatutoryDocViewandOverview(ExtentTest test, String user) thr
 	{
 		Thread.sleep(8000);
 		LoginLocators.Search().sendKeys("TESTAUTO");
+		OneCommonMethod.searchEntityAndSelect(driver.get(),test,LoginLocators.Search(),"TESTAUTO");
 		Thread.sleep(8000);
 		ReviwerLocator.clickStaturyDocumentArrow().click();
 	}
@@ -1428,7 +1472,7 @@ public static void StatutoryDocViewandOverview(ExtentTest test, String user) thr
 	Thread.sleep(2000);
 	ReviwerLocator.selectComplianceType().click();
 	Thread.sleep(2000);
-//	ReviwerLocator.clickComplianceStatus().click();
+	ReviwerLocator.clickComplianceStatus().click();//--
 	Thread.sleep(2000);
 	ReviwerLocator.selectComplianceType().click();
 	
@@ -1442,7 +1486,7 @@ public static void StatutoryDocViewandOverview(ExtentTest test, String user) thr
 //	ReviwerLocator.selectBranch1().click();
 	Thread.sleep(2000);
 	ReviwerLocator.clickApply().click();
-	Thread.sleep(2000);
+	Thread.sleep(6000);
 	ReviwerLocator.clickTriangleGrid().click();
 
 	Thread.sleep(2000);
